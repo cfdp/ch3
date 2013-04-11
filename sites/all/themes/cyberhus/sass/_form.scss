@@ -1,0 +1,218 @@
+/**
+ * GENEREL FORM STYLING
+ */
+.node-form,
+.comment-form {
+	input[type=text],
+	input[type=password],
+	textarea,
+	select {
+		border: 1px solid #524b4c;
+		padding: 8px;
+		color: $color_brun;
+		font-size: $font_size_lille; line-height: 11px;
+		font-family: $std-font-family;
+		height: auto;
+		outline: none;
+		resize:none; 
+	}
+	input[type=submit] {
+		font-family: $std-font-family;
+ 		background: $color_gul;
+    	color: #FFFFFF;
+	   font-size: 13px;
+      line-height: 1em;
+      padding: 12px 20px;
+      text-transform: uppercase;
+      border-radius: 0;
+      border: none;
+      text-shadow: none;
+      font-weight: normal;
+	}
+	label {
+		font-family: $std-font-family;
+		font-size: 13px;
+		color: $color_brun;
+	}
+	.form-type-checkbox {
+		label {
+			cursor: pointer;
+		}
+	}
+	#edit-actions {
+		float: left; width: 100%;
+	}
+	.description {
+		font-style: italic;
+		margin: 5px 0 0 0;
+	}
+	p {
+		margin: 0;
+	}
+	select {
+		cursor: pointer;
+	}
+	input:focus,
+	select:focus,
+	textarea:focus {
+		outline: none;
+		box-shadow: none;
+	}
+	/* Custom Select */
+	.customSelect {
+		background-color: #FFFFFF;
+		border: 1px solid #524b4c;
+		padding: 8px;
+		color: $color_brun;
+		font-size: $font_size_lille; line-height: 11px;
+		font-family: $std-font-family;
+		height: auto;
+		cursor: pointer;
+	}
+	.customSelectInner {
+		background-image: url("../img/select-bg.png");
+		background-position: right center;
+		background-repeat: no-repeat;
+		cursor: pointer;
+	}
+	/* Custom Checkboxes */
+	.styledCheckbox {
+		float: left; 
+		margin: 1px 6px 0 0;
+	}
+}
+
+/**
+ * NODE FORMS
+ */
+ 
+.page-node-add {
+	.region-content {
+		.region-inner {
+			> .element-invisible {
+				clip: auto;
+				height: auto;
+				overflow: auto;
+				position: relative !important;
+			}
+		}
+	}
+} 
+ 
+.node-form {
+	.form-item, .form-actions {
+		margin: 10px 0;
+	}
+	> div > div { float: left; width: 100%; }
+	.form-type-select,
+	.form-type-textfield,
+	.form-type-textarea {
+		float: left;
+		width: 100%;
+		label {
+			width: 11%;
+			float: left;
+			text-align: right;
+			padding-right: 4%;
+			margin-top: 6px;
+		}
+		input, textarea, .description {
+			width: 85%;
+			float: right;
+		}
+	}
+	.form-wrapper > .form-type-checkbox {
+		width: 85%;
+		float: right;
+		overflow: hidden;
+		.description {
+		
+		}
+	}
+	.form-type-checkboxes {
+		float: left;
+		width: 100%;
+		> label {
+			width: 11%;
+			float: left;
+			text-align: right;
+			padding-right: 4%;
+			margin-top: 6px;
+		}
+		.form-checkboxes, .description {
+			width: 85%;
+			float: right;
+		}
+	}
+	fieldset {
+		float: right; width: 85%; padding: 5px 0;
+	}
+	#edit-actions {
+		float: right; width: 85%;
+	}
+}
+
+/**
+ * SEARCH FORM
+ */
+#block-search-form {
+	float: right;
+	width: 250px;
+	.block-inner {
+		margin-bottom: 5px;
+		#search-block-form {
+			float: right;
+			overflow: hidden;
+			.form-item.form-type-textfield.form-item-search-block-form {
+				margin: 0; padding: 0; line-height: 1em; float: left;
+				.form-text {
+					margin: 0; padding: 0; border: 0;
+					font-size: 11px;
+					background: transparent;
+					height: 27px;
+					padding: 0 5px;
+					color: #FFFFFF;
+					text-align: right;
+					outline: 0; box-shadow: none;
+					font-family: $std-font-family;
+					text-transform: uppercase;
+					width: 200px;
+				}
+			}
+			.form-actions {
+				float: right;
+				.form-submit {
+					background: url("../img/search_button_top.png");
+					background-repeat: no-repeat;
+					border: none;
+					text-indent: -999em;
+					width: 42px;
+					height: 29px;
+					border-radius: 0;
+					margin: 0; padding: 0;
+					
+				}
+			}
+		}
+	}
+	::-webkit-input-placeholder {
+	   color: white;
+	}
+	
+	:-moz-placeholder { /* Firefox 18- */
+	   color: white;  
+	   opacity: 1;
+	}
+	
+	::-moz-placeholder {  /* Firefox 19+ */
+	   color: white;  
+	   opacity: 1;
+	}
+	
+	:-ms-input-placeholder {  
+	   color: white;  
+	}
+}
+#block-menu-menu-sprogmenu {
+	float: right;
+}

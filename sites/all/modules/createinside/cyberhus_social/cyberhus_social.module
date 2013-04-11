@@ -1,0 +1,50 @@
+<?php
+/**
+ * Implementation of hook_block_info().
+ */
+function cyberhus_social_block_info() {
+  $blocks['cyberhus-social'] = array(
+    'info' => t('cyberhus Social Icons'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implementation of hook_block_view().
+ */
+function cyberhus_social_block_view($delta='') {
+  $block = array();
+  switch ($delta) {
+    case 'cyberhus-social':
+      $block['subject'] = t("Share");
+      $block['content'] = cyberhus_social_block_content();
+      break;
+  }
+  return $block;
+}
+
+/**
+ * custom html block
+ * @return string
+ */
+function cyberhus_social_block_content() {
+  
+	global $base_url;
+	$url = $base_url.request_uri();
+	$content_title = drupal_get_title();
+	$title = ($content_title!="" ? $content_title : "cyberhus");
+	
+	$str = "<ul id='cyberhus-social-list'>";
+    
+	$str .= "<li><a class='social_facebook' href='http://www.facebook.com/share.php?u=".$url."&title=".$title."'>";
+	$str .= "</a></li>";
+	
+	$str .= "<li><a class='social_twitter' href='http://twitter.com/home?status=".$title."+".$url."'>";
+	$str .= "</a></li>";
+	$str .= "<li><a class='social_mail' href='mailto:?subject=cyberhus.dk: ".$title."&amp;body=Jeg vil gerne dele dette link med dig: ".$url."'>";
+	$str .= "</a></li>";
+	  
+   $str .= "</ul>";
+  
+  	return $str;
+}

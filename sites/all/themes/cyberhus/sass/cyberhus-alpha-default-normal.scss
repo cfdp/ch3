@@ -1,0 +1,52 @@
+/* This file will hold styles that are loaded using the same media query as the normal grid. */
+/* If you are using the default media queries provided by Omega, these styles will also
+ *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
+ 
+
+
+
+/* - LAYOUT - */
+
+/* - HEADER - */
+#section-header {
+	margin-bottom: 100px;
+
+	#zone-header-wrapper {
+		#region-logo {
+			.region-inner.region-logo-inner {
+				.logobg {
+					background: url("../img/logo_bg.png");
+					background-repeat: no-repeat;
+					position: absolute;
+					min-width: 640px;
+					height: 143px;
+					left: -185px;
+				}
+				.branding-data {
+					position: absolute;
+				}
+			}
+		}
+	}
+}
+
+/* - HEADER FORSIDE - */ 
+.front {
+	#section-header {
+		background: url("../img/stuen_stor.png") no-repeat bottom center;
+		height: 580px;
+		margin-bottom: 0;
+	}
+	#section-content {
+		margin-top: -45px;
+	}
+}
+
+/* - CONTENT - */
+#zone-content-wrapper {
+	#zone-content {
+		#region-sidebar-first {
+			
+		}
+	}	
+}

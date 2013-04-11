@@ -1,0 +1,40 @@
+@import "compass/css3";
+
+$std-font-family: 'Cabin', sans-serif;
+
+/* Font-weight */
+$font_weight_bold: 700;
+$font_weight_brodtekst: 400;
+
+/* Letter-spacing */
+$letter-spacing-overskrifter: 0.9px;
+$letter-spacing-brodtekst: normal;
+
+/* Font-size */
+$font_size_lille: 11px;
+$font_size_block_title: 13px;
+$font_size_normal: 13px;
+$font_size_stor:20px;
+$font_size_h1:15px;
+$font_size_h2:20px;
+$font_size_h3:15px;
+$font_size_h4:13px;
+$font_size_h5:13px;
+
+/* Font farver */
+$font_color_gul: #fb9a00;
+
+/* Border color */
+$border_color_lys: #bababa;
+$border_color_sort: #373030; 
+
+/* Text shadow */
+$text_shadow_hvid:#c9c3b7;
+$text_shadow_brun:#907c74;
+$text_shadow_undersider:1px 1px #ffffff;
+$text_shadow_block_title:1px 1px #2d2728;
+
+/* General colors */
+$tr_bg_color: #b6a59c;
+$color_gul: #fb9a00;
+$color_brun: #2d2728;

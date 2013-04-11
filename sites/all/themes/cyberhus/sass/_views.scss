@@ -1,0 +1,702 @@
+/* Forside view */
+.front.page-forside {
+	#page #section-content #region-content .region-inner.region-content-inner {
+		padding: 0;
+	}
+	#page #section-content #zone-content-wrapper #forside_wrapper #region-content .region-inner.region-content-inner #block-system-main {
+		background: none;
+	}
+}
+.view.view-Forside.view-id-Forside {
+	.view-content {
+		font-family: $std-font-family;
+		overflow: hidden;
+		.masonry-item {
+			position: relative;	
+			background: transparent url("../img/grid-box-shadow.png") no-repeat bottom center;
+			padding-bottom: 8px;
+			.masonry-inner {
+				padding: 25px 25px 15px;
+				height: 165px;		
+				@include box-shadow(rgba(black, 0.33) 0 0 9px);
+				text-shadow: none;
+				background: #FFFFFF;
+			}
+			.masonry-category {
+				font-size: 11px;
+			}
+			.masonry-title {
+				font-size: $font_size_h1;
+				text-transform: uppercase;
+				margin-bottom: 15px;
+			}
+			.masonry-body {
+				font-size: 12px; line-height: 1.25em;
+				word-wrap: break-word;
+				p {
+					font-size: 12px !important;
+				}
+			}
+			.masonry-date {
+				position: absolute;
+				bottom: 27px; left: 25px;
+				font-size: 11px;
+				z-index: 3;
+			}
+			.masonry-link {
+				a {
+					position: absolute;
+					bottom: 23px; right: 25px;
+					background: url("../img/next_big_yellow.png") no-repeat top left;
+					width: 25px; height: 25px;
+					display: block;
+					z-index: 3;
+				}
+			}
+			.masonry-img {
+				position: absolute; top: 0; left: 0;
+				z-index: 1;
+			}
+		}
+		.type-forum {
+			.masonry-inner {
+				background: #FFF;
+				.masonry-title {
+					a {
+						color: $color_gul;
+					}
+				}
+			}
+		}
+		.type-faq,
+		.type-brevkasse {
+			.masonry-inner {
+				background: $color_gul;
+				color: #FFFFFF;
+				.masonry-title {
+					a {
+						color: $color_brun;
+					}
+				}
+				.masonry-link {
+					a {
+						background: url("../img/next_big_brown.png") no-repeat top left;
+					}
+				}
+			}
+		}
+		.type-historie {
+			.masonry-inner {
+				background: $color_brun;
+				color: #FFFFFF;
+				.masonry-title {
+					a {
+						color: $color_gul;
+					}
+				}
+			}
+		}
+		.type-link-artikel {
+				.masonry-title {
+					a {
+						color: $color_gul;
+					}
+				}
+				.masonry-category, 
+				.masonry-title,
+				.masonry-body {
+					position: relative; z-index: 3;
+				}
+				.masonry-title {
+					margin-bottom: 5px;
+					line-height: 1.15em;
+				}
+				.masonry-link {
+					a { bottom: 10px; right: 10px; }
+				}
+				.masonry-date {
+					bottom: 14px; left: 30px;
+				}
+				.masonry-inner {
+					.masonry-content {
+					background: url("../img/grid_inner_bg.png") no-repeat top left;
+					z-index: 2;		
+					float: right;		
+					width: 136px; height: 122px;	
+					padding: 15px 15px 15px 30px;
+					}
+				}
+		}
+	}
+}
+
+/* Forside view - exposed filter */
+
+#block-views-exp-forside-page {
+	#views-exposed-form-Forside-page {
+			.views-exposed-form {
+				font-family: $std-font-family;
+				#edit-type-wrapper {
+					text-align: center;
+					div, label { display: inline; }
+					margin: 0 0 20px 0;
+					float: none;
+					overflow: hidden;
+					text-align: center;
+						label {
+							font-size: 15px;
+						}
+				}
+				.views-widget {
+						.bef-select-as-links {
+							.form-item {
+								.form-type-bef-link {
+									margin-left: 25px;
+									text-transform: uppercase;
+									font-size: 13px;
+									display: inline;
+									a { color: $color_brun; }
+								}
+								.selected a {
+									color:$font_color_gul;
+									text-decoration: underline;
+								}
+								#edit-type-faq {
+									display: none;
+								}
+							}
+						}
+				}
+				#edit-combine-wrapper {
+					width: 680px;
+					height: 40px;
+					padding: 20px;
+					background: url("../img/search_wrapper.png");
+					margin-left: -360px;
+					position: relative; left: 50%;
+						.views-widget {
+							.form-item.form-type-textfield.form-item-combine {
+								#edit-combine {
+									width: 546px;
+									height: 41px;
+									padding-left: 45px;
+									@include border-radius(5px);
+									background: #FFFFFF url("../img/search-icon.png") no-repeat 16px 12px;
+									border:none;
+									color: #b2b2b2;
+									font-size: 13px; font-style: italic;
+									font-family: $std-font-family;
+									outline: none;
+									@include box-shadow(rgba(black, 0.2) 1px 1px 2px inset);
+								}
+							}
+						}
+						
+				}
+				.views-exposed-widget.views-submit-button {
+					position: absolute;
+					margin-left: 695px;
+						#edit-submit-forside {
+							width: 115px;
+							height: 41px;
+							border: none;
+							color:#fff;
+							font:normal 12px $std-font-family;
+							text-shadow: none;
+							background-repeat: no-repeat;
+							background: url("../img/search_button.png");
+							margin-top: 13px;
+							border-radius: 5px;
+							
+						}
+				}
+			}
+	}
+}
+
+/**
+ * VIEWS PAGER
+ */
+.view {
+	ul.pager {
+		font-family: $std-font-family;
+		margin: 25px 0 0;
+		text-align: center;
+		width: 100%;
+		li {
+			font-size: 12px;
+			text-transform: uppercase;
+			margin: 0 7px; padding: 0;
+			font-weight: bold;
+			a {
+				color: $color_brun;
+			}
+		}
+	}
+}
+/* Brevkasse oversigt */
+.view.brevkasse-oversigt {
+	.view-content {
+		.views-row {
+			background: url("../img/content-border.png") repeat-x top left;
+			padding: 30px 15px 30px 15px;
+			.views-field.views-field-name {
+				margin-bottom: 10px;
+				a {
+					color: $font_color_gul;
+					text-transform: uppercase;
+					background: url("../img/next_yellow.png") no-repeat 0 2px;
+					padding: 0 0 0 21px;
+				}
+			}
+			.views-field.views-field-field-brevkasse-kategori {
+				text-shadow: 1px 1px white;
+				margin-bottom: 10px;
+				.views-label {
+					float: left;
+					margin-right: 5px;					
+				}
+			}
+		}
+	}
+}
+						
+
+/* Accordion til brevkassen */
+
+.view.view-Brevkasse.view-id-Brevkasse {
+	.view-header {
+		#brevkasse_top {
+			padding: 0 15px 0 15px;
+		}
+		#brevkasse_labels {
+			padding-top: 15px;
+			margin:20px 0 15px 0;
+			border-top:1px solid $border_color_lys;
+			overflow: hidden;
+				p {
+					margin: 0;
+					text-transform: uppercase;
+				}
+				div {
+					margin: 0;
+					float: left;
+				}
+				.titel {
+					width: 270px;
+					margin-left: 15px;
+				}
+				.kon {
+					padding-right: 20px;
+					margin-left: 20px;	
+				}
+				.alder {
+					padding-right: 135px;
+				}
+		}
+	}
+	.view-content.ui-accordion {
+		.views-row {
+			margin-bottom: 5px;
+		}
+	}
+}
+
+.view.view-Brevkasse.view-id-Brevkasse {
+	.ui-accordion-header {
+		border: none;
+		background: url("../img/accordion_header.png");
+		-moz-border-radius-topleft: 0px;
+		-webkit-border-top-left-radius: 0px;
+		border-top-left-radius: 0px;
+		-moz-border-radius-topright: 0px;
+		-webkit-border-top-right-radius: 0px;
+		border-top-right-radius: 0px;
+			.ui-icon {
+				left:15px;
+				margin-top: -7px;
+				padding-right: 1px;
+				background: url("../img/next_black.png");
+				height: 14px;
+				width: 14px;
+			}
+		
+	}
+	.ui-accordion-header.ui-state-active {
+		background: url("../img/accordion_header_active.png");
+			.ui-icon {
+				background: url("../img/next_yellow_down.png");
+				height: 15px;
+				width: 13px;
+			}
+
+	}
+	.ui-corner-all {
+		-moz-border-radius: 0px;
+		-webkit-border-radius: 0px;
+		border-radius: 0px;
+	}
+	.ui-corner-bottom {
+		-moz-border-radius-bottomleft: 0px;
+		-webkit-border-bottom-left-radius: 0px;
+		border-bottom-left-radius: 0px;
+		-moz-border-radius-bottomright: 0px;
+		-webkit-border-bottom-right-radius: 0px;
+		border-bottom-right-radius: 0px;
+	}
+	.ui-widget-content {
+		background: url("../img/accordion_content.png");
+		border: none;
+		padding: 15px;
+		.views-label.views-label-field-question, .views-label-field-brevk-spoergsmaal, .views-label.views-label-body, .views-label-field-brevk-svar {
+			margin-bottom: 15px;
+			display: block;
+			font-size: $font_size_normal;
+		}		
+	}
+
+	#accordion_overskrift {
+		margin-left: 5px;
+		overflow: hidden;
+			p {
+				margin: 0;
+			}
+			div {
+				margin: 0;
+				float: left;
+			}
+			.titel {
+				width: 270px;
+			}
+			.kon {
+				width: 70px;	
+			}
+			.alder {
+				padding-right: 90px;
+			}
+	}
+}
+/* Brevkasse enkeltvisning - EVA */
+.view.view-brevkasse-enkeltvisning {
+	.view-content {
+		.views-field.views-field-field-question, .views-field.views-field-field-brevk-spoergsmaal {
+			margin-bottom: 20px;
+			.views-label.views-label-field-question,.views-label.views-label-field-brevk-spoergsmaal {
+				margin-bottom: 10px;
+				font-weight: $font_weight_bold;
+			}
+		}
+		.views-field.views-field-body, .views-field.views-field-field-brevk-svar {
+			.views-label.views-label-body, .views-label.views-label-field-brevk-svar {
+				font-weight: $font_weight_bold;
+			}
+		}
+		
+		.brevkasse_header_data {
+			margin-bottom: 20px;
+		}
+	}	
+}
+/* View til temasider oversigten */
+.view.view-Temaer {
+	.view-content {
+		background: url("../img/content-border.png") repeat-x top left;
+		padding: 30px 15px 0 15px;
+		.views-field.views-field-description-1 {
+			font-style: italic;
+			padding: 10px 20px 10px 0;
+		}
+		.views-row-odd {
+			float: left;
+			width: 50%;
+		}
+		a {
+			color:$font_color_gul;
+			background: url("../img/next_yellow.png"); 
+			background-repeat: no-repeat;
+			padding-left: 20px;
+		}
+	}
+}
+
+/* Accordion til temasiderne */
+
+.view.view-tema-visning.view-id-tema_visning {
+	.view-header {
+		#tema_top {
+			padding: 0 15px 0 15px;
+		}
+		#tema_labels {
+			padding-top: 15px;
+			margin:20px 0 15px 0;
+			border-top:1px solid $border_color_lys;
+			overflow: hidden;
+				p {
+					margin: 0;
+					text-transform: uppercase;
+				}
+				div {
+					margin: 0;
+					float: left;
+				}
+				.titel {
+					width: 270px;
+					margin-left: 15px;
+				}
+				.forfatter {
+					padding-right: 20px;
+					margin-left: 90px;	
+				}
+				.oprettet {
+					margin-left: 60px;
+				}
+		}
+	}
+	.view-content.ui-accordion {
+		.views-row {
+			margin-bottom: 5px;
+		}
+	}
+	.ui-accordion-header {
+		border: none;
+		background: url("../img/accordion_header.png");
+		-moz-border-radius-topleft: 0px;
+		-webkit-border-top-left-radius: 0px;
+		border-top-left-radius: 0px;
+		-moz-border-radius-topright: 0px;
+		-webkit-border-top-right-radius: 0px;
+		border-top-right-radius: 0px;
+			.ui-icon {
+				left:15px;
+				margin-top: -7px;
+				padding-right: 1px;
+				background: url("../img/next_black.png");
+				height: 14px;
+				width: 14px;
+			}
+		
+	}
+	.ui-accordion-header.ui-state-active {
+		background: url("../img/accordion_header_active.png");
+			.ui-icon {
+				background: url("../img/next_yellow_down.png");
+				height: 15px;
+				width: 13px;
+			}
+
+	}
+	.ui-corner-all {
+		-moz-border-radius: 0px;
+		-webkit-border-radius: 0px;
+		border-radius: 0px;
+	}
+	.ui-corner-bottom {
+		-moz-border-radius-bottomleft: 0px;
+		-webkit-border-bottom-left-radius: 0px;
+		border-bottom-left-radius: 0px;
+		-moz-border-radius-bottomright: 0px;
+		-webkit-border-bottom-right-radius: 0px;
+		border-bottom-right-radius: 0px;
+	}
+	.ui-widget-content {
+		background: url("../img/accordion_content.png");
+		border: none;
+		padding: 10px 15px 10px 15px;
+			.views-field.views-field-body {
+				width: 340px;
+				margin-right: 25px;
+				float: left;
+				.tema_left {
+					img {
+						margin-bottom: 15px;
+					}
+				}
+			}
+			.views-field.views-field-view {
+				width: 180px;
+				float: left;
+			}
+			.view.view-tema-relateret-indhold {
+				.view-content {
+					.views-row {
+						.views-field.views-field-type {
+							float: left;
+							margin-right: 5px;
+							font-style: italic;
+							.field-content {
+								margin-bottom: 0;
+							}
+							p:after {
+								content: " - ";
+							}
+						}
+						.views-field.views-field-created {
+							font-style: italic;
+						}
+						.views-field.views-field-title {
+							a {
+								background: url("../img/next_black.png");
+								background-repeat: no-repeat;
+								color:#000;
+								padding-left: 20px;
+								font-size: $font_size_normal;
+							}
+						}
+					}
+				}
+			}
+		
+	}
+
+	#accordion_overskrift {
+		margin-left: 5px;
+		overflow: hidden;
+			p {
+				margin: 0;
+			}
+			div {
+				margin: 0;
+				float: left;
+			}
+			.titel {
+				width: 340px;
+			}
+			.forfatter {
+				width: 85px;
+				padding-right: 25px;	
+			}
+			.oprettet {
+				
+			}
+	}
+}
+
+/* Livsfortællinger oversigt */
+.view.view-livsfort-llinger {
+	.view-header {
+		.opret_livsfortaellinger {
+			position: relative;
+			margin-top: -30px;
+			margin-bottom: 30px;
+			padding-left: 15px;
+			a {
+			    background-color: $color_gul;
+			    color: #FFFFFF;
+			    display: inline-block;
+			    font-size: 13px;
+			    line-height: 1em;
+			    padding: 15px 20px;
+			    text-shadow: none;
+			    text-transform: uppercase;
+			}
+		}
+		.livsfortaellinger.labels {
+			background: url("../img/content-border.png") repeat-x top left;
+			padding-top: 30px;
+			padding-left: 15px;
+			.titel {
+				float: left;
+				text-transform: uppercase;
+				width:356px;
+			}
+			.kommentar {
+				float: left;
+				text-transform: uppercase;
+				width: 155px;
+			}
+			.dato {
+				text-transform: uppercase;
+			}
+			
+		}
+	}
+	.view-content {
+		.views-row {
+			padding: 20px 15px 20px 15px;
+			.views-field.views-field-title {
+				float: left;
+				width: 365px;
+				a {
+					color:$font_color_gul;
+					background: url("../img/next_yellow.png"); 
+					background-repeat: no-repeat;
+					padding-left: 20px;
+				}
+			}
+			.views-field.views-field-comment-count {
+				float: left;
+				width: 110px;
+				height: 25px;
+			}
+			.views-field.views-field-created {
+				float: left;
+			}
+			.views-field.views-field-name {
+				width: 280px;
+				overflow: hidden;
+			}
+		}
+		.views-row.views-row-even {
+			background: url("../img/livsfortaelling_repeat.png");
+		}
+	}
+}
+
+/* Livsfortællinger - enkeltvisning */
+.view.view-livsfort-llinger-enkeltvisning {
+	margin: 0 15px 0 15px;
+}
+
+/* Ung i - oversigt */
+.view.view-ung-i-oversigt {
+	.view-content {
+		background: url("../img/content-border.png") repeat-x top left;
+		padding: 30px 15px 0 15px;
+		.views-field.views-field-body {
+			font-style: italic;
+			padding: 10px 20px 10px 0;
+		}
+		.views-row-odd {
+			float: left;
+			width: 50%;
+		}
+		a {
+			color:$font_color_gul;
+			background: url("../img/next_yellow.png"); 
+			background-repeat: no-repeat;
+			padding-left: 20px;
+			text-transform: uppercase;
+		}
+	}
+}
+
+/* Tegn selv - Arkiv */
+.view.view-tegn-selv-arkiv {
+	.view-content {
+		padding: 0 15px 0 15px;
+		.views-row {
+			float: left;
+			width: 98px;
+			margin-right: 15px;
+		}
+		.views-row-5, .views-row-10, .views-row-15 {
+			margin-right: 0;
+		}
+	}
+}
+
+/* General stuff */
+.opret_btn {
+			position: relative;
+			margin-bottom: 30px;
+			a {
+			    background-color: $color_gul;
+			    color: #FFFFFF;
+			    display: inline-block;
+			    font-size: 13px;
+			    line-height: 1em;
+			    padding: 15px 20px;
+			    text-shadow: none;
+			    text-transform: uppercase;
+			}
+		}

@@ -1,0 +1,94 @@
+<?php
+
+/**
+ * @file
+ * Update functions for the taxonomy_image module.
+ */
+
+/**
+ * Upgrades field data from the Drupal 6 version.
+ */
+function taxonomy_image_update_7000(&$context) {
+  if (!db_table_exists('term_image')) {
+    return;
+  }
+
+  $query = db_select('term_image', 't')
+    ->fields('t', array('tid', 'path'));
+
+  // Initiliaze by creating the field and counting the entries.
+  if (!isset($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['max'] = $query->countQuery()->execute()->fetchField();
+    $sandbox['last_tid'] = -1;
+
+    field_create_field(array(
+      'field_name' => 'taxonomy_image',
+      'type' => 'image',
+      'cardinality' => 1,
+      'translatable' => TRUE,
+      'entity_types' => array('taxonomy_term'),
+    ));
+  }
+
+  // Select ten rows at a time.
+  $result = $query
+    ->range(0, 10)
+    ->condition('tid', $sandbox['last_tid'], '>')
+    ->execute();
+
+  // Upgrade each row.
+  while($row = $result->fetchAssoc()) {
+    $rows_exist = TRUE;
+
+    // Load the term.
+    $term = taxonomy_term_load($row['tid']);
+    if (!$term) {
+      continue;
+    }
+
+    // Ensure the taxonomy_image field is instanciated.
+    if (!field_info_instance('taxonomy_term', 'taxonomy_image', $term->vocabulary_machine_name)) {
+      field_create_instance(array(
+        'field_name' => 'taxonomy_image',
+        'entity_type' => 'taxonomy_term',
+        'label' => t('Image'),
+        'bundle' => $term->vocabulary_machine_name,
+        'description' => t('The image of this term.'),
+        'required' => FALSE,
+        'widget' => array(
+          'type' => 'image_image',
+        ),
+      ));
+    }
+
+    // Make the file managed.
+    $file = new stdClass();
+    $file->uri = file_build_uri($row['path']);
+    $file->status = FILE_STATUS_PERMANENT;
+    $file = file_save($file);
+
+    // Update the term with the new field data.
+    $term->taxonomy_image = array(
+      LANGUAGE_NONE => array(
+        array(
+          'fid' => $file->fid,
+        ),
+      ),
+    );
+    taxonomy_term_save($term);
+
+    // Increase counters.
+    $sandbox['progress']++;
+    $sandbox['last_tid'] = $term->tid;
+  }
+
+  // Finalize.
+  if (empty($rows_exist)) {
+    db_drop_table('term_image');
+    return t('Taxonomy image field data has been migrated. Settings must be adjusted manually.');
+  }
+  else {
+    $sandbox['#finished'] = $sandbox['progress'] / $sandbox['max'];
+  }
+}

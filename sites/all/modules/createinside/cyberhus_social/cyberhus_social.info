@@ -1,0 +1,4 @@
+name = Cyberhus Social
+description = Provides a block with custom social sharing links
+package = CfDP Helper Modules
+core = 7.x

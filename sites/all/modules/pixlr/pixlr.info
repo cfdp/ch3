@@ -1,0 +1,4 @@
+name = Pixlr Images
+description = Handles image data import from the Pixlr editor
+version = "6.x-1.1"
+core = "6.x"

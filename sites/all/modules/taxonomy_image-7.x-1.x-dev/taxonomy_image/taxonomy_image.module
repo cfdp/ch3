@@ -1,0 +1,303 @@
+<?php
+
+/**
+ * @file
+ * Implements a field formatter that can display image on referenced taxonomy
+ * terms.
+ */
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function taxonomy_image_field_formatter_info() {
+  return array(
+    'taxonomy_image_term_reference_image' => array(
+      'label' => t('Image'),
+      'field types' => array('taxonomy_term_reference'),
+      'settings' => array(
+        'field_name' => 'taxonomy_image',
+        'image_style' => NULL,
+        'linked' => TRUE,
+        'text_alt' => TRUE,
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function taxonomy_image_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  if ($display['type'] != 'taxonomy_image_term_reference_image') {
+    return;
+  }
+
+  $parameters = array(
+    '%field_name' => $settings['field_name'],
+    '%image_style' => empty($settings['image_style']) ? t('none') : $settings['image_style'],
+    '%linked' => empty($settings['linked']) ? t('no') : t('yes'),
+    '%text_alt' => empty($settings['text_alt']) ? t('no') : t('yes'),
+  );
+
+  return t('Field: %field_name, image style: %image_style, linked: %linked, text if no image: %text_alt', $parameters);
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function taxonomy_image_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  if ($display['type'] != 'taxonomy_image_term_reference_image') {
+    return;
+  }
+
+  $form['field_name'] = array(
+    '#type' => 'select',
+    '#title' => t('Field'),
+    '#title_display' => 'invisible',
+    '#description' => t('The field to use as the source for images.'),
+    '#default_value' => $settings['field_name'],
+    '#options' => _taxonomy_image_available_fields($field),
+  );
+
+  if (empty($form['field_name']['#options'])) {
+    $form['field_name']['#options'] = array(
+      'taxonomy_image' => t('-- Create one --'),
+    );
+  }
+
+  $form['image_style'] = array(
+    '#type' => 'select',
+    '#title' => t('Image style'),
+    '#title_display' => 'invisible',
+    '#description' => t('The image style that should be used.'),
+    '#empty_option' => '-- None --',
+    '#options' => drupal_map_assoc(array_keys(image_styles())),
+    '#default_value' => $settings['image_style'],
+  );
+
+  $form['linked'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Link to term page'),
+    '#default_value' => $settings['linked'],
+  );
+
+  $form['text_alt'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Use term name if no image exists'),
+    '#default_value' => $settings['text_alt'],
+  );
+
+  return $form;
+}
+
+/**
+ * Gets a list of available image fields for a taxonomy term reference field.
+ *
+ * @param $field
+ *   The field info array of the taxonomy term reference field.
+ *
+ * @return
+ *   An array of image fields attached to the references vocabulary, keyed by
+ *   field name.
+ */
+function _taxonomy_image_available_fields($field) {
+  // Get the vocabulary name.
+  $allowed_values = reset($field['settings']['allowed_values']);
+  $vocabulary = $allowed_values['vocabulary'];
+
+  $options = array();
+
+  // Find all images fields that are attached.
+  foreach (field_info_fields() as $field_name => $field) {
+    if ($field['type'] != 'image') {
+      continue;
+    }
+    if (empty($field['bundles']['taxonomy_term'])) {
+      continue;
+    }
+    if (!in_array($vocabulary, $field['bundles']['taxonomy_term'])) {
+      continue;
+    }
+    $options[$field_name] = $field_name;
+  }
+
+  return $options;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function taxonomy_image_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  switch ($display['type']) {
+    case 'taxonomy_image_term_reference_image':
+      foreach ($items as $delta => $item) {
+        // Display the term name when the term has just been created.
+        if ($item['tid'] == 'autocreate') {
+          $element[$delta] = array(
+            '#markup' => check_plain($item['name']),
+          );
+        }
+        else {
+          $term = $item['taxonomy_term'];
+          $alt = $title = $term->name;
+          $uri = entity_uri('taxonomy_term', $term);
+
+          $item = field_get_items('taxonomy_term', $term, $display['settings']['field_name']);
+
+          // Display the image if it exists.
+          if (!empty($item)) {
+            $image = reset($item);
+
+            // Get HTML for the image.
+            $variables = array(
+              'path' => $image['uri'],
+              'alt' => empty($image['alt']) ? $alt : $image['alt'],
+              'title' => empty($image['title']) ? $title : $image['title'],
+            );
+            if (empty($display['settings']['image_style'])) {
+              $markup = theme('image', $variables);
+            }
+            else {
+              $variables['style_name'] = $display['settings']['image_style'];
+              $markup = theme('image_style', $variables);
+            }
+
+            if (empty($display['settings']['linked'])) {
+              $element[$delta] = array(
+                '#markup' => $markup,
+              );
+            }
+            else {
+              $element[$delta] = array(
+                '#type' => 'link',
+                '#title' => $markup,
+                '#href' => $uri['path'],
+                '#options' => array(
+                  'html' => TRUE,
+                  'attributes' => array(
+                    'title' => !empty($image['title']) ? $image['title'] : $title,
+                  ),
+                ) + $uri['options'],
+              );
+            }
+          }
+          // No image exists, so display a text replacement.
+          elseif (!empty($display['settings']['text_alt'])) {
+            if (empty($display['settings']['linked'])) {
+              $element[$delta] = array(
+                '#markup' => check_plain($term->name),
+              );
+            }
+            else {
+              $element[$delta] = array(
+                '#type' => 'link',
+                '#title' => $term->name,
+                '#href' => $uri['path'],
+                '#options' => $uri['options'],
+              );
+            }
+          }
+        };
+      }
+      break;
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_prepare_view().
+ */
+function taxonomy_image_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items, $displays) {
+  return taxonomy_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, $items, $displays);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for field_ui_display_overview_form().
+ *
+ * @see taxonomy_image_display_overview_form_submit()
+ */
+function taxonomy_image_form_field_ui_display_overview_form_alter(&$form, &$form_state, $form_id) {
+  $form['#submit'][] = 'taxonomy_image_display_overview_form_submit';
+}
+
+/**
+ * Form submission handler for field_ui_display_overview_form().
+ *
+ * Attaches the taxonomy_image field to vocabulary terms, if the image formatter
+ * is selected and the taxonomy_image field hasn't been instaciated for the
+ * vocabulary yet.
+ */
+function taxonomy_image_display_overview_form_submit(&$form, &$form_state) {
+  // Iterate over the fields that are using the
+  // taxonomy_image_term_reference_image formatter.
+  foreach ($form['#fields'] as $field_name) {
+    $field_info = field_info_field($field_name);
+    if ($field_info['type'] == 'taxonomy_term_reference') {
+      if ($form_state['values']['fields'][$field_name]['type'] == 'taxonomy_image_term_reference_image') {
+        // If a field is available, don't do anything.
+        if (count(_taxonomy_image_available_fields($field_info))) {
+          continue;
+        }
+
+        // Lookup the associated vocabulary.
+        $allowed_values = reset($field_info['settings']['allowed_values']);
+        $vocabulary = $allowed_values['vocabulary'];
+
+        // Ensure the taxonomy_image field exists.
+        if (!field_info_field_by_id('taxonomy_image')) {
+          try {
+            field_create_field(array(
+              'field_name' => 'taxonomy_image',
+              'type' => 'image',
+              'cardinality' => 1,
+              'translatable' => TRUE,
+              'entity_types' => array('taxonomy_term'),
+            ));
+          }
+          catch (FieldException $e) {
+            drupal_set_message(t('The default image field has been deleted.'), 'warning');
+            return;
+          }
+        }
+
+        // Attach an instance.
+        field_create_instance(array(
+          'field_name' => 'taxonomy_image',
+          'entity_type' => 'taxonomy_term',
+          'label' => t('Image'),
+          'bundle' => $vocabulary,
+          'description' => t('The image of this term.'),
+          'required' => FALSE,
+          'widget' => array(
+            'type' => 'image_image',
+          ),
+        ));
+
+        // Tell the user where the field settings can be changed.
+        $field_settings_url = 'admin/structure/taxonomy/' . $vocabulary . '/fields/taxonomy_image';
+        drupal_set_message(t('An image field has been attached to the vocabulary terms. You can adjust the !field_settings.', array('!field_settings' => l('field settings', $field_settings_url))));
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for field_ui_field_edit_form().
+ *
+ * Cardinality of taxonomy_image is always 1. Prevent the user from changing
+ * that by disabling the form element.
+ */
+function taxonomy_image_form_field_ui_field_edit_form_alter(&$form, &$form_state, $form_id) {
+  if ($form['#field']['field_name'] == 'taxonomy_image') {
+    $form['field']['cardinality']['#disabled'] = TRUE;
+  }
+}

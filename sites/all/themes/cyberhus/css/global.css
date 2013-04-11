@@ -1,0 +1,2535 @@
+/* Font-weight */
+/* Letter-spacing */
+/* Font-size */
+/* Font farver */
+/* Border color */
+/* Text shadow */
+/* General colors */
+/* Overordnet top navigation */
+/* line 2, ../sass/_navigation.scss */
+#region-menu {
+  min-height: 54px;
+}
+/* line 4, ../sass/_navigation.scss */
+#region-menu .navigation {
+  /* Sprogmenu */
+  /* Seperator til hovedmenuen */
+  /* Ung til ung */
+  /* Ung til voksen */
+}
+/* line 5, ../sass/_navigation.scss */
+#region-menu .navigation a, #region-menu .navigation p {
+  text-shadow: 1px 1px #907c74;
+}
+/* line 8, ../sass/_navigation.scss */
+#region-menu .navigation #block-search-form {
+  margin-left: 345px;
+  width: 175px;
+}
+/* line 13, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-sprogmenu {
+  width: 100px;
+  margin-left: 400px;
+}
+/* line 18, ../sass/_navigation.scss */
+#region-menu .navigation #block-block-40 {
+  position: absolute;
+  margin-left: 135px;
+  margin-top: 8px;
+  font-style: italic;
+}
+/* line 27, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-primary-links-2 {
+  position: absolute;
+}
+/* line 31, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-primary-links-2 .menu .collapsed a {
+  color: #000;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+/* line 36, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-primary-links-2 .menu .expanded .active-trail {
+  font-size: 20px;
+  color: #fff;
+  text-transform: uppercase;
+}
+/* line 42, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-primary-links-2 .menu li {
+  list-style: none;
+  margin: 0;
+}
+/* line 45, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-primary-links-2 .menu li .active-trail.active {
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+/* line 52, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-primary-links-2 .menu li .active-trail {
+  color: #fff;
+}
+/* line 56, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-primary-links-2 .menu li .leaf.active-trail {
+  font-size: 13px;
+}
+/* line 59, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-primary-links-2 .menu li .leaf.active-trail .active-trail {
+  text-transform: none;
+  font-size: 13px;
+}
+/* line 67, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-primary-links-2 .menu .menu li {
+  float: left;
+}
+/* line 69, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-primary-links-2 .menu .menu li a {
+  color: #000;
+}
+/* line 72, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-primary-links-2 .menu .menu li .active-trail {
+  color: #fff;
+}
+/* line 77, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-primary-links-2 .menu .menu .leaf:after {
+  content: " - ";
+  color: #000;
+}
+/* line 81, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-primary-links-2 .menu .menu .last.leaf:after {
+  content: "";
+}
+/* line 91, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-ung-til-voksen {
+  position: absolute;
+  margin-left: 190px;
+}
+/* line 95, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu .expanded .active-trail {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+/* line 99, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu .collapsed a {
+  color: #000;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+/* line 104, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu li {
+  list-style: none;
+  margin: 0;
+}
+/* line 107, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu li a {
+  color: #000;
+}
+/* line 112, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu .active-trail {
+  color: #fff;
+}
+/* line 116, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu .leaf.active-trail {
+  font-size: 13px;
+}
+/* line 119, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu .leaf.active-trail .active-trail.active {
+  text-transform: none;
+  font-size: 13px;
+}
+/* line 124, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu .menu {
+  margin-left: -190px;
+}
+/* line 126, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu .menu li {
+  float: left;
+}
+/* line 128, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu .menu li a {
+  color: #000;
+}
+/* line 131, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu .menu li .active-trail {
+  color: #fff;
+  font-size: 13px;
+  text-transform: none;
+}
+/* line 137, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu .menu .leaf:after {
+  content: " - ";
+  color: #000;
+}
+/* line 141, ../sass/_navigation.scss */
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu .menu .last.leaf:after {
+  content: "";
+}
+
+/* Gå til forsiden - stue grafik */
+/* line 152, ../sass/_navigation.scss */
+#block-block-41 .content a {
+  float: right;
+  width: 436px;
+  height: 143px;
+  position: absolute;
+  background: url("../img/forside_grafik.png");
+  margin-left: 500px;
+  background-repeat: no-repeat;
+  display: block;
+  text-indent: -999em;
+}
+
+/* Brødkrummer */
+/* line 166, ../sass/_navigation.scss */
+#breadcrumb {
+  width: 500px;
+}
+/* line 169, ../sass/_navigation.scss */
+#breadcrumb .breadcrumbs li {
+  list-style: none;
+  float: left;
+  margin-right: 5px;
+  font-size: 11px;
+  line-height: 23px;
+  font-style: italic;
+  height: 19px;
+  color: #2d2728;
+  font-style: italic;
+  font-family: "Cabin", sans-serif;
+}
+/* line 180, ../sass/_navigation.scss */
+#breadcrumb .breadcrumbs a {
+  height: 19px;
+  display: inline-block;
+  color: #2d2728;
+}
+/* line 185, ../sass/_navigation.scss */
+#breadcrumb .breadcrumbs span {
+  margin-left: 5px;
+}
+/* line 189, ../sass/_navigation.scss */
+#breadcrumb .breadcrumbs .first a {
+  background: url("../img/breadcrumb.png");
+  background-repeat: no-repeat;
+  padding-left: 25px;
+}
+/* line 195, ../sass/_navigation.scss */
+#breadcrumb .breadcrumbs .last {
+  font-weight: 700;
+}
+
+/* Forside view */
+/* line 3, ../sass/_views.scss */
+.front.page-forside #page #section-content #region-content .region-inner.region-content-inner {
+  padding: 0;
+}
+/* line 6, ../sass/_views.scss */
+.front.page-forside #page #section-content #zone-content-wrapper #forside_wrapper #region-content .region-inner.region-content-inner #block-system-main {
+  background: none;
+}
+
+/* line 11, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content {
+  font-family: "Cabin", sans-serif;
+  overflow: hidden;
+}
+/* line 14, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .masonry-item {
+  position: relative;
+  background: transparent url("../img/grid-box-shadow.png") no-repeat bottom center;
+  padding-bottom: 8px;
+}
+/* line 18, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-inner {
+  padding: 25px 25px 15px;
+  height: 165px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.33) 0 0 9px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.33) 0 0 9px;
+  box-shadow: rgba(0, 0, 0, 0.33) 0 0 9px;
+  text-shadow: none;
+  background: #FFFFFF;
+}
+/* line 25, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-category {
+  font-size: 11px;
+}
+/* line 28, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-title {
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+/* line 33, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-body {
+  font-size: 12px;
+  line-height: 1.25em;
+  word-wrap: break-word;
+}
+/* line 36, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-body p {
+  font-size: 12px !important;
+}
+/* line 40, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-date {
+  position: absolute;
+  bottom: 27px;
+  left: 25px;
+  font-size: 11px;
+  z-index: 3;
+}
+/* line 47, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-link a {
+  position: absolute;
+  bottom: 23px;
+  right: 25px;
+  background: url("../img/next_big_yellow.png") no-repeat top left;
+  width: 25px;
+  height: 25px;
+  display: block;
+  z-index: 3;
+}
+/* line 56, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+/* line 62, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .type-forum .masonry-inner {
+  background: #FFF;
+}
+/* line 65, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .type-forum .masonry-inner .masonry-title a {
+  color: #fb9a00;
+}
+/* line 73, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .type-faq .masonry-inner,
+.view.view-Forside.view-id-Forside .view-content .type-brevkasse .masonry-inner {
+  background: #fb9a00;
+  color: #FFFFFF;
+}
+/* line 77, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .type-faq .masonry-inner .masonry-title a,
+.view.view-Forside.view-id-Forside .view-content .type-brevkasse .masonry-inner .masonry-title a {
+  color: #2d2728;
+}
+/* line 82, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .type-faq .masonry-inner .masonry-link a,
+.view.view-Forside.view-id-Forside .view-content .type-brevkasse .masonry-inner .masonry-link a {
+  background: url("../img/next_big_brown.png") no-repeat top left;
+}
+/* line 89, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .type-historie .masonry-inner {
+  background: #2d2728;
+  color: #FFFFFF;
+}
+/* line 93, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .type-historie .masonry-inner .masonry-title a {
+  color: #fb9a00;
+}
+/* line 101, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-title a {
+  color: #fb9a00;
+}
+/* line 107, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-category,
+.view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-title,
+.view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-body {
+  position: relative;
+  z-index: 3;
+}
+/* line 110, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-title {
+  margin-bottom: 5px;
+  line-height: 1.15em;
+}
+/* line 115, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-link a {
+  bottom: 10px;
+  right: 10px;
+}
+/* line 117, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-date {
+  bottom: 14px;
+  left: 30px;
+}
+/* line 121, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-inner .masonry-content {
+  background: url("../img/grid_inner_bg.png") no-repeat top left;
+  z-index: 2;
+  float: right;
+  width: 136px;
+  height: 122px;
+  padding: 15px 15px 15px 30px;
+}
+
+/* Forside view - exposed filter */
+/* line 137, ../sass/_views.scss */
+#block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form {
+  font-family: "Cabin", sans-serif;
+}
+/* line 139, ../sass/_views.scss */
+#block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form #edit-type-wrapper {
+  text-align: center;
+  margin: 0 0 20px 0;
+  float: none;
+  overflow: hidden;
+  text-align: center;
+}
+/* line 141, ../sass/_views.scss */
+#block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form #edit-type-wrapper div, #block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form #edit-type-wrapper label {
+  display: inline;
+}
+/* line 146, ../sass/_views.scss */
+#block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form #edit-type-wrapper label {
+  font-size: 15px;
+}
+/* line 153, ../sass/_views.scss */
+#block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form .views-widget .bef-select-as-links .form-item .form-type-bef-link {
+  margin-left: 25px;
+  text-transform: uppercase;
+  font-size: 13px;
+  display: inline;
+}
+/* line 158, ../sass/_views.scss */
+#block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form .views-widget .bef-select-as-links .form-item .form-type-bef-link a {
+  color: #2d2728;
+}
+/* line 160, ../sass/_views.scss */
+#block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form .views-widget .bef-select-as-links .form-item .selected a {
+  color: #fb9a00;
+  text-decoration: underline;
+}
+/* line 164, ../sass/_views.scss */
+#block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form .views-widget .bef-select-as-links .form-item #edit-type-faq {
+  display: none;
+}
+/* line 170, ../sass/_views.scss */
+#block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form #edit-combine-wrapper {
+  width: 680px;
+  height: 40px;
+  padding: 20px;
+  background: url("../img/search_wrapper.png");
+  margin-left: -360px;
+  position: relative;
+  left: 50%;
+}
+/* line 179, ../sass/_views.scss */
+#block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form #edit-combine-wrapper .views-widget .form-item.form-type-textfield.form-item-combine #edit-combine {
+  width: 546px;
+  height: 41px;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background: white url("../img/search-icon.png") no-repeat 16px 12px;
+  border: none;
+  color: #b2b2b2;
+  font-size: 13px;
+  font-style: italic;
+  font-family: "Cabin", sans-serif;
+  outline: none;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px inset;
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px inset;
+}
+/* line 196, ../sass/_views.scss */
+#block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form .views-exposed-widget.views-submit-button {
+  position: absolute;
+  margin-left: 695px;
+}
+/* line 199, ../sass/_views.scss */
+#block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form .views-exposed-widget.views-submit-button #edit-submit-forside {
+  width: 115px;
+  height: 41px;
+  border: none;
+  color: #fff;
+  font: normal 12px "Cabin", sans-serif;
+  text-shadow: none;
+  background-repeat: no-repeat;
+  background: url("../img/search_button.png");
+  margin-top: 13px;
+  border-radius: 5px;
+}
+
+/**
+ * VIEWS PAGER
+ */
+/* line 221, ../sass/_views.scss */
+.view ul.pager {
+  font-family: "Cabin", sans-serif;
+  margin: 25px 0 0;
+  text-align: center;
+  width: 100%;
+}
+/* line 226, ../sass/_views.scss */
+.view ul.pager li {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 0 7px;
+  padding: 0;
+  font-weight: bold;
+}
+/* line 231, ../sass/_views.scss */
+.view ul.pager li a {
+  color: #2d2728;
+}
+
+/* Brevkasse oversigt */
+/* line 240, ../sass/_views.scss */
+.view.brevkasse-oversigt .view-content .views-row {
+  background: url("../img/content-border.png") repeat-x top left;
+  padding: 30px 15px 30px 15px;
+}
+/* line 243, ../sass/_views.scss */
+.view.brevkasse-oversigt .view-content .views-row .views-field.views-field-name {
+  margin-bottom: 10px;
+}
+/* line 245, ../sass/_views.scss */
+.view.brevkasse-oversigt .view-content .views-row .views-field.views-field-name a {
+  color: #fb9a00;
+  text-transform: uppercase;
+  background: url("../img/next_yellow.png") no-repeat 0 2px;
+  padding: 0 0 0 21px;
+}
+/* line 252, ../sass/_views.scss */
+.view.brevkasse-oversigt .view-content .views-row .views-field.views-field-field-brevkasse-kategori {
+  text-shadow: 1px 1px white;
+  margin-bottom: 10px;
+}
+/* line 255, ../sass/_views.scss */
+.view.brevkasse-oversigt .view-content .views-row .views-field.views-field-field-brevkasse-kategori .views-label {
+  float: left;
+  margin-right: 5px;
+}
+
+/* Accordion til brevkassen */
+/* line 269, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .view-header #brevkasse_top {
+  padding: 0 15px 0 15px;
+}
+/* line 272, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .view-header #brevkasse_labels {
+  padding-top: 15px;
+  margin: 20px 0 15px 0;
+  border-top: 1px solid #bababa;
+  overflow: hidden;
+}
+/* line 277, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .view-header #brevkasse_labels p {
+  margin: 0;
+  text-transform: uppercase;
+}
+/* line 281, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .view-header #brevkasse_labels div {
+  margin: 0;
+  float: left;
+}
+/* line 285, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .view-header #brevkasse_labels .titel {
+  width: 270px;
+  margin-left: 15px;
+}
+/* line 289, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .view-header #brevkasse_labels .kon {
+  padding-right: 20px;
+  margin-left: 20px;
+}
+/* line 293, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .view-header #brevkasse_labels .alder {
+  padding-right: 135px;
+}
+/* line 299, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .view-content.ui-accordion .views-row {
+  margin-bottom: 5px;
+}
+
+/* line 306, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .ui-accordion-header {
+  border: none;
+  background: url("../img/accordion_header.png");
+  -moz-border-radius-topleft: 0px;
+  -webkit-border-top-left-radius: 0px;
+  border-top-left-radius: 0px;
+  -moz-border-radius-topright: 0px;
+  -webkit-border-top-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+/* line 315, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .ui-accordion-header .ui-icon {
+  left: 15px;
+  margin-top: -7px;
+  padding-right: 1px;
+  background: url("../img/next_black.png");
+  height: 14px;
+  width: 14px;
+}
+/* line 325, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .ui-accordion-header.ui-state-active {
+  background: url("../img/accordion_header_active.png");
+}
+/* line 327, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .ui-accordion-header.ui-state-active .ui-icon {
+  background: url("../img/next_yellow_down.png");
+  height: 15px;
+  width: 13px;
+}
+/* line 334, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .ui-corner-all {
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+/* line 339, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .ui-corner-bottom {
+  -moz-border-radius-bottomleft: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+/* line 347, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .ui-widget-content {
+  background: url("../img/accordion_content.png");
+  border: none;
+  padding: 15px;
+}
+/* line 351, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse .ui-widget-content .views-label.views-label-field-question, .view.view-Brevkasse.view-id-Brevkasse .ui-widget-content .views-label-field-brevk-spoergsmaal, .view.view-Brevkasse.view-id-Brevkasse .ui-widget-content .views-label.views-label-body, .view.view-Brevkasse.view-id-Brevkasse .ui-widget-content .views-label-field-brevk-svar {
+  margin-bottom: 15px;
+  display: block;
+  font-size: 13px;
+}
+/* line 358, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse #accordion_overskrift {
+  margin-left: 5px;
+  overflow: hidden;
+}
+/* line 361, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse #accordion_overskrift p {
+  margin: 0;
+}
+/* line 364, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse #accordion_overskrift div {
+  margin: 0;
+  float: left;
+}
+/* line 368, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse #accordion_overskrift .titel {
+  width: 270px;
+}
+/* line 371, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse #accordion_overskrift .kon {
+  width: 70px;
+}
+/* line 374, ../sass/_views.scss */
+.view.view-Brevkasse.view-id-Brevkasse #accordion_overskrift .alder {
+  padding-right: 90px;
+}
+
+/* Brevkasse enkeltvisning - EVA */
+/* line 382, ../sass/_views.scss */
+.view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-question, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-spoergsmaal {
+  margin-bottom: 20px;
+}
+/* line 384, ../sass/_views.scss */
+.view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-question .views-label.views-label-field-question, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-question .views-label.views-label-field-brevk-spoergsmaal, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-spoergsmaal .views-label.views-label-field-question, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-spoergsmaal .views-label.views-label-field-brevk-spoergsmaal {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+/* line 390, ../sass/_views.scss */
+.view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-body .views-label.views-label-body, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-body .views-label.views-label-field-brevk-svar, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-svar .views-label.views-label-body, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-svar .views-label.views-label-field-brevk-svar {
+  font-weight: 700;
+}
+/* line 395, ../sass/_views.scss */
+.view.view-brevkasse-enkeltvisning .view-content .brevkasse_header_data {
+  margin-bottom: 20px;
+}
+
+/* View til temasider oversigten */
+/* line 402, ../sass/_views.scss */
+.view.view-Temaer .view-content {
+  background: url("../img/content-border.png") repeat-x top left;
+  padding: 30px 15px 0 15px;
+}
+/* line 405, ../sass/_views.scss */
+.view.view-Temaer .view-content .views-field.views-field-description-1 {
+  font-style: italic;
+  padding: 10px 20px 10px 0;
+}
+/* line 409, ../sass/_views.scss */
+.view.view-Temaer .view-content .views-row-odd {
+  float: left;
+  width: 50%;
+}
+/* line 413, ../sass/_views.scss */
+.view.view-Temaer .view-content a {
+  color: #fb9a00;
+  background: url("../img/next_yellow.png");
+  background-repeat: no-repeat;
+  padding-left: 20px;
+}
+
+/* Accordion til temasiderne */
+/* line 426, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .view-header #tema_top {
+  padding: 0 15px 0 15px;
+}
+/* line 429, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .view-header #tema_labels {
+  padding-top: 15px;
+  margin: 20px 0 15px 0;
+  border-top: 1px solid #bababa;
+  overflow: hidden;
+}
+/* line 434, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .view-header #tema_labels p {
+  margin: 0;
+  text-transform: uppercase;
+}
+/* line 438, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .view-header #tema_labels div {
+  margin: 0;
+  float: left;
+}
+/* line 442, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .view-header #tema_labels .titel {
+  width: 270px;
+  margin-left: 15px;
+}
+/* line 446, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .view-header #tema_labels .forfatter {
+  padding-right: 20px;
+  margin-left: 90px;
+}
+/* line 450, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .view-header #tema_labels .oprettet {
+  margin-left: 60px;
+}
+/* line 456, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .view-content.ui-accordion .views-row {
+  margin-bottom: 5px;
+}
+/* line 460, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-accordion-header {
+  border: none;
+  background: url("../img/accordion_header.png");
+  -moz-border-radius-topleft: 0px;
+  -webkit-border-top-left-radius: 0px;
+  border-top-left-radius: 0px;
+  -moz-border-radius-topright: 0px;
+  -webkit-border-top-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+/* line 469, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-accordion-header .ui-icon {
+  left: 15px;
+  margin-top: -7px;
+  padding-right: 1px;
+  background: url("../img/next_black.png");
+  height: 14px;
+  width: 14px;
+}
+/* line 479, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-accordion-header.ui-state-active {
+  background: url("../img/accordion_header_active.png");
+}
+/* line 481, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-accordion-header.ui-state-active .ui-icon {
+  background: url("../img/next_yellow_down.png");
+  height: 15px;
+  width: 13px;
+}
+/* line 488, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-corner-all {
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+/* line 493, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-corner-bottom {
+  -moz-border-radius-bottomleft: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+/* line 501, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-widget-content {
+  background: url("../img/accordion_content.png");
+  border: none;
+  padding: 10px 15px 10px 15px;
+}
+/* line 505, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-widget-content .views-field.views-field-body {
+  width: 340px;
+  margin-right: 25px;
+  float: left;
+}
+/* line 510, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-widget-content .views-field.views-field-body .tema_left img {
+  margin-bottom: 15px;
+}
+/* line 515, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-widget-content .views-field.views-field-view {
+  width: 180px;
+  float: left;
+}
+/* line 522, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-type {
+  float: left;
+  margin-right: 5px;
+  font-style: italic;
+}
+/* line 526, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-type .field-content {
+  margin-bottom: 0;
+}
+/* line 529, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-type p:after {
+  content: " - ";
+}
+/* line 533, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-created {
+  font-style: italic;
+}
+/* line 537, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-title a {
+  background: url("../img/next_black.png");
+  background-repeat: no-repeat;
+  color: #000;
+  padding-left: 20px;
+  font-size: 13px;
+}
+/* line 551, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning #accordion_overskrift {
+  margin-left: 5px;
+  overflow: hidden;
+}
+/* line 554, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning #accordion_overskrift p {
+  margin: 0;
+}
+/* line 557, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning #accordion_overskrift div {
+  margin: 0;
+  float: left;
+}
+/* line 561, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning #accordion_overskrift .titel {
+  width: 340px;
+}
+/* line 564, ../sass/_views.scss */
+.view.view-tema-visning.view-id-tema_visning #accordion_overskrift .forfatter {
+  width: 85px;
+  padding-right: 25px;
+}
+
+/* Livsfortællinger oversigt */
+/* line 577, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-header .opret_livsfortaellinger {
+  position: relative;
+  margin-top: -30px;
+  margin-bottom: 30px;
+  padding-left: 15px;
+}
+/* line 582, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-header .opret_livsfortaellinger a {
+  background-color: #fb9a00;
+  color: #FFFFFF;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1em;
+  padding: 15px 20px;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+/* line 593, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-header .livsfortaellinger.labels {
+  background: url("../img/content-border.png") repeat-x top left;
+  padding-top: 30px;
+  padding-left: 15px;
+}
+/* line 597, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-header .livsfortaellinger.labels .titel {
+  float: left;
+  text-transform: uppercase;
+  width: 356px;
+}
+/* line 602, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-header .livsfortaellinger.labels .kommentar {
+  float: left;
+  text-transform: uppercase;
+  width: 155px;
+}
+/* line 607, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-header .livsfortaellinger.labels .dato {
+  text-transform: uppercase;
+}
+/* line 614, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-content .views-row {
+  padding: 20px 15px 20px 15px;
+}
+/* line 616, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-content .views-row .views-field.views-field-title {
+  float: left;
+  width: 365px;
+}
+/* line 619, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-content .views-row .views-field.views-field-title a {
+  color: #fb9a00;
+  background: url("../img/next_yellow.png");
+  background-repeat: no-repeat;
+  padding-left: 20px;
+}
+/* line 626, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-content .views-row .views-field.views-field-comment-count {
+  float: left;
+  width: 110px;
+  height: 25px;
+}
+/* line 631, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-content .views-row .views-field.views-field-created {
+  float: left;
+}
+/* line 634, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-content .views-row .views-field.views-field-name {
+  width: 280px;
+  overflow: hidden;
+}
+/* line 639, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-content .views-row.views-row-even {
+  background: url("../img/livsfortaelling_repeat.png");
+}
+
+/* Livsfortællinger - enkeltvisning */
+/* line 646, ../sass/_views.scss */
+.view.view-livsfort-llinger-enkeltvisning {
+  margin: 0 15px 0 15px;
+}
+
+/* Ung i - oversigt */
+/* line 652, ../sass/_views.scss */
+.view.view-ung-i-oversigt .view-content {
+  background: url("../img/content-border.png") repeat-x top left;
+  padding: 30px 15px 0 15px;
+}
+/* line 655, ../sass/_views.scss */
+.view.view-ung-i-oversigt .view-content .views-field.views-field-body {
+  font-style: italic;
+  padding: 10px 20px 10px 0;
+}
+/* line 659, ../sass/_views.scss */
+.view.view-ung-i-oversigt .view-content .views-row-odd {
+  float: left;
+  width: 50%;
+}
+/* line 663, ../sass/_views.scss */
+.view.view-ung-i-oversigt .view-content a {
+  color: #fb9a00;
+  background: url("../img/next_yellow.png");
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  text-transform: uppercase;
+}
+
+/* Tegn selv - Arkiv */
+/* line 675, ../sass/_views.scss */
+.view.view-tegn-selv-arkiv .view-content {
+  padding: 0 15px 0 15px;
+}
+/* line 677, ../sass/_views.scss */
+.view.view-tegn-selv-arkiv .view-content .views-row {
+  float: left;
+  width: 98px;
+  margin-right: 15px;
+}
+/* line 682, ../sass/_views.scss */
+.view.view-tegn-selv-arkiv .view-content .views-row-5, .view.view-tegn-selv-arkiv .view-content .views-row-10, .view.view-tegn-selv-arkiv .view-content .views-row-15 {
+  margin-right: 0;
+}
+
+/* General stuff */
+/* line 689, ../sass/_views.scss */
+.opret_btn {
+  position: relative;
+  margin-bottom: 30px;
+}
+/* line 692, ../sass/_views.scss */
+.opret_btn a {
+  background-color: #fb9a00;
+  color: #FFFFFF;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1em;
+  padding: 15px 20px;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+
+/**
+ * FORUM LIST & TOPIC LIST
+ */
+/* line 5, ../sass/_forum.scss */
+.page-forum .tabs, .page-forum .feed-icon {
+  display: none;
+}
+/* line 7, ../sass/_forum.scss */
+.page-forum .forum-table-wrap {
+  padding: 0 0 20px 0;
+  background: url("../img/content-border.png") repeat-x bottom left;
+  margin-bottom: 40px !important;
+}
+/* line 11, ../sass/_forum.scss */
+.page-forum .forum-table-wrap > h3 {
+  text-transform: uppercase;
+  margin: 0 0 20px 15px;
+  font-size: 17px !important;
+}
+/* line 16, ../sass/_forum.scss */
+.page-forum .forum-table-wrap > p {
+  margin: 0 15px 0 15px;
+  margin-bottom: 30px !important;
+}
+/* line 22, ../sass/_forum.scss */
+.page-forum .forum-desc-wrapper {
+  background: url("../img/content-border.png") repeat-x scroll left bottom transparent;
+  padding: 0 0 28px 0;
+  margin: 0 0 20px 0;
+}
+/* line 26, ../sass/_forum.scss */
+.page-forum .forum-desc-wrapper .forum-name {
+  font-family: "Cabin", sans-serif;
+  font-size: 20px;
+  line-height: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding: 0;
+}
+/* line 33, ../sass/_forum.scss */
+.page-forum .forum-desc-wrapper p {
+  margin: 0 0 10px 0;
+}
+/* line 37, ../sass/_forum.scss */
+.page-forum .forum-desc-wrapper .forum-add-post a {
+  padding: 15px 20px;
+  background-color: #fb9a00;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1em;
+  text-shadow: none;
+}
+/* line 49, ../sass/_forum.scss */
+.page-forum table.forum-table-forums,
+.page-forum table.forum-table-topics {
+  font-family: "Cabin", sans-serif;
+  border: 0;
+  color: #2b2627;
+  margin: 8px 0 0 0;
+}
+/* line 54, ../sass/_forum.scss */
+.page-forum table.forum-table-forums th,
+.page-forum table.forum-table-topics th {
+  border: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 0 9px 9px 0;
+  line-height: 1em;
+}
+/* line 63, ../sass/_forum.scss */
+.page-forum table.forum-table-forums th.forum-name,
+.page-forum table.forum-table-forums th.views-field-title,
+.page-forum table.forum-table-topics th.forum-name,
+.page-forum table.forum-table-topics th.views-field-title {
+  padding: 0 0 0 18px;
+}
+/* line 67, ../sass/_forum.scss */
+.page-forum table.forum-table-forums th.forum-last-post,
+.page-forum table.forum-table-forums th.views-field-last-updated,
+.page-forum table.forum-table-topics th.forum-last-post,
+.page-forum table.forum-table-topics th.views-field-last-updated {
+  padding: 0 18px 0 0;
+  text-align: right;
+}
+/* line 71, ../sass/_forum.scss */
+.page-forum table.forum-table-forums tr,
+.page-forum table.forum-table-topics tr {
+  border: 0;
+}
+/* line 74, ../sass/_forum.scss */
+.page-forum table.forum-table-forums tr.odd,
+.page-forum table.forum-table-topics tr.odd {
+  background: none;
+}
+/* line 77, ../sass/_forum.scss */
+.page-forum table.forum-table-forums tr.even,
+.page-forum table.forum-table-topics tr.even {
+  background-color: #b6a59c;
+  background-color: rgba(182, 165, 156, 0.22);
+}
+/* line 81, ../sass/_forum.scss */
+.page-forum table.forum-table-forums td,
+.page-forum table.forum-table-topics td {
+  border: 0;
+  padding: 24px 18px;
+}
+/* line 86, ../sass/_forum.scss */
+.page-forum table.forum-table-forums td.forum-details,
+.page-forum table.forum-table-forums td.views-field-title,
+.page-forum table.forum-table-topics td.forum-details,
+.page-forum table.forum-table-topics td.views-field-title {
+  width: 50%;
+}
+/* line 88, ../sass/_forum.scss */
+.page-forum table.forum-table-forums td.forum-details .forum-name,
+.page-forum table.forum-table-forums td.views-field-title .forum-name,
+.page-forum table.forum-table-topics td.forum-details .forum-name,
+.page-forum table.forum-table-topics td.views-field-title .forum-name {
+  margin-bottom: 16px;
+}
+/* line 90, ../sass/_forum.scss */
+.page-forum table.forum-table-forums td.forum-details .forum-name a,
+.page-forum table.forum-table-forums td.views-field-title .forum-name a,
+.page-forum table.forum-table-topics td.forum-details .forum-name a,
+.page-forum table.forum-table-topics td.views-field-title .forum-name a {
+  font-size: 15px;
+  text-transform: uppercase;
+  background: url("../img/next_yellow.png") no-repeat 0 2px;
+  padding: 0 0 0 21px;
+}
+/* line 97, ../sass/_forum.scss */
+.page-forum table.forum-table-forums td.forum-details .forum-description,
+.page-forum table.forum-table-forums td.views-field-title .forum-description,
+.page-forum table.forum-table-topics td.forum-details .forum-description,
+.page-forum table.forum-table-topics td.views-field-title .forum-description {
+  line-height: 1.2em;
+}
+/* line 102, ../sass/_forum.scss */
+.page-forum table.forum-table-forums td.views-field-title a,
+.page-forum table.forum-table-topics td.views-field-title a {
+  font-size: 15px;
+  text-transform: uppercase;
+  background: url("../img/next_yellow.png") no-repeat 0 2px;
+  padding: 0 0 0 21px;
+}
+/* line 116, ../sass/_forum.scss */
+.page-forum table.forum-table-forums td.forum-last-reply,
+.page-forum table.forum-table-forums td.views-field-last-updated,
+.page-forum table.forum-table-topics td.forum-last-reply,
+.page-forum table.forum-table-topics td.views-field-last-updated {
+  width: 25%;
+  text-align: right;
+}
+/* line 120, ../sass/_forum.scss */
+.page-forum table.forum-table-forums a,
+.page-forum table.forum-table-topics a {
+  color: #fb9a00;
+}
+/* line 124, ../sass/_forum.scss */
+.page-forum .forum-table-wrap {
+  margin: 0;
+}
+/* line 125, ../sass/_forum.scss */
+.page-forum .block.forum-description {
+  padding: 20px 15px 10px 15px;
+  background: url("../img/content-border.png") repeat-x top left;
+}
+/* line 128, ../sass/_forum.scss */
+.page-forum .block.forum-description .block-title {
+  margin-bottom: 20px;
+}
+/* line 132, ../sass/_forum.scss */
+.page-forum .view-empty {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * FORUM POST
+ */
+/* line 141, ../sass/_forum.scss */
+.node-type-forum,
+.page-comment-reply {
+  /**
+   * TOP POST
+   */
+  /**
+   * COMMENTS
+   */
+}
+/* line 146, ../sass/_forum.scss */
+.node-type-forum .forum-post.top-post,
+.page-comment-reply .forum-post.top-post {
+  background: url("../img/content-border.png") repeat-x scroll left bottom transparent;
+}
+/* line 149, ../sass/_forum.scss */
+.node-type-forum .forum-post,
+.page-comment-reply .forum-post {
+  padding: 0 0 25px 0;
+  margin: 0;
+}
+/* line 152, ../sass/_forum.scss */
+.node-type-forum .forum-post #forum-headline h1,
+.node-type-forum .forum-post .forum-post-title,
+.page-comment-reply .forum-post #forum-headline h1,
+.page-comment-reply .forum-post .forum-post-title {
+  font-family: "Cabin", sans-serif;
+  font-size: 20px;
+  line-height: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  padding: 0;
+}
+/* line 159, ../sass/_forum.scss */
+.node-type-forum .forum-post .author-pane,
+.page-comment-reply .forum-post .author-pane {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+/* line 163, ../sass/_forum.scss */
+.node-type-forum .forum-post .author-pane .user-picture,
+.page-comment-reply .forum-post .author-pane .user-picture {
+  display: none;
+}
+/* line 165, ../sass/_forum.scss */
+.node-type-forum .forum-post .forum-posted-on,
+.page-comment-reply .forum-post .forum-posted-on {
+  font-size: 11px;
+  margin-bottom: 15px;
+  font-style: italic;
+  padding: 0;
+}
+/* line 172, ../sass/_forum.scss */
+.node-type-forum .forum-post .forum-post-footer .forum-post-links,
+.page-comment-reply .forum-post .forum-post-footer .forum-post-links {
+  margin: 10px 0 0 0;
+  padding: 0;
+  float: left;
+}
+/* line 174, ../sass/_forum.scss */
+.node-type-forum .forum-post .forum-post-footer .forum-post-links ul,
+.page-comment-reply .forum-post .forum-post-footer .forum-post-links ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 176, ../sass/_forum.scss */
+.node-type-forum .forum-post .forum-post-footer .forum-post-links ul li,
+.page-comment-reply .forum-post .forum-post-footer .forum-post-links ul li {
+  margin: 0 5px 0 0;
+  padding: 0;
+  float: left;
+}
+/* line 179, ../sass/_forum.scss */
+.node-type-forum .forum-post .forum-post-footer .forum-post-links ul li a,
+.page-comment-reply .forum-post .forum-post-footer .forum-post-links ul li a {
+  padding: 15px 20px;
+  background-color: #fb9a00;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  display: block;
+  font-size: 13px;
+  line-height: 1em;
+  text-shadow: none;
+}
+/* line 197, ../sass/_forum.scss */
+.node-type-forum #forum-comments,
+.page-comment-reply #forum-comments {
+  padding: 25px 0 0 0;
+  margin: 0;
+}
+/* line 199, ../sass/_forum.scss */
+.node-type-forum #forum-comments .indented,
+.page-comment-reply #forum-comments .indented {
+  margin: 0 0 0 30px;
+}
+/* line 200, ../sass/_forum.scss */
+.node-type-forum #forum-comments .forum-post,
+.page-comment-reply #forum-comments .forum-post {
+  background-color: #b6a59c;
+  background-color: rgba(182, 165, 156, 0.22);
+  padding: 28px 25px 20px;
+  margin: 0 0 15px 0;
+}
+/* line 205, ../sass/_forum.scss */
+.node-type-forum #forum-comments .forum-post .forum-post-title,
+.page-comment-reply #forum-comments .forum-post .forum-post-title {
+  font-family: "Cabin", sans-serif;
+  font-size: 13px;
+  line-height: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+/* line 212, ../sass/_forum.scss */
+.node-type-forum #forum-comments .forum-post .author-pane,
+.page-comment-reply #forum-comments .forum-post .author-pane {
+  font-size: 11px;
+  line-height: 1em;
+  margin-bottom: 15px;
+  float: left;
+  margin-right: 5px;
+  padding-right: 5px;
+  border-right: 1px solid #8f8a89;
+}
+/* line 218, ../sass/_forum.scss */
+.node-type-forum #forum-comments .forum-post .author-pane .user-picture,
+.page-comment-reply #forum-comments .forum-post .author-pane .user-picture {
+  display: none;
+}
+/* line 220, ../sass/_forum.scss */
+.node-type-forum #forum-comments .forum-post .forum-posted-on,
+.page-comment-reply #forum-comments .forum-post .forum-posted-on {
+  font-size: 11px;
+  line-height: 1em;
+  margin-bottom: 15px;
+  padding: 0;
+}
+/* line 226, ../sass/_forum.scss */
+.node-type-forum #forum-comments .forum-post .forum-post-footer .forum-post-links,
+.page-comment-reply #forum-comments .forum-post .forum-post-footer .forum-post-links {
+  margin: 10px 0 0 0;
+  padding: 0;
+  float: left;
+}
+/* line 228, ../sass/_forum.scss */
+.node-type-forum #forum-comments .forum-post .forum-post-footer .forum-post-links ul,
+.page-comment-reply #forum-comments .forum-post .forum-post-footer .forum-post-links ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 230, ../sass/_forum.scss */
+.node-type-forum #forum-comments .forum-post .forum-post-footer .forum-post-links ul li,
+.page-comment-reply #forum-comments .forum-post .forum-post-footer .forum-post-links ul li {
+  margin: 0 5px 0 0;
+  padding: 0;
+  float: left;
+}
+/* line 233, ../sass/_forum.scss */
+.node-type-forum #forum-comments .forum-post .forum-post-footer .forum-post-links ul li a,
+.page-comment-reply #forum-comments .forum-post .forum-post-footer .forum-post-links ul li a {
+  padding: 15px 20px;
+  background-color: #585253;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  display: block;
+  font-size: 13px;
+  line-height: 1em;
+  text-shadow: none;
+}
+/* line 247, ../sass/_forum.scss */
+.node-type-forum #forum-comments h2.comment-form,
+.page-comment-reply #forum-comments h2.comment-form {
+  margin-top: 25px;
+}
+
+/**
+ * GENEREL FORM STYLING
+ */
+/* line 5, ../sass/_form.scss */
+.node-form,
+.comment-form {
+  /* Custom Select */
+  /* Custom Checkboxes */
+}
+/* line 9, ../sass/_form.scss */
+.node-form input[type=text],
+.node-form input[type=password],
+.node-form textarea,
+.node-form select,
+.comment-form input[type=text],
+.comment-form input[type=password],
+.comment-form textarea,
+.comment-form select {
+  border: 1px solid #524b4c;
+  padding: 8px;
+  color: #2d2728;
+  font-size: 11px;
+  line-height: 11px;
+  font-family: "Cabin", sans-serif;
+  height: auto;
+  outline: none;
+  resize: none;
+}
+/* line 19, ../sass/_form.scss */
+.node-form input[type=submit],
+.comment-form input[type=submit] {
+  font-family: "Cabin", sans-serif;
+  background: #fb9a00;
+  color: #FFFFFF;
+  font-size: 13px;
+  line-height: 1em;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: none;
+  text-shadow: none;
+  font-weight: normal;
+}
+/* line 32, ../sass/_form.scss */
+.node-form label,
+.comment-form label {
+  font-family: "Cabin", sans-serif;
+  font-size: 13px;
+  color: #2d2728;
+}
+/* line 38, ../sass/_form.scss */
+.node-form .form-type-checkbox label,
+.comment-form .form-type-checkbox label {
+  cursor: pointer;
+}
+/* line 42, ../sass/_form.scss */
+.node-form #edit-actions,
+.comment-form #edit-actions {
+  float: left;
+  width: 100%;
+}
+/* line 45, ../sass/_form.scss */
+.node-form .description,
+.comment-form .description {
+  font-style: italic;
+  margin: 5px 0 0 0;
+}
+/* line 49, ../sass/_form.scss */
+.node-form p,
+.comment-form p {
+  margin: 0;
+}
+/* line 52, ../sass/_form.scss */
+.node-form select,
+.comment-form select {
+  cursor: pointer;
+}
+/* line 57, ../sass/_form.scss */
+.node-form input:focus,
+.node-form select:focus,
+.node-form textarea:focus,
+.comment-form input:focus,
+.comment-form select:focus,
+.comment-form textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+/* line 62, ../sass/_form.scss */
+.node-form .customSelect,
+.comment-form .customSelect {
+  background-color: #FFFFFF;
+  border: 1px solid #524b4c;
+  padding: 8px;
+  color: #2d2728;
+  font-size: 11px;
+  line-height: 11px;
+  font-family: "Cabin", sans-serif;
+  height: auto;
+  cursor: pointer;
+}
+/* line 72, ../sass/_form.scss */
+.node-form .customSelectInner,
+.comment-form .customSelectInner {
+  background-image: url("../img/select-bg.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+/* line 79, ../sass/_form.scss */
+.node-form .styledCheckbox,
+.comment-form .styledCheckbox {
+  float: left;
+  margin: 1px 6px 0 0;
+}
+
+/**
+ * NODE FORMS
+ */
+/* line 92, ../sass/_form.scss */
+.page-node-add .region-content .region-inner > .element-invisible {
+  clip: auto;
+  height: auto;
+  overflow: auto;
+  position: relative !important;
+}
+
+/* line 103, ../sass/_form.scss */
+.node-form .form-item, .node-form .form-actions {
+  margin: 10px 0;
+}
+/* line 106, ../sass/_form.scss */
+.node-form > div > div {
+  float: left;
+  width: 100%;
+}
+/* line 109, ../sass/_form.scss */
+.node-form .form-type-select,
+.node-form .form-type-textfield,
+.node-form .form-type-textarea {
+  float: left;
+  width: 100%;
+}
+/* line 112, ../sass/_form.scss */
+.node-form .form-type-select label,
+.node-form .form-type-textfield label,
+.node-form .form-type-textarea label {
+  width: 11%;
+  float: left;
+  text-align: right;
+  padding-right: 4%;
+  margin-top: 6px;
+}
+/* line 119, ../sass/_form.scss */
+.node-form .form-type-select input, .node-form .form-type-select textarea, .node-form .form-type-select .description,
+.node-form .form-type-textfield input,
+.node-form .form-type-textfield textarea,
+.node-form .form-type-textfield .description,
+.node-form .form-type-textarea input,
+.node-form .form-type-textarea textarea,
+.node-form .form-type-textarea .description {
+  width: 85%;
+  float: right;
+}
+/* line 124, ../sass/_form.scss */
+.node-form .form-wrapper > .form-type-checkbox {
+  width: 85%;
+  float: right;
+  overflow: hidden;
+}
+/* line 132, ../sass/_form.scss */
+.node-form .form-type-checkboxes {
+  float: left;
+  width: 100%;
+}
+/* line 135, ../sass/_form.scss */
+.node-form .form-type-checkboxes > label {
+  width: 11%;
+  float: left;
+  text-align: right;
+  padding-right: 4%;
+  margin-top: 6px;
+}
+/* line 142, ../sass/_form.scss */
+.node-form .form-type-checkboxes .form-checkboxes, .node-form .form-type-checkboxes .description {
+  width: 85%;
+  float: right;
+}
+/* line 147, ../sass/_form.scss */
+.node-form fieldset {
+  float: right;
+  width: 85%;
+  padding: 5px 0;
+}
+/* line 150, ../sass/_form.scss */
+.node-form #edit-actions {
+  float: right;
+  width: 85%;
+}
+
+/**
+ * SEARCH FORM
+ */
+/* line 158, ../sass/_form.scss */
+#block-search-form {
+  float: right;
+  width: 250px;
+}
+/* line 161, ../sass/_form.scss */
+#block-search-form .block-inner {
+  margin-bottom: 5px;
+}
+/* line 163, ../sass/_form.scss */
+#block-search-form .block-inner #search-block-form {
+  float: right;
+  overflow: hidden;
+}
+/* line 166, ../sass/_form.scss */
+#block-search-form .block-inner #search-block-form .form-item.form-type-textfield.form-item-search-block-form {
+  margin: 0;
+  padding: 0;
+  line-height: 1em;
+  float: left;
+}
+/* line 168, ../sass/_form.scss */
+#block-search-form .block-inner #search-block-form .form-item.form-type-textfield.form-item-search-block-form .form-text {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 11px;
+  background: transparent;
+  height: 27px;
+  padding: 0 5px;
+  color: #FFFFFF;
+  text-align: right;
+  outline: 0;
+  box-shadow: none;
+  font-family: "Cabin", sans-serif;
+  text-transform: uppercase;
+  width: 200px;
+}
+/* line 182, ../sass/_form.scss */
+#block-search-form .block-inner #search-block-form .form-actions {
+  float: right;
+}
+/* line 184, ../sass/_form.scss */
+#block-search-form .block-inner #search-block-form .form-actions .form-submit {
+  background: url("../img/search_button_top.png");
+  background-repeat: no-repeat;
+  border: none;
+  text-indent: -999em;
+  width: 42px;
+  height: 29px;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+}
+/* line 198, ../sass/_form.scss */
+#block-search-form ::-webkit-input-placeholder {
+  color: white;
+}
+/* line 202, ../sass/_form.scss */
+#block-search-form :-moz-placeholder {
+  /* Firefox 18- */
+  color: white;
+  opacity: 1;
+}
+/* line 207, ../sass/_form.scss */
+#block-search-form ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white;
+  opacity: 1;
+}
+/* line 212, ../sass/_form.scss */
+#block-search-form :-ms-input-placeholder {
+  color: white;
+}
+
+/* line 216, ../sass/_form.scss */
+#block-menu-menu-sprogmenu {
+  float: right;
+}
+
+/* Node - generel indrykning */
+/* line 4, ../sass/_node.scss */
+.page-node .node.node-page .node-title, .page-node .node-simpel-side-med-view .node-title, .page-node .node-historie .node-title {
+  padding-left: 15px;
+  margin-bottom: 0;
+}
+/* line 8, ../sass/_node.scss */
+.page-node .node.node-page .field.field-name-body, .page-node .node-simpel-side-med-view .field.field-name-body, .page-node .node-historie .field.field-name-body {
+  padding: 0 15px 0 15px;
+}
+
+/* Node - Ung i */
+/* line 15, ../sass/_node.scss */
+.node-type-ung-i .node-ung-i {
+  padding: 0 15px 15px 15px;
+}
+
+/* Node - tegn selv oversigt */
+/* line 23, ../sass/_node.scss */
+.context-oversigt-over-tegn-selv-billeder .node-simpel-side-med-view .content .field.field-name-field-vedh-ft-view.field-type-viewreference {
+  background: url("../img/livsfortaelling_repeat.png");
+  padding: 15px 0 15px 0;
+}
+
+/* Node - Livsfortællinger */
+/* line 34, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie {
+  font-family: "Cabin", sans-serif;
+}
+/* line 36, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie .node-title {
+  margin-bottom: 0;
+}
+/* line 39, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie .view-content {
+  margin-bottom: 15px;
+}
+/* line 41, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie .view-content .forfatter, .node-type-historie .block-inner .node.node-historie .view-content .alder {
+  float: left;
+  margin-right: 5px;
+}
+/* line 45, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie .view-content .alder:after {
+  content: "|";
+  margin: 0 5px 0 5px;
+}
+/* line 51, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie .links.node-links {
+  margin: 30px 0 15px 15px;
+}
+/* line 54, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie .links.node-links .comment-add a {
+  background-color: #fb9a00;
+  color: #FFFFFF;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1em;
+  padding: 15px 20px;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+/* line 65, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie .links.node-links li {
+  padding: 0;
+}
+/* line 69, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie #comments {
+  background: url("../img/content-border.png") repeat-x top left;
+  margin-top: 30px;
+  padding: 30px 15px 0 15px;
+}
+/* line 73, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie #comments a {
+  color: #000;
+}
+/* line 76, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie #comments .comment {
+  background: url("../img/livsfortaelling_repeat.png");
+  padding: 30px;
+  margin-bottom: 15px;
+}
+/* line 80, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie #comments .comment h3 {
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+/* line 83, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie #comments .comment h3 a {
+  font-size: 13px;
+}
+/* line 87, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie #comments .comment .comment-submitted {
+  margin-bottom: 15px;
+}
+/* line 90, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie #comments .comment .comment-links {
+  margin-top: 30px;
+}
+/* line 93, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie #comments .comment .comment-links ul li {
+  margin: 0 5px 0 0;
+  padding: 0;
+  float: left;
+}
+/* line 97, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie #comments .comment .comment-links ul li a {
+  padding: 15px 20px;
+  background-color: #585253;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  display: block;
+  font-size: 13px;
+  line-height: 1em;
+  text-shadow: none;
+}
+
+/* Node - Brevkasse enkeltside - gammel indholdstype*/
+/* line 119, ../sass/_node.scss */
+.node-type-faq .node-faq .field-name-field-sex {
+  float: left;
+}
+/* line 121, ../sass/_node.scss */
+.node-type-faq .node-faq .field-name-field-sex .field-item:after {
+  content: " | ";
+  color: #000;
+  margin: 0 5px 0 5px;
+}
+/* line 127, ../sass/_node.scss */
+.node-type-faq .node-faq .field-name-field-age {
+  float: left;
+  margin-bottom: 20px;
+}
+/* line 131, ../sass/_node.scss */
+.node-type-faq .node-faq .field-name-field-question {
+  float: left;
+  margin-bottom: 15px;
+}
+/* line 134, ../sass/_node.scss */
+.node-type-faq .node-faq .field-name-field-question .field-label {
+  margin-bottom: 10px;
+}
+/* line 139, ../sass/_node.scss */
+.node-type-faq .node-faq .field-name-body .field-label {
+  margin-bottom: 10px;
+}
+/* line 143, ../sass/_node.scss */
+.node-type-faq .node-faq h2 {
+  margin-bottom: 0;
+}
+
+/* Node - Brevkasse enkeltside - ny indholdstype*/
+/* line 151, ../sass/_node.scss */
+.node-type-brevkasse .node-brevkasse {
+  padding: 0 15px 0 15px;
+}
+/* line 153, ../sass/_node.scss */
+.node-type-brevkasse .node-brevkasse .field-name-field-brevk-koen {
+  float: left;
+}
+/* line 155, ../sass/_node.scss */
+.node-type-brevkasse .node-brevkasse .field-name-field-brevk-koen .field-item:after {
+  content: " | ";
+  color: #000;
+  margin: 0 5px 0 5px;
+}
+/* line 161, ../sass/_node.scss */
+.node-type-brevkasse .node-brevkasse .field-name-field-brevk-alder {
+  float: left;
+  margin-bottom: 20px;
+}
+/* line 165, ../sass/_node.scss */
+.node-type-brevkasse .node-brevkasse .field-name-field-brevk-spoergsmaal {
+  float: left;
+  margin-bottom: 15px;
+}
+/* line 168, ../sass/_node.scss */
+.node-type-brevkasse .node-brevkasse .field-name-field-brevk-spoergsmaal .field-label {
+  margin-bottom: 10px;
+}
+/* line 173, ../sass/_node.scss */
+.node-type-brevkasse .node-brevkasse .field-name-field-brevk-svar .field-label {
+  margin-bottom: 10px;
+}
+/* line 177, ../sass/_node.scss */
+.node-type-brevkasse .node-brevkasse h2 {
+  margin-bottom: 0;
+}
+
+/* Søge-side oversigt */
+/* line 186, ../sass/_node.scss */
+.page-search-node .region-content .form-wrapper {
+  margin-top: 15px;
+}
+/* line 188, ../sass/_node.scss */
+.page-search-node .region-content .form-wrapper input[type="submit"] {
+  font-family: "Cabin", sans-serif;
+  background: #fb9a00;
+  color: #FFFFFF;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1em;
+  padding: auto auto;
+  text-shadow: none;
+  text-transform: uppercase;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  height: 23px;
+  width: 75px;
+  font-weight: 400;
+}
+/* line 207, ../sass/_node.scss */
+.page-search-node .region-content .search-results .title a {
+  color: #fb9a00;
+}
+/* line 210, ../sass/_node.scss */
+.page-search-node .region-content .search-results .search-snippet-info {
+  margin-top: -17px;
+  margin-bottom: 15px;
+}
+/* line 213, ../sass/_node.scss */
+.page-search-node .region-content .search-results .search-snippet-info .search-info {
+  font-style: italic;
+}
+/* line 219, ../sass/_node.scss */
+.page-search-node .region-content .item-list ul.pager li {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 0 7px;
+  padding: 0;
+  font-weight: bold;
+}
+/* line 225, ../sass/_node.scss */
+.page-search-node .region-content .item-list ul.pager li a {
+  color: #2d2728;
+}
+
+/* Voksenblog enkeltside */
+/* Kommentarer generelt på sitet */
+/* line 236, ../sass/_node.scss */
+.links.node-links {
+  margin: 30px 0 15px 0;
+}
+/* line 239, ../sass/_node.scss */
+.links.node-links .comment-add a {
+  background-color: #fb9a00;
+  color: #FFFFFF;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1em;
+  padding: 15px 20px;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+
+/* line 251, ../sass/_node.scss */
+#comments {
+  background: url("../img/content-border.png") repeat-x top left;
+  margin-top: 30px;
+  padding-top: 30px;
+}
+/* line 255, ../sass/_node.scss */
+#comments a {
+  color: #000;
+}
+/* line 258, ../sass/_node.scss */
+#comments .comment {
+  background: url("../img/livsfortaelling_repeat.png");
+  padding: 30px;
+  margin-bottom: 15px;
+}
+/* line 262, ../sass/_node.scss */
+#comments .comment h3 {
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+/* line 265, ../sass/_node.scss */
+#comments .comment h3 a {
+  font-size: 13px;
+}
+/* line 269, ../sass/_node.scss */
+#comments .comment .comment-submitted {
+  margin-bottom: 15px;
+}
+/* line 272, ../sass/_node.scss */
+#comments .comment .comment-links {
+  margin-top: 30px;
+}
+/* line 275, ../sass/_node.scss */
+#comments .comment .comment-links ul li {
+  margin: 0 5px 0 0;
+  padding: 0;
+  float: left;
+}
+/* line 279, ../sass/_node.scss */
+#comments .comment .comment-links ul li a {
+  padding: 15px 20px;
+  background-color: #585253;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  display: block;
+  font-size: 13px;
+  line-height: 1em;
+  text-shadow: none;
+}
+
+/* This file will hold styles for the mobile version of your website (mobile first). */
+/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide.
+
+styling der vises overalt, eksempelvis tekst farver osv.
+ */
+/* Fonts */
+/* line 17, ../sass/global.scss */
+#page p {
+  font-family: "Cabin", sans-serif;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+/* line 23, ../sass/global.scss */
+#page h1 {
+  font-size: 20px;
+  font-family: "Cabin", sans-serif;
+  letter-spacing: 0.9px;
+}
+/* line 29, ../sass/global.scss */
+#page h2, #page h2.node-title {
+  font-size: 20px;
+  font-family: "Cabin", sans-serif;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+}
+/* line 36, ../sass/global.scss */
+#page h3 {
+  font-size: 15px;
+  font-family: "Cabin", sans-serif;
+  letter-spacing: 0.9px;
+}
+/* line 42, ../sass/global.scss */
+#page h4 {
+  font-size: 13px;
+  font-family: "Cabin", sans-serif;
+  letter-spacing: 0.9px;
+}
+/* line 48, ../sass/global.scss */
+#page h5 {
+  font-size: 13px;
+  font-family: "Cabin", sans-serif;
+  letter-spacing: 0.9px;
+}
+/* line 54, ../sass/global.scss */
+#page a:link, #page a:visited {
+  text-decoration: none;
+}
+
+/* line 59, ../sass/global.scss */
+.node a:link, .node a:visited {
+  text-decoration: none;
+  color: #fb9a00;
+}
+
+/* line 66, ../sass/global.scss */
+#region-sidebar-first h1 {
+  font-size: 11px;
+  font-family: "Cabin", sans-serif;
+}
+
+/* Billeder - mobil tilpasset */
+/* line 74, ../sass/global.scss */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Layout */
+/* line 81, ../sass/global.scss */
+body {
+  background: #beac9f;
+  /* fallback */
+  background-image: url("../img/bg.png") repeat;
+  /* fallback */
+  background-image: url("../img/bg.png"), -webkit-gradient(linear, left top, left bottom, from(#bca79a), to(#cac1b9));
+  /* Saf4+, Chrome */
+  background-image: url("../img/bg.png"), -webkit-linear-gradient(top, #bca79a, #cac1b9);
+  /* Chrome 10+, Saf5.1+ */
+  background-image: url("../img/bg.png"), -moz-linear-gradient(top, #bca79a, #cac1b9);
+  /* FF3.6+ */
+  background-image: url("../img/bg.png"), -ms-linear-gradient(top, #bca79a, #cac1b9);
+  /* IE10 */
+  background-image: url("../img/bg.png"), -o-linear-gradient(top, #bca79a, #cac1b9);
+  /* Opera 11.10+ */
+  background-image: url("../img/bg.png"), linear-gradient(top, #bca79a, #cac1b9);
+  font-family: "Cabin", sans-serif;
+}
+
+/* Forsiden */
+/* line 96, ../sass/global.scss */
+.page-forside #page {
+  background: none;
+}
+/* line 99, ../sass/global.scss */
+.page-forside #page #section-content #zone-content-wrapper {
+  background: url("../img/forside_main_top.png");
+  background-position: left top;
+  background-repeat: no-repeat;
+  padding-top: 40px;
+  margin-bottom: 0px;
+}
+/* line 105, ../sass/global.scss */
+.page-forside #page #section-content #zone-content-wrapper #forside_wrapper {
+  background: url("../img/repeat_main.png");
+}
+/* line 107, ../sass/global.scss */
+.page-forside #page #section-content #zone-content-wrapper #forside_wrapper #region-content {
+  background: none;
+}
+/* line 109, ../sass/global.scss */
+.page-forside #page #section-content #zone-content-wrapper #forside_wrapper #region-content .region-inner.region-content-inner {
+  background: none;
+}
+/* line 111, ../sass/global.scss */
+.page-forside #page #section-content #zone-content-wrapper #forside_wrapper #region-content .region-inner.region-content-inner #block-system-main {
+  border-top: none;
+}
+/* line 115, ../sass/global.scss */
+.page-forside #page #section-content #zone-content-wrapper #forside_wrapper #region-content .content_bottom {
+  height: 0px;
+  background: none;
+}
+/* line 123, ../sass/global.scss */
+.page-forside #page #section-footer {
+  background: url("../img/repeat_main.png");
+}
+
+/* Undersider */
+/* line 129, ../sass/global.scss */
+#page {
+  background: url("../img/bg-watermark.png") no-repeat center bottom;
+  /* Footer */
+}
+/* line 132, ../sass/global.scss */
+#page #section-header #region-logo {
+  height: 100px;
+}
+/* line 135, ../sass/global.scss */
+#page #section-header #region-search {
+  float: right;
+}
+/* line 138, ../sass/global.scss */
+#page #section-header #region-search #block-menu-menu-sprogmenu .menu {
+  float: right;
+}
+/* line 140, ../sass/global.scss */
+#page #section-header #region-search #block-menu-menu-sprogmenu .menu li {
+  list-style-image: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+/* line 147, ../sass/global.scss */
+#page #section-header #region-search #block-menu-menu-sprogmenu .menu .first.leaf {
+  margin-right: 10px;
+}
+/* line 150, ../sass/global.scss */
+#page #section-header #region-search #block-menu-menu-sprogmenu .menu .first.leaf a {
+  background: url("../img/dk_flag.png");
+  display: block;
+  text-indent: -999em;
+  width: 19px;
+  height: 12px;
+}
+/* line 157, ../sass/global.scss */
+#page #section-header #region-search #block-menu-menu-sprogmenu .menu .last.leaf a {
+  background: url("../img/eng_flag.png");
+  display: block;
+  text-indent: -999em;
+  width: 19px;
+  height: 12px;
+}
+/* line 169, ../sass/global.scss */
+#page #section-content {
+  /* Sidebar */
+  /* hovedindhold */
+}
+/* line 171, ../sass/global.scss */
+#page #section-content #zone-content > .content_bottom {
+  height: 15px;
+  background: transparent url("../img/main_bottom.png") no-repeat bottom center;
+  float: right;
+  width: 640px;
+}
+/* line 177, ../sass/global.scss */
+#page #section-content #zone-content-wrapper {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+/* line 181, ../sass/global.scss */
+#page #section-content #zone-content-wrapper .messages.status {
+  margin-left: 300px;
+}
+/* line 187, ../sass/global.scss */
+#page #section-content #region-sidebar-first {
+  margin-top: 18px;
+  background: url("../img/sidebar_top.png");
+  background-position: right top;
+  background-repeat: no-repeat;
+}
+/* line 192, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner {
+  background: url("../img/repeat_sidebar.png");
+  margin-top: 22px;
+  padding: 12px;
+}
+/* line 194, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner a {
+  color: #000;
+}
+/* line 197, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner h2 {
+  font-size: 13px;
+  color: #ffffff;
+  text-shadow: 1px 1px #2d2728;
+  font-weight: 400;
+  margin: 0;
+}
+/* line 204, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .sidebar_indhold {
+  font-size: 13px;
+  text-shadow: 1px 1px white;
+}
+/* line 208, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .block {
+  margin-bottom: 20px;
+}
+/* line 212, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-udvalgte-temasider .view-header, #page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-voksenblog-sidebar .view-header {
+  position: absolute;
+}
+/* line 214, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-udvalgte-temasider .view-header .sidebar_overskrift, #page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-voksenblog-sidebar .view-header .sidebar_overskrift {
+  padding: 10px 0 0 10px;
+  width: 241px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background: url("../img/sidebar_overskrift.png");
+}
+/* line 220, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-udvalgte-temasider .view-header .sidebar_overskrift h2, #page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-voksenblog-sidebar .view-header .sidebar_overskrift h2 {
+  width: 210px;
+  display: block;
+  float: left;
+}
+/* line 225, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-udvalgte-temasider .view-header .sidebar_overskrift a, #page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-voksenblog-sidebar .view-header .sidebar_overskrift a {
+  position: relative;
+  top: 2px;
+  display: block;
+  background: url("../img/sidebar_next.png") no-repeat;
+  height: 16px;
+  width: 17px;
+  text-indent: -999em;
+  float: left;
+}
+/* line 236, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-udvalgte-temasider .view-header .sidebar_kategori, #page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-voksenblog-sidebar .view-header .sidebar_kategori {
+  position: absolute;
+  margin-top: -10px;
+}
+/* line 239, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-udvalgte-temasider .view-header .sidebar_kategori h1, #page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-voksenblog-sidebar .view-header .sidebar_kategori h1 {
+  background: url("../img/sidebar_titel.png");
+  background-repeat: no-repeat;
+  width: 163px;
+  height: 22px;
+  padding: 6px 0 0 10px;
+  margin-bottom: 0;
+}
+/* line 250, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-udvalgte-temasider .view-content, #page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-voksenblog-sidebar .view-content {
+  padding-top: 30px;
+}
+/* line 256, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .block-bean .view-header {
+  position: absolute;
+}
+/* line 258, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .block-bean .view-header .sidebar_overskrift {
+  padding: 10px 0 0 10px;
+  width: 241px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background: url("../img/sidebar_overskrift_tema.png") no-repeat;
+}
+/* line 264, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .block-bean .view-header .sidebar_overskrift h2 {
+  width: 210px;
+  display: block;
+  float: left;
+}
+/* line 273, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .block-bean .view-content {
+  padding-top: 30px;
+}
+/* line 275, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .block-bean .view-content a {
+  position: relative;
+  top: -18px;
+  left: 220px;
+  display: block;
+  background: url("../img/sidebar_next.png") no-repeat;
+  height: 16px;
+  width: 17px;
+  text-indent: -999em;
+}
+/* line 285, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .block-bean .view-content h1 {
+  position: relative;
+  z-index: 999;
+  margin-top: -16px;
+  background: url("../img/sidebar_titel_tema.png");
+  background-repeat: no-repeat;
+  width: 251px;
+  height: 29px;
+  padding: 6px 0 0 10px;
+  margin-bottom: 0;
+}
+/* line 296, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .block-bean .view-content .views-field-field-tema-kategori-billede {
+  margin-top: -34px;
+}
+/* line 303, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-voksenblog-sidebar .view-content {
+  padding: 70px 10px 10px 10px;
+  background: url("../img/sidebar_content_bg.png") no-repeat 0px 31px;
+}
+/* line 306, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-voksenblog-sidebar .view-content .views-row {
+  margin-top: 10px;
+}
+/* line 308, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-voksenblog-sidebar .view-content .views-row a {
+  display: block;
+  background: url("../img/next_black.png") center left no-repeat;
+  padding: 0px 0 0 20px;
+}
+/* line 313, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-voksenblog-sidebar .view-content .views-row p.oprettet {
+  font-style: italic;
+  font-size: 11px;
+}
+/* line 318, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner .view.view-voksenblog-sidebar .view-content .views-row-1 {
+  margin-top: 0px;
+}
+/* line 327, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner #breadcrumb {
+  margin-left: -10px;
+  position: absolute;
+  top: -40px;
+}
+/* line 331, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner #breadcrumb .breadcrumb {
+  padding-left: 25px;
+  background: url("../img/breadcrumb.png");
+  background-repeat: no-repeat;
+}
+/* line 335, ../sass/global.scss */
+#page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner #breadcrumb .breadcrumb a {
+  color: #000;
+}
+/* line 341, ../sass/global.scss */
+#page #section-content #region-sidebar-first .sidebar_bottom {
+  background: url("../img/sidebar_bottom.png");
+  height: 12px;
+}
+/* line 347, ../sass/global.scss */
+#page #section-content #region-content {
+  background: url("../img/main_top.png");
+  background-position: left top;
+  background-repeat: no-repeat;
+}
+/* line 351, ../sass/global.scss */
+#page #section-content #region-content h1, #page #section-content #region-content h2, #page #section-content #region-content h3, #page #section-content #region-content h4, #page #section-content #region-content h5, #page #section-content #region-content p, #page #section-content #region-content .views-field-name, #page #section-content #region-content .forum-table, #page #section-content #region-content .views-row, #page #section-content #region-content .comment-submitted, #page #section-content #region-content .comment-form, #page #section-content #region-content .item-list, #page #section-content #region-content .field-type-text-long {
+  text-shadow: 1px 1px white;
+}
+/* line 354, ../sass/global.scss */
+#page #section-content #region-content .region-inner.region-content-inner {
+  background: url("../img/repeat_main.png");
+  margin-top: 37px;
+  padding: 30px;
+}
+/* line 361, ../sass/global.scss */
+#page #section-content #region-content .region-inner.region-content-inner .node.node-page .content .field.field-name-body, #page #section-content #region-content .region-inner.region-content-inner .node.node-simpel-side-med-view .content .field.field-name-body {
+  margin-bottom: 30px;
+}
+/* line 367, ../sass/global.scss */
+#page #section-content #region-content .region-inner.region-content-inner #block-cyberhus-social-cyberhus-social {
+  float: right;
+  width: 180px;
+  height: 30px;
+  margin-top: -28px;
+}
+/* line 372, ../sass/global.scss */
+#page #section-content #region-content .region-inner.region-content-inner #block-cyberhus-social-cyberhus-social .block-title {
+  float: left;
+  font-weight: 400;
+  font-size: 11px;
+  margin-top: 2px;
+  margin-right: 10px;
+  text-transform: none;
+}
+/* line 380, ../sass/global.scss */
+#page #section-content #region-content .region-inner.region-content-inner #block-cyberhus-social-cyberhus-social #cyberhus-social-list {
+  margin: 0;
+  list-style: none;
+}
+/* line 383, ../sass/global.scss */
+#page #section-content #region-content .region-inner.region-content-inner #block-cyberhus-social-cyberhus-social #cyberhus-social-list li {
+  float: left;
+  margin-right: 5px;
+}
+/* line 386, ../sass/global.scss */
+#page #section-content #region-content .region-inner.region-content-inner #block-cyberhus-social-cyberhus-social #cyberhus-social-list li a {
+  display: block;
+  height: 20px;
+  width: 21px;
+}
+/* line 391, ../sass/global.scss */
+#page #section-content #region-content .region-inner.region-content-inner #block-cyberhus-social-cyberhus-social #cyberhus-social-list li .social_facebook {
+  background: url("../img/facebook_icon.png");
+  background-repeat: no-repeat;
+}
+/* line 395, ../sass/global.scss */
+#page #section-content #region-content .region-inner.region-content-inner #block-cyberhus-social-cyberhus-social #cyberhus-social-list li .social_twitter {
+  background: url("../img/twitter_icon.png");
+  background-repeat: no-repeat;
+}
+/* line 399, ../sass/global.scss */
+#page #section-content #region-content .region-inner.region-content-inner #block-cyberhus-social-cyberhus-social #cyberhus-social-list li .social_mail {
+  background: url("../img/mail_icon.png");
+  background-repeat: no-repeat;
+}
+/* line 406, ../sass/global.scss */
+#page #section-content #region-content .region-inner.region-content-inner #block-system-main {
+  padding: 20px 0 20px 0;
+  background: url("../img/content-border.png") repeat-x top left;
+}
+/* line 414, ../sass/global.scss */
+#page #section-content #region-content .content_bottom {
+  height: 12px;
+  background: url("../img/main_bottom.png");
+}
+/* line 421, ../sass/global.scss */
+#page #section-footer {
+  color: #f1edea;
+}
+/* line 423, ../sass/global.scss */
+#page #section-footer a {
+  color: #f1edea;
+}
+/* line 426, ../sass/global.scss */
+#page #section-footer h2 {
+  font-weight: 400;
+}
+/* line 430, ../sass/global.scss */
+#page #section-footer #footerwrapper {
+  background: url("../img/bylinje.png");
+  background-repeat: no-repeat;
+  padding-top: 100px;
+  position: relative;
+  bottom: -20px;
+}
+/* line 436, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern {
+  background: url("../img/repeat_dot.png");
+  padding-top: 40px;
+}
+/* line 441, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .views-row-last .views-field-created {
+  margin: -3px 0 5px 0;
+}
+/* line 444, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .views-field-created {
+  font-size: 11px;
+  margin: -3px 0 25px 0;
+}
+/* line 448, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .views-field-field-tegn-selv-billede {
+  background: url("../img/tegn_selv_bg.png") no-repeat top left;
+  width: 160px;
+  height: 104px;
+  padding: 7px 0 0 7px;
+  margin-top: 8px;
+}
+/* line 455, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .block-title {
+  margin-bottom: 15px;
+}
+/* line 458, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .grid-4 {
+  background: url("../img/footer_vertical_border.png") repeat-y top left;
+  width: 210px;
+  padding-left: 15px;
+  margin-left: 0;
+  margin-right: 15px;
+}
+/* line 465, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .grid-4.region-footer-et {
+  background: none;
+  padding-left: 0;
+  margin-left: 10px;
+}
+/* line 470, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .grid-4.region-footer-fire {
+  margin-right: 0;
+}
+/* line 476, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom {
+  margin-top: 40px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #272222;
+}
+/* line 480, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom .block-title {
+  margin-bottom: 25px;
+}
+/* line 483, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom #footer_bottom_seperator {
+  position: relative;
+  top: 36px;
+  left: 0px;
+  height: 2px;
+  width: 960px;
+  background: url("../img/footer_horizontal_border.png") repeat-x top left;
+}
+/* line 491, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom .region {
+  width: 210px;
+  padding-left: 15px;
+  margin-left: 0;
+  margin-right: 15px;
+}
+/* line 497, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom #region-footer-bottom-et {
+  background: none;
+  padding-left: 0;
+  margin-left: 10px;
+}
+/* line 502, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom #region-footer-bottom-et .social .facebook_bottom {
+  text-indent: -999em;
+  background: url("../img/facebook.png");
+  background-repeat: no-repeat;
+  display: block;
+  width: 154px;
+  height: 71px;
+}
+/* line 514, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom #region-footer-bottom-to ul li.leaf {
+  list-style-image: none;
+  list-style-type: none;
+  list-style-position: inside;
+  margin: 0;
+}
+/* line 520, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom #region-footer-bottom-to ul li.last {
+  padding-left: 13px;
+  background: url("../img/login_gfx.png") no-repeat left 5px;
+  width: 210px;
+}
+/* line 525, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom #region-footer-bottom-to ul li.last:after {
+  position: relative;
+  top: 17px;
+  left: -52px;
+  content: " - for frivillige & Ungebloggere";
+  color: #fff;
+  font-style: italic;
+  font-size: 11px;
+}
+/* line 535, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom #region-footer-bottom-tre {
+  margin-right: 0;
+  width: 450px;
+}
+/* line 540, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-last {
+  border-top: 1px solid #362e2f;
+  padding-top: 12px;
+}
+/* line 543, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-last p {
+  font-size: 11px;
+  letter-spacing: 0.9px;
+}
+/* line 548, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-last .content .footer_left {
+  width: 50%;
+  float: left;
+}
+/* line 552, ../sass/global.scss */
+#page #section-footer #footerwrapper #footer_pattern #zone-footer-last .content .footer_right {
+  width: 50%;
+  float: left;
+  text-align: right;
+}
+
+/**
+ * FORSIDE
+ */
+/* line 572, ../sass/global.scss */
+.front #page #section-content #zone-content > .content_bottom {
+  background: none;
+  height: 0;
+}
