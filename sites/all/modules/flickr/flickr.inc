@@ -1,5 +1,9 @@
 <?php
-// $Id: flickr.inc,v 1.31.2.3 2009/03/17 21:56:54 paulbooker Exp $
+
+/**
+ * @file
+ * The Flickr API functions
+ */
 
 define('FLICKR_REST_ENDPOINT', 'http://api.flickr.com/services/rest/');
 
@@ -24,9 +28,14 @@ function flickr_photo_sizes() {
       'description' => t('240 pixels on longest side'),
     ),
     '-' => array(
-      'label' => 'Medium',
+      'label' => 'Medium 500',
       'description' => t('500 pixels on longest side'),
     ),
+    'z' => array(
+      'label' => 'Medium 640',
+      'description' => t('640 pixels on longest side'),
+    ),
+
     'b' => array(
       'label' => 'Large',
       'description' => t('1024 pixels on longest side'),
@@ -71,16 +80,16 @@ function flickr_request($method, $args, $cacheable = TRUE, $return_errors = FALS
   }
 
   // Build the URL.
-  foreach ($args as $k => $v){
-    $encoded_params[] = urlencode($k) .'='. urlencode($v);
+  foreach ($args as $k => $v) {
+    $encoded_params[] = urlencode($k) . '=' . urlencode($v);
   }
-  $url = FLICKR_REST_ENDPOINT .'?'. implode('&', $encoded_params);  
+  $url = FLICKR_REST_ENDPOINT . '?' . implode('&', $encoded_params);  
 
   // If it's a cachable request, try to load a cached value.
   if ($cacheable) {
     if ($cache = cache_get("flickr_$arg_hash", 'cache')) {
       // Check that the value is still "fresh".
-      if( $cache->expire > time() ) {
+      if ($cache->expire > time()) {
         return unserialize($cache->data);
       }
     }
@@ -196,7 +205,7 @@ function flickr_img($photo, $size = NULL, $attributes = NULL) {
     }
   }
   $title = is_array($photo['title']) ? $photo['title']['_content'] : $photo['title'];
-  return theme('image', $img_url, $title, $title, $attributes, FALSE);
+  return theme('image', array('path' => $img_url, 'alt' => $title, 'title' => $title, 'attributes' => $attributes, 'getsize' => FALSE));
 }
 
 /**
@@ -221,7 +230,7 @@ function flickr_photo_img($photo, $size = NULL, $format = NULL) {
   $id = isset($photo['primary']) ? $photo['primary'] : $photo['id'];
   $secret = $photo['secret'];
 
-  return "http://farm{$farm}.static.flickr.com/{$server}/{$id}_{$secret}" .($size ? "_$size." : '.') . ($size == 'o' ? $format : 'jpg');
+  return "http://farm{$farm}.static.flickr.com/{$server}/{$id}_{$secret}" . ($size ? "_$size." : '.') . ($size == 'o' ? $format : 'jpg');
 }
 
 /**
@@ -255,7 +264,7 @@ function flickr_photo_page_url($owner, $id = NULL) {
 function flickr_photoset_page_url($owner, $id = NULL) {
   $nsid = is_array($owner) ? $owner['nsid']: $owner;
   if ($person = flickr_people_get_info($nsid)) {
-    return $person['photosurl']['_content'] .'sets/'. $id;
+    return $person['photosurl']['_content'] . 'sets/' . $id;
   }
   else {
     return "http://flickr.com/photos/$nsid/sets/$id";
@@ -447,7 +456,7 @@ function flickr_user_find_by_email($email) {
  *   (http://www.flickr.com/services/api/flickr.tags.getListUserPopular.html)
  */
 function flickr_tags_get_list_user_popular($nsid, $count=NULL) {
-  $args = array('user_id'=>$nsid);
+  $args = array('user_id' => $nsid);
   if ($count != NULL) {
     $args['count'] = $count;
   }
@@ -466,7 +475,7 @@ function flickr_tags_get_list_user_popular($nsid, $count=NULL) {
  *   response from the flickr method flickr.tags.getListUser
  *   (http://www.flickr.com/services/api/flickr.tags.getListUser.html)
  */
-function flickr_tags_get_list_user($nsid){
+function flickr_tags_get_list_user($nsid) {
   $response = flickr_request(
     'flickr.tags.getListUser',
     array('user_id' => $nsid)
@@ -478,8 +487,8 @@ function flickr_tags_get_list_user($nsid){
 }
 
 
-function flickr_photos_search($nsid, $page = 1, $other_args = array()){
-  $args = array (
+function flickr_photos_search($nsid, $page = 1, $other_args = array()) {
+  $args = array(
     'user_id' => $nsid,
     'page' => $page,
   );
@@ -522,18 +531,18 @@ function flickr_response_has_error($response) {
  * Display an error message to flickr administrators and write an error to
  * watchdog.
  *
- * @param $mesageOrResposne
+ * @param $messageOrResponse
  *   message or error response to display
  */
-function flickr_set_error($messageOrResponse) {
-  if (is_array($messageOrResponse)) {
+function flickr_set_error($message_or_response) {
+  if (is_array($message_or_response)) {
     $message = t('Flickr error @error_id: %flickr_error', array(
-      '@error_id' => $messageOrResponse['code'],
-      '%flickr_error'=> $messageOrResponse['message'],
+      '@error_id' => $message_or_response['code'],
+      '%flickr_error' => $message_or_response['message'],
     ));
   }
   else {
-    $message = $messageOrResponse;
+    $message = $message_or_response;
   }
 
   if (user_access('administer flickr')) {
@@ -550,8 +559,8 @@ function flickr_set_error($messageOrResponse) {
  *   response from the flickr method flickr.photosets.getList
  *   (http://www.flickr.com/services/api/flickr.photosets.getList.html)
 */
-function flickr_get_group_photos($nsid, $page = 1, $other_args = array()){
-  $args = array (
+function flickr_get_group_photos($nsid, $page = 1, $other_args = array()) {
+  $args = array(
     'group_id' => $nsid,
     'page' => $page,
   );
