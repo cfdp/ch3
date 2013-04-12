@@ -1,4 +1,3 @@
-// $Id: CHANGELOG.txt,v 1.4.4.9 2009/08/15 17:59:54 eaton Exp $
 
 02/11/06
 --------
@@ -59,13 +58,6 @@ Changed hook_votingapi_content_types() to hook_votingapi_relationships(), since 
 
 Added votingapi_metadata() to gather metadata about defined value_types, tags, and aggregate functions. Modified the views relationship handler to use that function rather than querying the tables directly.
 
-07/20/09
+01/26/10
 --------
-#480036 by j_ten_man - allow votingapi relationships to be chained off of other relationships (like node references)
-#496454 - PHPDoc incorrectly listed 'uid' and 'vote_source' as valid filtering criteria on cached aggregate results.
-Added an 'Other' option for Relationships filters, to allow nonstandard tags, filters, and so on to be used in VotingAPI relationships with minimal hassle.
-
-08/15/09
---------
-#527970 - Fixing issues with the 'Other' option when creating relationship filters. Thanks to te-brian for spotting it and whipping up a patch.
-#541236 - Add support for user ratings to the default set of relationships. Patch by Likeless.
+Drupal 7 port approaches completion. Changed the content_type and content_id indicators to entity_type and entity_id, to avoid confusion between VotingAPI 'content types' and Drupal 'node types'. Added Drush support for generating, flushing, and recalculating voting data.
