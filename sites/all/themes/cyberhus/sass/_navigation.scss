@@ -147,6 +147,28 @@
 		}
 	}
 }
+/* Bruger menu */
+#page {
+	#region-sidebar-first {
+		.region-inner.region-sidebar-first-inner {
+			#block-system-user-menu {
+				.block-inner {
+					.block-title {
+						color:#000;
+						text-shadow: none;
+					}
+				}			
+				.content {
+					li {
+						list-style: none;
+					}
+				}
+			}
+		}		
+	}	
+}
+
+
 /* Gå til forsiden - stue grafik */
 #block-block-41 {
 	.content a {
