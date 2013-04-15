@@ -372,7 +372,8 @@
 				width: 70px;	
 			}
 			.alder {
-				padding-right: 90px;
+				width: 110px;
+				
 			}
 	}
 }
@@ -727,6 +728,76 @@
 	}
 }
 
+/* Ungeblogs - oversigt */
+#page {
+	.view.view-ungeblogs-oversigt {
+		.view-content {
+			.views-row {
+				margin: 0 0 30px 0;
+				background: url("../img/content-border.png") repeat-x top left;
+				padding: 30px 15px 0 15px;
+				.views-field.views-field-value {
+					overflow: hidden;
+					h3 {
+						float: left;
+						text-transform: uppercase;
+					}
+					a {
+						color:$font_color_gul;
+						background: url("../img/next_yellow.png"); 
+						background-repeat: no-repeat;
+						padding-left: 20px;
+						margin: 5px 0 0 5px;
+						float: left;
+						line-height: 1;
+						height: 15px;
+						text-transform: uppercase;
+					}
+				}
+				.views-field.views-field-nothing {
+					overflow: hidden;
+					.blog_oversigt_left {
+						float: left;
+						margin-right: 15px;
+					}
+					.blog_oversigt_right {
+						float: left;
+						width: 450px;
+						p {
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+/* Ungeblogs - enkeltvisning  */
+#page {
+	.view.view-blogs-enkeltvisning-oversigt.view-id-blogs_enkeltvisning_oversigt {
+		.view-content {
+			.views-row {
+				margin: 0 0 30px 0;
+				background: url("../img/content-border.png") repeat-x top left;
+				padding: 30px 15px 0 15px;
+				.views-field.views-field-title {
+					a {
+						color:$font_color_gul;
+						background: url("../img/next_yellow.png"); 
+						background-repeat: no-repeat;
+						padding-left: 20px;
+						margin: 5px 0 0 5px;
+						line-height: 1;
+						height: 15px;
+						text-transform: uppercase;
+					}
+				}
+			}	
+		}
+	}
+}
+
+
 /* General stuff */
 .opret_btn {
 			position: relative;
@@ -741,4 +812,4 @@
 			    text-shadow: none;
 			    text-transform: uppercase;
 			}
-		}
+}
