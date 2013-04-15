@@ -1,5 +1,4 @@
 <?php
-// $Id: votingapi.views.inc,v 1.1.2.18 2009/08/15 17:51:38 eaton Exp $
 
 /**
  * @file
@@ -14,7 +13,7 @@
 
 
 /**
- * Implementation of hook_views_handlers().
+ * Implements of hook_views_handlers().
  */
 function votingapi_views_handlers() {
   return array(
@@ -27,13 +26,17 @@ function votingapi_views_handlers() {
         'parent' => 'views_handler_relationship',
         'path' => drupal_get_path('module', 'votingapi') . '/views',
       ),
+      'votingapi_views_handler_sort_nullable' => array(
+        'parent' => 'views_handler_sort',
+        'path' => drupal_get_path('module', 'votingapi') . '/views',
+      ),
     ),
   );
 }
 
 
 /**
- * Implementation of hook_views_data().
+ * Implements of hook_views_data().
  */
 function votingapi_views_data() {
   // Basic table information.
@@ -60,7 +63,7 @@ function votingapi_views_data() {
       'allow empty' => TRUE,
     ),
     'sort' => array(
-      'handler' => 'views_handler_sort',
+      'handler' => 'votingapi_views_handler_sort_nullable',
     ),
   );
 
@@ -186,7 +189,7 @@ function votingapi_views_data() {
       'allow empty' => TRUE,
     ),
     'sort' => array(
-      'handler' => 'views_handler_sort',
+      'handler' => 'votingapi_views_handler_sort_nullable',
     ),
   );
 
@@ -270,49 +273,35 @@ function votingapi_views_data_alter(&$views_data) {
   // Add relationship handlers for both tables, for any base tables currently
   // available to Views.
 
-  $default_relationships = module_invoke_all('votingapi_relationships');
-
-  $default_relationships[] = array(
-    'description' => t('nodes'),
-    'content_type' => 'node',
-    'base_table' => 'node',
-    'content_id_column' => 'nid',
-    'pseudo_vote' => 'votingapi_vote',    // for legacy compatability w/RC1.
-    'pseudo_cache' => 'votingapi_cache',  // for legacy compatability w/RC1.
-  );
-  $default_relationships[] = array(
-    'description' => t('comments'),
-    'content_type' => 'comment',
-    'base_table' => 'comments',
-    'content_id_column' => 'cid',
-    'pseudo_vote' => 'votingapi_vote',    // for legacy compatability w/RC1.
-    'pseudo_cache' => 'votingapi_cache',  // for legacy compatability w/RC1.
-  );
-  $default_relationships[] = array(
-    'description' => t('users'),
-    'content_type' => 'user',
-    'base_table' => 'users',
-    'content_id_column' => 'uid',
-    'pseudo_vote' => 'votingapi_vote',    // for legacy compatability w/RC1.
-    'pseudo_cache' => 'votingapi_cache',  // for legacy compatability w/RC1.
-  );
+  //Get all entity types in the system and register as relationship.
+  $entity_types = entity_get_info();
+  foreach($entity_types as $key => $entity_type) {
+    $default_relationships[] = array(
+      'description' => $entity_type['label'],
+      'entity_type' => $key,
+      'base_table' => $entity_type['base table'],
+      'entity_id_column' => $entity_type['entity keys']['id'],
+      'pseudo_vote' => 'votingapi_vote',    // for legacy compatability w/RC1.
+      'pseudo_cache' => 'votingapi_cache',  // for legacy compatability w/RC1.
+    );
+  }
 
   foreach ($default_relationships as $data) {
-    $pseudo = str_replace(array(' ','-','.'), '_', $data['content_type'] . '_' . $data['content_id_column']);
-    $pseudo_vote = empty($data['pseudo_vote']) ? 'vapi_'. $pseudo : $data['pseudo_vote'];
-    $pseudo_cache = empty($data['pseudo_cache']) ? 'vapic_'. $pseudo : $data['pseudo_cache'];
-    
+    $pseudo = str_replace(array(' ', '-', '.'), '_', $data['entity_type'] . '_' . $data['entity_id_column']);
+    $pseudo_vote = empty($data['pseudo_vote']) ? 'vapi_' . $pseudo : $data['pseudo_vote'];
+    $pseudo_cache = empty($data['pseudo_cache']) ? 'vapic_' . $pseudo : $data['pseudo_cache'];
+
     $views_data[$data['base_table']][$pseudo_vote]['relationship'] = array(
       'title' => 'Votes',
       'help' => 'Votes cast by users on ' . $data['description'] . '.',
       'base' => 'votingapi_vote',
-      'field' => 'content_id',
-      'relationship field' => $data['content_id_column'],
+      'field' => 'entity_id',
+      'relationship field' => $data['entity_id_column'],
       'handler' => 'votingapi_views_handler_relationship',
       'extra' => array(
         array(
-          'field' => 'content_type',
-          'value' => $data['content_type'],
+          'field' => 'entity_type',
+          'value' => $data['entity_type'],
           'numeric' => FALSE
         ),
       ),
@@ -322,13 +311,13 @@ function votingapi_views_data_alter(&$views_data) {
       'title' => 'Vote results',
       'help' => 'Aggregate results of votes cast on ' . $data['description'] . '.',
       'base' => 'votingapi_cache',
-      'field' => 'content_id',
-      'relationship field' => $data['content_id_column'],
+      'field' => 'entity_id',
+      'relationship field' => $data['entity_id_column'],
       'handler' => 'votingapi_views_handler_relationship',
       'extra' => array(
         array(
-          'field' => 'content_type',
-          'value' => $data['content_type'],
+          'field' => 'entity_type',
+          'value' => $data['entity_type'],
           'numeric' => FALSE
         ),
       ),
@@ -337,13 +326,13 @@ function votingapi_views_data_alter(&$views_data) {
 }
 
 
-function _votingapi_views_sql_safe_content_type($string) {
-  return str_replace(array(' ','-','.'), '_', $string);
+function _votingapi_views_sql_safe_entity_type($string) {
+  return str_replace(array(' ', '-', '.'), '_', $string);
 }
 
 
 /**
- * Implementation of hook_views_analyze().
+ * Implements of hook_views_analyze().
  *
  * Warns admins if a VotingAPI relationship has been defined, but filters on the
  * relationship haven't been set.

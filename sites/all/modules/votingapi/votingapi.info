@@ -1,11 +1,18 @@
-; $Id: votingapi.info,v 1.4 2007/07/06 03:02:34 eaton Exp $
 name = Voting API
 description = Provides a shared voting API for other modules.
 package = Voting
-core = 6.x
-; Information added by drupal.org packaging script on 2009-08-15
-version = "6.x-2.3"
-core = "6.x"
+core = 7.x
+configure = admin/config/search/votingapi
+
+files[] = tests/votingapi.test
+
+files[] = views/votingapi_views_handler_field_value.inc
+files[] = views/votingapi_views_handler_sort_nullable.inc
+files[] = views/votingapi_views_handler_relationship.inc
+
+; Information added by drupal.org packaging script on 2013-03-22
+version = "7.x-2.11"
+core = "7.x"
 project = "votingapi"
-datestamp = "1250359559"
+datestamp = "1363989617"
 

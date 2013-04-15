@@ -1,5 +1,4 @@
 <?php
-// $Id: votingapi_views_handler_field_value.inc,v 1.1.2.3 2009/06/21 01:10:39 eaton Exp $
 
 /**
  * @file
@@ -14,7 +13,7 @@ class votingapi_views_handler_field_value extends views_handler_field_numeric {
 
   function option_definition() {
     $options = parent::option_definition();
-    $options['appearance'] = '';
+    $options['appearance'] = array('default' => '');
     return $options;
   }
 
@@ -34,6 +33,17 @@ class votingapi_views_handler_field_value extends views_handler_field_numeric {
         '#weight' => -5,
       );
     }
+  }
+
+  function element_type($none_supported = FALSE, $default_empty = FALSE, $inline = FALSE) {
+    return 'div';
+  }
+
+  /**
+   * Called to determine what to tell the clicksorter.
+   */
+  function click_sort($order) {
+    $this->query->add_orderby(NULL, "COALESCE($this->table_alias.$this->field, 0)", $order, $this->table_alias . '_' . $this->field . '_coalesced');
   }
 
   function render($values) {
