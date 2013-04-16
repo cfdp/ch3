@@ -37,6 +37,7 @@ css[global.css][options][weight] = '10'
 scripts[] = js/jquery.customSelect.min.js
 scripts[] = js/jquery.screwdefaultbuttons.min.js
 scripts[] = js/custom_settings.js
+scripts[] = js/chat_widget_tab_right.js
 
 settings[alpha_grid] = 'alpha_default'
 settings[alpha_primary_alpha_default] = 'normal'

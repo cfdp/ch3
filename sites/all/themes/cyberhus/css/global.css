@@ -2666,7 +2666,7 @@ body {
   height: 0;
 }
 
-#region-tabs-right iframe{
+.region-tabs-right .slideout{
   right: -260px;
   top: 190px;
   position: fixed;
