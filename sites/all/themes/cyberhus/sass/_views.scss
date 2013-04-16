@@ -266,7 +266,7 @@
 
 .view.view-Brevkasse.view-id-Brevkasse {
 	.view-header {
-		#brevkasse_top {
+		.view.view-brevkasse-term-visning {
 			padding: 0 15px 0 15px;
 		}
 		#brevkasse_labels {
@@ -721,6 +721,7 @@
 			float: left;
 			width: 98px;
 			margin-right: 15px;
+			height: 160px;
 		}
 		.views-row-5, .views-row-10, .views-row-15 {
 			margin-right: 0;
@@ -728,26 +729,31 @@
 	}
 }
 
-/* Ungeblogs - oversigt */
+/* Tegn selv - enkeltvisning */
+.view.view-tegn-selv-enkeltvisning {
+	margin-bottom: 20px;
+}
+/* Ungeblogs/Voksenblogs - oversigt */
 #page {
-	.view.view-ungeblogs-oversigt {
+	.view.view-ungeblogs-oversigt, .view.view-voksenblogs-oversigt {
 		.view-content {
 			.views-row {
 				margin: 0 0 30px 0;
 				background: url("../img/content-border.png") repeat-x top left;
 				padding: 30px 15px 0 15px;
-				.views-field.views-field-value {
+				.views-field.views-field-value, .views-field-name {
 					overflow: hidden;
 					h3 {
 						float: left;
 						text-transform: uppercase;
+						margin-right: 5px;
 					}
 					a {
 						color:$font_color_gul;
 						background: url("../img/next_yellow.png"); 
 						background-repeat: no-repeat;
 						padding-left: 20px;
-						margin: 5px 0 0 5px;
+						margin: 5px 0 0 0px;
 						float: left;
 						line-height: 1;
 						height: 15px;
@@ -786,7 +792,7 @@
 						background: url("../img/next_yellow.png"); 
 						background-repeat: no-repeat;
 						padding-left: 20px;
-						margin: 5px 0 0 5px;
+						margin: 5px 0 0 0px;
 						line-height: 1;
 						height: 15px;
 						text-transform: uppercase;
@@ -802,6 +808,7 @@
 .opret_btn {
 			position: relative;
 			margin-bottom: 30px;
+			padding: 0 15px 0 15px;
 			a {
 			    background-color: $color_gul;
 			    color: #FFFFFF;
