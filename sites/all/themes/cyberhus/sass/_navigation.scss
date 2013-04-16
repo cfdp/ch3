@@ -168,6 +168,23 @@
 	}	
 }
 
+/* Tabs/oprettelseslinks */
+.tabs {
+	.tabs.primary {
+		a {
+			color:$font_color_gul;
+		}
+	}
+}
+.action-links {
+	li {
+		list-style: none;
+		a {
+			color:$font_color_gul;
+			margin-left: 15px;
+		}
+	}	
+}
 
 /* Gå til forsiden - stue grafik */
 #block-block-41 {
