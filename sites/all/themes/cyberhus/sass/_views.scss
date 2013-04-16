@@ -266,7 +266,7 @@
 
 .view.view-Brevkasse.view-id-Brevkasse {
 	.view-header {
-		#brevkasse_top {
+		.view.view-brevkasse-term-visning {
 			padding: 0 15px 0 15px;
 		}
 		#brevkasse_labels {
@@ -372,7 +372,8 @@
 				width: 70px;	
 			}
 			.alder {
-				padding-right: 90px;
+				width: 110px;
+				
 			}
 	}
 }
@@ -669,6 +670,48 @@
 		}
 	}
 }
+/* Tegn selv - seneste billeder */
+.view.view-tegn-selv-seneste-billeder {
+	.view-header {
+		overflow: hidden;
+		background: url("../img/content-border.png") repeat-x top left;
+		padding: 30px 15px 0 15px;
+		.galleri_overskrift {
+			float: left;
+			text-transform: uppercase;
+		}
+		.se_billede_arkiv {
+			padding-top: 5px;
+			float: right;
+			a {
+				color:$font_color_gul;
+				background: url("../img/next_yellow.png"); 
+				background-repeat: no-repeat;
+				padding-left: 20px;
+				text-transform: uppercase;
+			}	
+		}		
+	}
+	.view-content {
+		background: url("../img/livsfortaelling_repeat.png");
+		overflow: hidden;
+		padding: 15px;
+		.views-row {
+			float: left;
+			width: 98px;
+			margin-right: 15px;
+			.views-field.views-field-title {
+				height: 40px;
+			}
+		}
+		.views-row-last {
+			margin-right: 0;
+		}
+		a {
+			color:$font_color_gul;
+		}
+	}
+}
 
 /* Tegn selv - Arkiv */
 .view.view-tegn-selv-arkiv {
@@ -678,6 +721,7 @@
 			float: left;
 			width: 98px;
 			margin-right: 15px;
+			height: 160px;
 		}
 		.views-row-5, .views-row-10, .views-row-15 {
 			margin-right: 0;
@@ -685,10 +729,86 @@
 	}
 }
 
+/* Tegn selv - enkeltvisning */
+.view.view-tegn-selv-enkeltvisning {
+	margin-bottom: 20px;
+}
+/* Ungeblogs/Voksenblogs - oversigt */
+#page {
+	.view.view-ungeblogs-oversigt, .view.view-voksenblogs-oversigt {
+		.view-content {
+			.views-row {
+				margin: 0 0 30px 0;
+				background: url("../img/content-border.png") repeat-x top left;
+				padding: 30px 15px 0 15px;
+				.views-field.views-field-value, .views-field-name {
+					overflow: hidden;
+					h3 {
+						float: left;
+						text-transform: uppercase;
+						margin-right: 5px;
+					}
+					a {
+						color:$font_color_gul;
+						background: url("../img/next_yellow.png"); 
+						background-repeat: no-repeat;
+						padding-left: 20px;
+						margin: 5px 0 0 0px;
+						float: left;
+						line-height: 1;
+						height: 15px;
+						text-transform: uppercase;
+					}
+				}
+				.views-field.views-field-nothing {
+					overflow: hidden;
+					.blog_oversigt_left {
+						float: left;
+						margin-right: 15px;
+					}
+					.blog_oversigt_right {
+						float: left;
+						width: 450px;
+						p {
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+/* Ungeblogs - enkeltvisning  */
+#page {
+	.view.view-blogs-enkeltvisning-oversigt.view-id-blogs_enkeltvisning_oversigt {
+		.view-content {
+			.views-row {
+				margin: 0 0 30px 0;
+				background: url("../img/content-border.png") repeat-x top left;
+				padding: 30px 15px 0 15px;
+				.views-field.views-field-title {
+					a {
+						color:$font_color_gul;
+						background: url("../img/next_yellow.png"); 
+						background-repeat: no-repeat;
+						padding-left: 20px;
+						margin: 5px 0 0 0px;
+						line-height: 1;
+						height: 15px;
+						text-transform: uppercase;
+					}
+				}
+			}	
+		}
+	}
+}
+
+
 /* General stuff */
 .opret_btn {
 			position: relative;
 			margin-bottom: 30px;
+			padding: 0 15px 0 15px;
 			a {
 			    background-color: $color_gul;
 			    color: #FFFFFF;
@@ -699,4 +819,4 @@
 			    text-shadow: none;
 			    text-transform: uppercase;
 			}
-		}
+}

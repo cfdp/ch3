@@ -3,6 +3,7 @@
  */
 .node-form,
 .comment-form {
+	padding: 0 15px 0 15px;
 	input[type=text],
 	input[type=password],
 	textarea,
@@ -19,15 +20,15 @@
 	input[type=submit] {
 		font-family: $std-font-family;
  		background: $color_gul;
-    	color: #FFFFFF;
-	   font-size: 13px;
-      line-height: 1em;
-      padding: 12px 20px;
-      text-transform: uppercase;
-      border-radius: 0;
-      border: none;
-      text-shadow: none;
-      font-weight: normal;
+	 	color: #FFFFFF;
+		font-size: 13px;
+	    line-height: 1em;
+	    padding: 12px 20px;
+	    text-transform: uppercase;
+	    border-radius: 0;
+	    border: none;
+	    text-shadow: none;
+	    font-weight: normal;
 	}
 	label {
 		font-family: $std-font-family;
@@ -98,6 +99,70 @@
 		}
 	}
 } 
+
+
+/* Opret blogindlæg */
+.page-node-add-blog {
+	#blog-node-form {
+		overflow: hidden;
+		padding: 0 15px 0 15px;
+			.form-item, .form-actions {
+				margin: 10px 0;
+			}
+		> div > div { float: left; width: 100%; }
+		.form-type-select,
+		.form-type-textfield,
+		.form-type-textarea {
+			float: left;
+			width: 100%;
+			label {
+				width: 11%;
+				text-align: left;
+				float: none;
+				padding-right: 4%;
+				margin-top: 6px;
+			}
+			input, textarea, .description {
+				width: 85%;
+				float: none;
+			}
+		}
+		.form-wrapper > .form-type-checkbox {
+			width: 85%;
+			float: right;
+			overflow: hidden;
+			.description {
+			
+			}
+		}
+		.form-type-checkboxes {
+			float: left;
+			width: 100%;
+			> label {
+				width: 11%;
+				float: left;
+				text-align: left;
+				padding-right: 4%;
+				margin-top: 6px;
+			}
+			.form-checkboxes, .description {
+				width: 85%;
+				float: right;
+			}
+		}
+		fieldset {
+			float: none; width: 85%; padding: 5px 0;
+		}
+		#edit-actions {
+			float: none; width: 85%;
+		}
+		.field-type-image {
+			.form-submit {
+				margin-left: 20px;
+			}
+		}	
+	}
+}
  
 .node-form {
 	.form-item, .form-actions {
@@ -215,4 +280,24 @@
 }
 #block-menu-menu-sprogmenu {
 	float: right;
+}
+/* Brugerprofil form */
+#user-profile-form {
+	padding: 0 15px 0 15px;
+	a {
+		color:$font_color_gul;
+	}
+	input[type=submit] {
+		font-family: $std-font-family;
+ 		background: $color_gul;
+	 	color: #FFFFFF;
+		font-size: 13px;
+	    line-height: 1em;
+	    padding: 12px 20px;
+	    text-transform: uppercase;
+	    border-radius: 0;
+	    border: none;
+	    text-shadow: none;
+	    font-weight: normal;
+	}
 }

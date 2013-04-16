@@ -165,8 +165,35 @@
   content: "";
 }
 
+/* Bruger menu */
+/* line 156, ../sass/_navigation.scss */
+#page #region-sidebar-first .region-inner.region-sidebar-first-inner #block-system-user-menu .block-inner .block-title {
+  color: #000;
+  text-shadow: none;
+}
+/* line 162, ../sass/_navigation.scss */
+#page #region-sidebar-first .region-inner.region-sidebar-first-inner #block-system-user-menu .content li {
+  list-style: none;
+}
+
+/* Tabs/oprettelseslinks */
+/* line 174, ../sass/_navigation.scss */
+.tabs .tabs.primary a {
+  color: #fb9a00;
+}
+
+/* line 180, ../sass/_navigation.scss */
+.action-links li {
+  list-style: none;
+}
+/* line 182, ../sass/_navigation.scss */
+.action-links li a {
+  color: #fb9a00;
+  margin-left: 15px;
+}
+
 /* Gå til forsiden - stue grafik */
-/* line 152, ../sass/_navigation.scss */
+/* line 191, ../sass/_navigation.scss */
 #block-block-41 .content a {
   float: right;
   width: 436px;
@@ -180,11 +207,11 @@
 }
 
 /* Brødkrummer */
-/* line 166, ../sass/_navigation.scss */
+/* line 205, ../sass/_navigation.scss */
 #breadcrumb {
   width: 500px;
 }
-/* line 169, ../sass/_navigation.scss */
+/* line 208, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs li {
   list-style: none;
   float: left;
@@ -197,23 +224,23 @@
   font-style: italic;
   font-family: "Cabin", sans-serif;
 }
-/* line 180, ../sass/_navigation.scss */
+/* line 219, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs a {
   height: 19px;
   display: inline-block;
   color: #2d2728;
 }
-/* line 185, ../sass/_navigation.scss */
+/* line 224, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs span {
   margin-left: 5px;
 }
-/* line 189, ../sass/_navigation.scss */
+/* line 228, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs .first a {
   background: url("../img/breadcrumb.png");
   background-repeat: no-repeat;
   padding-left: 25px;
 }
-/* line 195, ../sass/_navigation.scss */
+/* line 234, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs .last {
   font-weight: 700;
 }
@@ -508,7 +535,7 @@
 
 /* Accordion til brevkassen */
 /* line 269, ../sass/_views.scss */
-.view.view-Brevkasse.view-id-Brevkasse .view-header #brevkasse_top {
+.view.view-Brevkasse.view-id-Brevkasse .view-header .view.view-brevkasse-term-visning {
   padding: 0 15px 0 15px;
 }
 /* line 272, ../sass/_views.scss */
@@ -628,45 +655,45 @@
 }
 /* line 374, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse #accordion_overskrift .alder {
-  padding-right: 90px;
+  width: 110px;
 }
 
 /* Brevkasse enkeltvisning - EVA */
-/* line 382, ../sass/_views.scss */
+/* line 383, ../sass/_views.scss */
 .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-question, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-spoergsmaal {
   margin-bottom: 20px;
 }
-/* line 384, ../sass/_views.scss */
+/* line 385, ../sass/_views.scss */
 .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-question .views-label.views-label-field-question, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-question .views-label.views-label-field-brevk-spoergsmaal, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-spoergsmaal .views-label.views-label-field-question, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-spoergsmaal .views-label.views-label-field-brevk-spoergsmaal {
   margin-bottom: 10px;
   font-weight: 700;
 }
-/* line 390, ../sass/_views.scss */
+/* line 391, ../sass/_views.scss */
 .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-body .views-label.views-label-body, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-body .views-label.views-label-field-brevk-svar, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-svar .views-label.views-label-body, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-svar .views-label.views-label-field-brevk-svar {
   font-weight: 700;
 }
-/* line 395, ../sass/_views.scss */
+/* line 396, ../sass/_views.scss */
 .view.view-brevkasse-enkeltvisning .view-content .brevkasse_header_data {
   margin-bottom: 20px;
 }
 
 /* View til temasider oversigten */
-/* line 402, ../sass/_views.scss */
+/* line 403, ../sass/_views.scss */
 .view.view-Temaer .view-content {
   background: url("../img/content-border.png") repeat-x top left;
   padding: 30px 15px 0 15px;
 }
-/* line 405, ../sass/_views.scss */
+/* line 406, ../sass/_views.scss */
 .view.view-Temaer .view-content .views-field.views-field-description-1 {
   font-style: italic;
   padding: 10px 20px 10px 0;
 }
-/* line 409, ../sass/_views.scss */
+/* line 410, ../sass/_views.scss */
 .view.view-Temaer .view-content .views-row-odd {
   float: left;
   width: 50%;
 }
-/* line 413, ../sass/_views.scss */
+/* line 414, ../sass/_views.scss */
 .view.view-Temaer .view-content a {
   color: #fb9a00;
   background: url("../img/next_yellow.png");
@@ -675,46 +702,46 @@
 }
 
 /* Accordion til temasiderne */
-/* line 426, ../sass/_views.scss */
+/* line 427, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-header #tema_top {
   padding: 0 15px 0 15px;
 }
-/* line 429, ../sass/_views.scss */
+/* line 430, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-header #tema_labels {
   padding-top: 15px;
   margin: 20px 0 15px 0;
   border-top: 1px solid #bababa;
   overflow: hidden;
 }
-/* line 434, ../sass/_views.scss */
+/* line 435, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-header #tema_labels p {
   margin: 0;
   text-transform: uppercase;
 }
-/* line 438, ../sass/_views.scss */
+/* line 439, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-header #tema_labels div {
   margin: 0;
   float: left;
 }
-/* line 442, ../sass/_views.scss */
+/* line 443, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-header #tema_labels .titel {
   width: 270px;
   margin-left: 15px;
 }
-/* line 446, ../sass/_views.scss */
+/* line 447, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-header #tema_labels .forfatter {
   padding-right: 20px;
   margin-left: 90px;
 }
-/* line 450, ../sass/_views.scss */
+/* line 451, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-header #tema_labels .oprettet {
   margin-left: 60px;
 }
-/* line 456, ../sass/_views.scss */
+/* line 457, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-content.ui-accordion .views-row {
   margin-bottom: 5px;
 }
-/* line 460, ../sass/_views.scss */
+/* line 461, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-accordion-header {
   border: none;
   background: url("../img/accordion_header.png");
@@ -725,7 +752,7 @@
   -webkit-border-top-right-radius: 0px;
   border-top-right-radius: 0px;
 }
-/* line 469, ../sass/_views.scss */
+/* line 470, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-accordion-header .ui-icon {
   left: 15px;
   margin-top: -7px;
@@ -734,23 +761,23 @@
   height: 14px;
   width: 14px;
 }
-/* line 479, ../sass/_views.scss */
+/* line 480, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-accordion-header.ui-state-active {
   background: url("../img/accordion_header_active.png");
 }
-/* line 481, ../sass/_views.scss */
+/* line 482, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-accordion-header.ui-state-active .ui-icon {
   background: url("../img/next_yellow_down.png");
   height: 15px;
   width: 13px;
 }
-/* line 488, ../sass/_views.scss */
+/* line 489, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-corner-all {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
 }
-/* line 493, ../sass/_views.scss */
+/* line 494, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-corner-bottom {
   -moz-border-radius-bottomleft: 0px;
   -webkit-border-bottom-left-radius: 0px;
@@ -759,46 +786,46 @@
   -webkit-border-bottom-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-/* line 501, ../sass/_views.scss */
+/* line 502, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content {
   background: url("../img/accordion_content.png");
   border: none;
   padding: 10px 15px 10px 15px;
 }
-/* line 505, ../sass/_views.scss */
+/* line 506, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .views-field.views-field-body {
   width: 340px;
   margin-right: 25px;
   float: left;
 }
-/* line 510, ../sass/_views.scss */
+/* line 511, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .views-field.views-field-body .tema_left img {
   margin-bottom: 15px;
 }
-/* line 515, ../sass/_views.scss */
+/* line 516, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .views-field.views-field-view {
   width: 180px;
   float: left;
 }
-/* line 522, ../sass/_views.scss */
+/* line 523, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-type {
   float: left;
   margin-right: 5px;
   font-style: italic;
 }
-/* line 526, ../sass/_views.scss */
+/* line 527, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-type .field-content {
   margin-bottom: 0;
 }
-/* line 529, ../sass/_views.scss */
+/* line 530, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-type p:after {
   content: " - ";
 }
-/* line 533, ../sass/_views.scss */
+/* line 534, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-created {
   font-style: italic;
 }
-/* line 537, ../sass/_views.scss */
+/* line 538, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-title a {
   background: url("../img/next_black.png");
   background-repeat: no-repeat;
@@ -806,39 +833,39 @@
   padding-left: 20px;
   font-size: 13px;
 }
-/* line 551, ../sass/_views.scss */
+/* line 552, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning #accordion_overskrift {
   margin-left: 5px;
   overflow: hidden;
 }
-/* line 554, ../sass/_views.scss */
+/* line 555, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning #accordion_overskrift p {
   margin: 0;
 }
-/* line 557, ../sass/_views.scss */
+/* line 558, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning #accordion_overskrift div {
   margin: 0;
   float: left;
 }
-/* line 561, ../sass/_views.scss */
+/* line 562, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning #accordion_overskrift .titel {
   width: 340px;
 }
-/* line 564, ../sass/_views.scss */
+/* line 565, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning #accordion_overskrift .forfatter {
   width: 85px;
   padding-right: 25px;
 }
 
 /* Livsfortællinger oversigt */
-/* line 577, ../sass/_views.scss */
+/* line 578, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-header .opret_livsfortaellinger {
   position: relative;
   margin-top: -30px;
   margin-bottom: 30px;
   padding-left: 15px;
 }
-/* line 582, ../sass/_views.scss */
+/* line 583, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-header .opret_livsfortaellinger a {
   background-color: #fb9a00;
   color: #FFFFFF;
@@ -849,87 +876,87 @@
   text-shadow: none;
   text-transform: uppercase;
 }
-/* line 593, ../sass/_views.scss */
+/* line 594, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-header .livsfortaellinger.labels {
   background: url("../img/content-border.png") repeat-x top left;
   padding-top: 30px;
   padding-left: 15px;
 }
-/* line 597, ../sass/_views.scss */
+/* line 598, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-header .livsfortaellinger.labels .titel {
   float: left;
   text-transform: uppercase;
   width: 356px;
 }
-/* line 602, ../sass/_views.scss */
+/* line 603, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-header .livsfortaellinger.labels .kommentar {
   float: left;
   text-transform: uppercase;
   width: 155px;
 }
-/* line 607, ../sass/_views.scss */
+/* line 608, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-header .livsfortaellinger.labels .dato {
   text-transform: uppercase;
 }
-/* line 614, ../sass/_views.scss */
+/* line 615, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row {
   padding: 20px 15px 20px 15px;
 }
-/* line 616, ../sass/_views.scss */
+/* line 617, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-title {
   float: left;
   width: 365px;
 }
-/* line 619, ../sass/_views.scss */
+/* line 620, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-title a {
   color: #fb9a00;
   background: url("../img/next_yellow.png");
   background-repeat: no-repeat;
   padding-left: 20px;
 }
-/* line 626, ../sass/_views.scss */
+/* line 627, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-comment-count {
   float: left;
   width: 110px;
   height: 25px;
 }
-/* line 631, ../sass/_views.scss */
+/* line 632, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-created {
   float: left;
 }
-/* line 634, ../sass/_views.scss */
+/* line 635, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-name {
   width: 280px;
   overflow: hidden;
 }
-/* line 639, ../sass/_views.scss */
+/* line 640, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row.views-row-even {
   background: url("../img/livsfortaelling_repeat.png");
 }
 
 /* Livsfortællinger - enkeltvisning */
-/* line 646, ../sass/_views.scss */
+/* line 647, ../sass/_views.scss */
 .view.view-livsfort-llinger-enkeltvisning {
   margin: 0 15px 0 15px;
 }
 
 /* Ung i - oversigt */
-/* line 652, ../sass/_views.scss */
+/* line 653, ../sass/_views.scss */
 .view.view-ung-i-oversigt .view-content {
   background: url("../img/content-border.png") repeat-x top left;
   padding: 30px 15px 0 15px;
 }
-/* line 655, ../sass/_views.scss */
+/* line 656, ../sass/_views.scss */
 .view.view-ung-i-oversigt .view-content .views-field.views-field-body {
   font-style: italic;
   padding: 10px 20px 10px 0;
 }
-/* line 659, ../sass/_views.scss */
+/* line 660, ../sass/_views.scss */
 .view.view-ung-i-oversigt .view-content .views-row-odd {
   float: left;
   width: 50%;
 }
-/* line 663, ../sass/_views.scss */
+/* line 664, ../sass/_views.scss */
 .view.view-ung-i-oversigt .view-content a {
   color: #fb9a00;
   background: url("../img/next_yellow.png");
@@ -938,29 +965,154 @@
   text-transform: uppercase;
 }
 
-/* Tegn selv - Arkiv */
+/* Tegn selv - seneste billeder */
 /* line 675, ../sass/_views.scss */
-.view.view-tegn-selv-arkiv .view-content {
-  padding: 0 15px 0 15px;
+.view.view-tegn-selv-seneste-billeder .view-header {
+  overflow: hidden;
+  background: url("../img/content-border.png") repeat-x top left;
+  padding: 30px 15px 0 15px;
 }
-/* line 677, ../sass/_views.scss */
-.view.view-tegn-selv-arkiv .view-content .views-row {
+/* line 679, ../sass/_views.scss */
+.view.view-tegn-selv-seneste-billeder .view-header .galleri_overskrift {
+  float: left;
+  text-transform: uppercase;
+}
+/* line 683, ../sass/_views.scss */
+.view.view-tegn-selv-seneste-billeder .view-header .se_billede_arkiv {
+  padding-top: 5px;
+  float: right;
+}
+/* line 686, ../sass/_views.scss */
+.view.view-tegn-selv-seneste-billeder .view-header .se_billede_arkiv a {
+  color: #fb9a00;
+  background: url("../img/next_yellow.png");
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  text-transform: uppercase;
+}
+/* line 695, ../sass/_views.scss */
+.view.view-tegn-selv-seneste-billeder .view-content {
+  background: url("../img/livsfortaelling_repeat.png");
+  overflow: hidden;
+  padding: 15px;
+}
+/* line 699, ../sass/_views.scss */
+.view.view-tegn-selv-seneste-billeder .view-content .views-row {
   float: left;
   width: 98px;
   margin-right: 15px;
 }
-/* line 682, ../sass/_views.scss */
+/* line 703, ../sass/_views.scss */
+.view.view-tegn-selv-seneste-billeder .view-content .views-row .views-field.views-field-title {
+  height: 40px;
+}
+/* line 707, ../sass/_views.scss */
+.view.view-tegn-selv-seneste-billeder .view-content .views-row-last {
+  margin-right: 0;
+}
+/* line 710, ../sass/_views.scss */
+.view.view-tegn-selv-seneste-billeder .view-content a {
+  color: #fb9a00;
+}
+
+/* Tegn selv - Arkiv */
+/* line 718, ../sass/_views.scss */
+.view.view-tegn-selv-arkiv .view-content {
+  padding: 0 15px 0 15px;
+}
+/* line 720, ../sass/_views.scss */
+.view.view-tegn-selv-arkiv .view-content .views-row {
+  float: left;
+  width: 98px;
+  margin-right: 15px;
+  height: 160px;
+}
+/* line 726, ../sass/_views.scss */
 .view.view-tegn-selv-arkiv .view-content .views-row-5, .view.view-tegn-selv-arkiv .view-content .views-row-10, .view.view-tegn-selv-arkiv .view-content .views-row-15 {
   margin-right: 0;
 }
 
+/* Tegn selv - enkeltvisning */
+/* line 733, ../sass/_views.scss */
+.view.view-tegn-selv-enkeltvisning {
+  margin-bottom: 20px;
+}
+
+/* Ungeblogs/Voksenblogs - oversigt */
+/* line 740, ../sass/_views.scss */
+#page .view.view-ungeblogs-oversigt .view-content .views-row, #page .view.view-voksenblogs-oversigt .view-content .views-row {
+  margin: 0 0 30px 0;
+  background: url("../img/content-border.png") repeat-x top left;
+  padding: 30px 15px 0 15px;
+}
+/* line 744, ../sass/_views.scss */
+#page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value, #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name {
+  overflow: hidden;
+}
+/* line 746, ../sass/_views.scss */
+#page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value h3, #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name h3, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value h3, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name h3 {
+  float: left;
+  text-transform: uppercase;
+  margin-right: 5px;
+}
+/* line 751, ../sass/_views.scss */
+#page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value a, #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name a, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value a, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name a {
+  color: #fb9a00;
+  background: url("../img/next_yellow.png");
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  margin: 5px 0 0 0px;
+  float: left;
+  line-height: 1;
+  height: 15px;
+  text-transform: uppercase;
+}
+/* line 763, ../sass/_views.scss */
+#page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing {
+  overflow: hidden;
+}
+/* line 765, ../sass/_views.scss */
+#page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_left, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_left {
+  float: left;
+  margin-right: 15px;
+}
+/* line 769, ../sass/_views.scss */
+#page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right {
+  float: left;
+  width: 450px;
+}
+/* line 772, ../sass/_views.scss */
+#page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right p, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right p {
+  margin-bottom: 0;
+}
+
+/* Ungeblogs - enkeltvisning  */
+/* line 785, ../sass/_views.scss */
+#page .view.view-blogs-enkeltvisning-oversigt.view-id-blogs_enkeltvisning_oversigt .view-content .views-row {
+  margin: 0 0 30px 0;
+  background: url("../img/content-border.png") repeat-x top left;
+  padding: 30px 15px 0 15px;
+}
+/* line 790, ../sass/_views.scss */
+#page .view.view-blogs-enkeltvisning-oversigt.view-id-blogs_enkeltvisning_oversigt .view-content .views-row .views-field.views-field-title a {
+  color: #fb9a00;
+  background: url("../img/next_yellow.png");
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  margin: 5px 0 0 0px;
+  line-height: 1;
+  height: 15px;
+  text-transform: uppercase;
+}
+
 /* General stuff */
-/* line 689, ../sass/_views.scss */
+/* line 808, ../sass/_views.scss */
 .opret_btn {
   position: relative;
   margin-bottom: 30px;
+  padding: 0 15px 0 15px;
 }
-/* line 692, ../sass/_views.scss */
+/* line 812, ../sass/_views.scss */
 .opret_btn a {
   background-color: #fb9a00;
   color: #FFFFFF;
@@ -1011,12 +1163,21 @@
   text-transform: uppercase;
   margin-bottom: 20px;
   padding: 0;
+  padding: 0 15px 0 15px;
 }
-/* line 33, ../sass/_forum.scss */
+/* line 34, ../sass/_forum.scss */
+.page-forum .forum-desc-wrapper .forum-description {
+  padding: 0 15px 0 15px;
+}
+/* line 37, ../sass/_forum.scss */
 .page-forum .forum-desc-wrapper p {
   margin: 0 0 10px 0;
 }
-/* line 37, ../sass/_forum.scss */
+/* line 40, ../sass/_forum.scss */
+.page-forum .forum-desc-wrapper .forum-add-post {
+  padding: 0 15px 0 15px;
+}
+/* line 42, ../sass/_forum.scss */
 .page-forum .forum-desc-wrapper .forum-add-post a {
   padding: 15px 20px;
   background-color: #fb9a00;
@@ -1027,7 +1188,7 @@
   line-height: 1em;
   text-shadow: none;
 }
-/* line 49, ../sass/_forum.scss */
+/* line 54, ../sass/_forum.scss */
 .page-forum table.forum-table-forums,
 .page-forum table.forum-table-topics {
   font-family: "Cabin", sans-serif;
@@ -1035,7 +1196,7 @@
   color: #2b2627;
   margin: 8px 0 0 0;
 }
-/* line 54, ../sass/_forum.scss */
+/* line 59, ../sass/_forum.scss */
 .page-forum table.forum-table-forums th,
 .page-forum table.forum-table-topics th {
   border: 0;
@@ -1045,14 +1206,14 @@
   padding: 0 9px 9px 0;
   line-height: 1em;
 }
-/* line 63, ../sass/_forum.scss */
+/* line 68, ../sass/_forum.scss */
 .page-forum table.forum-table-forums th.forum-name,
 .page-forum table.forum-table-forums th.views-field-title,
 .page-forum table.forum-table-topics th.forum-name,
 .page-forum table.forum-table-topics th.views-field-title {
   padding: 0 0 0 18px;
 }
-/* line 67, ../sass/_forum.scss */
+/* line 72, ../sass/_forum.scss */
 .page-forum table.forum-table-forums th.forum-last-post,
 .page-forum table.forum-table-forums th.views-field-last-updated,
 .page-forum table.forum-table-topics th.forum-last-post,
@@ -1060,43 +1221,43 @@
   padding: 0 18px 0 0;
   text-align: right;
 }
-/* line 71, ../sass/_forum.scss */
+/* line 76, ../sass/_forum.scss */
 .page-forum table.forum-table-forums tr,
 .page-forum table.forum-table-topics tr {
   border: 0;
 }
-/* line 74, ../sass/_forum.scss */
+/* line 79, ../sass/_forum.scss */
 .page-forum table.forum-table-forums tr.odd,
 .page-forum table.forum-table-topics tr.odd {
   background: none;
 }
-/* line 77, ../sass/_forum.scss */
+/* line 82, ../sass/_forum.scss */
 .page-forum table.forum-table-forums tr.even,
 .page-forum table.forum-table-topics tr.even {
   background-color: #b6a59c;
   background-color: rgba(182, 165, 156, 0.22);
 }
-/* line 81, ../sass/_forum.scss */
+/* line 86, ../sass/_forum.scss */
 .page-forum table.forum-table-forums td,
 .page-forum table.forum-table-topics td {
   border: 0;
   padding: 24px 18px;
 }
-/* line 86, ../sass/_forum.scss */
+/* line 91, ../sass/_forum.scss */
 .page-forum table.forum-table-forums td.forum-details,
 .page-forum table.forum-table-forums td.views-field-title,
 .page-forum table.forum-table-topics td.forum-details,
 .page-forum table.forum-table-topics td.views-field-title {
   width: 50%;
 }
-/* line 88, ../sass/_forum.scss */
+/* line 93, ../sass/_forum.scss */
 .page-forum table.forum-table-forums td.forum-details .forum-name,
 .page-forum table.forum-table-forums td.views-field-title .forum-name,
 .page-forum table.forum-table-topics td.forum-details .forum-name,
 .page-forum table.forum-table-topics td.views-field-title .forum-name {
   margin-bottom: 16px;
 }
-/* line 90, ../sass/_forum.scss */
+/* line 95, ../sass/_forum.scss */
 .page-forum table.forum-table-forums td.forum-details .forum-name a,
 .page-forum table.forum-table-forums td.views-field-title .forum-name a,
 .page-forum table.forum-table-topics td.forum-details .forum-name a,
@@ -1106,14 +1267,14 @@
   background: url("../img/next_yellow.png") no-repeat 0 2px;
   padding: 0 0 0 21px;
 }
-/* line 97, ../sass/_forum.scss */
+/* line 102, ../sass/_forum.scss */
 .page-forum table.forum-table-forums td.forum-details .forum-description,
 .page-forum table.forum-table-forums td.views-field-title .forum-description,
 .page-forum table.forum-table-topics td.forum-details .forum-description,
 .page-forum table.forum-table-topics td.views-field-title .forum-description {
   line-height: 1.2em;
 }
-/* line 102, ../sass/_forum.scss */
+/* line 107, ../sass/_forum.scss */
 .page-forum table.forum-table-forums td.views-field-title a,
 .page-forum table.forum-table-topics td.views-field-title a {
   font-size: 15px;
@@ -1121,7 +1282,7 @@
   background: url("../img/next_yellow.png") no-repeat 0 2px;
   padding: 0 0 0 21px;
 }
-/* line 116, ../sass/_forum.scss */
+/* line 121, ../sass/_forum.scss */
 .page-forum table.forum-table-forums td.forum-last-reply,
 .page-forum table.forum-table-forums td.views-field-last-updated,
 .page-forum table.forum-table-topics td.forum-last-reply,
@@ -1129,25 +1290,25 @@
   width: 25%;
   text-align: right;
 }
-/* line 120, ../sass/_forum.scss */
+/* line 125, ../sass/_forum.scss */
 .page-forum table.forum-table-forums a,
 .page-forum table.forum-table-topics a {
   color: #fb9a00;
 }
-/* line 124, ../sass/_forum.scss */
+/* line 129, ../sass/_forum.scss */
 .page-forum .forum-table-wrap {
   margin: 0;
 }
-/* line 125, ../sass/_forum.scss */
+/* line 130, ../sass/_forum.scss */
 .page-forum .block.forum-description {
   padding: 20px 15px 10px 15px;
   background: url("../img/content-border.png") repeat-x top left;
 }
-/* line 128, ../sass/_forum.scss */
+/* line 133, ../sass/_forum.scss */
 .page-forum .block.forum-description .block-title {
   margin-bottom: 20px;
 }
-/* line 132, ../sass/_forum.scss */
+/* line 137, ../sass/_forum.scss */
 .page-forum .view-empty {
   margin: 0;
   padding: 0;
@@ -1156,7 +1317,7 @@
 /**
  * FORUM POST
  */
-/* line 141, ../sass/_forum.scss */
+/* line 146, ../sass/_forum.scss */
 .node-type-forum,
 .page-comment-reply {
   /**
@@ -1166,18 +1327,28 @@
    * COMMENTS
    */
 }
-/* line 146, ../sass/_forum.scss */
+/* line 151, ../sass/_forum.scss */
 .node-type-forum .forum-post.top-post,
 .page-comment-reply .forum-post.top-post {
   background: url("../img/content-border.png") repeat-x scroll left bottom transparent;
 }
-/* line 149, ../sass/_forum.scss */
+/* line 154, ../sass/_forum.scss */
 .node-type-forum .forum-post,
 .page-comment-reply .forum-post {
   padding: 0 0 25px 0;
   margin: 0;
 }
-/* line 152, ../sass/_forum.scss */
+/* line 156, ../sass/_forum.scss */
+.node-type-forum .forum-post .forum-post-info,
+.page-comment-reply .forum-post .forum-post-info {
+  padding: 0 15px 0 15px;
+}
+/* line 159, ../sass/_forum.scss */
+.node-type-forum .forum-post .forum-post-info .field.field-name-comment-body a,
+.page-comment-reply .forum-post .forum-post-info .field.field-name-comment-body a {
+  color: #fb9a00;
+}
+/* line 165, ../sass/_forum.scss */
 .node-type-forum .forum-post #forum-headline h1,
 .node-type-forum .forum-post .forum-post-title,
 .page-comment-reply .forum-post #forum-headline h1,
@@ -1190,19 +1361,19 @@
   margin-bottom: 10px;
   padding: 0;
 }
-/* line 159, ../sass/_forum.scss */
+/* line 172, ../sass/_forum.scss */
 .node-type-forum .forum-post .author-pane,
 .page-comment-reply .forum-post .author-pane {
   font-size: 13px;
   text-transform: uppercase;
   font-weight: 500;
 }
-/* line 163, ../sass/_forum.scss */
+/* line 176, ../sass/_forum.scss */
 .node-type-forum .forum-post .author-pane .user-picture,
 .page-comment-reply .forum-post .author-pane .user-picture {
   display: none;
 }
-/* line 165, ../sass/_forum.scss */
+/* line 178, ../sass/_forum.scss */
 .node-type-forum .forum-post .forum-posted-on,
 .page-comment-reply .forum-post .forum-posted-on {
   font-size: 11px;
@@ -1210,27 +1381,34 @@
   font-style: italic;
   padding: 0;
 }
-/* line 172, ../sass/_forum.scss */
+/* line 184, ../sass/_forum.scss */
+.node-type-forum .forum-post .forum-post-footer,
+.page-comment-reply .forum-post .forum-post-footer {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 15px;
+}
+/* line 188, ../sass/_forum.scss */
 .node-type-forum .forum-post .forum-post-footer .forum-post-links,
 .page-comment-reply .forum-post .forum-post-footer .forum-post-links {
   margin: 10px 0 0 0;
   padding: 0;
   float: left;
 }
-/* line 174, ../sass/_forum.scss */
+/* line 190, ../sass/_forum.scss */
 .node-type-forum .forum-post .forum-post-footer .forum-post-links ul,
 .page-comment-reply .forum-post .forum-post-footer .forum-post-links ul {
   margin: 0;
   padding: 0;
 }
-/* line 176, ../sass/_forum.scss */
+/* line 192, ../sass/_forum.scss */
 .node-type-forum .forum-post .forum-post-footer .forum-post-links ul li,
 .page-comment-reply .forum-post .forum-post-footer .forum-post-links ul li {
   margin: 0 5px 0 0;
   padding: 0;
   float: left;
 }
-/* line 179, ../sass/_forum.scss */
+/* line 195, ../sass/_forum.scss */
 .node-type-forum .forum-post .forum-post-footer .forum-post-links ul li a,
 .page-comment-reply .forum-post .forum-post-footer .forum-post-links ul li a {
   padding: 15px 20px;
@@ -1242,18 +1420,18 @@
   line-height: 1em;
   text-shadow: none;
 }
-/* line 197, ../sass/_forum.scss */
+/* line 213, ../sass/_forum.scss */
 .node-type-forum #forum-comments,
 .page-comment-reply #forum-comments {
   padding: 25px 0 0 0;
   margin: 0;
 }
-/* line 199, ../sass/_forum.scss */
+/* line 215, ../sass/_forum.scss */
 .node-type-forum #forum-comments .indented,
 .page-comment-reply #forum-comments .indented {
   margin: 0 0 0 30px;
 }
-/* line 200, ../sass/_forum.scss */
+/* line 216, ../sass/_forum.scss */
 .node-type-forum #forum-comments .forum-post,
 .page-comment-reply #forum-comments .forum-post {
   background-color: #b6a59c;
@@ -1261,7 +1439,7 @@
   padding: 28px 25px 20px;
   margin: 0 0 15px 0;
 }
-/* line 205, ../sass/_forum.scss */
+/* line 221, ../sass/_forum.scss */
 .node-type-forum #forum-comments .forum-post .forum-post-title,
 .page-comment-reply #forum-comments .forum-post .forum-post-title {
   font-family: "Cabin", sans-serif;
@@ -1272,7 +1450,7 @@
   margin: 0 0 10px 0;
   padding: 0;
 }
-/* line 212, ../sass/_forum.scss */
+/* line 228, ../sass/_forum.scss */
 .node-type-forum #forum-comments .forum-post .author-pane,
 .page-comment-reply #forum-comments .forum-post .author-pane {
   font-size: 11px;
@@ -1283,12 +1461,12 @@
   padding-right: 5px;
   border-right: 1px solid #8f8a89;
 }
-/* line 218, ../sass/_forum.scss */
+/* line 234, ../sass/_forum.scss */
 .node-type-forum #forum-comments .forum-post .author-pane .user-picture,
 .page-comment-reply #forum-comments .forum-post .author-pane .user-picture {
   display: none;
 }
-/* line 220, ../sass/_forum.scss */
+/* line 236, ../sass/_forum.scss */
 .node-type-forum #forum-comments .forum-post .forum-posted-on,
 .page-comment-reply #forum-comments .forum-post .forum-posted-on {
   font-size: 11px;
@@ -1296,27 +1474,27 @@
   margin-bottom: 15px;
   padding: 0;
 }
-/* line 226, ../sass/_forum.scss */
+/* line 242, ../sass/_forum.scss */
 .node-type-forum #forum-comments .forum-post .forum-post-footer .forum-post-links,
 .page-comment-reply #forum-comments .forum-post .forum-post-footer .forum-post-links {
   margin: 10px 0 0 0;
   padding: 0;
   float: left;
 }
-/* line 228, ../sass/_forum.scss */
+/* line 244, ../sass/_forum.scss */
 .node-type-forum #forum-comments .forum-post .forum-post-footer .forum-post-links ul,
 .page-comment-reply #forum-comments .forum-post .forum-post-footer .forum-post-links ul {
   margin: 0;
   padding: 0;
 }
-/* line 230, ../sass/_forum.scss */
+/* line 246, ../sass/_forum.scss */
 .node-type-forum #forum-comments .forum-post .forum-post-footer .forum-post-links ul li,
 .page-comment-reply #forum-comments .forum-post .forum-post-footer .forum-post-links ul li {
   margin: 0 5px 0 0;
   padding: 0;
   float: left;
 }
-/* line 233, ../sass/_forum.scss */
+/* line 249, ../sass/_forum.scss */
 .node-type-forum #forum-comments .forum-post .forum-post-footer .forum-post-links ul li a,
 .page-comment-reply #forum-comments .forum-post .forum-post-footer .forum-post-links ul li a {
   padding: 15px 20px;
@@ -1328,7 +1506,7 @@
   line-height: 1em;
   text-shadow: none;
 }
-/* line 247, ../sass/_forum.scss */
+/* line 263, ../sass/_forum.scss */
 .node-type-forum #forum-comments h2.comment-form,
 .page-comment-reply #forum-comments h2.comment-form {
   margin-top: 25px;
@@ -1340,10 +1518,11 @@
 /* line 5, ../sass/_form.scss */
 .node-form,
 .comment-form {
+  padding: 0 15px 0 15px;
   /* Custom Select */
   /* Custom Checkboxes */
 }
-/* line 9, ../sass/_form.scss */
+/* line 10, ../sass/_form.scss */
 .node-form input[type=text],
 .node-form input[type=password],
 .node-form textarea,
@@ -1362,7 +1541,7 @@
   outline: none;
   resize: none;
 }
-/* line 19, ../sass/_form.scss */
+/* line 20, ../sass/_form.scss */
 .node-form input[type=submit],
 .comment-form input[type=submit] {
   font-family: "Cabin", sans-serif;
@@ -1377,41 +1556,41 @@
   text-shadow: none;
   font-weight: normal;
 }
-/* line 32, ../sass/_form.scss */
+/* line 33, ../sass/_form.scss */
 .node-form label,
 .comment-form label {
   font-family: "Cabin", sans-serif;
   font-size: 13px;
   color: #2d2728;
 }
-/* line 38, ../sass/_form.scss */
+/* line 39, ../sass/_form.scss */
 .node-form .form-type-checkbox label,
 .comment-form .form-type-checkbox label {
   cursor: pointer;
 }
-/* line 42, ../sass/_form.scss */
+/* line 43, ../sass/_form.scss */
 .node-form #edit-actions,
 .comment-form #edit-actions {
   float: left;
   width: 100%;
 }
-/* line 45, ../sass/_form.scss */
+/* line 46, ../sass/_form.scss */
 .node-form .description,
 .comment-form .description {
   font-style: italic;
   margin: 5px 0 0 0;
 }
-/* line 49, ../sass/_form.scss */
+/* line 50, ../sass/_form.scss */
 .node-form p,
 .comment-form p {
   margin: 0;
 }
-/* line 52, ../sass/_form.scss */
+/* line 53, ../sass/_form.scss */
 .node-form select,
 .comment-form select {
   cursor: pointer;
 }
-/* line 57, ../sass/_form.scss */
+/* line 58, ../sass/_form.scss */
 .node-form input:focus,
 .node-form select:focus,
 .node-form textarea:focus,
@@ -1421,7 +1600,7 @@
   outline: none;
   box-shadow: none;
 }
-/* line 62, ../sass/_form.scss */
+/* line 63, ../sass/_form.scss */
 .node-form .customSelect,
 .comment-form .customSelect {
   background-color: #FFFFFF;
@@ -1434,7 +1613,7 @@
   height: auto;
   cursor: pointer;
 }
-/* line 72, ../sass/_form.scss */
+/* line 73, ../sass/_form.scss */
 .node-form .customSelectInner,
 .comment-form .customSelectInner {
   background-image: url("../img/select-bg.png");
@@ -1442,7 +1621,7 @@
   background-repeat: no-repeat;
   cursor: pointer;
 }
-/* line 79, ../sass/_form.scss */
+/* line 80, ../sass/_form.scss */
 .node-form .styledCheckbox,
 .comment-form .styledCheckbox {
   float: left;
@@ -1452,7 +1631,7 @@
 /**
  * NODE FORMS
  */
-/* line 92, ../sass/_form.scss */
+/* line 93, ../sass/_form.scss */
 .page-node-add .region-content .region-inner > .element-invisible {
   clip: auto;
   height: auto;
@@ -1460,23 +1639,106 @@
   position: relative !important;
 }
 
-/* line 103, ../sass/_form.scss */
+/* Opret blogindlæg */
+/* line 106, ../sass/_form.scss */
+.page-node-add-blog #blog-node-form {
+  overflow: hidden;
+  padding: 0 15px 0 15px;
+}
+/* line 109, ../sass/_form.scss */
+.page-node-add-blog #blog-node-form .form-item, .page-node-add-blog #blog-node-form .form-actions {
+  margin: 10px 0;
+}
+/* line 112, ../sass/_form.scss */
+.page-node-add-blog #blog-node-form > div > div {
+  float: left;
+  width: 100%;
+}
+/* line 115, ../sass/_form.scss */
+.page-node-add-blog #blog-node-form .form-type-select,
+.page-node-add-blog #blog-node-form .form-type-textfield,
+.page-node-add-blog #blog-node-form .form-type-textarea {
+  float: left;
+  width: 100%;
+}
+/* line 118, ../sass/_form.scss */
+.page-node-add-blog #blog-node-form .form-type-select label,
+.page-node-add-blog #blog-node-form .form-type-textfield label,
+.page-node-add-blog #blog-node-form .form-type-textarea label {
+  width: 11%;
+  text-align: left;
+  float: none;
+  padding-right: 4%;
+  margin-top: 6px;
+}
+/* line 125, ../sass/_form.scss */
+.page-node-add-blog #blog-node-form .form-type-select input, .page-node-add-blog #blog-node-form .form-type-select textarea, .page-node-add-blog #blog-node-form .form-type-select .description,
+.page-node-add-blog #blog-node-form .form-type-textfield input,
+.page-node-add-blog #blog-node-form .form-type-textfield textarea,
+.page-node-add-blog #blog-node-form .form-type-textfield .description,
+.page-node-add-blog #blog-node-form .form-type-textarea input,
+.page-node-add-blog #blog-node-form .form-type-textarea textarea,
+.page-node-add-blog #blog-node-form .form-type-textarea .description {
+  width: 85%;
+  float: none;
+}
+/* line 130, ../sass/_form.scss */
+.page-node-add-blog #blog-node-form .form-wrapper > .form-type-checkbox {
+  width: 85%;
+  float: right;
+  overflow: hidden;
+}
+/* line 138, ../sass/_form.scss */
+.page-node-add-blog #blog-node-form .form-type-checkboxes {
+  float: left;
+  width: 100%;
+}
+/* line 141, ../sass/_form.scss */
+.page-node-add-blog #blog-node-form .form-type-checkboxes > label {
+  width: 11%;
+  float: left;
+  text-align: left;
+  padding-right: 4%;
+  margin-top: 6px;
+}
+/* line 148, ../sass/_form.scss */
+.page-node-add-blog #blog-node-form .form-type-checkboxes .form-checkboxes, .page-node-add-blog #blog-node-form .form-type-checkboxes .description {
+  width: 85%;
+  float: right;
+}
+/* line 153, ../sass/_form.scss */
+.page-node-add-blog #blog-node-form fieldset {
+  float: none;
+  width: 85%;
+  padding: 5px 0;
+}
+/* line 156, ../sass/_form.scss */
+.page-node-add-blog #blog-node-form #edit-actions {
+  float: none;
+  width: 85%;
+}
+/* line 160, ../sass/_form.scss */
+.page-node-add-blog #blog-node-form .field-type-image .form-submit {
+  margin-left: 20px;
+}
+
+/* line 168, ../sass/_form.scss */
 .node-form .form-item, .node-form .form-actions {
   margin: 10px 0;
 }
-/* line 106, ../sass/_form.scss */
+/* line 171, ../sass/_form.scss */
 .node-form > div > div {
   float: left;
   width: 100%;
 }
-/* line 109, ../sass/_form.scss */
+/* line 174, ../sass/_form.scss */
 .node-form .form-type-select,
 .node-form .form-type-textfield,
 .node-form .form-type-textarea {
   float: left;
   width: 100%;
 }
-/* line 112, ../sass/_form.scss */
+/* line 177, ../sass/_form.scss */
 .node-form .form-type-select label,
 .node-form .form-type-textfield label,
 .node-form .form-type-textarea label {
@@ -1486,7 +1748,7 @@
   padding-right: 4%;
   margin-top: 6px;
 }
-/* line 119, ../sass/_form.scss */
+/* line 184, ../sass/_form.scss */
 .node-form .form-type-select input, .node-form .form-type-select textarea, .node-form .form-type-select .description,
 .node-form .form-type-textfield input,
 .node-form .form-type-textfield textarea,
@@ -1497,18 +1759,18 @@
   width: 85%;
   float: right;
 }
-/* line 124, ../sass/_form.scss */
+/* line 189, ../sass/_form.scss */
 .node-form .form-wrapper > .form-type-checkbox {
   width: 85%;
   float: right;
   overflow: hidden;
 }
-/* line 132, ../sass/_form.scss */
+/* line 197, ../sass/_form.scss */
 .node-form .form-type-checkboxes {
   float: left;
   width: 100%;
 }
-/* line 135, ../sass/_form.scss */
+/* line 200, ../sass/_form.scss */
 .node-form .form-type-checkboxes > label {
   width: 11%;
   float: left;
@@ -1516,18 +1778,18 @@
   padding-right: 4%;
   margin-top: 6px;
 }
-/* line 142, ../sass/_form.scss */
+/* line 207, ../sass/_form.scss */
 .node-form .form-type-checkboxes .form-checkboxes, .node-form .form-type-checkboxes .description {
   width: 85%;
   float: right;
 }
-/* line 147, ../sass/_form.scss */
+/* line 212, ../sass/_form.scss */
 .node-form fieldset {
   float: right;
   width: 85%;
   padding: 5px 0;
 }
-/* line 150, ../sass/_form.scss */
+/* line 215, ../sass/_form.scss */
 .node-form #edit-actions {
   float: right;
   width: 85%;
@@ -1536,28 +1798,28 @@
 /**
  * SEARCH FORM
  */
-/* line 158, ../sass/_form.scss */
+/* line 223, ../sass/_form.scss */
 #block-search-form {
   float: right;
   width: 250px;
 }
-/* line 161, ../sass/_form.scss */
+/* line 226, ../sass/_form.scss */
 #block-search-form .block-inner {
   margin-bottom: 5px;
 }
-/* line 163, ../sass/_form.scss */
+/* line 228, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form {
   float: right;
   overflow: hidden;
 }
-/* line 166, ../sass/_form.scss */
+/* line 231, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-item.form-type-textfield.form-item-search-block-form {
   margin: 0;
   padding: 0;
   line-height: 1em;
   float: left;
 }
-/* line 168, ../sass/_form.scss */
+/* line 233, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-item.form-type-textfield.form-item-search-block-form .form-text {
   margin: 0;
   padding: 0;
@@ -1574,11 +1836,11 @@
   text-transform: uppercase;
   width: 200px;
 }
-/* line 182, ../sass/_form.scss */
+/* line 247, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-actions {
   float: right;
 }
-/* line 184, ../sass/_form.scss */
+/* line 249, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-actions .form-submit {
   background: url("../img/search_button_top.png");
   background-repeat: no-repeat;
@@ -1590,84 +1852,117 @@
   margin: 0;
   padding: 0;
 }
-/* line 198, ../sass/_form.scss */
+/* line 263, ../sass/_form.scss */
 #block-search-form ::-webkit-input-placeholder {
   color: white;
 }
-/* line 202, ../sass/_form.scss */
+/* line 267, ../sass/_form.scss */
 #block-search-form :-moz-placeholder {
   /* Firefox 18- */
   color: white;
   opacity: 1;
 }
-/* line 207, ../sass/_form.scss */
+/* line 272, ../sass/_form.scss */
 #block-search-form ::-moz-placeholder {
   /* Firefox 19+ */
   color: white;
   opacity: 1;
 }
-/* line 212, ../sass/_form.scss */
+/* line 277, ../sass/_form.scss */
 #block-search-form :-ms-input-placeholder {
   color: white;
 }
 
-/* line 216, ../sass/_form.scss */
+/* line 281, ../sass/_form.scss */
 #block-menu-menu-sprogmenu {
   float: right;
 }
 
+/* Brugerprofil form */
+/* line 285, ../sass/_form.scss */
+#user-profile-form {
+  padding: 0 15px 0 15px;
+}
+/* line 287, ../sass/_form.scss */
+#user-profile-form a {
+  color: #fb9a00;
+}
+/* line 290, ../sass/_form.scss */
+#user-profile-form input[type=submit] {
+  font-family: "Cabin", sans-serif;
+  background: #fb9a00;
+  color: #FFFFFF;
+  font-size: 13px;
+  line-height: 1em;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: none;
+  text-shadow: none;
+  font-weight: normal;
+}
+
 /* Node - generel indrykning */
-/* line 4, ../sass/_node.scss */
-.page-node .node.node-page .node-title, .page-node .node-simpel-side-med-view .node-title, .page-node .node-historie .node-title {
+/* line 3, ../sass/_node.scss */
+.page-node .media-youtube-player {
+  width: 100%;
+}
+/* line 7, ../sass/_node.scss */
+.page-node .node.node-page .node-title, .page-node .node.node-blog .node-title, .page-node .node-simpel-side-med-view .node-title, .page-node .node-historie .node-title, .page-node .node-image .node-title {
   padding-left: 15px;
   margin-bottom: 0;
 }
-/* line 8, ../sass/_node.scss */
-.page-node .node.node-page .field.field-name-body, .page-node .node-simpel-side-med-view .field.field-name-body, .page-node .node-historie .field.field-name-body {
+/* line 11, ../sass/_node.scss */
+.page-node .node.node-page .field.field-name-body, .page-node .node.node-page .field.field-name-field-billede, .page-node .node.node-page .view.view-tegn-selv-enkeltvisning, .page-node .node.node-blog .field.field-name-body, .page-node .node.node-blog .field.field-name-field-billede, .page-node .node.node-blog .view.view-tegn-selv-enkeltvisning, .page-node .node-simpel-side-med-view .field.field-name-body, .page-node .node-simpel-side-med-view .field.field-name-field-billede, .page-node .node-simpel-side-med-view .view.view-tegn-selv-enkeltvisning, .page-node .node-historie .field.field-name-body, .page-node .node-historie .field.field-name-field-billede, .page-node .node-historie .view.view-tegn-selv-enkeltvisning, .page-node .node-image .field.field-name-body, .page-node .node-image .field.field-name-field-billede, .page-node .node-image .view.view-tegn-selv-enkeltvisning {
+  padding: 0 15px 0 15px;
+}
+/* line 14, ../sass/_node.scss */
+.page-node .node.node-page .submitted, .page-node .node.node-blog .submitted, .page-node .node-simpel-side-med-view .submitted, .page-node .node-historie .submitted, .page-node .node-image .submitted {
   padding: 0 15px 0 15px;
 }
 
 /* Node - Ung i */
-/* line 15, ../sass/_node.scss */
+/* line 21, ../sass/_node.scss */
 .node-type-ung-i .node-ung-i {
   padding: 0 15px 15px 15px;
 }
 
+/* Node - Simpel side med view */
 /* Node - tegn selv oversigt */
-/* line 23, ../sass/_node.scss */
+/* line 36, ../sass/_node.scss */
 .context-oversigt-over-tegn-selv-billeder .node-simpel-side-med-view .content .field.field-name-field-vedh-ft-view.field-type-viewreference {
   background: url("../img/livsfortaelling_repeat.png");
   padding: 15px 0 15px 0;
 }
 
 /* Node - Livsfortællinger */
-/* line 34, ../sass/_node.scss */
+/* line 47, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie {
   font-family: "Cabin", sans-serif;
 }
-/* line 36, ../sass/_node.scss */
+/* line 49, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie .node-title {
   margin-bottom: 0;
 }
-/* line 39, ../sass/_node.scss */
+/* line 52, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie .view-content {
   margin-bottom: 15px;
 }
-/* line 41, ../sass/_node.scss */
+/* line 54, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie .view-content .forfatter, .node-type-historie .block-inner .node.node-historie .view-content .alder {
   float: left;
   margin-right: 5px;
 }
-/* line 45, ../sass/_node.scss */
+/* line 58, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie .view-content .alder:after {
   content: "|";
   margin: 0 5px 0 5px;
 }
-/* line 51, ../sass/_node.scss */
+/* line 64, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie .links.node-links {
   margin: 30px 0 15px 15px;
 }
-/* line 54, ../sass/_node.scss */
+/* line 67, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie .links.node-links .comment-add a {
   background-color: #fb9a00;
   color: #FFFFFF;
@@ -1678,50 +1973,54 @@
   text-shadow: none;
   text-transform: uppercase;
 }
-/* line 65, ../sass/_node.scss */
+/* line 78, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie .links.node-links li {
   padding: 0;
 }
-/* line 69, ../sass/_node.scss */
+/* line 82, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie #comments {
   background: url("../img/content-border.png") repeat-x top left;
   margin-top: 30px;
   padding: 30px 15px 0 15px;
 }
-/* line 73, ../sass/_node.scss */
+/* line 86, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie #comments a {
   color: #000;
 }
-/* line 76, ../sass/_node.scss */
+/* line 89, ../sass/_node.scss */
+.node-type-historie .block-inner .node.node-historie #comments h2 {
+  padding: 0 15px 0 15px;
+}
+/* line 92, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie #comments .comment {
   background: url("../img/livsfortaelling_repeat.png");
   padding: 30px;
   margin-bottom: 15px;
 }
-/* line 80, ../sass/_node.scss */
+/* line 96, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie #comments .comment h3 {
   text-transform: uppercase;
   margin-bottom: 0;
 }
-/* line 83, ../sass/_node.scss */
+/* line 99, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie #comments .comment h3 a {
   font-size: 13px;
 }
-/* line 87, ../sass/_node.scss */
+/* line 103, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie #comments .comment .comment-submitted {
   margin-bottom: 15px;
 }
-/* line 90, ../sass/_node.scss */
+/* line 106, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie #comments .comment .comment-links {
   margin-top: 30px;
 }
-/* line 93, ../sass/_node.scss */
+/* line 109, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie #comments .comment .comment-links ul li {
   margin: 0 5px 0 0;
   padding: 0;
   float: left;
 }
-/* line 97, ../sass/_node.scss */
+/* line 113, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie #comments .comment .comment-links ul li a {
   padding: 15px 20px;
   background-color: #585253;
@@ -1734,83 +2033,83 @@
 }
 
 /* Node - Brevkasse enkeltside - gammel indholdstype*/
-/* line 119, ../sass/_node.scss */
+/* line 135, ../sass/_node.scss */
 .node-type-faq .node-faq .field-name-field-sex {
   float: left;
 }
-/* line 121, ../sass/_node.scss */
+/* line 137, ../sass/_node.scss */
 .node-type-faq .node-faq .field-name-field-sex .field-item:after {
   content: " | ";
   color: #000;
   margin: 0 5px 0 5px;
 }
-/* line 127, ../sass/_node.scss */
+/* line 143, ../sass/_node.scss */
 .node-type-faq .node-faq .field-name-field-age {
   float: left;
   margin-bottom: 20px;
 }
-/* line 131, ../sass/_node.scss */
+/* line 147, ../sass/_node.scss */
 .node-type-faq .node-faq .field-name-field-question {
   float: left;
   margin-bottom: 15px;
 }
-/* line 134, ../sass/_node.scss */
+/* line 150, ../sass/_node.scss */
 .node-type-faq .node-faq .field-name-field-question .field-label {
   margin-bottom: 10px;
 }
-/* line 139, ../sass/_node.scss */
+/* line 155, ../sass/_node.scss */
 .node-type-faq .node-faq .field-name-body .field-label {
   margin-bottom: 10px;
 }
-/* line 143, ../sass/_node.scss */
+/* line 159, ../sass/_node.scss */
 .node-type-faq .node-faq h2 {
   margin-bottom: 0;
 }
 
 /* Node - Brevkasse enkeltside - ny indholdstype*/
-/* line 151, ../sass/_node.scss */
+/* line 167, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse {
   padding: 0 15px 0 15px;
 }
-/* line 153, ../sass/_node.scss */
+/* line 169, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse .field-name-field-brevk-koen {
   float: left;
 }
-/* line 155, ../sass/_node.scss */
+/* line 171, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse .field-name-field-brevk-koen .field-item:after {
   content: " | ";
   color: #000;
   margin: 0 5px 0 5px;
 }
-/* line 161, ../sass/_node.scss */
+/* line 177, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse .field-name-field-brevk-alder {
   float: left;
   margin-bottom: 20px;
 }
-/* line 165, ../sass/_node.scss */
+/* line 181, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse .field-name-field-brevk-spoergsmaal {
   float: left;
   margin-bottom: 15px;
 }
-/* line 168, ../sass/_node.scss */
+/* line 184, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse .field-name-field-brevk-spoergsmaal .field-label {
   margin-bottom: 10px;
 }
-/* line 173, ../sass/_node.scss */
+/* line 189, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse .field-name-field-brevk-svar .field-label {
   margin-bottom: 10px;
 }
-/* line 177, ../sass/_node.scss */
+/* line 193, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse h2 {
   margin-bottom: 0;
 }
 
 /* Søge-side oversigt */
-/* line 186, ../sass/_node.scss */
+/* line 203, ../sass/_node.scss */
 .page-search-node .region-content .form-wrapper {
   margin-top: 15px;
 }
-/* line 188, ../sass/_node.scss */
+/* line 205, ../sass/_node.scss */
 .page-search-node .region-content .form-wrapper input[type="submit"] {
   font-family: "Cabin", sans-serif;
   background: #fb9a00;
@@ -1828,20 +2127,20 @@
   width: 75px;
   font-weight: 400;
 }
-/* line 207, ../sass/_node.scss */
+/* line 224, ../sass/_node.scss */
 .page-search-node .region-content .search-results .title a {
   color: #fb9a00;
 }
-/* line 210, ../sass/_node.scss */
+/* line 227, ../sass/_node.scss */
 .page-search-node .region-content .search-results .search-snippet-info {
   margin-top: -17px;
   margin-bottom: 15px;
 }
-/* line 213, ../sass/_node.scss */
+/* line 230, ../sass/_node.scss */
 .page-search-node .region-content .search-results .search-snippet-info .search-info {
   font-style: italic;
 }
-/* line 219, ../sass/_node.scss */
+/* line 236, ../sass/_node.scss */
 .page-search-node .region-content .item-list ul.pager li {
   font-size: 12px;
   text-transform: uppercase;
@@ -1849,18 +2148,102 @@
   padding: 0;
   font-weight: bold;
 }
-/* line 225, ../sass/_node.scss */
+/* line 242, ../sass/_node.scss */
 .page-search-node .region-content .item-list ul.pager li a {
   color: #2d2728;
 }
 
-/* Voksenblog enkeltside */
-/* Kommentarer generelt på sitet */
-/* line 236, ../sass/_node.scss */
-.links.node-links {
-  margin: 30px 0 15px 0;
+/* Cyberlike */
+/* line 250, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike, .field.field-name-field-kommentar-cyberlike, .field.field-name-field-cyberlike {
+  float: right;
 }
-/* line 239, ../sass/_node.scss */
+/* line 252, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike .vud-widget, .field.field-name-field-kommentar-cyberlike .vud-widget, .field.field-name-field-cyberlike .vud-widget {
+  float: none;
+  width: 100%;
+  height: 35px;
+  margin: 0;
+}
+/* line 257, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike .vud-widget .alternate-votes-display, .field.field-name-field-kommentar-cyberlike .vud-widget .alternate-votes-display, .field.field-name-field-cyberlike .vud-widget .alternate-votes-display {
+  border: none;
+  font-family: "Cabin", sans-serif;
+  width: 100px;
+  font-weight: 400;
+  font-size: 13px;
+  text-align: right;
+  float: right;
+  font-style: italic;
+}
+/* line 267, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike .vud-widget .alternate-votes-display:after, .field.field-name-field-kommentar-cyberlike .vud-widget .alternate-votes-display:after, .field.field-name-field-cyberlike .vud-widget .alternate-votes-display:after {
+  content: " synes godt om";
+}
+/* line 270, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike .vud-widget .vud-link-up, .field.field-name-field-blog-cyberlike .vud-widget .up-active, .field.field-name-field-kommentar-cyberlike .vud-widget .vud-link-up, .field.field-name-field-kommentar-cyberlike .vud-widget .up-active, .field.field-name-field-cyberlike .vud-widget .vud-link-up, .field.field-name-field-cyberlike .vud-widget .up-active {
+  width: 89px;
+  height: 26px;
+  background: url("../img/cyberlike.png");
+  background-repeat: no-repeat;
+  display: block;
+  float: right;
+  margin-right: 15px;
+}
+/* line 278, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike .vud-widget .vud-link-up .up-inactive, .field.field-name-field-blog-cyberlike .vud-widget .up-active .up-inactive, .field.field-name-field-kommentar-cyberlike .vud-widget .vud-link-up .up-inactive, .field.field-name-field-kommentar-cyberlike .vud-widget .up-active .up-inactive, .field.field-name-field-cyberlike .vud-widget .vud-link-up .up-inactive, .field.field-name-field-cyberlike .vud-widget .up-active .up-inactive {
+  display: none;
+}
+/* line 282, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike .vud-widget .reset-active, .field.field-name-field-kommentar-cyberlike .vud-widget .reset-active, .field.field-name-field-cyberlike .vud-widget .reset-active {
+  float: right;
+  display: none;
+}
+
+/* line 288, ../sass/_node.scss */
+.field.field-name-field-kommentar-cyberlike {
+  padding-top: 28px;
+}
+
+/* line 291, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike, .field.field-name-field-cyberlike {
+  margin-top: 20px;
+}
+
+/* line 295, ../sass/_node.scss */
+.node-type-image .links.node-links {
+  position: absolute;
+  margin-top: -50px;
+}
+/* line 298, ../sass/_node.scss */
+.node-type-image .links.node-links li {
+  padding: 0;
+}
+/* line 302, ../sass/_node.scss */
+.node-type-image .field.field-name-field-kommentar-cyberlike {
+  padding-top: 55px;
+}
+/* line 305, ../sass/_node.scss */
+.node-type-image #comments {
+  margin-top: 10px;
+}
+
+/* line 310, ../sass/_node.scss */
+.node-type-blog .links.node-links {
+  position: absolute;
+  margin-top: -70px;
+}
+/* line 316, ../sass/_node.scss */
+.node-type-blog .comment-unpublished .field.field-name-field-kommentar-cyberlike .alternate-votes-display {
+  width: 55px;
+}
+
+/* Kommentarer generelt på sitet */
+/* line 324, ../sass/_node.scss */
+.links.node-links {
+  margin: 30px 0 15px 15px;
+}
+/* line 327, ../sass/_node.scss */
 .links.node-links .comment-add a {
   background-color: #fb9a00;
   color: #FFFFFF;
@@ -1872,46 +2255,50 @@
   text-transform: uppercase;
 }
 
-/* line 251, ../sass/_node.scss */
+/* line 339, ../sass/_node.scss */
 #comments {
   background: url("../img/content-border.png") repeat-x top left;
   margin-top: 30px;
   padding-top: 30px;
 }
-/* line 255, ../sass/_node.scss */
+/* line 343, ../sass/_node.scss */
 #comments a {
   color: #000;
 }
-/* line 258, ../sass/_node.scss */
+/* line 346, ../sass/_node.scss */
+#comments h2 {
+  padding: 0 15px 0 15px;
+}
+/* line 349, ../sass/_node.scss */
 #comments .comment {
   background: url("../img/livsfortaelling_repeat.png");
   padding: 30px;
   margin-bottom: 15px;
 }
-/* line 262, ../sass/_node.scss */
+/* line 353, ../sass/_node.scss */
 #comments .comment h3 {
   text-transform: uppercase;
   margin-bottom: 0;
 }
-/* line 265, ../sass/_node.scss */
+/* line 356, ../sass/_node.scss */
 #comments .comment h3 a {
   font-size: 13px;
 }
-/* line 269, ../sass/_node.scss */
+/* line 360, ../sass/_node.scss */
 #comments .comment .comment-submitted {
   margin-bottom: 15px;
 }
-/* line 272, ../sass/_node.scss */
+/* line 363, ../sass/_node.scss */
 #comments .comment .comment-links {
   margin-top: 30px;
 }
-/* line 275, ../sass/_node.scss */
+/* line 366, ../sass/_node.scss */
 #comments .comment .comment-links ul li {
   margin: 0 5px 0 0;
   padding: 0;
   float: left;
 }
-/* line 279, ../sass/_node.scss */
+/* line 370, ../sass/_node.scss */
 #comments .comment .comment-links ul li a {
   padding: 15px 20px;
   background-color: #585253;
@@ -2532,4 +2919,11 @@ body {
 .front #page #section-content #zone-content > .content_bottom {
   background: none;
   height: 0;
+}
+
+.region-tabs-right .slideout{
+  right: -260px;
+  top: 190px;
+  position: fixed;
+  z-index: 100;
 }
