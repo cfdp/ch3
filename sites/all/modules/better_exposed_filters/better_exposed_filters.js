@@ -98,6 +98,33 @@
     }                   // attach: function() {
   };                    // Drupal.behaviors.better_exposed_filters = {
 
+  // This is only needed to provide ajax functionality
+  Drupal.behaviors.better_exposed_filters_select_as_links = {
+    attach: function(context) {
+
+      $('.bef-select-as-links', context).once(function() {
+        var $widgets = $('.views-exposed-widgets');
+        // Hide the actual form elements from the user.
+        $widgets.find('.bef-select-as-links select').hide();
+        var $options = $('.bef-select-as-links select option');
+        $(this).find('a').click(function(event) {
+          // We have to prevent the page load triggered by the links.
+          event.preventDefault();
+          event.stopPropagation();
+          var text = $(this).text();
+          // Set the corresponding option inside the select element
+          $options.filter(function() {
+            return $(this).text() == text;
+          }).attr('selected', true);
+          $('.bef-new-value').val($options.filter(':selected').val());
+
+          // Submit the form.
+          $widgets.find('.views-submit-button input').click();
+        });
+      });
+    }
+  };
+
   /*
    * Helper functions
    */

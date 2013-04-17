@@ -715,6 +715,7 @@ Title Desc|Z -> A</pre> Leave the replacement value blank to remove an option al
         case 'bef_links':
           $show_apply = TRUE;
 
+          $form['#attached']['js'][] = drupal_get_path('module', 'better_exposed_filters') . '/better_exposed_filters.js';
           $form[$field_id]['#theme'] = 'select_as_links';
           break;
 

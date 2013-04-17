@@ -1,0 +1,72 @@
+diff --git a/better_exposed_filters.js b/better_exposed_filters.js
+index 87d606e..5e2bd01 100644
+--- a/better_exposed_filters.js
++++ b/better_exposed_filters.js
+@@ -98,6 +98,33 @@
+     }                   // attach: function() {
+   };                    // Drupal.behaviors.better_exposed_filters = {
+
++  // This is only needed to provide ajax functionality
++  Drupal.behaviors.better_exposed_filters_select_as_links = {
++    attach: function(context) {
++
++      $('.bef-select-as-links', context).once(function() {
++        var $widgets = $('.views-exposed-widgets');
++        // Hide the actual form elements from the user.
++        $widgets.find('.bef-select-as-links select').hide();
++        var $options = $('.bef-select-as-links select option');
++        $(this).find('a').click(function(event) {
++          // We have to prevent the page load triggered by the links.
++          event.preventDefault();
++          event.stopPropagation();
++          var text = $(this).text();
++          // Set the corresponding option inside the select element
++          $options.filter(function() {
++            return $(this).text() == text;
++          }).attr('selected', true);
++          $('.bef-new-value').val($options.filter(':selected').val());
++
++          // Submit the form.
++          $widgets.find('.views-submit-button input').click();
++        });
++      });
++    }
++  };
++
+   /*
+    * Helper functions
+    */
+diff --git a/better_exposed_filters.theme b/better_exposed_filters.theme
+index 61b973f..7802d62 100644
+--- a/better_exposed_filters.theme
++++ b/better_exposed_filters.theme
+@@ -495,14 +495,15 @@ function theme_select_as_links($vars) {
+
+   $output = '<div class="bef-select-as-links">';
+   $output .= theme('form_element', array('element' => $properties));
++  $output .= theme('select', array('element' => $vars['element']));
+   if (!empty($element['#value'])) {
+     if (is_array($element['#value'])) {
+       foreach ($element['#value'] as $value) {
+-        $output .= '<input type="hidden" name="' . $name . '[]" value="' . $value . '" />';
++        $output .= '<input type="hidden" class="bef-new-value" name="' . $name . '[]" value="' . $value . '" />';
+       }
+     }
+     else {
+-      $output .= '<input type="hidden" name="' . $name . '" value="' . $element['#value'] . '" />';
++      $output .= '<input type="hidden" class="bef-new-value" name="' . $name . '" value="' . $element['#value'] . '" />';
+     }
+   }
+   $output .= '</div>';
+diff --git a/better_exposed_filters_exposed_form_plugin.inc b/better_exposed_filters_exposed_form_plugin.inc
+index cb8ce14..b75c1bb 100644
+--- a/better_exposed_filters_exposed_form_plugin.inc
++++ b/better_exposed_filters_exposed_form_plugin.inc
+@@ -715,6 +715,7 @@ Title Desc|Z -> A</pre> Leave the replacement value blank to remove an option al
+         case 'bef_links':
+           $show_apply = TRUE;
+
++          $form['#attached']['js'][] = drupal_get_path('module', 'better_exposed_filters') . '/better_exposed_filters.js';
+           $form[$field_id]['#theme'] = 'select_as_links';
+           break;
+
