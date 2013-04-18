@@ -1,0 +1,11 @@
+/* Brevkasserådgiver backend */
+.view-counselor-backend thead {
+  font-weight: bold;
+}
+.view-counselor-backend td, 
+.view-counselor-backend thead th {
+  border: 1px solid #ccc;
+  padding: .5em;
+}
+
+
