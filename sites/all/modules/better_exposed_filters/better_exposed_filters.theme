@@ -303,7 +303,7 @@ function theme_select_as_tree($vars) {
     }
     else {
       // Build hierarchy based on prefixed '-' on the element label
-      if (t('- Any -') == $option_label) {
+      if (t('Any') == $option_label) {
         $depth = 0;
       }
       else {

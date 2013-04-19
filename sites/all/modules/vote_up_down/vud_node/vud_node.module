@@ -143,14 +143,11 @@ function vud_node_vud_widget_message_codes_alter(&$widget_message_codes) {
  */
 function vud_node_node_view($node, $view_mode, $langcode) {
   // avoid showing the widget in some node builds
-  $exclude_modes = array(
-    NODE_BUILD_PREVIEW,
-    NODE_BUILD_SEARCH_INDEX,
-    NODE_BUILD_SEARCH_RESULT,
-    NODE_BUILD_RSS,
-  );
-  if (in_array($node->build_mode, $exclude_modes)) {
-    break;
+  if ( !empty($node->in_preview) ||
+       $view_mode == 'search_index' ||
+       $view_mode == 'search_result' ||
+       $view_mode == 'rss' ) {
+    return;
   }
   if (($can_edit=user_access('use vote up/down on nodes')) || user_access('view vote up/down count on nodes')) {
     $node_type = in_array($node->type, variable_get('vud_node_types', array()), TRUE);
@@ -158,7 +155,7 @@ function vud_node_node_view($node, $view_mode, $langcode) {
     $tag = variable_get('vud_tag', 'vote');
     $widget = variable_get('vud_node_widget', 'plain');
     $vote_on_teaser = (bool)variable_get('vud_node_widget_vote_on_teaser', TRUE);
-    $teaser = $a3;
+    //$teaser = $a3;
 
     $widget_message_code = VUD_WIDGET_MESSAGE_ERROR;
     if (!$can_edit) {
@@ -169,33 +166,51 @@ function vud_node_node_view($node, $view_mode, $langcode) {
     }
 
     if ($node_type) {
-
       switch ($widget_showmode) {
+        //We managed the theme according to the view mode
         case VUD_NODE_DISPLAY_TEASER_ONLY:
-          if ($teaser == 1) {
+          if ($view_mode == 'teaser') {
+            $variables = array(
+             'entity_id' => $node->nid,
+             'type' => 'node',
+             'tag' => $tag,
+             'widget_type' => $widget,
+             'readonly' => !$can_edit,
+             'widget_message_code' => !$vote_on_teaser || !$can_edit, $widget_message_code,
+            );
             $node->content['vud_node_widget_display'] = array(
-              '#value' => theme('vud_widget', $node->nid, 'node', $tag, $widget, !$vote_on_teaser || !$can_edit, $widget_message_code),
+              '#markup' => theme('vud_widget', $variables),
               '#weight' => -10,
             );
           }
           break;
         case VUD_NODE_DISPLAY_FULL_ONLY:
-          if ($teaser == 0) {
+          if ($view_mode == 'full') {
             $node->content['vud_node_widget_display'] = array(
-              '#value' => theme('vud_widget', $node->nid, 'node', $tag, $widget, !$can_edit, $widget_message_code),
+             '#markup' => theme('vud_widget', array(
+               'entity_id'=>$entity_id,
+               'type'=>$type,
+               'tag'=>$tag,
+               'widget_message_code'=>$widget)),
               '#weight' => -10,
             );
           }
           break;
         case VUD_NODE_DISPLAY_BOTH:
-          if ($teaser == 1) {
+          if ($view_mode == 'teaser') {
             $readonly = !$vote_on_teaser || !$can_edit;
           }
           else {
             $readonly = !$can_edit;
           }
           $node->content['vud_node_widget_display'] = array(
-            '#value' => theme('vud_widget', $node->nid, 'node', $tag, $widget, $readonly, $widget_message_code),
+            '#markup' => theme('vud_widget', array(
+              'entity_id' => $node->nid,
+              'type'=>'node',
+              'tag'=>$tag,
+              'widget_theme'=>$widget,
+              'readonly'=>$readonly,
+              'widget_message_code' => $widget_message_code)),
             '#weight' => -10,
           );
           break;
@@ -232,18 +247,19 @@ function vud_node_tracker() {
     $criteria = array('entity_type' => 'node', 'entity_id' => $node->nid, 'tag' => $tag);
     $votes = votingapi_select_votes($criteria);
     $rows[] = array();
+
     foreach ($votes as $vote) {
       $account = user_load($vote['uid']);
       $rows[] = array(
-        theme('username', $account),
+        theme('username', array('account' => $account)),
         $vote['value'],
         array('data' => format_date($vote['timestamp'], 'small'), 'class' => 'nowrap')
       );
     }
-    drupal_set_title(check_plain($node->title));
-    $output = theme('table', $header, $rows);
-    $output .= theme('pager', NULL, 30);
 
+    drupal_set_title($node->title);
+    $output = theme('table', array('header' => $header,'rows' => $rows));
+    $output .= theme('pager', array('quantity' => 30));
     return $output;
   }
   else {
@@ -269,24 +285,42 @@ function vud_node_link($type, $object, $teaser = FALSE) {
           break;
         case VUD_NODE_DISPLAY_TEASER_ONLY:
           if (($teaser == 1) && $node_type && $view_vud_node_votes_count) {
+            $variables = array(
+              'entity_id' => $node->nid,
+              'type'=>$type,
+              'tag'=>$tag,
+              'widget_theme' => $widget_theme);
+
             $links['vud_node_votes_count'] = array(
-              'title' => theme('vud_votes', $node->nid, $type, $tag, $widget_theme),
+              'title' => theme('vud_votes', $variables),
               'html'  => TRUE,
             );
           }
           break;
         case VUD_NODE_DISPLAY_FULL_ONLY:
           if (($teaser == 0) && $node_type && $view_vud_node_votes_count) {
+            $variables = array(
+              'entity_id' => $node->nid,
+              'type'=>$type,
+              'tag'=>$tag,
+              'widget_theme' => $widget_theme);
+
             $links['vud_node_votes_count'] = array(
-              'title' => theme('vud_votes', $node->nid, $type, $tag, $widget_theme),
+              'title' => theme('vud_votes', $variables),
               'html'  => TRUE,
             );
           }
           break;
         case VUD_NODE_DISPLAY_BOTH:
           if ($node_type && $view_vud_node_votes_count) {
+            $variables = array(
+              'entity_id' => $node->nid,
+              'type'=>$type,
+              'tag'=>$tag,
+              'widget_theme' => $widget_theme);
+
             $links['vud_node_votes_count'] = array(
-              'title' => theme('vud_votes', $node->nid, $type, $tag, $widget_theme),
+              'title' => theme('vud_votes', $variables),
               'html'  => TRUE,
             );
           }

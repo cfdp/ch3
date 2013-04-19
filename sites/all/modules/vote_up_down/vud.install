@@ -24,11 +24,11 @@ function vud_update_6200() {
 
   if (module_exists('updown')) {
     $ret[] = drupal_uninstall_schema('updown');
-    drupal_uninstall_module('updown');
+    drupal_uninstall_modules(array('updown'));
   }
   if (module_exists('updown_node')) {
     $ret[] = drupal_uninstall_schema('updown_node');
-    drupal_uninstall_module('updown_node');
+    drupal_uninstall_modules(array('updown_node'));
   }
 
   return $ret;
