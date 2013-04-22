@@ -19,3 +19,21 @@ $(function() {
     });
 	
 });
+
+/**
+* bef menu
+*/
+function fix() {
+	$('.form-type-bef-link a').click(function() {
+	$('.form-type-bef-link').removeClass('selected');
+	$(this).parent().addClass('selected');
+});
+}
+	$(document).ready(function(){
+	fix();
+});
+Drupal.behaviors.filter = {
+	attach: function() {
+	fix();
+} 
+}

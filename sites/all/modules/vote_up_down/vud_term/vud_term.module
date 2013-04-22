@@ -79,7 +79,7 @@ function vud_term_node_view($node, $view_mode, $langcode) {
   if (user_access('use vote up/down on terms')) {
     $node_type = in_array($node->type, variable_get('vud_term_types', array()), TRUE);
     $showmode  = variable_get('vud_term_votetable_show', 1);
-    $teaser = $a3;
+    $teaser = 1;
     if ($node_type) {
       switch ($showmode) {
         case 0:

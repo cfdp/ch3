@@ -7,6 +7,23 @@
 		background: none;
 	}
 }
+#page {
+	#section-content {
+		#region-content {
+			.masonry-body {
+				font-size: 12px; line-height: 1.25em;
+				word-wrap: break-word;
+				text-shadow: none;
+				p {
+					font-size: 12px !important;
+					text-shadow: none;
+				}
+			}
+		}		
+	}
+}
+
+
 .view.view-Forside.view-id-Forside {
 	.view-content {
 		font-family: $std-font-family;
@@ -33,8 +50,10 @@
 			.masonry-body {
 				font-size: 12px; line-height: 1.25em;
 				word-wrap: break-word;
+				text-shadow: none;
 				p {
 					font-size: 12px !important;
+					text-shadow: none;
 				}
 			}
 			.masonry-date {

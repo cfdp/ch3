@@ -255,18 +255,31 @@
   background: none;
 }
 
-/* line 11, ../sass/_views.scss */
+/* line 13, ../sass/_views.scss */
+#page #section-content #region-content .masonry-body {
+  font-size: 12px;
+  line-height: 1.25em;
+  word-wrap: break-word;
+  text-shadow: none;
+}
+/* line 17, ../sass/_views.scss */
+#page #section-content #region-content .masonry-body p {
+  font-size: 12px !important;
+  text-shadow: none;
+}
+
+/* line 28, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content {
   font-family: "Cabin", sans-serif;
   overflow: hidden;
 }
-/* line 14, ../sass/_views.scss */
+/* line 31, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .masonry-item {
   position: relative;
   background: transparent url("../img/grid-box-shadow.png") no-repeat bottom center;
   padding-bottom: 8px;
 }
-/* line 18, ../sass/_views.scss */
+/* line 35, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-inner {
   padding: 25px 25px 15px;
   height: 165px;
@@ -276,27 +289,29 @@
   text-shadow: none;
   background: #FFFFFF;
 }
-/* line 25, ../sass/_views.scss */
+/* line 42, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-category {
   font-size: 11px;
 }
-/* line 28, ../sass/_views.scss */
+/* line 45, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-title {
   font-size: 15px;
   text-transform: uppercase;
   margin-bottom: 15px;
 }
-/* line 33, ../sass/_views.scss */
+/* line 50, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-body {
   font-size: 12px;
   line-height: 1.25em;
   word-wrap: break-word;
+  text-shadow: none;
 }
-/* line 36, ../sass/_views.scss */
+/* line 54, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-body p {
   font-size: 12px !important;
+  text-shadow: none;
 }
-/* line 40, ../sass/_views.scss */
+/* line 59, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-date {
   position: absolute;
   bottom: 27px;
@@ -304,7 +319,7 @@
   font-size: 11px;
   z-index: 3;
 }
-/* line 47, ../sass/_views.scss */
+/* line 66, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-link a {
   position: absolute;
   bottom: 23px;
@@ -315,73 +330,73 @@
   display: block;
   z-index: 3;
 }
-/* line 56, ../sass/_views.scss */
+/* line 75, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .masonry-item .masonry-img {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
 }
-/* line 62, ../sass/_views.scss */
+/* line 81, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-forum .masonry-inner {
   background: #FFF;
 }
-/* line 65, ../sass/_views.scss */
+/* line 84, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-forum .masonry-inner .masonry-title a {
   color: #fb9a00;
 }
-/* line 73, ../sass/_views.scss */
+/* line 92, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-faq .masonry-inner,
 .view.view-Forside.view-id-Forside .view-content .type-brevkasse .masonry-inner {
   background: #fb9a00;
   color: #FFFFFF;
 }
-/* line 77, ../sass/_views.scss */
+/* line 96, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-faq .masonry-inner .masonry-title a,
 .view.view-Forside.view-id-Forside .view-content .type-brevkasse .masonry-inner .masonry-title a {
   color: #2d2728;
 }
-/* line 82, ../sass/_views.scss */
+/* line 101, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-faq .masonry-inner .masonry-link a,
 .view.view-Forside.view-id-Forside .view-content .type-brevkasse .masonry-inner .masonry-link a {
   background: url("../img/next_big_brown.png") no-repeat top left;
 }
-/* line 89, ../sass/_views.scss */
+/* line 108, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-historie .masonry-inner {
   background: #2d2728;
   color: #FFFFFF;
 }
-/* line 93, ../sass/_views.scss */
+/* line 112, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-historie .masonry-inner .masonry-title a {
   color: #fb9a00;
 }
-/* line 101, ../sass/_views.scss */
+/* line 120, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-title a {
   color: #fb9a00;
 }
-/* line 107, ../sass/_views.scss */
+/* line 126, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-category,
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-title,
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-body {
   position: relative;
   z-index: 3;
 }
-/* line 110, ../sass/_views.scss */
+/* line 129, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-title {
   margin-bottom: 5px;
   line-height: 1.15em;
 }
-/* line 115, ../sass/_views.scss */
+/* line 134, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-link a {
   bottom: 10px;
   right: 10px;
 }
-/* line 117, ../sass/_views.scss */
+/* line 136, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-date {
   bottom: 14px;
   left: 30px;
 }
-/* line 121, ../sass/_views.scss */
+/* line 140, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-inner .masonry-content {
   background: url("../img/grid_inner_bg.png") no-repeat top left;
   z-index: 2;
@@ -392,11 +407,11 @@
 }
 
 /* Forside view - exposed filter */
-/* line 137, ../sass/_views.scss */
+/* line 156, ../sass/_views.scss */
 #block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form {
   font-family: "Cabin", sans-serif;
 }
-/* line 139, ../sass/_views.scss */
+/* line 158, ../sass/_views.scss */
 #block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form #edit-type-wrapper {
   text-align: center;
   margin: 0 0 20px 0;
@@ -404,35 +419,35 @@
   overflow: hidden;
   text-align: center;
 }
-/* line 141, ../sass/_views.scss */
+/* line 160, ../sass/_views.scss */
 #block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form #edit-type-wrapper div, #block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form #edit-type-wrapper label {
   display: inline;
 }
-/* line 146, ../sass/_views.scss */
+/* line 165, ../sass/_views.scss */
 #block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form #edit-type-wrapper label {
   font-size: 15px;
 }
-/* line 153, ../sass/_views.scss */
+/* line 172, ../sass/_views.scss */
 #block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form .views-widget .bef-select-as-links .form-item .form-type-bef-link {
   margin-left: 25px;
   text-transform: uppercase;
   font-size: 13px;
   display: inline;
 }
-/* line 158, ../sass/_views.scss */
+/* line 177, ../sass/_views.scss */
 #block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form .views-widget .bef-select-as-links .form-item .form-type-bef-link a {
   color: #2d2728;
 }
-/* line 160, ../sass/_views.scss */
+/* line 179, ../sass/_views.scss */
 #block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form .views-widget .bef-select-as-links .form-item .selected a {
   color: #fb9a00;
   text-decoration: underline;
 }
-/* line 164, ../sass/_views.scss */
+/* line 183, ../sass/_views.scss */
 #block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form .views-widget .bef-select-as-links .form-item #edit-type-faq {
   display: none;
 }
-/* line 170, ../sass/_views.scss */
+/* line 189, ../sass/_views.scss */
 #block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form #edit-combine-wrapper {
   width: 680px;
   height: 40px;
@@ -442,7 +457,7 @@
   position: relative;
   left: 50%;
 }
-/* line 179, ../sass/_views.scss */
+/* line 198, ../sass/_views.scss */
 #block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form #edit-combine-wrapper .views-widget .form-item.form-type-textfield.form-item-combine #edit-combine {
   width: 546px;
   height: 41px;
@@ -463,12 +478,12 @@
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px inset;
   box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px inset;
 }
-/* line 196, ../sass/_views.scss */
+/* line 215, ../sass/_views.scss */
 #block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form .views-exposed-widget.views-submit-button {
   position: absolute;
   margin-left: 695px;
 }
-/* line 199, ../sass/_views.scss */
+/* line 218, ../sass/_views.scss */
 #block-views-exp-forside-page #views-exposed-form-Forside-page .views-exposed-form .views-exposed-widget.views-submit-button #edit-submit-forside {
   width: 115px;
   height: 41px;
@@ -485,14 +500,14 @@
 /**
  * VIEWS PAGER
  */
-/* line 221, ../sass/_views.scss */
+/* line 240, ../sass/_views.scss */
 .view ul.pager {
   font-family: "Cabin", sans-serif;
   margin: 25px 0 0;
   text-align: center;
   width: 100%;
 }
-/* line 226, ../sass/_views.scss */
+/* line 245, ../sass/_views.scss */
 .view ul.pager li {
   font-size: 12px;
   text-transform: uppercase;
@@ -500,81 +515,81 @@
   padding: 0;
   font-weight: bold;
 }
-/* line 231, ../sass/_views.scss */
+/* line 250, ../sass/_views.scss */
 .view ul.pager li a {
   color: #2d2728;
 }
 
 /* Brevkasse oversigt */
-/* line 240, ../sass/_views.scss */
+/* line 259, ../sass/_views.scss */
 .view.brevkasse-oversigt .view-content .views-row {
   background: url("../img/content-border.png") repeat-x top left;
   padding: 30px 15px 30px 15px;
 }
-/* line 243, ../sass/_views.scss */
+/* line 262, ../sass/_views.scss */
 .view.brevkasse-oversigt .view-content .views-row .views-field.views-field-name {
   margin-bottom: 10px;
 }
-/* line 245, ../sass/_views.scss */
+/* line 264, ../sass/_views.scss */
 .view.brevkasse-oversigt .view-content .views-row .views-field.views-field-name a {
   color: #fb9a00;
   text-transform: uppercase;
   background: url("../img/next_yellow.png") no-repeat 0 2px;
   padding: 0 0 0 21px;
 }
-/* line 252, ../sass/_views.scss */
+/* line 271, ../sass/_views.scss */
 .view.brevkasse-oversigt .view-content .views-row .views-field.views-field-field-brevkasse-kategori {
   text-shadow: 1px 1px white;
   margin-bottom: 10px;
 }
-/* line 255, ../sass/_views.scss */
+/* line 274, ../sass/_views.scss */
 .view.brevkasse-oversigt .view-content .views-row .views-field.views-field-field-brevkasse-kategori .views-label {
   float: left;
   margin-right: 5px;
 }
 
 /* Accordion til brevkassen */
-/* line 269, ../sass/_views.scss */
+/* line 288, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .view-header .view.view-brevkasse-term-visning {
   padding: 0 15px 0 15px;
 }
-/* line 272, ../sass/_views.scss */
+/* line 291, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .view-header #brevkasse_labels {
   padding-top: 15px;
   margin: 20px 0 15px 0;
   border-top: 1px solid #bababa;
   overflow: hidden;
 }
-/* line 277, ../sass/_views.scss */
+/* line 296, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .view-header #brevkasse_labels p {
   margin: 0;
   text-transform: uppercase;
 }
-/* line 281, ../sass/_views.scss */
+/* line 300, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .view-header #brevkasse_labels div {
   margin: 0;
   float: left;
 }
-/* line 285, ../sass/_views.scss */
+/* line 304, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .view-header #brevkasse_labels .titel {
   width: 270px;
   margin-left: 15px;
 }
-/* line 289, ../sass/_views.scss */
+/* line 308, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .view-header #brevkasse_labels .kon {
   padding-right: 20px;
   margin-left: 20px;
 }
-/* line 293, ../sass/_views.scss */
+/* line 312, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .view-header #brevkasse_labels .alder {
   padding-right: 135px;
 }
-/* line 299, ../sass/_views.scss */
+/* line 318, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .view-content.ui-accordion .views-row {
   margin-bottom: 5px;
 }
 
-/* line 306, ../sass/_views.scss */
+/* line 325, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .ui-accordion-header {
   border: none;
   background: url("../img/accordion_header.png");
@@ -585,7 +600,7 @@
   -webkit-border-top-right-radius: 0px;
   border-top-right-radius: 0px;
 }
-/* line 315, ../sass/_views.scss */
+/* line 334, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .ui-accordion-header .ui-icon {
   left: 15px;
   margin-top: -7px;
@@ -594,23 +609,23 @@
   height: 14px;
   width: 14px;
 }
-/* line 325, ../sass/_views.scss */
+/* line 344, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .ui-accordion-header.ui-state-active {
   background: url("../img/accordion_header_active.png");
 }
-/* line 327, ../sass/_views.scss */
+/* line 346, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .ui-accordion-header.ui-state-active .ui-icon {
   background: url("../img/next_yellow_down.png");
   height: 15px;
   width: 13px;
 }
-/* line 334, ../sass/_views.scss */
+/* line 353, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .ui-corner-all {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
 }
-/* line 339, ../sass/_views.scss */
+/* line 358, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .ui-corner-bottom {
   -moz-border-radius-bottomleft: 0px;
   -webkit-border-bottom-left-radius: 0px;
@@ -619,81 +634,81 @@
   -webkit-border-bottom-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-/* line 347, ../sass/_views.scss */
+/* line 366, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .ui-widget-content {
   background: url("../img/accordion_content.png");
   border: none;
   padding: 15px;
 }
-/* line 351, ../sass/_views.scss */
+/* line 370, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .ui-widget-content .views-label.views-label-field-question, .view.view-Brevkasse.view-id-Brevkasse .ui-widget-content .views-label-field-brevk-spoergsmaal, .view.view-Brevkasse.view-id-Brevkasse .ui-widget-content .views-label.views-label-body, .view.view-Brevkasse.view-id-Brevkasse .ui-widget-content .views-label-field-brevk-svar {
   margin-bottom: 15px;
   display: block;
   font-size: 13px;
 }
-/* line 358, ../sass/_views.scss */
+/* line 377, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse #accordion_overskrift {
   margin-left: 5px;
   overflow: hidden;
 }
-/* line 361, ../sass/_views.scss */
+/* line 380, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse #accordion_overskrift p {
   margin: 0;
 }
-/* line 364, ../sass/_views.scss */
+/* line 383, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse #accordion_overskrift div {
   margin: 0;
   float: left;
 }
-/* line 368, ../sass/_views.scss */
+/* line 387, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse #accordion_overskrift .titel {
   width: 270px;
 }
-/* line 371, ../sass/_views.scss */
+/* line 390, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse #accordion_overskrift .kon {
   width: 70px;
 }
-/* line 374, ../sass/_views.scss */
+/* line 393, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse #accordion_overskrift .alder {
   width: 110px;
 }
 
 /* Brevkasse enkeltvisning - EVA */
-/* line 383, ../sass/_views.scss */
+/* line 402, ../sass/_views.scss */
 .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-question, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-spoergsmaal {
   margin-bottom: 20px;
 }
-/* line 385, ../sass/_views.scss */
+/* line 404, ../sass/_views.scss */
 .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-question .views-label.views-label-field-question, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-question .views-label.views-label-field-brevk-spoergsmaal, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-spoergsmaal .views-label.views-label-field-question, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-spoergsmaal .views-label.views-label-field-brevk-spoergsmaal {
   margin-bottom: 10px;
   font-weight: 700;
 }
-/* line 391, ../sass/_views.scss */
+/* line 410, ../sass/_views.scss */
 .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-body .views-label.views-label-body, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-body .views-label.views-label-field-brevk-svar, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-svar .views-label.views-label-body, .view.view-brevkasse-enkeltvisning .view-content .views-field.views-field-field-brevk-svar .views-label.views-label-field-brevk-svar {
   font-weight: 700;
 }
-/* line 396, ../sass/_views.scss */
+/* line 415, ../sass/_views.scss */
 .view.view-brevkasse-enkeltvisning .view-content .brevkasse_header_data {
   margin-bottom: 20px;
 }
 
 /* View til temasider oversigten */
-/* line 403, ../sass/_views.scss */
+/* line 422, ../sass/_views.scss */
 .view.view-Temaer .view-content {
   background: url("../img/content-border.png") repeat-x top left;
   padding: 30px 15px 0 15px;
 }
-/* line 406, ../sass/_views.scss */
+/* line 425, ../sass/_views.scss */
 .view.view-Temaer .view-content .views-field.views-field-description-1 {
   font-style: italic;
   padding: 10px 20px 10px 0;
 }
-/* line 410, ../sass/_views.scss */
+/* line 429, ../sass/_views.scss */
 .view.view-Temaer .view-content .views-row-odd {
   float: left;
   width: 50%;
 }
-/* line 414, ../sass/_views.scss */
+/* line 433, ../sass/_views.scss */
 .view.view-Temaer .view-content a {
   color: #fb9a00;
   background: url("../img/next_yellow.png");
@@ -702,46 +717,46 @@
 }
 
 /* Accordion til temasiderne */
-/* line 427, ../sass/_views.scss */
+/* line 446, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-header #tema_top {
   padding: 0 15px 0 15px;
 }
-/* line 430, ../sass/_views.scss */
+/* line 449, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-header #tema_labels {
   padding-top: 15px;
   margin: 20px 0 15px 0;
   border-top: 1px solid #bababa;
   overflow: hidden;
 }
-/* line 435, ../sass/_views.scss */
+/* line 454, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-header #tema_labels p {
   margin: 0;
   text-transform: uppercase;
 }
-/* line 439, ../sass/_views.scss */
+/* line 458, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-header #tema_labels div {
   margin: 0;
   float: left;
 }
-/* line 443, ../sass/_views.scss */
+/* line 462, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-header #tema_labels .titel {
   width: 270px;
   margin-left: 15px;
 }
-/* line 447, ../sass/_views.scss */
+/* line 466, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-header #tema_labels .forfatter {
   padding-right: 20px;
   margin-left: 90px;
 }
-/* line 451, ../sass/_views.scss */
+/* line 470, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-header #tema_labels .oprettet {
   margin-left: 60px;
 }
-/* line 457, ../sass/_views.scss */
+/* line 476, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .view-content.ui-accordion .views-row {
   margin-bottom: 5px;
 }
-/* line 461, ../sass/_views.scss */
+/* line 480, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-accordion-header {
   border: none;
   background: url("../img/accordion_header.png");
@@ -752,7 +767,7 @@
   -webkit-border-top-right-radius: 0px;
   border-top-right-radius: 0px;
 }
-/* line 470, ../sass/_views.scss */
+/* line 489, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-accordion-header .ui-icon {
   left: 15px;
   margin-top: -7px;
@@ -761,23 +776,23 @@
   height: 14px;
   width: 14px;
 }
-/* line 480, ../sass/_views.scss */
+/* line 499, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-accordion-header.ui-state-active {
   background: url("../img/accordion_header_active.png");
 }
-/* line 482, ../sass/_views.scss */
+/* line 501, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-accordion-header.ui-state-active .ui-icon {
   background: url("../img/next_yellow_down.png");
   height: 15px;
   width: 13px;
 }
-/* line 489, ../sass/_views.scss */
+/* line 508, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-corner-all {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
 }
-/* line 494, ../sass/_views.scss */
+/* line 513, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-corner-bottom {
   -moz-border-radius-bottomleft: 0px;
   -webkit-border-bottom-left-radius: 0px;
@@ -786,46 +801,46 @@
   -webkit-border-bottom-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-/* line 502, ../sass/_views.scss */
+/* line 521, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content {
   background: url("../img/accordion_content.png");
   border: none;
   padding: 10px 15px 10px 15px;
 }
-/* line 506, ../sass/_views.scss */
+/* line 525, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .views-field.views-field-body {
   width: 340px;
   margin-right: 25px;
   float: left;
 }
-/* line 511, ../sass/_views.scss */
+/* line 530, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .views-field.views-field-body .tema_left img {
   margin-bottom: 15px;
 }
-/* line 516, ../sass/_views.scss */
+/* line 535, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .views-field.views-field-view {
   width: 180px;
   float: left;
 }
-/* line 523, ../sass/_views.scss */
+/* line 542, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-type {
   float: left;
   margin-right: 5px;
   font-style: italic;
 }
-/* line 527, ../sass/_views.scss */
+/* line 546, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-type .field-content {
   margin-bottom: 0;
 }
-/* line 530, ../sass/_views.scss */
+/* line 549, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-type p:after {
   content: " - ";
 }
-/* line 534, ../sass/_views.scss */
+/* line 553, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-created {
   font-style: italic;
 }
-/* line 538, ../sass/_views.scss */
+/* line 557, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-widget-content .view.view-tema-relateret-indhold .view-content .views-row .views-field.views-field-title a {
   background: url("../img/next_black.png");
   background-repeat: no-repeat;
@@ -833,39 +848,39 @@
   padding-left: 20px;
   font-size: 13px;
 }
-/* line 552, ../sass/_views.scss */
+/* line 571, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning #accordion_overskrift {
   margin-left: 5px;
   overflow: hidden;
 }
-/* line 555, ../sass/_views.scss */
+/* line 574, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning #accordion_overskrift p {
   margin: 0;
 }
-/* line 558, ../sass/_views.scss */
+/* line 577, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning #accordion_overskrift div {
   margin: 0;
   float: left;
 }
-/* line 562, ../sass/_views.scss */
+/* line 581, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning #accordion_overskrift .titel {
   width: 340px;
 }
-/* line 565, ../sass/_views.scss */
+/* line 584, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning #accordion_overskrift .forfatter {
   width: 85px;
   padding-right: 25px;
 }
 
 /* Livsfortællinger oversigt */
-/* line 578, ../sass/_views.scss */
+/* line 597, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-header .opret_livsfortaellinger {
   position: relative;
   margin-top: -30px;
   margin-bottom: 30px;
   padding-left: 15px;
 }
-/* line 583, ../sass/_views.scss */
+/* line 602, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-header .opret_livsfortaellinger a {
   background-color: #fb9a00;
   color: #FFFFFF;
@@ -876,87 +891,87 @@
   text-shadow: none;
   text-transform: uppercase;
 }
-/* line 594, ../sass/_views.scss */
+/* line 613, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-header .livsfortaellinger.labels {
   background: url("../img/content-border.png") repeat-x top left;
   padding-top: 30px;
   padding-left: 15px;
 }
-/* line 598, ../sass/_views.scss */
+/* line 617, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-header .livsfortaellinger.labels .titel {
   float: left;
   text-transform: uppercase;
   width: 356px;
 }
-/* line 603, ../sass/_views.scss */
+/* line 622, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-header .livsfortaellinger.labels .kommentar {
   float: left;
   text-transform: uppercase;
   width: 155px;
 }
-/* line 608, ../sass/_views.scss */
+/* line 627, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-header .livsfortaellinger.labels .dato {
   text-transform: uppercase;
 }
-/* line 615, ../sass/_views.scss */
+/* line 634, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row {
   padding: 20px 15px 20px 15px;
 }
-/* line 617, ../sass/_views.scss */
+/* line 636, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-title {
   float: left;
   width: 365px;
 }
-/* line 620, ../sass/_views.scss */
+/* line 639, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-title a {
   color: #fb9a00;
   background: url("../img/next_yellow.png");
   background-repeat: no-repeat;
   padding-left: 20px;
 }
-/* line 627, ../sass/_views.scss */
+/* line 646, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-comment-count {
   float: left;
   width: 110px;
   height: 25px;
 }
-/* line 632, ../sass/_views.scss */
+/* line 651, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-created {
   float: left;
 }
-/* line 635, ../sass/_views.scss */
+/* line 654, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-name {
   width: 280px;
   overflow: hidden;
 }
-/* line 640, ../sass/_views.scss */
+/* line 659, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row.views-row-even {
   background: url("../img/livsfortaelling_repeat.png");
 }
 
 /* Livsfortællinger - enkeltvisning */
-/* line 647, ../sass/_views.scss */
+/* line 666, ../sass/_views.scss */
 .view.view-livsfort-llinger-enkeltvisning {
   margin: 0 15px 0 15px;
 }
 
 /* Ung i - oversigt */
-/* line 653, ../sass/_views.scss */
+/* line 672, ../sass/_views.scss */
 .view.view-ung-i-oversigt .view-content {
   background: url("../img/content-border.png") repeat-x top left;
   padding: 30px 15px 0 15px;
 }
-/* line 656, ../sass/_views.scss */
+/* line 675, ../sass/_views.scss */
 .view.view-ung-i-oversigt .view-content .views-field.views-field-body {
   font-style: italic;
   padding: 10px 20px 10px 0;
 }
-/* line 660, ../sass/_views.scss */
+/* line 679, ../sass/_views.scss */
 .view.view-ung-i-oversigt .view-content .views-row-odd {
   float: left;
   width: 50%;
 }
-/* line 664, ../sass/_views.scss */
+/* line 683, ../sass/_views.scss */
 .view.view-ung-i-oversigt .view-content a {
   color: #fb9a00;
   background: url("../img/next_yellow.png");
@@ -966,23 +981,23 @@
 }
 
 /* Tegn selv - seneste billeder */
-/* line 675, ../sass/_views.scss */
+/* line 694, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-header {
   overflow: hidden;
   background: url("../img/content-border.png") repeat-x top left;
   padding: 30px 15px 0 15px;
 }
-/* line 679, ../sass/_views.scss */
+/* line 698, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-header .galleri_overskrift {
   float: left;
   text-transform: uppercase;
 }
-/* line 683, ../sass/_views.scss */
+/* line 702, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-header .se_billede_arkiv {
   padding-top: 5px;
   float: right;
 }
-/* line 686, ../sass/_views.scss */
+/* line 705, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-header .se_billede_arkiv a {
   color: #fb9a00;
   background: url("../img/next_yellow.png");
@@ -990,72 +1005,72 @@
   padding-left: 20px;
   text-transform: uppercase;
 }
-/* line 695, ../sass/_views.scss */
+/* line 714, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content {
   background: url("../img/livsfortaelling_repeat.png");
   overflow: hidden;
   padding: 15px;
 }
-/* line 699, ../sass/_views.scss */
+/* line 718, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content .views-row {
   float: left;
   width: 98px;
   margin-right: 15px;
 }
-/* line 703, ../sass/_views.scss */
+/* line 722, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content .views-row .views-field.views-field-title {
   height: 40px;
 }
-/* line 707, ../sass/_views.scss */
+/* line 726, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content .views-row-last {
   margin-right: 0;
 }
-/* line 710, ../sass/_views.scss */
+/* line 729, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content a {
   color: #fb9a00;
 }
 
 /* Tegn selv - Arkiv */
-/* line 718, ../sass/_views.scss */
+/* line 737, ../sass/_views.scss */
 .view.view-tegn-selv-arkiv .view-content {
   padding: 0 15px 0 15px;
 }
-/* line 720, ../sass/_views.scss */
+/* line 739, ../sass/_views.scss */
 .view.view-tegn-selv-arkiv .view-content .views-row {
   float: left;
   width: 98px;
   margin-right: 15px;
   height: 160px;
 }
-/* line 726, ../sass/_views.scss */
+/* line 745, ../sass/_views.scss */
 .view.view-tegn-selv-arkiv .view-content .views-row-5, .view.view-tegn-selv-arkiv .view-content .views-row-10, .view.view-tegn-selv-arkiv .view-content .views-row-15 {
   margin-right: 0;
 }
 
 /* Tegn selv - enkeltvisning */
-/* line 733, ../sass/_views.scss */
+/* line 752, ../sass/_views.scss */
 .view.view-tegn-selv-enkeltvisning {
   margin-bottom: 20px;
 }
 
 /* Ungeblogs/Voksenblogs - oversigt */
-/* line 740, ../sass/_views.scss */
+/* line 759, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row, #page .view.view-voksenblogs-oversigt .view-content .views-row {
   margin: 0 0 30px 0;
   background: url("../img/content-border.png") repeat-x top left;
   padding: 30px 15px 0 15px;
 }
-/* line 744, ../sass/_views.scss */
+/* line 763, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value, #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name {
   overflow: hidden;
 }
-/* line 746, ../sass/_views.scss */
+/* line 765, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value h3, #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name h3, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value h3, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name h3 {
   float: left;
   text-transform: uppercase;
   margin-right: 5px;
 }
-/* line 751, ../sass/_views.scss */
+/* line 770, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value a, #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name a, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value a, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name a {
   color: #fb9a00;
   background: url("../img/next_yellow.png");
@@ -1067,33 +1082,33 @@
   height: 15px;
   text-transform: uppercase;
 }
-/* line 763, ../sass/_views.scss */
+/* line 782, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing {
   overflow: hidden;
 }
-/* line 765, ../sass/_views.scss */
+/* line 784, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_left, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_left {
   float: left;
   margin-right: 15px;
 }
-/* line 769, ../sass/_views.scss */
+/* line 788, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right {
   float: left;
   width: 450px;
 }
-/* line 772, ../sass/_views.scss */
+/* line 791, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right p, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right p {
   margin-bottom: 0;
 }
 
 /* Ungeblogs - enkeltvisning  */
-/* line 785, ../sass/_views.scss */
+/* line 804, ../sass/_views.scss */
 #page .view.view-blogs-enkeltvisning-oversigt.view-id-blogs_enkeltvisning_oversigt .view-content .views-row {
   margin: 0 0 30px 0;
   background: url("../img/content-border.png") repeat-x top left;
   padding: 30px 15px 0 15px;
 }
-/* line 790, ../sass/_views.scss */
+/* line 809, ../sass/_views.scss */
 #page .view.view-blogs-enkeltvisning-oversigt.view-id-blogs_enkeltvisning_oversigt .view-content .views-row .views-field.views-field-title a {
   color: #fb9a00;
   background: url("../img/next_yellow.png");
@@ -1106,13 +1121,13 @@
 }
 
 /* General stuff */
-/* line 808, ../sass/_views.scss */
+/* line 827, ../sass/_views.scss */
 .opret_btn {
   position: relative;
   margin-bottom: 30px;
   padding: 0 15px 0 15px;
 }
-/* line 812, ../sass/_views.scss */
+/* line 831, ../sass/_views.scss */
 .opret_btn a {
   background-color: #fb9a00;
   color: #FFFFFF;
@@ -2210,40 +2225,35 @@
   margin-top: 20px;
 }
 
-/* line 295, ../sass/_node.scss */
-.node-type-image .links.node-links {
-  position: absolute;
-  margin-top: -50px;
-}
-/* line 298, ../sass/_node.scss */
+/* line 297, ../sass/_node.scss */
 .node-type-image .links.node-links li {
   padding: 0;
 }
-/* line 302, ../sass/_node.scss */
+/* line 301, ../sass/_node.scss */
 .node-type-image .field.field-name-field-kommentar-cyberlike {
   padding-top: 55px;
 }
-/* line 305, ../sass/_node.scss */
+/* line 304, ../sass/_node.scss */
 .node-type-image #comments {
   margin-top: 10px;
 }
 
-/* line 310, ../sass/_node.scss */
+/* line 309, ../sass/_node.scss */
 .node-type-blog .links.node-links {
   position: absolute;
   margin-top: -70px;
 }
-/* line 316, ../sass/_node.scss */
+/* line 315, ../sass/_node.scss */
 .node-type-blog .comment-unpublished .field.field-name-field-kommentar-cyberlike .alternate-votes-display {
   width: 55px;
 }
 
 /* Kommentarer generelt på sitet */
-/* line 324, ../sass/_node.scss */
+/* line 323, ../sass/_node.scss */
 .links.node-links {
   margin: 30px 0 15px 15px;
 }
-/* line 327, ../sass/_node.scss */
+/* line 326, ../sass/_node.scss */
 .links.node-links .comment-add a {
   background-color: #fb9a00;
   color: #FFFFFF;
@@ -2255,50 +2265,50 @@
   text-transform: uppercase;
 }
 
-/* line 339, ../sass/_node.scss */
+/* line 338, ../sass/_node.scss */
 #comments {
   background: url("../img/content-border.png") repeat-x top left;
   margin-top: 30px;
   padding-top: 30px;
 }
-/* line 343, ../sass/_node.scss */
+/* line 342, ../sass/_node.scss */
 #comments a {
   color: #000;
 }
-/* line 346, ../sass/_node.scss */
+/* line 345, ../sass/_node.scss */
 #comments h2 {
   padding: 0 15px 0 15px;
 }
-/* line 349, ../sass/_node.scss */
+/* line 348, ../sass/_node.scss */
 #comments .comment {
   background: url("../img/livsfortaelling_repeat.png");
   padding: 30px;
   margin-bottom: 15px;
 }
-/* line 353, ../sass/_node.scss */
+/* line 352, ../sass/_node.scss */
 #comments .comment h3 {
   text-transform: uppercase;
   margin-bottom: 0;
 }
-/* line 356, ../sass/_node.scss */
+/* line 355, ../sass/_node.scss */
 #comments .comment h3 a {
   font-size: 13px;
 }
-/* line 360, ../sass/_node.scss */
+/* line 359, ../sass/_node.scss */
 #comments .comment .comment-submitted {
   margin-bottom: 15px;
 }
-/* line 363, ../sass/_node.scss */
+/* line 362, ../sass/_node.scss */
 #comments .comment .comment-links {
   margin-top: 30px;
 }
-/* line 366, ../sass/_node.scss */
+/* line 365, ../sass/_node.scss */
 #comments .comment .comment-links ul li {
   margin: 0 5px 0 0;
   padding: 0;
   float: left;
 }
-/* line 370, ../sass/_node.scss */
+/* line 369, ../sass/_node.scss */
 #comments .comment .comment-links ul li a {
   padding: 15px 20px;
   background-color: #585253;
@@ -2919,11 +2929,4 @@ body {
 .front #page #section-content #zone-content > .content_bottom {
   background: none;
   height: 0;
-}
-
-.region-tabs-right .slideout{
-  right: -260px;
-  top: 190px;
-  position: fixed;
-  z-index: 100;
 }
