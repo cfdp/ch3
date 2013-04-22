@@ -35,6 +35,7 @@ css[global.css][description] = 'This file holds all the globally active custom C
 css[global.css][options][weight] = '10'
 
 stylesheets[all][] = css/backend.css
+stylesheets[all][] = css/frontend.css
 
 scripts[] = js/jquery.customSelect.min.js
 scripts[] = js/jquery.screwdefaultbuttons.min.js

@@ -1,0 +1,7 @@
+/* The chat widget in the right side of the window */
+.region-tabs-right .slideout{
+  right: -260px;
+  top: 190px;
+  position: fixed;
+  z-index: 100;
+}
