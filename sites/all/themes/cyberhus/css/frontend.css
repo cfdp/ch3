@@ -5,3 +5,39 @@
   position: fixed;
   z-index: 100;
 }
+
+.region-tabs-right .slideout.groupchat{
+  top: 380px;
+}
+
+.region-tabs-right .groupchat .status-wrapper{
+  color: black;
+  overflow: hidden;
+  width: 256px;
+  margin-right: 44px;
+  text-align: center;
+  background: url('http://cyberchat.dk/sites/all/themes/cyberhuschat/chatwidget/ch3-right-tab-widget/img/grid_background.png');
+}
+
+.region-tabs-right .groupchat .status-tab{
+  background: url('http://cyberchat.dk/sites/all/themes/cyberhuschat/img/gruppechat-tab.png') no-repeat;
+  float: left;
+  height: 162px;
+  width: 42px;
+}
+
+.region-tabs-right .groupchat .status-info{
+  margin-top: 30px;
+}
+
+#region-tabs-right #block-block-47 .groupchat .status-info p{
+  text-align: center;
+}
+
+#region-tabs-right #block-block-47 .groupchat .status-content a{
+  color: black;
+}
+
+#region-tabs-right #block-block-47 .groupchat .status-content a:hover{
+  text-decoration: underline;
+}
