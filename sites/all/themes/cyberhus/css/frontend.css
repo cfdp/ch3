@@ -16,6 +16,7 @@
 
 .region-tabs-right .groupchat .status-wrapper,
 .region-tabs-right .kramchat .status-wrapper{
+
   color: black;
   overflow: hidden;
   width: 256px;
