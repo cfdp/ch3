@@ -7,10 +7,15 @@
 }
 
 .region-tabs-right .slideout.groupchat{
-  top: 380px;
+  top: 370px;
 }
 
-.region-tabs-right .groupchat .status-wrapper{
+.region-tabs-right .slideout.kramchat{
+  top: 550px;
+}
+
+.region-tabs-right .groupchat .status-wrapper,
+.region-tabs-right .kramchat .status-wrapper{
   color: black;
   overflow: hidden;
   width: 256px;
@@ -19,14 +24,20 @@
   background: url('http://cyberchat.dk/sites/all/themes/cyberhuschat/chatwidget/ch3-right-tab-widget/img/grid_background.png');
 }
 
-.region-tabs-right .groupchat .status-tab{
+.region-tabs-right .groupchat .status-tab,
+.region-tabs-right .kramchat .status-tab{
   background: url('http://cyberchat.dk/sites/all/themes/cyberhuschat/img/gruppechat-tab.png') no-repeat;
   float: left;
   height: 162px;
   width: 42px;
 }
 
-.region-tabs-right .groupchat .status-info{
+.region-tabs-right .kramchat .status-tab{
+   background: url('http://cyberchat.dk/sites/all/themes/cyberhuschat/img/kramchatten-tab.png') no-repeat;
+}
+
+.region-tabs-right .groupchat .status-info,
+.region-tabs-right .kramchat .status-info{
   margin-top: 30px;
 }
 
