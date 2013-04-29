@@ -20,8 +20,7 @@
   width: 256px;
   margin-right: 44px;
   text-align: center;
-  background: url('http://cyberchat.dk/sites/all/themes/cyberhuschat/chatwidget/ch3-right-tab-widget/img/grid_background.png');
-  /*background: url('http://kramchat.cybhus.dk/sites/all/themes/kramchat-chat-theme/img/black_lozenge.png');*/
+  background: url('http://kramchat.cybhus.dk/sites/all/themes/kramchat-chat-theme/img/black_lozenge.png');
 }
 
 .region-tabs-right .status-tab{
@@ -65,7 +64,7 @@
 
 .region-tabs-right .groupchat .status-content p a:hover{
   background: rgb(124,103,61);
-  background: rgb(252,208,123);
+  background: rgb(222,178,93);
 }
 
 .region-tabs-right .kramchat .status-wrapper{
