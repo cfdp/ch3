@@ -1,17 +1,17 @@
 /* The chat widget in the right side of the window */
 .region-tabs-right .slideout{
   right: -260px;
-  top: 190px;
+  top: 15%;
   position: fixed;
   z-index: 100;
 }
 
 .region-tabs-right .slideout.groupchat{
-  top: 370px;
+  top: 40%;
 }
 
 .region-tabs-right .slideout.kramchat{
-  top: 550px;
+  top: 65%;
 }
 
 .region-tabs-right .groupchat .status-wrapper,
