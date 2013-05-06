@@ -49,12 +49,8 @@
 
   <div class="forum-table-wrap">
 
-	 <?php if($table_info->is_container==TRUE) { ?>
-	 
-	 <h3><?php print $table_info->name; ?></h3>
-	 <p><?php print $table_info->description; ?></p>
-
-    <?php } ?>
+    <h3><?php print $table_info->name; ?></h3>
+    <p><?php print $table_info->description; ?></p>
 
     <div id="forum-table-<?php print $table_info->tid; ?>">
       <table class="forum-table forum-table-forums">
