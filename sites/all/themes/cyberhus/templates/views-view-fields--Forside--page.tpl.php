@@ -61,11 +61,7 @@ else {
 
   <?php print $field->wrapper_prefix; ?>
     <?php print $field->label_html; ?>
-    <?php 
-    if($id=="type_1" && $field->content=="Brevkasse - udgået") print "Brevkasse"; 
-    else {
-    	print $field->content;
-    } ?>
+    <?php print $field->content; ?>
   <?php print $field->wrapper_suffix; ?>
 <?php endforeach; ?>
 
