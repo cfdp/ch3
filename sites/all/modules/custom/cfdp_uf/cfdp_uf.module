@@ -4,34 +4,27 @@
 /*
  * Implementation of hook_form_alter()
  */
-/*function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
+function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
   switch ($form_id) {
-  case 'questions_and_answers_node_form':
-    $form['#after_build'][] = 'cfdp_uf_node_form_after_build';
+  case 'brevkasse_node_form':
+    // Brevkasse-status: Iterate over the terms and unset any closed or archived terms from the select list
+    $brevk_terms = taxonomy_term_load_multiple(array(), array('vid' => '3'));
+    foreach ($brevk_terms as $key => $value) {
+        if (count($value->field_taxonomy_brevk_status) > 0){
+          $status = $value->field_taxonomy_brevk_status['und']['0']['value'];
+          if ($status === "archived" || $status === "temp_closed") {
+            $tid = $value ->tid;
+            unset($form['field_brevk_kategori']['und']['#options'][$tid]);
+          }
+        }
+    }
     break;
   }
 }
-*/
-
-/*
-// afterbuild function - for removing the input text format fields for all users but admins
-function cfdp_uf_node_form_after_build($form) {
-  if (cfdp_uf_user_has_role('anonymous user')) {
-    // we limit the number of checkboxes that can be selected via a jQuery script
-    drupal_add_js(path_to_theme() . "/scripts/cfdp_uf.js");
-  }
-  // Only admins get to play with the text format    
-  if (!cfdp_uf_user_has_role('administrator')) {
-    $form['body']['und']['0']['format']['guidelines']['#access'] = FALSE;
-    $form['body']['und']['0']['format']['help']['#access'] = FALSE;      
-  }
-  return $form;
-}
-*/
 
 function cfdp_uf_node_update($node) {
   global $user;
-  //if it is the first time the questions_and_answers node is edited by a counselor (=the author is anonymous), change the author to the current user
+  //if it is the first time the brevkasse node is edited by a counselor (=the author is anonymous), change the author to the current user
   if (($node->uid == 0) && ($node->type == "brevkasse") && cfdp_uf_user_has_role('Brevkasserådgiver')) {
     $node->uid = $user->uid;
     node_save($node);

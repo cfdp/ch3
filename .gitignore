@@ -9,3 +9,5 @@ sites/*/private
 sites/default
 
 .DS_Store
+
+.sass-cache

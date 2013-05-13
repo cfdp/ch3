@@ -1,9 +1,9 @@
-@import "base"; 
-@import "navigation"; 
-@import "views"; 
-@import "forum"; 
-@import "form"; 
-@import "node"; 
+@import "base";
+@import "navigation";
+@import "views";
+@import "forum";
+@import "form";
+@import "node";
 
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide.
@@ -14,43 +14,47 @@ styling der vises overalt, eksempelvis tekst farver osv.
 
 /* Fonts */
 #page {
+	#logo {
+		max-width: 160px;
+	}
+
 	p {
 		font-family: $std-font-family;
 		font-size: $font_size_normal;
 		margin-bottom: 10px;
 	}
-	
+
 	h1 {
 		font-size: $font_size_stor;
 		font-family: $std-font-family;
 		letter-spacing: $letter-spacing-overskrifter;
 	}
-	
+
 	h2, h2.node-title {
 		font-size: $font_size_h2;
 		font-family: $std-font-family;
 		letter-spacing: $letter-spacing-overskrifter;
 		text-transform: uppercase;
 	}
-	
+
 	h3 {
 		font-size: $font_size_h3;
 		font-family: $std-font-family;
 		letter-spacing: $letter-spacing-overskrifter;
 	}
-	
+
 	h4 {
 		font-size: $font_size_h4;
 		font-family: $std-font-family;
 		letter-spacing: $letter-spacing-overskrifter;
 	}
-	
+
 	h5 {
 		font-size: $font_size_h5;
 		font-family: $std-font-family;
 		letter-spacing: $letter-spacing-overskrifter;
 	}
-	
+
 	a:link, a:visited {
 		text-decoration: none;
 	}
@@ -59,7 +63,7 @@ styling der vises overalt, eksempelvis tekst farver osv.
 	a:link, a:visited {
 		text-decoration: none;
 		color:$font_color_gul;
-	}	
+	}
 }
 
 #region-sidebar-first {
@@ -81,14 +85,14 @@ img {
 body {
 	background: #beac9f; /* fallback */
 	background-image: url("../img/bg.png") repeat; /* fallback */
-	
+
 	background-image: url("../img/bg.png"), -webkit-gradient(linear, left top, left bottom, from(#bca79a), to(#cac1b9)); /* Saf4+, Chrome */
 	background-image: url("../img/bg.png"), -webkit-linear-gradient(top, #bca79a, #cac1b9); /* Chrome 10+, Saf5.1+ */
 	background-image: url("../img/bg.png"),    -moz-linear-gradient(top, #bca79a, #cac1b9); /* FF3.6+ */
 	background-image: url("../img/bg.png"),     -ms-linear-gradient(top, #bca79a, #cac1b9); /* IE10 */
 	background-image: url("../img/bg.png"),      -o-linear-gradient(top, #bca79a, #cac1b9); /* Opera 11.10+ */
 	background-image: url("../img/bg.png"),         linear-gradient(top, #bca79a, #cac1b9);
-	font-family: $std-font-family;	
+	font-family: $std-font-family;
 }
 
 /* Forsiden */
@@ -97,10 +101,9 @@ body {
 		background: none;
 		#section-content {
 			#zone-content-wrapper {
-				background: url("../img/forside_main_top.png");
+				background: none;
 				background-position: left top;
 				background-repeat: no-repeat;
-				padding-top: 40px;
 				margin-bottom: 0px;
 					#forside_wrapper {
 						background: url("../img/repeat_main.png");
@@ -126,14 +129,14 @@ body {
 	}
 }
 /* Undersider */
-#page {	
+#page {
 	background: url("../img/bg-watermark.png") no-repeat center bottom;
 		#section-header {
 			#region-logo {
 				height: 100px;
 			}
 			#region-search {
-				float: right;					
+				float: right;
 					#block-menu-menu-sprogmenu {
 						.menu {
 							float: right;
@@ -165,7 +168,7 @@ body {
 					}
 			}
 		}
-	
+
 		#section-content {
 			#zone-content {
 				> .content_bottom {
@@ -181,7 +184,7 @@ body {
 					.messages.status {
 						margin-left: 300px;
 					}
-				
+
 				}
 /* Sidebar */
 			#region-sidebar-first {
@@ -190,7 +193,7 @@ body {
 				background-position: right top;
 				background-repeat: no-repeat;
 					.region-inner.region-sidebar-first-inner {
-						
+
 						a {
 							color: #000;
 						}
@@ -199,11 +202,11 @@ body {
 							color: #ffffff;
 							text-shadow: $text_shadow_block_title;
 							font-weight: $font_weight_brodtekst;
-							margin: 0;							
+							margin: 0;
 						}
 						.sidebar_indhold {
 							font-size: $font_size_normal;
-							text-shadow: $text_shadow_undersider;							
+							text-shadow: $text_shadow_undersider;
 						}
 						.block{
 							margin-bottom: 20px;
@@ -246,12 +249,12 @@ body {
 								}
 							}
 							}
-							
+
 							.view-content {
 								padding-top: 30px;
 							}
 						}
-						
+
 						.block-bean {
 							.view-header {
 								position: absolute;
@@ -267,9 +270,9 @@ body {
 										float: left;
 									}
 								}
-							
+
 							}
-							
+
 							.view-content {
 								padding-top: 30px;
 								a {
@@ -291,18 +294,18 @@ body {
 									width: 251px;
 									height: 29px;
 									padding: 6px 0 0 10px;
-									margin-bottom: 0;	
+									margin-bottom: 0;
 								}
 								.views-field-field-tema-kategori-billede {
-									margin-top: -34px;	
+									margin-top: -34px;
 								}
 							}
 						}
-						
+
 						.view.view-voksenblog-sidebar {
 							.view-content {
 								padding: 70px 10px 10px 10px;
-								background: url("../img/sidebar_content_bg.png") no-repeat 0px 31px;	
+								background: url("../img/sidebar_content_bg.png") no-repeat 0px 31px;
 								.views-row {
 									margin-top: 10px;
 									a {
@@ -313,14 +316,14 @@ body {
 									p.oprettet {
 										font-style: italic;
 										font-size: $font_size_lille;
-									}	
+									}
 								}
 								.views-row-1{
-									margin-top: 0px;	
+									margin-top: 0px;
 								}
-							}	
+							}
 						}
-						
+
 						background: url("../img/repeat_sidebar.png");
 						margin-top: 22px;
 						padding: 12px;
@@ -329,7 +332,7 @@ body {
 								position: absolute;
 								top: -40px;
 									.breadcrumb {
-										padding-left: 25px; 
+										padding-left: 25px;
 										background: url("../img/breadcrumb.png");
 										background-repeat: no-repeat;
 											a {
@@ -343,27 +346,27 @@ body {
 					height: 12px;
 				}
 			}
-/* hovedindhold */			
+/* hovedindhold */
 			#region-content {
 				background: url("../img/main_top.png");
 				background-position: left top;
 				background-repeat: no-repeat;
 				h1, h2, h3, h4, h5, p, .views-field-name, .forum-table, .views-row, .comment-submitted, .comment-form, .item-list, .field-type-text-long {
-					text-shadow: $text_shadow_undersider;	
+					text-shadow: $text_shadow_undersider;
 				}
 					.region-inner.region-content-inner {
 						background: url("../img/repeat_main.png");
 						margin-top: 37px;
 						padding: 30px;
-						
+
 						.node.node-page, .node.node-simpel-side-med-view {
 							.content {
 								.field.field-name-body {
 									margin-bottom: 30px;
 								}
 							}
-						}						
-												
+						}
+
 						#block-cyberhus-social-cyberhus-social {
 							float: right;
 							width: 180px;
@@ -407,26 +410,26 @@ body {
 							padding: 20px 0 20px 0;
 							background: url("../img/content-border.png") repeat-x top left;
 						}
-					
+
 					}
-					
-					
+
+
 				.content_bottom {
 					height: 12px;
 					background: url("../img/main_bottom.png");
-				}	
+				}
 			}
-		}	
+		}
 /* Footer */
 		#section-footer {
 			color: #f1edea;
 				a {
-					color: #f1edea;	
+					color: #f1edea;
 				}
 				h2 {
-					font-weight: $font_weight_brodtekst;	
+					font-weight: $font_weight_brodtekst;
 				}
-					
+
 				#footerwrapper {
 					background: url("../img/bylinje.png");
 					background-repeat: no-repeat;
@@ -443,7 +446,7 @@ body {
 										}
 										.views-field-created {
 											font-size: $font_size_lille;
-											margin: -3px 0 25px 0;	
+											margin: -3px 0 25px 0;
 										}
 										.views-field-field-tegn-selv-billede{
 											background: url("../img/tegn_selv_bg.png") no-repeat top left;
@@ -453,10 +456,10 @@ body {
 											margin-top: 8px;
 										}
 										.block-title {
-											margin-bottom: 15px;	
+											margin-bottom: 15px;
 										}
 										.grid-4 {
-											background: url("../img/footer_vertical_border.png") repeat-y top left;	
+											background: url("../img/footer_vertical_border.png") repeat-y top left;
 											width: 210px;
 											padding-left: 15px;
 											margin-left: 0;
@@ -465,20 +468,20 @@ body {
 										.grid-4.region-footer-et {
 											background: none;
 											padding-left: 0;
-											margin-left: 10px;	
+											margin-left: 10px;
 										}
 										.grid-4.region-footer-fire {
-											margin-right: 0;	
-										}	
+											margin-right: 0;
+										}
 									}
-										
+
 								}
 									#zone-footer-bottom {
 										margin-top: 40px;
 										padding-bottom: 10px;
 										border-bottom: 1px solid #272222;
 										.block-title {
-											margin-bottom: 25px;	
+											margin-bottom: 25px;
 										}
 										#footer_bottom_seperator {
 											position:relative;
@@ -486,7 +489,7 @@ body {
 											left:0px;
 											height: 2px;
 											width: 960px;
-											background: url("../img/footer_horizontal_border.png") repeat-x top left;	
+											background: url("../img/footer_horizontal_border.png") repeat-x top left;
 										}
 										.region {
 											width: 210px;
@@ -508,14 +511,14 @@ body {
 													height: 71px;
 												}
 											}
-											
+
 										}
 										#region-footer-bottom-to {
 											ul li.leaf {
 												list-style-image: none;
 												list-style-type: none;
 												list-style-position: inside;
-												margin: 0;	
+												margin: 0;
 											}
 											ul li.last {
 												padding-left: 13px;
@@ -534,7 +537,7 @@ body {
 										}
 										#region-footer-bottom-tre {
 											margin-right: 0;
-											width: 450px;	
+											width: 450px;
 										}
 									}
 									#zone-footer-last {
@@ -543,7 +546,7 @@ body {
 										p {
 											font-size: $font_size_lille;
 											letter-spacing: $letter-spacing-overskrifter;
-										} 
+										}
 										.content {
 											.footer_left {
 												width: 50%;
@@ -555,24 +558,33 @@ body {
 												text-align: right;
 											}
 										}
-									}	
+									}
 								}
 						}
 				}
-			
+
 		}
-	
+
 /**
  * FORSIDE
  */
 .front {
-#page {
-#section-content {
-#zone-content {
-	> .content_bottom {
-		background: none; height: 0;
+	#page {
+		#section-content {
+			#zone-content {
+				> .content_bottom {
+					background: none; height: 0;
+				}
+			}
+		}
 	}
 }
+
+// Hide on mobile
+.region-tabs-right {
+	display: none;
 }
-}
+
+.front .region-header-bottom {
+	display: none;
 }
