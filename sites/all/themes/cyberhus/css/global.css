@@ -2919,18 +2919,81 @@ body {
 /**
  * FORSIDE
  */
-/* line 575, ../sass/global.scss */
+/* line 572, ../sass/global.scss */
 .front #page #section-content #zone-content > .content_bottom {
   background: none;
   height: 0;
 }
 
-/* line 584, ../sass/global.scss */
-.region-tabs-right {
-  display: none;
+#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_5, #block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_7, #block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_4, #block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_3, #block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_2, #block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_1{
+	position:absolute; height:237px; width:243px; /*height:20px; width:20px; */
+	z-index:20; -moz-opacity: 0; opacity:0; filter: alpha(opacity=0);  display:none;
+}
+/*#block-views-cyberhus-stuen-view-block p, #block-views-cyberhus-stuen-view-block span  {
+	display:none;
+}*/
+#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_2{
+	background-color:white;
+	height:20px;
+}
+	#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_2 {
+		display:block;
+		opacity:1;
+		background-color:white;
+		height:20px;
+	}
+	#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_2 .views-field-title, #block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_2 .views-field-created , #block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_2 .views-field-body, #block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_2 .views-field-view-node{
+		display:none; opacity:0;
+		
+	}
+#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_4{
+	background-color:#cfe5f1;
+	left:250px; 
+}
+	#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_4 .views-field-field-forum-forf-navn{
+		float:left; padding-right:3px;
+	}
+#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_3{
+	background-color:#abb9c0;
+	left:500px; 
+}
+	#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_3 .views-field-field-anmeldelse-anm-navn{
+		float:left; padding-right:3px;
+	}	
+#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_5{
+	background-color:yellow;
+	left:500px; top:250px
+}
+#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_7{
+	background-color:#abf9c0;
+	width: 237px;
+	left:650px; 
+}
+	#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_7 .views-field-field-anmeldelse-anm-navn{
+		float:left; padding-right:3px;
+	}
+#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_1{
+	background-color:pink;
+	left:250px; top:250px
+}
+	#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_1 .views-field-field-brevk-alder{
+		float:left; padding-right:3px;
+	}
+	#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_1 .views-field-field-brevk-koen{
+		float:left; padding-right:3px;
+	}
+#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view .view-display-id-attachment_6 .views-field-field-anmeldelse-billede{
+	position:absolute; left:653px; top:60px;
+	z-index:10;
+}
+#block-views-cyberhus-stuen-view-block .view-content .views-field-field-billede{
+	position:absolute; top:161px; left:73px;
+	z-index:10;
 }
 
-/* line 588, ../sass/global.scss */
-.front .region-header-bottom {
-  display: none;
+#block-views-cyberhus-stuen-view-block .view-id-cyberhus_stuen_view  .views-row img{
+	background-color:yellow;
 }
+
+
+

@@ -38,9 +38,15 @@ stylesheets[all][] = css/backend.css
 stylesheets[all][] = css/frontend.css
 
 scripts[] = js/jquery.customSelect.min.js
+scripts[] = js/CSSPlugin.min.js
+scripts[] = js/EasePack.min.js
+scripts[] = js/TweenMax.min.js
+scripts[] = js/TweenLite.min.js
+scripts[] = js/TimelineLite.min.js
+scripts[] = js/TimelineMax.min.js
 scripts[] = js/jquery.screwdefaultbuttons.min.js
 scripts[] = js/custom_settings.js
-scripts[] = js/chat_widget_tab_right.js
+
 
 settings[alpha_grid] = 'alpha_default'
 settings[alpha_primary_alpha_default] = 'normal'
