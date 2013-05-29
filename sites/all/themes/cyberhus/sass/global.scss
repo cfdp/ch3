@@ -5,60 +5,52 @@
 @import "form";
 @import "node";
 
-/* This file will hold styles for the mobile version of your website (mobile first). */
-/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide.
-
-styling der vises overalt, eksempelvis tekst farver osv.
- */
+// This file will hold styles for the mobile version of your website (mobile first).
+// This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. styling der vises overalt, eksempelvis tekst farver osv.
 
 
-/* Fonts */
+
+// Fonts
 #page {
 	#logo {
-		max-width: 160px;
-	}
+		max-width: 160px; }
 
 	p {
 		font-family: $std-font-family;
 		font-size: $font_size_normal;
-		margin-bottom: 10px;
-	}
+		margin-bottom: 10px; }
 
 	h1 {
 		font-size: $font_size_stor;
 		font-family: $std-font-family;
-		letter-spacing: $letter-spacing-overskrifter;
-	}
+		letter-spacing: $letter-spacing-overskrifter; }
 
 	h2, h2.node-title {
 		font-size: $font_size_h2;
 		font-family: $std-font-family;
 		letter-spacing: $letter-spacing-overskrifter;
-		text-transform: uppercase;
-	}
+		text-transform: uppercase; }
 
 	h3 {
 		font-size: $font_size_h3;
 		font-family: $std-font-family;
-		letter-spacing: $letter-spacing-overskrifter;
-	}
+		letter-spacing: $letter-spacing-overskrifter; }
 
 	h4 {
 		font-size: $font_size_h4;
 		font-family: $std-font-family;
-		letter-spacing: $letter-spacing-overskrifter;
-	}
+		letter-spacing: $letter-spacing-overskrifter; }
 
 	h5 {
 		font-size: $font_size_h5;
 		font-family: $std-font-family;
-		letter-spacing: $letter-spacing-overskrifter;
-	}
+		letter-spacing: $letter-spacing-overskrifter; }
 
 	a:link, a:visited {
 		text-decoration: none;
 	}
 }
+
 .node {
 	a:link, a:visited {
 		text-decoration: none;
@@ -73,29 +65,40 @@ styling der vises overalt, eksempelvis tekst farver osv.
 	}
 }
 
-/* Billeder - mobil tilpasset */
+// Billeder - mobil tilpasset
 
 img {
 	max-width: 100%;
 	height: auto;
 }
 
-/* Layout */
+// Layout
 
 body {
-	background: #beac9f; /* fallback */
-	background-image: url("../img/bg.png") repeat; /* fallback */
+	@include background(
+		image-url("../img/bg.png"),
+		linear-gradient(top, #bca79a, #cac1b9)
+	);
 
-	background-image: url("../img/bg.png"), -webkit-gradient(linear, left top, left bottom, from(#bca79a), to(#cac1b9)); /* Saf4+, Chrome */
-	background-image: url("../img/bg.png"), -webkit-linear-gradient(top, #bca79a, #cac1b9); /* Chrome 10+, Saf5.1+ */
-	background-image: url("../img/bg.png"),    -moz-linear-gradient(top, #bca79a, #cac1b9); /* FF3.6+ */
-	background-image: url("../img/bg.png"),     -ms-linear-gradient(top, #bca79a, #cac1b9); /* IE10 */
-	background-image: url("../img/bg.png"),      -o-linear-gradient(top, #bca79a, #cac1b9); /* Opera 11.10+ */
-	background-image: url("../img/bg.png"),         linear-gradient(top, #bca79a, #cac1b9);
 	font-family: $std-font-family;
 }
 
-/* Forsiden */
+// Util
+.node-unpublished {
+	background-color: none;
+
+}
+
+.mb0{
+	margin-bottom: 0;
+}
+
+.subtle {
+	color: #999;
+}
+
+
+// Forsiden
 .page-forside {
 	#page {
 		background: none;
