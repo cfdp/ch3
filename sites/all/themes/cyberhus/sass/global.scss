@@ -1,4 +1,4 @@
-@import "base";
+@import "settings";
 @import "navigation";
 @import "views";
 @import "forum";
@@ -128,7 +128,8 @@ body {
 		}
 	}
 }
-/* Undersider */
+
+// Undersider
 #page {
 	background: url("../img/bg-watermark.png") no-repeat center bottom;
 		#section-header {
@@ -184,9 +185,9 @@ body {
 					.messages.status {
 						margin-left: 300px;
 					}
-
 				}
-/* Sidebar */
+
+			// Sidebar
 			#region-sidebar-first {
 				margin-top: 18px;
 				background: url("../img/sidebar_top.png");
@@ -346,7 +347,7 @@ body {
 					height: 12px;
 				}
 			}
-/* hovedindhold */
+			// Hovedindhold
 			#region-content {
 				background: url("../img/main_top.png");
 				background-position: left top;
@@ -410,9 +411,7 @@ body {
 							padding: 20px 0 20px 0;
 							background: url("../img/content-border.png") repeat-x top left;
 						}
-
 					}
-
 
 				.content_bottom {
 					height: 12px;
@@ -420,7 +419,8 @@ body {
 				}
 			}
 		}
-/* Footer */
+
+		// Footer
 		#section-footer {
 			color: #f1edea;
 				a {
@@ -562,12 +562,9 @@ body {
 								}
 						}
 				}
-
 		}
 
-/**
- * FORSIDE
- */
+// Forside
 .front {
 	#page {
 		#section-content {
