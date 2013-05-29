@@ -8,6 +8,8 @@ sites/*/files
 sites/*/private
 sites/default
 
+!sites/default/files/logo-beta*
+
 .DS_Store
 
 .sass-cache
