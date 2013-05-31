@@ -34,6 +34,17 @@
 		display: block;
 		width: 90px;
 		height: 116px;
+
+		&:after {
+			content: "";
+			display: block;
+			height: 5px;
+			width: 74px;
+			background: #beafa4;
+			position: relative;
+			top: -3px;
+			left: 8px;
+		}
 	}
 }
 
