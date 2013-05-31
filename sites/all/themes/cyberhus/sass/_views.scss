@@ -23,7 +23,7 @@
 	}
 }
 
-
+// Gallery image on frontpage
 .block-latest-gallery-image-block {
 	position: absolute;
 	top: 180px;
@@ -45,6 +45,13 @@
 			top: -3px;
 			left: 8px;
 		}
+	}
+}
+
+.region-header-bottom {
+	.view-ungeblogs-oversigt {
+		background: rgba(255, 255, 255, .8);
+		border-radius: 20px;
 	}
 }
 
