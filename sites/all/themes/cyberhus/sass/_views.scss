@@ -51,7 +51,18 @@
 .region-header-bottom {
 	.view-ungeblogs-oversigt {
 		background: rgba(255, 255, 255, .8);
-		border-radius: 20px;
+		width: 580px;
+		float: right;
+		position: relative;
+		top: -125px;
+
+		.view-content .views-row {
+			margin: 0 0 20px 0;
+			padding: 20px 15px 0 15px;
+			height: 390px;
+			overflow-y: scroll;
+			padding-bottom: 50px;
+		}
 	}
 }
 
