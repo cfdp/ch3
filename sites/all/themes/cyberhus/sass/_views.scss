@@ -24,7 +24,21 @@
 }
 
 
+.block-latest-gallery-image-block {
+	position: absolute;
+	top: 170px;
+	left: 70px;
+
+	.views-field-field-billede a {
+		outline: 2px solid #fff;
+		display: block;
+		width: 90px;
+		height: 116px;
+	}
+}
+
 .view.view-Forside.view-id-Forside {
+
 	.view-content {
 		font-family: $std-font-family;
 		overflow: hidden;
