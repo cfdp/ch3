@@ -306,8 +306,8 @@
 }
 /* line 62, ../sass/_views.scss */
 .region-header-bottom .view-ungeblogs-oversigt .view-content .views-row {
-  margin: 0 0 20px 0;
-  padding: 20px 15px 0 15px;
+  margin: 0 0 20px 0 !important;
+  padding: 20px 0px 0 15px !important;
 }
 
 /* line 71, ../sass/_views.scss */
