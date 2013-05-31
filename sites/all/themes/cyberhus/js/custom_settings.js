@@ -6,7 +6,7 @@ $(function() {
 	/**
 	 * Custom Selects
 	 */
-	$('.form-select:visible').not('.customised-select').customSelect();
+	
 
 
 	/**
