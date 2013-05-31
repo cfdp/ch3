@@ -300,14 +300,14 @@
   float: right;
   position: relative;
   top: -125px;
-}
-/* line 59, ../sass/_views.scss */
-.region-header-bottom .view-ungeblogs-oversigt .view-content .views-row {
-  margin: 0 0 20px 0;
-  padding: 20px 15px 0 15px;
   height: 390px;
   overflow-y: scroll;
   padding-bottom: 50px;
+}
+/* line 62, ../sass/_views.scss */
+.region-header-bottom .view-ungeblogs-oversigt .view-content .views-row {
+  margin: 0 0 20px 0;
+  padding: 20px 15px 0 15px;
 }
 
 /* line 71, ../sass/_views.scss */

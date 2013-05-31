@@ -55,13 +55,13 @@
 		float: right;
 		position: relative;
 		top: -125px;
+		height: 390px;
+		overflow-y: scroll;
+		padding-bottom: 50px;
 
 		.view-content .views-row {
 			margin: 0 0 20px 0;
 			padding: 20px 15px 0 15px;
-			height: 390px;
-			overflow-y: scroll;
-			padding-bottom: 50px;
 		}
 	}
 }
