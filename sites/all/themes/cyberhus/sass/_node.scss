@@ -3,12 +3,20 @@
 	.media-youtube-player {
 		width: 100%;
 	}
+	// Make Taxonomy inline
+	.field-type-taxonomy-term-reference {
+		margin-bottom: 15px;
+		.field-label, .field-items, .field-item {
+			display: inline;
+		}
+	}
+
 	.node.node-page, .node.node-blog, .node-simpel-side-med-view, .node-historie, .node-image {
 		.node-title {
 			padding-left: 15px;
 			margin-bottom: 0;
 		}
-		.field.field-name-body, .field.field-name-field-billede, .view.view-tegn-selv-enkeltvisning {
+		.field.field-name-body, .field.field-name-field-billede, .view.view-tegn-selv-enkeltvisning, .field-type-taxonomy-term-reference {
 			padding: 0 15px 0 15px;
 		}
 		.submitted {
@@ -22,12 +30,7 @@
 		padding: 0 15px 15px 15px;
 	}
 }
-/* Node - Simpel side med view */
-.node.node-simpel-side-med-view {
-	.content {
-		
-	}
-}
+
 
 /* Node - tegn selv oversigt */
 .context-oversigt-over-tegn-selv-billeder {
@@ -42,7 +45,7 @@
 }
 
 /* Node - Livsfortællinger */
-.node-type-historie{	
+.node-type-historie{
 	.block-inner{
 		.node.node-historie{
 			font-family: $std-font-family;
@@ -59,8 +62,8 @@
 					content: "|";
 					margin: 0 5px 0 5px;
 				}
-			
-			}	
+
+			}
 		.links.node-links {
 			margin: 30px 0 15px 15px;
 			.comment-add {
@@ -98,7 +101,7 @@
 					margin-bottom: 0;
 					a {
 						font-size: $font_size_normal;
-					}					
+					}
 				}
 				.comment-submitted {
 					margin-bottom: 15px;
@@ -125,7 +128,7 @@
 				}
 			}
 		}
-		}		
+		}
 	}
 }
 
@@ -142,24 +145,24 @@
 		}
 		.field-name-field-age {
 			float: left;
-			margin-bottom: 20px;	
+			margin-bottom: 20px;
 		}
 		.field-name-field-question {
 			float: left;
 			margin-bottom: 15px;
 			.field-label {
-				margin-bottom: 10px;	
-			}	
+				margin-bottom: 10px;
+			}
 		}
 		.field-name-body {
 			.field-label {
-				margin-bottom: 10px;	
-			}	
+				margin-bottom: 10px;
+			}
 		}
 		h2 {
 			margin-bottom: 0;
 		}
-	}	
+	}
 }
 
 /* Node - Brevkasse enkeltside - ny indholdstype*/
@@ -176,24 +179,24 @@
 		}
 		.field-name-field-brevk-alder {
 			float: left;
-			margin-bottom: 20px;	
+			margin-bottom: 20px;
 		}
 		.field-name-field-brevk-spoergsmaal {
 			float: left;
 			margin-bottom: 15px;
 			.field-label {
-				margin-bottom: 10px;	
-			}	
+				margin-bottom: 10px;
+			}
 		}
 		.field-name-field-brevk-svar {
 			.field-label {
-				margin-bottom: 10px;	
-			}	
+				margin-bottom: 10px;
+			}
 		}
 		h2 {
 			margin-bottom: 0;
 		}
-	}	
+	}
 }
 
 
@@ -211,25 +214,25 @@
 				line-height: 1em;
 				padding: auto auto;
 				text-shadow: none;
-				text-transform: uppercase;	
+				text-transform: uppercase;
 				-webkit-border-radius: 0;
 				border-radius: 0;
 				border: none;
 				height: 23px;
 				width: 75px;
 				font-weight: $font_weight_brodtekst;
-			}	
+			}
 		}
 		.search-results {
 			.title a {
-				color: #fb9a00;	
-			}	
+				color: #fb9a00;
+			}
 			.search-snippet-info {
 				margin-top: -17px;
 				margin-bottom: 15px;
 				.search-info {
-					font-style: italic;	
-				}	
+					font-style: italic;
+				}
 			}
 		}
 		.item-list {
@@ -282,7 +285,7 @@
 		.reset-active {
 			float: right;
 			display: none;
-		}		
+		}
 	}
 }
 .field.field-name-field-kommentar-cyberlike {
@@ -293,7 +296,7 @@
 }
 .node-type-image {
 	.links.node-links {
-		
+
 		li {
 			padding: 0;
 		}
@@ -315,7 +318,7 @@
 			.alternate-votes-display {
 				width: 55px;
 			}
-		}		
+		}
 	}
 }
 
@@ -354,7 +357,7 @@
 					margin-bottom: 0;
 					a {
 						font-size: $font_size_normal;
-					}					
+					}
 				}
 				.comment-submitted {
 					margin-bottom: 15px;
