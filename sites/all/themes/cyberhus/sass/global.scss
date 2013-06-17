@@ -56,6 +56,20 @@
 		text-decoration: none;
 		color:$font_color_gul;
 	}
+
+	a.btn {
+		font-family: $std-font-family;
+ 		background: $color_gul;
+	 	color: #FFFFFF;
+		font-size: 13px;
+    line-height: 1em;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    border-radius: 0;
+    border: none;
+    text-shadow: none;
+    font-weight: normal;
+	}
 }
 
 #region-sidebar-first {
@@ -132,6 +146,37 @@ body {
 	}
 }
 
+// Flags
+#block-menu-menu-sprogmenu {
+	padding-bottom: 20px;
+	.menu {
+			li {
+				list-style-image: none;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				float: left;
+			}
+			.first.leaf {
+				margin-right: 10px;
+			}
+			.first.leaf a {
+				background: url("../img/dk_flag.png");
+				display: block;
+				text-indent: -999em;
+				width: 19px;
+				height: 12px;
+			}
+			.last.leaf a {
+				background: url("../img/eng_flag.png");
+				display: block;
+				text-indent: -999em;
+				width: 19px;
+				height: 12px;
+			}
+	}
+}
+
 // Undersider
 #page {
 	background: url("../img/bg-watermark.png") no-repeat center bottom;
@@ -141,35 +186,6 @@ body {
 			}
 			#region-search {
 				float: right;
-					#block-menu-menu-sprogmenu {
-						.menu {
-							float: right;
-								li {
-									list-style-image: none;
-									list-style: none;
-									margin: 0;
-									padding: 0;
-									float: left;
-								}
-								.first.leaf {
-									margin-right: 10px;
-								}
-								.first.leaf a {
-									background: url("../img/dk_flag.png");
-									display: block;
-									text-indent: -999em;
-									width: 19px;
-									height: 12px;
-								}
-								.last.leaf a {
-									background: url("../img/eng_flag.png");
-									display: block;
-									text-indent: -999em;
-									width: 19px;
-									height: 12px;
-								}
-						}
-					}
 			}
 		}
 
