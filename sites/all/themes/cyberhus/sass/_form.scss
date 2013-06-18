@@ -15,7 +15,7 @@
 		font-family: $std-font-family;
 		height: auto;
 		outline: none;
-		resize:none; 
+		resize:none;
 	}
 	input[type=submit] {
 		font-family: $std-font-family;
@@ -78,7 +78,7 @@
 	}
 	/* Custom Checkboxes */
 	.styledCheckbox {
-		float: left; 
+		float: left;
 		margin: 1px 6px 0 0;
 	}
 }
@@ -86,7 +86,7 @@
 /**
  * NODE FORMS
  */
- 
+
 .page-node-add {
 	.region-content {
 		.region-inner {
@@ -98,7 +98,7 @@
 			}
 		}
 	}
-} 
+}
 
 
 /* Opret blogindlæg */
@@ -132,7 +132,7 @@
 			float: right;
 			overflow: hidden;
 			.description {
-			
+
 			}
 		}
 		.form-type-checkboxes {
@@ -160,10 +160,10 @@
 			.form-submit {
 				margin-left: 20px;
 			}
-		}	
+		}
 	}
 }
- 
+
 .node-form {
 	.form-item, .form-actions {
 		margin: 10px 0;
@@ -191,7 +191,7 @@
 		float: right;
 		overflow: hidden;
 		.description {
-		
+
 		}
 	}
 	.form-type-checkboxes {
@@ -255,7 +255,7 @@
 					height: 29px;
 					border-radius: 0;
 					margin: 0; padding: 0;
-					
+
 				}
 			}
 		}
@@ -263,19 +263,19 @@
 	::-webkit-input-placeholder {
 	   color: white;
 	}
-	
+
 	:-moz-placeholder { /* Firefox 18- */
-	   color: white;  
+	   color: white;
 	   opacity: 1;
 	}
-	
+
 	::-moz-placeholder {  /* Firefox 19+ */
-	   color: white;  
+	   color: white;
 	   opacity: 1;
 	}
-	
-	:-ms-input-placeholder {  
-	   color: white;  
+
+	:-ms-input-placeholder {
+	   color: white;
 	}
 }
 #block-menu-menu-sprogmenu {

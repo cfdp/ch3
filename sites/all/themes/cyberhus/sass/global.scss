@@ -90,10 +90,10 @@ img {
 
 body {
 	@include background(
-		image-url("../img/bg.png"),
-		linear-gradient(top, #bca79a, #cac1b9)
+		image-url("../img/bg.png")
 	);
 
+	background-color: #bca79a;
 	font-family: $std-font-family;
 }
 

@@ -32,7 +32,7 @@
 	 }
 
 	#section-header {
-		background: url("../img/stuen_stor.png") no-repeat bottom center;
+		background: url("../img/stuen_stor.jpg") no-repeat bottom center;
 		height: 580px;
 		margin-bottom: 0;
 	}
@@ -217,11 +217,11 @@
 }
 
 .region-tabs-right .kramchat .status-content p a{
-  background: rgb(252,208,123);
-  border: 4px solid rgb(62,175,181);
+  background: lighten(#3eafb5, 0%);
+  border: 4px solid lighten(#3eafb5, 5%);
 }
 
 .region-tabs-right .kramchat .status-content p a:hover{
-  background: rgb(232,188,103);
-  background: rgb(62,175,181);
+  background: lighten(#3eafb5, 5%);
+  border: 4px solid lighten(#3eafb5, 10%);
 }

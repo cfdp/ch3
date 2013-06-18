@@ -272,8 +272,8 @@
 /* line 27, ../sass/_views.scss */
 .block-latest-gallery-image-block {
   position: absolute;
-  top: 180px;
-  left: 70px;
+  top: 181px;
+  left: 73px;
 }
 /* line 32, ../sass/_views.scss */
 .block-latest-gallery-image-block .views-field-field-billede a {
@@ -2441,11 +2441,8 @@ img {
 
 /* line 91, ../sass/global.scss */
 body {
-  background: url('/img/../img/bg.png?1369819187'), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bca79a), color-stop(100%, #cac1b9));
-  background: url('/img/../img/bg.png?1369819187'), -webkit-linear-gradient(top, #bca79a, #cac1b9);
-  background: url('/img/../img/bg.png?1369819187'), -moz-linear-gradient(top, #bca79a, #cac1b9);
-  background: url('/img/../img/bg.png?1369819187'), -o-linear-gradient(top, #bca79a, #cac1b9);
-  background: url('/img/../img/bg.png?1369819187'), linear-gradient(top, #bca79a, #cac1b9);
+  background: url('/img/../img/bg.png?1369819187');
+  background-color: #bca79a;
   font-family: "Cabin", sans-serif;
 }
 

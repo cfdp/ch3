@@ -26,7 +26,7 @@
 }
 /* line 34, ../sass/cyberhus-alpha-default-normal.scss */
 .front #section-header {
-  background: url("../img/stuen_stor.png") no-repeat bottom center;
+  background: url("../img/stuen_stor.jpg") no-repeat bottom center;
   height: 580px;
   margin-bottom: 0;
 }
@@ -215,12 +215,12 @@
 
 /* line 219, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .kramchat .status-content p a {
-  background: #fcd07b;
-  border: 4px solid #3eafb5;
+  background: #3eafb5;
+  border: 4px solid #4bbbc1;
 }
 
 /* line 224, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .kramchat .status-content p a:hover {
-  background: #e8bc67;
-  background: #3eafb5;
+  background: #4bbbc1;
+  border: 4px solid #5ec3c8;
 }
