@@ -22,179 +22,184 @@
 #region-menu .navigation a, #region-menu .navigation p {
   text-shadow: 1px 1px #907c74;
 }
-/* line 8, ../sass/_navigation.scss */
+/* line 9, ../sass/_navigation.scss */
+#region-menu .navigation .menu a:hover {
+  color: #fff !important;
+  text-decoration: underline !important;
+}
+/* line 14, ../sass/_navigation.scss */
 #region-menu .navigation #block-search-form {
   margin-left: 345px;
   width: 175px;
 }
-/* line 13, ../sass/_navigation.scss */
+/* line 19, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-sprogmenu {
   width: 100px;
   margin-left: 400px;
 }
-/* line 18, ../sass/_navigation.scss */
+/* line 24, ../sass/_navigation.scss */
 #region-menu .navigation #block-block-40 {
   position: absolute;
   margin-left: 135px;
   margin-top: 8px;
   font-style: italic;
 }
-/* line 27, ../sass/_navigation.scss */
+/* line 33, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-primary-links-2 {
   position: absolute;
 }
-/* line 31, ../sass/_navigation.scss */
+/* line 37, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-primary-links-2 .menu .collapsed a {
   color: #000;
   font-size: 20px;
   text-transform: uppercase;
 }
-/* line 36, ../sass/_navigation.scss */
+/* line 42, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-primary-links-2 .menu .expanded .active-trail {
   font-size: 20px;
   color: #fff;
   text-transform: uppercase;
 }
-/* line 42, ../sass/_navigation.scss */
+/* line 48, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-primary-links-2 .menu li {
   list-style: none;
   margin: 0;
 }
-/* line 45, ../sass/_navigation.scss */
+/* line 51, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-primary-links-2 .menu li .active-trail.active {
   color: #fff;
   font-size: 20px;
   text-transform: uppercase;
 }
-/* line 52, ../sass/_navigation.scss */
+/* line 58, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-primary-links-2 .menu li .active-trail {
   color: #fff;
 }
-/* line 56, ../sass/_navigation.scss */
+/* line 62, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-primary-links-2 .menu li .leaf.active-trail {
   font-size: 13px;
 }
-/* line 59, ../sass/_navigation.scss */
+/* line 65, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-primary-links-2 .menu li .leaf.active-trail .active-trail {
   text-transform: none;
   font-size: 13px;
 }
-/* line 67, ../sass/_navigation.scss */
+/* line 73, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-primary-links-2 .menu .menu li {
   float: left;
 }
-/* line 69, ../sass/_navigation.scss */
+/* line 75, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-primary-links-2 .menu .menu li a {
   color: #000;
 }
-/* line 72, ../sass/_navigation.scss */
+/* line 78, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-primary-links-2 .menu .menu li .active-trail {
   color: #fff;
 }
-/* line 77, ../sass/_navigation.scss */
+/* line 83, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-primary-links-2 .menu .menu .leaf:after {
   content: " - ";
   color: #000;
 }
-/* line 81, ../sass/_navigation.scss */
+/* line 87, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-primary-links-2 .menu .menu .last.leaf:after {
   content: "";
 }
-/* line 91, ../sass/_navigation.scss */
+/* line 97, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-ung-til-voksen {
   position: absolute;
   margin-left: 190px;
 }
-/* line 95, ../sass/_navigation.scss */
+/* line 101, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-ung-til-voksen .menu .expanded .active-trail {
   font-size: 20px;
   text-transform: uppercase;
 }
-/* line 99, ../sass/_navigation.scss */
+/* line 105, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-ung-til-voksen .menu .collapsed a {
   color: #000;
   font-size: 20px;
   text-transform: uppercase;
 }
-/* line 104, ../sass/_navigation.scss */
+/* line 110, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-ung-til-voksen .menu li {
   list-style: none;
   margin: 0;
 }
-/* line 107, ../sass/_navigation.scss */
+/* line 113, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-ung-til-voksen .menu li a {
   color: #000;
 }
-/* line 112, ../sass/_navigation.scss */
+/* line 118, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-ung-til-voksen .menu .active-trail {
   color: #fff;
 }
-/* line 116, ../sass/_navigation.scss */
+/* line 122, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-ung-til-voksen .menu .leaf.active-trail {
   font-size: 13px;
 }
-/* line 119, ../sass/_navigation.scss */
+/* line 125, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-ung-til-voksen .menu .leaf.active-trail .active-trail.active {
   text-transform: none;
   font-size: 13px;
 }
-/* line 124, ../sass/_navigation.scss */
+/* line 130, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-ung-til-voksen .menu .menu {
   margin-left: -190px;
 }
-/* line 126, ../sass/_navigation.scss */
+/* line 132, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-ung-til-voksen .menu .menu li {
   float: left;
 }
-/* line 128, ../sass/_navigation.scss */
+/* line 134, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-ung-til-voksen .menu .menu li a {
   color: #000;
 }
-/* line 131, ../sass/_navigation.scss */
+/* line 137, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-ung-til-voksen .menu .menu li .active-trail {
   color: #fff;
   font-size: 13px;
   text-transform: none;
 }
-/* line 137, ../sass/_navigation.scss */
+/* line 143, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-ung-til-voksen .menu .menu .leaf:after {
   content: " - ";
   color: #000;
 }
-/* line 141, ../sass/_navigation.scss */
+/* line 147, ../sass/_navigation.scss */
 #region-menu .navigation #block-menu-menu-ung-til-voksen .menu .menu .last.leaf:after {
   content: "";
 }
 
 /* Bruger menu */
-/* line 156, ../sass/_navigation.scss */
+/* line 162, ../sass/_navigation.scss */
 #page #region-sidebar-first .region-inner.region-sidebar-first-inner #block-system-user-menu .block-inner .block-title {
   color: #000;
   text-shadow: none;
 }
-/* line 162, ../sass/_navigation.scss */
+/* line 168, ../sass/_navigation.scss */
 #page #region-sidebar-first .region-inner.region-sidebar-first-inner #block-system-user-menu .content li {
   list-style: none;
 }
 
 /* Tabs/oprettelseslinks */
-/* line 174, ../sass/_navigation.scss */
+/* line 180, ../sass/_navigation.scss */
 .tabs .tabs.primary a {
   color: #fb9a00;
 }
 
-/* line 180, ../sass/_navigation.scss */
+/* line 186, ../sass/_navigation.scss */
 .action-links li {
   list-style: none;
 }
-/* line 182, ../sass/_navigation.scss */
+/* line 188, ../sass/_navigation.scss */
 .action-links li a {
   color: #fb9a00;
   margin-left: 15px;
 }
 
 /* Gå til forsiden - stue grafik */
-/* line 191, ../sass/_navigation.scss */
+/* line 197, ../sass/_navigation.scss */
 #block-block-41 .content a {
   float: right;
   width: 436px;
@@ -208,11 +213,11 @@
 }
 
 /* Brødkrummer */
-/* line 205, ../sass/_navigation.scss */
+/* line 211, ../sass/_navigation.scss */
 #breadcrumb {
   width: 500px;
 }
-/* line 208, ../sass/_navigation.scss */
+/* line 214, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs li {
   list-style: none;
   float: left;
@@ -225,23 +230,23 @@
   font-style: italic;
   font-family: "Cabin", sans-serif;
 }
-/* line 219, ../sass/_navigation.scss */
+/* line 225, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs a {
   height: 19px;
   display: inline-block;
   color: #2d2728;
 }
-/* line 224, ../sass/_navigation.scss */
+/* line 230, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs span {
   margin-left: 5px;
 }
-/* line 228, ../sass/_navigation.scss */
+/* line 234, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs .first a {
   background: url("../img/breadcrumb.png");
   background-repeat: no-repeat;
   padding-left: 25px;
 }
-/* line 234, ../sass/_navigation.scss */
+/* line 240, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs .last {
   font-weight: 700;
 }

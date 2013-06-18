@@ -5,6 +5,12 @@
 		a, p {
 			text-shadow: 1px 1px $text_shadow_brun;
 		}
+
+		.menu a:hover {
+			color: #fff !important;
+			text-decoration: underline !important;
+		}
+
 		#block-search-form {
 			margin-left: 345px;
 			width: 175px;
@@ -21,24 +27,24 @@
 			margin-top: 8px;
 			font-style: italic;
 		}
-		
-		
+
+
 		/* Ung til ung */
 		#block-menu-menu-primary-links-2 {
-			position: absolute;			
+			position: absolute;
 			.menu {
-					
+
 				.collapsed a {
 					color: #000;
 					font-size: 20px;
 					text-transform: uppercase;
-				}				
+				}
 				.expanded .active-trail{
 					font-size: 20px;
 					color: #fff;
 					text-transform: uppercase;
 				}
-				
+
 				li{
 					list-style: none;
 					margin: 0;
@@ -47,11 +53,11 @@
 						font-size: 20px;
 						text-transform: uppercase;
 					}
-						
-				
+
+
 					.active-trail {
 						color: #fff;
-				
+
 					}
 					.leaf.active-trail {
 						font-size: 13px;
@@ -60,9 +66,9 @@
 						text-transform: none;
 						font-size: 13px;
 					}
-					
-					
-				   }	
+
+
+				   }
 					.menu {
 						li {
 							float: left;
@@ -72,7 +78,7 @@
 							.active-trail {
 								color: #fff;
 							}
-							
+
 						}
 						.leaf:after {
 							content: " - ";
@@ -81,12 +87,12 @@
 						.last.leaf:after {
 							content: "";
 						}
-						
+
 					}
-				
+
 			}
 		}
-		
+
 		/* Ung til voksen */
 		#block-menu-menu-ung-til-voksen {
 			position: absolute;
@@ -106,12 +112,12 @@
 					margin: 0;
 					a {
 						color: #000;
-			
+
 				    }
-					}				
+					}
 					.active-trail {
 						color: #fff;
-				
+
 					}
 					.leaf.active-trail {
 						font-size: 13px;
@@ -120,7 +126,7 @@
 						text-transform: none;
 						font-size: 13px;
 					}
-					
+
 					.menu {
 						margin-left: -190px;
 						li {
@@ -141,9 +147,9 @@
 						.last.leaf:after {
 							content: "";
 						}
-						
+
 					}
-			}		
+			}
 		}
 	}
 }
@@ -157,15 +163,15 @@
 						color:#000;
 						text-shadow: none;
 					}
-				}			
+				}
 				.content {
 					li {
 						list-style: none;
 					}
 				}
 			}
-		}		
-	}	
+		}
+	}
 }
 
 /* Tabs/oprettelseslinks */
@@ -183,7 +189,7 @@
 			color:$font_color_gul;
 			margin-left: 15px;
 		}
-	}	
+	}
 }
 
 /* Gå til forsiden - stue grafik */
@@ -227,12 +233,12 @@
 		.first{
 			a {
 				background: url("../img/breadcrumb.png");
-				background-repeat: no-repeat;		
-				padding-left: 25px;							
-			}					
+				background-repeat: no-repeat;
+				padding-left: 25px;
+			}
 		}
 		.last {
 			font-weight: $font_weight_bold;
-		}	
+		}
 	}
 }
