@@ -272,7 +272,7 @@
 /* line 27, ../sass/_views.scss */
 .block-latest-gallery-image-block {
   position: absolute;
-  top: 181px;
+  top: 165px;
   left: 73px;
 }
 /* line 32, ../sass/_views.scss */
@@ -2441,7 +2441,7 @@ img {
 
 /* line 91, ../sass/global.scss */
 body {
-  background: url('/img/../img/bg.png?1369819187');
+  background: url('/img/../img/bg.png?1371541373');
   background-color: #bca79a;
   font-family: "Cabin", sans-serif;
 }
