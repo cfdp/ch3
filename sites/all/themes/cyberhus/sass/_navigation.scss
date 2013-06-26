@@ -34,14 +34,18 @@
 			position: absolute;
 			.menu {
 
+				.expanded .active-trail{
+					font-size: 20px;
+					text-transform: uppercase;
+				}
 				.collapsed a {
 					color: #000;
 					font-size: 20px;
 					text-transform: uppercase;
 				}
-				.expanded .active-trail{
+				.expanded a {
+					color: #000;
 					font-size: 20px;
-					color: #fff;
 					text-transform: uppercase;
 				}
 
@@ -53,21 +57,20 @@
 						font-size: 20px;
 						text-transform: uppercase;
 					}
-
-
 					.active-trail {
 						color: #fff;
-
 					}
 					.leaf.active-trail {
 						font-size: 13px;
+					}
+					.leaf a {
+						font-size: 13px;
+						text-transform: none;
 					}
 					.leaf.active-trail .active-trail {
 						text-transform: none;
 						font-size: 13px;
 					}
-
-
 				   }
 					.menu {
 						li {
@@ -78,7 +81,6 @@
 							.active-trail {
 								color: #fff;
 							}
-
 						}
 						.leaf:after {
 							content: " - ";
@@ -89,7 +91,6 @@
 						}
 
 					}
-
 			}
 		}
 
@@ -107,12 +108,16 @@
 					font-size: 20px;
 					text-transform: uppercase;
 				}
+				.expanded a {
+					color: #000;
+					font-size: 20px;
+					text-transform: uppercase;
+				}
 				li {
 					list-style: none;
 					margin: 0;
 					a {
 						color: #000;
-
 				    }
 					}
 					.active-trail {
@@ -125,6 +130,10 @@
 					.leaf.active-trail .active-trail.active {
 						text-transform: none;
 						font-size: 13px;
+					}
+					.leaf a {
+						font-size: 13px;
+						text-transform: none;
 					}
 
 					.menu {
@@ -153,6 +162,74 @@
 		}
 	}
 }
+/* Forside */
+
+.front {
+	#region-menu {
+		#block-menu-menu-ung-til-voksen {
+			.menu {
+				.menu {
+					display: none;
+				}
+			}
+		}
+		#block-menu-menu-ung-til-voksen:hover {
+			.menu {
+				.menu {
+					display: block;
+				}
+			}
+		}
+		#block-menu-menu-primary-links-2 {
+			.menu {
+				.menu {
+					display: none;
+				}
+			}
+		}
+		#block-menu-menu-primary-links-2:hover {
+			.menu {
+				.menu {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+.not-front {
+	#region-menu {
+		#block-menu-menu-ung-til-voksen {
+			.menu {
+				.menu {
+					display: none;
+				}
+			}
+		}
+		#block-menu-menu-ung-til-voksen:hover {
+			.menu {
+				.menu {
+					display: block;
+				}
+			}
+		}
+		#block-menu-menu-primary-links-2 {
+			.menu {
+				.menu {
+					display: none;
+				}
+			}
+		}
+		#block-menu-menu-primary-links-2:hover {
+			.menu {
+				.menu {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
 /* Bruger menu */
 #page {
 	#region-sidebar-first {
