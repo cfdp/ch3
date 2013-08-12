@@ -59,7 +59,6 @@ function cfdp_uf_user_has_role($role, $user = NULL) {
  * @todo opening hours should be configurable fields in the administration
  */
 function cfdp_uf_open_to_posts() {
-  /*we check if the content is posted during opening hours*/
   $open = true;
   $closingtime = 22;
   $openingtime = 9;
@@ -67,14 +66,8 @@ function cfdp_uf_open_to_posts() {
   $date = new DateTime();
   $date->setTimezone($timezone);
   $present_hour =  $date->format('H');
-  // Check the day of the week, 0 is for Sunday, 6 is for Saturday
-  $week_day = $date->format('w');
-  if( $week_day == 0 || $week_day == 6 ){
+  if($present_hour > ($closingtime -1) || $present_hour < $openingtime ){
     $open = false;
-  }else{
-   if($present_hour > ($closingtime -1) || $present_hour < $openingtime ) {
-     $open = false;
-   }
   }
   return $open;
 }
