@@ -112,3 +112,9 @@ function cyberhus_textarea($variables) {
 function cyberhus_preprocess_author_pane(&$variables) {
   $variables['show_template_location'] = TRUE;
 }
+
+/* Forum form - removed Homepage field*/
+
+function cyberhus_form_comment_node_forum_form_alter(&$form) {
+  $form['author']['homepage']['#access'] = FALSE;
+}
