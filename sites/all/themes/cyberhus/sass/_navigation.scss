@@ -1,6 +1,8 @@
 /* Overordnet top navigation */
 #region-menu {
 	min-height: 54px;
+	position: relative;
+	z-index: 100;
 	.navigation {
 		a, p {
 			text-shadow: 1px 1px $text_shadow_brun;
@@ -12,7 +14,7 @@
 		}
 
 		#block-search-form {
-			margin-left: 345px;
+			/*margin-left: 345px;*/
 			width: 175px;
 		}
 		/* Sprogmenu */
@@ -97,7 +99,7 @@
 		/* Ung til voksen */
 		#block-menu-menu-ung-til-voksen {
 			position: absolute;
-			margin-left: 190px;
+			margin-left: 240px;
 			.menu {
 				.expanded .active-trail{
 					font-size: 20px;
@@ -162,6 +164,71 @@
 		}
 	}
 }
+
+/*
+* @todo :fix active trail on, dashes at end of menu items, hover states on menu items, add/restyle search bar, add logo;
+*/
+#region-menu .navigation #block-menu-menu-primary-links-2 .menu,
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu{
+	background: #cab2a1;
+	display: inline-block;
+	overflow: hidden;
+	padding: 5px 0 5px 10px;
+
+	li.expanded a,
+	li.expanded.active-trail a{
+		color: #333;
+		text-transform: none;
+	}
+
+	.expanded>a:after {
+		background: url('../img/topmenu-sprite.png') -230px -21px;
+		content: " ";
+		display: inline-block;
+		margin-left: 20px;
+		min-height: 22px;
+		width: 20px
+	}
+
+	.expanded:before {
+		content: " ";
+		display: inline-block;
+		margin-right: 20px;
+		min-height: 22px;
+		width: 28px
+	}
+
+	.menu {
+		padding: 0 10px;
+		li{
+			float: none;
+		}
+	}
+}	
+#region-menu #block-menu-menu-ung-til-voksen .menu{
+	.expanded:before {
+		background: url('../img/topmenu-sprite.png') -260px -23px;
+	}
+}
+
+#region-menu #block-menu-menu-primary-links-2 .menu{
+	.expanded:before {
+		background: url('../img/topmenu-sprite.png') -190px -23px;
+	}
+}
+
+#region-menu .navigation #block-menu-menu-primary-links-2>.menu{
+	width: 187px;
+}
+
+#region-menu .navigation #block-menu-menu-ung-til-voksen>.menu{
+	width: 215px;
+}
+
+#region-menu .navigation #block-menu-menu-ung-til-voksen .menu{
+	.menu{ margin-left: 0; }
+}
+
 /* Forside */
 
 .front {
@@ -228,6 +295,11 @@
 			}
 		}
 	}
+}
+/* Send #region-header-bottom to thr back using z-index to allow the menu dropdpwn to be accessible */
+#region-header-bottom{
+	position: relative;
+	z-index: 1;
 }
 
 /* Bruger menu */
