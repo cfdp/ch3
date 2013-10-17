@@ -1,4 +1,7 @@
 /* Overordnet top navigation */
+#zone-header-wrapper{
+	background: url('../img/topbar_bg.png') repeat-x;
+}
 #region-menu {
 	margin: 30px 0 0 70px;
 	min-height: 54px;
@@ -6,10 +9,6 @@
 	position: relative;
 	z-index: 100;
 	.navigation {
-		a, p {
-			text-shadow: 1px 1px $text_shadow_brun;
-		}
-
 		.menu a:hover {
 			color: #fff !important;
 			text-decoration: underline !important;
@@ -192,6 +191,12 @@
 		}
 	}
 }	
+
+#region-menu .navigation #block-menu-menu-primary-links-2 .content>.menu,
+#region-menu .navigation #block-menu-menu-ung-til-voksen .content>.menu
+{
+	border-bottom: 2px solid #93624b;
+}
 #region-menu #block-menu-menu-ung-til-voksen .menu{
 	.expanded:before {
 		background: url('../img/topmenu-sprite.png') -260px -23px;
