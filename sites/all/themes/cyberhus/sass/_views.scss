@@ -475,7 +475,6 @@
 			margin-top: 0;
 			color: #888;
 		}
-
 	}
 
 	#accordion_overskrift {
@@ -579,6 +578,9 @@
 				.oprettet {
 					margin-left: 60px;
 				}
+		}
+		.views-field.views-field-body {
+			width: auto;
 		}
 	}
 	.view-content.ui-accordion {
