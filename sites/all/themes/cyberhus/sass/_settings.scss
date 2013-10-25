@@ -14,7 +14,7 @@ $letter-spacing-brodtekst: normal;
 /* Font-size */
 $font_size_lille: 11px;
 $font_size_block_title: 13px;
-$font_size_normal: 13px;
+$font_size_normal: 14px;
 $font_size_stor:20px;
 $font_size_h1:15px;
 $font_size_h2:20px;
@@ -30,10 +30,15 @@ $border_color_lys: #bababa;
 $border_color_sort: #373030;
 
 /* Text shadow */
-$text_shadow_hvid:#c9c3b7;
-$text_shadow_brun:#907c74;
-$text_shadow_undersider:1px 1px #ffffff;
-$text_shadow_block_title:1px 1px #2d2728;
+// $text_shadow_hvid:#c9c3b7;
+// $text_shadow_brun:#907c74;
+// $text_shadow_undersider:1px 1px #ffffff;
+// $text_shadow_block_title:1px 1px #2d2728;
+
+$text_shadow_hvid: none;
+$text_shadow_brun: none;
+$text_shadow_undersider: none;
+$text_shadow_block_title: none;
 
 /* General colors */
 $tr_bg_color: #b6a59c;

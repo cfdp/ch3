@@ -400,10 +400,14 @@
 	}
 }
 
-.view.view-Brevkasse.view-id-Brevkasse {
+.view.view-Brevkasse.view-id-Brevkasse  {
+
+	.views-row-odd .ui-accordion-header {
+		background: url("../img/accordion_header.png");
+	}
 	.ui-accordion-header {
 		border: none;
-		background: url("../img/accordion_header.png");
+		background: url("../img/repeat_main.png");
 		-moz-border-radius-topleft: 0px;
 		-webkit-border-top-left-radius: 0px;
 		border-top-left-radius: 0px;
@@ -421,7 +425,7 @@
 
 	}
 	.ui-accordion-header.ui-state-active {
-		background: url("../img/accordion_header_active.png");
+		//background: url("../img/accordion_header_active.png");
 			.ui-icon {
 				background: url("../img/next_yellow_down.png");
 				height: 15px;
@@ -443,14 +447,35 @@
 		border-bottom-right-radius: 0px;
 	}
 	.ui-widget-content {
-		background: url("../img/accordion_content.png");
+		// background: url("../img/accordion_content.png");
+		background: url("../img/repeat_main.png");
 		border: none;
 		padding: 15px;
+
+		.views-field-field-brevk-svar {
+			background: url("../img/accordion_content.png");
+			padding: 20px;
+			margin-top: 20px;
+		}
+
 		.views-label.views-label-field-question, .views-label-field-brevk-spoergsmaal, .views-label.views-label-body, .views-label-field-brevk-svar {
 			margin-bottom: 15px;
 			display: block;
-			font-size: $font_size_normal;
+			font-size: $font_size_normal; }
+
+		.views-label-field-brevk-spoergsmaal,
+		.views-label-field-brevk-svar {
+			margin-top: 15px;
+			text-transform: uppercase;
+			font-size: 10px;
+			color: #aaa;
 		}
+
+		.views-label-field-brevk-svar {
+			margin-top: 0;
+			color: #888;
+		}
+
 	}
 
 	#accordion_overskrift {
@@ -458,6 +483,10 @@
 		overflow: hidden;
 			p {
 				margin: 0;
+
+				&:first-letter {
+					text-transform: uppercase;
+				}
 			}
 			div {
 				margin: 0;
@@ -602,6 +631,7 @@
 		background: url("../img/accordion_content.png");
 		border: none;
 		padding: 10px 15px 10px 15px;
+
 			.views-field.views-field-body {
 				width: 340px;
 				margin-right: 25px;
