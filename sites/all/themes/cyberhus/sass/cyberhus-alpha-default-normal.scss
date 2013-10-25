@@ -165,7 +165,8 @@
   width: 256px;
   margin-right: 44px;
   text-align: center;
-  background: url('http://kramchat.cybhus.dk/sites/all/themes/kramchat-chat-theme/img/black_lozenge.png');
+  background: #fff
+  //background: url('http://kramchat.cybhus.dk/sites/all/themes/kramchat-chat-theme/img/black_lozenge.png');
 }
 
 .region-tabs-right .status-tab{
@@ -188,6 +189,7 @@
 .region-tabs-right .status-content p{
   display: inline-block;
   margin-top: 10px;
+  font-size: 13px !important;
 }
 
 .region-tabs-right .status-content p a{
@@ -213,7 +215,8 @@
 }
 
 .region-tabs-right .kramchat .status-wrapper{
-  background: url('http://kramchat.cybhus.dk/sites/all/themes/kramchat-chat-theme/img/black_lozenge.png');
+  //background: url('http://kramchat.cybhus.dk/sites/all/themes/kramchat-chat-theme/img/black_lozenge.png');
+  background: #fff;
 }
 
 .region-tabs-right .kramchat .status-content p a{
