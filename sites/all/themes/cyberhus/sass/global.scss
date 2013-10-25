@@ -212,7 +212,6 @@ body {
 			// Sidebar
 			#region-sidebar-first {
 				margin-top: 18px;
-				background: url("../img/sidebar_top.png");
 				background-position: right top;
 				background-repeat: no-repeat;
 					.region-inner.region-sidebar-first-inner {
@@ -348,7 +347,6 @@ body {
 						}
 
 						background: url("../img/repeat_sidebar.png");
-						margin-top: 22px;
 						padding: 12px;
 							#breadcrumb {
 								margin-left: -10px;
@@ -371,7 +369,7 @@ body {
 			}
 			// Hovedindhold
 			#region-content {
-				background: url("../img/main_top.png");
+
 				background-position: left top;
 				background-repeat: no-repeat;
 				h1, h2, h3, h4, h5, p, .views-field-name, .forum-table, .views-row, .comment-submitted, .comment-form, .item-list, .field-type-text-long {
@@ -379,7 +377,7 @@ body {
 				}
 					.region-inner.region-content-inner {
 						background: url("../img/repeat_main.png");
-						margin-top: 37px;
+						margin-top: 18px;
 						padding: 30px;
 
 						.node.node-page, .node.node-simpel-side-med-view {

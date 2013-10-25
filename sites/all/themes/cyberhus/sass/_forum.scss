@@ -3,7 +3,7 @@
  */
 .page-forum {
 	.tabs, .feed-icon { display: none; }
-	
+
 	.forum-table-wrap {
 		padding: 0 0 20px 0;
 		background: url("../img/content-border.png") repeat-x bottom left;
@@ -18,9 +18,9 @@
 			margin-bottom: 30px !important;
 		}
 	}
-	
+
 	.forum-desc-wrapper {
-		background: url("../img/content-border.png") repeat-x scroll left bottom transparent;	
+		background: url("../img/content-border.png") repeat-x scroll left bottom transparent;
 		padding: 0 0 28px 0;
 		margin: 0 0 20px 0;
 		.forum-name {
@@ -29,7 +29,7 @@
 		   	font-weight: $font_weight_bold;
 		   	text-transform: uppercase;
 		   	margin-bottom: 20px; padding: 0;
-		   	padding: 0 15px 0 15px;		
+		   	padding: 0 15px 0 15px;
 		}
 		.forum-description {
 			padding: 0 15px 0 15px;
@@ -46,7 +46,7 @@
 				text-transform: uppercase;
 				display: inline-block;
 				font-size: $font_size_normal; line-height: 1em;
-				text-shadow: none;				
+				text-shadow: none;
 			}
 		}
 	}
@@ -109,13 +109,13 @@
 					text-transform: uppercase;
 					background: url("../img/next_yellow.png") no-repeat 0 2px;
 					padding: 0 0 0 21px;
-				}			
+				}
 			}
 			td.forum-number-topics {
-			
+
 			}
 			td.forum-number-posts {
-			
+
 			}
 			td.forum-last-reply,
 			td.views-field-last-updated {
@@ -129,7 +129,7 @@
 	.forum-table-wrap { margin: 0; }
 	.block.forum-description {
 		padding: 20px 15px 10px 15px;
-		background: url("../img/content-border.png") repeat-x top left;
+
 		.block-title {
 			margin-bottom: 20px;
 		}
@@ -149,7 +149,7 @@
 	 * TOP POST
 	 */
 	.forum-post.top-post {
-		background: url("../img/content-border.png") repeat-x scroll left bottom transparent;	
+		background: url("../img/content-border.png") repeat-x scroll left bottom transparent;
 	}
 	.forum-post {
 		padding: 0 0 25px 0; margin: 0;
@@ -206,7 +206,7 @@
 	   	}
 	   }
 	}
-	
+
 	/**
 	 * COMMENTS
 	 */
@@ -215,7 +215,7 @@
 		.indented { margin: 0 0 0 30px; }
 		.forum-post {
 			background-color: $tr_bg_color;
-			background-color: rgba($tr_bg_color, 0.22);		
+			background-color: rgba($tr_bg_color, 0.22);
 			padding: 28px 25px 20px;
 			margin: 0 0 15px 0;
 			.forum-post-title {
