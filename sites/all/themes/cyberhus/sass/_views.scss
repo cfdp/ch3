@@ -82,8 +82,21 @@
 		}
 
 		h3 {
-			font-size: 13px !important;
-			margin-top: 3px !important;
+			font-family: "Cabin",sans-serif;
+			letter-spacing: 0.9px;
+			width: 200px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: inline-block;
+			line-height: 13px;
+			height: 14px;
+			padding-top: 3px;
+		}
+
+		.subtle {
+			font-size: 12px;
+			line-height: 12px;
 		}
 
 		.more-link {
