@@ -91,12 +91,13 @@
 			display: inline-block;
 			line-height: 13px;
 			height: 14px;
-			padding-top: 3px;
+			padding-top: 4px;
+			font-weight: normal;
 		}
 
 		.subtle {
-			font-size: 12px;
-			line-height: 12px;
+			font-size: 12px !important;
+			line-height: 12px !important;
 		}
 
 		.more-link {
