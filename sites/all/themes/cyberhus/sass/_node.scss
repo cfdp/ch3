@@ -45,8 +45,13 @@
 }
 
 // Node - tegn selv del billede
-.page-node-add-image .field-type-image .description {
-	display: none;
+.page-node-add-image {
+	.field-type-image .description {
+		display: none; }
+
+	.resizable-textarea .grippie {
+		display: none;
+	}
 }
 
 /* Node - Livsfortællinger */
