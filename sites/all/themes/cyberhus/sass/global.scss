@@ -128,7 +128,7 @@ body {
 				background-repeat: no-repeat;
 				margin-bottom: 0px;
 					#forside_wrapper {
-						background: url("../img/repeat_main.png");
+						background: #fff;
 
 						#zone-content {
 							background: #efefef;
@@ -153,7 +153,7 @@ body {
 			}
 		}
 		#section-footer {
-			background: url("../img/repeat_main.png");
+			background: #fff;
 		}
 	}
 }
@@ -226,6 +226,10 @@ body {
 				background-position: right top;
 				background-repeat: no-repeat;
 					.region-inner.region-sidebar-first-inner {
+
+						background: #eeebea;
+						padding: 18px 12px;
+
 
 						a {
 							color: #000;
@@ -353,8 +357,6 @@ body {
 							}
 						}
 
-						background: #eeebea;
-						padding: 12px;
 							#breadcrumb {
 								margin-left: -10px;
 								position: absolute;
@@ -385,7 +387,7 @@ body {
 					.region-inner.region-content-inner {
 						background: #eeebea;
 						margin-top: 18px;
-						padding-top: 12px;
+						padding: 18px 0;
 
 						.node.node-page, .node.node-simpel-side-med-view {
 							.content {
