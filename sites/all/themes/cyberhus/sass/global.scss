@@ -500,9 +500,42 @@ body {
 											background: none;
 											padding-left: 0;
 											margin-left: 10px;
+											width: 450px;
+										}
+										.grid-4.region-footer-to{
+											ul li.leaf {
+												list-style-image: none;
+												list-style-type: none;
+												list-style-position: inside;
+												margin: 0;
+											}
+											ul li.last {
+												padding-left: 13px;
+												background: url("../img/login_gfx.png") no-repeat left 5px;
+												width: 210px;
+											}
+											ul li.last:after {
+												position: relative;
+												top: 17px;
+												left: -52px;
+												content: " - for frivillige & Ungebloggere";
+												color: #fff;
+												font-style: italic;
+												font-size: 11px;
+											}
 										}
 										.grid-4.region-footer-fire {
 											margin-right: 0;
+											.social {
+												.facebook_bottom {
+													text-indent: -999em;
+													background: url("../img/facebook.png");
+													background-repeat: no-repeat;
+													display: block;
+													width: 154px;
+													height: 71px;
+												}
+											}
 										}
 									}
 
@@ -532,43 +565,12 @@ body {
 											background: none;
 											padding-left: 0;
 											margin-left: 10px;
-											.social {
-												.facebook_bottom {
-													text-indent: -999em;
-													background: url("../img/facebook.png");
-													background-repeat: no-repeat;
-													display: block;
-													width: 154px;
-													height: 71px;
-												}
-											}
-
 										}
 										#region-footer-bottom-to {
-											ul li.leaf {
-												list-style-image: none;
-												list-style-type: none;
-												list-style-position: inside;
-												margin: 0;
-											}
-											ul li.last {
-												padding-left: 13px;
-												background: url("../img/login_gfx.png") no-repeat left 5px;
-												width: 210px;
-											}
-											ul li.last:after {
-												position: relative;
-												top: 17px;
-												left: -52px;
-												content: " - for frivillige & Ungebloggere";
-												color: #fff;
-												font-style: italic;
-												font-size: 11px;
-											}
+											
 										}
 										#region-footer-bottom-tre {
 											margin-right: 0;
-											width: 450px;
 										}
 									}
 									#zone-footer-last {
