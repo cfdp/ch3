@@ -353,7 +353,7 @@ body {
 							}
 						}
 
-						background: url("../img/repeat_sidebar.png");
+						background: #eeebea;
 						padding: 12px;
 							#breadcrumb {
 								margin-left: -10px;
@@ -383,9 +383,9 @@ body {
 					text-shadow: $text_shadow_undersider;
 				}
 					.region-inner.region-content-inner {
-						background: url("../img/repeat_main.png");
+						background: #eeebea;
 						margin-top: 18px;
-						padding: 30px;
+						padding-top: 12px;
 
 						.node.node-page, .node.node-simpel-side-med-view {
 							.content {
@@ -433,10 +433,6 @@ body {
 									}
 								}
 							}
-						}
-						#block-system-main {
-							padding: 20px 0 20px 0;
-							background: url("../img/content-border.png") repeat-x top left;
 						}
 					}
 
