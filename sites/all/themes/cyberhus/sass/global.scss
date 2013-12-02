@@ -129,6 +129,13 @@ body {
 				margin-bottom: 0px;
 					#forside_wrapper {
 						background: url("../img/repeat_main.png");
+
+						#zone-content {
+							background: #efefef;
+							border-radius: 0 0 10px 10px;
+							border: 1px solid #e3e3e3;
+						}
+
 						#region-content {
 							background: none;
 							.region-inner.region-content-inner {

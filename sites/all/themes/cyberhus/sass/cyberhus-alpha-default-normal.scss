@@ -81,9 +81,7 @@
 			#edit-combine-wrapper {
 				width: 680px;
 				height: 40px;
-				padding: 20px;
-				background: url("../img/search_wrapper.png");
-				margin-left: -360px;
+				margin-left: -345px;
 				position: relative; left: 50%;
 
 				.views-widget {
@@ -106,9 +104,10 @@
 			}
 
 			.views-exposed-widget.views-submit-button {
-				padding: .5em 1em 0 0;
+				padding: 0 1em 0 0;
 				position: absolute;
-				margin-left: 695px;
+				margin-left: 685px;
+        margin-top: -6px;
 
 				#edit-submit-forside {
 					width: 115px;
