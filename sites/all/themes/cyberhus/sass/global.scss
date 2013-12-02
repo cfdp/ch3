@@ -231,11 +231,7 @@ body {
 							color: #000;
 						}
 						h2 {
-							font-size: $font_size_block_title;
-							color: #ffffff;
-							text-shadow: $text_shadow_block_title;
-							font-weight: $font_weight_brodtekst;
-							margin: 0;
+							margin-bottom: .5em;
 						}
 						.sidebar_indhold {
 							font-size: $font_size_normal;
