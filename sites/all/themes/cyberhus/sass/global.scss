@@ -94,11 +94,14 @@ img {
 // Layout
 
 body {
-	@include background(
-		image-url("../img/bg.png")
-	);
+	// @include background(
+	// 	image-url("../img/bg.png")
+	// );
+	// background-color: #bca79a;
 
-	background-color: #bca79a;
+	background: url(../img/bg-christmas-blured.jpg);
+	/* Based on http://www.backgroundlabs.com/item/christmas-gift-wrap-pattern/ */
+
 	font-family: $std-font-family;
 }
 
@@ -128,7 +131,7 @@ body {
 				background-repeat: no-repeat;
 				margin-bottom: 0px;
 					#forside_wrapper {
-						background: #fff;
+
 
 						#zone-content {
 							background: #efefef;
@@ -154,7 +157,7 @@ body {
 			}
 		}
 		#section-footer {
-			background: #fff;
+
 		}
 	}
 }
@@ -197,6 +200,10 @@ body {
 			#region-logo {
 				height: 100px;
 				width: 160px;
+
+				.logo-img { // Remove after christmas
+					margin-top: 8px;
+				}
 			}
 			#region-search {
 				float: right;
@@ -359,6 +366,7 @@ body {
 						}
 
 							#breadcrumb {
+								display: none; // Temporary
 								margin-left: -10px;
 								position: absolute;
 								top: -40px;
@@ -457,8 +465,9 @@ body {
 				}
 
 				#footerwrapper {
+					// background: url("../img/bylinje.png");
 					background: url("../img/bylinje.png");
-					background-repeat: no-repeat;
+					background-repeat: repeat-x;
 					padding-top: 100px;
 					position: relative;
 					bottom: -20px;

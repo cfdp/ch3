@@ -8,7 +8,7 @@
         <?php print $linked_logo_img; ?>
       </div>
       <?php endif; ?>
-   
+
 
     </div>
     <?php endif; ?>
