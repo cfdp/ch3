@@ -119,6 +119,19 @@ body {
 	color: #999;
 }
 
+#section-footer {
+
+	.footer-icons {
+		margin-top: 15px;
+
+		.rounded {
+			border-radius: 72px;
+			margin-right: 20px;
+		}
+	}
+
+}
+
 
 // Forsiden
 .page-forside {
@@ -155,18 +168,6 @@ body {
 						}
 					}
 			}
-		}
-		#section-footer {
-
-			.footer-icons {
-				margin-top: 15px;
-
-				.rounded {
-					border-radius: 72px;
-					margin-right: 20px;
-				}
-			}
-
 		}
 	}
 }
