@@ -790,41 +790,6 @@
 	margin: 0 15px 0 15px;
 }
 
-/* Ung i - oversigt */
-.view.view-ung-i-oversigt {
-	.view-content {
-		background: url("../img/content-border.png") repeat-x top left;
-		padding: 30px 15px 0 15px;
-		.views-field.views-field-body {
-			font-style: italic;
-			padding: 10px 20px 10px 0;
-		}
-		.views-row-odd {
-			float: left;
-			width: 50%;
-		}
-		a {
-			color:$font_color_gul;
-			background: url("../img/next_yellow.png");
-			background-repeat: no-repeat;
-			padding-left: 20px;
-			text-transform: uppercase;
-		}
-	}
-}
-
-.block-views-ung-i-oversigt-block-1 .view.view-ung-i-oversigt{
- 	.view-content {
-		background: none;
-		padding-top: 0;
-	 	
-	 	.views-row{
-			float: none;
-			margin: 3px 0;
-			width: 100%;
-		}
-	}
-}
 /* Tegn selv - seneste billeder */
 .view.view-tegn-selv-seneste-billeder {
 	.view-header {
