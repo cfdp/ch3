@@ -99,8 +99,8 @@ body {
 	// );
 	// background-color: #bca79a;
 
-	background: url(../img/bg-christmas-blured.jpg);
-	/* Based on http://www.backgroundlabs.com/item/christmas-gift-wrap-pattern/ */
+	background: url(../img/bg-ricepaper.jpg);
+	// Found on http://subtlepatterns.com/rice-paper-3/
 
 	font-family: $std-font-family;
 }
@@ -211,9 +211,6 @@ body {
 				height: 100px;
 				width: 160px;
 
-				.logo-img { // Remove after christmas
-					margin-top: 8px;
-				}
 			}
 			#region-search {
 				float: right;
