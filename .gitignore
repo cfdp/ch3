@@ -13,3 +13,4 @@ sites/default
 .DS_Store
 
 .sass-cache
+*.sublime-workspace
