@@ -1,18 +1,23 @@
 <?php
 /**
+ * @file
+ * Admin pages for Image Editor Inline module.
+ */
+
+/**
  * Configuration form for editing Image Editor Inline settings.
  */
 function imageeditor_inline_settings_form() {
-  drupal_add_css(drupal_get_path('module', 'imageeditor') . '/imageeditor.css');
-  
+  drupal_add_css(drupal_get_path('module', 'imageeditor') . '/css/imageeditor.css');
+
   $form['editors'] = array(
     '#type' => 'item',
     '#title' => t('Enabled Image Editors'),
     '#description' => t('Choose enabled image editors for inline image editing and their order.'),
   );
-  
+
   $position = 0;
-  foreach (imageeditor_info() as $codename => $editor) {
+  foreach (imageeditor_editors() as $codename => $editor) {
     $position++;
     $form['imageeditor_inline_' . $codename . '_enabled'] = array(
       '#type' => 'checkbox',
@@ -35,13 +40,13 @@ function imageeditor_inline_settings_form() {
       '#attributes' => array('class' => array('imageeditor-position')),
     );
   }
-  
+
   $form['uploaders'] = array(
     '#type' => 'item',
     '#title' => t('Enabled Upload services'),
     '#description' => t('Choose enabled upload services to upload images to if your images are not available from external network.'),
   );
-  
+
   $position = 0;
   foreach (imageeditor_uploaders() as $codename => $uploader) {
     $position++;
@@ -66,7 +71,7 @@ function imageeditor_inline_settings_form() {
       '#attributes' => array('class' => array('imageuploader-position')),
     );
   }
-  
+
   $form['imageeditor_inline_min_dimention'] = array(
     '#type' => 'select',
     '#title' => t('Minimal image dimention'),
@@ -111,16 +116,68 @@ function imageeditor_inline_settings_form() {
   );
   $form['imageeditor_inline_access_check'] = array(
     '#type' => 'radios',
-    '#title' => t('Access check feature'),
+    '#title' => t('Access check'),
     '#description' => t('Access check feature allows to restrict image editing access.'),
     '#options' => array(
-      t('Disable access check - all users with "@use_imageeditor_inline" permission will be able to edit any image', array('@use_imageeditor_inline' => t('Use Image Editor Inline'))),
-      t('Enable access check - checks for image editing access using "@edit_all_images" and "@edit_own_images" permissions', array('@edit_all_images' => t('Edit any image on the page'), '@edit_own_images' => t('Edit only own images')))
+      t('Disable - all users with "@use_imageeditor_inline" permission will be able to edit any image', array('@use_imageeditor_inline' => t('Use Image Editor Inline'))),
+      t('Enable - checks for image editing access using "@edit_all_images" and "@edit_own_images" permissions', array('@edit_all_images' => t('Edit any image on the page'), '@edit_own_images' => t('Edit only own images')))
     ),
     '#default_value' => variable_get('imageeditor_inline_access_check', 0),
     '#weight' => 50,
   );
-  
+
   $form['#theme'] = 'imageeditor_inline_settings_form';
   return system_settings_form($form);
+}
+
+/**
+ * Theme function for admin settings form.
+ */
+function theme_imageeditor_inline_settings_form($variables) {
+  $form = $variables['form'];
+  $output = drupal_render($form['editors']);
+
+  $header = array(t('Name'), t('Description'), t('API key'), t('Position'));
+  $rows = array();
+  $imageeditors = imageeditor_editors();
+  $imageeditors_sort = array();
+  foreach ($imageeditors as $codename => $editor) {
+    $imageeditors_sort[$codename] = $form['imageeditor_inline_' . $codename . '_position'];
+  }
+  asort($imageeditors_sort);
+
+  foreach ($imageeditors_sort as $codename => $position) {
+    $row = array();
+    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_enabled']);
+    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_description']);
+    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_api_key']);
+    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_position']);
+    $rows[] = array('data' => $row, 'class' => array('draggable'));
+  }
+  drupal_add_tabledrag('imageeditors-table', 'order', 'sibling', 'imageeditor-position');
+  $output .= theme('table', array('header' => $header, 'rows' => $rows, 'attributes' => array('id' => 'imageeditors-table')));
+
+  $output .= drupal_render($form['uploaders']);
+  $rows = array();
+  $imageuploaders = imageeditor_uploaders();
+  $imageuploaders_sort = array();
+  foreach ($imageuploaders as $codename => $uploader) {
+    $imageuploaders_sort[$codename] = $form['imageeditor_inline_' . $codename . '_position'];
+  }
+  asort($imageuploaders_sort);
+
+  foreach ($imageuploaders_sort as $codename => $position) {
+    $row = array();
+    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_enabled']);
+    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_description']);
+    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_api_key']);
+    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_position']);
+    $rows[] = array('data' => $row, 'class' => array('draggable'));
+  }
+  drupal_add_tabledrag('imageuploaders-table', 'order', 'sibling', 'imageuploader-position');
+  $output .= theme('table', array('header' => $header, 'rows' => $rows, 'attributes' => array('id' => 'imageuploaders-table')));
+
+  $output .= drupal_render_children($form);
+
+  return $output;
 }

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Allows online editing of inline images using different image editing services.
@@ -15,10 +14,10 @@ function imageeditor_inline_permission() {
       'description' => t('Allows to use different image editors to create/edit inline images.')),
     'edit all images' => array(
       'title' => t('Edit any image on the page'),
-      'description' => t('@access_check_feature: Allows to edit any image on the page including images from external sites.', array('@access_check_feature' => t('Access check feature')))),
+      'description' => t('Access check feature: Allows to edit any image on the page including images from external sites.')),
     'edit own images' => array(
       'title' => t('Edit only own images'),
-      'description' => t('@access_check_feature: Allows to edit only images from this site that are managed files, user should be the owner of the image file.', array('@access_check_feature' => t('Access check feature')))),
+      'description' => t('Access check feature: Allows to edit only images from this site that are managed files, user should be the owner of the image file.')),
     'administer imageeditor_inline' => array(
       'title' => t('Administer Image Editor Inline'),
       'description' => t('Configure Image Editor Inline settings.')),
@@ -68,15 +67,14 @@ function imageeditor_inline_menu() {
     'file' => 'imageeditor_inline.pages.inc',
     'type' => MENU_CALLBACK,
   );
-  
+
   return $items;
 }
 
 /**
- * Callback function for settings page access
+ * Access check callback function for settings page.
  */
 function imageeditor_inline_settings_access() {
-  global $user;
   if (user_access('administer site configuration') || user_access('administer imageeditor_inline')) {
     return TRUE;
   }
@@ -100,55 +98,6 @@ function imageeditor_inline_theme($existing, $type, $theme, $path) {
   );
 }
 
-function theme_imageeditor_inline_settings_form($variables) {
-  $form = $variables['form'];
-  $output = drupal_render($form['editors']);
-  
-  $header = array(t('Name'), t('Description'), t('API key'), t('Position'));
-  $rows = array();
-  $imageeditors = imageeditor_info();
-  $imageeditors_sort = array();
-  foreach ($imageeditors as $codename => $editor) {
-    $imageeditors_sort[$codename] = $form['imageeditor_inline_' . $codename . '_position'];
-  }
-  asort($imageeditors_sort);
-  
-  foreach ($imageeditors_sort as $codename => $position) {
-    $row = array();
-    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_enabled']);
-    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_description']);
-    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_api_key']);
-    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_position']);
-    $rows[] = array('data' => $row, 'class' => array('draggable'));
-  }
-  drupal_add_tabledrag('imageeditors-table', 'order', 'sibling', 'imageeditor-position');
-  $output .= theme('table', array('header' => $header, 'rows' => $rows, 'attributes' => array('id' => 'imageeditors-table')));
-  
-  $output .= drupal_render($form['uploaders']);
-  $rows = array();
-  $imageuploaders = imageeditor_uploaders();
-  $imageuploaders_sort = array();
-  foreach ($imageuploaders as $codename => $uploader) {
-    $imageuploaders_sort[$codename] = $form['imageeditor_inline_' . $codename . '_position'];
-  }
-  asort($imageuploaders_sort);
-  
-  foreach ($imageuploaders_sort as $codename => $position) {
-    $row = array();
-    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_enabled']);
-    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_description']);
-    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_api_key']);
-    $row[] = drupal_render($form['imageeditor_inline_' . $codename . '_position']);
-    $rows[] = array('data' => $row, 'class' => array('draggable'));
-  }
-  drupal_add_tabledrag('imageuploaders-table', 'order', 'sibling', 'imageuploader-position');
-  $output .= theme('table', array('header' => $header, 'rows' => $rows, 'attributes' => array('id' => 'imageuploaders-table')));
-  
-  $output .= drupal_render_children($form);
-  
-  return $output;
-}
-
 /**
  * Implements hook_page_build().
  */
@@ -156,18 +105,18 @@ function imageeditor_inline_page_build(&$page) {
   if (!user_access('use imageeditor_inline')) {
     return;
   }
-  
+
   static $conf_added;
   if (empty($conf_added)) {
     $conf_added['imageeditor'] = FALSE;
     $conf_added['imageeditor_inline'] = FALSE;
   }
-  
+
   if (!$conf_added['imageeditor_inline']) {
     $conf_added['imageeditor_inline'] = TRUE;
     $conf_array = array();
     $editors = array();
-    foreach(imageeditor_info() as $codename => $editor) {
+    foreach(imageeditor_editors() as $codename => $editor) {
       if (variable_get('imageeditor_inline_' . $codename . '_enabled', 0)) {
         $editors[$codename] =variable_get('imageeditor_inline_' . $codename . '_position', 0);
       }
@@ -178,10 +127,10 @@ function imageeditor_inline_page_build(&$page) {
         $uploaders[$codename] = variable_get('imageeditor_inline_' . $codename . '_position', 0);
       }
     }
-    
-    //imageeditor initialization
+
+    // Image Editor initialization.
     imageeditor_initialize($editors, $uploaders);
-    
+
     $conf_array['editors'] = $editors;
     $conf_array['uploaders'] = $uploaders;
     $conf_array['save_url'] = url('imageeditor_inline/ajax/save', array('absolute' => TRUE));
@@ -190,19 +139,19 @@ function imageeditor_inline_page_build(&$page) {
     $conf_array['icons_position'] = variable_get('imageeditor_inline_icons_position', 1);
     $conf_array['min_dimention'] = variable_get('imageeditor_inline_min_dimention', 150);
     $conf_array['ignore'] = variable_get('imageeditor_inline_ignore', '.admin-menu-icon, .stack-image, .imageeditor-inline-revert');
-    
+
     drupal_add_js(array('imageeditor_inline' => $conf_array), 'setting');
     $path = drupal_get_path('module', 'imageeditor_inline');
-    drupal_add_js($path . '/imageeditor_inline.js', array('scope' => 'footer', 'weight' => 10));
-    drupal_add_css($path . '/imageeditor_inline.css');
+    drupal_add_js($path . '/js/imageeditor_inline.js', array('scope' => 'footer', 'weight' => 10));
+    drupal_add_css($path . '/css/imageeditor_inline.css');
   }
 }
 
 /**
- * Implements hook_imageeditor_info().
+ * Implements hook_imageeditor_editors().
  * Adding the revert "editor".
  */
-function imageeditor_inline_imageeditor_info() {
+function imageeditor_inline_imageeditor_editors() {
   $editors['imageeditor_inline_revert'] = array(
     'name' => t('Image Editor Inline Revert'),
     'description' => t('Image Editor Inline: Revert to the previous image version'),

@@ -1,5 +1,10 @@
 <?php
 /**
+ * @file
+ * Install and uninstall functions for Image Editor for Image Field.
+ */
+
+/**
  * Implements hook_install().
  */
 function imageeditor_imagefield_install() {

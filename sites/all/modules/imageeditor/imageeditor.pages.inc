@@ -1,120 +1,67 @@
 <?php
-function imageeditor_save($service= NULL) {
-  if (in_array($service, array('pixlr', 'aviary', 'picnik', 'picmonkey', 'fotoflexer', 'sumopaint', 'paintweb', 'svgedit', 'snipshot'))) {
-    if (in_array($service, array('pixlr', 'fotoflexer', 'sumopaint', 'paintweb', 'svgedit', 'snipshot'))) {$image_param = 'image';}
-    elseif ($service == 'aviary') {$image_param = 'imageurl';}
-    elseif ($service == 'picnik' || $service == 'picmonkey') {$image_param = 'file';}
-    
-    // Create directory for services that need to save locally
-    if (in_array($service, array('sumopaint', 'paintweb', 'svgedit'))) {
-      $directory = file_default_scheme() . '://imageeditor/temp';
-      if (!file_prepare_directory($directory, FILE_CREATE_DIRECTORY)) {
-        watchdog('imageeditor', 'Directory %directory could not be created.', array('%directory' => $directory), WATCHDOG_WARNING);
-        drupal_json_output('There was an error saving your image. Please contact site administrator.');
-        exit;
-      }
-    }
-    
-    if (in_array($service, array('pixlr', 'picnik', 'picmonkey', 'fotoflexer', 'snipshot'))) {
-      if (isset($_GET[$image_param])) {
-        $image = rawurldecode($_GET[$image_param]);
-      }
-    }
-    elseif ($service == 'aviary') {
-      if (isset($_POST[$image_param])) {
-        $image = rawurldecode($_POST[$image_param]);
-      }
-      elseif (isset($_GET[$image_param])) {
-        $image = rawurldecode($_GET[$image_param]);
-      }
-    }
-    elseif ($service == 'sumopaint') {
-      if (isset($_POST['data'])) {
-        if ($_POST['url']) {
-          $uri = $directory . '/' . basename($_POST['url']);
-        }
-        else {
-          $uri = $directory . '/' . md5($_POST['data']) . '.png';
-        }
-        $file = file_unmanaged_save_data(base64_decode($_POST['data']), $uri);
-        $image = file_create_url($file);
-      }
-    }
-    elseif ($service == 'paintweb') {
-      if (isset($_POST['data'])) {
-        if ($_POST['url'] && $_POST['url'] != 'undefined') {
-          $uri = $directory . '/' . basename($_POST['url']);
-        }
-        else {
-          $uri = $directory . '/' . md5($_POST['data']) . '.png';
-        }
-        $file = file_unmanaged_save_data(base64_decode($_POST['data']), $uri);
-        drupal_json_output(file_create_url($file));
-        exit;
-      }
-    }
-    elseif ($service == 'svgedit') {
-      if (isset($_POST['output_png'])) {
-        $uri = $directory . '/' . md5($_POST['output_png']) . '.png';
-        $file = file_unmanaged_save_data(base64_decode(substr($_POST['output_png'], 22)), $uri);
-        $image = file_create_url($file);
-      }
-    }
-    
-    $js_code = '';
-    if (in_array($service, array('pixlr', 'picnik', 'picmonkey', 'paintweb', 'snipshot'))) {$parent_type = 'parent';}
-    elseif (in_array($service, array('aviary', 'svgedit'))) {$parent_type = 'parent.parent';}
-    elseif (in_array($service, array('fotoflexer', 'sumopaint'))) {$parent_type = 'opener';}
-    $js_code .= 'if(' . $parent_type . ') {';
-    if (in_array($service, array('picnik', 'picmonkey')) && isset($_GET['_imageid'])) {
-      $js_code .= $parent_type . '.Drupal.settings.imageeditor.save.replace = "' . 1 . '";';
-    }
-    elseif (in_array($service, array('picnik', 'picmonkey')) && !isset($_GET['_imageid'])) {
-      $js_code .= $parent_type . '.Drupal.settings.imageeditor.save.replace = "' . 0 . '";';
-    }
-    $js_code .= $parent_type . '.Drupal.settings.imageeditor.save.image = "' . $image . '";';
-    $js_code .= $parent_type . '.Drupal.imageeditor.save();';
-    if (in_array($service, array('pixlr', 'aviary', 'picnik', 'picmonkey', 'paintweb', 'svgedit', 'snipshot'))) {$js_code .= $parent_type . '.Drupal.imageeditor.overlay.hide();';}
-    elseif (in_array($service, array('fotoflexer', 'sumopaint'))) {$js_code .= 'self.close();';}
-    $js_code .= '}';
+/**
+ * @file
+ * Different pages for Image Editor module.
+ */
+
+/**
+ * AJAX callback to save the image.
+ */
+function imageeditor_save($service = NULL) {
+  if (!$service) {
+    return '';
   }
-  
-  drupal_add_js($js_code, 'inline');
+
+  // Prepare temporary directory.
+  $directory = imageeditor_temporary_directory();
+  if (!file_prepare_directory($directory, FILE_CREATE_DIRECTORY)) {
+    watchdog('imageeditor', 'Directory %directory could not be created.', array('%directory' => $directory), WATCHDOG_WARNING);
+    drupal_json_output('There was an error saving your image. Please contact site administrator.');
+    exit;
+  }
+
+  $editors = imageeditor_editors();
+  // Process image per service.
+  if (isset($editors[$service]['save_callback']) && function_exists($editors[$service]['save_callback'])) {
+    $editors[$service]['save_callback']();
+  }
+
   return '';
 }
 
+/**
+ * AJAX callback to close the editor.
+ */
 function imageeditor_close($service = NULL) {
-  $js_code = '';
-  if (in_array($service, array('pixlr', 'picnik', 'picmonkey', 'aviary'))) {
-    $js_code .= 'if(parent) {';
-    $js_code .= 'parent.Drupal.imageeditor.overlay.hide();';
-    $js_code .= '}';
+  if (!$service) {
+    return '';
   }
-  elseif ($service == 'fotoflexer') {
-    $js_code .= 'self.close();';
-  }
-  
-  /*$js_code .= 'if(parent) {';
+
+  $js_code = 'if (parent) {';
   $js_code .= 'parent.Drupal.imageeditor.overlay.hide();';
   $js_code .= '}';
   $js_code .= 'else {';
   $js_code .= 'self.close();';
-  $js_code .= '}';*/
-  
+  $js_code .= '}';
+
   drupal_add_js($js_code, 'inline');
   return '';
 }
 
+/**
+ * AJAX callback to upload the image to external service.
+ */
 function imageeditor_upload($service = NULL) {
-  global $base_url;
-  $filepath = '@' . drupal_realpath(str_replace($base_url . '/', '', $_POST['url']));
-  
-  //Imageshack needs mimetype to be added
-  if ($service == 'imageshack_upload') {
-    $type = file_get_mimetype($_POST['filepath']);
-    $filepath = $filepath . ';type=' . $type;
+  $uploaders = imageeditor_uploaders();
+  if (!array_key_exists($service, $uploaders)) {
+    drupal_json_output('');
+    exit;
   }
-  
+
+  global $base_url;
+  // TODO: need to fix this somehow... @see imageeditor_inline_url_to_uri().
+  $filepath = '@' . drupal_realpath(str_replace($base_url . '/', '', $_POST['url']));
+
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_HEADER, 0);
   curl_setopt($ch, CURLOPT_VERBOSE, 0);
@@ -122,58 +69,61 @@ function imageeditor_upload($service = NULL) {
   curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible;)");
   curl_setopt($ch, CURLOPT_TIMEOUT, 120);
   curl_setopt($ch, CURLOPT_POST, true);
-  if ($service == 'pixlr_upload') {
-    $url = 'http://pixlr.com/store/';
-    $post = array(
-      'image' => $filepath,
-    );
+  curl_setopt($ch, CURLOPT_URL, $uploaders[$service]['upload_url']);
+  $post_callback = $uploaders[$service]['post_callback'];
+  if (function_exists($post_callback)) {
+    $post = $post_callback($filepath);
   }
-  elseif ($service == 'immio_upload') {
-    $url = 'http://imm.io/store/';
-    $post = array(
-      'image' => $filepath,
-    );
-  }
-  elseif ($service == 'imageshack_upload') {
-    $url = 'http://www.imageshack.us/upload_api.php';
-    $post = array(
-      'fileupload' => $filepath,
-      'key' => variable_get('imageeditor_imageshack_api_key', ''),
-      'xml' => 'yes',
-    );
-  }
-  curl_setopt($ch, CURLOPT_URL, $url);
   curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-  
+
   $response = curl_exec($ch);
   curl_close($ch);
+
+  $output = '';
+  $response_callback = $uploaders[$service]['response_callback'];
+  if (function_exists($response_callback)) {
+    $output = $response_callback($response);
+  }
+
+  drupal_json_output($output);
+  exit;
+}
+
+/**
+ * Page callback for jQuery webcam image editor.
+ */
+function imageeditor_webcam() {
+  drupal_add_js('sites/all/libraries/jquery-webcam/jquery.webcam.js');
+  drupal_add_js(drupal_get_path('module', 'imageeditor') . '/js/imageeditor.webcam.js');
+  drupal_add_js(array('imageeditor' => array('webcam' => array('swffile' => '/sites/all/libraries/jquery-webcam/jscam.swf'))), 'setting');
   
-  if ($service == 'pixlr_upload') {
-    drupal_json_output($response);
-    exit;
-  }
-  elseif ($service == 'immio_upload') {
-    $result = drupal_json_decode($response);
-    if ($result['success']) {
-      drupal_json_output($result['payload']['uri']);
-      exit;
-    }
-    else {
-      drupal_json_output($result['payload']);
-      exit;
-    }
-  }
-  elseif ($service == 'imageshack_upload') {
-    $xml = simplexml_load_string($response);
-    if ($xml) {
-      if (isset($xml->error)) {
-        drupal_json_output($xml->error);
-        exit;
-      }
-      else {
-        drupal_json_output($xml->links->image_link);
-        exit;
-      }
-    }
-  }
+  $output = '<div id="imageeditor_webcam_status"></div>';
+  $output .= '<div id="imageeditor_webcam"></div>';
+  $output .= '<div id="imageeditor_webcam_cams"></div>';
+  $output .= theme('item_list', array(
+    'title' => 'Available options',
+    'items' => array(
+      array('data' => t('Take a picture instantly'), 'id' => 'imageeditor_webcam_capture'),
+      array('data' => t('Take a picture after 5 seconds'), 'id' => 'imageeditor_webcam_capture5')
+    ),
+  ));
+  
+  return $output;
+}
+
+/**
+ * Page callback for ScriptCam image editor.
+ */
+function imageeditor_scriptcam() {
+  drupal_add_js('sites/all/libraries/swfobject/src/swfobject.js');
+  drupal_add_js('sites/all/libraries/jquery-scriptcam/scriptcam.js');
+  drupal_add_js(drupal_get_path('module', 'imageeditor') . '/js/imageeditor.scriptcam.js');
+  drupal_add_js(array('imageeditor' => array('scriptcam' => array('path' => '/sites/all/libraries/jquery-scriptcam/'))), 'setting');
+
+  $output = '<div id="imageeditor_scriptcam_status"></div>';
+  $output .= '<div id="imageeditor_scriptcam"></div>';
+  $output .= '<select id="imageeditor_scriptcam_cams"></select>';
+  $output .= '<select id="imageeditor_scriptcam_mics"></select>';
+  
+  return $output;
 }

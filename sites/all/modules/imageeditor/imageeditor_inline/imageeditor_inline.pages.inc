@@ -6,13 +6,13 @@ function imageeditor_inline_save() {
     drupal_json_output($alert);
   }
   else {
-  
+
   $ds = file_default_scheme();
-  
-//Save backup to default stream wrapper imageeditor/backup
+  // Save backup to default stream wrapper imageeditor/backup.
   $directory = $ds. '://imageeditor/backup';
-  
-  if ($fullurl = imageeditor_inline_urltouri($_POST['fullurl'])) { //original image was from this site
+
+  // Original image was from this site.
+  if ($fullurl = imageeditor_inline_urltouri($_POST['fullurl'])) {
     $local = TRUE;
     $alert .= 'Original image was from this website.' . "\n";
     $directory .= '/' . dirname(file_uri_target($fullurl));
@@ -28,7 +28,8 @@ function imageeditor_inline_save() {
       $alert .= 'Original image backup couldn\'t be created.' . "\n";
     }
   }
-  else { //original image was from external site
+  // Original image was from external site.
+  else {
     $local = FALSE;
     $alert .= 'Original image was from external website.' . "\n";
     $url_info = parse_url($_POST['fullurl']);
@@ -51,8 +52,8 @@ function imageeditor_inline_save() {
       $alert .= 'Original image backup couldn\'t be created.' . "\n";
     }
   }
-  
-//Replace original image with edited image
+
+  // Replace original image with edited image.
   if ($image = imageeditor_inline_urltouri($_POST['image'])) { //edited image is from this site
     $alert .= 'Edited image comes from this website.' . "\n";
     if ($local) { //original image was from local site - rewrite it using the edited image
@@ -112,14 +113,15 @@ function imageeditor_inline_save() {
       watchdog('imageeditor_inline', 'Could not get image from %url.', array('%url' => $_POST['image']), WATCHDOG_WARNING);
     }
   }
-  
-//Clear styles cache and update files_managed DB table if original image was local one
+
+  // Clear styles cache and update files_managed DB table if original image was local one.
   if ($local) {
-    //Clear styles cache
+    // Clear styles cache.
+    // TODO - check if it is symbolic link (collageformatter).
     image_path_flush($fullurl);
     $alert .= 'Image styles of original image were flushed.' . "\n";
-    
-    //Check if this uri is registered in DB and update its record
+
+    // Check if this uri is registered in DB and update its record.
     $existing_files = file_load_multiple(array(), array('uri' => $fullurl));
     global $user;
     foreach ($existing_files as $file) {
@@ -130,7 +132,7 @@ function imageeditor_inline_save() {
       file_save($file);
     }
   }
-  
+
   drupal_json_output($alert);
   }
 }
@@ -144,12 +146,12 @@ function imageeditor_inline_save_file_get_contents($url) {
   @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
   $data = curl_exec($ch);
   curl_close($ch);
-  
+
   return $data;
 }
 
 function imageeditor_inline_urltouri($url) {
-  //allow other modules to recognize url and provide uri
+  // Allow other modules to recognize url and provide uri.
   foreach(module_invoke_all('imageeditor_inline_urltouri', $url) as $value) {
     if ($value) {
       return $value;
@@ -164,7 +166,7 @@ function imageeditor_inline_imageeditor_inline_urltouri($url) {
   global $base_url;
   $ds = file_default_scheme();
   $sw = file_stream_wrapper_get_instance_by_scheme($ds);
-  //check that url is from this site and from default stream wrapper
+  // Check that url is from this site and from default stream wrapper.
   if (preg_match('`^' . preg_quote($base_url . '/' . $sw->getDirectoryPath() . '/') . '`', $url)) {
     $uri = $ds . '://' . preg_replace('`^' . preg_quote($base_url . '/' . $sw->getDirectoryPath() . '/') . '`', '', $url);
     return $uri;
@@ -175,7 +177,6 @@ function imageeditor_inline_imageeditor_inline_urltouri($url) {
 }
 
 function imageeditor_inline_access_check() {
-  global $user;
   $access = array();
   foreach (explode(',', $_POST['images']) as $image) {
     $access[] = _imageeditor_inline_access_check($image);
@@ -234,16 +235,16 @@ function imageeditor_inline_revert() {
       $output .= '</div>';
       
       $path = drupal_get_path('module', 'imageeditor_inline');
-      drupal_add_js($path . '/imageeditor_inline_revert.js');
+      drupal_add_js($path . '/js/imageeditor_inline_revert.js');
       drupal_add_js(array('imageeditor_inline' => array('imageeditor_inline_revert' => $_GET['image'])), 'setting');
-      drupal_add_css($path . '/imageeditor_inline.css');
+      drupal_add_css($path . '/css/imageeditor_inline.css');
       return $output;
     }
     else {
       return 'There are no image backups to revert to.';
     }
   }
-  else {  
+  else {
     return 'This image is from external site.';
   }
 }

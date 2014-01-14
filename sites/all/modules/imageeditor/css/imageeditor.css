@@ -1,0 +1,67 @@
+/* Editors */
+div.pixlr-editor {
+  background: url('images/sources/pixlr_editor.png') no-repeat center;
+}
+div.pixlr-express {
+  background: url('images/sources/pixlr_express.png') no-repeat center;
+}
+div.picmonkey {
+  background: url('images/sources/picmonkey.png') no-repeat center;
+}
+div.aviary-feather {
+  background: url('images/sources/aviary.ico') no-repeat center;
+}
+div.sumopaint {
+  background: url('images/sources/sumopaint.png') no-repeat center;
+}
+div.fotoflexer {
+  background: url('images/sources/fotoflexer.gif') no-repeat center;
+}
+div.snipshot {
+  background: url('images/sources/snipshot.png') no-repeat center;
+}
+div.svgedit {
+  background: url('images/sources/svgedit.png') no-repeat center;
+}
+div.paintweb {
+  background: url('images/sources/paintweb16.png') no-repeat center;
+}
+div.flauntr-styler {
+  background: url('images/sources/flauntr.ico') no-repeat center;
+}
+div.deviantartmuro {
+  background: url('images/sources/deviantartmuro.png') no-repeat center;
+}
+div.imageeditor-inline-revert {
+  background: url('images/sources/imageeditor_inline_revert.png') no-repeat center;
+}
+
+/* Webcams */
+div.imageeditor-webcam {
+  background: url('images/sources/imageeditor_webcam.png') no-repeat center;
+}
+div.imageeditor-scriptcam {
+  background: url('images/sources/imageeditor_scriptcam.png') no-repeat center;
+}
+div.imageeditor-photobooth {
+  background: url('images/sources/imageeditor_photobooth.png') no-repeat center;
+}
+
+/* Uploaders */
+div.pixlr-upload {
+  background: url('images/sources/pixlr_upload.ico') no-repeat center;
+}
+div.immio-upload {
+  background: url('images/sources/immio_upload.png') no-repeat center;
+}
+div.imageshack-upload {
+  background: url('images/sources/imageshack_upload.ico') no-repeat center;
+}
+
+/* For dependent modules */
+div.imageeditor-item, div.imageeditor-editor, div.imageeditor-uploader {
+  width: 16px;
+  height: 16px;
+  margin: 0px 4px;
+  display: inline-block;
+}

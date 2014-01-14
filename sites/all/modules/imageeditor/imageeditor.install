@@ -1,10 +1,14 @@
 <?php
 /**
+ * Install and uninstall functions for the Image Editor module.
+ */
+
+/**
  * Implements hook_uninstall().
  */
 function imageeditor_uninstall() {
-  // removes all variables that start with "imageeditor_"
-  // it will also delete imageeditor_inline_ variables if any - and it is fine
+  // Removes all variables that start with "imageeditor_".
+  // Ot will also delete imageeditor_inline_ variables if any - and it is fine.
   $results = db_select('variable', 'v')
     ->fields('v', array('name'))
     ->condition('name', 'imageeditor_%', 'LIKE')
