@@ -1686,43 +1686,64 @@
 /* line 173, ../sass/_form.scss */
 .node-form .form-type-select,
 .node-form .form-type-textfield,
-.node-form .form-type-textarea {
+.node-form .form-type-textarea,
+.node-form .form-type-managed-file {
   float: left;
   width: 100%;
 }
-/* line 178, ../sass/_form.scss */
+/* line 179, ../sass/_form.scss */
 .node-form .form-type-select label,
 .node-form .form-type-textfield label,
-.node-form .form-type-textarea label {
+.node-form .form-type-textarea label,
+.node-form .form-type-managed-file label {
   width: 11%;
   float: left;
   text-align: right;
   padding-right: 4%;
   margin-top: 6px;
 }
-/* line 185, ../sass/_form.scss */
+/* line 186, ../sass/_form.scss */
 .node-form .form-type-select input, .node-form .form-type-select textarea, .node-form .form-type-select .description,
 .node-form .form-type-textfield input,
 .node-form .form-type-textfield textarea,
 .node-form .form-type-textfield .description,
 .node-form .form-type-textarea input,
 .node-form .form-type-textarea textarea,
-.node-form .form-type-textarea .description {
+.node-form .form-type-textarea .description,
+.node-form .form-type-managed-file input,
+.node-form .form-type-managed-file textarea,
+.node-form .form-type-managed-file .description {
   width: 85%;
   float: right;
 }
-/* line 190, ../sass/_form.scss */
+/* line 191, ../sass/_form.scss */
+.node-form .form-type-select #edit-field-billede-und-0-upload,
+.node-form .form-type-textfield #edit-field-billede-und-0-upload,
+.node-form .form-type-textarea #edit-field-billede-und-0-upload,
+.node-form .form-type-managed-file #edit-field-billede-und-0-upload {
+  background: #fff;
+  padding: 8px;
+  border: 1px solid #524b4c;
+}
+/* line 196, ../sass/_form.scss */
+.node-form .form-type-select #edit-field-billede-und-0-upload-button,
+.node-form .form-type-textfield #edit-field-billede-und-0-upload-button,
+.node-form .form-type-textarea #edit-field-billede-und-0-upload-button,
+.node-form .form-type-managed-file #edit-field-billede-und-0-upload-button {
+  display: none;
+}
+/* line 200, ../sass/_form.scss */
 .node-form .form-wrapper > .form-type-checkbox {
   width: 85%;
   float: right;
   overflow: hidden;
 }
-/* line 198, ../sass/_form.scss */
+/* line 208, ../sass/_form.scss */
 .node-form .form-type-checkboxes {
   float: left;
   width: 100%;
 }
-/* line 201, ../sass/_form.scss */
+/* line 211, ../sass/_form.scss */
 .node-form .form-type-checkboxes > label {
   width: 11%;
   float: left;
@@ -1730,18 +1751,18 @@
   padding-right: 4%;
   margin-top: 6px;
 }
-/* line 208, ../sass/_form.scss */
+/* line 218, ../sass/_form.scss */
 .node-form .form-type-checkboxes .form-checkboxes, .node-form .form-type-checkboxes .description {
   width: 85%;
   float: right;
 }
-/* line 213, ../sass/_form.scss */
+/* line 223, ../sass/_form.scss */
 .node-form fieldset {
   float: right;
   width: 85%;
   padding: 5px 0;
 }
-/* line 216, ../sass/_form.scss */
+/* line 226, ../sass/_form.scss */
 .node-form #edit-actions {
   float: right;
   width: 85%;
@@ -1750,28 +1771,28 @@
 /**
  * SEARCH FORM
  */
-/* line 224, ../sass/_form.scss */
+/* line 234, ../sass/_form.scss */
 #block-search-form {
   float: right;
   width: 250px;
 }
-/* line 227, ../sass/_form.scss */
+/* line 237, ../sass/_form.scss */
 #block-search-form .block-inner {
   margin-bottom: 5px;
 }
-/* line 229, ../sass/_form.scss */
+/* line 239, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form {
   float: right;
   overflow: hidden;
 }
-/* line 232, ../sass/_form.scss */
+/* line 242, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-item.form-type-textfield.form-item-search-block-form {
   margin: 0;
   padding: 0;
   line-height: 1em;
   float: left;
 }
-/* line 234, ../sass/_form.scss */
+/* line 244, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-item.form-type-textfield.form-item-search-block-form .form-text {
   margin: 0;
   padding: 0;
@@ -1788,11 +1809,11 @@
   text-transform: uppercase;
   width: 200px;
 }
-/* line 248, ../sass/_form.scss */
+/* line 258, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-actions {
   float: right;
 }
-/* line 250, ../sass/_form.scss */
+/* line 260, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-actions .form-submit {
   background: url("../img/search_button_top.png");
   background-repeat: no-repeat;
@@ -1804,42 +1825,42 @@
   margin: 0;
   padding: 0;
 }
-/* line 264, ../sass/_form.scss */
+/* line 274, ../sass/_form.scss */
 #block-search-form ::-webkit-input-placeholder {
   color: white;
 }
-/* line 268, ../sass/_form.scss */
+/* line 278, ../sass/_form.scss */
 #block-search-form :-moz-placeholder {
   /* Firefox 18- */
   color: white;
   opacity: 1;
 }
-/* line 273, ../sass/_form.scss */
+/* line 283, ../sass/_form.scss */
 #block-search-form ::-moz-placeholder {
   /* Firefox 19+ */
   color: white;
   opacity: 1;
 }
-/* line 278, ../sass/_form.scss */
+/* line 288, ../sass/_form.scss */
 #block-search-form :-ms-input-placeholder {
   color: white;
 }
 
-/* line 282, ../sass/_form.scss */
+/* line 292, ../sass/_form.scss */
 #block-menu-menu-sprogmenu {
   float: right;
 }
 
 /* Brugerprofil form */
-/* line 286, ../sass/_form.scss */
+/* line 296, ../sass/_form.scss */
 #user-profile-form {
   padding: 0 15px 0 15px;
 }
-/* line 288, ../sass/_form.scss */
+/* line 298, ../sass/_form.scss */
 #user-profile-form a {
   color: #fb9a00;
 }
-/* line 291, ../sass/_form.scss */
+/* line 301, ../sass/_form.scss */
 #user-profile-form input[type=submit] {
   font-family: "Cabin", sans-serif;
   background: #fb9a00;

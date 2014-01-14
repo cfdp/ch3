@@ -172,7 +172,8 @@
 	> div > div { float: left; width: 100%; }
 	.form-type-select,
 	.form-type-textfield,
-	.form-type-textarea {
+	.form-type-textarea,
+	.form-type-managed-file {
 		float: left;
 		width: 100%;
 		label {
@@ -185,6 +186,15 @@
 		input, textarea, .description {
 			width: 85%;
 			float: right;
+		}
+
+		#edit-field-billede-und-0-upload {
+			background: #fff;
+			padding: 8px;
+			border: 1px solid #524b4c;
+		}
+		#edit-field-billede-und-0-upload-button {
+			display: none;
 		}
 	}
 	.form-wrapper > .form-type-checkbox {
