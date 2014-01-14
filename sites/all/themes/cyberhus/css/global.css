@@ -2669,8 +2669,8 @@ body {
 /* line 403, ../sass/global.scss */
 #page #section-content #region-content .region-inner.region-content-inner {
   background: #eeebea;
-  margin-top: 18px;
   padding: 18px 0;
+  border: 1px solid #ccc;
 }
 /* line 410, ../sass/global.scss */
 #page #section-content #region-content .region-inner.region-content-inner .node.node-page .content .field.field-name-body, #page #section-content #region-content .region-inner.region-content-inner .node.node-simpel-side-med-view .content .field.field-name-body {
