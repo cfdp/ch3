@@ -150,7 +150,8 @@ body {
 						#zone-content {
 							background: #efefef;
 							border-radius: 0 0 10px 10px;
-							border: 1px solid #e3e3e3;
+							border: 1px solid #ccc;
+							border-top: none;
 							padding-bottom: 20px;
 						}
 
@@ -207,11 +208,13 @@ body {
 // Undersider
 #page {
 		#section-header {
-			#region-logo {
-				height: 100px;
-				width: 160px;
-
+			#zone-header {
+				min-height: 80px;
 			}
+
+			#region-logo {
+				height: 54px;	}
+
 			#region-search {
 				float: right;
 				margin-top: 20px;
@@ -403,8 +406,8 @@ body {
 				}
 					.region-inner.region-content-inner {
 						background: #eeebea;
-						padding: 18px 0;
-						border: 1px solid #ccc;
+						padding: 18px;
+.not-front & { border: 1px solid #ccc; }
 
 						.node.node-page, .node.node-simpel-side-med-view {
 							.content {
