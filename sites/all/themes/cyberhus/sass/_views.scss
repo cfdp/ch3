@@ -941,3 +941,20 @@
 	}
 }
 
+.view-id-body_secrets {
+    .view-footer a {
+        padding: 15px 20px;
+        background-color: #fb9a00;
+        text-transform: uppercase;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 1em;
+        text-shadow: none;
+    }
+}
+
+.view-id-body_secrets {
+    .view-footer a:hover {
+        background-color: #e1dad7;
+    }
+}
