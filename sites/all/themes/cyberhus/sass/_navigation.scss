@@ -24,6 +24,13 @@
 				display: inline-block;
 				text-align: center;
 
+				@media (max-width: 980px) {
+					margin-top: 3px;
+					padding: .35em .5em .25em;
+					min-width: 60px;
+					font-size: 14px;
+				}
+
 				&:hover {
 					background: lighten(#CAB2A1, 10%);
 					border-bottom-color: darken(#93624B, 5%);
