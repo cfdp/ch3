@@ -942,19 +942,28 @@
 }
 
 .view-id-body_secrets {
+    .views-field-created, .views-field-field-brevk-koen, .views-field-field-brevk-alder {
+        color: #888888;
+        font-style: italic;
+    }
+    
     .view-footer a {
         padding: 15px 20px;
-        background-color: #fb9a00;
+        background-color: #3eafb5;
         text-transform: uppercase;
         display: inline-block;
         font-size: 14px;
         line-height: 1em;
         text-shadow: none;
+        -webkit-transition-duration:1s;
+        transition-duration:1s;
     }
-}
-
-.view-id-body_secrets {
+    
     .view-footer a:hover {
         background-color: #e1dad7;
+    }
+    
+    .views-field-title {
+        visibility: hidden;
     }
 }
