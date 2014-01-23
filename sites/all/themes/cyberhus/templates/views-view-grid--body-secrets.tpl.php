@@ -1,7 +1,7 @@
 <?php
 
 /*
- *  Template for Body Secrets grid
+ *  Custom template for Body Secrets grid 
  *  
  */
 
