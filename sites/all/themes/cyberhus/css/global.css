@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset "CP850";
 /* Font-weight */
 /* Letter-spacing */
 /* Font-size */
@@ -306,7 +306,7 @@
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-title a {
   color: #fb9a00;
 }
-/* line 211, ../sass/_views.scss */
+/* line 213, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-category,
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-title,
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-body {
@@ -573,7 +573,7 @@
   display: block;
   font-size: 14px;
 }
-/* line 481, ../sass/_views.scss */
+/* line 482, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .ui-widget-content .views-label-field-brevk-spoergsmaal,
 .view.view-Brevkasse.view-id-Brevkasse .ui-widget-content .views-label-field-brevk-svar {
   margin-top: 15px;
@@ -1085,6 +1085,32 @@
   text-transform: uppercase;
 }
 
+/* line 945, ../sass/_views.scss */
+.view-id-body_secrets .views-field-created, .view-id-body_secrets .views-field-field-brevk-koen, .view-id-body_secrets .views-field-field-brevk-alder {
+  color: #888888;
+  font-style: italic;
+}
+/* line 950, ../sass/_views.scss */
+.view-id-body_secrets .view-footer a {
+  padding: 15px 20px;
+  background-color: #3eafb5;
+  text-transform: uppercase;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1em;
+  text-shadow: none;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+}
+/* line 962, ../sass/_views.scss */
+.view-id-body_secrets .view-footer a:hover {
+  background-color: #e1dad7;
+}
+/* line 966, ../sass/_views.scss */
+.view-id-body_secrets .views-field-title {
+  visibility: hidden;
+}
+
 /**
  * FORUM LIST & TOPIC LIST
  */
@@ -1149,7 +1175,7 @@
   line-height: 1em;
   text-shadow: none;
 }
-/* line 53, ../sass/_forum.scss */
+/* line 54, ../sass/_forum.scss */
 .page-forum table.forum-table-forums,
 .page-forum table.forum-table-topics {
   font-family: "Cabin", sans-serif;
@@ -1167,14 +1193,14 @@
   padding: 0 9px 9px 0;
   line-height: 1em;
 }
-/* line 67, ../sass/_forum.scss */
+/* line 68, ../sass/_forum.scss */
 .page-forum table.forum-table-forums th.forum-name,
 .page-forum table.forum-table-forums th.views-field-title,
 .page-forum table.forum-table-topics th.forum-name,
 .page-forum table.forum-table-topics th.views-field-title {
   padding: 0 0 0 18px;
 }
-/* line 71, ../sass/_forum.scss */
+/* line 72, ../sass/_forum.scss */
 .page-forum table.forum-table-forums th.forum-last-post,
 .page-forum table.forum-table-forums th.views-field-last-updated,
 .page-forum table.forum-table-topics th.forum-last-post,
@@ -1204,7 +1230,7 @@
   border: 0;
   padding: 24px 18px;
 }
-/* line 90, ../sass/_forum.scss */
+/* line 91, ../sass/_forum.scss */
 .page-forum table.forum-table-forums td.forum-details,
 .page-forum table.forum-table-forums td.views-field-title,
 .page-forum table.forum-table-topics td.forum-details,
@@ -1243,7 +1269,7 @@
   background: url("../img/next_yellow.png") no-repeat 0 2px;
   padding: 0 0 0 21px;
 }
-/* line 120, ../sass/_forum.scss */
+/* line 121, ../sass/_forum.scss */
 .page-forum table.forum-table-forums td.forum-last-reply,
 .page-forum table.forum-table-forums td.views-field-last-updated,
 .page-forum table.forum-table-topics td.forum-last-reply,
@@ -1277,7 +1303,7 @@
 /**
  * FORUM POST
  */
-/* line 145, ../sass/_forum.scss */
+/* line 146, ../sass/_forum.scss */
 .node-type-forum,
 .page-comment-reply {
   /**
@@ -1308,7 +1334,7 @@
 .page-comment-reply .forum-post .forum-post-info .field.field-name-comment-body a {
   color: #fb9a00;
 }
-/* line 164, ../sass/_forum.scss */
+/* line 165, ../sass/_forum.scss */
 .node-type-forum .forum-post #forum-headline h1,
 .node-type-forum .forum-post .forum-post-title,
 .page-comment-reply .forum-post #forum-headline h1,
@@ -1475,14 +1501,14 @@
 /**
  * GENEREL FORM STYLING
  */
-/* line 4, ../sass/_form.scss */
+/* line 5, ../sass/_form.scss */
 .node-form,
 .comment-form {
   padding: 0 15px 0 15px;
   /* Custom Select */
   /* Custom Checkboxes */
 }
-/* line 7, ../sass/_form.scss */
+/* line 10, ../sass/_form.scss */
 .node-form input[type=text],
 .node-form input[type=password],
 .node-form textarea,
@@ -1550,7 +1576,7 @@
 .comment-form select {
   cursor: pointer;
 }
-/* line 56, ../sass/_form.scss */
+/* line 58, ../sass/_form.scss */
 .node-form input:focus,
 .node-form select:focus,
 .node-form textarea:focus,
@@ -1615,7 +1641,7 @@
   float: left;
   width: 100%;
 }
-/* line 114, ../sass/_form.scss */
+/* line 116, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-select,
 .page-node-add-blog #blog-node-form .form-type-textfield,
 .page-node-add-blog #blog-node-form .form-type-textarea {
@@ -1692,7 +1718,7 @@
   float: left;
   width: 100%;
 }
-/* line 173, ../sass/_form.scss */
+/* line 176, ../sass/_form.scss */
 .node-form .form-type-select,
 .node-form .form-type-textfield,
 .node-form .form-type-textarea,
