@@ -1,11 +1,12 @@
 <article<?php print $attributes; ?>>
+  <a href="/kropshemligheder" class="btn">Tilbage</a>
   <?php print $user_picture; ?>
   <?php print render($title_prefix); ?>
- 
+
   <?php print render($title_suffix); ?>
   <?php if ($display_submitted): ?>
-  <?php endif; ?>  
-  
+  <?php endif; ?>
+
   <div<?php print $content_attributes; ?>>
     <div class="body_secret_icon"></div>
     <span class="date"><?php print $date; ?></span>
@@ -19,7 +20,7 @@
         <?php print "Af " . render($content['field_brevk_koen']) . " " . render($content['field_brevk_alder']); ?>
     </span>
   </div>
-  
+
   <div class="clearfix">
     <?php if (!empty($content['links'])): ?>
       <nav class="links node-links clearfix"><?php print render($content['links']); ?></nav>
