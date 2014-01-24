@@ -242,6 +242,7 @@
 	#views-exposed-form-Forside-page {
 		.views-exposed-form {
 			font-family: $std-font-family;
+			padding-top: 10px;
 
 			#edit-type-wrapper {
 				margin: 0 0 10px 0;
@@ -941,7 +942,7 @@
 	}
 }
 
-.view-id-body_secrets { 
+.view-id-body_secrets {
     .views-row-1 {
         background-color: #ffffff;
         margin: 30px 0;
@@ -949,11 +950,11 @@
         box-shadow: 5px 5px #aaaaaa;
         border-radius: 3px;
     }
-    
+
     .views-view-grid {
         border-collapse: separate;
         border-spacing: 20px 50px;
-        
+
         td {
             background-color: #ffffff;
             border-radius: 3px;
@@ -962,23 +963,23 @@
             position: relative;
         }
     }
-    
+
     .views-field-created {
         float: right;
         margin: 20px 0 6px 0;
     }
-    
+
     .views-field-body {
         clear: both;
         text-align: justify;
         line-height: 14px;
         margin-bottom: 6px;
     }
-    
+
     .views-field-field-brevk-koen, .views-field-field-brevk-alder, .views-field-created {
         color: #aaaaaa;
     }
-    
+
     .views-field-nothing , .view-footer {
         a {
             margin-top: 10px;
@@ -987,26 +988,26 @@
             display: inline-block;
             border-radius: 3px;
             box-shadow: 3px 3px #aaaaaa;
-        }  
+        }
     }
-    
+
     .views-field-nothing {
         a {
             padding: 5px 10px;
-        }   
-        
+        }
+
         text-align: center;
     }
-    
+
     .view-footer {
         a {
             padding: 10px;
         }
-        
+
         text-align: center;
     }
-    
-    
+
+
     .body_secret_icon, .body_secret_icon_block {
         width: 60px;
         height: 60px;
@@ -1015,14 +1016,14 @@
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-        position: absolute;   
+        position: absolute;
     }
-    
+
     .body_secret_icon {
         top: -30px;
         left: 38%;
     }
-    
+
     .body_secret_icon_block {
         top: 30px;
         left: 38%;
