@@ -942,26 +942,25 @@
 	}
 }
 
-.view-id-body_secrets {
-    .views-row-1 {
-        background-color: #ffffff;
-        margin: 30px 0;
-        padding: 10px;
-        box-shadow: 5px 5px #aaaaaa;
-        border-radius: 3px;
+.page-body-secrets {
+    .region-content-inner {
+        background: none !important;
+        border: none !important;
     }
+}
 
-    .views-view-grid {
-        border-collapse: separate;
-        border-spacing: 20px 50px;
 
-        td {
-            background-color: #ffffff;
-            border-radius: 3px;
-            padding: 10px;
-            box-shadow: 5px 5px #aaaaaa;
-            position: relative;
-        }
+.view-id-body_secrets {
+    .views-row {
+        width: 260px;
+        height: 185px;
+        display: inline-block;
+        background-color: #ffffff;
+        border-radius: 3px;
+        padding: 10px;
+        margin: 25px 10px;
+        box-shadow: 5px 5px #aaaaaa;
+        position: relative;
     }
 
     .views-field-created {
@@ -974,6 +973,11 @@
         text-align: justify;
         line-height: 14px;
         margin-bottom: 6px;
+    }
+    
+    .views-field-body .field-content {
+        height: 56px;
+        vertical-align: middle;
     }
 
     .views-field-field-brevk-koen, .views-field-field-brevk-alder, .views-field-created {
@@ -1008,7 +1012,7 @@
     }
 
 
-    .body_secret_icon, .body_secret_icon_block {
+    .body_secret_icon {
         width: 60px;
         height: 60px;
         background: url("../img/body_secret_icon.png") no-repeat;
@@ -1021,11 +1025,6 @@
 
     .body_secret_icon {
         top: -30px;
-        left: 38%;
-    }
-
-    .body_secret_icon_block {
-        top: 30px;
         left: 38%;
     }
 }

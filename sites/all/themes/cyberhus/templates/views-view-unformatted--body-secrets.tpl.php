@@ -12,7 +12,7 @@
 <?php endif; ?>
 <?php foreach ($rows as $id => $row): ?>
   <div<?php if ($classes_array[$id]) { print ' class="' . $classes_array[$id] .'"';  } ?>>
-      <div class="body_secret_icon_block"></div>
+      <div class="body_secret_icon"></div>
       <?php print $row; ?>
   </div>
 <?php endforeach; ?>
