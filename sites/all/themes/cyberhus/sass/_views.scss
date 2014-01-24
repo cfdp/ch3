@@ -942,19 +942,12 @@
 	}
 }
 
-.page-body-secrets {
-    .region-content-inner {
-        background: none !important;
-        border: none !important;
-    }
-}
-
-
 .view-id-body_secrets {
     .views-row {
         width: 260px;
-        height: 185px;
+        height: 165px;
         display: inline-block;
+        vertical-align: text-top;
         background-color: #ffffff;
         border-radius: 3px;
         padding: 10px;
@@ -965,23 +958,18 @@
 
     .views-field-created {
         float: right;
-        margin: 20px 0 6px 0;
+        margin: 0px 0 6px 0;
     }
 
     .views-field-body {
         clear: both;
         text-align: justify;
-        line-height: 14px;
-        margin-bottom: 6px;
-    }
-    
-    .views-field-body .field-content {
-        height: 56px;
-        vertical-align: middle;
+        line-height: 15px;
+        margin-bottom: 5px;
     }
 
     .views-field-field-brevk-koen, .views-field-field-brevk-alder, .views-field-created {
-        color: #aaaaaa;
+        color: #888888;
     }
 
     .views-field-nothing , .view-footer {
@@ -991,13 +979,16 @@
             background-color: #fb9a00;
             display: inline-block;
             border-radius: 3px;
-            box-shadow: 3px 3px #aaaaaa;
         }
     }
 
     .views-field-nothing {
         a {
             padding: 5px 10px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -72.5px;
         }
 
         text-align: center;
@@ -1021,10 +1012,8 @@
         -o-background-size: cover;
         background-size: cover;
         position: absolute;
-    }
-
-    .body_secret_icon {
         top: -30px;
-        left: 38%;
+        left: 50%;
+        margin-left: -30px;
     }
 }

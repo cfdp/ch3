@@ -118,3 +118,7 @@ function cyberhus_preprocess_author_pane(&$variables) {
 function cyberhus_form_comment_node_forum_form_alter(&$form) {
   $form['author']['homepage']['#access'] = FALSE;
 }
+
+function cyberhus_preprocess_node(&$vars) {
+  $vars['date'] = format_date($vars['node']->created, 'custom', 'd/m/Y');
+}
