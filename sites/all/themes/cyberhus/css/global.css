@@ -1,4 +1,4 @@
-@charset "CP850";
+@charset "UTF-8";
 /* Font-weight */
 /* Letter-spacing */
 /* Font-size */
@@ -306,7 +306,7 @@
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-title a {
   color: #fb9a00;
 }
-/* line 213, ../sass/_views.scss */
+/* line 211, ../sass/_views.scss */
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-category,
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-title,
 .view.view-Forside.view-id-Forside .view-content .type-link-artikel .masonry-body {
@@ -574,7 +574,7 @@
   display: block;
   font-size: 14px;
 }
-/* line 483, ../sass/_views.scss */
+/* line 482, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .ui-widget-content .views-label-field-brevk-spoergsmaal,
 .view.view-Brevkasse.view-id-Brevkasse .ui-widget-content .views-label-field-brevk-svar {
   margin-top: 15px;
@@ -1222,7 +1222,7 @@
   line-height: 1em;
   text-shadow: none;
 }
-/* line 54, ../sass/_forum.scss */
+/* line 53, ../sass/_forum.scss */
 .page-forum table.forum-table-forums,
 .page-forum table.forum-table-topics {
   font-family: "Cabin", sans-serif;
@@ -1240,14 +1240,14 @@
   padding: 0 9px 9px 0;
   line-height: 1em;
 }
-/* line 68, ../sass/_forum.scss */
+/* line 67, ../sass/_forum.scss */
 .page-forum table.forum-table-forums th.forum-name,
 .page-forum table.forum-table-forums th.views-field-title,
 .page-forum table.forum-table-topics th.forum-name,
 .page-forum table.forum-table-topics th.views-field-title {
   padding: 0 0 0 18px;
 }
-/* line 72, ../sass/_forum.scss */
+/* line 71, ../sass/_forum.scss */
 .page-forum table.forum-table-forums th.forum-last-post,
 .page-forum table.forum-table-forums th.views-field-last-updated,
 .page-forum table.forum-table-topics th.forum-last-post,
@@ -1277,7 +1277,7 @@
   border: 0;
   padding: 24px 18px;
 }
-/* line 91, ../sass/_forum.scss */
+/* line 90, ../sass/_forum.scss */
 .page-forum table.forum-table-forums td.forum-details,
 .page-forum table.forum-table-forums td.views-field-title,
 .page-forum table.forum-table-topics td.forum-details,
@@ -1316,7 +1316,7 @@
   background: url("../img/next_yellow.png") no-repeat 0 2px;
   padding: 0 0 0 21px;
 }
-/* line 121, ../sass/_forum.scss */
+/* line 120, ../sass/_forum.scss */
 .page-forum table.forum-table-forums td.forum-last-reply,
 .page-forum table.forum-table-forums td.views-field-last-updated,
 .page-forum table.forum-table-topics td.forum-last-reply,
@@ -1350,7 +1350,7 @@
 /**
  * FORUM POST
  */
-/* line 146, ../sass/_forum.scss */
+/* line 145, ../sass/_forum.scss */
 .node-type-forum,
 .page-comment-reply {
   /**
@@ -1381,7 +1381,7 @@
 .page-comment-reply .forum-post .forum-post-info .field.field-name-comment-body a {
   color: #fb9a00;
 }
-/* line 165, ../sass/_forum.scss */
+/* line 164, ../sass/_forum.scss */
 .node-type-forum .forum-post #forum-headline h1,
 .node-type-forum .forum-post .forum-post-title,
 .page-comment-reply .forum-post #forum-headline h1,
@@ -1548,14 +1548,14 @@
 /**
  * GENEREL FORM STYLING
  */
-/* line 5, ../sass/_form.scss */
+/* line 4, ../sass/_form.scss */
 .node-form,
 .comment-form {
   padding: 0 15px 0 15px;
   /* Custom Select */
   /* Custom Checkboxes */
 }
-/* line 10, ../sass/_form.scss */
+/* line 7, ../sass/_form.scss */
 .node-form input[type=text],
 .node-form input[type=password],
 .node-form textarea,
@@ -1623,7 +1623,7 @@
 .comment-form select {
   cursor: pointer;
 }
-/* line 58, ../sass/_form.scss */
+/* line 56, ../sass/_form.scss */
 .node-form input:focus,
 .node-form select:focus,
 .node-form textarea:focus,
@@ -1688,7 +1688,7 @@
   float: left;
   width: 100%;
 }
-/* line 116, ../sass/_form.scss */
+/* line 114, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-select,
 .page-node-add-blog #blog-node-form .form-type-textfield,
 .page-node-add-blog #blog-node-form .form-type-textarea {
@@ -1699,10 +1699,10 @@
 .page-node-add-blog #blog-node-form .form-type-select label,
 .page-node-add-blog #blog-node-form .form-type-textfield label,
 .page-node-add-blog #blog-node-form .form-type-textarea label {
-  width: 11%;
+  width: 15%;
   text-align: left;
   float: none;
-  padding-right: 4%;
+  padding-right: 5%;
   margin-top: 6px;
 }
 /* line 126, ../sass/_form.scss */
@@ -1713,12 +1713,12 @@
 .page-node-add-blog #blog-node-form .form-type-textarea input,
 .page-node-add-blog #blog-node-form .form-type-textarea textarea,
 .page-node-add-blog #blog-node-form .form-type-textarea .description {
-  width: 85%;
+  width: 80%;
   float: none;
 }
 /* line 131, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-wrapper > .form-type-checkbox {
-  width: 85%;
+  width: 80%;
   float: right;
   overflow: hidden;
 }
@@ -1729,10 +1729,10 @@
 }
 /* line 142, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-checkboxes > label {
-  width: 11%;
+  width: 15%;
   float: left;
   text-align: left;
-  padding-right: 4%;
+  padding-right: 5%;
   margin-top: 6px;
 }
 /* line 149, ../sass/_form.scss */
@@ -1743,13 +1743,13 @@
 /* line 154, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form fieldset {
   float: none;
-  width: 85%;
+  width: 80%;
   padding: 5px 0;
 }
 /* line 157, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form #edit-actions {
   float: none;
-  width: 85%;
+  width: 80%;
 }
 /* line 161, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .field-type-image .form-submit {
@@ -1765,7 +1765,7 @@
   float: left;
   width: 100%;
 }
-/* line 176, ../sass/_form.scss */
+/* line 173, ../sass/_form.scss */
 .node-form .form-type-select,
 .node-form .form-type-textfield,
 .node-form .form-type-textarea,
@@ -1778,25 +1778,25 @@
 .node-form .form-type-textfield label,
 .node-form .form-type-textarea label,
 .node-form .form-type-managed-file label {
-  width: 11%;
+  width: 15%;
   float: left;
-  text-align: right;
-  padding-right: 4%;
+  text-align: left;
+  padding-right: 5%;
   margin-top: 6px;
 }
 /* line 186, ../sass/_form.scss */
-.node-form .form-type-select input, .node-form .form-type-select textarea, .node-form .form-type-select .description,
+.node-form .form-type-select input, .node-form .form-type-select .description, .node-form .form-type-select .form-textarea-wrapper,
 .node-form .form-type-textfield input,
-.node-form .form-type-textfield textarea,
 .node-form .form-type-textfield .description,
+.node-form .form-type-textfield .form-textarea-wrapper,
 .node-form .form-type-textarea input,
-.node-form .form-type-textarea textarea,
 .node-form .form-type-textarea .description,
+.node-form .form-type-textarea .form-textarea-wrapper,
 .node-form .form-type-managed-file input,
-.node-form .form-type-managed-file textarea,
-.node-form .form-type-managed-file .description {
-  width: 85%;
-  float: right;
+.node-form .form-type-managed-file .description,
+.node-form .form-type-managed-file .form-textarea-wrapper {
+  width: 80%;
+  float: left;
 }
 /* line 191, ../sass/_form.scss */
 .node-form .form-type-select #edit-field-billede-und-0-upload,
@@ -1849,32 +1849,36 @@
   float: right;
   width: 85%;
 }
+/* line 230, ../sass/_form.scss */
+.node-form .counter {
+  display: inline-block;
+}
 
 /**
  * SEARCH FORM
  */
-/* line 234, ../sass/_form.scss */
+/* line 238, ../sass/_form.scss */
 #block-search-form {
   float: right;
   width: 250px;
 }
-/* line 237, ../sass/_form.scss */
+/* line 241, ../sass/_form.scss */
 #block-search-form .block-inner {
   margin-bottom: 5px;
 }
-/* line 239, ../sass/_form.scss */
+/* line 243, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form {
   float: right;
   overflow: hidden;
 }
-/* line 242, ../sass/_form.scss */
+/* line 246, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-item.form-type-textfield.form-item-search-block-form {
   margin: 0;
   padding: 0;
   line-height: 1em;
   float: left;
 }
-/* line 244, ../sass/_form.scss */
+/* line 248, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-item.form-type-textfield.form-item-search-block-form .form-text {
   margin: 0;
   padding: 0;
@@ -1891,11 +1895,11 @@
   text-transform: uppercase;
   width: 200px;
 }
-/* line 258, ../sass/_form.scss */
+/* line 262, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-actions {
   float: right;
 }
-/* line 260, ../sass/_form.scss */
+/* line 264, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-actions .form-submit {
   background: url("../img/search_button_top.png");
   background-repeat: no-repeat;
@@ -1907,42 +1911,42 @@
   margin: 0;
   padding: 0;
 }
-/* line 274, ../sass/_form.scss */
+/* line 278, ../sass/_form.scss */
 #block-search-form ::-webkit-input-placeholder {
   color: white;
 }
-/* line 278, ../sass/_form.scss */
+/* line 282, ../sass/_form.scss */
 #block-search-form :-moz-placeholder {
   /* Firefox 18- */
   color: white;
   opacity: 1;
 }
-/* line 283, ../sass/_form.scss */
+/* line 287, ../sass/_form.scss */
 #block-search-form ::-moz-placeholder {
   /* Firefox 19+ */
   color: white;
   opacity: 1;
 }
-/* line 288, ../sass/_form.scss */
+/* line 292, ../sass/_form.scss */
 #block-search-form :-ms-input-placeholder {
   color: white;
 }
 
-/* line 292, ../sass/_form.scss */
+/* line 296, ../sass/_form.scss */
 #block-menu-menu-sprogmenu {
   float: right;
 }
 
 /* Brugerprofil form */
-/* line 296, ../sass/_form.scss */
+/* line 300, ../sass/_form.scss */
 #user-profile-form {
   padding: 0 15px 0 15px;
 }
-/* line 298, ../sass/_form.scss */
+/* line 302, ../sass/_form.scss */
 #user-profile-form a {
   color: #fb9a00;
 }
-/* line 301, ../sass/_form.scss */
+/* line 305, ../sass/_form.scss */
 #user-profile-form input[type=submit] {
   font-family: "Cabin", sans-serif;
   background: #fb9a00;
@@ -1955,6 +1959,16 @@
   border: none;
   text-shadow: none;
   font-weight: normal;
+}
+
+/* line 321, ../sass/_form.scss */
+.node-body_secret-form {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 2em;
+  margin: 2em 0;
+  overflow: hidden;
+  *zoom: 1;
 }
 
 /* Node - generel indrykning */

@@ -117,19 +117,19 @@
 			float: left;
 			width: 100%;
 			label {
-				width: 11%;
+				width: 15%;
 				text-align: left;
 				float: none;
-				padding-right: 4%;
+				padding-right: 5%;
 				margin-top: 6px;
 			}
 			input, textarea, .description {
-				width: 85%;
+				width: 80%;
 				float: none;
 			}
 		}
 		.form-wrapper > .form-type-checkbox {
-			width: 85%;
+			width: 80%;
 			float: right;
 			overflow: hidden;
 			.description {
@@ -140,10 +140,10 @@
 			float: left;
 			width: 100%;
 			> label {
-				width: 11%;
+				width: 15%;
 				float: left;
 				text-align: left;
-				padding-right: 4%;
+				padding-right: 5%;
 				margin-top: 6px;
 			}
 			.form-checkboxes, .description {
@@ -152,10 +152,10 @@
 			}
 		}
 		fieldset {
-			float: none; width: 85%; padding: 5px 0;
+			float: none; width: 80%; padding: 5px 0;
 		}
 		#edit-actions {
-			float: none; width: 85%;
+			float: none; width: 80%;
 		}
 		.field-type-image {
 			.form-submit {
@@ -177,15 +177,15 @@
 		float: left;
 		width: 100%;
 		label {
-			width: 11%;
+			width: 15%;
 			float: left;
-			text-align: right;
-			padding-right: 4%;
+			text-align: left;
+			padding-right: 5%;
 			margin-top: 6px;
 		}
-		input, textarea, .description {
-			width: 85%;
-			float: right;
+		input, .description, .form-textarea-wrapper {
+			width: 80%;
+			float: left;
 		}
 
 		#edit-field-billede-und-0-upload {
@@ -225,6 +225,10 @@
 	}
 	#edit-actions {
 		float: right; width: 85%;
+	}
+
+	.counter {
+		display: inline-block;
 	}
 }
 
@@ -311,4 +315,13 @@
 	    text-shadow: none;
 	    font-weight: normal;
 	}
+}
+
+// Located on cyberhus.dk/kropshemligheder
+.node-body_secret-form {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 2em;
+	margin: 2em 0;
+	@include clearfix;
 }
