@@ -318,6 +318,28 @@
 }
 
 // Located on cyberhus.dk/kropshemligheder
+.page-node-add-body-secret {
+
+	.author-wrapper {
+		@include clearfix;
+
+		@media (min-width: 680px) {
+			width: 45%;
+			float: left;
+
+			&.author-1 {
+				margin-right: 7%;
+			}
+		}
+
+		&.author-1 {
+			margin-bottom: 3em;
+		}
+
+
+	}
+}
+
 .node-body_secret-form {
 	background-color: #fff;
 	border: 1px solid #ccc;
