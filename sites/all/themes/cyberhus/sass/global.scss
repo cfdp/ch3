@@ -14,6 +14,8 @@
 	box-sizing: border-box;
 }
 
+
+
 // Fonts
 #page {
 	#logo {
@@ -632,4 +634,12 @@ body {
 
 .front .region-header-bottom {
 	display: none;
+}
+
+// Content list hack
+.content ol,
+	.content ul {
+		padding-left: 1.25em;
+
+	}
 }
