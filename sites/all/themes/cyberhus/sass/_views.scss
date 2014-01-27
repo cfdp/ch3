@@ -233,6 +233,12 @@
 					}
 				}
 		}
+
+		.type-body-secret {
+			.masonry-title a {
+				display: none;
+			}
+		}
 	}
 }
 
