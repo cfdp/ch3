@@ -438,14 +438,11 @@
         color: #888888;
     }
     
-    ul {
-        list-style-type: none;
-        width: 260px;
-        margin: auto;
-    }
-    
-    li:nth-child(2) {
-        margin: 35px 0 0 8px;
+    .btn {
+        padding: 8px 10px !important;
+        text-transform: uppercase;
+        border-radius: 3px !important;
+        margin-right: 6px;
     }
 }
 

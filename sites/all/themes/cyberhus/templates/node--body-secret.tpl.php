@@ -18,10 +18,8 @@
         <?php print "Af " . render($content['field_brevk_koen']) . " " . render($content['field_brevk_alder']); ?>
     </span>
   </div>
-    <ul>
-        <li><a href="/kropshemligheder/alle" class="btn">Se alle kropshemmeligheder</a></li>
-        <li><a href="/kropshemmeligheder" class="btn">Del din kropshemmelighed</a></li>
-    </ul>
+    <a href="/kropshemligheder/alle" class="btn">Se alle kropshemmeligheder</a>
+    <a href="/kropshemmeligheder" class="btn">Del din kropshemmelighed</a>
   <div class="clearfix">
     <?php if (!empty($content['links'])): ?>
       <nav class="links node-links clearfix"><?php print render($content['links']); ?></nav>
