@@ -1,12 +1,9 @@
 <article<?php print $attributes; ?>>
-  <a href="/kropshemligheder" class="btn">Tilbage</a>
   <?php print $user_picture; ?>
   <?php print render($title_prefix); ?>
-
   <?php print render($title_suffix); ?>
   <?php if ($display_submitted): ?>
   <?php endif; ?>
-
   <div<?php print $content_attributes; ?>>
     <div class="body_secret_icon"></div>
     <span class="date"><?php print $date; ?></span>
@@ -16,11 +13,15 @@
       hide($content['links']);
       print render($content['body']);
     ?>
+    
     <span class="bottom_info">
         <?php print "Af " . render($content['field_brevk_koen']) . " " . render($content['field_brevk_alder']); ?>
     </span>
   </div>
-
+    <ul>
+        <li><a href="/kropshemligheder/alle" class="btn">Se alle kropshemmeligheder</a></li>
+        <li><a href="/kropshemmeligheder" class="btn">Del din kropshemmelighed</a></li>
+    </ul>
   <div class="clearfix">
     <?php if (!empty($content['links'])): ?>
       <nav class="links node-links clearfix"><?php print render($content['links']); ?></nav>
