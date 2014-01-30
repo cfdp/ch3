@@ -978,7 +978,7 @@
     color: #888888;
   }
 
-  .views-field-nothing , .view-footer {
+  .views-field-nothing , .view-footer, .view-header {
     a {
       margin-top: 10px;
       color: #ffffff !important;
@@ -1005,6 +1005,13 @@
     }
 
     text-align: center;
+  }
+  
+  .view-header {
+    a {
+      padding: 5px 10px;
+      margin-bottom: 20px;
+    }
   }
 
   .body_secret_icon {

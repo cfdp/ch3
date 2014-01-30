@@ -1120,7 +1120,7 @@
   color: #888888;
 }
 /* line 982, ../sass/_views.scss */
-.view-id-body_secrets .views-field-nothing a, .view-id-body_secrets .view-footer a {
+.view-id-body_secrets .views-field-nothing a, .view-id-body_secrets .view-footer a, .view-id-body_secrets .view-header a {
   margin-top: 10px;
   color: #ffffff !important;
   background-color: #fb9a00;
@@ -1146,7 +1146,12 @@
 .view-id-body_secrets .view-footer a {
   padding: 10px;
 }
-/* line 1010, ../sass/_views.scss */
+/* line 1011, ../sass/_views.scss */
+.view-id-body_secrets .view-header a {
+  padding: 5px 10px;
+  margin-bottom: 20px;
+}
+/* line 1017, ../sass/_views.scss */
 .view-id-body_secrets .body_secret_icon {
   width: 60px;
   height: 60px;
@@ -1160,7 +1165,7 @@
   left: 50%;
   margin-left: -30px;
 }
-/* line 1024, ../sass/_views.scss */
+/* line 1031, ../sass/_views.scss */
 .view-id-body_secrets .more-link a {
   color: #fb9a00 !important;
 }

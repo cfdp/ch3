@@ -9,66 +9,66 @@
 // This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. styling der vises overalt, eksempelvis tekst farver osv.
 
 * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 
 
 // Fonts
 #page {
-	#logo {
-		max-width: 160px; }
+  #logo {
+    max-width: 160px; }
 
-	p {
-		font-family: $std-font-family;
-		font-size: $font_size_normal;
-		line-height: 20px;
-		margin-bottom: 10px; }
+  p {
+    font-family: $std-font-family;
+    font-size: $font_size_normal;
+    line-height: 20px;
+    margin-bottom: 10px; }
 
-	h1 {
-		font-size: $font_size_stor;
-		font-family: $std-font-family;
-		letter-spacing: $letter-spacing-overskrifter; }
+  h1 {
+    font-size: $font_size_stor;
+    font-family: $std-font-family;
+    letter-spacing: $letter-spacing-overskrifter; }
 
-	h2, h2.node-title {
-		font-size: $font_size_h2;
-		font-family: $std-font-family;
-		letter-spacing: $letter-spacing-overskrifter;
-		text-transform: uppercase; }
+  h2, h2.node-title {
+    font-size: $font_size_h2;
+    font-family: $std-font-family;
+    letter-spacing: $letter-spacing-overskrifter;
+    text-transform: uppercase; }
 
-	h3 {
-		font-size: $font_size_h3;
-		font-family: $std-font-family;
-		letter-spacing: $letter-spacing-overskrifter; }
+  h3 {
+    font-size: $font_size_h3;
+    font-family: $std-font-family;
+    letter-spacing: $letter-spacing-overskrifter; }
 
-	h4 {
-		font-size: $font_size_h4;
-		font-family: $std-font-family;
-		letter-spacing: $letter-spacing-overskrifter; }
+  h4 {
+    font-size: $font_size_h4;
+    font-family: $std-font-family;
+    letter-spacing: $letter-spacing-overskrifter; }
 
-	h5 {
-		font-size: $font_size_h5;
-		font-family: $std-font-family;
-		letter-spacing: $letter-spacing-overskrifter; }
+  h5 {
+    font-size: $font_size_h5;
+    font-family: $std-font-family;
+    letter-spacing: $letter-spacing-overskrifter; }
 
-	a:link, a:visited {
-		text-decoration: none;
-	}
+  a:link, a:visited {
+    text-decoration: none;
+  }
 }
 
 .node {
-	a:link, a:visited {
-		text-decoration: none;
-		color:$font_color_gul;
-	}
+  a:link, a:visited {
+    text-decoration: none;
+    color:$font_color_gul;
+  }
 
-	a.btn {
-		font-family: $std-font-family;
- 		background: $color_gul;
-	 	color: #FFFFFF;
-		font-size: 13px;
+  a.btn {
+    font-family: $std-font-family;
+    background: $color_gul;
+    color: #FFFFFF;
+    font-size: 13px;
     line-height: 1em;
     padding: 12px 20px;
     text-transform: uppercase;
@@ -76,568 +76,568 @@
     border: none;
     text-shadow: none;
     font-weight: normal;
-	}
+  }
 }
 
 #region-sidebar-first {
-	h1 {
-		font-size: $font_size_lille;
-		font-family: $std-font-family;
-	}
+  h1 {
+    font-size: $font_size_lille;
+    font-family: $std-font-family;
+  }
 }
 
 // Billeder - mobil tilpasset
 
 img {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 // Layout
 
 body {
-	// @include background(
-	// 	image-url("../img/bg.png")
-	// );
-	// background-color: #bca79a;
+  // @include background(
+  // 	image-url("../img/bg.png")
+  // );
+  // background-color: #bca79a;
 
-	background: url(../img/bg-ricepaper.png);
-	// Found on http://subtlepatterns.com/rice-paper-3/
+  background: url(../img/bg-ricepaper.png);
+  // Found on http://subtlepatterns.com/rice-paper-3/
 
-	font-family: $std-font-family;
+  font-family: $std-font-family;
 }
 
 // Util
 .node-unpublished {
-	background-color: none;
+  background-color: none;
 
 }
 
 .mb0{
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .subtle {
-	color: #999;
+  color: #999;
 }
 
 #section-footer {
 
-	.footer-icons {
-		margin-top: 15px;
+  .footer-icons {
+    margin-top: 15px;
 
-		.rounded {
-			height: 36px; width: 36px;
-			border-radius: 36px;
-			margin-right: 20px;
-		}
-	}
+    .rounded {
+      height: 36px; width: 36px;
+      border-radius: 36px;
+      margin-right: 20px;
+    }
+  }
 
 }
 
 
 // Forsiden
 .page-forside {
-	#page {
-		background: none;
-		#section-content {
-			#zone-content-wrapper {
-				background: none;
-				background-position: left top;
-				background-repeat: no-repeat;
-				margin-bottom: 0px;
-					#forside_wrapper {
+  #page {
+    background: none;
+    #section-content {
+      #zone-content-wrapper {
+        background: none;
+        background-position: left top;
+        background-repeat: no-repeat;
+        margin-bottom: 0px;
+        #forside_wrapper {
 
 
-						#zone-content {
-							background: #efefef;
-							border-radius: 0 0 10px 10px;
-							border: 1px solid #ccc;
-							border-top: none;
-							padding-bottom: 20px;
-						}
+          #zone-content {
+            background: #efefef;
+            border-radius: 0 0 10px 10px;
+            border: 1px solid #ccc;
+            border-top: none;
+            padding-bottom: 20px;
+          }
 
-						#region-content {
-							background: none;
-							.region-inner.region-content-inner {
-								background: none;
-									#block-system-main {
-										border-top: none;
-									}
-							}
-							.content_bottom {
-								height: 0px;
-								background: none;
-							}
-						}
-					}
-			}
-		}
-	}
+          #region-content {
+            background: none;
+            .region-inner.region-content-inner {
+              background: none;
+              #block-system-main {
+                border-top: none;
+              }
+            }
+            .content_bottom {
+              height: 0px;
+              background: none;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 // Flags
 #block-menu-menu-sprogmenu {
-	padding-bottom: 20px;
-	.menu {
-			li {
-				list-style-image: none;
-				list-style: none;
-				margin: 0;
-				padding: 0;
-				float: left;
-			}
-			.first.leaf {
-				margin-right: 10px;
-			}
-			.first.leaf a {
-				background: url("../img/dk_flag.png");
-				display: block;
-				text-indent: -999em;
-				width: 19px;
-				height: 12px;
-			}
-			.last.leaf a {
-				background: url("../img/eng_flag.png");
-				display: block;
-				text-indent: -999em;
-				width: 19px;
-				height: 12px;
-			}
-	}
+  padding-bottom: 20px;
+  .menu {
+    li {
+      list-style-image: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      float: left;
+    }
+    .first.leaf {
+      margin-right: 10px;
+    }
+    .first.leaf a {
+      background: url("../img/dk_flag.png");
+      display: block;
+      text-indent: -999em;
+      width: 19px;
+      height: 12px;
+    }
+    .last.leaf a {
+      background: url("../img/eng_flag.png");
+      display: block;
+      text-indent: -999em;
+      width: 19px;
+      height: 12px;
+    }
+  }
 }
 
 // Undersider
 #page {
-		#section-header {
-			#zone-header {
-				min-height: 80px;
-			}
+  #section-header {
+    #zone-header {
+      min-height: 80px;
+    }
 
-			#region-logo {
-				height: 54px;	}
+    #region-logo {
+      height: 54px;	}
 
-			#region-search {
-				float: right;
-				margin-top: 20px;
-			}
-		}
+    #region-search {
+      float: right;
+      margin-top: 20px;
+    }
+  }
 
-		#section-content {
-			#zone-content {
-				> .content_bottom {
-					height: 15px;
-					background: transparent url("../img/main_bottom.png") no-repeat bottom center;
-					float: right; width: 640px;
-				}
-			}
-			#zone-content-wrapper {
-				position: relative;
-				z-index: 1;
-				margin-bottom: 10px;
-					.messages.status {
-						margin-left: 300px;
-					}
-				}
+  #section-content {
+    #zone-content {
+      > .content_bottom {
+        height: 15px;
+        background: transparent url("../img/main_bottom.png") no-repeat bottom center;
+        float: right; width: 640px;
+      }
+    }
+    #zone-content-wrapper {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 10px;
+      .messages.status {
+        margin-left: 300px;
+      }
+    }
 
-			// Sidebar
-			#region-sidebar-first {
-				margin-top: 18px;
-				background-position: right top;
-				background-repeat: no-repeat;
-					.region-inner.region-sidebar-first-inner {
+    // Sidebar
+    #region-sidebar-first {
+      margin-top: 18px;
+      background-position: right top;
+      background-repeat: no-repeat;
+      .region-inner.region-sidebar-first-inner {
 
-						background: #eeebea;
-						padding: 18px 12px;
-
-
-						a {
-							color: #000;
-						}
-						h2 {
-							margin-bottom: .5em;
-						}
-						.sidebar_indhold {
-							font-size: $font_size_normal;
-							text-shadow: $text_shadow_undersider;
-						}
-						.block{
-							margin-bottom: 20px;
-						}
-						.view.view-udvalgte-temasider, .view.view-voksenblog-sidebar {
-							.view-header {
-								position: absolute;
-								.sidebar_overskrift {
-									padding: 10px 0 0 10px;
-									width: 241px;
-									height: 30px;
-									background-repeat: no-repeat;
-									background: url("../img/sidebar_overskrift.png");
-									h2 {
-										width: 210px;
-										display: block;
-										float: left;
-									}
-									a {
-										position: relative;
-										top: 2px;
-										display: block;
-										background: url("../img/sidebar_next.png") no-repeat;
-										height: 16px;
-										width: 17px;
-										text-indent: -999em;
-										float: left;
-									}
-							}
-							.sidebar_kategori {
-								position: absolute;
-								margin-top: -10px;
-								h1 {
-									background: url("../img/sidebar_titel.png");
-									background-repeat: no-repeat;
-									width: 163px;
-									height: 22px;
-									padding: 6px 0 0 10px;
-									margin-bottom: 0;
-								}
-							}
-							}
-
-							.view-content {
-								padding-top: 30px;
-							}
-						}
-
-						.block-bean {
-							.view-header {
-								position: absolute;
-								.sidebar_overskrift {
-									padding: 10px 0 0 10px;
-									width: 241px;
-									height: 20px;
-									background-repeat: no-repeat;
-									background: url("../img/sidebar_overskrift_tema.png") no-repeat;
-									h2 {
-										width: 210px;
-										display: block;
-										float: left;
-									}
-								}
-
-							}
-
-							.view-content {
-								padding-top: 30px;
-								a {
-									position: relative;
-									top: -18px;
-									left: 220px;
-									display: block;
-									background: url("../img/sidebar_next.png") no-repeat;
-									height: 16px;
-									width: 17px;
-									text-indent: -999em;
-								}
-								h1 {
-									position: relative;
-									z-index: 999;
-									margin-top: -16px;
-									background: url("../img/sidebar_titel_tema.png");
-									background-repeat: no-repeat;
-									width: 251px;
-									height: 29px;
-									padding: 6px 0 0 10px;
-									margin-bottom: 0;
-								}
-								.views-field-field-tema-kategori-billede {
-									margin-top: -34px;
-								}
-							}
-						}
-
-						.view.view-voksenblog-sidebar {
-							.view-content {
-								padding: 70px 10px 10px 10px;
-								background: url("../img/sidebar_content_bg.png") no-repeat 0px 31px;
-								.views-row {
-									margin-top: 10px;
-									a {
-										display: block;
-										background: url("../img/next_black.png") center left no-repeat;
-										padding: 0px 0 0 20px;
-									}
-									p.oprettet {
-										font-style: italic;
-										font-size: $font_size_lille;
-									}
-								}
-								.views-row-1{
-									margin-top: 0px;
-								}
-							}
-						}
-
-							#breadcrumb {
-								display: none; // Temporary
-								margin-left: -10px;
-								position: absolute;
-								top: -40px;
-									.breadcrumb {
-										padding-left: 25px;
-										background: url("../img/breadcrumb.png");
-										background-repeat: no-repeat;
-											a {
-												color:#000;
-											}
-									}
-							}
-					}
-				.sidebar_bottom {
-					background: url("../img/sidebar_bottom.png");
-					height: 12px;
-				}
-			}
-			// Hovedindhold
-			#region-content {
+        background: #eeebea;
+        padding: 18px 12px;
 
 
-				background-position: left top;
-				background-repeat: no-repeat;
-				h1, h2, h3, h4, h5, p, .views-field-name, .forum-table, .views-row, .comment-submitted, .comment-form, .item-list, .field-type-text-long {
-					text-shadow: $text_shadow_undersider;
-				}
-					.region-inner.region-content-inner {
-						background: #eeebea;
-						padding: 18px;
-.not-front & { border: 1px solid #ccc; }
+        a {
+          color: #000;
+        }
+        h2 {
+          margin-bottom: .5em;
+        }
+        .sidebar_indhold {
+          font-size: $font_size_normal;
+          text-shadow: $text_shadow_undersider;
+        }
+        .block{
+          margin-bottom: 20px;
+        }
+        .view.view-udvalgte-temasider, .view.view-voksenblog-sidebar {
+          .view-header {
+            position: absolute;
+            .sidebar_overskrift {
+              padding: 10px 0 0 10px;
+              width: 241px;
+              height: 30px;
+              background-repeat: no-repeat;
+              background: url("../img/sidebar_overskrift.png");
+              h2 {
+                width: 210px;
+                display: block;
+                float: left;
+              }
+              a {
+                position: relative;
+                top: 2px;
+                display: block;
+                background: url("../img/sidebar_next.png") no-repeat;
+                height: 16px;
+                width: 17px;
+                text-indent: -999em;
+                float: left;
+              }
+            }
+            .sidebar_kategori {
+              position: absolute;
+              margin-top: -10px;
+              h1 {
+                background: url("../img/sidebar_titel.png");
+                background-repeat: no-repeat;
+                width: 163px;
+                height: 22px;
+                padding: 6px 0 0 10px;
+                margin-bottom: 0;
+              }
+            }
+          }
 
-						.node.node-page, .node.node-simpel-side-med-view {
-							.content {
-								.field.field-name-body {
-									margin-bottom: 30px;
-								}
-							}
-						}
+          .view-content {
+            padding-top: 30px;
+          }
+        }
 
-						#block-cyberhus-social-cyberhus-social {
-							float: right;
-							width: 180px;
-							height: 30px;
-							margin-top: -28px;
-								.block-title {
-									float: left;
-									font-weight: $font_weight_brodtekst;
-									font-size: $font_size_lille;
-									margin-top: 2px;
-									margin-right: 10px;
-									text-transform: none;
-								}
-							#cyberhus-social-list {
-								margin: 0;
-								list-style: none;
-								li {
-									float: left;
-									margin-right: 5px;
-									a {
-										display: block;
-										height: 20px;
-										width: 21px;
-									}
-									.social_facebook {
-										background: url("../img/facebook_icon.png");
-										background-repeat: no-repeat;
-									}
-									.social_twitter {
-										background: url("../img/twitter_icon.png");
-										background-repeat: no-repeat;
-									}
-									.social_mail {
-										background: url("../img/mail_icon.png");
-										background-repeat: no-repeat;
-									}
-								}
-							}
-						}
-					}
+        .block-bean {
+          .view-header {
+            position: absolute;
+            .sidebar_overskrift {
+              padding: 10px 0 0 10px;
+              width: 241px;
+              height: 20px;
+              background-repeat: no-repeat;
+              background: url("../img/sidebar_overskrift_tema.png") no-repeat;
+              h2 {
+                width: 210px;
+                display: block;
+                float: left;
+              }
+            }
 
-				.content_bottom {
-					height: 12px;
-					background: url("../img/main_bottom.png");
-				}
-			}
-		}
+          }
 
-		// Footer
-		#section-footer {
-			color: #f1edea;
-				a {
-					color: #f1edea;
-				}
-				h2 {
-					font-weight: $font_weight_brodtekst;
-				}
+          .view-content {
+            padding-top: 30px;
+            a {
+              position: relative;
+              top: -18px;
+              left: 220px;
+              display: block;
+              background: url("../img/sidebar_next.png") no-repeat;
+              height: 16px;
+              width: 17px;
+              text-indent: -999em;
+            }
+            h1 {
+              position: relative;
+              z-index: 999;
+              margin-top: -16px;
+              background: url("../img/sidebar_titel_tema.png");
+              background-repeat: no-repeat;
+              width: 251px;
+              height: 29px;
+              padding: 6px 0 0 10px;
+              margin-bottom: 0;
+            }
+            .views-field-field-tema-kategori-billede {
+              margin-top: -34px;
+            }
+          }
+        }
 
-				#footerwrapper {
-					// background: url("../img/bylinje.png");
-					background: url("../img/bylinje.png");
-					background-repeat: repeat-x;
-					padding-top: 100px;
-					position: relative;
-					bottom: -20px;
-						#footer_pattern {
-							background: url("../img/repeat_dot.png");
-							padding-top: 40px;
-								#zone-footer-wrapper {
-									#zone-footer {
-										.views-row-last .views-field-created {
-											margin: -3px 0 5px 0;
-										}
-										.views-field-created {
-											font-size: $font_size_lille;
-											margin: -3px 0 25px 0;
-										}
-										.views-field-field-tegn-selv-billede{
-											background: url("../img/tegn_selv_bg.png") no-repeat top left;
-											width: 160px;
-											height: 104px;
-											padding: 7px 0 0 7px;
-											margin-top: 8px;
-										}
-										.block-title {
-											margin-bottom: 15px;
-										}
-										.grid-4 {
-											background: url("../img/footer_vertical_border.png") repeat-y top left;
-											width: 210px;
-											padding-left: 15px;
-											margin-left: 0;
-											margin-right: 15px;
-										}
-										.grid-4.region-footer-et {
-											background: none;
-											padding-left: 0;
-											margin-left: 10px;
-											width: 450px;
-										}
-										.grid-4.region-footer-to{
-											ul li.leaf {
-												list-style-image: none;
-												list-style-type: none;
-												list-style-position: inside;
-												margin: 0;
-											}
-											ul li.last {
-												padding-left: 13px;
-												background: url("../img/login_gfx.png") no-repeat left 5px;
-												width: 210px;
-											}
-											ul li.last:after {
-												position: relative;
-												top: 17px;
-												left: -52px;
-												content: " - for frivillige & Ungebloggere";
-												color: #fff;
-												font-style: italic;
-												font-size: 11px;
-											}
-										}
-										.grid-4.region-footer-fire {
-											margin-right: 0;
-											.social {
-												.facebook_bottom {
-													text-indent: -999em;
-													background: url("../img/facebook.png");
-													background-repeat: no-repeat;
-													display: block;
-													width: 154px;
-													height: 71px;
-												}
-											}
-										}
-									}
+        .view.view-voksenblog-sidebar {
+          .view-content {
+            padding: 70px 10px 10px 10px;
+            background: url("../img/sidebar_content_bg.png") no-repeat 0px 31px;
+            .views-row {
+              margin-top: 10px;
+              a {
+                display: block;
+                background: url("../img/next_black.png") center left no-repeat;
+                padding: 0px 0 0 20px;
+              }
+              p.oprettet {
+                font-style: italic;
+                font-size: $font_size_lille;
+              }
+            }
+            .views-row-1{
+              margin-top: 0px;
+            }
+          }
+        }
 
-								}
-									#zone-footer-bottom {
-										margin-top: 40px;
-										padding-bottom: 10px;
-										border-bottom: 1px solid #272222;
-										.block-title {
-											margin-bottom: 25px;
-										}
-										#footer_bottom_seperator {
-											position:relative;
-											top:36px;
-											left:0px;
-											height: 2px;
-											width: 960px;
-											background: url("../img/footer_horizontal_border.png") repeat-x top left;
-										}
-										.region {
-											width: 210px;
-											padding-left: 15px;
-											margin-left: 0;
-											margin-right: 15px;
-										}
-										#region-footer-bottom-et {
-											background: none;
-											padding-left: 0;
-											margin-left: 10px;
-										}
-										#region-footer-bottom-to {
+        #breadcrumb {
+          display: none; // Temporary
+          margin-left: -10px;
+          position: absolute;
+          top: -40px;
+          .breadcrumb {
+            padding-left: 25px;
+            background: url("../img/breadcrumb.png");
+            background-repeat: no-repeat;
+            a {
+              color:#000;
+            }
+          }
+        }
+      }
+      .sidebar_bottom {
+        background: url("../img/sidebar_bottom.png");
+        height: 12px;
+      }
+    }
+    // Hovedindhold
+    #region-content {
 
-										}
-										#region-footer-bottom-tre {
-											margin-right: 0;
-										}
-									}
-									#zone-footer-last {
-										border-top: 1px solid #362e2f;
-										padding-top: 12px;
-										p {
-											font-size: $font_size_lille;
-											letter-spacing: $letter-spacing-overskrifter;
-										}
-										.content {
-											.footer_left {
-												width: 50%;
-												float: left;
-											}
-											.footer_right {
-												width: 50%;
-												float: left;
-												text-align: right;
-											}
-										}
-									}
-								}
-						}
-				}
-		}
+
+      background-position: left top;
+      background-repeat: no-repeat;
+      h1, h2, h3, h4, h5, p, .views-field-name, .forum-table, .views-row, .comment-submitted, .comment-form, .item-list, .field-type-text-long {
+        text-shadow: $text_shadow_undersider;
+      }
+      .region-inner.region-content-inner {
+        background: #eeebea;
+        padding: 18px;
+        .not-front & { border: 1px solid #ccc; }
+
+        .node.node-page, .node.node-simpel-side-med-view {
+          .content {
+            .field.field-name-body {
+              margin-bottom: 30px;
+            }
+          }
+        }
+
+        #block-cyberhus-social-cyberhus-social {
+          float: right;
+          width: 180px;
+          height: 30px;
+          margin-top: -28px;
+          .block-title {
+            float: left;
+            font-weight: $font_weight_brodtekst;
+            font-size: $font_size_lille;
+            margin-top: 2px;
+            margin-right: 10px;
+            text-transform: none;
+          }
+          #cyberhus-social-list {
+            margin: 0;
+            list-style: none;
+            li {
+              float: left;
+              margin-right: 5px;
+              a {
+                display: block;
+                height: 20px;
+                width: 21px;
+              }
+              .social_facebook {
+                background: url("../img/facebook_icon.png");
+                background-repeat: no-repeat;
+              }
+              .social_twitter {
+                background: url("../img/twitter_icon.png");
+                background-repeat: no-repeat;
+              }
+              .social_mail {
+                background: url("../img/mail_icon.png");
+                background-repeat: no-repeat;
+              }
+            }
+          }
+        }
+      }
+
+      .content_bottom {
+        height: 12px;
+        background: url("../img/main_bottom.png");
+      }
+    }
+  }
+
+  // Footer
+  #section-footer {
+    color: #f1edea;
+    a {
+      color: #f1edea;
+    }
+    h2 {
+      font-weight: $font_weight_brodtekst;
+    }
+
+    #footerwrapper {
+      // background: url("../img/bylinje.png");
+      background: url("../img/bylinje.png");
+      background-repeat: repeat-x;
+      padding-top: 100px;
+      position: relative;
+      bottom: -20px;
+      #footer_pattern {
+        background: url("../img/repeat_dot.png");
+        padding-top: 40px;
+        #zone-footer-wrapper {
+          #zone-footer {
+            .views-row-last .views-field-created {
+              margin: -3px 0 5px 0;
+            }
+            .views-field-created {
+              font-size: $font_size_lille;
+              margin: -3px 0 25px 0;
+            }
+            .views-field-field-tegn-selv-billede{
+              background: url("../img/tegn_selv_bg.png") no-repeat top left;
+              width: 160px;
+              height: 104px;
+              padding: 7px 0 0 7px;
+              margin-top: 8px;
+            }
+            .block-title {
+              margin-bottom: 15px;
+            }
+            .grid-4 {
+              background: url("../img/footer_vertical_border.png") repeat-y top left;
+              width: 210px;
+              padding-left: 15px;
+              margin-left: 0;
+              margin-right: 15px;
+            }
+            .grid-4.region-footer-et {
+              background: none;
+              padding-left: 0;
+              margin-left: 10px;
+              width: 450px;
+            }
+            .grid-4.region-footer-to{
+              ul li.leaf {
+                list-style-image: none;
+                list-style-type: none;
+                list-style-position: inside;
+                margin: 0;
+              }
+              ul li.last {
+                padding-left: 13px;
+                background: url("../img/login_gfx.png") no-repeat left 5px;
+                width: 210px;
+              }
+              ul li.last:after {
+                position: relative;
+                top: 17px;
+                left: -52px;
+                content: " - for frivillige & Ungebloggere";
+                color: #fff;
+                font-style: italic;
+                font-size: 11px;
+              }
+            }
+            .grid-4.region-footer-fire {
+              margin-right: 0;
+              .social {
+                .facebook_bottom {
+                  text-indent: -999em;
+                  background: url("../img/facebook.png");
+                  background-repeat: no-repeat;
+                  display: block;
+                  width: 154px;
+                  height: 71px;
+                }
+              }
+            }
+          }
+
+        }
+        #zone-footer-bottom {
+          margin-top: 40px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #272222;
+          .block-title {
+            margin-bottom: 25px;
+          }
+          #footer_bottom_seperator {
+            position:relative;
+            top:36px;
+            left:0px;
+            height: 2px;
+            width: 960px;
+            background: url("../img/footer_horizontal_border.png") repeat-x top left;
+          }
+          .region {
+            width: 210px;
+            padding-left: 15px;
+            margin-left: 0;
+            margin-right: 15px;
+          }
+          #region-footer-bottom-et {
+            background: none;
+            padding-left: 0;
+            margin-left: 10px;
+          }
+          #region-footer-bottom-to {
+
+          }
+          #region-footer-bottom-tre {
+            margin-right: 0;
+          }
+        }
+        #zone-footer-last {
+          border-top: 1px solid #362e2f;
+          padding-top: 12px;
+          p {
+            font-size: $font_size_lille;
+            letter-spacing: $letter-spacing-overskrifter;
+          }
+          .content {
+            .footer_left {
+              width: 50%;
+              float: left;
+            }
+            .footer_right {
+              width: 50%;
+              float: left;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 // Forside
 .front {
-	#page {
-		#section-content {
-			#zone-content {
-				> .content_bottom {
-					background: none; height: 0;
-				}
-			}
-		}
-	}
+  #page {
+    #section-content {
+      #zone-content {
+        > .content_bottom {
+          background: none; height: 0;
+        }
+      }
+    }
+  }
 }
 
 // Hide on mobile
 .region-tabs-right {
-	display: none;
+  display: none;
 }
 
 .front .region-header-bottom {
-	display: none;
+  display: none;
 }
 
 // Content list hack
 .content ol,
 .content ul {
-		padding-left: 1.25em;
+  padding-left: 1.25em;
 }
