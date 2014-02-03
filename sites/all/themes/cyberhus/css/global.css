@@ -2997,20 +2997,26 @@ body {
   margin-left: 10px;
   width: 450px;
 }
-/* line 523, ../sass/global.scss */
+@media (max-width: 480px) {
+  /* line 516, ../sass/global.scss */
+  #page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .grid-4.region-footer-et {
+    width: auto;
+  }
+}
+/* line 526, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .grid-4.region-footer-to ul li.leaf {
   list-style-image: none;
   list-style-type: none;
   list-style-position: inside;
   margin: 0;
 }
-/* line 529, ../sass/global.scss */
+/* line 532, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .grid-4.region-footer-to ul li.last {
   padding-left: 13px;
   background: url("../img/login_gfx.png") no-repeat left 5px;
   width: 210px;
 }
-/* line 534, ../sass/global.scss */
+/* line 537, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .grid-4.region-footer-to ul li.last:after {
   position: relative;
   top: 17px;
@@ -3020,11 +3026,17 @@ body {
   font-style: italic;
   font-size: 11px;
 }
-/* line 544, ../sass/global.scss */
+/* line 547, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .grid-4.region-footer-fire {
   margin-right: 0;
 }
-/* line 547, ../sass/global.scss */
+@media (max-width: 880px) {
+  /* line 547, ../sass/global.scss */
+  #page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .grid-4.region-footer-fire {
+    margin-top: 50px;
+  }
+}
+/* line 553, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .grid-4.region-footer-fire .social .facebook_bottom {
   text-indent: -999em;
   background: url("../img/facebook.png");
@@ -3033,17 +3045,17 @@ body {
   width: 154px;
   height: 71px;
 }
-/* line 560, ../sass/global.scss */
+/* line 566, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom {
   margin-top: 40px;
   padding-bottom: 10px;
   border-bottom: 1px solid #272222;
 }
-/* line 564, ../sass/global.scss */
+/* line 570, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom .block-title {
   margin-bottom: 25px;
 }
-/* line 567, ../sass/global.scss */
+/* line 573, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom #footer_bottom_seperator {
   position: relative;
   top: 36px;
@@ -3052,62 +3064,62 @@ body {
   width: 960px;
   background: url("../img/footer_horizontal_border.png") repeat-x top left;
 }
-/* line 575, ../sass/global.scss */
+/* line 581, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom .region {
   width: 210px;
   padding-left: 15px;
   margin-left: 0;
   margin-right: 15px;
 }
-/* line 581, ../sass/global.scss */
+/* line 587, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom #region-footer-bottom-et {
   background: none;
   padding-left: 0;
   margin-left: 10px;
 }
-/* line 589, ../sass/global.scss */
+/* line 595, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom #region-footer-bottom-tre {
   margin-right: 0;
 }
-/* line 593, ../sass/global.scss */
+/* line 599, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-last {
   border-top: 1px solid #362e2f;
   padding-top: 12px;
 }
-/* line 596, ../sass/global.scss */
+/* line 602, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-last p {
   font-size: 11px;
   letter-spacing: 0.9px;
 }
-/* line 601, ../sass/global.scss */
+/* line 607, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-last .content .footer_left {
   width: 50%;
   float: left;
 }
-/* line 605, ../sass/global.scss */
+/* line 611, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-last .content .footer_right {
   width: 50%;
   float: left;
   text-align: right;
 }
 
-/* line 622, ../sass/global.scss */
+/* line 628, ../sass/global.scss */
 .front #page #section-content #zone-content > .content_bottom {
   background: none;
   height: 0;
 }
 
-/* line 631, ../sass/global.scss */
+/* line 637, ../sass/global.scss */
 .region-tabs-right {
   display: none;
 }
 
-/* line 635, ../sass/global.scss */
+/* line 641, ../sass/global.scss */
 .front .region-header-bottom {
   display: none;
 }
 
-/* line 641, ../sass/global.scss */
+/* line 647, ../sass/global.scss */
 .content ol,
 .content ul {
   padding-left: 1.25em;

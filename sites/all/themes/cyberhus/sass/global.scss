@@ -518,6 +518,9 @@ body {
               padding-left: 0;
               margin-left: 10px;
               width: 450px;
+              @media (max-width: 480px){
+                width: auto;
+              }
             }
             .grid-4.region-footer-to{
               ul li.leaf {
@@ -543,6 +546,9 @@ body {
             }
             .grid-4.region-footer-fire {
               margin-right: 0;
+              @media (max-width: 880px) {
+                margin-top: 50px;
+              }
               .social {
                 .facebook_bottom {
                   text-indent: -999em;
