@@ -16,17 +16,52 @@
 #region-menu {
   margin-top: 2.6em;
 }
-/* line 9, ../sass/_navigation.scss */
+@media (max-width: 978px) {
+  /* line 6, ../sass/_navigation.scss */
+  #region-menu {
+    top: -75px;
+  }
+}
+@media (max-width: 810px) {
+  /* line 6, ../sass/_navigation.scss */
+  #region-menu {
+    top: -5px;
+  }
+}
+/* line 17, ../sass/_navigation.scss */
 #region-menu .menu {
   float: right;
+  text-align: center;
 }
-/* line 12, ../sass/_navigation.scss */
+@media (max-width: 810px) {
+  /* line 17, ../sass/_navigation.scss */
+  #region-menu .menu {
+    float: none;
+    margin: auto;
+  }
+}
+@media (max-width: 653px) {
+  /* line 17, ../sass/_navigation.scss */
+  #region-menu .menu {
+    top: -15px;
+    float: none;
+    padding: 0;
+  }
+}
+/* line 32, ../sass/_navigation.scss */
 #region-menu .menu li.leaf {
   list-style: none;
   display: inline-block;
   padding: 0;
 }
-/* line 17, ../sass/_navigation.scss */
+@media (max-width: 653px) {
+  /* line 32, ../sass/_navigation.scss */
+  #region-menu .menu li.leaf {
+    display: block;
+    margin: 0;
+  }
+}
+/* line 41, ../sass/_navigation.scss */
 #region-menu .menu li.leaf a {
   color: #000;
   font-size: 16px;
@@ -38,26 +73,26 @@
   text-align: center;
 }
 @media (max-width: 980px) {
-  /* line 17, ../sass/_navigation.scss */
+  /* line 41, ../sass/_navigation.scss */
   #region-menu .menu li.leaf a {
     margin-top: 3px;
-    padding: .35em .5em .25em;
+    /*padding: .35em .5em .25em;*/
     min-width: 60px;
-    font-size: 14px;
+    width: 100%;
   }
 }
-/* line 34, ../sass/_navigation.scss */
+/* line 58, ../sass/_navigation.scss */
 #region-menu .menu li.leaf a:hover {
   background: #dccdc2;
   border-bottom-color: #825742;
 }
 
 /* Brødkrummer */
-/* line 44, ../sass/_navigation.scss */
+/* line 68, ../sass/_navigation.scss */
 #breadcrumb {
   width: 500px;
 }
-/* line 47, ../sass/_navigation.scss */
+/* line 71, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs li {
   list-style: none;
   float: left;
@@ -70,23 +105,23 @@
   font-style: italic;
   font-family: "Cabin", sans-serif;
 }
-/* line 58, ../sass/_navigation.scss */
+/* line 82, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs a {
   height: 19px;
   display: inline-block;
   color: #2d2728;
 }
-/* line 63, ../sass/_navigation.scss */
+/* line 87, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs span {
   margin-left: 5px;
 }
-/* line 67, ../sass/_navigation.scss */
+/* line 91, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs .first a {
   background: url("../img/breadcrumb.png");
   background-repeat: no-repeat;
   padding-left: 25px;
 }
-/* line 73, ../sass/_navigation.scss */
+/* line 97, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs .last {
   font-weight: 700;
 }
@@ -3030,10 +3065,10 @@ body {
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .grid-4.region-footer-fire {
   margin-right: 0;
 }
-@media (max-width: 880px) {
+@media (max-width: 985px) {
   /* line 547, ../sass/global.scss */
   #page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .grid-4.region-footer-fire {
-    margin-top: 50px;
+    margin-top: 40px;
   }
 }
 /* line 553, ../sass/global.scss */
