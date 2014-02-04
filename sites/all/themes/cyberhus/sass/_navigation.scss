@@ -23,9 +23,8 @@
             margin: auto;
           }
           
-          @media (max-width: 653px){
+          @media (max-width: 654px){
             top: -15px;
-            float: none;
             padding: 0;
           }
 
@@ -33,9 +32,12 @@
             list-style: none;
             display: inline-block;
             padding: 0;
-            @media (max-width: 653px){
-              display: block;
-              margin: 0;
+            @media (max-width: 654px){
+              width: 49%;
+              margin: 0;          
+            }
+            @media (max-width: 400px){
+              width: 100%;        
             }
 
             a {

@@ -6,6 +6,15 @@
   #page #section-content #zone-content-wrapper #forside_wrapper #region-content .region-inner.region-content-inner #block-system-main {
     background: none;
   }
+  #block-system-main {
+    @media(max-width: 979px){
+      width: 616px;
+      margin: auto;
+    }
+    @media (max-width: 654px){
+      width: 300px;
+    }
+  }
 }
 #page {
   #section-content {
@@ -245,6 +254,17 @@
 /* Forside view - exposed filter */
 
 #block-views-exp-forside-page {
+  @media(max-width: 979px){
+    width: 630px;
+    margin: auto;
+    a {
+      font-size: 11.5px;
+    }
+  }
+  @media (max-width: 654px){
+    width: 300px;
+  }
+
   #views-exposed-form-Forside-page {
     .views-exposed-form {
       font-family: $std-font-family;
@@ -292,7 +312,12 @@
       }
 
       #edit-combine-wrapper {
-
+        @media(max-width: 979px){
+          width: 555px;
+        }
+        @media (max-width: 654px){
+          width: 235px;
+        }
 
         .views-widget {
           .form-item.form-type-textfield.form-item-combine {
@@ -892,6 +917,11 @@
           .blog_oversigt_left {
             float: left;
             margin-right: 15px;
+            .user-picture {
+              img {
+                border-radius: 50px;
+              }
+            }
           }
           .blog_oversigt_right {
             float: left;
@@ -1006,7 +1036,7 @@
 
     text-align: center;
   }
-  
+
   .view-header {
     a {
       padding: 5px 10px;
