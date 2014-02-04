@@ -3065,7 +3065,7 @@ body {
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .grid-4.region-footer-fire {
   margin-right: 0;
 }
-@media (max-width: 985px) {
+@media (max-width: 979px) {
   /* line 547, ../sass/global.scss */
   #page #section-footer #footerwrapper #footer_pattern #zone-footer-wrapper #zone-footer .grid-4.region-footer-fire {
     margin-top: 40px;
