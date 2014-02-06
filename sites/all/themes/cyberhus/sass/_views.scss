@@ -770,30 +770,34 @@
       padding-top: 30px;
       padding-left: 15px;
       margin-bottom: 15px;
+      text-transform: uppercase;
       .titel {
         float: left;
-        text-transform: uppercase;
         @media (max-width: 660px){
           display: none;
         }
       }
       .kommentar {
-        width: 180px;
         float: right;
-        text-transform: uppercase;
+        margin-right: 15px;
         @media (max-width: 660px){
           display: none;
         }
       }
       .dato {
-        width: 100px;
         float: right;
-        text-transform: uppercase;
+        margin-right: 40px;
         @media (max-width: 660px){
           display: none;
         }
       }
-
+      .alder {
+        float: right;
+        margin-right: 40px;
+        @media (max-width: 660px){
+          display: none;
+        }
+      }
     }
   }
   .view-content {
@@ -801,6 +805,9 @@
       padding: 20px 15px 20px 15px;
       .views-field.views-field-title {
         width: 365px;
+        @media (max-width: 980px){
+          width: 300px;
+        }
         @media (max-width: 660px){
           width: auto;
         }
@@ -815,15 +822,18 @@
         }
       }
       .views-field.views-field-body {
-        width: 280px;
+        width: 500px;
+        @media (max-width: 980px){
+          width: 280px;
+        }
         @media (max-width: 660px){
           width: auto;
         }
       }
       .views-field.views-field-comment-count {
-        width: 215px;
         float: right;
         margin-top: -70px;
+        margin-right: 50px;
         @media (max-width: 660px){
           display: none;
         }
@@ -831,17 +841,28 @@
       .views-field.views-field-created {
         float: right;
         margin-top: -70px;
-        margin-right: 30px;
+        margin-right: 120px;
         @media (max-width: 660px){
           float: left;
           color: #888888;
           margin-top: -5px;
         }
       }
-      .views-field.views-field-name {
+      .views-field.views-field-field-anmeldelse-anm-alder {
+        float: right;
+        margin-top: -70px;
+        margin-right: 225px;
+        @media (max-width: 660px){
+          float: left;
+          color: #888888;
+          margin-top: -5px;
+          margin-right: 30px;
+        }
+      }
+      /*.views-field.views-field-name {
         width: 280px;
         overflow: hidden;
-      }
+      }*/
     }
     .views-row.views-row-even {
       background: url("../img/livsfortaelling_repeat.png");
