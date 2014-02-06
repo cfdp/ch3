@@ -773,28 +773,35 @@
       text-transform: uppercase;
       .titel {
         float: left;
-        @media (max-width: 660px){
+        @media (max-width: 760px){
           display: none;
         }
       }
       .kommentar {
         float: right;
         margin-right: 15px;
-        @media (max-width: 660px){
+        @media (max-width: 760px){
           display: none;
         }
       }
       .dato {
         float: right;
         margin-right: 40px;
-        @media (max-width: 660px){
+        @media (max-width: 760px){
           display: none;
         }
       }
       .alder {
         float: right;
         margin-right: 40px;
-        @media (max-width: 660px){
+        @media (max-width: 760px){
+          display: none;
+        }
+      }
+      .koen {
+        float: right;
+        margin-right: 40px;
+        @media (max-width: 760px){
           display: none;
         }
       }
@@ -808,7 +815,7 @@
         @media (max-width: 980px){
           width: 300px;
         }
-        @media (max-width: 660px){
+        @media (max-width: 760px){
           width: auto;
         }
         a {
@@ -826,7 +833,7 @@
         @media (max-width: 980px){
           width: 280px;
         }
-        @media (max-width: 660px){
+        @media (max-width: 760px){
           width: auto;
         }
       }
@@ -834,7 +841,7 @@
         float: right;
         margin-top: -70px;
         margin-right: 50px;
-        @media (max-width: 660px){
+        @media (max-width: 760px){
           display: none;
         }
       }
@@ -842,27 +849,35 @@
         float: right;
         margin-top: -70px;
         margin-right: 120px;
-        @media (max-width: 660px){
+        @media (max-width: 760px){
           float: left;
           color: #888888;
           margin-top: -5px;
+          margin-right: 0;
         }
       }
       .views-field.views-field-field-anmeldelse-anm-alder {
         float: right;
         margin-top: -70px;
         margin-right: 225px;
-        @media (max-width: 660px){
+        @media (max-width: 760px){
           float: left;
           color: #888888;
           margin-top: -5px;
           margin-right: 30px;
         }
       }
-      /*.views-field.views-field-name {
-        width: 280px;
-        overflow: hidden;
-      }*/
+      .views-field.views-field-field-brevk-koen {
+        float: right;
+        margin-top: -70px;
+        margin-right: 300px;
+        @media (max-width: 760px){
+          float: left;
+          color: #888888;
+          margin-top: -5px;
+          margin-right: 30px;
+        }
+      }
     }
     .views-row.views-row-even {
       background: url("../img/livsfortaelling_repeat.png");

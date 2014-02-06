@@ -960,7 +960,7 @@
 .view.view-livsfort-llinger .view-header .livsfortaellinger.labels .titel {
   float: left;
 }
-@media (max-width: 660px) {
+@media (max-width: 760px) {
   /* line 774, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-header .livsfortaellinger.labels .titel {
     display: none;
@@ -971,7 +971,7 @@
   float: right;
   margin-right: 15px;
 }
-@media (max-width: 660px) {
+@media (max-width: 760px) {
   /* line 780, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-header .livsfortaellinger.labels .kommentar {
     display: none;
@@ -982,7 +982,7 @@
   float: right;
   margin-right: 40px;
 }
-@media (max-width: 660px) {
+@media (max-width: 760px) {
   /* line 787, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-header .livsfortaellinger.labels .dato {
     display: none;
@@ -993,37 +993,44 @@
   float: right;
   margin-right: 40px;
 }
-@media (max-width: 660px) {
+@media (max-width: 760px) {
   /* line 794, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-header .livsfortaellinger.labels .alder {
     display: none;
   }
 }
-/* line 804, ../sass/_views.scss */
+/* line 801, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-header .livsfortaellinger.labels .koen {
+  float: right;
+  margin-right: 40px;
+}
+@media (max-width: 760px) {
+  /* line 801, ../sass/_views.scss */
+  .view.view-livsfort-llinger .view-header .livsfortaellinger.labels .koen {
+    display: none;
+  }
+}
+/* line 811, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row {
   padding: 20px 15px 20px 15px;
-  /*.views-field.views-field-name {
-    width: 280px;
-    overflow: hidden;
-  }*/
 }
-/* line 806, ../sass/_views.scss */
+/* line 813, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-title {
   width: 365px;
 }
 @media (max-width: 980px) {
-  /* line 806, ../sass/_views.scss */
+  /* line 813, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-title {
     width: 300px;
   }
 }
-@media (max-width: 660px) {
-  /* line 806, ../sass/_views.scss */
+@media (max-width: 760px) {
+  /* line 813, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-title {
     width: auto;
   }
 }
-/* line 814, ../sass/_views.scss */
+/* line 821, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-title a {
   color: #fb9a00;
   background: url("../img/next_yellow.png");
@@ -1033,56 +1040,57 @@
   font-size: 16px;
   text-transform: uppercase;
 }
-/* line 824, ../sass/_views.scss */
+/* line 831, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-body {
   width: 500px;
 }
 @media (max-width: 980px) {
-  /* line 824, ../sass/_views.scss */
+  /* line 831, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-body {
     width: 280px;
   }
 }
-@media (max-width: 660px) {
-  /* line 824, ../sass/_views.scss */
+@media (max-width: 760px) {
+  /* line 831, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-body {
     width: auto;
   }
 }
-/* line 833, ../sass/_views.scss */
+/* line 840, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-comment-count {
   float: right;
   margin-top: -70px;
   margin-right: 50px;
 }
-@media (max-width: 660px) {
-  /* line 833, ../sass/_views.scss */
+@media (max-width: 760px) {
+  /* line 840, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-comment-count {
     display: none;
   }
 }
-/* line 841, ../sass/_views.scss */
+/* line 848, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-created {
   float: right;
   margin-top: -70px;
   margin-right: 120px;
 }
-@media (max-width: 660px) {
-  /* line 841, ../sass/_views.scss */
+@media (max-width: 760px) {
+  /* line 848, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-created {
     float: left;
     color: #888888;
     margin-top: -5px;
+    margin-right: 0;
   }
 }
-/* line 851, ../sass/_views.scss */
+/* line 859, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-field-anmeldelse-anm-alder {
   float: right;
   margin-top: -70px;
   margin-right: 225px;
 }
-@media (max-width: 660px) {
-  /* line 851, ../sass/_views.scss */
+@media (max-width: 760px) {
+  /* line 859, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-field-anmeldelse-anm-alder {
     float: left;
     color: #888888;
@@ -1090,35 +1098,50 @@
     margin-right: 30px;
   }
 }
-/* line 867, ../sass/_views.scss */
+/* line 870, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-content .views-row .views-field.views-field-field-brevk-koen {
+  float: right;
+  margin-top: -70px;
+  margin-right: 300px;
+}
+@media (max-width: 760px) {
+  /* line 870, ../sass/_views.scss */
+  .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-field-brevk-koen {
+    float: left;
+    color: #888888;
+    margin-top: -5px;
+    margin-right: 30px;
+  }
+}
+/* line 882, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row.views-row-even {
   background: url("../img/livsfortaelling_repeat.png");
 }
 
 /* Livsfortællinger - enkeltvisning */
-/* line 874, ../sass/_views.scss */
+/* line 889, ../sass/_views.scss */
 .view.view-livsfort-llinger-enkeltvisning {
   margin: 0 15px 0 15px;
 }
 
 /* Tegn selv - seneste billeder */
-/* line 880, ../sass/_views.scss */
+/* line 895, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-header {
   overflow: hidden;
   background: url("../img/content-border.png") repeat-x top left;
   padding: 30px 15px 0 15px;
 }
-/* line 884, ../sass/_views.scss */
+/* line 899, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-header .galleri_overskrift {
   float: left;
   text-transform: uppercase;
 }
-/* line 888, ../sass/_views.scss */
+/* line 903, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-header .se_billede_arkiv {
   padding-top: 5px;
   float: right;
 }
-/* line 891, ../sass/_views.scss */
+/* line 906, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-header .se_billede_arkiv a {
   color: #fb9a00;
   background: url("../img/next_yellow.png");
@@ -1126,72 +1149,72 @@
   padding-left: 20px;
   text-transform: uppercase;
 }
-/* line 900, ../sass/_views.scss */
+/* line 915, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content {
   background: url("../img/livsfortaelling_repeat.png");
   overflow: hidden;
   padding: 15px;
 }
-/* line 904, ../sass/_views.scss */
+/* line 919, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content .views-row {
   float: left;
   width: 98px;
   margin-right: 15px;
 }
-/* line 908, ../sass/_views.scss */
+/* line 923, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content .views-row .views-field.views-field-title {
   height: 40px;
 }
-/* line 912, ../sass/_views.scss */
+/* line 927, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content .views-row-last {
   margin-right: 0;
 }
-/* line 915, ../sass/_views.scss */
+/* line 930, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content a {
   color: #fb9a00;
 }
 
 /* Tegn selv - Arkiv */
-/* line 923, ../sass/_views.scss */
+/* line 938, ../sass/_views.scss */
 .view.view-tegn-selv-arkiv .view-content {
   padding: 0 15px 0 15px;
 }
-/* line 925, ../sass/_views.scss */
+/* line 940, ../sass/_views.scss */
 .view.view-tegn-selv-arkiv .view-content .views-row {
   float: left;
   width: 98px;
   margin-right: 15px;
   height: 160px;
 }
-/* line 931, ../sass/_views.scss */
+/* line 946, ../sass/_views.scss */
 .view.view-tegn-selv-arkiv .view-content .views-row-5, .view.view-tegn-selv-arkiv .view-content .views-row-10, .view.view-tegn-selv-arkiv .view-content .views-row-15 {
   margin-right: 0;
 }
 
 /* Tegn selv - enkeltvisning */
-/* line 938, ../sass/_views.scss */
+/* line 953, ../sass/_views.scss */
 .view.view-tegn-selv-enkeltvisning {
   margin-bottom: 20px;
 }
 
 /* Ungeblogs/Voksenblogs - oversigt */
-/* line 945, ../sass/_views.scss */
+/* line 960, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row, #page .view.view-voksenblogs-oversigt .view-content .views-row {
   margin: 0 0 30px 0;
   background: url("../img/content-border.png") repeat-x top left;
   padding: 30px 15px 0 15px;
 }
-/* line 949, ../sass/_views.scss */
+/* line 964, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value, #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name {
   overflow: hidden;
 }
-/* line 951, ../sass/_views.scss */
+/* line 966, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value h3, #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name h3, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value h3, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name h3 {
   float: left;
   text-transform: uppercase;
   margin-right: 5px;
 }
-/* line 956, ../sass/_views.scss */
+/* line 971, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value a, #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name a, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value a, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name a {
   color: #fb9a00;
   background: url("../img/next_yellow.png");
@@ -1203,37 +1226,37 @@
   height: 15px;
   text-transform: uppercase;
 }
-/* line 968, ../sass/_views.scss */
+/* line 983, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing {
   overflow: hidden;
 }
-/* line 970, ../sass/_views.scss */
+/* line 985, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_left, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_left {
   float: left;
   margin-right: 15px;
 }
-/* line 974, ../sass/_views.scss */
+/* line 989, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_left .user-picture img, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_left .user-picture img {
   border-radius: 50px;
 }
-/* line 979, ../sass/_views.scss */
+/* line 994, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right {
   float: left;
   width: 450px;
 }
-/* line 982, ../sass/_views.scss */
+/* line 997, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right p, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right p {
   margin-bottom: 0;
 }
 
 /* Ungeblogs - enkeltvisning  */
-/* line 995, ../sass/_views.scss */
+/* line 1010, ../sass/_views.scss */
 #page .view.view-blogs-enkeltvisning-oversigt.view-id-blogs_enkeltvisning_oversigt .view-content .views-row {
   margin: 0 0 30px 0;
   background: url("../img/content-border.png") repeat-x top left;
   padding: 30px 15px 0 15px;
 }
-/* line 1000, ../sass/_views.scss */
+/* line 1015, ../sass/_views.scss */
 #page .view.view-blogs-enkeltvisning-oversigt.view-id-blogs_enkeltvisning_oversigt .view-content .views-row .views-field.views-field-title a {
   color: #fb9a00;
   background: url("../img/next_yellow.png");
@@ -1246,13 +1269,13 @@
 }
 
 /* General stuff */
-/* line 1018, ../sass/_views.scss */
+/* line 1033, ../sass/_views.scss */
 .opret_btn {
   position: relative;
   margin-bottom: 30px;
   padding: 0 15px 0 15px;
 }
-/* line 1022, ../sass/_views.scss */
+/* line 1037, ../sass/_views.scss */
 .opret_btn a {
   background-color: #fb9a00;
   color: #FFFFFF;
@@ -1264,7 +1287,7 @@
   text-transform: uppercase;
 }
 
-/* line 1035, ../sass/_views.scss */
+/* line 1050, ../sass/_views.scss */
 .view-id-body_secrets .views-row {
   width: 260px;
   height: 165px;
@@ -1277,23 +1300,23 @@
   box-shadow: 5px 5px #aaaaaa;
   position: relative;
 }
-/* line 1048, ../sass/_views.scss */
+/* line 1063, ../sass/_views.scss */
 .view-id-body_secrets .views-field-created {
   float: right;
   margin: 0px 0 6px 0;
 }
-/* line 1053, ../sass/_views.scss */
+/* line 1068, ../sass/_views.scss */
 .view-id-body_secrets .views-field-body {
   clear: both;
   text-align: justify;
   line-height: 15px;
   margin-bottom: 5px;
 }
-/* line 1060, ../sass/_views.scss */
+/* line 1075, ../sass/_views.scss */
 .view-id-body_secrets .views-field-field-brevk-koen, .view-id-body_secrets .views-field-field-brevk-alder, .view-id-body_secrets .views-field-created {
   color: #888888;
 }
-/* line 1065, ../sass/_views.scss */
+/* line 1080, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing a, .view-id-body_secrets .view-footer a, .view-id-body_secrets .view-header a {
   margin-top: 10px;
   color: #ffffff !important;
@@ -1301,31 +1324,31 @@
   display: inline-block;
   border-radius: 3px;
 }
-/* line 1074, ../sass/_views.scss */
+/* line 1089, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing {
   text-align: center;
 }
-/* line 1075, ../sass/_views.scss */
+/* line 1090, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing a {
   padding: 5px 10px;
   position: absolute;
   bottom: 10px;
   left: 60px;
 }
-/* line 1085, ../sass/_views.scss */
+/* line 1100, ../sass/_views.scss */
 .view-id-body_secrets .view-footer {
   text-align: center;
 }
-/* line 1086, ../sass/_views.scss */
+/* line 1101, ../sass/_views.scss */
 .view-id-body_secrets .view-footer a {
   padding: 10px;
 }
-/* line 1094, ../sass/_views.scss */
+/* line 1109, ../sass/_views.scss */
 .view-id-body_secrets .view-header a {
   padding: 5px 10px;
   margin-bottom: 20px;
 }
-/* line 1100, ../sass/_views.scss */
+/* line 1115, ../sass/_views.scss */
 .view-id-body_secrets .body_secret_icon {
   width: 60px;
   height: 60px;
@@ -1339,12 +1362,12 @@
   left: 50%;
   margin-left: -30px;
 }
-/* line 1114, ../sass/_views.scss */
+/* line 1129, ../sass/_views.scss */
 .view-id-body_secrets .more-link {
   text-align: left;
   margin-left: 30px;
 }
-/* line 1117, ../sass/_views.scss */
+/* line 1132, ../sass/_views.scss */
 .view-id-body_secrets .more-link a {
   color: #ffffff !important;
   background-color: #fb9a00;
