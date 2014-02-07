@@ -671,3 +671,21 @@ body {
 .content ul {
   padding-left: 1.25em;
 }
+
+// Chat block
+#block-block-56 {
+  .block-inner {
+    text-align: justify;
+    p:last-child {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .btn {
+      background: $color_gul;
+      color: #FFFFFF !important;
+      font-size: 13px;
+      padding: 12px 20px;
+      text-transform: uppercase;
+    }
+  }
+}
