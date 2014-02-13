@@ -59,12 +59,22 @@
   .block-inner{
     .node.node-historie{
       font-family: $std-font-family;
+      p {
+        @media(max-width:660px){
+          text-align: justify;
+        }
+      }
       .node-title {
         margin-bottom: 0;
       }
       .view-content {
-        margin-bottom: 15px;
         color: #888888;
+
+        .views-field-field-billede {
+          width: 200px;
+          float: left;
+          margin: 5px 15px 0 0;
+        }
         .views-field-field-brevk-koen {
           display: inline-block;
           margin-right: -2px;
@@ -282,7 +292,7 @@
     .alternate-votes-display {
       border: none;
       font-family: $std-font-family;
-      width: 100px;
+      width: 110px;
       font-weight: $font_weight_brodtekst;
       font-size: 13px;
       text-align: right;
@@ -311,7 +321,10 @@
   }
 }
 .field.field-name-field-kommentar-cyberlike {
-  padding-top: 28px;
+  padding-top: 12px;
+  @media(max-width: 600px){
+    float: left;
+  }
 }
 .field.field-name-field-blog-cyberlike, .field.field-name-field-cyberlike {
   margin: 20px 20px 0 0;
