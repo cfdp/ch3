@@ -1762,7 +1762,7 @@
   background-color: #b6a59c;
   background-color: rgba(182, 165, 156, 0.22);
   padding: 10px 5px;
-  margin: 0 0 15px 0;
+  margin: 0 0 10px 0;
 }
 @media (max-width: 580px) {
   /* line 254, ../sass/_forum.scss */
@@ -2418,8 +2418,8 @@
 /* line 127, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie #comments .comment {
   background: url("../img/livsfortaelling_repeat.png");
-  padding: 30px;
-  margin-bottom: 15px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 /* line 131, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie #comments .comment h3 {
@@ -2436,17 +2436,24 @@
 }
 /* line 141, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie #comments .comment .comment-links {
-  margin-top: 30px;
+  margin-top: 18px;
 }
-/* line 144, ../sass/_node.scss */
+@media (max-width: 600px) {
+  /* line 141, ../sass/_node.scss */
+  .node-type-historie .block-inner .node.node-historie #comments .comment .comment-links {
+    margin-top: 60px;
+  }
+}
+/* line 147, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie #comments .comment .comment-links ul li {
   margin: 0 5px 0 0;
   padding: 0;
   float: left;
+  margin-top: 5px;
 }
-/* line 148, ../sass/_node.scss */
+/* line 152, ../sass/_node.scss */
 .node-type-historie .block-inner .node.node-historie #comments .comment .comment-links ul li a {
-  padding: 15px 20px;
+  padding: 8px 12px;
   background-color: #585253;
   color: #FFFFFF;
   text-transform: uppercase;
@@ -2457,83 +2464,83 @@
 }
 
 /* Node - Brevkasse enkeltside - gammel indholdstype*/
-/* line 170, ../sass/_node.scss */
+/* line 174, ../sass/_node.scss */
 .node-type-faq .node-faq .field-name-field-sex {
   float: left;
 }
-/* line 172, ../sass/_node.scss */
+/* line 176, ../sass/_node.scss */
 .node-type-faq .node-faq .field-name-field-sex .field-item:after {
   content: " | ";
   color: #000;
   margin: 0 5px 0 5px;
 }
-/* line 178, ../sass/_node.scss */
+/* line 182, ../sass/_node.scss */
 .node-type-faq .node-faq .field-name-field-age {
   float: left;
   margin-bottom: 20px;
 }
-/* line 182, ../sass/_node.scss */
+/* line 186, ../sass/_node.scss */
 .node-type-faq .node-faq .field-name-field-question {
   float: left;
   margin-bottom: 15px;
 }
-/* line 185, ../sass/_node.scss */
+/* line 189, ../sass/_node.scss */
 .node-type-faq .node-faq .field-name-field-question .field-label {
   margin-bottom: 10px;
 }
-/* line 190, ../sass/_node.scss */
+/* line 194, ../sass/_node.scss */
 .node-type-faq .node-faq .field-name-body .field-label {
   margin-bottom: 10px;
 }
-/* line 194, ../sass/_node.scss */
+/* line 198, ../sass/_node.scss */
 .node-type-faq .node-faq h2 {
   margin-bottom: 0;
 }
 
 /* Node - Brevkasse enkeltside - ny indholdstype*/
-/* line 202, ../sass/_node.scss */
+/* line 206, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse {
   padding: 0 15px 0 15px;
 }
-/* line 204, ../sass/_node.scss */
+/* line 208, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse .field-name-field-brevk-koen {
   float: left;
 }
-/* line 206, ../sass/_node.scss */
+/* line 210, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse .field-name-field-brevk-koen .field-item:after {
   content: " | ";
   color: #000;
   margin: 0 5px 0 5px;
 }
-/* line 212, ../sass/_node.scss */
+/* line 216, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse .field-name-field-brevk-alder {
   float: left;
   margin-bottom: 20px;
 }
-/* line 216, ../sass/_node.scss */
+/* line 220, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse .field-name-field-brevk-spoergsmaal {
   float: left;
   margin-bottom: 15px;
 }
-/* line 219, ../sass/_node.scss */
+/* line 223, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse .field-name-field-brevk-spoergsmaal .field-label {
   margin-bottom: 10px;
 }
-/* line 224, ../sass/_node.scss */
+/* line 228, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse .field-name-field-brevk-svar .field-label {
   margin-bottom: 10px;
 }
-/* line 228, ../sass/_node.scss */
+/* line 232, ../sass/_node.scss */
 .node-type-brevkasse .node-brevkasse h2 {
   margin-bottom: 0;
 }
 
 /* Søge-side oversigt */
-/* line 238, ../sass/_node.scss */
+/* line 242, ../sass/_node.scss */
 .page-search-node .region-content .form-wrapper {
   margin-top: 15px;
 }
-/* line 240, ../sass/_node.scss */
+/* line 244, ../sass/_node.scss */
 .page-search-node .region-content .form-wrapper input[type="submit"] {
   font-family: "Cabin", sans-serif;
   background: #fb9a00;
@@ -2551,20 +2558,20 @@
   width: 75px;
   font-weight: 400;
 }
-/* line 259, ../sass/_node.scss */
+/* line 263, ../sass/_node.scss */
 .page-search-node .region-content .search-results .title a {
   color: #fb9a00;
 }
-/* line 262, ../sass/_node.scss */
+/* line 266, ../sass/_node.scss */
 .page-search-node .region-content .search-results .search-snippet-info {
   margin-top: -17px;
   margin-bottom: 15px;
 }
-/* line 265, ../sass/_node.scss */
+/* line 269, ../sass/_node.scss */
 .page-search-node .region-content .search-results .search-snippet-info .search-info {
   font-style: italic;
 }
-/* line 271, ../sass/_node.scss */
+/* line 275, ../sass/_node.scss */
 .page-search-node .region-content .item-list ul.pager li {
   font-size: 12px;
   text-transform: uppercase;
@@ -2572,24 +2579,24 @@
   padding: 0;
   font-weight: bold;
 }
-/* line 277, ../sass/_node.scss */
+/* line 281, ../sass/_node.scss */
 .page-search-node .region-content .item-list ul.pager li a {
   color: #2d2728;
 }
 
 /* Cyberlike */
-/* line 285, ../sass/_node.scss */
+/* line 289, ../sass/_node.scss */
 .field.field-name-field-blog-cyberlike, .field.field-name-field-kommentar-cyberlike, .field.field-name-field-cyberlike {
   float: right;
 }
-/* line 287, ../sass/_node.scss */
+/* line 291, ../sass/_node.scss */
 .field.field-name-field-blog-cyberlike .vud-widget, .field.field-name-field-kommentar-cyberlike .vud-widget, .field.field-name-field-cyberlike .vud-widget {
   float: none;
   width: 100%;
   height: 35px;
   margin: 0;
 }
-/* line 292, ../sass/_node.scss */
+/* line 296, ../sass/_node.scss */
 .field.field-name-field-blog-cyberlike .vud-widget .alternate-votes-display, .field.field-name-field-kommentar-cyberlike .vud-widget .alternate-votes-display, .field.field-name-field-cyberlike .vud-widget .alternate-votes-display {
   border: none;
   font-family: "Cabin", sans-serif;
@@ -2600,11 +2607,11 @@
   float: right;
   font-style: italic;
 }
-/* line 302, ../sass/_node.scss */
+/* line 306, ../sass/_node.scss */
 .field.field-name-field-blog-cyberlike .vud-widget .alternate-votes-display:after, .field.field-name-field-kommentar-cyberlike .vud-widget .alternate-votes-display:after, .field.field-name-field-cyberlike .vud-widget .alternate-votes-display:after {
   content: " synes godt om";
 }
-/* line 305, ../sass/_node.scss */
+/* line 309, ../sass/_node.scss */
 .field.field-name-field-blog-cyberlike .vud-widget .vud-link-up, .field.field-name-field-blog-cyberlike .vud-widget .up-active, .field.field-name-field-kommentar-cyberlike .vud-widget .vud-link-up, .field.field-name-field-kommentar-cyberlike .vud-widget .up-active, .field.field-name-field-cyberlike .vud-widget .vud-link-up, .field.field-name-field-cyberlike .vud-widget .up-active {
   width: 89px;
   height: 26px;
@@ -2614,129 +2621,123 @@
   float: right;
   margin-right: 15px;
 }
-/* line 313, ../sass/_node.scss */
+/* line 317, ../sass/_node.scss */
 .field.field-name-field-blog-cyberlike .vud-widget .vud-link-up .up-inactive, .field.field-name-field-blog-cyberlike .vud-widget .up-active .up-inactive, .field.field-name-field-kommentar-cyberlike .vud-widget .vud-link-up .up-inactive, .field.field-name-field-kommentar-cyberlike .vud-widget .up-active .up-inactive, .field.field-name-field-cyberlike .vud-widget .vud-link-up .up-inactive, .field.field-name-field-cyberlike .vud-widget .up-active .up-inactive {
   display: none;
 }
-/* line 317, ../sass/_node.scss */
+/* line 321, ../sass/_node.scss */
 .field.field-name-field-blog-cyberlike .vud-widget .reset-active, .field.field-name-field-kommentar-cyberlike .vud-widget .reset-active, .field.field-name-field-cyberlike .vud-widget .reset-active {
   float: right;
   display: none;
 }
 
-/* line 323, ../sass/_node.scss */
+/* line 327, ../sass/_node.scss */
 .field.field-name-field-kommentar-cyberlike {
   padding-top: 12px;
 }
 @media (max-width: 600px) {
-  /* line 323, ../sass/_node.scss */
+  /* line 327, ../sass/_node.scss */
   .field.field-name-field-kommentar-cyberlike {
     float: left;
   }
 }
 
-/* line 329, ../sass/_node.scss */
+/* line 333, ../sass/_node.scss */
 .field.field-name-field-blog-cyberlike, .field.field-name-field-cyberlike {
   margin: 20px 20px 0 0;
 }
 
-/* line 335, ../sass/_node.scss */
+/* line 339, ../sass/_node.scss */
 .node-type-image .links.node-links li {
   padding: 0;
 }
-/* line 339, ../sass/_node.scss */
+/* line 343, ../sass/_node.scss */
 .node-type-image .field.field-name-field-kommentar-cyberlike {
   padding-top: 55px;
 }
-/* line 342, ../sass/_node.scss */
+/* line 346, ../sass/_node.scss */
 .node-type-image #comments {
   margin-top: 10px;
 }
 
-/* line 347, ../sass/_node.scss */
+/* line 351, ../sass/_node.scss */
 .node-type-blog .links.node-links {
   position: absolute;
   margin-top: -70px;
 }
-/* line 353, ../sass/_node.scss */
+/* line 357, ../sass/_node.scss */
 .node-type-blog .comment-unpublished .field.field-name-field-kommentar-cyberlike .alternate-votes-display {
   width: 55px;
 }
 
 /* Kommentarer generelt på sitet */
-/* line 361, ../sass/_node.scss */
+/* line 365, ../sass/_node.scss */
 .links.node-links {
   margin: 30px 0 15px 15px;
 }
-/* line 364, ../sass/_node.scss */
+/* line 368, ../sass/_node.scss */
 .links.node-links .comment-add a {
   background-color: #fb9a00;
   color: #FFFFFF;
   display: inline-block;
   font-size: 13px;
   line-height: 1em;
-  padding: 15px 20px;
+  padding: 8px 12px;
   text-shadow: none;
   text-transform: uppercase;
 }
 
-/* line 376, ../sass/_node.scss */
+/* line 380, ../sass/_node.scss */
 #comments {
   background: url("../img/content-border.png") repeat-x top left;
   margin-top: 30px;
   padding-top: 30px;
 }
-/* line 380, ../sass/_node.scss */
+/* line 384, ../sass/_node.scss */
 #comments a {
   color: #000;
 }
-/* line 383, ../sass/_node.scss */
+/* line 387, ../sass/_node.scss */
 #comments h2 {
   padding: 0 15px 0 15px;
 }
-/* line 386, ../sass/_node.scss */
+/* line 390, ../sass/_node.scss */
 #comments .comment {
   background: url("../img/livsfortaelling_repeat.png");
   padding: 30px;
   margin-bottom: 15px;
 }
-/* line 390, ../sass/_node.scss */
+/* line 394, ../sass/_node.scss */
 #comments .comment h3 {
   text-transform: uppercase;
   margin-bottom: 0;
 }
-/* line 393, ../sass/_node.scss */
+/* line 397, ../sass/_node.scss */
 #comments .comment h3 a {
   font-size: 14px;
 }
-/* line 397, ../sass/_node.scss */
+/* line 401, ../sass/_node.scss */
 #comments .comment .comment-submitted {
   margin-bottom: 15px;
 }
-/* line 400, ../sass/_node.scss */
+/* line 404, ../sass/_node.scss */
 #comments .comment .comment-links {
   margin-top: 30px;
 }
-/* line 403, ../sass/_node.scss */
+/* line 407, ../sass/_node.scss */
 #comments .comment .comment-links ul li {
   margin: 0 5px 0 0;
   padding: 0;
   float: left;
 }
-/* line 407, ../sass/_node.scss */
+/* line 411, ../sass/_node.scss */
 #comments .comment .comment-links ul li a {
-  padding: 15px 20px;
   background-color: #585253;
   color: #FFFFFF;
-  text-transform: uppercase;
-  display: block;
-  font-size: 13px;
-  line-height: 1em;
-  text-shadow: none;
 }
 
 /* Krophemmeligheder */
-/* line 426, ../sass/_node.scss */
+/* line 424, ../sass/_node.scss */
 .node-body-secret .content {
   width: 260px;
   height: 150px;
@@ -2747,7 +2748,7 @@
   box-shadow: 5px 5px #aaaaaa;
   position: relative;
 }
-/* line 437, ../sass/_node.scss */
+/* line 435, ../sass/_node.scss */
 .node-body-secret .body_secret_icon {
   width: 60px;
   height: 60px;
@@ -2761,24 +2762,24 @@
   left: 50%;
   margin-left: -30px;
 }
-/* line 451, ../sass/_node.scss */
+/* line 449, ../sass/_node.scss */
 .node-body-secret .field-name-body {
   margin: 25px 0 5px 0;
 }
-/* line 455, ../sass/_node.scss */
+/* line 453, ../sass/_node.scss */
 .node-body-secret .bottom_info {
   color: #888888;
 }
-/* line 459, ../sass/_node.scss */
+/* line 457, ../sass/_node.scss */
 .node-body-secret .field-name-field-brevk-koen, .node-body-secret .field-name-field-brevk-alder {
   display: inline;
 }
-/* line 463, ../sass/_node.scss */
+/* line 461, ../sass/_node.scss */
 .node-body-secret .date {
   float: right;
   color: #888888;
 }
-/* line 468, ../sass/_node.scss */
+/* line 466, ../sass/_node.scss */
 .node-body-secret .btn {
   padding: 8px 10px !important;
   text-transform: uppercase;
