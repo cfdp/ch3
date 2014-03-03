@@ -536,7 +536,7 @@ body {
             }
             .grid-4.region-footer-to{
               @media(max-width: 979px){
-                margin-top: 20px;
+                margin-top: 25px;
               }
               .menu {
                 padding-left: 0;
@@ -560,6 +560,32 @@ body {
                 color: #fff;
                 font-style: italic;
                 font-size: 11px;
+              }
+              .footer_social {
+                margin-top: 22px;
+                .footer_fb {
+                  text-indent: -9999px;
+                  width: 36px;
+                  height: 36px;
+                  display: inline-block;
+                  overflow: hidden;
+                  margin-right: 5px;
+                  background: url("../img/facebook_hover.png");
+                  &:hover {
+                      background-position-y: 36px;
+                  }
+                }
+                .footer_insta {
+                  text-indent: -9999px;
+                  width: 36px;
+                  height: 36px;
+                  display: inline-block;
+                  overflow: hidden;
+                  background: url("../img/instagram_hover.png");
+                  &:hover {
+                      background-position-y: 36px;
+                  }
+                }
               }
             }
             .grid-4.region-footer-fire {
