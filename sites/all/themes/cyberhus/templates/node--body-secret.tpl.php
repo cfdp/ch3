@@ -20,8 +20,9 @@ print render($content['body']);
 	if(strpos($gender, "oplyse") != false){
 		$gender = "Anonym";
 	}
+
 	print "Af " . $gender . " " . render($content['field_brevk_alder']); ?>
-</span>		
+</span>
 </div>
 <a href="/kropshemligheder/alle" class="btn">Se alle kropshemmeligheder</a>
 <a href="/kropshemmeligheder" class="btn">Del din kropshemmelighed</a>

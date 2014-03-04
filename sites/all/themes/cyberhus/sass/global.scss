@@ -245,11 +245,7 @@ body {
       background-position: right top;
       background-repeat: no-repeat;
       .region-inner.region-sidebar-first-inner {
-
-        background: #eeebea;
         padding: 18px 12px;
-
-
         a {
           color: #000;
         }
@@ -701,15 +697,11 @@ body {
   .block-inner {
     text-align: justify;
     p:last-child {
-      margin-top: 30px;
-      text-align: center;
-    }
-    .btn {
-      background: $color_gul;
-      color: #FFFFFF !important;
-      font-size: 13px;
-      padding: 12px 20px;
-      text-transform: uppercase;
+      margin-top: 20px;
+      a {
+        background: transparent url(../img/next_yellow.png) center left no-repeat;
+        padding-left: 18px;
+      }
     }
   }
 }
