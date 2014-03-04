@@ -20,70 +20,70 @@
   #logo {
     max-width: 160px; }
 
-  p {
-    font-family: $std-font-family;
-    font-size: $font_size_normal;
-    line-height: 20px;
-    margin-bottom: 10px; }
+    p {
+      font-family: $std-font-family;
+      font-size: $font_size_normal;
+      line-height: 20px;
+      margin-bottom: 10px; }
 
-  h1 {
-    font-size: $font_size_stor;
-    font-family: $std-font-family;
-    letter-spacing: $letter-spacing-overskrifter; }
+      h1 {
+        font-size: $font_size_stor;
+        font-family: $std-font-family;
+        letter-spacing: $letter-spacing-overskrifter; }
 
-  h2, h2.node-title {
-    font-size: $font_size_h2;
-    font-family: $std-font-family;
-    letter-spacing: $letter-spacing-overskrifter;
-    text-transform: uppercase; }
+        h2, h2.node-title {
+          font-size: $font_size_h2;
+          font-family: $std-font-family;
+          letter-spacing: $letter-spacing-overskrifter;
+          text-transform: uppercase; }
 
-  h3 {
-    font-size: $font_size_h3;
-    font-family: $std-font-family;
-    letter-spacing: $letter-spacing-overskrifter; }
+          h3 {
+            font-size: $font_size_h3;
+            font-family: $std-font-family;
+            letter-spacing: $letter-spacing-overskrifter; }
 
-  h4 {
-    font-size: $font_size_h4;
-    font-family: $std-font-family;
-    letter-spacing: $letter-spacing-overskrifter; }
+            h4 {
+              font-size: $font_size_h4;
+              font-family: $std-font-family;
+              letter-spacing: $letter-spacing-overskrifter; }
 
-  h5 {
-    font-size: $font_size_h5;
-    font-family: $std-font-family;
-    letter-spacing: $letter-spacing-overskrifter; }
+              h5 {
+                font-size: $font_size_h5;
+                font-family: $std-font-family;
+                letter-spacing: $letter-spacing-overskrifter; }
 
-  a:link, a:visited {
-    text-decoration: none;
-  }
-}
+                a:link, a:visited {
+                  text-decoration: none;
+                }
+              }
 
-.node {
-  a:link, a:visited {
-    text-decoration: none;
-    color:$font_color_gul;
-  }
+              .node {
+                a:link, a:visited {
+                  text-decoration: none;
+                  color:$font_color_gul;
+                }
 
-  a.btn {
-    font-family: $std-font-family;
-    background: $color_gul;
-    color: #FFFFFF;
-    font-size: 13px;
-    line-height: 1em;
-    padding: 12px 20px;
-    text-transform: uppercase;
-    border-radius: 0;
-    border: none;
-    text-shadow: none;
-    font-weight: normal;
-  }
-}
+                a.btn {
+                  font-family: $std-font-family;
+                  background: $color_gul;
+                  color: #FFFFFF;
+                  font-size: 13px;
+                  line-height: 1em;
+                  padding: 12px 20px;
+                  text-transform: uppercase;
+                  border-radius: 0;
+                  border: none;
+                  text-shadow: none;
+                  font-weight: normal;
+                }
+              }
 
-#region-sidebar-first {
-  h1 {
-    font-size: $font_size_lille;
-    font-family: $std-font-family;
-  }
-}
+              #region-sidebar-first {
+                h1 {
+                  font-size: $font_size_lille;
+                  font-family: $std-font-family;
+                }
+              }
 
 // Billeder - mobil tilpasset
 
@@ -216,28 +216,28 @@ body {
     #region-logo {
       height: 54px;	}
 
-    #region-search {
-      float: right;
-      margin-top: 20px;
+      #region-search {
+        float: right;
+        margin-top: 20px;
+      }
     }
-  }
 
-  #section-content {
-    #zone-content {
-      > .content_bottom {
-        height: 15px;
-        background: transparent url("../img/main_bottom.png") no-repeat bottom center;
-        float: right; width: 640px;
+    #section-content {
+      #zone-content {
+        > .content_bottom {
+          height: 15px;
+          background: transparent url("../img/main_bottom.png") no-repeat bottom center;
+          float: right; width: 640px;
+        }
       }
-    }
-    #zone-content-wrapper {
-      position: relative;
-      z-index: 1;
-      margin-bottom: 10px;
-      .messages.status {
-        margin-left: 300px;
+      #zone-content-wrapper {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 10px;
+        .messages.status {
+          margin-left: 300px;
+        }
       }
-    }
 
     // Sidebar
     #region-sidebar-first {
@@ -568,7 +568,7 @@ body {
                   margin-right: 5px;
                   background: url("../img/facebook_hover.png");
                   &:hover {
-                      background-position-y: 36px;
+                    background-position-y: 36px;
                   }
                 }
                 .footer_insta {
@@ -579,7 +579,7 @@ body {
                   overflow: hidden;
                   background: url("../img/instagram_hover.png");
                   &:hover {
-                      background-position-y: 36px;
+                    background-position-y: 36px;
                   }
                 }
               }
@@ -701,6 +701,9 @@ body {
       a {
         background: transparent url(../img/next_yellow.png) center left no-repeat;
         padding-left: 18px;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

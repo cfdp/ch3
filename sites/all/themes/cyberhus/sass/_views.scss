@@ -1092,7 +1092,10 @@
 			float: left;
 			clear: left;
 			padding-left: 18px;
-			margin-bottom: 8px
+			margin-bottom: 8px;
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 
@@ -1148,7 +1151,10 @@
 				float: left;
 				clear: left;
 				padding-left: 18px;
-				margin-bottom: 8px
+				margin-bottom: 8px;
+				&:hover {
+					text-decoration: underline;
+				}
 			}
 		}
 	}
