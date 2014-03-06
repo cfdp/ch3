@@ -130,9 +130,6 @@
         background: url("../img/content-border.png") repeat-x top left;
         margin-top: 30px;
         padding: 30px 15px 0 15px;
-        a {
-          color: #000;
-        }
         h2 {
           padding: 0 15px 0 15px;
         }
@@ -149,30 +146,6 @@
           }
           .comment-submitted {
             margin-bottom: 15px;
-          }
-          .comment-links {
-            margin-top: 18px;
-            @media(max-width: 600px){
-              margin-top: 60px;
-            }
-            ul {
-              li {
-                margin: 0 5px 0 0;
-                padding: 0;
-                float: left;
-                margin-top: 5px;
-                a {
-                  padding: 8px 12px;
-                  background-color: #585253;
-                  color: #FFFFFF;
-                  text-transform: uppercase;
-                  display: block;
-                  font-size: 13px;
-                  line-height: 1em;
-                  text-shadow: none;
-                }
-              }
-            }
           }
         }
       }
@@ -363,6 +336,9 @@
   .links.node-links {
     position: absolute;
     margin-top: -70px;
+    @media(max-width: 600px){
+      margin-top: -35px;
+    }
   }
   .comment-unpublished {
     .field.field-name-field-kommentar-cyberlike {
@@ -414,15 +390,25 @@
       margin-bottom: 15px;
     }
     .comment-links {
-      margin-top: 30px;
+      margin-top: 18px;
+      @media(max-width: 600px){
+        margin-top: 60px;
+      }
       ul {
         li {
           margin: 0 5px 0 0;
           padding: 0;
           float: left;
+          margin-top: 5px;
           a {
+            padding: 8px 12px;
             background-color: #585253;
             color: #FFFFFF;
+            text-transform: uppercase;
+            display: block;
+            font-size: 13px;
+            line-height: 1em;
+            text-shadow: none;
           }
         }
       }
