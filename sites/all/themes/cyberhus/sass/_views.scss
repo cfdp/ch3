@@ -553,6 +553,9 @@
 /* Brevkasse enkeltvisning - EVA */
 .view.view-brevkasse-enkeltvisning {
 	.view-content {
+		.brevkasse_header_data {
+			color: #888888;
+		}
 		.views-field.views-field-field-question, .views-field.views-field-field-brevk-spoergsmaal {
 			margin-bottom: 20px;
 			.views-label.views-label-field-question,.views-label.views-label-field-brevk-spoergsmaal {
