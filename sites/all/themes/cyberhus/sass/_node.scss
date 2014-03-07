@@ -217,7 +217,7 @@
             margin-top: 15px;
             input[type="submit"] {
                 font-family: $std-font-family;
-                background: #fb9a00;
+                background: #e67e22;
                 color: #FFFFFF;
                 display: inline-block;
                 font-size: 13px;
@@ -235,7 +235,7 @@
         }
         .search-results {
             .title a {
-                color: #fb9a00;
+                color: #e67e22;
             }
             .search-snippet-info {
                 margin-top: -17px;
@@ -406,7 +406,7 @@
         box-shadow: 5px 5px #aaaaaa;
         position: relative;
     }
-    
+
     .body_secret_icon {
         width: 60px;
         height: 60px;
@@ -420,19 +420,19 @@
         left: 50%;
         margin-left: -30px;
     }
-    
+
     .field-name-body {
         margin: 25px 0 5px 0;
     }
-    
+
     .bottom_info {
         color: #888888;
     }
-    
+
     .field-name-field-brevk-koen, .field-name-field-brevk-alder {
         display: inline;
     }
-    
+
     .date {
         float: right;
         color: #888888;

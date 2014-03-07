@@ -26,7 +26,7 @@
 // Gallery image on frontpage
 .block-latest-gallery-image-block {
 	position: absolute;
-	top: 213px;
+	top: 276px;
 	left: 73px;
 
 	.views-field-field-billede a {
@@ -55,15 +55,6 @@
 
 .region-header-bottom {
 	.view-ungeblogs-oversigt {
-		background: rgba(255, 255, 255, 1);
-		width: 288px;
-		float: right;
-		position: relative;
-		top: -93px;
-		height: 322px;
-		//box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.4);
-		border-bottom-right-radius: 14px;
-		border-bottom-left-radius: 14px;
 
 		.blog_oversigt_right {
 			width: 214px !important;
@@ -275,13 +266,24 @@
 							font-size: 13px;
 							display: inline;
 							a {
-								color: $color_brun;
+								color: #999;
+
+								&:hover {
+									color: $font_color_gul;
+									text-decoration: underline;
+								}
 							}
 						}
 
 						.selected a {
-							color:$font_color_gul;
-							text-decoration: underline;
+							color: #000;
+							font-weight: bold;
+
+							&:hover {
+								color: #000;
+								text-decoration: none;
+								cursor: normal;
+							}
 						}
 
 						#edit-type-faq {
@@ -304,7 +306,7 @@
 							background: #FFFFFF url("../img/search-icon.png") no-repeat 16px 12px;
 							border:none;
 							color: #b2b2b2;
-							font-size: 13px; font-style: italic;
+							font-size: 13px;
 							font-family: $std-font-family;
 							outline: none;
 							@include box-shadow(rgba(black, 0.2) 1px 1px 2px inset);
@@ -982,7 +984,7 @@
         a {
             margin-top: 10px;
             color: #ffffff !important;
-            background-color: #fb9a00;
+            background-color: #e67e22;
             display: inline-block;
             border-radius: 3px;
         }

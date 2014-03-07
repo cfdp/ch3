@@ -9,10 +9,6 @@
 
 /* - LAYOUT - */
 
-/* - HEADER - */
-#section-header {
-	margin-bottom: 15px;
-}
 
 /* - HEADER FORSIDE - */
 .front {
@@ -22,11 +18,8 @@
 
 	#section-header {
 		background: url("../img/stuen_stor.jpg") #bca79a no-repeat bottom center;
-		height: 580px;
+		height: 670px;
 		margin-bottom: 0;
-	}
-	#section-content {
-		margin-top: -45px;
 	}
 }
 
@@ -61,15 +54,8 @@
 							text-transform: uppercase;
 							font-size: 13px;
 							display: inline;
-							a {
-								color: $color_brun;
-							}
 						}
 
-						.selected a {
-							color:$font_color_gul;
-							text-decoration: underline;
-						}
 
 						#edit-type-faq {
 							display: none;
@@ -94,8 +80,8 @@
 							@include border-radius(5px);
 							background: #FFFFFF url("../img/search-icon.png") no-repeat 16px 12px;
 							border:none;
-							color: #b2b2b2;
-							font-size: 13px; font-style: italic;
+							color: #222;
+							font-size: 13px;
 							font-family: $std-font-family;
 							outline: none;
 							@include box-shadow(rgba(black, 0.2) 1px 1px 2px inset);
@@ -107,20 +93,20 @@
 			.views-exposed-widget.views-submit-button {
 				padding: 0 1em 0 0;
 				position: absolute;
-				margin-left: 685px;
+				margin-left: 671px;
         margin-top: -6px;
 
 				#edit-submit-forside {
-					width: 115px;
+					width: 80px;
 					height: 41px;
 					border: none;
 					color:#fff;
 					font:normal 12px $std-font-family;
 					text-shadow: none;
 					background-repeat: no-repeat;
-					background: url("../img/search_button.png");
+					background: #e67e22;
 					margin-top: 13px;
-					border-radius: 5px;
+					border-radius: 0 5px 5px 0;
 				}
 			}
 		}

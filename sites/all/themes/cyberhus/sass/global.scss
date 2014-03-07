@@ -1,6 +1,7 @@
 @import "settings";
 @import "navigation";
 @import "views";
+@import "blocks";
 @import "forum";
 @import "form";
 @import "node";
@@ -14,6 +15,9 @@
 	box-sizing: border-box;
 }
 
+body {
+	overflow-x: hidden;
+}
 
 
 // Fonts
@@ -149,13 +153,7 @@ body {
 					#forside_wrapper {
 
 
-						#zone-content {
-							background: #efefef;
-							border-radius: 0 0 10px 10px;
-							border: 1px solid #ccc;
-							border-top: none;
-							padding-bottom: 20px;
-						}
+
 
 						#region-content {
 							background: none;
@@ -215,7 +213,13 @@ body {
 			}
 
 			#region-logo {
-				height: 54px;	}
+				height: 100px;
+
+				.logo-img a {
+					padding: 16px 0;
+					display: block;
+				}
+			}
 
 			#region-search {
 				float: right;
@@ -247,12 +251,11 @@ body {
 				background-repeat: no-repeat;
 					.region-inner.region-sidebar-first-inner {
 
-						background: #eeebea;
-						padding: 18px 12px;
-
-
 						a {
-							color: #000;
+							color: #2980b9;
+							&:hover {
+								text-decoration: underline;
+							}
 						}
 						h2 {
 							margin-bottom: .5em;
@@ -262,7 +265,7 @@ body {
 							text-shadow: $text_shadow_undersider;
 						}
 						.block{
-							margin-bottom: 20px;
+							margin-bottom: 35px;
 						}
 						.view.view-udvalgte-temasider, .view.view-voksenblog-sidebar {
 							.view-header {
@@ -392,10 +395,6 @@ body {
 									}
 							}
 					}
-				.sidebar_bottom {
-					background: url("../img/sidebar_bottom.png");
-					height: 12px;
-				}
 			}
 			// Hovedindhold
 			#region-content {
@@ -406,10 +405,11 @@ body {
 				h1, h2, h3, h4, h5, p, .views-field-name, .forum-table, .views-row, .comment-submitted, .comment-form, .item-list, .field-type-text-long {
 					text-shadow: $text_shadow_undersider;
 				}
-					.region-inner.region-content-inner {
-						background: #eeebea;
+	.not-front & .region-inner.region-content-inner {
+						margin-top: 10px;
+						border-top: 6px #2980b9 solid;
+						background: #fff;
 						padding: 18px;
-.not-front & { border: 1px solid #ccc; }
 
 						.node.node-page, .node.node-simpel-side-med-view {
 							.content {
