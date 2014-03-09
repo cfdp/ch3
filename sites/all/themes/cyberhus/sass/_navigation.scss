@@ -1,6 +1,5 @@
 /* Overordnet top navigation */
 #zone-header-wrapper{
-	//background: url('../img/topbar_bg.png') repeat-x;
 	background: url(../img/bg-ricepaper.png);
 }
 
@@ -62,36 +61,36 @@
 
 /* Brødkrummer */
 #breadcrumb {
-	width: 500px;
-	.breadcrumbs {
-		li {
-			list-style: none;
-			float: left;
-			margin-right: 5px;
-			font-size: $font_size_lille; line-height: 23px;
-			font-style: italic;
-			height: 19px;
-			color: $color_brun;
-			font-style: italic;
-			font-family: $std-font-family;
-		}
-		a {
-			height: 19px;
-			display: inline-block;
-			color: $color_brun;
-		}
-		span {
-			margin-left: 5px;
-		}
-		.first{
-			a {
-				background: url("../img/breadcrumb.png");
-				background-repeat: no-repeat;
-				padding-left: 25px;
-			}
-		}
-		.last {
-			font-weight: $font_weight_bold;
-		}
-	}
+  width: 500px;
+  .breadcrumbs {
+    li {
+      list-style: none;
+      float: left;
+      margin-right: 5px;
+      font-size: $font_size_lille; line-height: 23px;
+      font-style: italic;
+      height: 19px;
+      color: $color_brun;
+      font-style: italic;
+      font-family: $std-font-family;
+    }
+    a {
+      height: 19px;
+      display: inline-block;
+      color: $color_brun;
+    }
+    span {
+      margin-left: 5px;
+    }
+    .first{
+      a {
+        background: url("../img/breadcrumb.png");
+        background-repeat: no-repeat;
+        padding-left: 25px;
+      }
+    }
+    .last {
+      font-weight: $font_weight_bold;
+    }
+  }
 }

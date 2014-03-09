@@ -1,342 +1,117 @@
 /* Node - generel indrykning */
 .page-node {
-    .media-youtube-player {
-        width: 100%;
+  .media-youtube-player {
+    width: 100%;
+  }
+  //  Make Taxonomy inline
+  .field-type-taxonomy-term-reference {
+    margin-bottom: 15px;
+    .field-label, .field-items, .field-item {
+      display: inline;
     }
-    //  Make Taxonomy inline
-    .field-type-taxonomy-term-reference {
-        margin-bottom: 15px;
-        .field-label, .field-items, .field-item {
-            display: inline;
-        }
-    }
+  }
 
-    .node.node-page, .node.node-blog, .node-simpel-side-med-view, .node-historie, .node-image {
-        .node-title {
-            padding-left: 15px;
-            margin-bottom: 0;
-        }
-        .field.field-name-body, .field.field-name-field-billede, .view.view-tegn-selv-enkeltvisning, .field-type-taxonomy-term-reference {
-            padding: 0 15px 0 15px;
-        }
-        .submitted {
-            padding: 0 15px 0 15px;
-        }
+  .node.node-page, .node.node-blog, .node-simpel-side-med-view, .node-historie, .node-image {
+    .node-title {
+      padding-left: 15px;
+      margin-bottom: 0;
     }
+    .field.field-name-body, .field.field-name-field-billede, .view.view-tegn-selv-enkeltvisning, .field-type-taxonomy-term-reference {
+      padding: 0 15px 0 15px;
+    }
+    .submitted {
+      padding: 0 15px 0 15px;
+    }
+  }
 }
 /* Node - Ung i */
 .node-type-ung-i {
-    .node-ung-i{
-        padding: 0 15px 15px 15px;
-    }
+  .node-ung-i{
+    padding: 0 15px 15px 15px;
+  }
 }
 
 
 /* Node - tegn selv oversigt */
 .context-oversigt-over-tegn-selv-billeder {
-    .node-simpel-side-med-view {
-        .content {
-            .field.field-name-field-vedh-ft-view.field-type-viewreference {
-                background: url("../img/livsfortaelling_repeat.png");
-                padding: 15px 0 15px 0;
-            }
-        }
+  .node-simpel-side-med-view {
+    .content {
+      .field.field-name-field-vedh-ft-view.field-type-viewreference {
+        background: url("../img/livsfortaelling_repeat.png");
+        padding: 15px 0 15px 0;
+      }
     }
+  }
 }
 
 // Node - tegn selv del billede
 .page-node-add-image {
-    .field-type-image .description {
-        display: none; }
+  .field-type-image .description {
+    display: none; }
 
-    .resizable-textarea .grippie {
-        display: none;
-    }
+  .resizable-textarea .grippie {
+    display: none;
+  }
 }
 
 /* Node - Livsfortællinger */
 .node-type-historie{
-    .block-inner{
-        .node.node-historie{
-            font-family: $std-font-family;
-            .node-title {
-                margin-bottom: 0;
-            }
-            .view-content {
-                margin-bottom: 15px;
-                .forfatter, .alder {
-                    float: left;
-                    margin-right: 5px;
-                }
-                .alder:after {
-                    content: "|";
-                    margin: 0 5px 0 5px;
-                }
+  .block-inner{
+    .node.node-historie{
+      font-family: $std-font-family;
+      p {
+        @media(max-width:660px){
+          text-align: justify;
+        }
+      }
+      .field-name-field-brevk-koen {
+        display: none;
+      }
 
-            }
-            .links.node-links {
-                margin: 30px 0 15px 15px;
-                .comment-add {
-                    a {
-                        background-color: $color_gul;
-                        color: #FFFFFF;
-                        display: inline-block;
-                        font-size: 13px;
-                        line-height: 1em;
-                        padding: 15px 20px;
-                        text-shadow: none;
-                        text-transform: uppercase;
-                    }
-                }
-                li {
-                    padding: 0;
-                }
-            }
-            #comments {
-                background: url("../img/content-border.png") repeat-x top left;
-                margin-top: 30px;
-                padding: 30px 15px 0 15px;
-                a {
-                    color: #000;
-                }
-                h2 {
-                    padding: 0 15px 0 15px;
-                }
-                .comment {
-                    background: url("../img/livsfortaelling_repeat.png");
-                    padding: 30px;
-                    margin-bottom: 15px;
-                    h3 {
-                        text-transform: uppercase;
-                        margin-bottom: 0;
-                        a {
-                            font-size: $font_size_normal;
-                        }
-                    }
-                    .comment-submitted {
-                        margin-bottom: 15px;
-                    }
-                    .comment-links {
-                        margin-top: 30px;
-                        ul {
-                            li {
-                                margin: 0 5px 0 0;
-                                padding: 0;
-                                float: left;
-                                a {
-                                    padding: 15px 20px;
-                                    background-color: #585253;
-                                    color: #FFFFFF;
-                                    text-transform: uppercase;
-                                    display: block;
-                                    font-size: 13px;
-                                    line-height: 1em;
-                                    text-shadow: none;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+      .field-name-field-tema-kategori {
+        .field-items {
+          .field-item {
+            margin-right: 10px;
+          }
         }
-    }
-}
+      }
 
-/* Node - Brevkasse enkeltside - gammel indholdstype*/
-.node-type-faq {
-    .node-faq {
-        .field-name-field-sex {
-            float: left;
-            .field-item:after {
-                content: " | ";
-                color: #000;
-                margin: 0 5px 0 5px;
-            }
-        }
-        .field-name-field-age {
-            float: left;
-            margin-bottom: 20px;
-        }
-        .field-name-field-question {
-            float: left;
-            margin-bottom: 15px;
-            .field-label {
-                margin-bottom: 10px;
-            }
-        }
-        .field-name-body {
-            .field-label {
-                margin-bottom: 10px;
-            }
-        }
-        h2 {
-            margin-bottom: 0;
-        }
-    }
-}
+      .node-title {
+        margin-bottom: 0;
+      }
+      .view-content {
+        color: #888888;
 
-/* Node - Brevkasse enkeltside - ny indholdstype*/
-.node-type-brevkasse {
-    .node-brevkasse {
-        padding: 0 15px 0 15px;
-        .field-name-field-brevk-koen {
-            float: left;
-            .field-item:after {
-                content: " | ";
-                color: #000;
-                margin: 0 5px 0 5px;
-            }
+        .views-field-field-billede {
+          width: 200px;
+          float: left;
+          margin: 5px 15px 0 0;
         }
-        .field-name-field-brevk-alder {
-            float: left;
-            margin-bottom: 20px;
+        .views-field-field-brevk-koen {
+          display: inline-block;
+          margin-right: -2px;
         }
-        .field-name-field-brevk-spoergsmaal {
-            float: left;
-            margin-bottom: 15px;
-            .field-label {
-                margin-bottom: 10px;
-            }
+        .views-field-field-anmeldelse-anm-alder {
+          display: inline-block;
+          margin-right: -2px;
         }
-        .field-name-field-brevk-svar {
-            .field-label {
-                margin-bottom: 10px;
-            }
+        .views-field-created {
+          display: inline-block;
         }
-        h2 {
-            margin-bottom: 0;
+        .forfatter, .alder {
+          float: left;
+          margin-right: 5px;
         }
-    }
-}
+        .alder:after {
+          content: "|";
+          margin: 0 5px 0 5px;
+        }
 
-
-/* Søge-side oversigt */
-.page-search-node {
-    .region-content {
-        .form-wrapper {
-            margin-top: 15px;
-            input[type="submit"] {
-                font-family: $std-font-family;
-                background: #e67e22;
-                color: #FFFFFF;
-                display: inline-block;
-                font-size: 13px;
-                line-height: 1em;
-                padding: auto auto;
-                text-shadow: none;
-                text-transform: uppercase;
-                -webkit-border-radius: 0;
-                border-radius: 0;
-                border: none;
-                height: 23px;
-                width: 75px;
-                font-weight: $font_weight_brodtekst;
-            }
-        }
-        .search-results {
-            .title a {
-                color: #e67e22;
-            }
-            .search-snippet-info {
-                margin-top: -17px;
-                margin-bottom: 15px;
-                .search-info {
-                    font-style: italic;
-                }
-            }
-        }
-        .item-list {
-            ul.pager li {
-                font-size: 12px;
-                text-transform: uppercase;
-                margin: 0 7px;
-                padding: 0;
-                font-weight: bold;
-                a {
-                    color: #2d2728;
-                }
-            }
-        }
-    }
-}
-/* Cyberlike */
-.field.field-name-field-blog-cyberlike, .field.field-name-field-kommentar-cyberlike, .field.field-name-field-cyberlike {
-    float: right;
-    .vud-widget {
-        float: none;
-        width: 100%;
-        height: 35px;
-        margin: 0;
-        .alternate-votes-display {
-            border: none;
-            font-family: $std-font-family;
-            width: 100px;
-            font-weight: $font_weight_brodtekst;
-            font-size: 13px;
-            text-align: right;
-            float: right;
-            font-style: italic;
-        }
-        .alternate-votes-display:after {
-            content: " synes godt om";
-        }
-        .vud-link-up, .up-active {
-            width: 89px;
-            height: 26px;
-            background: url("../img/cyberlike.png");
-            background-repeat: no-repeat;
-            display: block;
-            float: right;
-            margin-right: 15px;
-            .up-inactive {
-                display: none;
-            }
-        }
-        .reset-active {
-            float: right;
-            display: none;
-        }
-    }
-}
-.field.field-name-field-kommentar-cyberlike {
-    padding-top: 28px;
-}
-.field.field-name-field-blog-cyberlike, .field.field-name-field-cyberlike {
-    margin: 20px 20px 0 0;
-}
-.node-type-image {
-    .links.node-links {
-
-        li {
-            padding: 0;
-        }
-    }
-    .field.field-name-field-kommentar-cyberlike {
-        padding-top: 55px;
-    }
-    #comments {
-        margin-top: 10px;
-    }
-}
-.node-type-blog {
-    .links.node-links {
-        position: absolute;
-        margin-top: -70px;
-    }
-    .comment-unpublished {
-        .field.field-name-field-kommentar-cyberlike {
-            .alternate-votes-display {
-                width: 55px;
-            }
-        }
-    }
-}
-
-/* Kommentarer generelt på sitet */
-.links.node-links {
-    margin: 30px 0 15px 15px;
-    .comment-add {
-        a {
+      }
+      .links.node-links {
+        margin: 30px 0 15px 15px;
+        .comment-add {
+          a {
             background-color: $color_gul;
             color: #FFFFFF;
             display: inline-block;
@@ -345,97 +120,356 @@
             padding: 15px 20px;
             text-shadow: none;
             text-transform: uppercase;
+          }
         }
-    }
-}
-#comments {
-    background: url("../img/content-border.png") repeat-x top left;
-    margin-top: 30px;
-    padding-top: 30px;
-    a {
-        color: #000;
-    }
-    h2 {
-        padding: 0 15px 0 15px;
-    }
-    .comment {
-        background: url("../img/livsfortaelling_repeat.png");
-        padding: 30px;
-        margin-bottom: 15px;
-        h3 {
+        li {
+          padding: 0;
+        }
+      }
+      #comments {
+        background: url("../img/content-border.png") repeat-x top left;
+        margin-top: 30px;
+        padding: 30px 15px 0 15px;
+        h2 {
+          padding: 0 15px 0 15px;
+        }
+        .comment {
+          background: url("../img/livsfortaelling_repeat.png");
+          padding: 10px;
+          margin-bottom: 10px;
+          h3 {
             text-transform: uppercase;
             margin-bottom: 0;
             a {
-                font-size: $font_size_normal;
+              font-size: $font_size_normal;
             }
-        }
-        .comment-submitted {
+          }
+          .comment-submitted {
             margin-bottom: 15px;
+          }
         }
-        .comment-links {
-            margin-top: 30px;
-            ul {
-                li {
-                    margin: 0 5px 0 0;
-                    padding: 0;
-                    float: left;
-                    a {
-                        padding: 15px 20px;
-                        background-color: #585253;
-                        color: #FFFFFF;
-                        text-transform: uppercase;
-                        display: block;
-                        font-size: 13px;
-                        line-height: 1em;
-                        text-shadow: none;
-                    }
-                }
-            }
-        }
+      }
     }
+  }
 }
 
-.node-body-secret {
-    .content {
-        width: 260px;
-        height: 150px;
-        background-color: #ffffff;
-        border-radius: 3px;
-        padding: 10px;
-        margin: 40px auto;
-        box-shadow: 5px 5px #aaaaaa;
-        position: relative;
+/* Node - Brevkasse enkeltside - gammel indholdstype*/
+.node-type-faq {
+  .node-faq {
+    .field-name-field-sex {
+      float: left;
+      .field-item:after {
+        content: " | ";
+        color: #000;
+        margin: 0 5px 0 5px;
+      }
     }
-
-    .body_secret_icon {
-        width: 60px;
-        height: 60px;
-        background: url("../img/body_secret_icon.png") no-repeat;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        position: absolute;
-        top: -30px;
-        left: 50%;
-        margin-left: -30px;
+    .field-name-field-age {
+      float: left;
+      margin-bottom: 20px;
     }
-
+    .field-name-field-question {
+      float: left;
+      margin-bottom: 15px;
+      .field-label {
+        margin-bottom: 10px;
+      }
+    }
     .field-name-body {
-        margin: 25px 0 5px 0;
+      .field-label {
+        margin-bottom: 10px;
+      }
     }
-
-    .bottom_info {
-        color: #888888;
+    h2 {
+      margin-bottom: 0;
     }
-
-    .field-name-field-brevk-koen, .field-name-field-brevk-alder {
-        display: inline;
-    }
-
-    .date {
-        float: right;
-        color: #888888;
-    }
+  }
 }
 
+/* Node - Brevkasse enkeltside - ny indholdstype*/
+.node-type-brevkasse {
+  .node-brevkasse {
+    padding: 0 15px 0 15px;
+    .field-name-field-brevk-koen {
+      float: left;
+      .field-item:after {
+        content: " | ";
+        color: #000;
+        margin: 0 5px 0 5px;
+      }
+    }
+    .field-name-field-brevk-alder {
+      float: left;
+      margin-bottom: 20px;
+    }
+    .field-name-field-brevk-spoergsmaal {
+      float: left;
+      margin-bottom: 15px;
+      .field-label {
+        margin-bottom: 10px;
+      }
+    }
+    .field-name-field-brevk-svar {
+      .field-label {
+        margin-bottom: 10px;
+      }
+    }
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+/* Søge-side oversigt */
+.page-search-node {
+  .region-content {
+    .form-wrapper {
+      margin-top: 15px;
+
+      input[type="submit"] {
+        font-family: $std-font-family;
+        background: #e67e22;
+        color: #FFFFFF;
+        display: inline-block;
+        font-size: 13px;
+        line-height: 1em;
+        padding: auto auto;
+        text-shadow: none;
+        text-transform: uppercase;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        border: none;
+        height: 23px;
+        width: 75px;
+        font-weight: $font_weight_brodtekst;
+      }
+    }
+
+    .search-results {
+      .title a {
+        color: #e67e22; }
+
+      .search-snippet-info {
+        margin-top: -17px;
+        margin-bottom: 15px;
+
+        .search-info {
+          font-style: italic;
+        }
+      }
+    }
+
+    .item-list {
+      ul.pager li {
+        font-size: 12px;
+        text-transform: uppercase;
+        margin: 0 7px;
+        padding: 0;
+        font-weight: bold;
+        a {
+          color: #2d2728;
+        }
+      }
+    }
+  }
+}
+
+/* Cyberlike */
+.field.field-name-field-blog-cyberlike, .field.field-name-field-kommentar-cyberlike, .field.field-name-field-cyberlike {
+  float: right;
+  .vud-widget {
+    float: none;
+    width: 100%;
+    height: 35px;
+    margin: 0;
+    .alternate-votes-display {
+      border: none;
+      font-family: $std-font-family;
+      width: 110px;
+      font-weight: $font_weight_brodtekst;
+      font-size: 13px;
+      text-align: right;
+      float: right;
+      font-style: italic;
+    }
+    .alternate-votes-display:after {
+      content: " synes godt om";
+    }
+    .vud-link-up, .up-active {
+      width: 89px;
+      height: 26px;
+      background: url("../img/cyberlike.png");
+      background-repeat: no-repeat;
+      display: block;
+      float: right;
+      margin-right: 15px;
+      .up-inactive {
+        display: none;
+      }
+    }
+    .reset-active {
+      float: right;
+      display: none;
+    }
+  }
+}
+.field.field-name-field-kommentar-cyberlike {
+  padding-top: 12px;
+  @media(max-width: 600px){
+    float: left;
+  }
+}
+.field.field-name-field-blog-cyberlike, .field.field-name-field-cyberlike {
+  margin: 20px 20px 0 0;
+}
+.node-type-image {
+  .links.node-links {
+
+    li {
+      padding: 0;
+    }
+  }
+  .field.field-name-field-kommentar-cyberlike {
+    padding-top: 55px;
+  }
+  #comments {
+    margin-top: 10px;
+  }
+}
+.node-type-blog {
+  .links.node-links {
+    position: absolute;
+    margin-top: -70px;
+    @media(max-width: 600px){
+      margin-top: -35px;
+    }
+  }
+  .comment-unpublished {
+    .field.field-name-field-kommentar-cyberlike {
+      .alternate-votes-display {
+        width: 55px;
+      }
+    }
+  }
+}
+
+/* Kommentarer generelt på sitet */
+.links.node-links {
+  margin: 30px 0 15px 15px;
+  .comment-add {
+    a {
+      background-color: $color_gul;
+      color: #FFFFFF;
+      display: inline-block;
+      font-size: 13px;
+      line-height: 1em;
+      padding: 8px 12px;
+      text-shadow: none;
+      text-transform: uppercase;
+    }
+  }
+}
+#comments {
+  background: url("../img/content-border.png") repeat-x top left;
+  margin-top: 30px;
+  padding-top: 30px;
+  a {
+    color: #000;
+  }
+  h2 {
+    padding: 0 15px 0 15px;
+  }
+  .comment {
+    background: url("../img/livsfortaelling_repeat.png");
+    padding: 30px;
+    margin-bottom: 15px;
+    h3 {
+      text-transform: uppercase;
+      margin-bottom: 0;
+      a {
+        font-size: $font_size_normal;
+      }
+    }
+    .comment-submitted {
+      margin-bottom: 15px;
+    }
+    .comment-links {
+      margin-top: 18px;
+      @media(max-width: 600px){
+        margin-top: 60px;
+      }
+      ul {
+        li {
+          margin: 0 5px 0 0;
+          padding: 0;
+          float: left;
+          margin-top: 5px;
+          a {
+            padding: 8px 12px;
+            background-color: #585253;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            display: block;
+            font-size: 13px;
+            line-height: 1em;
+            text-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* Krophemmeligheder */
+.node-body-secret {
+  .content {
+    width: 260px;
+    height: 150px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 40px auto;
+    box-shadow: 5px 5px #aaaaaa;
+    position: relative;
+  }
+
+  .body_secret_icon {
+    width: 60px;
+    height: 60px;
+    background: url("../img/body_secret_icon.png") no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    margin-left: -30px;
+  }
+
+  .field-name-body {
+    margin: 25px 0 5px 0;
+  }
+
+  .bottom_info {
+    color: #888888;
+  }
+
+  .field-name-field-brevk-koen, .field-name-field-brevk-alder {
+    display: inline;
+  }
+
+  .date {
+    float: right;
+    color: #888888;
+  }
+
+  .btn {
+    padding: 8px 10px !important;
+    text-transform: uppercase;
+    border-radius: 3px !important;
+    margin-right: 6px;
+  }
+}

@@ -10,132 +10,131 @@
 // This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. styling der vises overalt, eksempelvis tekst farver osv.
 
 * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
 	overflow-x: hidden;
 }
 
-
 // Fonts
 #page {
-	#logo {
-		max-width: 160px; }
+  #logo {
+    max-width: 160px; }
 
-	p {
-		font-family: $std-font-family;
-		font-size: $font_size_normal;
-		line-height: 20px;
-		margin-bottom: 10px; }
+    p {
+      font-family: $std-font-family;
+      font-size: $font_size_normal;
+      line-height: 20px;
+      margin-bottom: 10px; }
 
-	h1 {
-		font-size: $font_size_stor;
-		font-family: $std-font-family;
-		letter-spacing: $letter-spacing-overskrifter; }
+      h1 {
+        font-size: $font_size_stor;
+        font-family: $std-font-family;
+        letter-spacing: $letter-spacing-overskrifter; }
 
-	h2, h2.node-title {
-		font-size: $font_size_h2;
-		font-family: $std-font-family;
-		letter-spacing: $letter-spacing-overskrifter;
-		text-transform: uppercase; }
+        h2, h2.node-title {
+          font-size: $font_size_h2;
+          font-family: $std-font-family;
+          letter-spacing: $letter-spacing-overskrifter;
+          text-transform: uppercase; }
 
-	h3 {
-		font-size: $font_size_h3;
-		font-family: $std-font-family;
-		letter-spacing: $letter-spacing-overskrifter; }
+          h3 {
+            font-size: $font_size_h3;
+            font-family: $std-font-family;
+            letter-spacing: $letter-spacing-overskrifter; }
 
-	h4 {
-		font-size: $font_size_h4;
-		font-family: $std-font-family;
-		letter-spacing: $letter-spacing-overskrifter; }
+            h4 {
+              font-size: $font_size_h4;
+              font-family: $std-font-family;
+              letter-spacing: $letter-spacing-overskrifter; }
 
-	h5 {
-		font-size: $font_size_h5;
-		font-family: $std-font-family;
-		letter-spacing: $letter-spacing-overskrifter; }
+              h5 {
+                font-size: $font_size_h5;
+                font-family: $std-font-family;
+                letter-spacing: $letter-spacing-overskrifter; }
 
-	a:link, a:visited {
-		text-decoration: none;
-	}
-}
+                a:link, a:visited {
+                  text-decoration: none;
+                }
+              }
 
-.node {
-	a:link, a:visited {
-		text-decoration: none;
-		color:$font_color_gul;
-	}
+              .node {
+                a:link, a:visited {
+                  text-decoration: none;
+                  color:$font_color_gul;
+                }
 
-	a.btn {
-		font-family: $std-font-family;
- 		background: $color_gul;
-	 	color: #FFFFFF;
-		font-size: 13px;
-    line-height: 1em;
-    padding: 12px 20px;
-    text-transform: uppercase;
-    border-radius: 0;
-    border: none;
-    text-shadow: none;
-    font-weight: normal;
-	}
-}
+                a.btn {
+                  font-family: $std-font-family;
+                  background: $color_gul;
+                  color: #FFFFFF;
+                  font-size: 13px;
+                  line-height: 1em;
+                  padding: 12px 20px;
+                  text-transform: uppercase;
+                  border-radius: 0;
+                  border: none;
+                  text-shadow: none;
+                  font-weight: normal;
+                }
+              }
 
-#region-sidebar-first {
-	h1 {
-		font-size: $font_size_lille;
-		font-family: $std-font-family;
-	}
-}
+              #region-sidebar-first {
+                h1 {
+                  font-size: $font_size_lille;
+                  font-family: $std-font-family;
+                }
+              }
 
 // Billeder - mobil tilpasset
 
 img {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 // Layout
 
 body {
-	// @include background(
-	// 	image-url("../img/bg.png")
-	// );
-	// background-color: #bca79a;
+  // @include background(
+  // 	image-url("../img/bg.png")
+  // );
+  // background-color: #bca79a;
 
-	background: url(../img/bg-ricepaper.png);
-	// Found on http://subtlepatterns.com/rice-paper-3/
+  background: url(../img/bg-ricepaper.png);
+  // Found on http://subtlepatterns.com/rice-paper-3/
 
-	font-family: $std-font-family;
+  font-family: $std-font-family;
 }
 
 // Util
 .node-unpublished {
-	background-color: none;
+  background-color: none;
 
 }
 
 .mb0{
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .subtle {
-	color: #999;
+  color: #999;
 }
 
 #section-footer {
 
-	.footer-icons {
-		margin-top: 15px;
+  .footer-icons {
+    margin-top: 15px;
 
-		.rounded {
-			height: 36px; width: 36px;
-			border-radius: 36px;
-			margin-right: 20px;
-		}
-	}
+    .rounded {
+      height: 36px; width: 36px;
+      border-radius: 36px;
+      margin-right: 20px;
+    }
+  }
 
 }
 
@@ -176,33 +175,33 @@ body {
 
 // Flags
 #block-menu-menu-sprogmenu {
-	padding-bottom: 20px;
-	.menu {
-			li {
-				list-style-image: none;
-				list-style: none;
-				margin: 0;
-				padding: 0;
-				float: left;
-			}
-			.first.leaf {
-				margin-right: 10px;
-			}
-			.first.leaf a {
-				background: url("../img/dk_flag.png");
-				display: block;
-				text-indent: -999em;
-				width: 19px;
-				height: 12px;
-			}
-			.last.leaf a {
-				background: url("../img/eng_flag.png");
-				display: block;
-				text-indent: -999em;
-				width: 19px;
-				height: 12px;
-			}
-	}
+  padding-bottom: 20px;
+  .menu {
+    li {
+      list-style-image: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      float: left;
+    }
+    .first.leaf {
+      margin-right: 10px;
+    }
+    .first.leaf a {
+      background: url("../img/dk_flag.png");
+      display: block;
+      text-indent: -999em;
+      width: 19px;
+      height: 12px;
+    }
+    .last.leaf a {
+      background: url("../img/eng_flag.png");
+      display: block;
+      text-indent: -999em;
+      width: 19px;
+      height: 12px;
+    }
+  }
 }
 
 // Undersider
@@ -616,28 +615,42 @@ body {
 
 // Forside
 .front {
-	#page {
-		#section-content {
-			#zone-content {
-				> .content_bottom {
-					background: none; height: 0;
-				}
-			}
-		}
-	}
+  #page {
+    #section-content {
+      #zone-content {
+        > .content_bottom {
+          background: none; height: 0;
+        }
+      }
+    }
+  }
 }
 
 // Hide on mobile
 .region-tabs-right {
-	display: none;
+  display: none;
 }
 
 .front .region-header-bottom {
-	display: none;
+  display: none;
 }
 
 // Content list hack
 .content ol,
 .content ul {
-		padding-left: 1.25em;
+  padding-left: 1.25em;
+}
+
+// Chat block
+#block-block-56 {
+  .block-inner {
+    text-align: justify;
+    p:last-child {
+      margin-top: 20px;
+      a {
+        background: transparent url(../img/next_yellow.png) center left no-repeat;
+        padding-left: 18px;
+      }
+    }
+  }
 }
