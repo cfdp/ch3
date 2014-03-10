@@ -87,6 +87,9 @@ body {
                   font-size: $font_size_lille;
                   font-family: $std-font-family;
                 }
+                a {
+                	color: #000000 !important;
+                }
               }
 
 // Billeder - mobil tilpasset
@@ -469,6 +472,11 @@ body {
 		// Footer
 		#section-footer {
 			color: #f1edea;
+
+
+
+
+
 				a {
 					color: #f1edea;
 				}
@@ -539,9 +547,38 @@ body {
 												font-style: italic;
 												font-size: 11px;
 											}
+											.footer_social {
+												margin-top: 30px;
+												.footer_fb {
+													text-indent: -9999px;
+													width: 36px;
+													height: 36px;
+													display: inline-block;
+													overflow: hidden;
+													margin-right: 5px;
+													background: url("../img/facebook_hover.png");
+													&:hover {
+														background-position-y: 36px;
+													}
+												}
+												.footer_insta {
+													text-indent: -9999px;
+													width: 36px;
+													height: 36px;
+													display: inline-block;
+													overflow: hidden;
+													margin-right: 5px;
+													background: url("../img/instagram_hover.png");
+													&:hover {
+														background-position-y: 36px;
+													}
+												}
+											}						
 										}
 										.grid-4.region-footer-fire {
 											margin-right: 0;
+											margin-top: 30px;
+											vertical-align: top;
 											.social {
 												.facebook_bottom {
 													text-indent: -999em;
