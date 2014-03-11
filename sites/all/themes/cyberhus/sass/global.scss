@@ -573,11 +573,10 @@ body {
 														background-position-y: 36px;
 													}
 												}
-											}						
+											}
 										}
 										.grid-4.region-footer-fire {
 											margin-right: 0;
-											margin-top: 30px;
 											vertical-align: top;
 											.social {
 												.facebook_bottom {
@@ -596,7 +595,6 @@ body {
 									#zone-footer-bottom {
 										margin-top: 40px;
 										padding-bottom: 10px;
-										border-bottom: 1px solid #272222;
 										.block-title {
 											margin-bottom: 25px;
 										}
@@ -627,7 +625,6 @@ body {
 										}
 									}
 									#zone-footer-last {
-										border-top: 1px solid #362e2f;
 										padding-top: 12px;
 										p {
 											font-size: $font_size_lille;
