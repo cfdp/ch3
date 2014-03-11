@@ -3423,83 +3423,74 @@ body {
   margin-bottom: 25px;
 }
 /* line 601, ../sass/global.scss */
-#page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom #footer_bottom_seperator {
-  position: relative;
-  top: 36px;
-  left: 0px;
-  height: 2px;
-  width: 960px;
-  background: url("../img/footer_horizontal_border.png") repeat-x top left;
-}
-/* line 609, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom .region {
   width: 210px;
   padding-left: 15px;
   margin-left: 0;
   margin-right: 15px;
 }
-/* line 615, ../sass/global.scss */
+/* line 607, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom #region-footer-bottom-et {
   background: none;
   padding-left: 0;
   margin-left: 10px;
 }
-/* line 623, ../sass/global.scss */
+/* line 615, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-bottom #region-footer-bottom-tre {
   margin-right: 0;
 }
-/* line 627, ../sass/global.scss */
+/* line 619, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-last {
   padding-top: 12px;
 }
-/* line 629, ../sass/global.scss */
+/* line 621, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-last p {
   font-size: 11px;
   letter-spacing: 0.9px;
 }
-/* line 634, ../sass/global.scss */
+/* line 626, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-last .content .footer_left {
   width: 50%;
   float: left;
 }
-/* line 638, ../sass/global.scss */
+/* line 630, ../sass/global.scss */
 #page #section-footer #footerwrapper #footer_pattern #zone-footer-last .content .footer_right {
   width: 50%;
   float: left;
   text-align: right;
 }
 
-/* line 655, ../sass/global.scss */
+/* line 647, ../sass/global.scss */
 .front #page #section-content #zone-content > .content_bottom {
   background: none;
   height: 0;
 }
 
-/* line 664, ../sass/global.scss */
+/* line 656, ../sass/global.scss */
 .region-tabs-right {
   display: none;
 }
 
-/* line 668, ../sass/global.scss */
+/* line 660, ../sass/global.scss */
 .front .region-header-bottom {
   display: none;
 }
 
-/* line 673, ../sass/global.scss */
+/* line 665, ../sass/global.scss */
 .content ol,
 .content ul {
   padding-left: 1.25em;
 }
 
-/* line 680, ../sass/global.scss */
+/* line 672, ../sass/global.scss */
 #block-block-56 .block-inner {
   text-align: justify;
 }
-/* line 682, ../sass/global.scss */
+/* line 674, ../sass/global.scss */
 #block-block-56 .block-inner p:last-child {
   margin-top: 20px;
 }
-/* line 684, ../sass/global.scss */
+/* line 676, ../sass/global.scss */
 #block-block-56 .block-inner p:last-child a {
   background: transparent url(../img/next_yellow.png) center left no-repeat;
   padding-left: 18px;
