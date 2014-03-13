@@ -252,9 +252,17 @@ body {
 				background-position: right top;
 				background-repeat: no-repeat;
 					.region-inner.region-sidebar-first-inner {
+						.btn {
+							background: transparent url(../img/next_yellow.png) center left no-repeat;
+							float: left;
+							clear: left;
+							padding-left: 18px;
+							margin-bottom: 8px;
+						}
 
 						a {
 							color: #2980b9;
+							
 							&:hover {
 								text-decoration: underline;
 							}
@@ -684,10 +692,6 @@ body {
     text-align: justify;
     p:last-child {
       margin-top: 20px;
-      a {
-        background: transparent url(../img/next_yellow.png) center left no-repeat;
-        padding-left: 18px;
-      }
     }
   }
 }
