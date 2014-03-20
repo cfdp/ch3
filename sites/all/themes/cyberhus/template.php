@@ -122,3 +122,29 @@ function cyberhus_form_comment_node_forum_form_alter(&$form) {
 function cyberhus_preprocess_node(&$vars) {
   $vars['date'] = format_date($vars['node']->created, 'custom', 'd/m/Y');
 }
+
+/* After shortenning the URLs for the brevkasse section, the new short names are being used in the select list on the add new brevkasse form page.
+*  These have to be replaced with the long version names for user friendliness. We Achieve this by adding a new field on the taxonomy to hold the 
+*  long version names. We query for them and then alter the form select list options.
+*/
+
+function cyberhus_form_brevkasse_node_form_alter(&$form){
+  dpm($form);
+
+  //Select teh taxonomy vocabulary holding the values for the brevkasse categories
+  $taxonomy = "vocabulary_3";
+
+  //Query the DB for the extra dded fiedl holding the labels (long version names of the brevkasse categories)
+  $results = db_select('field_data_field_brev_tax_label', 't')
+    ->fields('t', array('entity_id', 'field_brev_tax_label_value'))
+    ->condition("t.bundle", $taxonomy)
+    ->execute();
+  
+
+  // Populate the selectlist with the new values
+  $options = array();
+  foreach ($results as $term)  {
+    $form['field_brevk_kategori']['und']['#options'][$term->entity_id] = $term->field_brev_tax_label_value;
+  }
+  
+}
