@@ -359,20 +359,24 @@
 ////  Hacks  ////
 
 //Letterbox
-.field-name-field-brevk-kategori {
-	display: none;
-}
-
-//Lifestories
-.page-node-add-historie {
-	#edit-field-anmeldelse-anm-alder-und-0-value {
-		width: 80px;
+.page-node-add-brevkasse {
+	.field-name-field-brevk-kategori {
+		display: none;
 	}
+
 	.form-item-field-brevk-accept-und {
 		.description {
 			width: 100%;
 			margin-left: 24px;
 		}
+	}
+}
+
+
+//Lifestories
+.page-node-add-historie {
+	#edit-field-anmeldelse-anm-alder-und-0-value {
+		width: 80px;
 	}
 }
 

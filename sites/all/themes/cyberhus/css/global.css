@@ -2348,19 +2348,19 @@
   *zoom: 1;
 }
 
-/* line 362, ../sass/_form.scss */
-.field-name-field-brevk-kategori {
+/* line 363, ../sass/_form.scss */
+.page-node-add-brevkasse .field-name-field-brevk-kategori {
   display: none;
 }
-
 /* line 368, ../sass/_form.scss */
-.page-node-add-historie #edit-field-anmeldelse-anm-alder-und-0-value {
-  width: 80px;
-}
-/* line 372, ../sass/_form.scss */
-.page-node-add-historie .form-item-field-brevk-accept-und .description {
+.page-node-add-brevkasse .form-item-field-brevk-accept-und .description {
   width: 100%;
   margin-left: 24px;
+}
+
+/* line 378, ../sass/_form.scss */
+.page-node-add-historie #edit-field-anmeldelse-anm-alder-und-0-value {
+  width: 80px;
 }
 
 /* Node - generel indrykning */
