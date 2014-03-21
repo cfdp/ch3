@@ -1,0 +1,40 @@
+body {
+  background-color: transparent;
+  padding: 0px;
+}
+.status-wrapper {
+  font-family: 'Ubuntu', sans-serif;
+}
+.status-wrapper .col-1{
+  float: left;
+}
+.status-wrapper .col-1 {
+  font-size: 12px;
+}
+.btn{
+  	background-color: #FB9A00;
+	background-image: none;
+	border-radius: 0;
+	border-width: 0;
+  	color: #ffffff;
+  	padding: 10px 18px;
+  	text-shadow: none;
+  	text-transform: uppercase;
+}
+.btn:hover{
+  	background-color: #FB9A00;
+	color: #ffffff;
+}
+.chat-open, .chat-open:hover {
+  background-color: #43B149;
+}
+.chat-busy, .chat-busy:hover {
+  background-color: #FB9A00;
+  color: #ffffff;
+  cursor: default;
+}
+.chat-closed, .chat-closed:hover{
+  background-color: #ED2E3A;
+  background-color: #FB9A00;
+  cursor: default;
+}
