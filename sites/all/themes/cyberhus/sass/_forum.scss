@@ -18,7 +18,6 @@
   }
 
   .forum-desc-wrapper {
-    background: url("../img/content-border.png") repeat-x scroll left bottom transparent;
     padding: 0 0 28px 0;
     margin: 0 0 20px 0;
     .forum-name {
@@ -26,23 +25,16 @@
       font-size: 20px; line-height: 1em;
       font-weight: $font_weight_bold;
       margin-bottom: 20px; padding: 0;
-      padding: 0 15px 0 15px;
-    }
-    .forum-description {
-      padding: 0 15px 0 15px;
+
     }
     p {
       margin: 0 0 10px 0;
     }
     .forum-add-post {
-      padding: 0 15px 0 15px;
+
       a {
-        padding: 15px 20px;
-        background-color: $color_gul;
-        color: #FFFFFF;
-        display: inline-block;
-        font-size: $font_size_normal; line-height: 1em;
-        text-shadow: none;
+        @include btn();
+        margin: 20px 0;
       }
     }
   }
@@ -135,7 +127,7 @@
       }
     }
     a {
-      color: $font_color_gul;
+      color: $primary-color;
     }
   }
   .forum-table-wrap { margin: 0; }
@@ -150,6 +142,7 @@
   }
 
   .views-field-comment-count {
+    text-align: center;
     @media(max-width: 500px){
       display: none;
     }
@@ -186,7 +179,7 @@
       padding: 0 15px 0 15px;
       .field.field-name-comment-body {
         a {
-          color:$font_color_gul;
+          color:$primary-color;
         }
       }
     }

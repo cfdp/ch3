@@ -59,11 +59,7 @@
   .block-inner{
     .node.node-historie{
       font-family: $std-font-family;
-      p {
-        @media(max-width:660px){
-          text-align: justify;
-        }
-      }
+
       .field-name-field-brevk-koen {
         display: none;
       }
@@ -112,13 +108,7 @@
         margin: 30px 0 15px 15px;
         .comment-add {
           a {
-            background-color: $color_gul;
-            color: #FFFFFF;
-            display: inline-block;
-            font-size: 13px;
-            line-height: 1em;
-            padding: 15px 20px;
-            text-shadow: none;
+            @include btn();
           }
         }
         li {

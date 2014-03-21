@@ -294,7 +294,7 @@
 							color: #999;
 
 							&:hover {
-								color: $font_color_gul;
+								color: $primary-color;
 								text-decoration: underline;
 							}
 						}
@@ -397,7 +397,7 @@
 				margin-bottom: 10px;
 
 				a {
-					color: $font_color_gul;
+					color: $primary-color;
 					background: url("../img/next_yellow.png") no-repeat 0 2px;
 					padding: 0 0 0 21px;
 				}
@@ -423,6 +423,12 @@
 /* Accordion til brevkassen */
 
 .view.view-Brevkasse.view-id-Brevkasse {
+	.views-field-field-brev-tax-label {
+		font-size: 20px;
+		font-weight: bold;
+		font-family: "Cabin", sans-serif;
+		margin-bottom: 20px;
+	}
 	.view-header {
 		.view.view-brevkasse-term-visning {
 			padding: 0 15px 0 15px;
@@ -456,6 +462,10 @@
 		.views-row {
 			margin-bottom: 5px;
 		}
+	}
+
+	.opret_btn {
+		margin: 30px 0;
 	}
 }
 
@@ -523,6 +533,7 @@
 
     	.views-label-field-brevk-spoergsmaal,
     	.views-label-field-brevk-svar {
+    		text-transform: uppercase;
     		margin-top: 15px;
     		font-size: 10px;
     		color: #aaa;
@@ -598,7 +609,7 @@
 			width: 50%;
 		}
 		a {
-			color:$font_color_gul;
+			color:$primary-color;
 			background: url("../img/next_yellow.png");
 			background-repeat: no-repeat;
 			padding-left: 20px;
@@ -764,13 +775,7 @@
 		.opret_livsfortaellinger {
 			padding-left: 15px;
 			a {
-				background-color: $color_gul;
-				color: #FFFFFF;
-				display: inline-block;
-				font-size: 13px;
-				line-height: 1em;
-				padding: 15px 20px;
-				text-shadow: none;
+				@include btn();
 			}
 		}
 		.livsfortaellinger.labels {
@@ -827,7 +832,7 @@
 					width: auto;
 				}
 				a {
-					color:$font_color_gul;
+					color:$primary-color;
 					font-size: 18px;
 				}
 			}
@@ -906,7 +911,7 @@
 			padding-top: 5px;
 			float: right;
 			a {
-				color:$font_color_gul;
+				color:$primary-color;
 				background-repeat: no-repeat;
 				padding-left: 20px;
 			}
@@ -928,7 +933,7 @@
 			margin-right: 0;
 		}
 		a {
-			color:$font_color_gul;
+			color:$primary-color;
 		}
 	}
 }
@@ -1014,7 +1019,7 @@
 				padding: 30px 15px 0 15px;
 				.views-field.views-field-title {
 					a {
-						color:$font_color_gul;
+						color:$primary-color;
 						background: url("../img/next_yellow.png");
 						background-repeat: no-repeat;
 						padding-left: 20px;
@@ -1035,13 +1040,7 @@
 	margin-bottom: 30px;
 	padding: 0 15px 0 15px;
 	a {
-		background-color: $color_gul;
-		color: #FFFFFF;
-		display: inline-block;
-		font-size: 13px;
-		line-height: 1em;
-		padding: 15px 20px;
-		text-shadow: none;
+		@include btn();
 	}
 }
 
@@ -1066,7 +1065,6 @@
 
 	.views-field-body {
 		clear: both;
-		text-align: justify;
 		line-height: 15px;
 		margin-bottom: 5px;
 	}
@@ -1147,8 +1145,10 @@
 				background: transparent url(../img/next_yellow.png) center left no-repeat;
 				float: left;
 				clear: left;
-				padding-left: 18px;
+				padding-left: 20px;
 				margin-bottom: 8px;
+				font-size: 14px;
+				line-height: 1.2em;
 			}
 		}
 	}
