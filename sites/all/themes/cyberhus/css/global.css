@@ -625,7 +625,7 @@
 .view.view-Brevkasse.view-id-Brevkasse .ui-accordion-header.ui-state-active .ui-icon {
   background: url("../img/next_yellow_down.png");
   height: 15px;
-  width: 13px;
+  width: 14px;
 }
 /* line 493, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .ui-corner-all {
@@ -817,7 +817,7 @@
   padding-right: 1px;
   background: url("../img/next_black.png");
   height: 14px;
-  width: 14px;
+  width: 15px;
 }
 /* line 665, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-accordion-header.ui-state-active,
@@ -829,7 +829,7 @@
 .view-ung-i-visning.view-id-ung_i_visning .ui-accordion-header.ui-state-active .ui-icon {
   background: url("../img/next_yellow_down.png");
   height: 15px;
-  width: 13px;
+  width: 14px;
 }
 /* line 674, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-corner-all,
