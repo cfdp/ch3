@@ -974,7 +974,7 @@
 						margin-right: 5px;
 					}
 					a {
-						color:$font_color_gul;
+						color: #000;
 						background: url("../img/next_yellow.png");
 						background-repeat: no-repeat;
 						padding-left: 20px;
@@ -982,6 +982,8 @@
 						float: left;
 						line-height: 1;
 						height: 15px;
+
+						&:hover {text-decoration: underline;}
 					}
 				}
 				.views-field.views-field-nothing {
@@ -990,8 +992,9 @@
 						float: left;
 						margin-right: 15px;
 						.user-picture {
+							width: 100px;
 							img {
-								border-radius: 50px;
+
 							}
 						}
 					}

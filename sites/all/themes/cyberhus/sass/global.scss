@@ -38,7 +38,8 @@ body {
         h2, h2.node-title {
           font-size: $font_size_h2;
           font-family: $std-font-family;
-          letter-spacing: $letter-spacing-overskrifter; }
+          letter-spacing: $letter-spacing-overskrifter;
+          margin-bottom: 20px; }
 
           h3 {
             font-size: $font_size_h3;
