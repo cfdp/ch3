@@ -16,6 +16,7 @@
 		height: auto;
 		outline: none;
 		resize:none;
+		min-width: 80px;
 	}
 	input[type=submit] {
 		font-family: $std-font-family;
@@ -44,7 +45,10 @@
 	}
 	.description {
 		font-style: italic;
-		margin: 5px 0 0 0;
+		font-size: 0.85em;
+		width: 85%;
+		margin-left: 15%;
+		clear: both;
 	}
 	p {
 		margin: 0;
@@ -182,9 +186,16 @@
 			padding-right: 5%;
 			margin-top: 6px;
 		}
-		input, .description, .form-textarea-wrapper {
+		input, .form-textarea-wrapper {
 			width: 80%;
 			float: left;
+		}
+
+		.description {
+			width: 85%;
+			margin-left: 15%;
+			clear: both;
+			padding-top: 5px;
 		}
 
 		#edit-field-billede-und-0-upload {
@@ -343,4 +354,9 @@
 	padding: 2em;
 	margin: 2em 0;
 	@include clearfix;
+}
+
+// Hacks
+.field-name-field-brevk-kategori {
+	display: none;
 }

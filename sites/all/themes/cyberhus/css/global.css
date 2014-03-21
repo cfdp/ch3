@@ -532,7 +532,7 @@
 }
 /* line 377, ../sass/_views.scss */
 .view ul.pager li {
-  font-size: 12px;
+  font-size: 14px;
   margin: 0 7px;
   padding: 0;
   font-weight: bold;
@@ -1048,6 +1048,10 @@
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-title {
   width: 365px;
 }
+/* line 829, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-content .views-row .views-field.views-field-title:first-letter {
+  text-transform: uppercase;
+}
 @media (max-width: 980px) {
   /* line 826, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-title {
@@ -1060,47 +1064,51 @@
     width: auto;
   }
 }
-/* line 834, ../sass/_views.scss */
+/* line 839, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-title a {
   color: #e67e22;
   font-size: 18px;
 }
-/* line 839, ../sass/_views.scss */
+/* line 844, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-body {
   width: 500px;
 }
 @media (max-width: 980px) {
-  /* line 839, ../sass/_views.scss */
+  /* line 844, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-body {
     width: 280px;
   }
 }
 @media (max-width: 760px) {
-  /* line 839, ../sass/_views.scss */
+  /* line 844, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-body {
     width: auto;
   }
 }
-/* line 848, ../sass/_views.scss */
+/* line 853, ../sass/_views.scss */
+.view.view-livsfort-llinger .view-content .views-row .views-field.views-field-body p:first-letter {
+  text-transform: uppercase;
+}
+/* line 857, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-comment-count {
   float: right;
   margin-top: -50px;
   margin-right: 50px;
 }
 @media (max-width: 760px) {
-  /* line 848, ../sass/_views.scss */
+  /* line 857, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-comment-count {
     display: none;
   }
 }
-/* line 856, ../sass/_views.scss */
+/* line 865, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-created {
   float: right;
   margin-top: -50px;
   margin-right: 120px;
 }
 @media (max-width: 760px) {
-  /* line 856, ../sass/_views.scss */
+  /* line 865, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-created {
     float: left;
     color: #888888;
@@ -1108,14 +1116,14 @@
     margin-right: 0;
   }
 }
-/* line 867, ../sass/_views.scss */
+/* line 876, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-field-anmeldelse-anm-alder {
   float: right;
   margin-top: -50px;
   margin-right: 225px;
 }
 @media (max-width: 760px) {
-  /* line 867, ../sass/_views.scss */
+  /* line 876, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-field-anmeldelse-anm-alder {
     float: left;
     color: #888888;
@@ -1123,14 +1131,14 @@
     margin-right: 30px;
   }
 }
-/* line 878, ../sass/_views.scss */
+/* line 887, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-field-brevk-koen {
   float: right;
   margin-top: -50px;
   margin-right: 300px;
 }
 @media (max-width: 760px) {
-  /* line 878, ../sass/_views.scss */
+  /* line 887, ../sass/_views.scss */
   .view.view-livsfort-llinger .view-content .views-row .views-field.views-field-field-brevk-koen {
     float: left;
     color: #888888;
@@ -1138,104 +1146,104 @@
     margin-right: 30px;
   }
 }
-/* line 890, ../sass/_views.scss */
+/* line 899, ../sass/_views.scss */
 .view.view-livsfort-llinger .view-content .views-row {
   border-top: 1px solid #efefef;
 }
 
 /* Livsfortællinger - enkeltvisning */
-/* line 897, ../sass/_views.scss */
+/* line 906, ../sass/_views.scss */
 .view.view-livsfort-llinger-enkeltvisning {
   margin: 0 15px 0 15px;
 }
 
 /* Tegn selv - seneste billeder */
-/* line 903, ../sass/_views.scss */
+/* line 912, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-header {
   overflow: hidden;
   border-top: 1px solid #efefef;
   padding: 30px 15px 0 15px;
 }
-/* line 907, ../sass/_views.scss */
+/* line 916, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-header .galleri_overskrift {
   float: left;
 }
-/* line 910, ../sass/_views.scss */
+/* line 919, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-header .se_billede_arkiv {
   padding-top: 5px;
   float: right;
 }
-/* line 913, ../sass/_views.scss */
+/* line 922, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-header .se_billede_arkiv a {
   color: #e67e22;
   background-repeat: no-repeat;
   padding-left: 20px;
 }
-/* line 920, ../sass/_views.scss */
+/* line 929, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content {
   background: url("../img/livsfortaelling_repeat.png");
   overflow: hidden;
   padding: 15px;
 }
-/* line 924, ../sass/_views.scss */
+/* line 933, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content .views-row {
   float: left;
   width: 98px;
   margin-right: 15px;
 }
-/* line 928, ../sass/_views.scss */
+/* line 937, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content .views-row .views-field.views-field-title {
   height: 40px;
 }
-/* line 932, ../sass/_views.scss */
+/* line 941, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content .views-row-last {
   margin-right: 0;
 }
-/* line 935, ../sass/_views.scss */
+/* line 944, ../sass/_views.scss */
 .view.view-tegn-selv-seneste-billeder .view-content a {
   color: #e67e22;
 }
 
 /* Tegn selv - Arkiv */
-/* line 943, ../sass/_views.scss */
+/* line 952, ../sass/_views.scss */
 .view.view-tegn-selv-arkiv .view-content {
   padding: 0 15px 0 15px;
 }
-/* line 945, ../sass/_views.scss */
+/* line 954, ../sass/_views.scss */
 .view.view-tegn-selv-arkiv .view-content .views-row {
   float: left;
   width: 98px;
   margin-right: 15px;
   height: 160px;
 }
-/* line 951, ../sass/_views.scss */
+/* line 960, ../sass/_views.scss */
 .view.view-tegn-selv-arkiv .view-content .views-row-5, .view.view-tegn-selv-arkiv .view-content .views-row-10, .view.view-tegn-selv-arkiv .view-content .views-row-15 {
   margin-right: 0;
 }
 
 /* Tegn selv - enkeltvisning */
-/* line 958, ../sass/_views.scss */
+/* line 967, ../sass/_views.scss */
 .view.view-tegn-selv-enkeltvisning {
   margin-bottom: 20px;
 }
 
 /* Ungeblogs/Voksenblogs - oversigt */
-/* line 965, ../sass/_views.scss */
+/* line 974, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row, #page .view.view-voksenblogs-oversigt .view-content .views-row {
   margin: 0 0 30px 0;
   border-top: 1px solid #efefef;
   padding: 30px 15px 0 15px;
 }
-/* line 969, ../sass/_views.scss */
+/* line 978, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value, #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name {
   overflow: hidden;
 }
-/* line 971, ../sass/_views.scss */
+/* line 980, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value h3, #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name h3, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value h3, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name h3 {
   float: left;
   margin-right: 5px;
 }
-/* line 975, ../sass/_views.scss */
+/* line 984, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value a, #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name a, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value a, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name a {
   color: #000;
   background: url("../img/next_yellow.png");
@@ -1246,37 +1254,37 @@
   line-height: 1;
   height: 15px;
 }
-/* line 985, ../sass/_views.scss */
+/* line 994, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value a:hover, #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name a:hover, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value a:hover, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name a:hover {
   text-decoration: underline;
 }
-/* line 988, ../sass/_views.scss */
+/* line 997, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing {
   overflow: hidden;
 }
-/* line 990, ../sass/_views.scss */
+/* line 999, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_left, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_left {
   float: left;
   margin-right: 15px;
 }
-/* line 1000, ../sass/_views.scss */
+/* line 1009, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right {
   float: left;
   width: 450px;
 }
-/* line 1003, ../sass/_views.scss */
+/* line 1012, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right p, #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right p {
   margin-bottom: 0;
 }
 
 /* Ungeblogs - enkeltvisning  */
-/* line 1016, ../sass/_views.scss */
+/* line 1025, ../sass/_views.scss */
 #page .view.view-blogs-enkeltvisning-oversigt.view-id-blogs_enkeltvisning_oversigt .view-content .views-row {
   margin: 0 0 30px 0;
   border-top: 1px solid #efefef;
   padding: 30px 15px 0 15px;
 }
-/* line 1021, ../sass/_views.scss */
+/* line 1030, ../sass/_views.scss */
 #page .view.view-blogs-enkeltvisning-oversigt.view-id-blogs_enkeltvisning_oversigt .view-content .views-row .views-field.views-field-title a {
   color: #e67e22;
   background: url("../img/next_yellow.png");
@@ -1288,13 +1296,13 @@
 }
 
 /* General stuff */
-/* line 1038, ../sass/_views.scss */
+/* line 1047, ../sass/_views.scss */
 .opret_btn {
   position: relative;
   margin-bottom: 30px;
   padding: 0 15px 0 15px;
 }
-/* line 1042, ../sass/_views.scss */
+/* line 1051, ../sass/_views.scss */
 .opret_btn a {
   padding: 15px 20px;
   background-color: #e67e22;
@@ -1309,7 +1317,7 @@
   background-color: #e98b39;
 }
 
-/* line 1048, ../sass/_views.scss */
+/* line 1057, ../sass/_views.scss */
 .view-id-body_secrets .views-row {
   width: 260px;
   height: 165px;
@@ -1322,22 +1330,22 @@
   box-shadow: 5px 5px #aaaaaa;
   position: relative;
 }
-/* line 1061, ../sass/_views.scss */
+/* line 1070, ../sass/_views.scss */
 .view-id-body_secrets .views-field-created {
   float: right;
   margin: 0px 0 6px 0;
 }
-/* line 1066, ../sass/_views.scss */
+/* line 1075, ../sass/_views.scss */
 .view-id-body_secrets .views-field-body {
   clear: both;
   line-height: 15px;
   margin-bottom: 5px;
 }
-/* line 1072, ../sass/_views.scss */
+/* line 1081, ../sass/_views.scss */
 .view-id-body_secrets .views-field-field-brevk-koen, .view-id-body_secrets .views-field-field-brevk-alder, .view-id-body_secrets .views-field-created {
   color: #888888;
 }
-/* line 1078, ../sass/_views.scss */
+/* line 1087, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing a, .view-id-body_secrets .view-header a {
   margin-top: 10px;
   color: #ffffff !important;
@@ -1345,7 +1353,7 @@
   display: inline-block;
   border-radius: 3px;
 }
-/* line 1088, ../sass/_views.scss */
+/* line 1097, ../sass/_views.scss */
 .view-id-body_secrets .view-footer a {
   background: transparent url(../img/next_yellow.png) center left no-repeat;
   float: left;
@@ -1353,23 +1361,23 @@
   padding-left: 18px;
   margin-bottom: 8px;
 }
-/* line 1097, ../sass/_views.scss */
+/* line 1106, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing {
   text-align: center;
 }
-/* line 1098, ../sass/_views.scss */
+/* line 1107, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing a {
   padding: 5px 10px;
   position: absolute;
   bottom: 10px;
   left: 60px;
 }
-/* line 1108, ../sass/_views.scss */
+/* line 1117, ../sass/_views.scss */
 .view-id-body_secrets .view-header a {
   padding: 5px 10px;
   margin-bottom: 20px;
 }
-/* line 1114, ../sass/_views.scss */
+/* line 1123, ../sass/_views.scss */
 .view-id-body_secrets .body_secret_icon {
   width: 60px;
   height: 60px;
@@ -1383,12 +1391,12 @@
   left: 50%;
   margin-left: -30px;
 }
-/* line 1128, ../sass/_views.scss */
+/* line 1137, ../sass/_views.scss */
 .view-id-body_secrets .more-link {
   text-align: left;
   margin-left: 30px;
 }
-/* line 1131, ../sass/_views.scss */
+/* line 1140, ../sass/_views.scss */
 .view-id-body_secrets .more-link a {
   color: #ffffff !important;
   background-color: #fb9a00;
@@ -1397,7 +1405,7 @@
   padding: 8px 15px;
 }
 
-/* line 1144, ../sass/_views.scss */
+/* line 1153, ../sass/_views.scss */
 .view-id-related_articles .view-content .field-content a {
   background: transparent url(../img/next_yellow.png) center left no-repeat;
   float: left;
@@ -1913,8 +1921,9 @@
   height: auto;
   outline: none;
   resize: none;
+  min-width: 80px;
 }
-/* line 20, ../sass/_form.scss */
+/* line 21, ../sass/_form.scss */
 .node-form input[type=submit],
 .comment-form input[type=submit] {
   font-family: "Cabin", sans-serif;
@@ -1928,41 +1937,44 @@
   text-shadow: none;
   font-weight: normal;
 }
-/* line 32, ../sass/_form.scss */
+/* line 33, ../sass/_form.scss */
 .node-form label,
 .comment-form label {
   font-family: "Cabin", sans-serif;
   font-size: 13px;
   color: #2d2728;
 }
-/* line 38, ../sass/_form.scss */
+/* line 39, ../sass/_form.scss */
 .node-form .form-type-checkbox label,
 .comment-form .form-type-checkbox label {
   cursor: pointer;
 }
-/* line 42, ../sass/_form.scss */
+/* line 43, ../sass/_form.scss */
 .node-form #edit-actions,
 .comment-form #edit-actions {
   float: left;
   width: 100%;
 }
-/* line 45, ../sass/_form.scss */
+/* line 46, ../sass/_form.scss */
 .node-form .description,
 .comment-form .description {
   font-style: italic;
-  margin: 5px 0 0 0;
+  font-size: 0.85em;
+  width: 85%;
+  margin-left: 15%;
+  clear: both;
 }
-/* line 49, ../sass/_form.scss */
+/* line 53, ../sass/_form.scss */
 .node-form p,
 .comment-form p {
   margin: 0;
 }
-/* line 52, ../sass/_form.scss */
+/* line 56, ../sass/_form.scss */
 .node-form select,
 .comment-form select {
   cursor: pointer;
 }
-/* line 57, ../sass/_form.scss */
+/* line 61, ../sass/_form.scss */
 .node-form input:focus,
 .node-form select:focus,
 .node-form textarea:focus,
@@ -1972,7 +1984,7 @@
   outline: none;
   box-shadow: none;
 }
-/* line 62, ../sass/_form.scss */
+/* line 66, ../sass/_form.scss */
 .node-form .customSelect,
 .comment-form .customSelect {
   background-color: #FFFFFF;
@@ -1985,7 +1997,7 @@
   height: auto;
   cursor: pointer;
 }
-/* line 72, ../sass/_form.scss */
+/* line 76, ../sass/_form.scss */
 .node-form .customSelectInner,
 .comment-form .customSelectInner {
   background-image: url("../img/select-bg.png");
@@ -1993,7 +2005,7 @@
   background-repeat: no-repeat;
   cursor: pointer;
 }
-/* line 79, ../sass/_form.scss */
+/* line 83, ../sass/_form.scss */
 .node-form .styledCheckbox,
 .comment-form .styledCheckbox {
   float: left;
@@ -2003,7 +2015,7 @@
 /**
  * NODE FORMS
  */
-/* line 92, ../sass/_form.scss */
+/* line 96, ../sass/_form.scss */
 .page-node-add .region-content .region-inner > .element-invisible {
   clip: auto;
   height: auto;
@@ -2013,28 +2025,28 @@
 }
 
 /* Opret blogindlæg */
-/* line 106, ../sass/_form.scss */
+/* line 110, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form {
   overflow: hidden;
   padding: 0 15px 0 15px;
 }
-/* line 109, ../sass/_form.scss */
+/* line 113, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-item, .page-node-add-blog #blog-node-form .form-actions {
   margin: 10px 0;
 }
-/* line 112, ../sass/_form.scss */
+/* line 116, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form > div > div {
   float: left;
   width: 100%;
 }
-/* line 115, ../sass/_form.scss */
+/* line 119, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-select,
 .page-node-add-blog #blog-node-form .form-type-textfield,
 .page-node-add-blog #blog-node-form .form-type-textarea {
   float: left;
   width: 100%;
 }
-/* line 118, ../sass/_form.scss */
+/* line 122, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-select label,
 .page-node-add-blog #blog-node-form .form-type-textfield label,
 .page-node-add-blog #blog-node-form .form-type-textarea label {
@@ -2044,7 +2056,7 @@
   padding-right: 5%;
   margin-top: 6px;
 }
-/* line 125, ../sass/_form.scss */
+/* line 129, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-select input, .page-node-add-blog #blog-node-form .form-type-select textarea, .page-node-add-blog #blog-node-form .form-type-select .description,
 .page-node-add-blog #blog-node-form .form-type-textfield input,
 .page-node-add-blog #blog-node-form .form-type-textfield textarea,
@@ -2055,18 +2067,18 @@
   width: 80%;
   float: none;
 }
-/* line 130, ../sass/_form.scss */
+/* line 134, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-wrapper > .form-type-checkbox {
   width: 80%;
   float: right;
   overflow: hidden;
 }
-/* line 138, ../sass/_form.scss */
+/* line 142, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-checkboxes {
   float: left;
   width: 100%;
 }
-/* line 141, ../sass/_form.scss */
+/* line 145, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-checkboxes > label {
   width: 15%;
   float: left;
@@ -2074,37 +2086,37 @@
   padding-right: 5%;
   margin-top: 6px;
 }
-/* line 148, ../sass/_form.scss */
+/* line 152, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-checkboxes .form-checkboxes, .page-node-add-blog #blog-node-form .form-type-checkboxes .description {
   width: 85%;
   float: right;
 }
-/* line 153, ../sass/_form.scss */
+/* line 157, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form fieldset {
   float: none;
   width: 80%;
   padding: 5px 0;
 }
-/* line 156, ../sass/_form.scss */
+/* line 160, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form #edit-actions {
   float: none;
   width: 80%;
 }
-/* line 160, ../sass/_form.scss */
+/* line 164, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .field-type-image .form-submit {
   margin-left: 20px;
 }
 
-/* line 168, ../sass/_form.scss */
+/* line 172, ../sass/_form.scss */
 .node-form .form-item, .node-form .form-actions {
   margin: 10px 0;
 }
-/* line 171, ../sass/_form.scss */
+/* line 175, ../sass/_form.scss */
 .node-form > div > div {
   float: left;
   width: 100%;
 }
-/* line 175, ../sass/_form.scss */
+/* line 179, ../sass/_form.scss */
 .node-form .form-type-select,
 .node-form .form-type-textfield,
 .node-form .form-type-textarea,
@@ -2112,7 +2124,7 @@
   float: left;
   width: 100%;
 }
-/* line 178, ../sass/_form.scss */
+/* line 182, ../sass/_form.scss */
 .node-form .form-type-select label,
 .node-form .form-type-textfield label,
 .node-form .form-type-textarea label,
@@ -2123,21 +2135,28 @@
   padding-right: 5%;
   margin-top: 6px;
 }
-/* line 185, ../sass/_form.scss */
-.node-form .form-type-select input, .node-form .form-type-select .description, .node-form .form-type-select .form-textarea-wrapper,
+/* line 189, ../sass/_form.scss */
+.node-form .form-type-select input, .node-form .form-type-select .form-textarea-wrapper,
 .node-form .form-type-textfield input,
-.node-form .form-type-textfield .description,
 .node-form .form-type-textfield .form-textarea-wrapper,
 .node-form .form-type-textarea input,
-.node-form .form-type-textarea .description,
 .node-form .form-type-textarea .form-textarea-wrapper,
 .node-form .form-type-managed-file input,
-.node-form .form-type-managed-file .description,
 .node-form .form-type-managed-file .form-textarea-wrapper {
   width: 80%;
   float: left;
 }
-/* line 190, ../sass/_form.scss */
+/* line 194, ../sass/_form.scss */
+.node-form .form-type-select .description,
+.node-form .form-type-textfield .description,
+.node-form .form-type-textarea .description,
+.node-form .form-type-managed-file .description {
+  width: 85%;
+  margin-left: 15%;
+  clear: both;
+  padding-top: 5px;
+}
+/* line 201, ../sass/_form.scss */
 .node-form .form-type-select #edit-field-billede-und-0-upload,
 .node-form .form-type-textfield #edit-field-billede-und-0-upload,
 .node-form .form-type-textarea #edit-field-billede-und-0-upload,
@@ -2146,25 +2165,25 @@
   padding: 8px;
   border: 1px solid #524b4c;
 }
-/* line 195, ../sass/_form.scss */
+/* line 206, ../sass/_form.scss */
 .node-form .form-type-select #edit-field-billede-und-0-upload-button,
 .node-form .form-type-textfield #edit-field-billede-und-0-upload-button,
 .node-form .form-type-textarea #edit-field-billede-und-0-upload-button,
 .node-form .form-type-managed-file #edit-field-billede-und-0-upload-button {
   display: none;
 }
-/* line 199, ../sass/_form.scss */
+/* line 210, ../sass/_form.scss */
 .node-form .form-wrapper > .form-type-checkbox {
   width: 85%;
   float: right;
   overflow: hidden;
 }
-/* line 207, ../sass/_form.scss */
+/* line 218, ../sass/_form.scss */
 .node-form .form-type-checkboxes {
   float: left;
   width: 100%;
 }
-/* line 210, ../sass/_form.scss */
+/* line 221, ../sass/_form.scss */
 .node-form .form-type-checkboxes > label {
   width: 11%;
   float: left;
@@ -2172,23 +2191,23 @@
   padding-right: 4%;
   margin-top: 6px;
 }
-/* line 217, ../sass/_form.scss */
+/* line 228, ../sass/_form.scss */
 .node-form .form-type-checkboxes .form-checkboxes, .node-form .form-type-checkboxes .description {
   width: 85%;
   float: right;
 }
-/* line 222, ../sass/_form.scss */
+/* line 233, ../sass/_form.scss */
 .node-form fieldset {
   float: right;
   width: 85%;
   padding: 5px 0;
 }
-/* line 225, ../sass/_form.scss */
+/* line 236, ../sass/_form.scss */
 .node-form #edit-actions {
   float: right;
   width: 85%;
 }
-/* line 229, ../sass/_form.scss */
+/* line 240, ../sass/_form.scss */
 .node-form .counter {
   display: inline-block;
 }
@@ -2196,28 +2215,28 @@
 /**
  * SEARCH FORM
  */
-/* line 237, ../sass/_form.scss */
+/* line 248, ../sass/_form.scss */
 #block-search-form {
   float: right;
   width: 250px;
 }
-/* line 240, ../sass/_form.scss */
+/* line 251, ../sass/_form.scss */
 #block-search-form .block-inner {
   margin-bottom: 5px;
 }
-/* line 242, ../sass/_form.scss */
+/* line 253, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form {
   float: right;
   overflow: hidden;
 }
-/* line 245, ../sass/_form.scss */
+/* line 256, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-item.form-type-textfield.form-item-search-block-form {
   margin: 0;
   padding: 0;
   line-height: 1em;
   float: left;
 }
-/* line 247, ../sass/_form.scss */
+/* line 258, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-item.form-type-textfield.form-item-search-block-form .form-text {
   margin: 0;
   padding: 0;
@@ -2233,11 +2252,11 @@
   font-family: "Cabin", sans-serif;
   width: 200px;
 }
-/* line 260, ../sass/_form.scss */
+/* line 271, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-actions {
   float: right;
 }
-/* line 262, ../sass/_form.scss */
+/* line 273, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-actions .form-submit {
   background: url("../img/search_button_top.png");
   background-repeat: no-repeat;
@@ -2249,42 +2268,42 @@
   margin: 0;
   padding: 0;
 }
-/* line 276, ../sass/_form.scss */
+/* line 287, ../sass/_form.scss */
 #block-search-form ::-webkit-input-placeholder {
   color: white;
 }
-/* line 280, ../sass/_form.scss */
+/* line 291, ../sass/_form.scss */
 #block-search-form :-moz-placeholder {
   /* Firefox 18- */
   color: white;
   opacity: 1;
 }
-/* line 285, ../sass/_form.scss */
+/* line 296, ../sass/_form.scss */
 #block-search-form ::-moz-placeholder {
   /* Firefox 19+ */
   color: white;
   opacity: 1;
 }
-/* line 290, ../sass/_form.scss */
+/* line 301, ../sass/_form.scss */
 #block-search-form :-ms-input-placeholder {
   color: white;
 }
 
-/* line 294, ../sass/_form.scss */
+/* line 305, ../sass/_form.scss */
 #block-menu-menu-sprogmenu {
   float: right;
 }
 
 /* Brugerprofil form */
-/* line 298, ../sass/_form.scss */
+/* line 309, ../sass/_form.scss */
 #user-profile-form {
   padding: 0 15px 0 15px;
 }
-/* line 300, ../sass/_form.scss */
+/* line 311, ../sass/_form.scss */
 #user-profile-form a {
   color: #e67e22;
 }
-/* line 303, ../sass/_form.scss */
+/* line 314, ../sass/_form.scss */
 #user-profile-form input[type=submit] {
   font-family: "Cabin", sans-serif;
   background: #e67e22;
@@ -2298,28 +2317,28 @@
   font-weight: normal;
 }
 
-/* line 320, ../sass/_form.scss */
+/* line 331, ../sass/_form.scss */
 .page-node-add-body-secret .author-wrapper {
   overflow: hidden;
   *zoom: 1;
 }
 @media (min-width: 680px) {
-  /* line 320, ../sass/_form.scss */
+  /* line 331, ../sass/_form.scss */
   .page-node-add-body-secret .author-wrapper {
     width: 45%;
     float: left;
   }
-  /* line 327, ../sass/_form.scss */
+  /* line 338, ../sass/_form.scss */
   .page-node-add-body-secret .author-wrapper.author-1 {
     margin-right: 7%;
   }
 }
-/* line 332, ../sass/_form.scss */
+/* line 343, ../sass/_form.scss */
 .page-node-add-body-secret .author-wrapper.author-1 {
   margin-bottom: 3em;
 }
 
-/* line 340, ../sass/_form.scss */
+/* line 351, ../sass/_form.scss */
 .node-body_secret-form {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -2327,6 +2346,11 @@
   margin: 2em 0;
   overflow: hidden;
   *zoom: 1;
+}
+
+/* line 360, ../sass/_form.scss */
+.field-name-field-brevk-kategori {
+  display: none;
 }
 
 /* Node - generel indrykning */
