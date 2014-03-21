@@ -1946,7 +1946,7 @@
 /* line 30, ../sass/_form.scss */
 .node-form input[type=submit]#edit-submit,
 .comment-form input[type=submit]#edit-submit {
-  background-color: #e67e22;
+  background: #e67e22;
 }
 /* line 34, ../sass/_form.scss */
 .node-form input[type=submit]#edit-preview,
