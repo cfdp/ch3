@@ -20,7 +20,7 @@
 	}
 
 	input[type=submit] {
-		@include btn;
+		@include btn();
 	}
 
 	input[type=submit]#edit-preview {
