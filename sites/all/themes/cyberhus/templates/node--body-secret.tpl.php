@@ -17,8 +17,8 @@ print render($content['body']);
 <span class="bottom_info">
 	<?php 
 	$gender = render($content['field_brevk_koen']);
-	if(strpos($gender, "oplyse") != false){
-		$gender = "Anonym";
+	if($gender == ""){
+		$gender = "Ung";
 	}
 
 	print "Af " . $gender . " " . render($content['field_brevk_alder']); ?>
