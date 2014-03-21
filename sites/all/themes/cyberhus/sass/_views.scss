@@ -389,7 +389,7 @@
 .view.brevkasse-oversigt {
 	.view-content {
 		.views-row {
-			background: url("../img/content-border.png") repeat-x top left;
+			border-top: 1px solid #efefef;
 			padding: 30px 15px 30px 15px;
 
 			.views-field.views-field-name {
@@ -586,7 +586,7 @@
 /* View til temasider oversigten */
 .view.view-Temaer {
 	.view-content {
-		background: url("../img/content-border.png") repeat-x top left;
+		border-top: 1px solid #efefef;
 		padding: 30px 15px 0 15px;
 		.views-field.views-field-description-1 {
 			font-style: italic;
@@ -761,9 +761,6 @@
 .view.view-livsfort-llinger {
 	.view-header {
 		.opret_livsfortaellinger {
-			position: relative;
-			margin-top: -30px;
-			margin-bottom: 30px;
 			padding-left: 15px;
 			a {
 				background-color: $color_gul;
@@ -776,8 +773,8 @@
 			}
 		}
 		.livsfortaellinger.labels {
-			background: url("../img/content-border.png") repeat-x top left;
 			padding-top: 30px;
+			padding-bottom: 10px;
 			padding-left: 15px;
 			margin-bottom: 15px;
 			.titel {
@@ -887,8 +884,8 @@
 				}
 			}
 		}
-		.views-row.views-row-even {
-			background: url("../img/livsfortaelling_repeat.png");
+		.views-row {
+			border-top: 1px solid #efefef;
 		}
 	}
 }
@@ -902,7 +899,7 @@
 .view.view-tegn-selv-seneste-billeder {
 	.view-header {
 		overflow: hidden;
-		background: url("../img/content-border.png") repeat-x top left;
+		border-top: 1px solid #efefef;
 		padding: 30px 15px 0 15px;
 		.galleri_overskrift {
 			float: left;
@@ -965,7 +962,7 @@
 		.view-content {
 			.views-row {
 				margin: 0 0 30px 0;
-				background: url("../img/content-border.png") repeat-x top left;
+				border-top: 1px solid #efefef;
 				padding: 30px 15px 0 15px;
 				.views-field.views-field-value, .views-field-name {
 					overflow: hidden;
@@ -1016,7 +1013,7 @@
 		.view-content {
 			.views-row {
 				margin: 0 0 30px 0;
-				background: url("../img/content-border.png") repeat-x top left;
+				border-top: 1px solid #efefef;
 				padding: 30px 15px 0 15px;
 				.views-field.views-field-title {
 					a {
