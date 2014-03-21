@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset "CP850";
 /* Font-weight */
 /* Letter-spacing */
 /* Font-size */
@@ -626,7 +626,7 @@
 .view.view-Brevkasse.view-id-Brevkasse .ui-accordion-header.ui-state-active .ui-icon {
   background: url("../img/next_yellow_down.png");
   height: 15px;
-  width: 13px;
+  width: 14px;
 }
 /* line 495, ../sass/_views.scss */
 .view.view-Brevkasse.view-id-Brevkasse .ui-corner-all {
@@ -820,7 +820,7 @@
   padding-right: 1px;
   background: url("../img/next_black.png");
   height: 14px;
-  width: 14px;
+  width: 15px;
 }
 /* line 669, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-accordion-header.ui-state-active,
@@ -832,7 +832,7 @@
 .view-ung-i-visning.view-id-ung_i_visning .ui-accordion-header.ui-state-active .ui-icon {
   background: url("../img/next_yellow_down.png");
   height: 15px;
-  width: 13px;
+  width: 14px;
 }
 /* line 678, ../sass/_views.scss */
 .view.view-tema-visning.view-id-tema_visning .ui-corner-all,
@@ -2827,6 +2827,12 @@
   text-transform: uppercase;
   border-radius: 3px !important;
   margin-right: 6px;
+}
+
+/* Node - artikel */
+/* line 481, ../sass/_node.scss */
+.node-type-link-artikel #block-system-main .node-link-artikel .submitted {
+  display: none;
 }
 
 /* line 12, ../sass/global.scss */

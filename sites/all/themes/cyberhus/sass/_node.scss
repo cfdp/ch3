@@ -473,3 +473,14 @@
     margin-right: 6px;
   }
 }
+
+/* Node - artikel */
+.node-type-link-artikel {
+  #block-system-main {
+    .node-link-artikel {
+      .submitted {
+        display: none;
+      }
+    }
+  }
+}
