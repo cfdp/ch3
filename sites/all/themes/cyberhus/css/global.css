@@ -2370,8 +2370,8 @@
 }
 /* line 375, ../sass/_form.scss */
 .page-node-add-brevkasse .field-name-field-brevk-kategori,
-.page-node-add-brevkasse .wysiwyg-toggle-edit-field-brevk-spoergsmaal-und-0-value,
-.page-node-add-brevkasse .edit-field-brevk-spoergsmaal-und-0-value_path_row {
+.page-node-add-brevkasse #wysiwyg-toggle-edit-field-brevk-spoergsmaal-und-0-value,
+.page-node-add-brevkasse #edit-field-brevk-spoergsmaal-und-0-value_path_row {
   display: none;
 }
 /* line 380, ../sass/_form.scss */
