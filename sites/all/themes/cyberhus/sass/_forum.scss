@@ -9,8 +9,7 @@
 
     margin-bottom: 40px !important;
     > h3 {
-      margin: 0 0 20px;
-      font-size: 18px !important;
+      display: none;
     }
     > p {
       margin:0 15px 0 15px;
@@ -69,7 +68,7 @@
     }
     th.forum-last-post,
     th.views-field-last-updated {
-      padding: 0 18px 0 0;
+      padding: 0;
       text-align: right;
       @media(max-width:810px){
         display: none;
@@ -78,6 +77,10 @@
     tr {
       border: 0;
       border-top: 1px solid #efefef;
+    }
+
+    thead tr {
+      border-top: none;
     }
     tr.odd {
       background: none;
@@ -96,15 +99,14 @@
         width: auto;
       }
       .forum-name {
-        margin-bottom: 16px;
+
         a {
-          font-size: $font_size_h1;
-          background: url("../img/next_yellow.png") no-repeat 0 2px;
-          padding: 0 0 0 21px;
+          font-size: 18px;
         }
       }
       .forum-description {
-        line-height: 1.2em;
+        font-size: 14px;
+
       }
     }
     td.views-field-title {
@@ -251,7 +253,7 @@
       }
       .forum-post-title {
         font-family: $std-font-family;
-        font-size: 13px; line-height: 1em;
+        font-size: 14px; line-height: 1em;
         font-weight: $font_weight_bold;
         margin: 0 0 10px 0; padding: 0;
       }
