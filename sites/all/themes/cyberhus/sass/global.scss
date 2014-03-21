@@ -38,8 +38,7 @@ body {
         h2, h2.node-title {
           font-size: $font_size_h2;
           font-family: $std-font-family;
-          letter-spacing: $letter-spacing-overskrifter;
-          text-transform: uppercase; }
+          letter-spacing: $letter-spacing-overskrifter; }
 
           h3 {
             font-size: $font_size_h3;
@@ -262,7 +261,7 @@ body {
 
 						a {
 							color: #2980b9;
-							
+
 							&:hover {
 								text-decoration: underline;
 							}

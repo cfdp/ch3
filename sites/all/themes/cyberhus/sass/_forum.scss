@@ -9,7 +9,6 @@
     background: url("../img/content-border.png") repeat-x bottom left;
     margin-bottom: 40px !important;
     > h3 {
-      text-transform: uppercase;
       margin: 0 0 20px 15px;
       font-size: 17px !important;
     }
@@ -27,7 +26,6 @@
       font-family: $std-font-family;
       font-size: 20px; line-height: 1em;
       font-weight: $font_weight_bold;
-      text-transform: uppercase;
       margin-bottom: 20px; padding: 0;
       padding: 0 15px 0 15px;
     }
@@ -43,7 +41,6 @@
         padding: 15px 20px;
         background-color: $color_gul;
         color: #FFFFFF;
-        text-transform: uppercase;
         display: inline-block;
         font-size: $font_size_normal; line-height: 1em;
         text-shadow: none;
@@ -58,7 +55,6 @@
     margin: 8px 0 0 0;
     th {
       border: 0;
-      text-transform: uppercase;
       font-weight: $font_weight_bold;
       font-size: 14px;
       padding: 0 9px 9px 0;
@@ -103,7 +99,6 @@
         margin-bottom: 16px;
         a {
           font-size: $font_size_h1;
-          text-transform: uppercase;
           background: url("../img/next_yellow.png") no-repeat 0 2px;
           padding: 0 0 0 21px;
         }
@@ -115,7 +110,6 @@
     td.views-field-title {
       a {
         font-size: $font_size_h1;
-        text-transform: uppercase;
         background: url("../img/next_yellow.png") no-repeat 0 2px;
         padding: 0 0 0 21px;
       }
@@ -200,12 +194,10 @@
       font-family: $std-font-family;
       font-size: 20px; line-height: 1em;
       font-weight: $font_weight_bold;
-      text-transform: uppercase;
       margin-bottom: 10px; padding: 0;
     }
     .author-pane {
       font-size: $font_size_normal;
-      text-transform: uppercase;
       font-weight: 500;
       .user-picture { display: none; }
     }
@@ -234,7 +226,6 @@
               margin-top: 5px;
               background-color: $color_gul;
               color: #FFFFFF;
-              text-transform: uppercase;
               display: block;
               font-size: $font_size_normal; line-height: 1em;
               text-shadow: none;
@@ -263,7 +254,6 @@
         font-family: $std-font-family;
         font-size: 13px; line-height: 1em;
         font-weight: $font_weight_bold;
-        text-transform: uppercase;
         margin: 0 0 10px 0; padding: 0;
       }
       .author-pane {
