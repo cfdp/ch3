@@ -21,6 +21,10 @@
 
 	input[type=submit] {
 		@include btn();
+	  border-radius: 0;
+    border: none;
+    text-shadow: none;
+    font-weight: normal;
 	}
 
 	input[type=submit]#edit-preview {
