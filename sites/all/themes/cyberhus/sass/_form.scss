@@ -25,7 +25,10 @@
     border: none;
     text-shadow: none;
     font-weight: normal;
-    background-color: $primary-color;
+	}
+
+	input[type=submit]#edit-submit {
+		background-color: $primary-color;
 	}
 
 	input[type=submit]#edit-preview {

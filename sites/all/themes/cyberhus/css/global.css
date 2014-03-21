@@ -1937,37 +1937,41 @@
   border: none;
   text-shadow: none;
   font-weight: normal;
-  background-color: #e67e22;
 }
 /* line 10, ../sass/_mixins.scss */
 .node-form input[type=submit]:hover,
 .comment-form input[type=submit]:hover {
   background-color: #e98b39;
 }
-/* line 31, ../sass/_form.scss */
+/* line 30, ../sass/_form.scss */
+.node-form input[type=submit]#edit-submit,
+.comment-form input[type=submit]#edit-submit {
+  background-color: #e67e22;
+}
+/* line 34, ../sass/_form.scss */
 .node-form input[type=submit]#edit-preview,
 .comment-form input[type=submit]#edit-preview {
   background: #999;
 }
-/* line 35, ../sass/_form.scss */
+/* line 38, ../sass/_form.scss */
 .node-form label,
 .comment-form label {
   font-family: "Cabin", sans-serif;
   font-size: 13px;
   color: #2d2728;
 }
-/* line 41, ../sass/_form.scss */
+/* line 44, ../sass/_form.scss */
 .node-form .form-type-checkbox label,
 .comment-form .form-type-checkbox label {
   cursor: pointer;
 }
-/* line 45, ../sass/_form.scss */
+/* line 48, ../sass/_form.scss */
 .node-form #edit-actions,
 .comment-form #edit-actions {
   float: left;
   width: 100%;
 }
-/* line 48, ../sass/_form.scss */
+/* line 51, ../sass/_form.scss */
 .node-form .description,
 .comment-form .description {
   font-style: italic;
@@ -1976,17 +1980,17 @@
   margin-left: 15%;
   clear: both;
 }
-/* line 55, ../sass/_form.scss */
+/* line 58, ../sass/_form.scss */
 .node-form p,
 .comment-form p {
   margin: 0;
 }
-/* line 58, ../sass/_form.scss */
+/* line 61, ../sass/_form.scss */
 .node-form select,
 .comment-form select {
   cursor: pointer;
 }
-/* line 63, ../sass/_form.scss */
+/* line 66, ../sass/_form.scss */
 .node-form input:focus,
 .node-form select:focus,
 .node-form textarea:focus,
@@ -1996,7 +2000,7 @@
   outline: none;
   box-shadow: none;
 }
-/* line 68, ../sass/_form.scss */
+/* line 71, ../sass/_form.scss */
 .node-form .customSelect,
 .comment-form .customSelect {
   background-color: #FFFFFF;
@@ -2009,7 +2013,7 @@
   height: auto;
   cursor: pointer;
 }
-/* line 78, ../sass/_form.scss */
+/* line 81, ../sass/_form.scss */
 .node-form .customSelectInner,
 .comment-form .customSelectInner {
   background-image: url("../img/select-bg.png");
@@ -2017,7 +2021,7 @@
   background-repeat: no-repeat;
   cursor: pointer;
 }
-/* line 85, ../sass/_form.scss */
+/* line 88, ../sass/_form.scss */
 .node-form .styledCheckbox,
 .comment-form .styledCheckbox {
   float: left;
@@ -2027,7 +2031,7 @@
 /**
  * NODE FORMS
  */
-/* line 98, ../sass/_form.scss */
+/* line 101, ../sass/_form.scss */
 .page-node-add .region-content .region-inner > .element-invisible {
   clip: auto;
   height: auto;
@@ -2037,28 +2041,28 @@
 }
 
 /* Opret blogindlæg */
-/* line 112, ../sass/_form.scss */
+/* line 115, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form {
   overflow: hidden;
   padding: 0 15px 0 15px;
 }
-/* line 115, ../sass/_form.scss */
+/* line 118, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-item, .page-node-add-blog #blog-node-form .form-actions {
   margin: 10px 0;
 }
-/* line 118, ../sass/_form.scss */
+/* line 121, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form > div > div {
   float: left;
   width: 100%;
 }
-/* line 121, ../sass/_form.scss */
+/* line 124, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-select,
 .page-node-add-blog #blog-node-form .form-type-textfield,
 .page-node-add-blog #blog-node-form .form-type-textarea {
   float: left;
   width: 100%;
 }
-/* line 124, ../sass/_form.scss */
+/* line 127, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-select label,
 .page-node-add-blog #blog-node-form .form-type-textfield label,
 .page-node-add-blog #blog-node-form .form-type-textarea label {
@@ -2068,7 +2072,7 @@
   padding-right: 5%;
   margin-top: 6px;
 }
-/* line 131, ../sass/_form.scss */
+/* line 134, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-select input, .page-node-add-blog #blog-node-form .form-type-select textarea, .page-node-add-blog #blog-node-form .form-type-select .description,
 .page-node-add-blog #blog-node-form .form-type-textfield input,
 .page-node-add-blog #blog-node-form .form-type-textfield textarea,
@@ -2079,18 +2083,18 @@
   width: 80%;
   float: none;
 }
-/* line 136, ../sass/_form.scss */
+/* line 139, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-wrapper > .form-type-checkbox {
   width: 80%;
   float: right;
   overflow: hidden;
 }
-/* line 144, ../sass/_form.scss */
+/* line 147, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-checkboxes {
   float: left;
   width: 100%;
 }
-/* line 147, ../sass/_form.scss */
+/* line 150, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-checkboxes > label {
   width: 15%;
   float: left;
@@ -2098,37 +2102,37 @@
   padding-right: 5%;
   margin-top: 6px;
 }
-/* line 154, ../sass/_form.scss */
+/* line 157, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .form-type-checkboxes .form-checkboxes, .page-node-add-blog #blog-node-form .form-type-checkboxes .description {
   width: 85%;
   float: right;
 }
-/* line 159, ../sass/_form.scss */
+/* line 162, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form fieldset {
   float: none;
   width: 80%;
   padding: 5px 0;
 }
-/* line 162, ../sass/_form.scss */
+/* line 165, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form #edit-actions {
   float: none;
   width: 80%;
 }
-/* line 166, ../sass/_form.scss */
+/* line 169, ../sass/_form.scss */
 .page-node-add-blog #blog-node-form .field-type-image .form-submit {
   margin-left: 20px;
 }
 
-/* line 174, ../sass/_form.scss */
+/* line 177, ../sass/_form.scss */
 .node-form .form-item, .node-form .form-actions {
   margin: 10px 0;
 }
-/* line 177, ../sass/_form.scss */
+/* line 180, ../sass/_form.scss */
 .node-form > div > div {
   float: left;
   width: 100%;
 }
-/* line 181, ../sass/_form.scss */
+/* line 184, ../sass/_form.scss */
 .node-form .form-type-select,
 .node-form .form-type-textfield,
 .node-form .form-type-textarea,
@@ -2136,7 +2140,7 @@
   float: left;
   width: 100%;
 }
-/* line 184, ../sass/_form.scss */
+/* line 187, ../sass/_form.scss */
 .node-form .form-type-select label,
 .node-form .form-type-textfield label,
 .node-form .form-type-textarea label,
@@ -2147,7 +2151,7 @@
   padding-right: 5%;
   margin-top: 6px;
 }
-/* line 191, ../sass/_form.scss */
+/* line 194, ../sass/_form.scss */
 .node-form .form-type-select input, .node-form .form-type-select .form-textarea-wrapper,
 .node-form .form-type-textfield input,
 .node-form .form-type-textfield .form-textarea-wrapper,
@@ -2158,7 +2162,7 @@
   width: 80%;
   float: left;
 }
-/* line 196, ../sass/_form.scss */
+/* line 199, ../sass/_form.scss */
 .node-form .form-type-select .description,
 .node-form .form-type-textfield .description,
 .node-form .form-type-textarea .description,
@@ -2168,7 +2172,7 @@
   clear: both;
   padding-top: 5px;
 }
-/* line 203, ../sass/_form.scss */
+/* line 206, ../sass/_form.scss */
 .node-form .form-type-select #edit-field-billede-und-0-upload,
 .node-form .form-type-textfield #edit-field-billede-und-0-upload,
 .node-form .form-type-textarea #edit-field-billede-und-0-upload,
@@ -2177,25 +2181,25 @@
   padding: 8px;
   border: 1px solid #524b4c;
 }
-/* line 208, ../sass/_form.scss */
+/* line 211, ../sass/_form.scss */
 .node-form .form-type-select #edit-field-billede-und-0-upload-button,
 .node-form .form-type-textfield #edit-field-billede-und-0-upload-button,
 .node-form .form-type-textarea #edit-field-billede-und-0-upload-button,
 .node-form .form-type-managed-file #edit-field-billede-und-0-upload-button {
   display: none;
 }
-/* line 212, ../sass/_form.scss */
+/* line 215, ../sass/_form.scss */
 .node-form .form-wrapper > .form-type-checkbox {
   width: 85%;
   float: right;
   overflow: hidden;
 }
-/* line 220, ../sass/_form.scss */
+/* line 223, ../sass/_form.scss */
 .node-form .form-type-checkboxes {
   float: left;
   width: 100%;
 }
-/* line 223, ../sass/_form.scss */
+/* line 226, ../sass/_form.scss */
 .node-form .form-type-checkboxes > label {
   width: 11%;
   float: left;
@@ -2203,23 +2207,23 @@
   padding-right: 4%;
   margin-top: 6px;
 }
-/* line 230, ../sass/_form.scss */
+/* line 233, ../sass/_form.scss */
 .node-form .form-type-checkboxes .form-checkboxes, .node-form .form-type-checkboxes .description {
   width: 85%;
   float: right;
 }
-/* line 235, ../sass/_form.scss */
+/* line 238, ../sass/_form.scss */
 .node-form fieldset {
   float: right;
   width: 85%;
   padding: 5px 0;
 }
-/* line 238, ../sass/_form.scss */
+/* line 241, ../sass/_form.scss */
 .node-form #edit-actions {
   float: right;
   width: 85%;
 }
-/* line 242, ../sass/_form.scss */
+/* line 245, ../sass/_form.scss */
 .node-form .counter {
   display: inline-block;
 }
@@ -2227,28 +2231,28 @@
 /**
  * SEARCH FORM
  */
-/* line 250, ../sass/_form.scss */
+/* line 253, ../sass/_form.scss */
 #block-search-form {
   float: right;
   width: 250px;
 }
-/* line 253, ../sass/_form.scss */
+/* line 256, ../sass/_form.scss */
 #block-search-form .block-inner {
   margin-bottom: 5px;
 }
-/* line 255, ../sass/_form.scss */
+/* line 258, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form {
   float: right;
   overflow: hidden;
 }
-/* line 258, ../sass/_form.scss */
+/* line 261, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-item.form-type-textfield.form-item-search-block-form {
   margin: 0;
   padding: 0;
   line-height: 1em;
   float: left;
 }
-/* line 260, ../sass/_form.scss */
+/* line 263, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-item.form-type-textfield.form-item-search-block-form .form-text {
   margin: 0;
   padding: 0;
@@ -2264,11 +2268,11 @@
   font-family: "Cabin", sans-serif;
   width: 200px;
 }
-/* line 273, ../sass/_form.scss */
+/* line 276, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-actions {
   float: right;
 }
-/* line 275, ../sass/_form.scss */
+/* line 278, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-actions .form-submit {
   background: url("../img/search_button_top.png");
   background-repeat: no-repeat;
@@ -2280,42 +2284,42 @@
   margin: 0;
   padding: 0;
 }
-/* line 289, ../sass/_form.scss */
+/* line 292, ../sass/_form.scss */
 #block-search-form ::-webkit-input-placeholder {
   color: white;
 }
-/* line 293, ../sass/_form.scss */
+/* line 296, ../sass/_form.scss */
 #block-search-form :-moz-placeholder {
   /* Firefox 18- */
   color: white;
   opacity: 1;
 }
-/* line 298, ../sass/_form.scss */
+/* line 301, ../sass/_form.scss */
 #block-search-form ::-moz-placeholder {
   /* Firefox 19+ */
   color: white;
   opacity: 1;
 }
-/* line 303, ../sass/_form.scss */
+/* line 306, ../sass/_form.scss */
 #block-search-form :-ms-input-placeholder {
   color: white;
 }
 
-/* line 307, ../sass/_form.scss */
+/* line 310, ../sass/_form.scss */
 #block-menu-menu-sprogmenu {
   float: right;
 }
 
 /* Brugerprofil form */
-/* line 311, ../sass/_form.scss */
+/* line 314, ../sass/_form.scss */
 #user-profile-form {
   padding: 0 15px 0 15px;
 }
-/* line 313, ../sass/_form.scss */
+/* line 316, ../sass/_form.scss */
 #user-profile-form a {
   color: #e67e22;
 }
-/* line 316, ../sass/_form.scss */
+/* line 319, ../sass/_form.scss */
 #user-profile-form input[type=submit] {
   font-family: "Cabin", sans-serif;
   background: #e67e22;
@@ -2329,28 +2333,28 @@
   font-weight: normal;
 }
 
-/* line 333, ../sass/_form.scss */
+/* line 336, ../sass/_form.scss */
 .page-node-add-body-secret .author-wrapper {
   overflow: hidden;
   *zoom: 1;
 }
 @media (min-width: 680px) {
-  /* line 333, ../sass/_form.scss */
+  /* line 336, ../sass/_form.scss */
   .page-node-add-body-secret .author-wrapper {
     width: 45%;
     float: left;
   }
-  /* line 340, ../sass/_form.scss */
+  /* line 343, ../sass/_form.scss */
   .page-node-add-body-secret .author-wrapper.author-1 {
     margin-right: 7%;
   }
 }
-/* line 345, ../sass/_form.scss */
+/* line 348, ../sass/_form.scss */
 .page-node-add-body-secret .author-wrapper.author-1 {
   margin-bottom: 3em;
 }
 
-/* line 353, ../sass/_form.scss */
+/* line 356, ../sass/_form.scss */
 .node-body_secret-form {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -2360,23 +2364,23 @@
   *zoom: 1;
 }
 
-/* line 366, ../sass/_form.scss */
+/* line 369, ../sass/_form.scss */
 .page-node-add-brevkasse .field-name-field-brevk-spoergsmaal {
   margin-bottom: 1.5em;
 }
-/* line 372, ../sass/_form.scss */
+/* line 375, ../sass/_form.scss */
 .page-node-add-brevkasse .field-name-field-brevk-kategori,
 .page-node-add-brevkasse .wysiwyg-toggle-edit-field-brevk-spoergsmaal-und-0-value,
 .page-node-add-brevkasse .edit-field-brevk-spoergsmaal-und-0-value_path_row {
   display: none;
 }
-/* line 377, ../sass/_form.scss */
+/* line 380, ../sass/_form.scss */
 .page-node-add-brevkasse .form-item-field-brevk-accept-und .description {
   width: 100%;
   margin-left: 24px;
 }
 
-/* line 387, ../sass/_form.scss */
+/* line 390, ../sass/_form.scss */
 .page-node-add-historie #edit-field-anmeldelse-anm-alder-und-0-value {
   width: 80px;
 }
