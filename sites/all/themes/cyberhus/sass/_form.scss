@@ -18,18 +18,15 @@
 		resize:none;
 		min-width: 80px;
 	}
+
 	input[type=submit] {
-		font-family: $std-font-family;
- 		background: $color_gul;
-	 	color: #FFFFFF;
-		font-size: 13px;
-	    line-height: 1em;
-	    padding: 12px 20px;
-	    border-radius: 0;
-	    border: none;
-	    text-shadow: none;
-	    font-weight: normal;
+		@include btn;
 	}
+
+	input[type=submit]#edit-preview {
+		background: #999;
+	}
+
 	label {
 		font-family: $std-font-family;
 		font-size: 13px;
@@ -360,7 +357,14 @@
 
 //Letterbox
 .page-node-add-brevkasse {
-	.field-name-field-brevk-kategori {
+
+	.field-name-field-brevk-spoergsmaal {
+		margin-bottom: 1.5em;
+	}
+
+	.field-name-field-brevk-kategori,
+	.wysiwyg-toggle-edit-field-brevk-spoergsmaal-und-0-value,
+	.edit-field-brevk-spoergsmaal-und-0-value_path_row {
 		display: none;
 	}
 
