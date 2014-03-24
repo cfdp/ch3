@@ -1,4 +1,5 @@
 @import "settings";
+@import "mixins";
 @import "navigation";
 @import "views";
 @import "blocks";
@@ -39,7 +40,7 @@ body {
           font-size: $font_size_h2;
           font-family: $std-font-family;
           letter-spacing: $letter-spacing-overskrifter;
-          text-transform: uppercase; }
+          margin-bottom: 20px; }
 
           h3 {
             font-size: $font_size_h3;
@@ -64,21 +65,11 @@ body {
               .node {
                 a:link, a:visited {
                   text-decoration: none;
-                  color:$font_color_gul;
+                  color:$primary-color;
                 }
 
                 a.btn {
-                  font-family: $std-font-family;
-                  background: $color_gul;
-                  color: #FFFFFF;
-                  font-size: 13px;
-                  line-height: 1em;
-                  padding: 12px 20px;
-                  text-transform: uppercase;
-                  border-radius: 0;
-                  border: none;
-                  text-shadow: none;
-                  font-weight: normal;
+                  @include btn();
                 }
               }
 
@@ -256,13 +247,14 @@ body {
 							background: transparent url(../img/next_yellow.png) center left no-repeat;
 							float: left;
 							clear: left;
-							padding-left: 18px;
+							padding-left: 20px;
 							margin-bottom: 8px;
+              font-size: 14px;
 						}
 
 						a {
 							color: #2980b9;
-							
+
 							&:hover {
 								text-decoration: underline;
 							}
@@ -678,7 +670,6 @@ body {
 // Chat block
 #block-block-56 {
   .block-inner {
-    text-align: justify;
     p:last-child {
       margin-top: 20px;
     }

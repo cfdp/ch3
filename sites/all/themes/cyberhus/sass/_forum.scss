@@ -6,12 +6,10 @@
 
   .forum-table-wrap {
     padding: 0 0 20px 0;
-    background: url("../img/content-border.png") repeat-x bottom left;
+
     margin-bottom: 40px !important;
     > h3 {
-      text-transform: uppercase;
-      margin: 0 0 20px 15px;
-      font-size: 17px !important;
+      display: none;
     }
     > p {
       margin:0 15px 0 15px;
@@ -20,33 +18,23 @@
   }
 
   .forum-desc-wrapper {
-    background: url("../img/content-border.png") repeat-x scroll left bottom transparent;
     padding: 0 0 28px 0;
     margin: 0 0 20px 0;
     .forum-name {
       font-family: $std-font-family;
       font-size: 20px; line-height: 1em;
       font-weight: $font_weight_bold;
-      text-transform: uppercase;
       margin-bottom: 20px; padding: 0;
-      padding: 0 15px 0 15px;
-    }
-    .forum-description {
-      padding: 0 15px 0 15px;
+
     }
     p {
       margin: 0 0 10px 0;
     }
     .forum-add-post {
-      padding: 0 15px 0 15px;
+
       a {
-        padding: 15px 20px;
-        background-color: $color_gul;
-        color: #FFFFFF;
-        text-transform: uppercase;
-        display: inline-block;
-        font-size: $font_size_normal; line-height: 1em;
-        text-shadow: none;
+        @include btn();
+        margin: 20px 0;
       }
     }
   }
@@ -58,7 +46,6 @@
     margin: 8px 0 0 0;
     th {
       border: 0;
-      text-transform: uppercase;
       font-weight: $font_weight_bold;
       font-size: 14px;
       padding: 0 9px 9px 0;
@@ -69,11 +56,11 @@
     }
     th.forum-name,
     th.views-field-title {
-      padding: 0 0 0 18px;
+      padding: 0;
     }
     th.forum-last-post,
     th.views-field-last-updated {
-      padding: 0 18px 0 0;
+      padding: 0;
       text-align: right;
       @media(max-width:810px){
         display: none;
@@ -81,17 +68,21 @@
     }
     tr {
       border: 0;
+      border-top: 1px solid #efefef;
+    }
+
+    thead tr {
+      border-top: none;
     }
     tr.odd {
       background: none;
     }
     tr.even {
-      background-color: $tr_bg_color;
-      background-color: rgba($tr_bg_color, 0.22);
+      background-color: transparent;
     }
     td {
       border: 0;
-      padding: 24px 18px;
+      padding: 24px 0;
     }
     td.forum-details,
     td.views-field-title {
@@ -100,22 +91,19 @@
         width: auto;
       }
       .forum-name {
-        margin-bottom: 16px;
+
         a {
-          font-size: $font_size_h1;
-          text-transform: uppercase;
-          background: url("../img/next_yellow.png") no-repeat 0 2px;
-          padding: 0 0 0 21px;
+          font-size: 18px;
         }
       }
       .forum-description {
-        line-height: 1.2em;
+        font-size: 14px;
+
       }
     }
     td.views-field-title {
       a {
         font-size: $font_size_h1;
-        text-transform: uppercase;
         background: url("../img/next_yellow.png") no-repeat 0 2px;
         padding: 0 0 0 21px;
       }
@@ -139,12 +127,11 @@
       }
     }
     a {
-      color: $font_color_gul;
+      color: $primary-color;
     }
   }
   .forum-table-wrap { margin: 0; }
   .block.forum-description {
-    padding: 20px 15px 10px 15px;
 
     .block-title {
       margin-bottom: 20px;
@@ -155,6 +142,7 @@
   }
 
   .views-field-comment-count {
+    text-align: center;
     @media(max-width: 500px){
       display: none;
     }
@@ -191,7 +179,7 @@
       padding: 0 15px 0 15px;
       .field.field-name-comment-body {
         a {
-          color:$font_color_gul;
+          color:$primary-color;
         }
       }
     }
@@ -200,12 +188,10 @@
       font-family: $std-font-family;
       font-size: 20px; line-height: 1em;
       font-weight: $font_weight_bold;
-      text-transform: uppercase;
       margin-bottom: 10px; padding: 0;
     }
     .author-pane {
       font-size: $font_size_normal;
-      text-transform: uppercase;
       font-weight: 500;
       .user-picture { display: none; }
     }
@@ -234,7 +220,6 @@
               margin-top: 5px;
               background-color: $color_gul;
               color: #FFFFFF;
-              text-transform: uppercase;
               display: block;
               font-size: $font_size_normal; line-height: 1em;
               text-shadow: none;
@@ -261,9 +246,8 @@
       }
       .forum-post-title {
         font-family: $std-font-family;
-        font-size: 13px; line-height: 1em;
+        font-size: 14px; line-height: 1em;
         font-weight: $font_weight_bold;
-        text-transform: uppercase;
         margin: 0 0 10px 0; padding: 0;
       }
       .author-pane {

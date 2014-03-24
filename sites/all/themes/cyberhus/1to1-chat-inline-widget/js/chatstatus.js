@@ -25,7 +25,7 @@
 
       // If chat is open and there are active one-to-one rooms (chat open).
       if (chatStatus.chatOpen && chatStatus.rooms && chatStatus.rooms.pair.active > 0) {
-        chatButton.html('gå til 1-1 chatten').removeClass('chat-busy chat-closed').addClass('chat-open');
+        chatButton.html('g&aring; til 1-1 chatten').removeClass('chat-busy chat-closed').addClass('chat-open');
       }
       // The chat app is not initialized yet
       else if ($.isEmptyObject(chatStatus)) {

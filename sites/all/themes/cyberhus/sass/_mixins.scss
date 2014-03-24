@@ -1,0 +1,15 @@
+@mixin btn() {
+  padding: 15px 20px;
+  background-color: $primary-color;
+  color: #fff;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 1em;
+  letter-spacing: .7px;
+
+  &:hover {
+    background-color: lighten($primary-color, 5%);
+  }
+}
+
+.btn { @include btn(); }

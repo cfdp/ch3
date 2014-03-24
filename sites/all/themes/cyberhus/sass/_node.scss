@@ -59,11 +59,7 @@
   .block-inner{
     .node.node-historie{
       font-family: $std-font-family;
-      p {
-        @media(max-width:660px){
-          text-align: justify;
-        }
-      }
+
       .field-name-field-brevk-koen {
         display: none;
       }
@@ -112,14 +108,7 @@
         margin: 30px 0 15px 15px;
         .comment-add {
           a {
-            background-color: $color_gul;
-            color: #FFFFFF;
-            display: inline-block;
-            font-size: 13px;
-            line-height: 1em;
-            padding: 15px 20px;
-            text-shadow: none;
-            text-transform: uppercase;
+            @include btn();
           }
         }
         li {
@@ -138,7 +127,6 @@
           padding: 10px;
           margin-bottom: 10px;
           h3 {
-            text-transform: uppercase;
             margin-bottom: 0;
             a {
               font-size: $font_size_normal;
@@ -236,7 +224,6 @@
         line-height: 1em;
         padding: auto auto;
         text-shadow: none;
-        text-transform: uppercase;
         -webkit-border-radius: 0;
         border-radius: 0;
         border: none;
@@ -263,7 +250,6 @@
     .item-list {
       ul.pager li {
         font-size: 12px;
-        text-transform: uppercase;
         margin: 0 7px;
         padding: 0;
         font-weight: bold;
@@ -366,7 +352,6 @@
       line-height: 1em;
       padding: 8px 12px;
       text-shadow: none;
-      text-transform: uppercase;
     }
   }
 }
@@ -385,7 +370,6 @@
     padding: 30px;
     margin-bottom: 15px;
     h3 {
-      text-transform: uppercase;
       margin-bottom: 0;
       a {
         font-size: $font_size_normal;
@@ -409,7 +393,6 @@
             padding: 8px 12px;
             background-color: #585253;
             color: #FFFFFF;
-            text-transform: uppercase;
             display: block;
             font-size: 13px;
             line-height: 1em;
@@ -468,7 +451,6 @@
 
   .btn {
     padding: 8px 10px !important;
-    text-transform: uppercase;
     border-radius: 3px !important;
     margin-right: 6px;
   }

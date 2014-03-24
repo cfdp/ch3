@@ -16,20 +16,25 @@
 		height: auto;
 		outline: none;
 		resize:none;
+		min-width: 80px;
 	}
+
 	input[type=submit] {
-		font-family: $std-font-family;
- 		background: $color_gul;
-	 	color: #FFFFFF;
-		font-size: 13px;
-	    line-height: 1em;
-	    padding: 12px 20px;
-	    text-transform: uppercase;
-	    border-radius: 0;
-	    border: none;
-	    text-shadow: none;
-	    font-weight: normal;
+		@include btn();
+	  border-radius: 0;
+    border: none;
+    text-shadow: none;
+    font-weight: normal;
 	}
+
+	input[type=submit]#edit-submit {
+		background: $primary-color;
+	}
+
+	input[type=submit]#edit-preview {
+		background: #999;
+	}
+
 	label {
 		font-family: $std-font-family;
 		font-size: 13px;
@@ -45,7 +50,10 @@
 	}
 	.description {
 		font-style: italic;
-		margin: 5px 0 0 0;
+		font-size: 0.85em;
+		width: 85%;
+		margin-left: 15%;
+		clear: both;
 	}
 	p {
 		margin: 0;
@@ -183,9 +191,16 @@
 			padding-right: 5%;
 			margin-top: 6px;
 		}
-		input, .description, .form-textarea-wrapper {
+		input, .form-textarea-wrapper {
 			width: 80%;
 			float: left;
+		}
+
+		.description {
+			width: 85%;
+			margin-left: 15%;
+			clear: both;
+			padding-top: 5px;
 		}
 
 		#edit-field-billede-und-0-upload {
@@ -255,7 +270,6 @@
 					text-align: right;
 					outline: 0; box-shadow: none;
 					font-family: $std-font-family;
-					text-transform: uppercase;
 					width: 200px;
 				}
 			}
@@ -300,7 +314,7 @@
 #user-profile-form {
 	padding: 0 15px 0 15px;
 	a {
-		color:$font_color_gul;
+		color:$primary-color;
 	}
 	input[type=submit] {
 		font-family: $std-font-family;
@@ -309,7 +323,6 @@
 		font-size: 13px;
 	    line-height: 1em;
 	    padding: 12px 20px;
-	    text-transform: uppercase;
 	    border-radius: 0;
 	    border: none;
 	    text-shadow: none;
@@ -347,3 +360,35 @@
 	margin: 2em 0;
 	@include clearfix;
 }
+
+////  Hacks  ////
+
+//Letterbox
+.page-node-add-brevkasse {
+
+	.field-name-field-brevk-spoergsmaal {
+		margin-bottom: 1.5em;
+	}
+
+	.field-name-field-brevk-kategori,
+	.wysiwyg-toggle-wrapper,
+	#edit-field-brevk-spoergsmaal-und-0-value_path_row {
+		display: none;
+	}
+
+	.form-item-field-brevk-accept-und {
+		.description {
+			width: 100%;
+			margin-left: 24px;
+		}
+	}
+}
+
+
+//Lifestories
+.page-node-add-historie {
+	#edit-field-anmeldelse-anm-alder-und-0-value {
+		width: 80px;
+	}
+}
+
