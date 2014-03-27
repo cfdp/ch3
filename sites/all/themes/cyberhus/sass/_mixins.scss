@@ -1,7 +1,7 @@
 @mixin btn() {
   padding: 15px 20px;
   background-color: $primary-color;
-  color: #fff;
+  color: #fff !important;
   display: inline-block;
   font-size: 15px;
   line-height: 1em;
