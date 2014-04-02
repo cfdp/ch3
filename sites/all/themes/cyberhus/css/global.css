@@ -86,6 +86,10 @@
     width: 16.2%;
     padding: 0.3em;
   }
+  /* line 48, ../sass/_navigation.scss */
+  #region-menu .menu li.leaf.first {
+    padding-left: 0;
+  }
 }
 @media (max-width: 615px) {
   /* line 15, ../sass/_navigation.scss */
@@ -93,7 +97,7 @@
     width: 32%;
     padding: 0.3em;
   }
-  /* line 54, ../sass/_navigation.scss */
+  /* line 57, ../sass/_navigation.scss */
   #region-menu .menu li.leaf a {
     width: 100%;
     padding: .5em 0;
@@ -109,11 +113,11 @@
 }
 
 /* Brødkrummer */
-/* line 70, ../sass/_navigation.scss */
+/* line 73, ../sass/_navigation.scss */
 #breadcrumb {
   width: 500px;
 }
-/* line 73, ../sass/_navigation.scss */
+/* line 76, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs li {
   list-style: none;
   float: left;
@@ -126,23 +130,23 @@
   font-style: italic;
   font-family: "Cabin", sans-serif;
 }
-/* line 84, ../sass/_navigation.scss */
+/* line 87, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs a {
   height: 19px;
   display: inline-block;
   color: #2d2728;
 }
-/* line 89, ../sass/_navigation.scss */
+/* line 92, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs span {
   margin-left: 5px;
 }
-/* line 93, ../sass/_navigation.scss */
+/* line 96, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs .first a {
   background: url("../img/breadcrumb.png");
   background-repeat: no-repeat;
   padding-left: 25px;
 }
-/* line 99, ../sass/_navigation.scss */
+/* line 102, ../sass/_navigation.scss */
 #breadcrumb .breadcrumbs .last {
   font-weight: 700;
 }
