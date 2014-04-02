@@ -172,7 +172,7 @@ $(document).ready(function() {
         echo '
           <a id="join-pair-chat" class="btn chat-open pairchat inline" href="#">Enter</a>
           <div class="info">
-            1-1 chatten er åben nu.
+            1-1 chatten er &aring;ben nu.
             <a class="sec-action" href="/chat">Læs mere</a>.
           </div>
           ';
@@ -196,9 +196,9 @@ $(document).ready(function() {
         ?>
         <script>
           if(timerHours == 0){
-            document.write('1-1 chatten åbner om ' + timerMinutes + ' minuter.</span>');
+            document.write('1-1 chatten &aring;bner om ' + timerMinutes + ' minuter.</span>');
           } else {
-            document.write('1-1 chatten åbner om ' + timerHours + ' timer og ' + timerMinutes + ' minuter.</span>');
+            document.write('1-1 chatten &aring;bner om ' + timerHours + ' timer og ' + timerMinutes + ' minuter.</span>');
           }
           var chatbar = document.getElementById("chatBar");
           chatbar.style.background = "none";
