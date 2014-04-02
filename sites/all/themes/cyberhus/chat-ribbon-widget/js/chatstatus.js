@@ -25,19 +25,19 @@
 
       // If chat is open and there are active one-to-one rooms (chat open).
       if (chatStatus.chatOpen && chatStatus.rooms && chatStatus.rooms.pair.active > 0) {
-        chatButton.html('g&aring; til 1-1 chatten').removeClass('chat-busy chat-closed').addClass('chat-open');
+        chatButton.html('Start chat med rådgiver').removeClass('chat-busy chat-closed').addClass('chat-open');
       }
       // The chat app is not initialized yet
       else if ($.isEmptyObject(chatStatus)) {
-        chatButton.html('Loading...').removeClass('chat-open chat-closed').addClass('chat-busy');
+        chatButton.html('Loading...').removeClass('chat-open chat-closed').addClass('hidden');
       }
       // If not, it might be busy? Check if chat app is turned on (chat busy).
       else if (chatStatus.chatOpen) {
-        chatButton.html('1-1 chatten er optaget').removeClass('chat-open chat-closed').addClass('chat-busy');
+        chatButton.html('Alle rådgiver er optaget').removeClass('chat-open chat-closed').addClass('chat-busy');
       }
       // The chat app not turned on or is not initialized / unreachable (no now.js).
       else if (chatStatus === 'undefined' || !chatStatus.chatOpen){
-        chatButton.html('1-1 chatten er lukket').removeClass('chat-open chat-busy').addClass('chat-closed');
+        chatButton.html('Alle rådgiver er optaget').removeClass('chat-open chat-busy').addClass('chat-closed');
         console.log('Chat app is not turned on or chatStatus is undefined, chatStatus: ', chatStatus);
       }
       else {
@@ -46,21 +46,21 @@
       }
 
      };
-     
+
     // When the document is ready, update the status, and bind the event
     // to have it update automatically later.
     $(window).bind('opekaChatStatusUpdate', updateDisplay);
-    
+
     // When the user clicks the button, ask the chat server to join a room.
     chatButton.click(function (e) {
       if (chatStatus.chatOpen && chatStatus.rooms && chatStatus.rooms.pair.active > 0) {
-        
+
         if(!$.browser.opera){
           var w = open_window('_blank', baseURL+'/opeka', 600, 700);
         } else {
           window.parent.location = baseURL+'/chat-on-opera';
         }
-        
+
         now.getDirectSignInURL('pair', function (signInURL) {
           if (!(chatStatus.rooms && chatStatus.rooms.pair.active > 0) && !(chatStatus.rooms && chatStatus.rooms.pair.full > 0)) {
             w.close();
@@ -70,7 +70,7 @@
             w.location = signInURL;
           }
         });
-      
+
       }else{
         e.preventDefault();
       }
