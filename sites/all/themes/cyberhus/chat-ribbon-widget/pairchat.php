@@ -1,76 +1,3 @@
-<?php
-
-// Chat times
-$json = '
-[
-  {
-    "Mon":
-    [
-      { "start": "1300", "finish": "1600", "type": "single" }
-    ],
-
-    "Tue":
-    [
-      { "start": "1300", "finish": "1600", "type": "single" },
-      { "start": "1800", "finish": "2100", "type": "single" },
-      { "start": "1800", "finish": "2100", "type": "group" }
-    ],
-
-    "Wed":
-    [
-      { "start": "1300", "finish": "1600", "type": "single" },
-      { "start": "1800", "finish": "2100", "type": "single" },
-      { "start": "1800", "finish": "2100", "type": "kram" }
-    ],
-
-    "Thu":
-    [
-      { "start": "1300", "finish": "1600", "type": "single" },
-      { "start": "1800", "finish": "2100", "type": "single" },
-      { "start": "1800", "finish": "2100", "type": "group" }
-    ],
-
-    "Fri":
-    [
-      { "start": "1300", "finish": "1600", "type": "single" }
-    ]
-  }
-]';
-
-// Decode JSON
-$arr = json_decode($json);
-
-// Set timezone and store current day and time
-date_default_timezone_set('Europe/Copenhagen'); // Needed?
-$currentDay = date("D");
-$currentTime = date("H i");
-
-// TEST VARIABLES
-// $currentDay = "Tue";
-// $currentTime = "1430";
-
-// Create chatbar wrapper
-echo '<div id="chatBar">';
-
-// Loop through the times of the current day
-
-$openChat = false;
-$counterActive = false;
-
-for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
-  // Convert and store start time
-  $start = $arr[0]->{$currentDay}[$i]->{"start"};
-  $start = date('H i', strtotime("$start"));
-  // Convert and store finish time
-  $finish = $arr[0]->{$currentDay}[$i]->{"finish"};
-  $finish = date('H i', strtotime("$finish"));
-  // Store chat type
-  $type = $arr[0]->{$currentDay}[$i]->{"type"};
-
-  // JS timer
-?>
-
-
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -165,6 +92,78 @@ $(document).ready(function() {
 
 </head>
 <body>
+
+  <?php
+      // Chat times
+      $json = '
+      [
+        {
+          "Mon":
+          [
+            { "start": "1300", "finish": "1600", "type": "single" }
+          ],
+
+          "Tue":
+          [
+            { "start": "1300", "finish": "1600", "type": "single" },
+            { "start": "1800", "finish": "2100", "type": "single" },
+            { "start": "1800", "finish": "2100", "type": "group" }
+          ],
+
+          "Wed":
+          [
+            { "start": "1300", "finish": "1600", "type": "single" },
+            { "start": "1800", "finish": "2100", "type": "single" },
+            { "start": "1800", "finish": "2100", "type": "kram" }
+          ],
+
+          "Thu":
+          [
+            { "start": "1300", "finish": "1600", "type": "single" },
+            { "start": "1800", "finish": "2100", "type": "single" },
+            { "start": "1800", "finish": "2100", "type": "group" }
+          ],
+
+          "Fri":
+          [
+            { "start": "1300", "finish": "1600", "type": "single" }
+          ]
+        }
+      ]';
+
+      // Decode JSON
+      $arr = json_decode($json);
+
+      // Set timezone and store current day and time
+      date_default_timezone_set('Europe/Copenhagen'); // Needed?
+      $currentDay = date("D");
+      $currentTime = date("H i");
+
+      // TEST VARIABLES
+      // $currentDay = "Tue";
+      // $currentTime = "1430";
+
+      // Create chatbar wrapper
+      echo '<div id="chatBar">';
+
+      // Loop through the times of the current day
+
+      $openChat = false;
+      $counterActive = false;
+
+      for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
+        // Convert and store start time
+        $start = $arr[0]->{$currentDay}[$i]->{"start"};
+        $start = date('H i', strtotime("$start"));
+        // Convert and store finish time
+        $finish = $arr[0]->{$currentDay}[$i]->{"finish"};
+        $finish = date('H i', strtotime("$finish"));
+        // Store chat type
+        $type = $arr[0]->{$currentDay}[$i]->{"type"};
+      }
+        // JS timer
+      ?>
+
   <div class="status-wrapper">
       <?php
       // Output chatbar if needed
