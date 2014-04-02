@@ -46,8 +46,8 @@ $currentDay = date("D");
 $currentTime = date("H i");
 
 // TEST VARIABLES
-// $currentDay = "Tue";
-// $currentTime = "1430";
+ $currentDay = "Tue";
+ $currentTime = "1430";
 
 // Create chatbar wrapper
 echo '<div id="chatBar">';
@@ -169,7 +169,7 @@ $(document).ready(function() {
       // Output chatbar if needed
       if($currentTime > $start && $currentTime < $finish && $type == "single"){
         echo '
-          <a id="join-pair-chat" class="btn chat-open pairchat inline" href="#">Enter</a>
+          <a id="join-pair-chat" class="btn chat-open pairchat inline" href="#">Alle r&aring;dgiver er optaget</a>
           <div class="info">
             1-1 chatten er &aring;ben nu.
             <a class="sec-action" href="/chat">L&aelig;s mere</a>.
