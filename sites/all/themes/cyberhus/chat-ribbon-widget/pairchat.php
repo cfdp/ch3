@@ -47,7 +47,7 @@ $currentTime = date("H i");
 
 // TEST VARIABLES
 // $currentDay = "Tue";
-// $currentTime = "1430";
+ $currentTime = "1430";
 
 // Create chatbar wrapper
 echo '<div id="chatBar">';
@@ -207,7 +207,7 @@ $(document).ready(function() {
         $counterActive = true;
 
         echo'
-          <a class="sec-action" href="/chat">L&aelig;s mere</a>.
+          <a class="sec-action" href="/chat">L&aelig;s mere om chat</a>.
           </div> <!-- .info -->
         ';
       }

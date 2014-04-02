@@ -1416,39 +1416,23 @@
   line-height: 1.2em;
 }
 
-/* line 1, ../sass/_blocks.scss */
-.block_chat-promo {
-  background: #16a085;
-  color: #fff;
-  text-align: center;
-  margin-left: -100%;
-  margin-right: -100%;
-}
-/* line 8, ../sass/_blocks.scss */
-.block_chat-promo .block-inner {
-  margin-left: auto;
-  margin-right: auto;
-  width: 940px;
-  padding: 2em 0;
-}
-
-/* line 16, ../sass/_blocks.scss */
+/* line 5, ../sass/_blocks.scss */
 .block_blog-teasers-front {
   background: rgba(255, 255, 255, 0.6);
   width: 288px;
   right: 0;
   position: absolute;
-  top: 0px;
+  top: 60px;
   height: 322px;
 }
 
-/* line 25, ../sass/_blocks.scss */
+/* line 14, ../sass/_blocks.scss */
 .block_tagline-front {
   position: absolute;
-  top: 25px;
+  top: 75px;
 }
 
-/* line 31, ../sass/_blocks.scss */
+/* line 20, ../sass/_blocks.scss */
 .block-menu-andet ul {
   padding-left: 0 !important;
 }
