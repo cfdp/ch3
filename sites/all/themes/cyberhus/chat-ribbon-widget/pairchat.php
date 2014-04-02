@@ -79,7 +79,6 @@ for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
 <meta http-Equiv="Pragma" content="no-cache" />
 <meta http-Equiv="Expires" Content="0" />
 <title>CfDP Chat</title>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
 <link href='css/chat.widget.css' rel='stylesheet' type='text/css'>
 
 <script>
@@ -208,7 +207,7 @@ $(document).ready(function() {
         $counterActive = true;
 
         echo'
-            <a class="sec-action" href="/chat">L&aelig;s mere</a>.
+          <a class="sec-action" href="/chat">L&aelig;s mere</a>.
           </div> <!-- .info -->
         ';
       }
