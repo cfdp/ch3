@@ -47,7 +47,7 @@ $currentTime = date("H i");
 
 // TEST VARIABLES
 // $currentDay = "Tue";
-// $currentTime = "1430";
+$currentTime = "1030";
 
 // Create chatbar wrapper
 echo '<div id="chatBar">';
@@ -173,7 +173,7 @@ $(document).ready(function() {
           <a id="join-pair-chat" class="btn chat-open pairchat inline" href="#">Enter</a>
           <div class="info">
             1-1 chatten er &aring;ben nu.
-            <a class="sec-action" href="/chat">Læs mere</a>.
+            <a class="sec-action" href="/chat">L&aelig;s mere</a>.
           </div>
           ';
 
@@ -193,6 +193,7 @@ $(document).ready(function() {
         $openChat = true;
       } else if($currentTime < $start && $openChat == false && $type == "single" && $counterActive == false){
         // Output countdown
+        echo '<div class="info">';
         ?>
         <script>
           if(timerHours == 0){
@@ -205,6 +206,11 @@ $(document).ready(function() {
         </script>
         <?php
         $counterActive = true;
+
+        echo'
+            <a class="sec-action" href="/chat">L&aelig;s mere</a>.
+          </div> <!-- .info -->
+        ';
       }
     }
     ?>
