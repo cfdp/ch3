@@ -1,4 +1,4 @@
-@charset "CP850";
+@charset "UTF-8";
 /* Font-weight */
 /* Letter-spacing */
 /* Font-size */
@@ -9,7 +9,7 @@
 .btn {
   padding: 15px 20px;
   background-color: #e67e22;
-  color: #fff;
+  color: #fff !important;
   display: inline-block;
   font-size: 15px;
   line-height: 1em;
@@ -968,7 +968,7 @@
 .view.view-livsfort-llinger .view-header .opret_livsfortaellinger a {
   padding: 15px 20px;
   background-color: #e67e22;
-  color: #fff;
+  color: #fff !important;
   display: inline-block;
   font-size: 15px;
   line-height: 1em;
@@ -1306,7 +1306,7 @@
 .opret_btn a {
   padding: 15px 20px;
   background-color: #e67e22;
-  color: #fff;
+  color: #fff !important;
   display: inline-block;
   font-size: 15px;
   line-height: 1em;
@@ -1496,7 +1496,7 @@
 .page-forum .forum-desc-wrapper .forum-add-post a {
   padding: 15px 20px;
   background-color: #e67e22;
-  color: #fff;
+  color: #fff !important;
   display: inline-block;
   font-size: 15px;
   line-height: 1em;
@@ -1928,7 +1928,7 @@
 .comment-form input[type=submit] {
   padding: 15px 20px;
   background-color: #e67e22;
-  color: #fff;
+  color: #fff !important;
   display: inline-block;
   font-size: 15px;
   line-height: 1em;
@@ -2493,7 +2493,7 @@
 .node-type-historie .block-inner .node.node-historie .links.node-links .comment-add a {
   padding: 15px 20px;
   background-color: #e67e22;
-  color: #fff;
+  color: #fff !important;
   display: inline-block;
   font-size: 15px;
   line-height: 1em;
@@ -2941,7 +2941,7 @@ body {
 .node a.btn {
   padding: 15px 20px;
   background-color: #e67e22;
-  color: #fff;
+  color: #fff !important;
   display: inline-block;
   font-size: 15px;
   line-height: 1em;
