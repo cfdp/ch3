@@ -7,6 +7,7 @@
 <meta http-Equiv="Expires" Content="0" />
 <title>CfDP Chat</title>
 <link href='css/chat.widget.css' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
 
 <script>
 // Remember that you can't rely on jQuery or now.js being available from the start
