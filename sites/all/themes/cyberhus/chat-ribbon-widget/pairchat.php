@@ -1,76 +1,3 @@
-<?php
-
-// Chat times
-$json = '
-[
-  {
-    "Mon":
-    [
-      { "start": "1300", "finish": "1600", "type": "single" }
-    ],
-
-    "Tue":
-    [
-      { "start": "1300", "finish": "1600", "type": "single" },
-      { "start": "1800", "finish": "2100", "type": "single" },
-      { "start": "1800", "finish": "2100", "type": "group" }
-    ],
-
-    "Wed":
-    [
-      { "start": "1300", "finish": "1600", "type": "single" },
-      { "start": "1800", "finish": "2100", "type": "single" },
-      { "start": "1800", "finish": "2100", "type": "kram" }
-    ],
-
-    "Thu":
-    [
-      { "start": "1300", "finish": "1600", "type": "single" },
-      { "start": "1800", "finish": "2100", "type": "single" },
-      { "start": "1800", "finish": "2100", "type": "group" }
-    ],
-
-    "Fri":
-    [
-      { "start": "1300", "finish": "1600", "type": "single" }
-    ]
-  }
-]';
-
-// Decode JSON
-$arr = json_decode($json);
-
-// Set timezone and store current day and time
-date_default_timezone_set('Europe/Copenhagen'); // Needed?
-$currentDay = date("D");
-$currentTime = date("H i");
-
-// TEST VARIABLES
-// $currentDay = "Tue";
- $currentTime = "1430";
-
-// Create chatbar wrapper
-echo '<div id="chatBar">';
-
-// Loop through the times of the current day
-
-$openChat = false;
-$counterActive = false;
-
-for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
-  // Convert and store start time
-  $start = $arr[0]->{$currentDay}[$i]->{"start"};
-  $start = date('H i', strtotime("$start"));
-  // Convert and store finish time
-  $finish = $arr[0]->{$currentDay}[$i]->{"finish"};
-  $finish = date('H i', strtotime("$finish"));
-  // Store chat type
-  $type = $arr[0]->{$currentDay}[$i]->{"type"};
-
-  // JS timer
-?>
-
-
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -80,34 +7,6 @@ for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
 <meta http-Equiv="Expires" Content="0" />
 <title>CfDP Chat</title>
 <link href='css/chat.widget.css' rel='stylesheet' type='text/css'>
-
-<script>
-  // Countdown
-  // Remove space and store current time and starting chat time
-  var currentTime = '<?php echo $currentTime; ?>'.replace(/\s+/g, '');
-  var openingTime = '<?php echo $start; ?>'.replace(/\s+/g, '');
-
-  // Store hours
-  var currentHours = parseInt(currentTime.substring(0,2));
-  var openingHours = parseInt(openingTime.substring(0,2));
-    // Calculate number of hours until chat session
-  var timerHours = openingHours - currentHours - 1;
-
-  // Store minutes
-  var currentMinutes = parseInt(currentTime.substring(2,4));
-  var openingMinutes = parseInt(openingTime.substring(2,4));
-  // Exact hour fix
-  if(currentMinutes == 0){
-    timerHours = timerHours + 1;
-  }
-  // Calculate number of minutes until next chat session
-    // Total amount of minutes of current hour
-  currentMinutes = currentMinutes + currentHours * 60;
-    // Total amount of minutes of chat hour
-  openingMinutes = openingMinutes + openingHours * 60;
-    // Calculate number of minutes until next chat session
-  var timerMinutes = (openingMinutes - currentMinutes) % 60;
-</script>
 
 <script>
 // Remember that you can't rely on jQuery or now.js being available from the start
@@ -164,6 +63,105 @@ $(document).ready(function() {
 
 </head>
 <body>
+
+<?php
+
+// Chat times
+$json = '
+[
+  {
+    "Mon":
+    [
+      { "start": "1300", "finish": "1600", "type": "single" }
+    ],
+
+    "Tue":
+    [
+      { "start": "1300", "finish": "1600", "type": "single" },
+      { "start": "1800", "finish": "2100", "type": "single" },
+      { "start": "1800", "finish": "2100", "type": "group" }
+    ],
+
+    "Wed":
+    [
+      { "start": "1300", "finish": "1600", "type": "single" },
+      { "start": "1800", "finish": "2100", "type": "single" },
+      { "start": "1800", "finish": "2100", "type": "kram" }
+    ],
+
+    "Thu":
+    [
+      { "start": "1300", "finish": "1600", "type": "single" },
+      { "start": "1800", "finish": "2100", "type": "single" },
+      { "start": "1800", "finish": "2100", "type": "group" }
+    ],
+
+    "Fri":
+    [
+      { "start": "1300", "finish": "1600", "type": "single" }
+    ]
+  }
+]';
+
+// Decode JSON
+$arr = json_decode($json);
+
+// Set timezone and store current day and time
+date_default_timezone_set('Europe/Copenhagen'); // Needed?
+$currentDay = date("D");
+$currentTime = date("H i");
+
+// TEST VARIABLES
+// $currentDay = "Tue";
+// $currentTime = "1430";
+
+// Create chatbar wrapper
+echo '<div id="chatBar">';
+
+// Loop through the times of the current day
+
+$openChat = false;
+$counterActive = false;
+
+for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
+  // Convert and store start time
+  $start = $arr[0]->{$currentDay}[$i]->{"start"};
+  $start = date('H i', strtotime("$start"));
+  // Convert and store finish time
+  $finish = $arr[0]->{$currentDay}[$i]->{"finish"};
+  $finish = date('H i', strtotime("$finish"));
+  // Store chat type
+  $type = $arr[0]->{$currentDay}[$i]->{"type"};
+?>
+
+<script>
+    // Remove space and store current time and starting chat time
+    var currentTime = '<?php echo $currentTime; ?>'.replace(/\s+/g, '');
+    var openingTime = '<?php echo $start; ?>'.replace(/\s+/g, '');
+
+    // Store hours
+    var currentHours = parseInt(currentTime.substring(0,2));
+    var openingHours = parseInt(openingTime.substring(0,2));
+      // Calculate number of hours until chat session
+    var timerHours = openingHours - currentHours - 1;
+
+    // Store minutes
+    var currentMinutes = parseInt(currentTime.substring(2,4));
+    var openingMinutes = parseInt(openingTime.substring(2,4));
+    // Exact hour fix
+    if(currentMinutes == 0){
+      timerHours = timerHours + 1;
+    }
+    // Calculate number of minutes until next chat session
+      // Total amount of minutes of current hour
+    currentMinutes = currentMinutes + currentHours * 60;
+      // Total amount of minutes of chat hour
+    openingMinutes = openingMinutes + openingHours * 60;
+      // Calculate number of minutes until next chat session
+    var timerMinutes = (openingMinutes - currentMinutes) % 60;
+</script>
+
+
   <div class="status-wrapper">
       <?php
       // Output chatbar if needed
@@ -172,22 +170,9 @@ $(document).ready(function() {
           <a id="join-pair-chat" class="btn chat-open pairchat inline" href="#">Alle r&aring;dgiver er optaget</a>
           <div class="info">
             1-1 chatten er &aring;ben nu.
-            <a class="sec-action" href="/chat">L&aelig;s mere</a>.
+            <a class="sec-action" href="/chat" target="_parent">L&aelig;s mere</a>.
           </div>
           ';
-
-        /*------------------------------------*/
-          // CODE FOR MULTIPLE CHAT TYPES
-          // echo '<div class="chatBar">';
-          // if($type == "single"){
-          //   echo 'Single chat is open';
-          // } else if($type == "group"){
-          // //   echo 'Group chat is open';
-          // // } else if($type == "kram") {
-          // //   echo 'KRAM chat is open';
-          // // }
-          // echo '</div>';
-        /*------------------------------------*/
 
         $openChat = true;
       } else if($currentTime < $start && $openChat == false && $type == "single" && $counterActive == false){
@@ -207,7 +192,7 @@ $(document).ready(function() {
         $counterActive = true;
 
         echo'
-          <a class="sec-action" href="/chat">L&aelig;s mere om chat</a>.
+          <a class="sec-action" href="/chat" target="_parent">L&aelig;s mere om chat</a>.
           </div> <!-- .info -->
         ';
       }
