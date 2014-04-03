@@ -15,10 +15,10 @@
 
 
 .sch-countdown {
-  padding-left: 25px;
-  background-image: url(https://i.cloudup.com/Yrv12DZlNT.png);
+  padding-left: 34px;
+  background: url("../../img/icon-clock-erixon-16.png");
   background-repeat: no-repeat;
-  background-position: left 7px;
+  background-position: 11px 7px;
 }
 
 .status-wrapper .info a {
@@ -37,15 +37,16 @@
   height: 45px;
   line-height: 46px;
   font-family: Cabin, sans-serif;
-  background: #2ecc71;
-  color: #ffffff;
-  text-decoration: none; }
-
-.btn:hover {
-  background: #28b363; }
-
-.btn.chat-closed,
-.btn.chat-closed:hover {
   color: #999;
   background: rgba(0, 0, 0, .1);
+
+  text-decoration: none; }
+
+
+.btn.chat-open, {
+  background: #2ecc71;
+  color: #ffffff;
 }
+
+.btn-chat-open:hover {
+  background: #28b363; }
