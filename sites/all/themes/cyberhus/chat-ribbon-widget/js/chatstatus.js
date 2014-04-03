@@ -29,15 +29,15 @@
       }
       // The chat app is not initialized yet
       else if ($.isEmptyObject(chatStatus)) {
-        chatButton.html('Alle r&aring;dgiver er optaget').removeClass('chat-open chat-closed').addClass('chat-closed');
+        chatButton.html('Alle r&aring;dgivere er optaget').removeClass('chat-open chat-closed').addClass('chat-closed');
       }
       // If not, it might be busy? Check if chat app is turned on (chat busy).
       else if (chatStatus.chatOpen) {
-        chatButton.html('Alle r&aring;dgiver er optaget').removeClass('chat-open chat-closed').addClass('chat-busy');
+        chatButton.html('Alle r&aring;dgivere er optaget').removeClass('chat-open chat-closed').addClass('chat-busy');
       }
       // The chat app not turned on or is not initialized / unreachable (no now.js).
       else if (chatStatus === 'undefined' || !chatStatus.chatOpen){
-        chatButton.html('Alle r&aring;dgiver er optaget').removeClass('chat-open chat-busy').addClass('chat-closed');
+        chatButton.html('Alle r&aring;dgivere er optaget').removeClass('chat-open chat-busy').addClass('chat-closed');
         console.log('Chat app is not turned on or chatStatus is undefined, chatStatus: ', chatStatus);
       }
       else {
