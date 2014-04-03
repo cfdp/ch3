@@ -114,7 +114,7 @@ $currentTime = date("H i");
 
 // TEST VARIABLES
 // $currentDay = "Tue";
- $currentTime = "10 32";
+// $currentTime = "10 32";
 
 $openChat = false;
 $counterActive = false;
