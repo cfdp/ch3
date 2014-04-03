@@ -172,7 +172,7 @@ $(document).ready(function() {
           <a id="join-pair-chat" class="btn chat-open pairchat inline" href="#">Alle r&aring;dgiver er optaget</a>
           <div class="info">
             1-1 chatten er &aring;ben nu.
-            <a class="sec-action" href="/chat">L&aelig;s mere</a>.
+            <a target="_parent" class="sec-action" href="/chat">L&aelig;s mere</a>.
           </div>
           ';
 
@@ -207,7 +207,7 @@ $(document).ready(function() {
         $counterActive = true;
 
         echo'
-          <a class="sec-action" href="/chat">L&aelig;s mere om chat</a>.
+          <a target="_parent" class="sec-action" href="/chat">L&aelig;s mere om chat</a>.
           </div> <!-- .info -->
         ';
       }
