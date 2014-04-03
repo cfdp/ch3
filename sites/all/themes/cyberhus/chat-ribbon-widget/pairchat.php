@@ -47,7 +47,7 @@ $currentTime = date("H i");
 
 // TEST VARIABLES
 // $currentDay = "Tue";
-$currentTime = "1430";
+// $currentTime = "1430";
 
 // Create chatbar wrapper
 echo '<div id="chatBar">';
@@ -193,7 +193,7 @@ $(document).ready(function() {
         $openChat = true;
       } else if($currentTime < $start && $openChat == false && $type == "single" && $counterActive == false){
         // Output countdown
-        echo '<div class="info">';
+        echo '<div class="info sch-countdown">';
         ?>
         <script>
           if(timerHours == 0){
