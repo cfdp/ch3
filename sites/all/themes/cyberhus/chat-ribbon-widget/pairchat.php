@@ -47,7 +47,7 @@ $currentTime = date("H i");
 
 // TEST VARIABLES
 // $currentDay = "Tue";
-// $currentTime = "1430";
+$currentTime = "1430";
 
 // Create chatbar wrapper
 echo '<div id="chatBar">';
@@ -79,6 +79,7 @@ for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
 <meta http-Equiv="Pragma" content="no-cache" />
 <meta http-Equiv="Expires" Content="0" />
 <title>CfDP Chat</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
 <link href='css/chat.widget.css' rel='stylesheet' type='text/css'>
 
 <script>
