@@ -141,7 +141,7 @@ for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
   $currentHours = intval(substr($currentTime,0,2));
   $openingHours = intval(substr($openingTime,0,2));
   $timerHours = $openingHours - $currentHours - 1;
-  
+
   // Calculate amount of minutes until chat session
   $currentMinutes = intval(substr($currentTime,2,4));
   $openingMinutes = intval(substr($openingTime,2,4));
@@ -151,12 +151,12 @@ for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
   $currentMinutes = $currentMinutes + $currentHours * 60;
   $openingMinutes = $openingMinutes + $openingHours * 60;
   $timerMinutes = ($openingMinutes - $currentMinutes) % 60;
-  
+
 
       // Output chatbar if needed
       if($currentTime >= $openingTime && $currentTime <= $finish && $type == "single"){
         echo '
-          <a id="join-pair-chat" class="btn pairchat inline" href="#">Alle r&aring;dgivere er optaget</a>
+          <a id="join-pair-chat" class="btn pairchat inline chat-open" href="#">Start chat med r&aring;dgiver</a>
           <div class="info">
             1-1 chatten er &aring;ben nu.
             <a class="sec-action" href="/chat" target="_parent">L&aelig;s mere</a>.
