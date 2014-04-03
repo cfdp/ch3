@@ -133,7 +133,6 @@ for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
   // Store chat type
   $type = $arr[0]->{$currentDay}[$i]->{"type"};
 ?>
-
 <script>
     // Remove space and store current time and starting chat time
     var currentTime = '<?php echo $currentTime; ?>'.replace(/\s+/g, '');
@@ -160,8 +159,6 @@ for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
       // Calculate number of minutes until next chat session
     var timerMinutes = (openingMinutes - currentMinutes) % 60;
 </script>
-
-
   <div class="status-wrapper">
       <?php
       // Output chatbar if needed
@@ -177,7 +174,7 @@ for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
         $openChat = true;
       } else if($currentTime < $start && $openChat == false && $type == "single" && $counterActive == false){
         // Output countdown
-        echo '<div class="info">';
+        echo '<div class="info sch-countdown">';
         ?>
         <script>
           if(timerHours == 0){

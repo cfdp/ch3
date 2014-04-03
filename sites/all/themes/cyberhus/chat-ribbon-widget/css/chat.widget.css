@@ -14,17 +14,16 @@
   display: block; }
 
 
-  /*.chat-ribbon.sch-countdown {
-    padding-left: 25px;
-    background-image: url(https://i.cloudup.com/cxOtEXrSjM.png);
-    background-repeat: no-repeat;
-    background-position: left 17px;
-  }*/
+.sch-countdown {
+  padding-left: 25px;
+  background-image: url(https://i.cloudup.com/Yrv12DZlNT.png);
+  background-repeat: no-repeat;
+  background-position: left 7px;
+}
 
 .status-wrapper .info a {
   color: rgba(0, 0, 0, .5);
-  text-decoration: underline;
-}
+  text-decoration: underline; }
 
 .status-wrapper .info a:hover {
   color: rgba(0, 0, 0, 1); }
@@ -43,38 +42,10 @@
   text-decoration: none; }
 
 .btn:hover {
-  background: #28b363;
-}
+  background: #28b363; }
 
-.btn.busy,
-.btn.busy:hover {
+.btn.chat-closed,
+.btn.chat-closed:hover {
   color: #999;
   background: rgba(0, 0, 0, .1);
 }
-/*.btn {
-  background-color: #FB9A00;
-	background-image: none;
-	border-radius: 0;
-	border-width: 0;
-  color: #ffffff;
-  padding: 10px 18px;
-  text-shadow: none;
-  text-transform: uppercase;
-}
-.btn:hover{
-  background-color: #FB9A00;
-	color: #ffffff;
-}
-.chat-open, .chat-open:hover {
-  background-color: #43B149;
-}
-.chat-busy, .chat-busy:hover {
-  background-color: #FB9A00;
-  color: #ffffff;
-  cursor: default;
-}
-.chat-closed, .chat-closed:hover{
-  background-color: #ED2E3A;
-  background-color: #FB9A00;
-  cursor: default;
-}*/
