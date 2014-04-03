@@ -39,14 +39,15 @@
   font-family: Cabin, sans-serif;
   color: #999;
   background: rgba(0, 0, 0, .1);
-
+  cursor: normal;
   text-decoration: none; }
 
 
-.btn.chat-open, {
+.btn.chat-open {
   background: #2ecc71;
   color: #ffffff;
 }
 
 .btn-chat-open:hover {
-  background: #28b363; }
+  background: #28b363;
+  cursor: pointer; }
