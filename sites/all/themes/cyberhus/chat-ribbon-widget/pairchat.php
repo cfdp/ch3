@@ -157,7 +157,7 @@ for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
       // Output chatbar if needed
       if($currentTime >= $openingTime && $currentTime <= $finish && $type == "single"){
         echo '
-          <a id="join-pair-chat" class="btn pairchat inline chat-open" href="#">Start chat med r&aring;dgiver</a>
+          <a id="join-pair-chat" class="btn pairchat inline" href="#">Alle r&aring;dgivere er optaget</a>
           <div class="info">
             1-1 chatten er &aring;ben nu.
             <a class="sec-action" href="/chat" target="_parent">L&aelig;s mere</a>.
