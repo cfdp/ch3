@@ -46,11 +46,13 @@
   background: #28b363;
 }
 
-.btn.busy,
-.btn.busy:hover {
+.btn.chat-closed,
+.btn.chat-closed:hover {
   color: #999;
   background: rgba(0, 0, 0, .1);
 }
+
+.btn.chat-hide { display: none }
 /*.btn {
   background-color: #FB9A00;
 	background-image: none;

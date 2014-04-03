@@ -140,7 +140,7 @@ poll = function () {
     }
     else if (timeout > 0) {
       poll();
-      $('#join-pair-chat').html('Loading..').removeClass('chat-open').addClass('chat-busy');
+      $('#join-pair-chat').html('Alle r&aring;dgiver er optaget').removeClass('chat-open').addClass('chat-closed');
     }
     else {
       // External source now.js failed to load, stop trying...

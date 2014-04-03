@@ -29,7 +29,7 @@
       }
       // The chat app is not initialized yet
       else if ($.isEmptyObject(chatStatus)) {
-        chatButton.html('Loading...').removeClass('chat-open chat-closed').addClass('chat-busy');
+        chatButton.html('Alle r&aring;dgiver er optaget').removeClass('chat-open chat-closed').addClass('chat-closed');
       }
       // If not, it might be busy? Check if chat app is turned on (chat busy).
       else if (chatStatus.chatOpen) {
