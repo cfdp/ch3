@@ -47,7 +47,7 @@ $currentTime = date("H i");
 
 // TEST VARIABLES
 // $currentDay = "Tue";
- $currentTime = "1430";
+// $currentTime = "1430";
 
 // Create chatbar wrapper
 echo '<div id="chatBar">';
