@@ -25,7 +25,7 @@ var timeout = 50; // 5 seconds timeout
 /**
  * Testing if now.js script is being loaded - if not, stop trying
  */
-poll = function () {
+poll = function() {
   setTimeout(function () {
     timeout--;
     if (typeof now !== 'undefined') {
@@ -106,6 +106,7 @@ $json = '
 // Decode JSON
 $arr = json_decode($json);
 
+
 // Set timezone and store current day and time
 date_default_timezone_set('Europe/Copenhagen'); // Needed?
 $currentDay = date("D");
@@ -113,16 +114,16 @@ $currentTime = date("H i");
 
 // TEST VARIABLES
 // $currentDay = "Tue";
-// $currentTime = "1430";
-
-// Create chatbar wrapper
-echo '<div id="chatBar">';
-
-// Loop through the times of the current day
+ $currentTime = "10 32";
 
 $openChat = false;
 $counterActive = false;
 
+?>
+  <div class="status-wrapper">
+      <?php
+
+// Loop through the chat sessions of the current day
 for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
   // Convert and store start time
   $start = $arr[0]->{$currentDay}[$i]->{"start"};
@@ -132,37 +133,28 @@ for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
   $finish = date('H i', strtotime("$finish"));
   // Store chat type
   $type = $arr[0]->{$currentDay}[$i]->{"type"};
-?>
-<script>
-    // Remove space and store current time and starting chat time
-    var currentTime = '<?php echo $currentTime; ?>'.replace(/\s+/g, '');
-    var openingTime = '<?php echo $start; ?>'.replace(/\s+/g, '');
 
-    // Store hours
-    var currentHours = parseInt(currentTime.substring(0,2));
-    var openingHours = parseInt(openingTime.substring(0,2));
-      // Calculate number of hours until chat session
-    var timerHours = openingHours - currentHours - 1;
+  $currentTime = preg_replace('/\s+/', '', $currentTime);
+  $openingTime = preg_replace('/\s+/', '', $start);
 
-    // Store minutes
-    var currentMinutes = parseInt(currentTime.substring(2,4));
-    var openingMinutes = parseInt(openingTime.substring(2,4));
-    // Exact hour fix
-    if(currentMinutes == 0){
-      timerHours = timerHours + 1;
-    }
-    // Calculate number of minutes until next chat session
-      // Total amount of minutes of current hour
-    currentMinutes = currentMinutes + currentHours * 60;
-      // Total amount of minutes of chat hour
-    openingMinutes = openingMinutes + openingHours * 60;
-      // Calculate number of minutes until next chat session
-    var timerMinutes = (openingMinutes - currentMinutes) % 60;
-</script>
-  <div class="status-wrapper">
-      <?php
+  // Calculate amount of hours until chat session
+  $currentHours = intval(substr($currentTime,0,2));
+  $openingHours = intval(substr($openingTime,0,2));
+  $timerHours = $openingHours - $currentHours - 1;
+  
+  // Calculate amount of minutes until chat session
+  $currentMinutes = intval(substr($currentTime,2,4));
+  $openingMinutes = intval(substr($openingTime,2,4));
+  if($currentMinutes == 0){
+    $timerHours = $timerHours + 1;
+  };
+  $currentMinutes = $currentMinutes + $currentHours * 60;
+  $openingMinutes = $openingMinutes + $openingHours * 60;
+  $timerMinutes = ($openingMinutes - $currentMinutes) % 60;
+  
+
       // Output chatbar if needed
-      if($currentTime > $start && $currentTime < $finish && $type == "single"){
+      if($currentTime >= $openingTime && $currentTime <= $finish && $type == "single"){
         echo '
           <a id="join-pair-chat" class="btn pairchat inline" href="#">Alle r&aring;dgivere er optaget</a>
           <div class="info">
@@ -177,13 +169,16 @@ for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
         echo '<div class="info sch-countdown">';
         ?>
         <script>
-          if(timerHours == 0){
-            document.write('1-1 chatten &aring;bner om ' + timerMinutes + ' minuter.</span>');
+        outputCountdown();
+        function outputCountdown(){
+          if('<?php echo $timerHours; ?>' == 0){
+            document.write('1-1 chatten &aring;bner om ' + '<?php echo $timerMinutes; ?>' + ' minuter.</span>');
           } else {
-            document.write('1-1 chatten &aring;bner om ' + timerHours + ' timer og ' + timerMinutes + ' minuter.</span>');
+            document.write('1-1 chatten &aring;bner om ' + '<?php echo $timerHours; ?>' + ' timer og ' + '<?php echo $timerMinutes; ?>' + ' minuter.</span>');
           }
           var chatbar = document.getElementById("chatBar");
           chatbar.style.background = "none";
+        }
         </script>
         <?php
         $counterActive = true;
