@@ -25,25 +25,19 @@
  */
 ?>
 
-<?php if($row->node_type=="link_artikel") { ?>
-
+<?php if($row->node_type == "image") { ?>
 <?php foreach ($fields as $id => $field): ?>
 
   <?php if (!empty($field->separator)): ?>
     <?php print $field->separator; ?>
   <?php endif; ?>
+    <?php print $id; ?>
 
-  <?php print $field->wrapper_prefix; ?>
+    <?php print $field->wrapper_prefix; ?>
     <?php print $field->label_html; ?>
-    
-    <?php if($id=="field_question"){
-    	$content = substr($field->content, 0, 60);
-    	print $content."...";
-    }
-    else {
-    	print $field->content; 
-    } 
-    ?>
+    <?php if($id=="field_billede"){
+      print $field->content;
+    }?>
     
   <?php print $field->wrapper_suffix; ?>
 <?php endforeach; ?>
@@ -54,7 +48,7 @@ else {
 ?>
 
 <?php foreach ($fields as $id => $field): ?>
-	
+	<?php if($id != "field_billede"){ ?>
   <?php if (!empty($field->separator)): ?>
     <?php print $field->separator; ?>
   <?php endif; ?>
@@ -63,6 +57,7 @@ else {
     <?php print $field->label_html; ?>
     <?php print $field->content; ?>
   <?php print $field->wrapper_suffix; ?>
+  <?php } ?>
 <?php endforeach; ?>
 
 <?php
