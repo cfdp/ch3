@@ -165,6 +165,11 @@
 			.masonry-img {
 				position: absolute; top: 0; left: 0;
 				z-index: 1;
+
+				img {
+					border: solid 5px white;
+					height: 190px;
+				}
 			}
 		}
 		.type-forum {
