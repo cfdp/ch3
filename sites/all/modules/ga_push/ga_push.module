@@ -1,0 +1,395 @@
+<?php
+/**
+ * @file ga_push.module
+ */
+
+//Methods:
+// Classic GA.
+define('GA_PUSH_METHOD_DEFAULT', 'default');
+define('GA_PUSH_METHOD_JS', 'javascript');
+define('GA_PUSH_METHOD_SSGA', 'ssga');
+define('GA_PUSH_METHOD_PHP_GA', 'php-ga');
+// Universal Tracking, Measurement Protocol.
+define('GA_PUSH_METHOD_UTMP_PHP', 'utmp-php');
+define('GA_PUSH_METHOD_UTMP_JS', 'utmp-js');
+
+// Tracking methods:
+define('GA_PUSH_TRACKING_METHOD_CLASSIC', 'classic');
+define('GA_PUSH_TRACKING_METHOD_UNIVERSAL', 'universal');
+
+// Sides:
+define('GA_PUSH_CLIENT_SIDE', 'client-side');
+define('GA_PUSH_SERVER_SIDE', 'server-side');
+
+//Types:
+define('GA_PUSH_TYPE_PAGEVIEW', 'pageview');
+define('GA_PUSH_TYPE_EVENT', 'event');
+define('GA_PUSH_TYPE_ECOMMERCE', 'ecommerce');
+define('GA_PUSH_TYPE_CUSTOM_VARIABLE', 'customvariable');
+define('GA_PUSH_TYPE_CAMPAING', 'campaing');
+define('GA_PUSH_TYPE_SOCIAL', 'social');
+define('GA_PUSH_TYPE_SPEED', 'speed');
+
+/**
+ * Implements hook_help().
+ */
+function ga_push_help($path, $arg) {
+  switch ($path) {
+    // Main module help for the block module
+    case 'admin/help#ga_push':
+      return '<p>' . t('A module that push Google Analytics events') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function ga_push_permission() {
+  return array(
+    'admin ga push' => array(
+      'title' => t('Administer ga push'),
+      'description' => t('Perform administration tasks for my ga push.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function ga_push_menu() {
+
+  $items['admin/config/system/ga-push'] = array(
+    'title' => 'Ga push',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ga_push_settings_form'),
+    'access arguments' => array('admin ga push'),
+    'description' => 'Global configuration of ga push.',
+    'file' => 'inc/ga_push.admin.inc',
+  );
+
+  $items['admin/config/system/ga-push/settings'] = array(
+    'title' => 'Ga push',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  return $items;
+
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function ga_push_module_implements_alter(&$implementations, $hook) {
+  // Ensure GA Push runs after Google Analytics.
+  if ($hook == 'page_alter' && isset($implementations['ga_push'])) {
+    $group = $implementations['ga_push'];
+    unset($implementations['ga_push']);
+    $implementations['ga_push'] = $group;
+  }
+}
+
+
+
+/**
+ * Implements hook_page_alter().
+ */
+function ga_push_page_alter($main = 0) {
+  module_load_include('inc', 'ga_push', 'inc/ga_push.javascript');
+  ga_push_method_javascript_push();
+
+  module_load_include('inc', 'ga_push', 'inc/ga_push.utmp.js');
+  ga_push_method_utmp_js_push();
+}
+
+/**
+ * API for other modules to call in order to add events to the queue.
+ *
+ * @param push (Array)
+ * push parameters.
+ * Structure:
+ *
+ * EVENT:
+ *  array(
+ *    'category'        => 'Videos',              // (required) The name you supply for the group of objects you want to track.
+ *    'action'          => 'Play',                // (required) A string that is uniquely paired with each category, and commonly used to define the type of user interaction for the web object.
+ *    'label'           => 'Gone With the Wind',  // (optional) An optional string to provide additional dimensions to the event data.
+ *    'value'           => 1,                     // (optional) An integer that you can use to provide numerical data about the user event.
+ *    'non-interaction' => false,                 // (optional) A boolean that when set to true, indicates that the event hit will not be used in bounce-rate calculation.
+ *  );
+ *
+ * ECOMMERCE:
+ *  array(
+ *    'trans' => array(
+ *      'order_id' => '1234',           // order ID - required
+ *      'affiliation' => 'Acme Clothing',  // affiliation or store name
+ *      'total' => '11.99',          // total - required
+ *      'total_tax' => '1.29',           // tax
+ *      'total_shipping' => '5',              // shipping
+ *      'city' => 'San Jose',       // city
+ *      'region' => 'California',     // state or province
+ *      'country' => 'USA'             // country
+ *    ),
+ *    'items' => array(
+ *      array(
+ *        'order_id' => '1234',         // order ID - required
+ *        'sku' => 'DD44',         // SKU/code - required
+ *        'name' => 'T-Shirt',      // product name
+ *        'category' => 'Green Medium', // category
+ *        'price' => '11.99',        // unit price - required
+ *        'quantity' => '1'             // quantity - required
+ *      ),
+ *    ),
+ *  )
+ *
+ *
+ * @param type String
+ * The GA PUsh type: Event, Ecommerce... Use the defined constants
+ * @param method_key String
+ * The method identificator
+ */
+function ga_push_add($push, $type = GA_PUSH_TYPE_EVENT, $method_key = NULL) {
+  global $user;
+
+  if (is_array($push) && count($push)) {
+
+    if (_googleanalytics_visibility_user($user)) {
+
+      //If the select method is not available or is not defined:
+      if (is_null($method_key) || $method_key == GA_PUSH_METHOD_DEFAULT || !is_null($method_key) && !ga_push_method_available($method_key, $type)) {
+        $default_method_key = variable_get('ga_push_default_method', GA_PUSH_METHOD_JS);
+        $method_key = $default_method_key;
+      }
+
+      if (!is_null($method_key)) {
+
+        $method = ga_push_get_method($method_key);
+
+        if (isset($method['file'])) require_once($method['file']);
+
+        switch ($type) { //TODO: deprecated!
+
+          case GA_PUSH_TYPE_EVENT:
+            // escape any nasty characters, including quote characters which could break the javascript
+            foreach ($push as &$value) {
+              $value = check_plain($value);
+            }
+            //If the VALUE argument is not numeric -> 1
+            $push['value'] = isset($push['value']) && is_numeric($push['value']) ? $push['value'] : 1;
+            break;
+
+          case GA_PUSH_TYPE_ECOMMERCE:
+            //Commerce
+            break;
+
+        }
+
+        call_user_func($method['callback'], $push, $type);
+
+      }
+      else {
+        //TODO: watchdog there's no method available
+      }
+
+    }
+
+  }
+
+}
+
+/**
+ * Check if a GA PUSH method is available:
+ * @param method_key
+ * method identificator
+ * @param type
+ * Push type
+ */
+function ga_push_method_available($method_key, $type = NULL) {
+
+  $available = FALSE; //Init
+  $methods   = ga_push_get_methods();
+  $method    = $methods[$method_key];
+
+  //Check the method:
+  if (is_bool($method['available'])) {
+    $available = $method['available'];
+  }
+  elseif (is_string($method['available'])) {
+    $available = call_user_func($method['available']);
+  }
+
+  //Check its implements:
+  if (!is_null($type) && $available) {
+    $available = isset($method['implements'][$type]) ? $method['implements'][$type] : FALSE;
+  }
+
+  return $available;
+}
+
+/**
+ * Get all ga_push_methods
+ */
+function ga_push_get_methods() {
+
+  static $callbacks = array();
+  if (!count($callbacks)) {
+    foreach (module_implements('ga_push_method') as $module) {
+      $router_items = call_user_func($module . '_ga_push_method');
+      if (isset($router_items) && is_array($router_items)) {
+        foreach (array_keys($router_items) as $method) {
+          $router_items[$method]['module'] = $module;
+        }
+        $callbacks = array_merge($callbacks, $router_items);
+      }
+    }
+  }
+
+  return $callbacks;
+}
+
+/**
+ * Get method
+ */
+function ga_push_get_method($key) {
+  $methods = ga_push_get_methods();
+  return isset($methods[$key]) ? $methods[$key] : NULL;
+}
+
+/**
+ * Returns all available methods as option list:
+ */
+function ga_push_get_methods_option_list($type = NULL, $default = TRUE) {
+  $options = array();
+  if ($default) {
+    $options['default'] = t('Default');
+  }
+  $methods = ga_push_get_methods();
+
+  foreach ($methods as $key => $method) {
+    if (ga_push_method_available($key, $type)) {
+      $options[$key] = $method['name'];
+      $options[$key] .= !empty($method['description']) ? ': ' . $method['description'] : '';
+      $options[$key] .= ' | ' . $method['side'] . ' (' . $method['tracking_method'] . ' analytics)';
+    }
+  }
+  return $options;
+}
+
+/**
+ * Get the options list for events
+ */
+function ga_push_get_methods_option_list_event() {
+  return ga_push_get_methods_option_list(GA_PUSH_TYPE_EVENT);
+}
+
+/**
+ * Get the options list for ecommerce
+ */
+function ga_push_get_methods_option_list_ecommerce() {
+  return ga_push_get_methods_option_list(GA_PUSH_TYPE_ECOMMERCE);
+}
+
+/**
+ * Get the event non interaction rules options list
+ */
+function ga_push_get_event_non_interaction_option_list() {
+  return array(
+    false => t("False"),
+    true  => t("True")
+  );
+}
+
+
+/**
+ * Implements hook_ga_push_method()
+ */
+function ga_push_ga_push_method() {
+
+  $module_path = drupal_get_path('module', 'ga_push');
+
+  $method[GA_PUSH_METHOD_JS] = array(
+    'name' => 'Javascript Classic (js)',
+    'description' => '',
+    'machine_name' => GA_PUSH_METHOD_JS,
+    'callback' => 'ga_push_method_javascript',
+    'file' => $module_path . '/inc/ga_push.javascript.inc',
+    'implements' => array(
+      GA_PUSH_TYPE_EVENT => TRUE,
+      GA_PUSH_TYPE_ECOMMERCE => TRUE,
+    ),
+    'side' => GA_PUSH_CLIENT_SIDE,
+    'tracking_method' => GA_PUSH_TRACKING_METHOD_CLASSIC,
+    'available' => TRUE,
+  );
+
+  $method[GA_PUSH_METHOD_SSGA] = array(
+    'name' => 'SSGA (php)',
+    'description' => 'requires php 5.2+, curl and ssga libraries',
+    'machine_name' => GA_PUSH_METHOD_SSGA,
+    'callback' => 'ga_push_method_ssga',
+    'file' => $module_path . '/inc/ga_push.ssga.inc',
+    'implements' => array(
+      GA_PUSH_TYPE_EVENT => TRUE,
+    ),
+    'side' => GA_PUSH_SERVER_SIDE,
+    'tracking_method' => GA_PUSH_TRACKING_METHOD_CLASSIC,
+    'available' => class_exists('ssga') && is_callable('curl_init'),
+  );
+
+  $method[GA_PUSH_METHOD_PHP_GA] = array(
+    'name' => 'PHP-GA (php)',
+    'description' => 'requires php 5.3 and php-ga library',
+    'machine_name' => GA_PUSH_METHOD_PHP_GA,
+    'callback' => 'ga_push_method_php_ga',
+    'file' => $module_path . '/inc/ga_push.php_ga.inc',
+    'implements' => array(
+      GA_PUSH_TYPE_EVENT => TRUE,
+      GA_PUSH_TYPE_ECOMMERCE => TRUE,
+    ),
+    'side' => GA_PUSH_SERVER_SIDE,
+    'tracking_method' => GA_PUSH_TRACKING_METHOD_CLASSIC,
+    'available' => 'ga_push_method_php_ga_available',
+  );
+
+  $method[GA_PUSH_METHOD_UTMP_PHP] = array(
+    'name' => 'UTMP (php)',
+    'description' => 'Universal Tracking, Measurement Protocol',
+    'machine_name' => GA_PUSH_METHOD_UTMP_PHP,
+    'callback' => 'ga_push_method_utmp_php',
+    'file' =>  $module_path . '/inc/ga_push.utmp.php.inc',
+    'implements' => array(
+      GA_PUSH_TYPE_EVENT => TRUE,
+      GA_PUSH_TYPE_ECOMMERCE => TRUE,
+    ),
+    'side' => GA_PUSH_SERVER_SIDE,
+    'tracking_method' => GA_PUSH_TRACKING_METHOD_UNIVERSAL,
+    'available' => TRUE,
+  );
+
+  $method[GA_PUSH_METHOD_UTMP_JS] = array(
+    'name' => 'UTMP (js)',
+    'description' => 'Universal Tracking, Measurement Protocol',
+    'machine_name' => GA_PUSH_METHOD_UTMP_JS,
+    'callback' => 'ga_push_method_utmp_js',
+    'file' =>  $module_path . '/inc/ga_push.utmp.js.inc',
+    'implements' => array(
+      GA_PUSH_TYPE_EVENT => TRUE,
+      GA_PUSH_TYPE_ECOMMERCE => TRUE,
+    ),
+    'side' => GA_PUSH_CLIENT_SIDE,
+    'tracking_method' => GA_PUSH_TRACKING_METHOD_UNIVERSAL,
+    'available' => TRUE,
+  );
+
+  return $method;
+
+}
+
+/**
+ * Check if php_ga is available
+ */
+function ga_push_method_php_ga_available() {
+  $libraries = libraries_get_libraries();
+  return strnatcmp(phpversion(), '5.3.0') >= 0 && isset($libraries['php-ga']);
+}
+
+
