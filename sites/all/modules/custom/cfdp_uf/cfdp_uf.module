@@ -18,7 +18,37 @@ function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
           }
         }
     }
+
+    // Brevkasse title validation, alowed charaters (a to z, 0 to 9, ?, !, ., ,, -,) 
+    $form['#validate'][] = 'cfdp_uf_brevkasse_title_form_validate';
     break;
+  }
+}
+
+  /* 
+  *  If all the chars in the string are chars that the URL cleaner will remove, title is invalid. 
+  *  The title needs to have AT LEAST ONE char that is allowed by the cleaner.
+  */
+function cfdp_uf_brevkasse_title_form_validate($form, &$form_state) {
+  $title = $form_state['values']['title'];
+  $title_length = strlen($form_state['values']['title']);
+  $title_characters = str_split($form_state['values']['title']);
+  $title_valid = FALSE;
+
+  if($title_length >= 3){
+    foreach($title_characters as $char){
+      if(preg_match('/[a-zåæø0-9]/i', $char)){
+      
+        $title_valid = TRUE;
+      }
+    }
+
+      if(!$title_valid){
+        form_set_error('title', t('You have invalid charaters in your title.'));
+      }
+    
+  }else{
+    form_set_error('title', t('Your title is too short.'));
   }
 }
 
