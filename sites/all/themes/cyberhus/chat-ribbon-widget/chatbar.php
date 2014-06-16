@@ -6,34 +6,28 @@ $json = '
   {
     "Mon":
     [
-      { "start": "1300", "finish": "1600", "type": "single" },
       { "start": "1800", "finish": "2100", "type": "kram" }
     ],
 
     "Tue":
     [
-      { "start": "1300", "finish": "1600", "type": "single" },
       { "start": "1800", "finish": "2200", "type": "single" },
       { "start": "1800", "finish": "2100", "type": "group" }
     ],
 
     "Wed":
     [
-      { "start": "1300", "finish": "1600", "type": "single" },
       { "start": "1800", "finish": "2200", "type": "single" }
     ],
 
     "Thu":
     [
-      { "start": "1300", "finish": "1600", "type": "single" },
       { "start": "1800", "finish": "2200", "type": "single" },
       { "start": "1800", "finish": "2100", "type": "group" }
     ],
 
     "Fri":
-    [
-      { "start": "1300", "finish": "1600", "type": "single" }
-    ]
+    []
   }
 ]';
 
