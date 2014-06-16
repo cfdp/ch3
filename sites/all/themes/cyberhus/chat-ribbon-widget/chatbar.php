@@ -24,10 +24,7 @@ $json = '
     [
       { "start": "1800", "finish": "2200", "type": "single" },
       { "start": "1800", "finish": "2100", "type": "group" }
-    ],
-
-    "Fri":
-    []
+    ]
   }
 ]';
 
