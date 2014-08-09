@@ -10,6 +10,8 @@ sites/default
 
 # Ignore devel modules
 sites/all/modules/stage_file_proxy
+sites/all/modules/reroute_email
+sites/all/modules/smtp
 
 !sites/default/files/logo-beta*
 
