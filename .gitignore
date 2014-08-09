@@ -8,6 +8,9 @@ sites/*/files
 sites/*/private
 sites/default
 
+# Ignore devel modules
+sites/all/modules/stage_file_proxy
+
 !sites/default/files/logo-beta*
 
 .DS_Store
