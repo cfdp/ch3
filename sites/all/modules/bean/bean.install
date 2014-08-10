@@ -209,11 +209,21 @@ function bean_schema() {
  * Implements hook_uninstall().
  */
 function bean_uninstall() {
-  // Make sure bean.module is include.
-  require dirname(__FILE__) . DIRECTORY_SEPARATOR . 'bean.module';
   // Bypass entity_load() as we cannot use it here.
-  foreach (bean_get_types() as $bean_type) {
-    field_attach_delete_bundle('bean', $bean_type->type);
+  foreach (field_info_bundles('bean') as $bean_type => $bean_info) {
+    field_attach_delete_bundle('bean', $bean_type);
+  }
+
+  //Remove shortcut links
+  if (module_exists('shortcut')) {
+    $shortcut_set = shortcut_default_set();
+    foreach ($shortcut_set->links as $shortcut_key => $shortcut) {
+      if ($shortcut['link_path'] == 'block/add' || $shortcut['link_path'] == 'admin/content/blocks') {
+        unset($shortcut_set->link[$shortcut_key]);
+        shortcut_set_save($shortcut_set);
+        menu_link_delete(NULL, $shortcut['link_path']);
+      }
+    }
   }
 }
 
@@ -423,3 +433,21 @@ function bean_update_7010(&$sand) {
 
   return $t('Bean Table updated and data upgraded');
 }
+
+/**
+ * Clear the menu cache so that the new path for assigning the active revision
+ * will be picked up.
+ */
+function bean_update_7011() {
+  menu_cache_clear_all();
+  menu_rebuild();
+}
+
+/**
+ * Rebuild registry to ensure autoloading for renamed plugins.
+ */
+function bean_update_7012() {
+  registry_rebuild();
+  return t('Registry has been rebuilt');
+}
+

@@ -104,5 +104,3 @@ abstract class BeanPlugin implements BeanTypePluginInterface {
     return $content;
   }
 }
-
-class BeanDefault extends BeanPlugin {}
