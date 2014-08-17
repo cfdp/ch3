@@ -90,9 +90,9 @@ for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
     ?>
     <script>
       if('<?php echo $timerHours; ?>' == 0){
-        document.write('1-1 chatten &aring;bner om ' + '<?php echo $timerMinutes; ?>' + ' minuter.</span>');
+        document.write('1-1 chatten &aring;bner om ' + '<?php echo $timerMinutes; ?>' + ' minutter.</span>');
       } else {
-        document.write('1-1 chatten &aring;bner om ' + '<?php echo $timerHours; ?>' + ' timer og ' + '<?php echo $timerMinutes; ?>' + ' minuter.</span>');
+        document.write('1-1 chatten &aring;bner om ' + '<?php echo $timerHours; ?>' + ' timer og ' + '<?php echo $timerMinutes; ?>' + ' minutter.</span>');
       }
       var chatbar = document.getElementById("chatBar");
       chatbar.style.background = "none";
