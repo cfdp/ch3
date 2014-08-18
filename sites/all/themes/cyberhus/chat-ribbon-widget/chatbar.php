@@ -72,7 +72,10 @@ for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
   $currentMinutes = $currentMinutes + $currentHours * 60;
   $openingMinutes = $openingMinutes + $openingHours * 60;
   $timerMinutes = ($openingMinutes - $currentMinutes) % 60;
-
+  
+  // Debug...
+  // echo '<div class="debug"><!-- ' . 'currenttime: ' . $currentTime . ' og openingTime: ' . $openingTime . ' og openChat, type og counteractive: ' . $openChat . $type . $counterActive . ' --></div>';
+  
   // Output chatbar if needed
   if($currentTime >= $openingTime && $currentTime <= $finish && $type == "single"){
     echo '
@@ -84,7 +87,7 @@ for($i = 0; $i < count($arr[0]->{$currentDay}); $i++) {
     ';
 
     $openChat = true;
-  } else if($currentTime < $start && $openChat == false && $type == "single" && $counterActive == false){
+  } else if($currentTime < $openingTime && $openChat == false && $type == "single" && $counterActive == false){
     // Output countdown
     echo '<div class="info sch-countdown">';
     ?>
