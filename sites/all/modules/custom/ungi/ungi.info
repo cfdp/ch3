@@ -1,0 +1,8 @@
+name = Ung i
+description = Ung i sider og funktionalitet
+core = 7.x
+package = Helper modules
+php = 5.3
+version = "7.x-1.0"
+files[] = ungi.pages.inc
+configure = 

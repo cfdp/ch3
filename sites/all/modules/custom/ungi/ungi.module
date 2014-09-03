@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function ungi_menu() {
+  // Note: we can't dynamically append destination to querystring. Do so at theme layer. Fix in D7?
+  $items['ung-i'] = array(
+    'title' => 'Ung i...',
+    'page callback' => 'ungi_byer',
+    'description' => '',
+    'access callback' => TRUE,
+    'file' => 'ungi.pages.inc',
+  );
+
+  return $items;
+}
+
+function ungi_theme() {
+	$theme_hooks = array(
+		 'ungi_byer' => array(
+			  'template' => 'ungi-byer',
+			  'variables' => array('cities' => NULL),
+			  'path' => drupal_get_path('module', 'ungi') . '/theme',
+		 ),
+	);
+
+	return $theme_hooks;
+}
+
+/**
+ * Get the X coordinate on image
+ * 
+ * @param float $lng Longitude
+ * @return int X coordinate on image
+ */
+function ungi_map_x($lng) {
+	return ((($lng - 8.07) / 7.08) * 445);
+}
+
+/**
+ * Get the Y coordinate on image
+ * 
+ * @param float $lat Latitude
+ * @return int Y coordinate on image
+ */
+function ungi_map_y($lat) {
+	return (348 - ((($lat - 54.55) / 3.25) * 348));
+}

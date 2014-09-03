@@ -1,0 +1,49 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03-09-2014, 11:16:29
+    Author     : LupusGrey
+*/
+
+#ungi-intro {
+	
+}
+#ungi-map {
+	display: inline-block;
+	width: 500px;
+	height: 350px;
+}
+#ungi-desc {
+	display: inline-block;
+	width: 400px;
+	vertical-align: top;
+}
+.ungi-dot {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	background: red;
+}
+
+#ungi-cities ul {
+	list-style: none;
+}
+.ungi-third {
+	display: inline-block;
+	width: 30%;
+	text-align: center;
+}
+.ungi-third.ungi-cityname {
+	text-align: left;
+	color: #e98b39;
+}
+.ungi-third h2 {
+	display: inline;
+}
+#ungi-cities ul li p {
+	font-size: 12px;
+}
