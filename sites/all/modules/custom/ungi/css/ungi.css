@@ -47,3 +47,17 @@ and open the template in the editor.
 #ungi-cities ul li p {
 	font-size: 12px;
 }
+#ungi-cities .chat-closed {
+	background: #888;
+}
+#ungi-cities iframe {
+	height: 42px;
+}
+
+#ungi-nodes h3 {
+	margin-bottom: 5px;
+}
+#ungi-nodes article header,
+#ungi-nodes article .clearfix nav.links {
+    display: none;
+}

@@ -4,28 +4,46 @@
  * Implements hook_menu().
  */
 function ungi_menu() {
-  // Note: we can't dynamically append destination to querystring. Do so at theme layer. Fix in D7?
-  $items['ung-i'] = array(
-    'title' => 'Ung i...',
-    'page callback' => 'ungi_byer',
-    'description' => '',
-    'access callback' => TRUE,
-    'file' => 'ungi.pages.inc',
-  );
+    $items = array();
 
-  return $items;
+    $items['ung-i'] = array(
+             'title' => 'Ung i...',
+             'page callback' => 'ungi_byer',
+             'description' => '',
+             'access callback' => TRUE,
+             'file' => 'ungi.pages.inc',
+    );
+
+    $items['ung-i-side/%'] = array(
+             'title' => 'Ung i...',
+             'page callback' => 'ungi_by',
+             'page arguments' => array(1),
+             'description' => '',
+             'access callback' => TRUE,
+             'file' => 'ungi.pages.inc',
+    );
+
+    return $items;
 }
 
+/**
+ * Implements hook_theme().
+ */
 function ungi_theme() {
-	$theme_hooks = array(
-		 'ungi_byer' => array(
-			  'template' => 'ungi-byer',
-			  'variables' => array('cities' => NULL),
-			  'path' => drupal_get_path('module', 'ungi') . '/theme',
-		 ),
-	);
+    $theme_hooks = array(
+        'ungi_byer' => array(
+            'template' => 'ungi-byer',
+            'variables' => array('cities' => NULL),
+            'path' => drupal_get_path('module', 'ungi') . '/theme',
+        ),
+        'ungi_by' => array(
+            'template' => 'ungi-by',
+            'variables' => array('city' => NULL, 'nodes' => NULL),
+            'path' => drupal_get_path('module', 'ungi') . '/theme',
+        ),
+    );
 
-	return $theme_hooks;
+    return $theme_hooks;
 }
 
 /**
@@ -45,5 +63,44 @@ function ungi_map_x($lng) {
  * @return int Y coordinate on image
  */
 function ungi_map_y($lat) {
-	return (348 - ((($lat - 54.55) / 3.25) * 348));
+	if ($lat == 0) {
+		return 0;
+	} else {
+		return (348 - ((($lat - 54.55) / 3.25) * 348));
+	}
 }
+
+function ungi_get_field($field) {
+	if (!empty($field)) {
+		$result = reset($field);
+		if (!empty($result)) {
+			$result = reset($result);
+		}
+	} else {
+		$result = array();
+	}
+	return $result;
+}
+
+function ungi_get_field_value($field) {
+	$result = ungi_get_field($field);
+	if (array_key_exists('value', $result)) {
+		return $result['value'];
+	} else {
+		return NULL;
+	}
+}
+
+/*function ungi_entity_view_mode_alter(&$viewmode, $context) {
+    static $term_page = FALSE;
+
+    if ($context['entity_type'] == 'taxonomy_term') {
+        if ($context['entity']->vocabulary_machine_name == 'ung_i_byer') {
+            $term_page = taxonomy_term_is_page($context['entity']);
+        }
+    } else if ($context['entity_type'] == 'node' && $term_page) {
+        //dpm($context);
+        $viewmode = 'full';
+    }
+}
+*/

@@ -3,7 +3,9 @@
 	<div id="ungi-intro">
 		<div id="ungi-map">
 			<?php foreach ($cities as $city): ?>
-				<a class="ungi-dot" title="<?php print $city->name; ?>" href="<?php print $city->url; ?>" style="margin-left: <?php print $city->x; ?>px; margin-top: <?php print $city->y; ?>px;">&nbsp;</a>
+				<?php if ($city->y > 0): ?>
+					<a class="ungi-dot" title="<?php print $city->name; ?>" href="<?php print $city->url; ?>" style="margin-left: <?php print $city->x; ?>px; margin-top: <?php print $city->y; ?>px;">&nbsp;</a>
+				<?php endif; ?>
 			<?php endforeach; ?>
 			<img src="/<?php print drupal_get_path('module', 'ungi'); ?>/images/map.png"/>
 		</div>
@@ -24,7 +26,11 @@
 					</span><span class="ungi-third">
 						<a class="btn" href="<?php print $city->url; ?>">Tilbud i kommunen</a>
 					</span><span class="ungi-third">
-						<a class="btn" href="<?php print $city->chaturl; ?>">Ingen chat tilrådighed</a>
+						<?php if (!empty($city->chaturl)): ?>
+							<iframe src="/sites/all/themes/cyberhus/chat-inline-widget/widget.html?base_url=<?php print $city->chaturl; ?>&port=<?php print $city->chatport; ?>&chat_name=<?php print $city->chatname; ?>&chat_type=<?php print $city->chattype; ?>"></iframe>
+						<?php else: ?>
+							<a class="btn chat-closed" href="<?php print $city->chaturl; ?>">Ingen chat tilrådighed</a>
+						<?php endif ?>
 					</span><br/>
 					<p><b>OBS: </b><?php print $city->chatdesc; ?></p><br/>
 					<hr/>
