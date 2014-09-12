@@ -129,7 +129,7 @@ function cyberhus_preprocess_node(&$vars) {
 */
 
 function cyberhus_form_brevkasse_node_form_alter(&$form){
-  dpm($form);
+  //dpm($form);
 
   //Select teh taxonomy vocabulary holding the values for the brevkasse categories
   $taxonomy = "vocabulary_3";
