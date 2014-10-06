@@ -129,7 +129,7 @@ function cyberhus_preprocess_node(&$vars) {
 */
 
 function cyberhus_form_brevkasse_node_form_alter(&$form){
-  dpm($form);
+  //dpm($form);
 
   //Select teh taxonomy vocabulary holding the values for the brevkasse categories
   $taxonomy = "vocabulary_3";
@@ -161,3 +161,4 @@ function cyberhus_menu_link__menu_top_menu($variables) {
 	$link['#attributes']['id'] = drupal_html_id($link['#title']);
   return '<li ' . drupal_attributes($link['#attributes']) . '><a href="/' . $link['#href'] . '" title="' . $link['#title'] . '"><img class="icon" src="/' . drupal_get_path('theme', 'cyberhus') . '/img/icons/' . $link['#attributes']['id'] . '.png"/><img class="icon_inv" src="/' . drupal_get_path('theme', 'cyberhus') . '/img/icons/' . $link['#attributes']['id'] . '_inv.png"/>' . $link['#title'] . '</a></li>';
 }
+

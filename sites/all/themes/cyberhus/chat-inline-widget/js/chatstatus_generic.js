@@ -66,7 +66,6 @@
           console.log('Error - chatStatus: ', chatStatus);
         } 
       }
-      console.log('chatReady ' + chatReady);
     };
 
     // When the document is ready, update the status, and bind the event
