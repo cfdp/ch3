@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the editabletext module.
+ */
+function editabletext_install() {
+    $user_role = user_role_load_by_name('administrator');
+    if ($user_role !== FALSE) {
+        user_role_change_permissions(
+                $user_role->rid, array(
+            'configure editable text' => TRUE,
+            'edit editable texts' => TRUE,
+            'delete editable texts' => TRUE,
+            'change editable text category' => TRUE,
+                )
+        );
+    }
+}
+
+function editabletext_uninstall() {
+    
+}
+
+function editabletext_schema() {
+    $schema = array();
+
+    $schema['editabletext'] = array(
+        'description' => 'The base table for editabletext.',
+        'fields' => array(
+            'label' => array(
+                'description' => 'The primary identifier for a editable text.',
+                'type' => 'varchar',
+                'length' => 64,
+                'not null' => TRUE),
+            'category' => array(
+                'description' => 'Category of the editable text.',
+                'type' => 'varchar',
+                'length' => 64,
+                'not null' => TRUE,
+                'default' => ''),
+            'default_text' => array(
+                'description' => 'The default text from the code.',
+                'type' => 'text'),
+        ),
+        'primary key' => array('label'),
+    );
+
+    return $schema;
+}

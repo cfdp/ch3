@@ -14,7 +14,7 @@ function ungi_menu() {
              'file' => 'ungi.pages.inc',
     );
 
-    $items['ung-i-side/%'] = array(
+    $items['ung-i/%'] = array(
              'title' => 'Ung i...',
              'page callback' => 'ungi_by',
              'page arguments' => array(1),
@@ -52,8 +52,12 @@ function ungi_theme() {
  * @param float $lng Longitude
  * @return int X coordinate on image
  */
-function ungi_map_x($lng) {
-	return ((($lng - 8.07) / 7.08) * 445);
+function ungi_map_x($lng, $small = false) {
+	$size = ($small) ? 312 : 445;
+	if ($lng > 14.6) {
+		$lng -= 2.6;
+	}
+	return ((($lng - 8.07) / 7.08) * $size);
 }
 
 /**
@@ -62,11 +66,16 @@ function ungi_map_x($lng) {
  * @param float $lat Latitude
  * @return int Y coordinate on image
  */
-function ungi_map_y($lat) {
+function ungi_map_y($lat, $lng, $small = false) {
+	$size = ($small) ? 244 : 348;
+	if ($lng > 14.6) {
+		$lng -= 2.6;
+		$lat += 2.3;
+	}
 	if ($lat == 0) {
 		return 0;
 	} else {
-		return (348 - ((($lat - 54.55) / 3.25) * 348));
+		return ($size - ((($lat - 54.55) / 3.25) * $size));
 	}
 }
 

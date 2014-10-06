@@ -26,9 +26,13 @@
   background: url(../img/bg-ricepaper.png);
 }
 
+#region-header-bottom {
+	/*margin-top: -20px;*/
+}
+
 /* line 6, ../sass/_navigation.scss */
 #region-menu {
-  height: 100px;
+  /*height: 80px;*/
 }
 @media (max-width: 980px) {
   /* line 6, ../sass/_navigation.scss */
@@ -39,7 +43,7 @@
 /* line 10, ../sass/_navigation.scss */
 #region-menu .menu {
   padding-left: 0;
-  float: right;
+  float: left;
 }
 @media (max-width: 980px) {
   /* line 10, ../sass/_navigation.scss */
@@ -53,16 +57,34 @@
   display: inline-block;
   padding: 0;
   margin: 0;
+  vertical-align: top;
+  text-align: center;
 }
 /* line 21, ../sass/_navigation.scss */
 #region-menu .menu li.leaf a {
   color: #2980b9;
-  font-size: 18px;
-  padding: 56px 14px 60px;
-  height: 100px;
-  min-width: 80px;
+  font-size: 16px;
+  padding: 0;
+  min-width: 90px;
   display: inline-block;
   text-align: center;
+}
+#region-menu .menu li.leaf a img {
+    display: block;
+    margin: auto;
+    width: 50px;
+    max-width: 50px;
+    height: 50px;
+    padding: 5px;
+}
+#region-menu .menu li.leaf a img.icon_inv {
+    display: none;
+}
+#region-menu .menu li.leaf a:hover img.icon_inv {
+    display: block;
+}
+#region-menu .menu li.leaf a:hover img.icon {
+    display: none;
 }
 @media (max-width: 980px) {
   /* line 21, ../sass/_navigation.scss */
@@ -74,7 +96,24 @@
     font-size: 16px;
     height: auto;
   }
+  
+  #region-menu .menu li.leaf a img.icon,
+  #region-menu .menu li.leaf a:hover img.icon_inv {
+      display: none;
+  }
+  
+  #page #section-header #region-search {
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+  }
 }
+@media (max-width: 450px) {
+	#page #section-header #region-search {
+		display: none;
+	}
+}
+
 /* line 39, ../sass/_navigation.scss */
 #region-menu .menu li.leaf a:hover {
   background: #2980b9;
@@ -215,7 +254,7 @@
 /* line 63, ../sass/_views.scss */
 .region-menu {
   position: relative;
-  top: -15px;
+  /*top: -15px;*/
 }
 
 /* line 71, ../sass/_views.scss */
@@ -2228,6 +2267,7 @@
 #block-search-form {
   float: right;
   width: 250px;
+  margin-top: -10px;
 }
 /* line 256, ../sass/_form.scss */
 #block-search-form .block-inner {
@@ -2248,16 +2288,18 @@
 /* line 263, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-item.form-type-textfield.form-item-search-block-form .form-text {
   margin: 0;
+  margin-right: -5px;
   padding: 0;
+  padding-left: 35px;
   border: 0;
+  border-radius: 5px;
   font-size: 11px;
-  background: transparent;
-  height: 27px;
-  padding: 0 5px;
-  color: #FFFFFF;
-  text-align: right;
+  background: white url("../img/search-icon.png") no-repeat 11px 7px;
+  height: 31px;
+  color: #222;
+  text-align: left;
   outline: 0;
-  box-shadow: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px inset;
   font-family: "Cabin", sans-serif;
   width: 200px;
 }
@@ -2267,15 +2309,15 @@
 }
 /* line 278, ../sass/_form.scss */
 #block-search-form .block-inner #search-block-form .form-actions .form-submit {
-  background: url("../img/search_button_top.png");
-  background-repeat: no-repeat;
+  background: #e67e22;
   border: none;
-  text-indent: -999em;
+  border-radius: 0 5px 5px 0;
   width: 42px;
-  height: 29px;
-  border-radius: 0;
+  height: 31px;
   margin: 0;
   padding: 0;
+  color: white;
+  text-shadow: none;
 }
 /* line 292, ../sass/_form.scss */
 #block-search-form ::-webkit-input-placeholder {
@@ -3062,11 +3104,13 @@ body {
 }
 /* line 208, ../sass/global.scss */
 #page #section-header #region-logo {
-  height: 100px;
+  height: 50px;
+}
+#page #section-header #region-logo .logo-img {
+	margin-top: 5px;
 }
 /* line 211, ../sass/global.scss */
 #page #section-header #region-logo .logo-img a {
-  padding: 16px 0;
   display: block;
 }
 /* line 217, ../sass/global.scss */

@@ -1,0 +1,7 @@
+name = Editable Text
+description = Module for enabling certain texts in the UI to be editable by administrators.
+version = "1.x-dev"
+package = Accedo
+dependencies[] = i18n_string
+core = 7.x
+configure = admin/config/editabletext

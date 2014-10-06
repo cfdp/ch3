@@ -8,50 +8,60 @@ and open the template in the editor.
     Author     : LupusGrey
 */
 
-#ungi-intro {
-	
-}
 #ungi-map {
 	display: inline-block;
-	width: 500px;
+	width: 400px;
 	height: 350px;
+}
+.responsive-layout-mobile #ungi-map {
+	display: none;
 }
 #ungi-desc {
 	display: inline-block;
-	width: 400px;
+	width: 500px;
 	vertical-align: top;
 }
 .ungi-dot {
 	position: absolute;
-	width: 20px;
-	height: 20px;
-	border-radius: 10px;
-	background: red;
+	width: 16px;
+	height: 16px;
+	border-radius: 8px;
+	background: #e67e22;
 }
 
 #ungi-cities ul {
 	list-style: none;
 }
-.ungi-third {
+.ungi-half {
 	display: inline-block;
-	width: 30%;
-	text-align: center;
-}
-.ungi-third.ungi-cityname {
+	width: 443px;
+	vertical-align: middle;
 	text-align: left;
+}
+.ungi-half.ungi-cityname {
 	color: #e98b39;
 }
-.ungi-third h2 {
+.ungi-half h2 {
 	display: inline;
+}
+#ungi-desc h3 {
+	margin-bottom: 10px;
+}
+.ungi-half a.btn {
+	vertical-align: top;
 }
 #ungi-cities ul li p {
 	font-size: 12px;
+	color: black;
 }
 #ungi-cities .chat-closed {
 	background: #888;
+	margin-left: 20px;
 }
 #ungi-cities iframe {
+	width: 245px;
 	height: 42px;
+	margin-left: 20px;
 }
 
 #ungi-nodes h3 {
@@ -60,4 +70,33 @@ and open the template in the editor.
 #ungi-nodes article header,
 #ungi-nodes article .clearfix nav.links {
     display: none;
+}
+#ungi-nodes article {
+    margin-bottom: 5px;
+}
+#ungi-nodes.view-ung-i-visning.view-id-ung_i_visning .ui-accordion-header {
+	background: #eeebe9;
+}
+#ungi-nodes.view-ung-i-visning.view-id-ung_i_visning .ui-accordion-header.ui-state-active {
+	background: #e2dbd8;
+}
+#ungi-city #ungi-desc h2,
+#page #ungi-intro h2.page-title {
+	font-size: 300%;
+	text-transform: uppercase;
+}
+#ungi-city iframe {
+	height: 42px;
+}
+#ungi-city p.chat-desc {
+	font-size: 12px;
+}
+#ungi-city #ungi-desc {
+    width: 600px;
+}
+#ungi-city #ungi-map {
+    width: 250px;
+	 height: 250px;
+	 text-align: right;
+    margin-top: 50px;
 }

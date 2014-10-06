@@ -155,3 +155,9 @@ function cyberhus_menu_alter(&$items) {
   unset($items['taxonomy/term/%taxonomy_term/view']);
   unset($items['taxonomy/term/%taxonomy_term/feed']); // If you want to hide the feed as well.
 }
+
+function cyberhus_menu_link__menu_top_menu($variables) {
+	$link = $variables['element'];
+	$link['#attributes']['id'] = drupal_html_id($link['#title']);
+  return '<li ' . drupal_attributes($link['#attributes']) . '><a href="/' . $link['#href'] . '" title="' . $link['#title'] . '"><img class="icon" src="/' . drupal_get_path('theme', 'cyberhus') . '/img/icons/' . $link['#attributes']['id'] . '.png"/><img class="icon_inv" src="/' . drupal_get_path('theme', 'cyberhus') . '/img/icons/' . $link['#attributes']['id'] . '_inv.png"/>' . $link['#title'] . '</a></li>';
+}

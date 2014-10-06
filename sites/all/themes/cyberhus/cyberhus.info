@@ -11,6 +11,7 @@ regions[user_first] = 'User Bar First'
 regions[logo] = 'Logo'
 regions[search] = 'Søge menu'
 regions[menu] = 'Menu'
+regions[banner] = 'Banner'
 regions[header_bottom] = 'Header bottom'
 regions[sidebar_first] = 'Sidebar First'
 regions[footer_et] = 'Footer Et'
@@ -48,7 +49,7 @@ scripts[] = js/jquery.screwdefaultbuttons.min.js
 scripts[] = js/custom_settings.js
 scripts[] = js/chat_widget_tab_right.js
 scripts[] = js/chatscript.js
-
+scripts[] = js/scripts.js
 
 settings[alpha_grid] = 'alpha_default'
 settings[alpha_primary_alpha_default] = 'normal'
