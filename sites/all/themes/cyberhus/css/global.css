@@ -20,10 +20,32 @@
   background-color: #e98b39;
 }
 
+.masonry-icon {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  background: url("../img/icons/brevkasse.png");
+  background-repeat: no-repeat;
+  top: 5px;
+  right: 10px;
+}
+.type-body-secret .masonry-icon {
+  background: url("../img/icons/hemmeligheder.png");
+}
+.type-blogs .masonry-icon {
+  background: url("../img/icons/blogs.png");
+}
+.type-forum .masonry-icon {
+  background: url("../img/icons/debat.png");
+}
+.type-image .masonry-icon {
+  background: url("../img/icons/billeder.png");
+}
+
 /* Overordnet top navigation */
 /* line 2, ../sass/_navigation.scss */
 #zone-header-wrapper {
-  background: url(../img/bg-ricepaper.png);
+  background: white;
 }
 
 #region-header-bottom {
@@ -3005,7 +3027,7 @@ img {
 
 /* line 95, ../sass/global.scss */
 body {
-  background: url(../img/bg-ricepaper.png);
+  background: white;
   font-family: "Cabin", sans-serif;
 }
 
