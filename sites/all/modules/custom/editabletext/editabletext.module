@@ -1,167 +1,235 @@
 <?php
 
-function et($label, $default_text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', $category = '') {
-	$create_strings = variable_get('editabletext_create_strings', TRUE);
-	if ($create_strings) {
-		editabletext_check_if_new($label, $default_text, $category);
-	}
+function et($label, $category = '') {
+    if (variable_get('editabletext_create_strings', TRUE)) {
+        editabletext_check_if_new($label, $category);
+    }
 
-	$string = i18n_string_get_string('editabletext:' . $label);
-	if (!user_access('access contextual links') || !user_access('edit editable texts')) {
-            if (module_exists('i18n_string')) {
-		$result = i18n_string_translate('editabletext:' . $label, $string->source, array('format' => 'full_html', 'messages' => FALSE));
-            } else {
-                $result = 
-            }
-	} else {
-		$element = editabletext_get_renderable_text($label, $string->source);
-		$result = drupal_render($element);
-	}
+    if (!user_access('access contextual links') || !user_access('edit editable texts')) {
+        $result = editabletext_get_text($label, $category);
+    } else {
+        $element = editabletext_get_renderable_text($label, $category);
+        $result = drupal_render($element);
+    }
 
-	return $result;
+    return $result;
 }
 
-function editabletext_check_if_new($label, $default_text, $category = '') {
-	$result = db_select('editabletext', 'd')
-			->fields('d', array('label'))
-			->condition('label', $label)
-			->execute();
-	if ($result->rowCount() == 0) {
-		db_insert('editabletext')
-				->fields(array('label', 'default_text', 'category'), array($label, $default_text, $category))
-				->execute();
-		i18n_string_update('editabletext:' . $label, $default_text, array('format' => 'full_html', 'messages' => FALSE));
-	}
+function editabletext_check_if_new($label, $category = '') {
+    $category = editabletext_get_default_category($category);
+    $result = db_select('editabletext_defaults', 'd')
+            ->fields('d', array('label'))
+            ->condition('label', $label)
+            ->condition('category', $category)
+            ->execute();
+    if ($result->rowCount() == 0) {
+        $default_text = editabletext_get_default($label, $category);
+        /*db_insert('editabletext_defaults')
+                ->fields(array('label', 'category', 'default_text'), array($label, $category, $default_text))
+                ->execute();*/
+        if (module_exists('i18n_string')) {
+            i18n_string_update('editabletext:' . $category . ':' . $label, $default_text, array('format' => 'full_html', 'messages' => FALSE));
+        } else {
+            db_insert('editabletext_texts')
+                    ->fields(array('label', 'category', 'text'), array($label, $category, $default_text))
+                    ->execute();
+        }
+    }
 }
 
-function editabletext_get_text($label, $default_text) {
-	$result = new stdClass();
-	$result->label = $label;
-	$result->content = i18n_string_translate('editabletext:' . $label, $default_text, array('format' => 'full_html', 'messages' => FALSE));
-	$result->category = 'test';
-
-	return $result;
+function editabletext_get_text($label, $category = '') {
+    if (module_exists('i18n_string')) {
+        $default_text = editabletext_get_default($label, $category);
+        $result = i18n_string_translate('editabletext:' . $category . ':' . $label, $default_text, array('format' => 'full_html', 'messages' => FALSE));
+    } else {
+        $result = editabletext_get_db_text($label, $category);
+    }
+    return $result;
 }
 
-function editabletext_get_renderable_text($label, $default_text) {
-	$text = editabletext_get_text($label, $default_text);
-	if (is_string($text->content)) {
-		$text->content = array('#markup' => $text->content);
-	}
+function editabletext_get_default($label, $category = '') {
+    $category = editabletext_get_default_category($category);
+    $result = db_select('editabletext_defaults', 'd')
+            ->fields('d', array('default_text'))
+            ->condition('label', $label)
+            ->condition('category', $category)
+            ->execute();
+    if ($result->rowCount() == 0) {
+        $default_text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+    } else {
+        $default_text = $result->fetchField();
+    }
+    
+    drupal_alter('editabletext_default', $default_text, $label, $category);
 
-	$build = $text->content;
-	unset($text->content);
+    if ($result->rowCount() == 0 && variable_get('editabletext_create_strings', TRUE)) {
+        db_insert('editabletext_defaults')
+                ->fields(array('label', 'category', 'default_text'), array($label, $category, $default_text))
+                ->execute();
+    }
 
-	$build['#contextual_links']['editabletext'] = array('admin/config/regional/editabletext/edit', array($text->label));
+    return $default_text;
+}
 
-	$build += array(
-		'#editabletext' => $text,
-	);
-	$build['#theme_wrappers'][] = 'editabletext';
-	return $build;
+function editabletext_get_default_category($category = '') {
+    if ($category == '') {
+        $category = 'Default';
+    }
+    return $category;
+}
+
+function editabletext_get_object($label, $category = '') {
+    $result = new stdClass();
+    $result->label = $label;
+    $result->content = editabletext_get_text($label, $category);
+    $result->category = $category;
+
+    return $result;
+}
+
+function editabletext_get_renderable_text($label, $category = '') {
+    $text = editabletext_get_object($label, $category);
+    if (is_string($text->content)) {
+        $text->content = array('#markup' => $text->content);
+    }
+
+    $build = $text->content;
+    unset($text->content);
+
+    $build['#contextual_links']['editabletext'] = array('admin/config/regional/editabletext/edit', array($text->label));
+
+    $build += array(
+        '#editabletext' => $text,
+    );
+    $build['#theme_wrappers'][] = 'editabletext';
+    return $build;
+}
+
+function editabletext_get_db_text($label, $category = '') {
+    $category = editabletext_get_default_category($category);
+    $result = db_select('editabletext_texts', 'ett')
+            ->fields('ett', array('text'))
+            ->condition('label', $label)
+            ->condition('category', $category)
+            ->execute();
+    if ($result->rowCount() == 0) {
+        $text = editabletext_get_default($label, $category);
+        if (variable_get('editabletext_create_strings', TRUE)) {
+            db_insert('editabletext_texts')
+                    ->fields(array('label', 'category', 'text'), array($label, $category, $text))
+                    ->execute();            
+        }
+    } else {
+        $text = $result->fetchField();
+    }
+    return $text;
 }
 
 function editabletext_variable_info($options) {
-	$variable['editabletext_create_strings'] = array(
-		'title' => t('Create and update texts from code?', array(), $options),
-		'type' => 'boolean',
-		'default' => TRUE,
-		'access' => 'configure editable text',
-		'token' => FALSE, // We'll produce tokens automatically for this one 
-	);
-	
-	return $variable;
+    $variable['editabletext_create_strings'] = array(
+        'title' => t('Create and update texts from code?', array(), $options),
+        'type' => 'boolean',
+        'default' => TRUE,
+        'access' => 'configure editable text',
+        'token' => FALSE, // We'll produce tokens automatically for this one 
+    );
+
+    return $variable;
 }
 
+/**
+ * Implements hook_menu().
+ */
 function editabletext_menu() {
-	$items['admin/config/regional/editabletext'] = array(
-		'title' => 'Editable text',
-		'description' => 'Configure and manage editable texts.',
-		'page callback' => 'editabletext_admin_list',
-		'page arguments' => array(),
-		'access arguments' => array('edit editable texts'),
-		'file' => 'editabletext.admin.inc',
-	);
-	$items['admin/config/regional/editabletext/overview'] = array(
-		'title' => 'List',
-		'weight' => 0,
-		'type' => MENU_DEFAULT_LOCAL_TASK,
-	);
-	$items['admin/config/regional/editabletext/configure'] = array(
-		'title' => 'Configure',
-		'page callback' => 'drupal_get_form',
-		'page arguments' => array('editabletext_admin_configure'),
-		'access arguments' => array('configure editable text'),
-		'file' => 'editabletext.admin.inc',
-		'weight' => 10,
-		'type' => MENU_LOCAL_TASK,
-	);
-	$items['admin/config/regional/editabletext/edit/%'] = array(
-		'title' => 'Edit text',
-		'page callback' => 'drupal_get_form',
-		'page arguments' => array('editabletext_admin_edit', 5),
-		'access arguments' => array('edit editable texts'),
-		'file' => 'editabletext.admin.inc',
-	);
-	$items['admin/config/regional/editabletext/delete/%'] = array(
-		'title' => 'Delete text',
-		'page callback' => 'drupal_get_form',
-		'page arguments' => array('editabletext_admin_delete_confirm', 5),
-		'access arguments' => array('delete editable texts'),
-		'file' => 'editabletext.admin.inc',
-	);
-	$items['admin/config/regional/editabletext/edit/%/edit'] = array(
-		'title' => 'Edit text',
-		'type' => MENU_DEFAULT_LOCAL_TASK,
-		'context' => MENU_CONTEXT_INLINE,
-	);
-	return $items;
+    $items = array();
+    $items['admin/config/regional/editabletext'] = array(
+        'title' => 'Editable text',
+        'description' => 'Configure and manage editable texts.',
+        'page callback' => 'editabletext_admin_list',
+        'page arguments' => array(),
+        'access arguments' => array('edit editable texts'),
+        'file' => 'editabletext.admin.inc',
+    );
+    $items['admin/config/regional/editabletext/overview'] = array(
+        'title' => 'List',
+        'weight' => 0,
+        'type' => MENU_DEFAULT_LOCAL_TASK,
+    );
+    $items['admin/config/regional/editabletext/configure'] = array(
+        'title' => 'Configure',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('editabletext_admin_configure'),
+        'access arguments' => array('configure editable text'),
+        'file' => 'editabletext.admin.inc',
+        'weight' => 10,
+        'type' => MENU_LOCAL_TASK,
+    );
+    $items['admin/config/regional/editabletext/edit/%'] = array(
+        'title' => 'Edit text',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('editabletext_admin_edit', 5),
+        'access arguments' => array('edit editable texts'),
+        'file' => 'editabletext.admin.inc',
+    );
+    $items['admin/config/regional/editabletext/delete/%'] = array(
+        'title' => 'Delete text',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('editabletext_admin_delete_confirm', 5),
+        'access arguments' => array('delete editable texts'),
+        'file' => 'editabletext.admin.inc',
+    );
+    $items['admin/config/regional/editabletext/edit/%/edit'] = array(
+        'title' => 'Edit text',
+        'type' => MENU_DEFAULT_LOCAL_TASK,
+        'context' => MENU_CONTEXT_INLINE,
+    );
+    return $items;
 }
 
 /**
  * Implements hook_theme().
  */
 function editabletext_theme() {
-	return array(
-		'editabletext' => array(
-			'render element' => 'elements',
-			'template' => 'editabletext',
-		),
-	);
+    return array(
+        'editabletext' => array(
+            'render element' => 'elements',
+            'template' => 'editabletext',
+        ),
+    );
 }
 
 function editabletext_permission() {
-	$perms = array(
-		'configure editable text' => array(
-			'title' => t('Configure editable text'),
-			'description' => t('Configure settings for editable texts.'),
-		),
-		'edit editable texts' => array(
-			'title' => t('Edit any editable text'),
-			'description' => t('Edit any editable text and translate them.'),
-		),
-		'change editable text category' => array(
-			'title' => t('Change category of editable texts'),
-			'description' => t('Change the category of any editable text.'),
-		),
-		'delete editable texts' => array(
-			'title' => t('Delete any editable text'),
-			'description' => t('Delete any editable text.'),
-			'restrict access' => TRUE,
-		),
-	);
+    $perms = array(
+        'configure editable text' => array(
+            'title' => t('Configure editable text'),
+            'description' => t('Configure settings for editable texts.'),
+        ),
+        'edit editable texts' => array(
+            'title' => t('Edit any editable text'),
+            'description' => t('Edit any editable text and translate them.'),
+        ),
+        'change editable text category' => array(
+            'title' => t('Change category of editable texts'),
+            'description' => t('Change the category of any editable text.'),
+        ),
+        'delete editable texts' => array(
+            'title' => t('Delete any editable text'),
+            'description' => t('Delete any editable text.'),
+            'restrict access' => TRUE,
+        ),
+    );
 
-	return $perms;
+    return $perms;
 }
 
 function template_preprocess_editabletext(&$variables) {
-	$variables['editabletext'] = $variables['elements']['#editabletext'];
+    $variables['editabletext'] = $variables['elements']['#editabletext'];
 
-	// Create the $content variable that templates expect.
-	$variables['content'] = $variables['elements']['#children'];
+    // Create the $content variable that templates expect.
+    $variables['content'] = $variables['elements']['#children'];
 
-	$variables['classes_array'][] = drupal_html_class('editabletext');
+    $variables['classes_array'][] = drupal_html_class('editabletext');
 
-	// Create a valid HTML ID and make sure it is unique.
-	$variables['editabletext_html_id'] = drupal_html_id('editabletext-' . $variables['editabletext']->label);
+    // Create a valid HTML ID and make sure it is unique.
+    $variables['editabletext_html_id'] = drupal_html_id('editabletext-' . $variables['editabletext']->label);
 }
