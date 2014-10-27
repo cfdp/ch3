@@ -6,10 +6,9 @@
 ?>
 
 <?php foreach ($rows as $id => $row): ?>
-	<div class="masonry-item<?php if ($classes_array[$id]) print ' ' . $classes_array[$id]; ?>">
-		<div class="masonry-icon"></div>
-		<div class="masonry-inner">
-			<?php print $row; ?>
-		</div>
-	</div>
+  <div class="masonry-item<?php if ($classes_array[$id]) print ' ' . $classes_array[$id]; ?>">
+  	 <div class="masonry-inner">
+    <?php print $row; ?>
+    </div>
+  </div>
 <?php endforeach; ?>
