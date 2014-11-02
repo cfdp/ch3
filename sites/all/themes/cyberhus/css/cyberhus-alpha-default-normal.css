@@ -110,15 +110,20 @@
 
 /* line 128, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .slideout.groupchat {
-  top: 40%;
+  top: 35%;
 }
 
 /* line 132, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .slideout.kramchat {
-  top: 65%;
+  top: 55%;
 }
 
 /* line 136, ../sass/cyberhus-alpha-default-normal.scss */
+.region-tabs-right .slideout.kbhchat {
+  top: 75%;
+}
+
+/* line 140, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .status-wrapper {
   color: black;
   overflow: hidden;
@@ -128,36 +133,36 @@
   background: white;
 }
 
-/* line 146, ../sass/cyberhus-alpha-default-normal.scss */
+/* line 150, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .status-tab {
   float: left;
   height: 162px;
   width: 42px;
 }
 
-/* line 152, ../sass/cyberhus-alpha-default-normal.scss */
+/* line 156, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .groupchat .status-tab {
   background: url("http://cyberchat.dk/sites/all/themes/cyberhuschat/img/gruppechat-tab.png") no-repeat;
 }
 
-/* line 155, ../sass/cyberhus-alpha-default-normal.scss */
+/* line 159, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .kramchat .status-tab {
   background: url("http://cyberchat.dk/sites/all/themes/cyberhuschat/img/kramchatten-tab.png") no-repeat;
 }
 
-/* line 159, ../sass/cyberhus-alpha-default-normal.scss */
+/* line 163, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .status-content .status-info {
   margin-top: 30px;
 }
 
-/* line 163, ../sass/cyberhus-alpha-default-normal.scss */
+/* line 167, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .status-content p {
   display: inline-block;
   margin-top: 10px;
   font-size: 13px !important;
 }
 
-/* line 169, ../sass/cyberhus-alpha-default-normal.scss */
+/* line 173, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .status-content p a {
   color: white;
   font-size: 16px;
@@ -165,36 +170,36 @@
   padding: 8px 12px;
 }
 
-/* line 176, ../sass/cyberhus-alpha-default-normal.scss */
+/* line 180, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .groupchat .status-info p {
   text-align: center;
 }
 
-/* line 180, ../sass/cyberhus-alpha-default-normal.scss */
+/* line 184, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .groupchat .status-content p a {
   background: #c9a662;
   border: 4px solid #fcd085;
   outline: 1px solid rgba(201, 166, 98, 0.3);
 }
 
-/* line 186, ../sass/cyberhus-alpha-default-normal.scss */
+/* line 190, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .groupchat .status-content p a:hover {
   background: #7c673d;
   background: #deb25d;
 }
 
-/* line 191, ../sass/cyberhus-alpha-default-normal.scss */
+/* line 195, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .kramchat .status-wrapper {
   background: #fff;
 }
 
-/* line 196, ../sass/cyberhus-alpha-default-normal.scss */
+/* line 200, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .kramchat .status-content p a {
   background: #3eafb5;
   border: 4px solid #4bbbc1;
 }
 
-/* line 201, ../sass/cyberhus-alpha-default-normal.scss */
+/* line 205, ../sass/cyberhus-alpha-default-normal.scss */
 .region-tabs-right .kramchat .status-content p a:hover {
   background: #4bbbc1;
   border: 4px solid #5ec3c8;
