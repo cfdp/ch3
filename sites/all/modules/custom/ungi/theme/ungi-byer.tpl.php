@@ -28,7 +28,8 @@
                     </span><span class="ungi-half">
                         <a class="btn" href="<?php print $city->url; ?>">Tilbud i kommunen</a>
                         <?php if (!empty($city->chaturl)): ?>
-                            <iframe src="/sites/all/themes/cyberhus/chat-inline-widget/widget.html?base_url=<?php print $city->chaturl; ?>&port=<?php print $city->chatport; ?>&chat_name=<?php print $city->chatname; ?>&chat_type=<?php print $city->chattype; ?>"></iframe>
+                            <iframe src="<?php print $city->chaturl; ?>"></iframe>
+
                         <?php else: ?>
                             <a class="btn chat-closed" href="<?php print $city->chaturl; ?>">Ingen chat til rådighed</a>
                         <?php endif ?>
