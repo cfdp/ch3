@@ -19,6 +19,7 @@
 .btn:hover {
   background-color: #e98b39;
 }
+
 #block-views-exp-forside-page h2.block-title {
     font-size: 200%;
     text-align: center;
@@ -3619,4 +3620,32 @@ body {
 /* line 673, ../sass/global.scss */
 #block-block-56 .block-inner p:last-child {
   margin-top: 20px;
+}
+
+.page-node article.node.node-simpel-side-med-view .field.field-name-field-billede,
+.page-node article.node.node-page .field.field-name-field-billede {
+	width: 940px;
+	padding: 0;
+}
+.page-node .grid-11 article.node.node-simpel-side-med-view .field.field-name-field-billede,
+.page-node .grid-11 article.node.node-page .field.field-name-field-billede {
+	width: 640px;
+}
+article.node-simpel-side-med-view .field-name-field-billede img,
+article.node-page .field-name-field-billede img {
+	width: 100%;
+}
+.not-logged-in article.node.node-simpel-side-med-view .field.field-name-field-billede,
+.not-logged-in article.node.node-page .field.field-name-field-billede {
+	position: relative;
+	top: -18px;
+	left: -18px;
+}
+.logged-in .grid-16 article.node.node-simpel-side-med-view .field.field-name-field-billede,
+.logged-in .grid-16 article.node.node-page .field.field-name-field-billede {
+	width: 900px;
+}
+.logged-in .grid-11 article.node.node-simpel-side-med-view .field.field-name-field-billede,
+.logged-in .grid-11 article.node.node-page .field.field-name-field-billede {
+	width: 600px;
 }
