@@ -29,7 +29,6 @@
                         <a class="btn" href="<?php print $city->url; ?>">Tilbud i kommunen</a>
                         <?php if (!empty($city->chaturl)): ?>
                             <iframe src="<?php print $city->chaturl; ?>"></iframe>
-
                         <?php else: ?>
                             <a class="btn chat-closed" href="<?php print $city->chaturl; ?>">Ingen chat til rådighed</a>
                         <?php endif ?>

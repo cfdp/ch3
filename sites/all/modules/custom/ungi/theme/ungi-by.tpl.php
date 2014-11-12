@@ -6,7 +6,7 @@
 			<br/>
 			<h3>Chat</h3>
 			<?php if (!empty($city->chaturl)): ?>
-				<iframe src="/sites/all/themes/cyberhus/chat-inline-widget/widget.html?base_url=<?php print $city->chaturl; ?>&port=<?php print $city->chatport; ?>&chat_name=<?php print $city->chatname; ?>&chat_type=<?php print $city->chattype; ?>"></iframe>
+        <iframe src="<?php print $city->chaturl; ?>"></iframe>
 				<p class="chat-desc"><?php print $city->chatdesc; ?></p>
 			<?php else: ?>
 				<p><?php print $city->name ?> Kommune har endnu ikke en lokal chat på Cyberhus, men du er mere end velkommen til at benytte <a href="/chat">Cyberhus’ egen chat</a>, hvor du kan snakke med rådgiverne og andre unge.</p>
