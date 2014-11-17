@@ -38,7 +38,7 @@
   background: url("../img/icons/brevkasse_inv.png");
 }
 .type-body-secret .masonry-icon {
-  background: url("../img/icons/hemmeligheder.png");
+  background: url("../img/icons/hemmeligheder_inv.png");
 }
 .type-blog .masonry-icon {
   background: url("../img/icons/blogs.png");
@@ -418,6 +418,16 @@
   color: #e67e22;
 }
 /* line 187, ../sass/_views.scss */
+.view.view-Forside.view-id-Forside .view-content .type-body-secret .masonry-inner {
+  background: #2980b9;
+  color: #FFFFFF;
+}
+.view.view-Forside.view-id-Forside .view-content .type-body-secret .masonry-inner .masonry-title a {
+  color: #e67e22;
+}
+.view.view-Forside.view-id-Forside .view-content .type-body-secret .masonry-inner .masonry-title a:visited {
+  color: #d66e12;
+}
 .view.view-Forside.view-id-Forside .view-content .type-faq .masonry-inner,
 .view.view-Forside.view-id-Forside .view-content .type-brevkasse .masonry-inner {
   background: #e67e22;
@@ -3622,13 +3632,13 @@ body {
   margin-top: 20px;
 }
 
-.page-node article.node.node-simpel-side-med-view .field.field-name-field-billede,
-.page-node article.node.node-page .field.field-name-field-billede {
+.page-node.responsive-layout-normal article.node.node-simpel-side-med-view .field.field-name-field-billede,
+.page-node.responsive-layout-normal article.node.node-page .field.field-name-field-billede {
 	width: 940px;
 	padding: 0;
 }
-.page-node .grid-11 article.node.node-simpel-side-med-view .field.field-name-field-billede,
-.page-node .grid-11 article.node.node-page .field.field-name-field-billede {
+.page-node.responsive-layout-normal .grid-11 article.node.node-simpel-side-med-view .field.field-name-field-billede,
+.page-node.responsive-layout-normal .grid-11 article.node.node-page .field.field-name-field-billede {
 	width: 640px;
 }
 article.node-simpel-side-med-view .field-name-field-billede img,
@@ -3648,4 +3658,8 @@ article.node-page .field-name-field-billede img {
 .logged-in .grid-11 article.node.node-simpel-side-med-view .field.field-name-field-billede,
 .logged-in .grid-11 article.node.node-page .field.field-name-field-billede {
 	width: 600px;
+}
+.page-node.responsive-layout-mobile article.node.node-simpel-side-med-view .field.field-name-field-billede,
+.page-node.responsive-layout-mobile article.node.node-page .field.field-name-field-billede {
+	display: none;
 }
