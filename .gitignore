@@ -8,10 +8,11 @@ sites/*/files
 sites/*/private
 sites/default
 
-# Ignore devel modules
+# Ignore devel modules and files
 sites/all/modules/stage_file_proxy
 sites/all/modules/reroute_email
 sites/all/modules/smtp
+robots.txt
 
 !sites/default/files/logo-beta*
 
