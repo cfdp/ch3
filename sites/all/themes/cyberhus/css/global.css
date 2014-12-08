@@ -263,7 +263,7 @@
 /* line 39, ../sass/_views.scss */
 .block-latest-gallery-image-block {
   position: absolute;
-  top: 276px;
+  top: 248px;
   left: 73px;
 }
 /* line 44, ../sass/_views.scss */
@@ -632,6 +632,9 @@
   margin: 0 7px;
   padding: 0;
   font-weight: bold;
+}
+.view ul.pager li.pager-current {
+	font-size: 18px;
 }
 /* line 387, ../sass/_views.scss */
 .view ul.pager li a {
@@ -1302,6 +1305,12 @@
 
 /* Tegn selv - Arkiv */
 /* line 957, ../sass/_views.scss */
+.view.view-tegn-selv-arkiv .view-header {
+  padding: 0 15px 0 15px;
+}
+.view.view-tegn-selv-arkiv .item-list ul.pager {
+  padding-top: 15px;
+}
 .view.view-tegn-selv-arkiv .view-content {
   padding: 0 15px 0 15px;
 }
@@ -3382,7 +3391,7 @@ body {
 }
 /* line 410, ../sass/global.scss */
 .not-front #page #section-content #region-content .region-inner.region-content-inner {
-  margin-top: 10px;
+  //margin-top: 10px;
   border-top: 6px #2980b9 solid;
   background: #fff;
   padding: 18px;
