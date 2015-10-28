@@ -2995,11 +2995,11 @@
 /* Kropshemmeligheder */
 /* No content bg color on body secrets page */
 /* line 458, ../sass/_node.scss */
-.page-node-36973.node-type-simpel-side-med-view #page #section-content #region-content .region-inner.region-content-inner {
+.context-hemmeligheder.node-type-simpel-side-med-view #page #section-content #region-content .region-inner.region-content-inner {
   background-color: transparent;
 }
 /* line 461, ../sass/_node.scss */
-.page-node-36973.node-type-simpel-side-med-view h2.node-title {
+.context-hemmeligheder.node-type-simpel-side-med-view h2.node-title {
   display: none;
 }
 
