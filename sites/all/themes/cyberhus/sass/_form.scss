@@ -363,7 +363,29 @@
 	padding: 2em;
 	margin: 2em 0;
 	@include clearfix;
+
+  @media(max-width: 600px){
+    .form-type-select {
+      label, span.form-required {
+        float: none;
+        display: inline;
+      }
+      .form-select {
+        display: block;
+      }
+    }
+    .form-type-textarea {
+      label {
+        display: block;
+        width: 100%;
+      }
+      .form-textarea-wrapper {
+        width: 100%;
+      }
+    }
+  }
 }
+
 
 ////  Hacks  ////
 
