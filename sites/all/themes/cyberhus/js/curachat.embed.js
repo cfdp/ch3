@@ -15,6 +15,13 @@
     clientURL: "http://cyberhus.dk",
     embedLocation: ".region-tabs-right-inner",
   };
+  var opekaFoldout3 = {
+    chatName: "kram",
+    chatType: "group",
+    baseURL: "https://kram.curachat.com",
+    clientURL: "http://cyberhus.dk",
+    embedLocation: ".region-tabs-right-inner",
+  };
   opekaFoldout.cssFiles = [["opeka.widget.foldout.css", opekaFoldout.baseURL+"/sites/all/modules/custom/opeka/css/"],["opeka.widgets.css", opekaFoldout2.clientURL+"/sites/all/themes/cyberhus/css/"]];
 
   $(document).ready(function() {
@@ -40,6 +47,8 @@
       firstChat.init();
       secondChat = new foldoutController(jQuery, opekaFoldout2);
       secondChat.init();
+      thirdChat = new foldoutController(jQuery, opekaFoldout3);
+      thirdChat.init();
     }
   }
 
