@@ -27,6 +27,11 @@
 /* Forside view - exposed filter */
 
 #block-views-exp-forside-page {
+  h2.block-title {
+    font-size: 200%;
+    text-align: center;
+    color:  #999;
+  }
 	#views-exposed-form-Forside-page {
 		.views-exposed-form {
 

@@ -38,7 +38,7 @@
 // Gallery image on frontpage
 .block-latest-gallery-image-block {
 	position: absolute;
-	top: 276px;
+	top: 248px;
 	left: 73px;
 
 	.views-field-field-billede a {
@@ -62,7 +62,7 @@
 
 .region-menu {
 	position: relative;
-	top: -15px;
+	/*top: -15px;*/
 }
 
 .region-header-bottom {
@@ -130,6 +130,16 @@
 				text-shadow: none;
 				background: #FFFFFF;
 			}
+      
+      .masonry-icon {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        background: url("../img/icons/brevkasse.png");
+        background-repeat: no-repeat;
+        top: 10px;
+        right: 15px;
+      }
 			.masonry-category {
 				font-size: 11px;
 			}
@@ -172,7 +182,15 @@
 				}
 			}
 		}
+    .type-blog {
+      .masonry-icon {
+        background: url("../img/icons/blogs.png");
+      }
+    }
 		.type-forum {
+      .masonry-icon {
+        background: url("../img/icons/debat.png");
+      }
 			.masonry-inner {
 				background: #FFF;
 				.masonry-title {
@@ -184,6 +202,9 @@
 		}
 		.type-faq,
 		.type-brevkasse {
+      .masonry-icon {
+        background: url("../img/icons/brevkasse_inv.png");
+      }
 			.masonry-inner {
 				background: $color_gul;
 				color: #FFFFFF;
@@ -200,6 +221,10 @@
 			}
 		}
 		.type-historie {
+      .masonry-icon {
+        top: 15px;
+        background: url("../img/icons/fortllinger_inv.png");
+      }
 			.masonry-inner {
 				background: $color_brun;
 				color: #FFFFFF;
@@ -210,6 +235,11 @@
 				}
 			}
 		}
+    .type-image {
+      .masonry-icon {
+        background: url("../img/icons/billeder.png");
+      }
+    }
 		.type-link-artikel {
 			.masonry-title {
 				a {
@@ -243,12 +273,24 @@
 		}
 
 		.type-body-secret {
-			.masonry-title a {
-				display: none;
-			}
+      .masonry-icon {
+        background: url("../img/icons/hemmeligheder_inv.png");
+      }
+      .masonry-inner {
+        background: #2980b9;
+        color: #FFFFFF;
+        .masonry-title a {
+          color: #e67e22;
+          display: none;
+        }
+       .masonry-title a:visited {
+         color: #d66e12;
+        }
+      }
 		}
 	}
 }
+
 
 /* Forside view - exposed filter */
 
@@ -267,12 +309,16 @@
 	}
 
 	#views-exposed-form-Forside-page {
+    .views-submit-button {
+      display: none;
+    }
 		.views-exposed-form {
 			font-family: $std-font-family;
-			padding-top: 10px;
+			/*padding-top: 10px;*/
 
 			#edit-type-wrapper {
-				margin: 0 0 10px 0;
+        margin: 0;
+        padding: 0;
 				float: none;
 				overflow: hidden;
 
@@ -384,6 +430,9 @@
  			margin: 0 7px; padding: 0;
  			font-weight: bold;
 
+      &.pager-current {
+        font-size: 18px;
+      }
  			a {
  				color: $color_brun;
  			}
@@ -954,18 +1003,39 @@
 
 /* Tegn selv - Arkiv */
 .view.view-tegn-selv-arkiv {
+  .view-header {
+    padding: 0 15px 0 15px;
+  }
+  .item-list ul.pager {
+    padding-top: 15px;
+  }
 	.view-content {
 		padding: 0 15px 0 15px;
 		.views-row {
 			float: left;
-			width: 98px;
-			margin-right: 15px;
-			height: 160px;
+      width: 206px;
+      margin-right: 16px;
+      height: 200px;
+      img {
+        max-height: 180px;
+      }
 		}
-		.views-row-5, .views-row-10, .views-row-15 {
+		.views-row-4, .views-row-8, .views-row-12, .views-row-16, .views-row-20 {
 			margin-right: 0;
 		}
 	}
+  .more-link {
+    clear: both;
+    text-align: center;
+    a {
+      margin-top: 10px;
+      padding: 5px 10px;
+      color: #ffffff !important;
+      background-color: #fb9a00;
+      display: inline-block;
+      border-radius: 3px;
+    }
+  }
 }
 
 /* Tegn selv - enkeltvisning */
@@ -1047,19 +1117,8 @@
 	}
 }
 
-
-/* General stuff */
-.opret_btn {
-	position: relative;
-	margin-bottom: 30px;
-	padding: 0 15px 0 15px;
-	a {
-		@include btn();
-	}
-}
-
 .view-id-body_secrets {
-	.views-row {
+/*	.views-row {
 		width: 260px;
 		height: 165px;
 		display: inline-block;
@@ -1070,7 +1129,42 @@
 		margin: 25px 20px 20px 0;
 		box-shadow: 5px 5px #aaaaaa;
 		position: relative;
-	}
+	}*/
+  .views-row {
+		display: inline-block;
+		width: 260px;
+    margin: 10px 10px 10px 5px;
+		position: relative;
+		background: transparent url("../img/grid-box-shadow.png") no-repeat bottom center;
+		padding-bottom: 8px;
+		vertical-align: text-top;
+
+    .body_secret_icon {
+      background: rgba(0, 0, 0, 0) url("../img/icons/hemmeligheder_inv.png") repeat scroll 0 0;
+      height: 40px;
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      width: 40px;
+    }
+
+    .body-secrets-field {
+      &.field-category {
+        margin-bottom: 15px;
+      }
+      &.field-body {
+        font-size: 12px;
+        line-height: 1.25em;
+        text-shadow: none;
+        word-wrap: break-word;
+      }
+      
+      &.field-created {
+        position: absolute;
+        bottom: 27px;
+      }
+    }
+  }
 
 	.views-field-created {
 		float: right;
@@ -1109,13 +1203,19 @@
 	}
 
 	.views-field-nothing {
+    background: #2980b9 none repeat scroll 0 0;
+    color: #ffffff;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.33);
+    height: 190px;
+    padding: 25px 25px 15px;
+    text-shadow: none;
+    
 		a {
 			padding: 5px 10px;
 			position: absolute;
 			bottom: 10px;
 			left: 60px;
 		}
-		text-align: center;
 	}
 
 	.view-header {
@@ -1123,20 +1223,12 @@
 			padding: 5px 10px;
 			margin-bottom: 20px;
 		}
-	}
-
-	.body_secret_icon {
-		width: 60px;
-		height: 60px;
-		background: url("../img/body_secret_icon.png") no-repeat;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-		position: absolute;
-		top: -30px;
-		left: 50%;
-		margin-left: -30px;
+    
+    .btn {
+      display: block;
+      width: 90%;
+      text-align: center;
+    }
 	}
 
 	.more-link {
@@ -1165,5 +1257,15 @@
 				line-height: 1.2em;
 			}
 		}
+	}
+}
+
+/* General stuff */
+.opret_btn {
+	position: relative;
+	margin-bottom: 30px;
+	padding: 0 15px 0 15px;
+	a {
+		@include btn();
 	}
 }

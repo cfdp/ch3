@@ -23,14 +23,61 @@
       padding: 0 15px 0 15px;
     }
   }
+  
+  // Simpel side med View embedding
+  article.node-simpel-side-med-view .field-name-field-billede img,
+  article.node-page .field-name-field-billede img {
+    width: 100%;
+  }
+  
+
+  &.responsive-layout-normal article.node.node-simpel-side-med-view .field.field-name-field-billede,
+  &.responsive-layout-normal article.node.node-page .field.field-name-field-billede {
+    width: 940px;
+    padding: 0;
+  }
+  
+  &.responsive-layout-normal .grid-11 article.node.node-simpel-side-med-view .field.field-name-field-billede,
+  &.responsive-layout-normal .grid-11 article.node.node-page .field.field-name-field-billede {
+    width: 640px;
+  }
+  
+  &.responsive-layout-mobile article.node.node-simpel-side-med-view .field.field-name-field-billede,
+  &.responsive-layout-mobile article.node.node-page .field.field-name-field-billede {
+    display: none;
+  }
+  
+  &.not-logged-in {
+    article.node.node-simpel-side-med-view .field.field-name-field-billede,
+    article.node.node-page .field.field-name-field-billede {
+      position: relative;
+      top: -18px;
+      left: -18px;
+    }
+  }
+  
+  &.logged-in.responsive-layout-normal {
+    .grid-16 {
+      article.node.node-simpel-side-med-view .field.field-name-field-billede,
+      article.node.node-page .field.field-name-field-billede {
+        width: 900px;
+      }
+    }
+    .grid-11 {
+      article.node.node-simpel-side-med-view .field.field-name-field-billede,
+      article.node.node-page .field.field-name-field-billede {
+        width: 600px;
+      }
+    }
+  }
 }
+
 /* Node - Ung i */
 .node-type-ung-i {
   .node-ung-i{
     padding: 0 15px 15px 15px;
   }
 }
-
 
 /* Node - tegn selv oversigt */
 .context-oversigt-over-tegn-selv-billeder {
@@ -405,7 +452,16 @@
 }
 
 
-/* Krophemmeligheder */
+/* Kropshemmeligheder */
+/* No content bg color on body secrets page */
+.page-node-36973.node-type-simpel-side-med-view {
+  #page #section-content #region-content .region-inner.region-content-inner {
+     background-color: transparent;
+  }
+  h2.node-title {
+    display: none;
+  }
+}
 .node-body-secret {
   .content {
     width: 260px;

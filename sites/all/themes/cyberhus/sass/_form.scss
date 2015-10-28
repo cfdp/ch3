@@ -253,6 +253,7 @@
 #block-search-form {
 	float: right;
 	width: 250px;
+  margin-top: -10px;
 	.block-inner {
 		margin-bottom: 5px;
 		#search-block-form {
@@ -261,30 +262,33 @@
 			.form-item.form-type-textfield.form-item-search-block-form {
 				margin: 0; padding: 0; line-height: 1em; float: left;
 				.form-text {
-					margin: 0; padding: 0; border: 0;
-					font-size: 11px;
-					background: transparent;
-					height: 27px;
-					padding: 0 5px;
-					color: #FFFFFF;
-					text-align: right;
-					outline: 0; box-shadow: none;
-					font-family: $std-font-family;
+          margin-right: -5px;
+          padding-left: 35px; 
+          border: 0;
+          border-radius: 5px;
+          font-size: 11px;
+          background: white url("../img/search-icon.png") no-repeat 11px 7px;
+          height: 31px;
+          color: #222;
+          text-align: left;
+          outline: 0;
+          @include box-shadow( rgba(black, 0.2) 1px 1px 2px inset);
+        	font-family: $std-font-family;
 					width: 200px;
 				}
 			}
 			.form-actions {
 				float: right;
 				.form-submit {
-					background: url("../img/search_button_top.png");
-					background-repeat: no-repeat;
-					border: none;
-					text-indent: -999em;
-					width: 42px;
-					height: 29px;
-					border-radius: 0;
-					margin: 0; padding: 0;
-
+          background: #e67e22;
+          border: none;
+          border-radius: 0 5px 5px 0;
+          width: 42px;
+          height: 31px;
+          margin: 0;
+          padding: 0;
+          color: white;
+          text-shadow: none;
 				}
 			}
 		}

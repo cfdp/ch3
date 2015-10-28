@@ -4,12 +4,11 @@
 }
 
 #region-menu {
-	height: 100px;
 	@media (max-width: 980px) {height: auto;}
 
 	.menu { //ul
 		padding-left: 0;
-		float: right;
+		float: left;
 		@media (max-width: 980px) {float: none;}
 
 		li.leaf {
@@ -17,15 +16,27 @@
 			display: inline-block;
 			padding: 0;
 			margin: 0;
+      vertical-align: top;
+      text-align: center;
 
 			a {
 				color: #2980b9;
-				font-size: 18px;
-				padding: 56px 14px 60px;
-				height: 100px;
-				min-width: 80px;
+        font-size: 16px;
+        padding: 0;
+        min-width: 90px;
 				display: inline-block;
 				text-align: center;
+				
+        &:hover {
+					background: #2980b9;
+					color: #fff;
+          img.icon_inv {
+            display: block;
+          }
+          img.icon {
+            display: none;
+          }
+				}
 
 				@media (max-width: 980px) {
 					padding: .5em 0;
@@ -34,12 +45,27 @@
 					width: 100%;
 					font-size: 16px;
 					height: auto;
+          
+          img.icon {
+            display: none;
+          }
+          &:hover img.icon_inv {
+            display: none;
+          }
 				}
+        
+        img {
+          display: block;
+          margin: auto;
+          width: 50px;
+          max-width: 50px;
+          height: 50px;
+          padding: 5px;
+        }
 
-				&:hover {
-					background: #2980b9;
-					color: #fff;
-				}
+        img.icon_inv {
+          display: none;
+        }
 			}
 
       @media (max-width: 980px) {

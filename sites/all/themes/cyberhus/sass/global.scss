@@ -144,10 +144,6 @@ body {
 				background-repeat: no-repeat;
 				margin-bottom: 0px;
 					#forside_wrapper {
-
-
-
-
 						#region-content {
 							background: none;
 							.region-inner.region-content-inner {
@@ -206,17 +202,29 @@ body {
 			}
 
 			#region-logo {
-				height: 100px;
+				height: 50px;
 
-				.logo-img a {
-					padding: 16px 0;
-					display: block;
-				}
+				.logo-img {
+          margin-top: 5px;
+          a {
+            display: block;
+          }
+        }
 			}
 
 			#region-search {
 				float: right;
 				margin-top: 20px;
+        
+        @media (max-width: 980px){
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+        
+        @media (max-width: 450px) {
+          display: none;
+        }
 			}
 		}
 
@@ -232,7 +240,7 @@ body {
 				position: relative;
 				z-index: 1;
 				margin-bottom: 10px;
-					.messages.status {
+				.messages.status {
 						margin-left: 300px;
 					}
 				}
@@ -408,7 +416,6 @@ body {
 					text-shadow: $text_shadow_undersider;
 				}
 	.not-front & .region-inner.region-content-inner {
-						margin-top: 10px;
 						border-top: 6px #2980b9 solid;
 						background: #fff;
 						padding: 18px;
