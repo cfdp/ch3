@@ -1456,25 +1456,26 @@
 }
 /* line 1162, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body-secrets-field.field-created {
+  font-size: 11px;
   position: absolute;
   bottom: 27px;
 }
-/* line 1169, ../sass/_views.scss */
+/* line 1170, ../sass/_views.scss */
 .view-id-body_secrets .views-field-created {
   float: right;
   margin: 0px 0 6px 0;
 }
-/* line 1174, ../sass/_views.scss */
+/* line 1175, ../sass/_views.scss */
 .view-id-body_secrets .views-field-body {
   clear: both;
   line-height: 15px;
   margin-bottom: 5px;
 }
-/* line 1180, ../sass/_views.scss */
+/* line 1181, ../sass/_views.scss */
 .view-id-body_secrets .views-field-field-brevk-koen, .view-id-body_secrets .views-field-field-brevk-alder, .view-id-body_secrets .views-field-created {
   color: #888888;
 }
-/* line 1186, ../sass/_views.scss */
+/* line 1187, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing a, .view-id-body_secrets .view-header a {
   margin-top: 10px;
   color: #ffffff !important;
@@ -1482,7 +1483,7 @@
   display: inline-block;
   border-radius: 3px;
 }
-/* line 1196, ../sass/_views.scss */
+/* line 1197, ../sass/_views.scss */
 .view-id-body_secrets .view-footer a {
   background: transparent url(../img/next_yellow.png) center left no-repeat;
   float: left;
@@ -1490,7 +1491,7 @@
   padding-left: 18px;
   margin-bottom: 8px;
 }
-/* line 1205, ../sass/_views.scss */
+/* line 1206, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing {
   background: #2980b9 none repeat scroll 0 0;
   color: #ffffff;
@@ -1499,30 +1500,30 @@
   padding: 25px 25px 15px;
   text-shadow: none;
 }
-/* line 1213, ../sass/_views.scss */
+/* line 1214, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing a {
   padding: 5px 10px;
   position: absolute;
   bottom: 10px;
   left: 60px;
 }
-/* line 1222, ../sass/_views.scss */
+/* line 1223, ../sass/_views.scss */
 .view-id-body_secrets .view-header a {
   padding: 5px 10px;
   margin-bottom: 20px;
 }
-/* line 1227, ../sass/_views.scss */
+/* line 1228, ../sass/_views.scss */
 .view-id-body_secrets .view-header .btn {
   display: block;
   width: 90%;
   text-align: center;
 }
-/* line 1234, ../sass/_views.scss */
+/* line 1235, ../sass/_views.scss */
 .view-id-body_secrets .more-link {
   text-align: left;
   margin-left: 30px;
 }
-/* line 1237, ../sass/_views.scss */
+/* line 1238, ../sass/_views.scss */
 .view-id-body_secrets .more-link a {
   color: #ffffff !important;
   background-color: #fb9a00;
@@ -1531,7 +1532,7 @@
   padding: 8px 15px;
 }
 
-/* line 1250, ../sass/_views.scss */
+/* line 1251, ../sass/_views.scss */
 .view-id-related_articles .view-content .field-content a {
   background: transparent url(../img/next_yellow.png) center left no-repeat;
   float: left;
@@ -1543,13 +1544,13 @@
 }
 
 /* General stuff */
-/* line 1264, ../sass/_views.scss */
+/* line 1265, ../sass/_views.scss */
 .opret_btn {
   position: relative;
   margin-bottom: 30px;
   padding: 0 15px 0 15px;
 }
-/* line 1268, ../sass/_views.scss */
+/* line 1269, ../sass/_views.scss */
 .opret_btn a {
   padding: 15px 20px;
   background-color: #e67e22;
@@ -2497,24 +2498,44 @@
   overflow: hidden;
   *zoom: 1;
 }
+@media (max-width: 600px) {
+  /* line 369, ../sass/_form.scss */
+  .node-body_secret-form .form-type-select label, .node-body_secret-form .form-type-select span.form-required {
+    float: none;
+    display: inline;
+  }
+  /* line 373, ../sass/_form.scss */
+  .node-body_secret-form .form-type-select .form-select {
+    display: block;
+  }
+  /* line 378, ../sass/_form.scss */
+  .node-body_secret-form .form-type-textarea label {
+    display: block;
+    width: 100%;
+  }
+  /* line 382, ../sass/_form.scss */
+  .node-body_secret-form .form-type-textarea .form-textarea-wrapper {
+    width: 100%;
+  }
+}
 
-/* line 373, ../sass/_form.scss */
+/* line 395, ../sass/_form.scss */
 .page-node-add-brevkasse .field-name-field-brevk-spoergsmaal {
   margin-bottom: 1.5em;
 }
-/* line 377, ../sass/_form.scss */
+/* line 399, ../sass/_form.scss */
 .page-node-add-brevkasse .field-name-field-brevk-kategori,
 .page-node-add-brevkasse .wysiwyg-toggle-wrapper,
 .page-node-add-brevkasse #edit-field-brevk-spoergsmaal-und-0-value_path_row {
   display: none;
 }
-/* line 384, ../sass/_form.scss */
+/* line 406, ../sass/_form.scss */
 .page-node-add-brevkasse .form-item-field-brevk-accept-und .description {
   width: 100%;
   margin-left: 24px;
 }
 
-/* line 394, ../sass/_form.scss */
+/* line 416, ../sass/_form.scss */
 .page-node-add-historie #edit-field-anmeldelse-anm-alder-und-0-value {
   width: 80px;
 }
