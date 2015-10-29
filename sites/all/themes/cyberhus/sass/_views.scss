@@ -1118,18 +1118,6 @@
 }
 
 .view-id-body_secrets {
-/*	.views-row {
-		width: 260px;
-		height: 165px;
-		display: inline-block;
-		vertical-align: text-top;
-		background-color: #ffffff;
-		border-radius: 3px;
-		padding: 10px;
-		margin: 25px 20px 20px 0;
-		box-shadow: 5px 5px #aaaaaa;
-		position: relative;
-	}*/
   .views-row {
 		display: inline-block;
 		width: 260px;
@@ -1155,10 +1143,16 @@
       &.field-body {
         font-size: 12px;
         line-height: 1.25em;
+        margin-bottom: 10px;
         text-shadow: none;
         word-wrap: break-word;
       }
-      
+
+      &.field-sex,
+      &.field-age {
+        font-size: 11px;
+      }
+
       &.field-created {
         font-size: 11px;
         position: absolute;

@@ -1,29 +1,42 @@
 <?php
-
-
 /*
  * Implementation of hook_form_alter()
  */
 function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
   switch ($form_id) {
-  case 'brevkasse_node_form':
-    // Brevkasse-status: Iterate over the terms and unset any closed or archived terms from the select list
-    $brevk_terms = taxonomy_term_load_multiple(array(), array('vid' => '3'));
-    foreach ($brevk_terms as $key => $value) {
-        if (count($value->field_taxonomy_brevk_status) > 0){
-          $status = $value->field_taxonomy_brevk_status['und']['0']['value'];
-          if ($status === "archived" || $status === "temp_closed") {
-            $tid = $value ->tid;
-            unset($form['field_brevk_kategori']['und']['#options'][$tid]);
+    case 'brevkasse_node_form':
+      // Brevkasse-status: Iterate over the terms and unset any closed or archived terms from the select list
+      $brevk_terms = taxonomy_term_load_multiple(array(), array('vid' => '3'));
+      foreach ($brevk_terms as $key => $value) {
+          if (count($value->field_taxonomy_brevk_status) > 0){
+            $status = $value->field_taxonomy_brevk_status['und']['0']['value'];
+            if ($status === "archived" || $status === "temp_closed") {
+              $tid = $value ->tid;
+              unset($form['field_brevk_kategori']['und']['#options'][$tid]);
+            }
           }
-        }
-    }
+      }
 
-    // Brevkasse title validation, alowed charaters (a to z, 0 to 9, ?, !, ., ,, -,) 
-    $form['#validate'][] = 'cfdp_uf_brevkasse_title_form_validate';
-    break;
+      // Brevkasse title validation, alowed charaters (a to z, 0 to 9, ?, !, ., ,, -,)
+      $form['#validate'][] = 'cfdp_uf_brevkasse_title_form_validate';
+      break;
+/*    case 'body_secret_node_form':
+      $form['#submit'][] = 'cfdp_uf_custom_status_message';
+      break;*/
   }
 }
+
+/*
+*  Set custom status message
+*
+*/
+/*function cfdp_uf_custom_status_message(&$form, $form_state) {
+  // To hide message
+  drupal_get_messages('status');
+  //To override message
+  drupal_set_message(t('Tak fordi du delte din hemmelighed med cyberhus.dk!'), 'status');
+ }*/
+
 
   /* 
   *  If all the chars in the string are chars that the URL cleaner will remove, title is invalid. 

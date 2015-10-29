@@ -364,7 +364,7 @@
 	margin: 2em 0;
 	@include clearfix;
 
-  @media(max-width: 600px){
+  @media(max-width: 800px){
     .form-type-select {
       label, span.form-required {
         float: none;
@@ -374,7 +374,8 @@
         display: block;
       }
     }
-    .form-type-textarea {
+    .form-type-textarea,
+    .form-type-textfield {
       label {
         display: block;
         width: 100%;
