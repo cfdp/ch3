@@ -80,13 +80,22 @@ and open the template in the editor.
 #ungi-nodes.view-ung-i-visning.view-id-ung_i_visning .ui-accordion-header.ui-state-active {
 	background: #e2dbd8;
 }
+
 #ungi-city #ungi-desc h2,
 #page #ungi-intro h2.page-title {
-	font-size: 300%;
-	text-transform: uppercase;
+    background: white url("../images/citysign.png") no-repeat scroll center bottom;
+    border: 3px solid #000;
+    border-radius: 15px;
+    color: #000;
+    font-size: 300%;
+    height: 150px;
+    line-height: 100%;
+    text-align: center;
 }
+
 #ungi-city iframe {
-	height: 42px;
+	height: 180px;
+  width: 100%;
 }
 #ungi-city p.chat-desc {
 	font-size: 12px;
