@@ -474,9 +474,9 @@
 }
 
 
-/* Accordion til brevkassen */
-
-.view.view-Brevkasse.view-id-Brevkasse {
+/* Accordion til brevkassen og til chatsiden */
+.view.view-Brevkasse.view-id-Brevkasse,
+.view.view-id-cyberhus_chat {
 	.views-field-field-brev-tax-label {
 		font-size: 20px;
 		font-weight: bold;
@@ -523,7 +523,8 @@
 	}
 }
 
-.view.view-Brevkasse.view-id-Brevkasse  {
+.view.view-Brevkasse.view-id-Brevkasse,
+.view.view-id-cyberhus_chat {
 
 	.views-row-odd .ui-accordion-header {
 		background: url("../img/accordion_header.png");
@@ -625,6 +626,17 @@
     	}
     }
   }
+
+.view.view-id-cyberhus_chat {
+  h3 {
+    margin-bottom: 5px;
+  }
+	.view-content.ui-accordion {
+		.views-row {
+			margin-bottom: 50px;
+		}
+	}
+}
 /* Brevkasse enkeltvisning - EVA */
 .view.view-brevkasse-enkeltvisning {
 	.view-content {
