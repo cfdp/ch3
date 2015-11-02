@@ -22,12 +22,21 @@
     clientURL: "http://cyberhus.dk",
     embedLocation: ".region-tabs-right-inner",
   };
+  var opekaFoldout4 = {
+    chatName: "kbh",
+    chatType: "pair",
+    baseURL: "https://kbh.curachat.com",
+    clientURL: "http://cyberhus.dk",
+    embedLocation: ".region-tabs-right-inner",
+  };
   opekaFoldout.cssFiles = [["opeka.widget.foldout.css", opekaFoldout.baseURL+"/sites/all/modules/custom/opeka/css/"],["opeka.widgets.css", opekaFoldout2.clientURL+"/sites/all/themes/cyberhus/css/"]];
   var i = 0;
 
   $(document).ready(function() {
     var width = $(window).width();
-    /* Add the foldoutController script - we only want widgets on wide screens*/
+    /* Add the foldoutController script - we only want widgets on wide screens
+     * @todo cover the resize window case also
+     */
     if((typeof foldoutController == "undefined") && (width >= 980)){
       opekaFoldout.embedScript = document.createElement('script');
       opekaFoldout.embedScript.type='text/javascript';
@@ -57,6 +66,8 @@
       secondChat.init();
       thirdChat = new foldoutController(jQuery, opekaFoldout3);
       thirdChat.init();
+      fourthChat = new foldoutController(jQuery, opekaFoldout4);
+      fourthChat.init();
     }
   }
 
