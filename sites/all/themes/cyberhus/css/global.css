@@ -3049,15 +3049,11 @@
 /* Kropshemmeligheder */
 /* No content bg color on body secrets page */
 /* line 458, ../sass/_node.scss */
-.context-hemmeligheder.node-type-simpel-side-med-view #page #section-content #region-content .region-inner.region-content-inner {
-  background-color: transparent;
-}
-/* line 461, ../sass/_node.scss */
 .context-hemmeligheder.node-type-simpel-side-med-view h2.node-title {
   display: none;
 }
 
-/* line 466, ../sass/_node.scss */
+/* line 463, ../sass/_node.scss */
 .node-body-secret .content {
   width: 260px;
   height: 150px;
@@ -3068,7 +3064,7 @@
   box-shadow: 5px 5px #aaaaaa;
   position: relative;
 }
-/* line 477, ../sass/_node.scss */
+/* line 474, ../sass/_node.scss */
 .node-body-secret .body_secret_icon {
   width: 60px;
   height: 60px;
@@ -3082,24 +3078,24 @@
   left: 50%;
   margin-left: -30px;
 }
-/* line 491, ../sass/_node.scss */
+/* line 488, ../sass/_node.scss */
 .node-body-secret .field-name-body {
   margin: 25px 0 5px 0;
 }
-/* line 495, ../sass/_node.scss */
+/* line 492, ../sass/_node.scss */
 .node-body-secret .bottom_info {
   color: #888888;
 }
-/* line 499, ../sass/_node.scss */
+/* line 496, ../sass/_node.scss */
 .node-body-secret .field-name-field-brevk-koen, .node-body-secret .field-name-field-brevk-alder {
   display: inline;
 }
-/* line 503, ../sass/_node.scss */
+/* line 500, ../sass/_node.scss */
 .node-body-secret .date {
   float: right;
   color: #888888;
 }
-/* line 508, ../sass/_node.scss */
+/* line 505, ../sass/_node.scss */
 .node-body-secret .btn {
   padding: 8px 10px !important;
   border-radius: 3px !important;
