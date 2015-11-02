@@ -1132,6 +1132,7 @@
 .view-id-body_secrets {
 
   .view-header, .view-content {
+    margin-bottom: 10px;
     text-align: center;
 
     .opret_btn a {
@@ -1146,6 +1147,7 @@
 		position: relative;
 		background: transparent url("../img/grid-box-shadow.png") no-repeat bottom center;
 		padding-bottom: 8px;
+    text-align: left;
 		vertical-align: text-top;
 
     .body_secret_icon {
@@ -1235,14 +1237,10 @@
 	}
 
 	.more-link {
-		text-align: left;
-		margin-left: 30px;
+		text-align: center;
 		a {
-			color: #ffffff !important;
-			background-color: #fb9a00;
-			display: inline-block;
-			border-radius: 3px;
-			padding: 8px 15px;
+			@include btn();
+      color: #fff;
 		}
 	}
 }

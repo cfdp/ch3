@@ -79,7 +79,7 @@ body {
                   font-family: $std-font-family;
                 }
                 a {
-                	color: #000000 !important;
+                	color: #000000 !important; // @todo rewrite styles without !important keyword urgh
                 }
               }
 

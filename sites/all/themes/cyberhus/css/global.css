@@ -1452,13 +1452,14 @@
 
 /* line 1134, ../sass/_views.scss */
 .view-id-body_secrets .view-header, .view-id-body_secrets .view-content {
+  margin-bottom: 10px;
   text-align: center;
 }
-/* line 1137, ../sass/_views.scss */
+/* line 1138, ../sass/_views.scss */
 .view-id-body_secrets .view-header .opret_btn a, .view-id-body_secrets .view-content .opret_btn a {
   width: 90%;
 }
-/* line 1142, ../sass/_views.scss */
+/* line 1143, ../sass/_views.scss */
 .view-id-body_secrets .views-row {
   display: inline-block;
   width: 260px;
@@ -1466,9 +1467,10 @@
   position: relative;
   background: transparent url("../img/grid-box-shadow.png") no-repeat bottom center;
   padding-bottom: 8px;
+  text-align: left;
   vertical-align: text-top;
 }
-/* line 1151, ../sass/_views.scss */
+/* line 1153, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body_secret_icon {
   background: transparent url("../img/icons/hemmeligheder_inv.png") repeat scroll 0 0;
   height: 40px;
@@ -1477,11 +1479,11 @@
   top: 10px;
   width: 40px;
 }
-/* line 1161, ../sass/_views.scss */
+/* line 1163, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body-secrets-field.field-category {
   margin-bottom: 15px;
 }
-/* line 1164, ../sass/_views.scss */
+/* line 1166, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body-secrets-field.field-body {
   font-size: 12px;
   line-height: 1.25em;
@@ -1489,32 +1491,32 @@
   text-shadow: none;
   word-wrap: break-word;
 }
-/* line 1172, ../sass/_views.scss */
+/* line 1174, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body-secrets-field.field-sex, .view-id-body_secrets .views-row .body-secrets-field.field-age {
   font-size: 11px;
 }
-/* line 1177, ../sass/_views.scss */
+/* line 1179, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body-secrets-field.field-created {
   font-size: 11px;
   position: absolute;
   bottom: 27px;
 }
-/* line 1185, ../sass/_views.scss */
+/* line 1187, ../sass/_views.scss */
 .view-id-body_secrets .views-field-created {
   float: right;
   margin: 0px 0 6px 0;
 }
-/* line 1190, ../sass/_views.scss */
+/* line 1192, ../sass/_views.scss */
 .view-id-body_secrets .views-field-body {
   clear: both;
   line-height: 15px;
   margin-bottom: 5px;
 }
-/* line 1196, ../sass/_views.scss */
+/* line 1198, ../sass/_views.scss */
 .view-id-body_secrets .views-field-field-brevk-koen, .view-id-body_secrets .views-field-field-brevk-alder, .view-id-body_secrets .views-field-created {
   color: #888888;
 }
-/* line 1202, ../sass/_views.scss */
+/* line 1204, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing a {
   margin-top: 10px;
   color: #ffffff !important;
@@ -1522,7 +1524,7 @@
   display: inline-block;
   border-radius: 3px;
 }
-/* line 1212, ../sass/_views.scss */
+/* line 1214, ../sass/_views.scss */
 .view-id-body_secrets .view-footer > a {
   background: transparent url(../img/next_yellow.png) center left no-repeat;
   float: left;
@@ -1530,7 +1532,7 @@
   padding-left: 18px;
   margin-bottom: 8px;
 }
-/* line 1221, ../sass/_views.scss */
+/* line 1223, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing {
   background: #2980b9 none repeat scroll 0 0;
   color: #ffffff;
@@ -1539,34 +1541,40 @@
   padding: 25px 25px 15px;
   text-shadow: none;
 }
-/* line 1229, ../sass/_views.scss */
+/* line 1231, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing a {
   padding: 5px 10px;
   position: absolute;
   bottom: 10px;
   left: 60px;
 }
-/* line 1237, ../sass/_views.scss */
+/* line 1239, ../sass/_views.scss */
 .view-id-body_secrets .more-link {
-  text-align: left;
-  margin-left: 30px;
+  text-align: center;
 }
-/* line 1240, ../sass/_views.scss */
+/* line 1241, ../sass/_views.scss */
 .view-id-body_secrets .more-link a {
-  color: #ffffff !important;
-  background-color: #fb9a00;
+  padding: 15px 20px;
+  background-color: #e67e22;
+  color: #fff !important;
   display: inline-block;
-  border-radius: 3px;
-  padding: 8px 15px;
+  font-size: 15px;
+  line-height: 1em;
+  letter-spacing: .7px;
+  color: #fff;
+}
+/* line 10, ../sass/_mixins.scss */
+.view-id-body_secrets .more-link a:hover {
+  background-color: #e98b39;
 }
 
-/* line 1251, ../sass/_views.scss */
+/* line 1249, ../sass/_views.scss */
 #page #section-content #region-sidebar-first #block-views-body-secrets-block-1 .opret_btn a {
   color: #fff;
   text-decoration: none;
 }
 
-/* line 1260, ../sass/_views.scss */
+/* line 1258, ../sass/_views.scss */
 .view-id-related_articles .view-content .field-content a {
   background: transparent url(../img/next_yellow.png) center left no-repeat;
   float: left;
@@ -1578,13 +1586,13 @@
 }
 
 /* General stuff */
-/* line 1274, ../sass/_views.scss */
+/* line 1272, ../sass/_views.scss */
 .opret_btn {
   position: relative;
   margin-bottom: 30px;
   padding: 0 15px 0 15px;
 }
-/* line 1278, ../sass/_views.scss */
+/* line 1276, ../sass/_views.scss */
 .opret_btn a {
   padding: 15px 20px;
   background-color: #e67e22;
