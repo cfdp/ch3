@@ -3199,7 +3199,7 @@ body {
 }
 /* line 81, ../sass/global.scss */
 #region-sidebar-first a {
-  color: #000000 !important;
+  color: #000000;
 }
 
 /* line 88, ../sass/global.scss */
@@ -3372,7 +3372,7 @@ body {
 }
 /* line 263, ../sass/global.scss */
 #page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner a {
-  color: #2980b9;
+  color: #000000;
 }
 /* line 266, ../sass/global.scss */
 #page #section-content #region-sidebar-first .region-inner.region-sidebar-first-inner a:hover {

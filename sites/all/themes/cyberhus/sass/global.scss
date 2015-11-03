@@ -79,7 +79,7 @@ body {
                   font-family: $std-font-family;
                 }
                 a {
-                	color: #000000 !important; // @todo rewrite styles without !important keyword urgh
+                	color: #000000;
                 }
               }
 
@@ -261,7 +261,7 @@ body {
 						}
 
 						a {
-							color: #2980b9;
+							color: #000000;
 
 							&:hover {
 								text-decoration: underline;
