@@ -1,4 +1,4 @@
-/* Append on the site where the chat foldout should be active - enter the appropriate values for opekaFoldout.baseURL (baseURL of the chat service) and opekaFoldout.clientURL (client site URL)  amd opekaFoldout.embedLocation. Additional CSS files can be loaded by adding them to opekaFoldout.cssFiles */
+/* Append on the site where the chat foldout should be active - enter the appropriate values for opekaFoldout.baseURL (baseURL of the chat service) and opekaFoldout.clientURL (client site URL) and opekaFoldout.embedLocation. Additional CSS files can be loaded by adding them to opekaFoldout.cssFiles */
 (function($){
 /* Widget specific settings */
   var opekaFoldout = {
@@ -59,18 +59,31 @@
       window.setTimeout(waitForFnc,100);
     }
     else{
-      //Add any number of widgets - define additional variables as needed
-      firstChat = new foldoutController(jQuery, opekaFoldout);
-      firstChat.init();
-      secondChat = new foldoutController(jQuery, opekaFoldout2);
-      secondChat.init();
-      thirdChat = new foldoutController(jQuery, opekaFoldout3);
-      thirdChat.init();
-      fourthChat = new foldoutController(jQuery, opekaFoldout4);
-      fourthChat.init();
+      // Add the widgets with a timer delay to prevent browser from stalling
+      setTimeout(function(){
+        addWidget(opekaFoldout);
+      }, 100);
+      setTimeout(function(){
+        addWidget(opekaFoldout2);
+      }, 100);
+      setTimeout(function(){
+        addWidget(opekaFoldout3);
+      }, 100);
+      setTimeout(function(){
+        addWidget(opekaFoldout4);
+      }, 100);
     }
   }
 
   waitForFnc();
+
+  /**
+   * Initialize widget and add it to the page
+   * @param {Object} widget An instance of the foldoutController object
+   */
+  function addWidget(widget) {
+    newWidget = new foldoutController(jQuery, widget);
+    newWidget.init();
+  }
 
 })(jQuery);
