@@ -62,16 +62,16 @@
       // Add the widgets with a timer delay to prevent browser from stalling
       setTimeout(function(){
         addWidget(opekaFoldout);
-      }, 100);
+      }, 1000);
       setTimeout(function(){
         addWidget(opekaFoldout2);
-      }, 100);
+      }, 1000);
       setTimeout(function(){
         addWidget(opekaFoldout3);
-      }, 100);
+      }, 1000);
       setTimeout(function(){
         addWidget(opekaFoldout4);
-      }, 100);
+      }, 1000);
     }
   }
 

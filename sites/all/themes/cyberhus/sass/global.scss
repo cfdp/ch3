@@ -71,6 +71,11 @@ body {
                 a.btn {
                   @include btn();
                 }
+                div.opret_btn {
+                  a {
+                    color: white;
+                  }
+                }
               }
 
               #region-sidebar-first {
