@@ -37,6 +37,7 @@ and open the template in the editor.
 	max-width: 443px;
 	vertical-align: middle;
 	text-align: left;
+	width: 100%;
 }
 .ungi-half.ungi-cityname {
 	color: #e98b39;
