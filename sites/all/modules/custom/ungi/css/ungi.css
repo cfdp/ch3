@@ -18,7 +18,7 @@ and open the template in the editor.
 }
 #ungi-desc {
 	display: inline-block;
-	width: 500px;
+	max-width: 500px;
 	vertical-align: top;
 }
 .ungi-dot {
@@ -34,9 +34,10 @@ and open the template in the editor.
 }
 .ungi-half {
 	display: inline-block;
-	width: 443px;
+	max-width: 443px;
 	vertical-align: middle;
 	text-align: left;
+	width: 100%;
 }
 .ungi-half.ungi-cityname {
 	color: #e98b39;
@@ -104,7 +105,7 @@ and open the template in the editor.
 	font-size: 12px;
 }
 #ungi-city #ungi-desc {
-    width: 600px;
+    max-width: 600px;
 }
 #ungi-city #ungi-map {
     width: 250px;
