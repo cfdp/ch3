@@ -31,7 +31,6 @@ function ungi_byer() {
 
 	$vocabulary = taxonomy_vocabulary_machine_name_load("ung_i_byer");
 	$taxonomy = taxonomy_get_tree($vocabulary->vid, 0, NULL, TRUE);
-	//dpm($taxonomy);
 	$cities = array();
 	foreach ($taxonomy as $term) {
 		$city = ungi_term_to_city($term);
@@ -41,8 +40,12 @@ function ungi_byer() {
 }
 
 function ungi_by($termname) {
-	$terms = taxonomy_get_term_by_name($termname, "ung_i_byer");
+  $termname = urldecode($termname);
+  $terms = taxonomy_get_term_by_name($termname, "ung_i_byer");
 	$term = reset($terms);
+  if ($term == '') {
+    drupal_not_found();
+  }
 	$city = ungi_term_to_city($term, true);
 	$nids = taxonomy_select_nodes($term->tid, FALSE);
 	$nodes = node_load_multiple($nids);
