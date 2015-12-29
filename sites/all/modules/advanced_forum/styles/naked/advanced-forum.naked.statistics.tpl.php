@@ -1,8 +1,6 @@
 <?php
-
 /**
  * @file
- *
  * Theme implementation: Template for each forum forum statistics section.
  *
  * Available variables:
@@ -21,12 +19,13 @@
   <div id="forum-statistics-header"><?php print t("What's Going On?"); ?></div>
 
   <div id="forum-statistics-active-header" class="forum-statistics-sub-header">
-    <?php print t('Currently active users: !current_total (!current_users users and !current_guests guests)', array('!current_total' => $current_total, '!current_users' => $current_users, '!current_guests' => $current_guests)); ?>
+    <?php print t('Currently active users: !current_total', array('!current_total' => $current_total)); ?>
   </div>
-
-  <div id="forum-statistics-active-body" class="forum-statistics-sub-body">
-    <?php print $online_users; ?>
-  </div>
+  <?php if (!empty($online_users)) : ?>
+    <div id="forum-statistics-active-body" class="forum-statistics-sub-body">
+      <?php print $online_users; ?>
+    </div>
+  <?php endif; ?>
 
   <div id="forum-statistics-statistics-header" class="forum-statistics-sub-header">
     <?php print t('Statistics'); ?>
@@ -34,7 +33,12 @@
 
   <div id="forum-statistics-statistics-body" class="forum-statistics-sub-body">
     <div id="forum-statistics-topics">
-      <?php print t('Topics: !topics, Posts: !posts, Users: !users', array('!topics' => $topics, '!posts' => $posts, '!users' => $users)); ?>
+      <?php print t('Topics: !topics, Posts: !posts, Users: !users', array(
+          '!topics' => $topics,
+          '!posts' => $posts,
+          '!users' => $users,
+        )
+      ); ?>
     </div>
     <div id="forum-statistics-latest-users">
       <?php print t('Welcome to our latest members: !users', array('!users' => $latest_users)); ?>

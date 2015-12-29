@@ -9,9 +9,9 @@ scripts[] = ga_push_browser.js
 files[] = ga_push_browser.classes.inc
 configure = admin/config/system/ga-push/browser
 
-; Information added by Drupal.org packaging script on 2014-03-02
-version = "7.x-1.0-rc1"
+; Information added by Drupal.org packaging script on 2014-10-12
+version = "7.x-1.0"
 core = "7.x"
 project = "ga_push"
-datestamp = "1393787032"
+datestamp = "1413134629"
 

@@ -35,9 +35,9 @@ function _custom_search_default_admin_form($delta = '') {
   );
   $form['search_box']['custom_search_' . $delta . 'text'] = array(
     '#type'           => 'textfield',
-    '#title'          => t('Search box default text'),
+    '#title'          => t('Search box placeholder text'),
     '#default_value'  => variable_get('custom_search_' . $delta . 'text', ''),
-    '#description'    => t('This will change the default text inside the search form. Leave blank for no text. This field is blank by default.'),
+    '#description'    => t('This will change the default text inside the search form. This is the <a href="http://www.w3schools.com/tags/att_input_placeholder.asp" target="_blank">placeholder</a> attribute for the TextField. Leave blank for no text. This field is blank by default.'),
   );
   $form['search_box']['custom_search_' . $delta . 'hint_text'] = array(
     '#type'           => 'textfield',
@@ -57,6 +57,16 @@ function _custom_search_default_admin_form($delta = '') {
       '#description'    => t('The default value is "text".'),
     );
   }
+  $form['search_box']['custom_search_' . $delta . 'operator'] = array(
+    '#type'           => 'select',
+    '#title'          => t('Search operator'),
+    '#options'        => array(
+      'AND' => t('AND'),
+      'OR'  => t('OR'),
+    ),
+    '#default_value'  => variable_get('custom_search_' . $delta . 'operator', 'AND'),
+    '#description'    => t('The default value is "AND", and will search for results containing ALL the words. Choose "OR" to search for results containing ANY of the words.'),
+  );
   $form['search_box']['custom_search_' . $delta . 'size'] = array(
     '#type'           => 'textfield',
     '#title'          => t('Search box size'),
@@ -276,7 +286,7 @@ function _custom_search_content_admin_form($delta = '') {
   $form['custom_search_' . $delta . 'node_types_excluded'] = array(
     '#type'           => 'checkboxes',
     '#title'          => t('Content exclusion'),
-    '#description'    => t("Select the content types you don't want to be displayed as results."),
+    '#description'    => t("Select the content types you don't want to be displayed as results.<br/><strong>Notice</strong>: content exclusion only works with the core Search module."),
     '#default_value'  => variable_get('custom_search_' . $delta . 'node_types_excluded', array()),
     '#options'        => node_type_get_names(),
   );

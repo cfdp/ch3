@@ -1,28 +1,25 @@
 <?php
 /**
  * @file
- * Javascript: method and functions
+ * Classic GA Javascript: method and functions.
  */
-
 
 /**
- * Callback for Javascript Classic method.
- * 
- * @param type $push
- * @param type $type
+ * GA Push Method callback: Javascript Classic (javascript).
  */
-function ga_push_method_javascript($push, $type) {
+function ga_push_method_javascript($push, $type, $options) {
 
   $push_info = array(
     'push' => $push,
     'type' => $type,
   );
   $_SESSION['ga_push'][] = $push_info;
-
 }
 
 /**
- * Send the ga push to JS on page load
+ * Send the ga push to JS on page load.
+ *
+ * @see https://developers.google.com/analytics/devguides/collection/gajs
  */
 function ga_push_method_javascript_push() {
   if (isset($_SESSION['ga_push'])) {
@@ -30,7 +27,7 @@ function ga_push_method_javascript_push() {
     $id = variable_get('googleanalytics_account', '');
 
     if (!empty($id)) {
-      $script = "var _gaq = _gaq || [];\n ";
+      $script = "var _gaq = _gaq || [];\n";
 
       foreach ($_SESSION['ga_push'] as $queued) {
 
@@ -41,61 +38,97 @@ function ga_push_method_javascript_push() {
 
           case GA_PUSH_TYPE_EVENT:
 
-            $script .= "_gaq.push(['_trackEvent'";
-
-            // Required:
-            $script .= ", '" . $push['category'] . "'";
-            $script .= ", '" . $push['action'] . "'";
-
-            // Optional: default values
+            // Optional: default values:
             $push += array(
               'label' => '',
               'value' => 1,
-              'non-interaction' => false,
+              // 'non-interaction' => false,
             );
-            $script .= ", '" . $push['label'] . "'";
-            $script .= is_numeric($push['value']) ? ", " . $push['value'] : "," . 1;
-            $script .= $push['non-interaction'] ? ", " . "true" : "";
 
-            $script .= "]); \n";
+            $push_map = array(
+              'category' => 'category',
+              'action'   => 'action',
+              'label'    => 'label',
+              'value'    => 'value',
+              'non-interaction' => 'non-interaction',
+            );
+
+            // Mapping.
+            $mapped_push = ga_push_push_mapper($push_map, $push);
+
+            // Add method.
+            array_unshift($mapped_push, '_trackEvent');
+
+            // Convert to JSON to avoid special chars problems that could broke syntax.
+            $script_params = json_encode(array_values($mapped_push));
+
+            // Convert to JS function.
+            $script .= '_gaq.push(' . $script_params . ");\n";
 
             break;
 
           case GA_PUSH_TYPE_ECOMMERCE:
 
-            //Transaction:
-            $script .= "_gaq.push(['_addTrans', " .
-                       "'" . $push['trans']['order_id'] . "', " . // order ID - required
-                       "'" . $push['trans']['affiliation'] . "', " . // affiliation or store name
-                       "'" . $push['trans']['total'] . "', " . // total - required
-                       "'" . $push['trans']['total_tax'] . "', " . // tax
-                       "'" . $push['trans']['total_shipping'] . "', " . // shipping
-                       "'" . $push['trans']['city'] . "', " . // city
-                       "'" . $push['trans']['region'] . "', " . // state or province
-                       "'" . $push['trans']['country'] . "'" .   // country
-                       "]);\n ";
+            // Transaction.
+            $transaction_push_map = array(
+              'order_id'       => 'order_id',
+              'affiliation'    => 'affiliation',
+              'total'          => 'total',
+              'total_tax'      => 'total_tax',
+              'total_shipping' => 'total_shipping',
+              'city'           => 'city',
+              'region'         => 'region',
+              'country'        => 'country',
+            );
 
+            // Mapping and initialize empty values assure param order (so no
+            // param is in place of another).
+            $transaction_mapped_push = ga_push_push_mapper($transaction_push_map, $push['trans'], TRUE);
 
+            $transaction_mapped_push = ga_push_clean_empty_array_tail($transaction_mapped_push);
+
+            // Add method.
+            array_unshift($transaction_mapped_push, '_addTrans');
+
+            // Build up the transaction.
+            $script .= "_gaq.push(" . json_encode(array_values($transaction_mapped_push)) . ");\n";
+
+            // Items.
+            $item_push_map = array(
+              'order_id'       => 'order_id',
+              'sku'      => 'sku',
+              'name'     => 'name',
+              'category' => 'category',
+              'price'    => 'price',
+              'quantity' => 'quantity',
+            );
+
+            // Build up the items.
             foreach ($push['items'] as $value) {
+              // Mapping.
+              $item_mapped_push = ga_push_push_mapper($item_push_map, $value, TRUE);
+              $item_mapped_push = ga_push_clean_empty_array_tail($item_mapped_push);
 
-              $script .= "_gaq.push(['_addItem', " .
-                         "'" . $value['order_id'] . "', " . // order ID - required
-                         "'" . $value['sku'] . "', " . // SKU/code - required
-                         "'" . $value['name'] . "', " . // product name
-                         "'" . $value['category'] . "', " . // category or variation
-                         "'" . $value['price'] . "', " . // unit price - required
-                         "'" . $value['quantity'] . "'" .   // quantity - required
-                         "]);\n ";
+              // Adding method.
+              array_unshift($item_mapped_push, '_addItem');
 
+              $script .= "_gaq.push(" . json_encode(array_values($item_mapped_push)) . ");\n";
             }
 
-            //Transaction - end:
+            // Currency: by default, you can configure a common, global, currency
+            // for all transactions and items through the Google Analytics management
+            // web interface. By default, the global currency is used for all items
+            // and transactions.
+            if (!empty($push['trans']['currency'])) {
+              $script .= "_gaq.push(['_set', 'currencyCode', '"
+                . $push['trans']['currency'] . "']);\n";
+            }
+
+            // Transaction - end:
             $script .= "_gaq.push(['_trackTrans']);\n ";
 
             break;
-
         }
-
       }
 
       unset($_SESSION['ga_push']);
@@ -103,11 +136,10 @@ function ga_push_method_javascript_push() {
       $options = array(
         'type' => 'inline',
         'scope' => 'footer',
-        //'weight' => 0,
-        //'group' => JS_DEFAULT,
+        // 'weight' => 0,
+        // 'group' => JS_DEFAULT,
       );
       drupal_add_js($script, $options);
-
     }
   }
 }

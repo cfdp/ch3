@@ -3,7 +3,6 @@
 /**
  * @file
  * Views field view field handler class.
- * 
  */
 
 class views_field_view_handler_field_view extends views_handler_field {
@@ -11,7 +10,7 @@ class views_field_view_handler_field_view extends views_handler_field {
    * If query aggregation is used, all of the arguments for the child view.
    *
    * This is a multidimensional array containing field_aliases for the argument's
-   * fields and containing a linear array of all of the results to be used as 
+   * fields and containing a linear array of all of the results to be used as
    * arguments in various fields.
    */
   public $child_arguments = array();
@@ -31,7 +30,22 @@ class views_field_view_handler_field_view extends views_handler_field {
   public $child_view = FALSE;
 
   /**
+   * Stores a static cache of views. This will only cache views that contain no
+   * arguments.
+   *
+   * @var array
+   */
+  protected $cached = array();
+
+  /**
    * Disable this handler from being used as a 'group by'.
+   */
+  function use_group_by() {
+    return FALSE;
+  }
+
+  /**
+   * Disable this handler from being used as a 'group by' in style plugins.
    */
   function use_string_group_by() {
     return FALSE;
@@ -50,8 +64,7 @@ class views_field_view_handler_field_view extends views_handler_field {
   function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
 
-    $view_options = views_get_views_as_options(TRUE);
-
+    $view_options = views_get_views_as_options(TRUE, 'all', NULL, FALSE, TRUE);
     $form['views_field_view'] = array(
       '#type' => 'fieldset',
       '#title' => t("View settings"),
@@ -75,7 +88,8 @@ class views_field_view_handler_field_view extends views_handler_field {
 
     // If there is no view set, use the first one for now.
     if (count($view_options) && empty($this->options['view'])) {
-      $this->options['view'] = reset(array_keys($view_options));
+      $keys = array_keys($view_options);
+      $this->options['view'] = reset($keys);
     }
 
     if ($this->options['view']) {
@@ -146,6 +160,7 @@ class views_field_view_handler_field_view extends views_handler_field {
         '#type' => 'textfield',
         '#default_value' => $this->options['arguments'],
         '#fieldset' => 'views_field_view',
+        '#maxlength' => '256',
       );
       $form['available_tokens'] = array(
         '#type' => 'fieldset',
@@ -172,7 +187,7 @@ class views_field_view_handler_field_view extends views_handler_field {
 
       // Ensure we're working with a SQL view.
       $views_data = views_fetch_data($view->base_table);
-      if ($views_data['table']['base']['query class'] == 'views_query') {
+      if (isset($views_data['table']['base']['query class']) && $views_data['table']['base']['query class'] == 'views_query') {
         $form['query_aggregation']['#disabled'] = TRUE;
       }
     }
@@ -267,7 +282,7 @@ class views_field_view_handler_field_view extends views_handler_field {
           }
         }
 
-        $argument_ids = array();
+        $argument_field_aliases = array();
 
         foreach ($this->child_arguments as $child_argument_name => $child_argument) {
           // Work with the arguments on the child view in the order they are
@@ -275,13 +290,34 @@ class views_field_view_handler_field_view extends views_handler_field {
           $configured_argument = array_shift($configured_arguments);
           // To be able to later split up our results among the appropriate rows,
           // we need to add whatever argument fields we're using to the query.
-          $argument_ids[$child_argument_name] = $child_view->add_item($child_view_display, 'field', $configured_argument['table'], $configured_argument['field'], array('exclude' => TRUE));
+
+          // Sadly the table and field from the argument does not always match
+          // the corresponding field. One common usecase are fieldapi fields,
+          // so let's special case them.
+          $table_name = $configured_argument['table'];
+          $table_field = $configured_argument['field'];
+          $views_data = views_fetch_data($table_name);
+          $argument_views_data = $views_data[$table_field];
+          // This is the condition how we find out that we deal with a fieldapi
+          // field.
+          if (isset($argument_views_data['argument']['field_name'])) {
+            $table_field = $argument_views_data['argument']['field_name'];
+          }
+
+          // We first the field, so we can ensure the table properly. Later we
+          //
+          $argument_field_id = $child_view->add_item($child_view_display, 'field', $table_name, $table_field, array('exclude' => TRUE));
 
           if (isset($child_view->pager['items_per_page'])) {
             $child_view->pager['items_per_page'] = 0;
           }
 
+          $child_view->field[$argument_field_id]->definition['add fields to query'] = TRUE;
+
           $child_view->build();
+
+          // Also add the field we want to use later to split the result up.
+          $argument_field_aliases[$child_argument_name] = $child_view->query->add_field($configured_argument['table'], $configured_argument['field']);
           // Add the WHERE IN clause to this query.
           $child_view->query->add_where(0, $configured_argument['table'] . '.' . $configured_argument['field'], $child_argument['values']);
         }
@@ -296,8 +332,9 @@ class views_field_view_handler_field_view extends views_handler_field {
 
         // Now that the query has run, we need to get the field alias for each argument field
         // so that it can be identified later.
-        foreach ($argument_ids as $child_argument_name => $argument_id) {
-          $child_alias = (isset($child_view->field[$argument_id]->field_alias) && $child_view->field[$argument_id]->field_alias !== 'unknown') ? $child_view->field[$argument_id]->field_alias : $child_view->field[$argument_id]->real_field;
+        foreach ($argument_field_aliases as $child_argument_name => $argument_field_alias) {
+          $child_alias = $argument_field_alias;
+
           $this->child_arguments[$child_argument_name]['child_view_field_alias'] = $child_alias;
         }
         $results = $child_view->result;
@@ -348,17 +385,23 @@ class views_field_view_handler_field_view extends views_handler_field {
   }
 
   function render($values) {
+    static $running = array();
     $output = NULL;
+
     // If it's not a field handler and there are no values
     // Get the first result row from the view and use that.
     if (($this->handler_type !== 'field') && empty($values) && isset($this->view->result)) {
       $values = reset($this->view->result);
     }
 
-    static $running = array();
-    // Protect against the evil / recursion.
-    // Set the variable for yourself, this is not for the normal "user".
-    if (empty($running[$this->options['view']][$this->options['display']]) || variable_get('views_field_view_evil', FALSE)) {
+    if (empty($this->options['arguments']) && isset($this->cached[$this->options['view']][$this->options['display']])) {
+      // If there are no arguments, and we already cached this view, then
+      // our work here is done.
+      $output = $this->cached[$this->options['view']][$this->options['display']];
+    }
+    // Protect against the evil / recursion. Set the variable for yourself, this
+    // is not for the normal "user".
+    elseif (empty($running[$this->options['view']][$this->options['display']]) || variable_get('views_field_view_evil', FALSE)) {
       if ($this->options['view'] && !$this->options['query_aggregation']) {
         $running[$this->options['view']][$this->options['display']] = TRUE;
         $args = array();
@@ -384,14 +427,21 @@ class views_field_view_handler_field_view extends views_handler_field {
             // Find a proper start value for the ascening pager IDs.
             $start = 0;
             $pager = $view->display_handler->get_option('pager');
-            if (isset($this->query->pager->options)) {
+            if (isset($this->query->pager->options['id'])) {
               $start = (int) $this->query->pager->options['id'];
             }
 
+            // Set the index at 1, as we will always want this to be atleast
+            // 1 higher than the start ID.
+            $index = 1;
             // Set the pager ID before initializing the pager, so
             // views_plugin_pager::set_current_page works as expected, which is
-            // called from view::init_pager()
-            $pager['options']['id'] = $start + 1 + $this->view->row_index;
+            // called from view::init_pager(). There wont always be a row_index
+            // set so test for this.
+            if (isset($this->view->row_index)) {
+              $index += $this->view->row_index;
+            }
+            $pager['options']['id'] = $start + $index;
             $view->display_handler->set_option('pager', $pager);
             $view->init_pager();
           }
@@ -431,6 +481,7 @@ class views_field_view_handler_field_view extends views_handler_field {
               unset($child_view->style_plugin->rendered_fields);
             }
 
+            $child_view->pre_execute();
             $output = $child_view->render();
           }
 
@@ -442,9 +493,17 @@ class views_field_view_handler_field_view extends views_handler_field {
       $output = t('Recursion, stop!');
     }
 
-    if (!empty($output)) {
-      // Add the rendered output back to the $values object
-      // so it is available in $view->result objects.
+    if (empty($this->options['arguments']) && !isset($this->cached[$this->options['view']][$this->options['display']])) {
+      // If there are no arguments and no existing static cache then set a
+      // static cache for this view.
+      $this->cached[$this->options['view']][$this->options['display']] = $output;
+    }
+
+    // We only add the output to the $values object for field handlers. Area
+    // handlers will not use this.
+    if (($this->handler_type == 'field') && !empty($output)) {
+      // Add the rendered output back to the $values object so it is available
+      // in $view->result objects.
       $values->{'views_field_view_' . $this->options['id']} = $output;
     }
 
@@ -453,12 +512,12 @@ class views_field_view_handler_field_view extends views_handler_field {
 
   /**
    * Get field values from tokens.
-   * 
+   *
    * @param string $token
    *  token string. E.g. explode(',', $this->options['args']);
    * @param View $view
    *  Full view object to get token values from.
-   * 
+   *
    * @return array
    *  An array of raw argument values, returned in the same order as the token
    *  were passed in.
@@ -581,13 +640,13 @@ class views_field_view_handler_field_view extends views_handler_field {
     $this->document_self_tokens($options[t('Fields')]);
 
     // Default text.
-    $output = '<p>' . t('You must add some additional fields to this display before using this field. 
-      These fields may be marked as <em>Exclude from display</em> if you prefer. Note that due to rendering order, 
+    $output = '<p>' . t('You must add some additional fields to this display before using this field.
+      These fields may be marked as <em>Exclude from display</em> if you prefer. Note that due to rendering order,
       you cannot use fields that come after this field; if you need a field not listed here, rearrange your fields.') . '</p>';
 
     // We have some options, so make a list.
     if (!empty($options)) {
-      $output = '<p>' . t('The following tokens are available for this field. Note that due to rendering order, 
+      $output = '<p>' . t('The following tokens are available for this field. Note that due to rendering order,
         you cannot use fields that come after this field; if you need a field that is not listed here, re-arrange your fields.') . '</p>';
 
       foreach (array_keys($options) as $type) {
@@ -605,7 +664,7 @@ class views_field_view_handler_field_view extends views_handler_field {
       }
     }
 
-    $output .= '<p><em>' . t('Using rendered (%) tokens can cause unexpected behaviour, as this will use the last output of the field. 
+    $output .= '<p><em>' . t('Using rendered (%) tokens can cause unexpected behaviour, as this will use the last output of the field.
       This could be re written output also. If no prefix is used in the token pattern, "!" will be used as a default.') . '</em></p>';
 
     return $output;

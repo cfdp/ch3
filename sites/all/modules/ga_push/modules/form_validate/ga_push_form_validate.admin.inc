@@ -4,6 +4,12 @@
  * The administration functions and forms.
  */
 
+/**
+ * From: validate_settings_form.
+ *
+ * @return array
+ *   System settings form.
+ */
 function ga_push_form_validate_settings_form() {
 
   $form['ga_push_form_validate_forms'] = array(
@@ -21,5 +27,4 @@ function ga_push_form_validate_settings_form() {
   );
 
   return system_settings_form($form);
-
 }

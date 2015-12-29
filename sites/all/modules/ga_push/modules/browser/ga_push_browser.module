@@ -1,15 +1,18 @@
 <?php
+/**
+ * @file
+ * Drupal Module: GA Push (browser).
+ */
 
-//TODO: Integración con context
+// @TODO: context integration.
 
+/**
+ * Implements hook_init().
+ */
 function ga_push_browser_init() {
-
-  /**
-   * @TODO: Use Context to select when to add the GA Push Browser Events JS code.
-   */
+  // @TODO: Use Context to add the GA Push Browser Events JS code.
 
   $query = new EntityFieldQuery();
-
   $result = $query->entityCondition('entity_type', 'ga_push_browser_event')
                   ->propertyCondition('status', 1)
                   ->execute();
@@ -22,19 +25,22 @@ function ga_push_browser_init() {
     foreach ($gapb_events as $gapb_event) {
       $jsoptions[] = array(
         'selector' => $gapb_event->selector,
-        'push' => array($gapb_event->ga_category, $gapb_event->ga_action, $gapb_event->ga_label, $gapb_event->ga_value),
+        'push' => array(
+          $gapb_event->ga_category,
+          $gapb_event->ga_action,
+          $gapb_event->ga_label,
+          $gapb_event->ga_value,
+        ),
         'bind' => $gapb_event->bind,
       );
     }
 
     drupal_add_js(array('ga_push_browser' => $jsoptions), 'setting');
-
   }
-
 }
 
 /**
- * Implementation of hook_entity_info()
+ * Implements hook_entity_info().
  */
 function ga_push_browser_entity_info() {
   return array(
@@ -78,43 +84,37 @@ function ga_push_browser_event_load_multiple($ids = array(), $conditions = array
 }
 
 /**
- *
+ * Save the GA Push browser event entity.
  */
 function ga_push_browser_event_save($ga_push_browser_event) {
   return entity_save('ga_push_browser_event', $ga_push_browser_event);
 }
 
-
-
- /**
-  * Deletes one single browser event.
-  *
-  * @param $order_id
-  *   The ID of the GA Push browser event to delete.
-  *
-  * @return
-  *   TRUE on success, FALSE otherwise.
-  **/
+/**
+ * Deletes one single browser event.
+ *
+ * @param int $ga_push_browser_event_id
+ *   The ID of the GA Push browser event to delete.
+ *
+ * @return bool
+ *   TRUE on success, FALSE otherwise.
+ */
 function ga_push_browser_delete($ga_push_browser_event_id) {
   return entity_delete('ga_push_browser_event', $ga_push_browser_event_id);
 }
 
-
-
- /**
-  * Delete multiple GA Push browser events.
-  *
-  * @param $ga_push_browser_event_ids
-  *   Array of browser events id to delete.
-  *
-  * @return
-  *   TRUE on success, FALSE otherwise.
-  **/
+/**
+ * Delete multiple GA Push browser events.
+ *
+ * @param int $ga_push_browser_event_ids
+ *   Array of browser events id to delete.
+ *
+ * @return bool
+ *   TRUE on success, FALSE otherwise.
+ */
 function ga_push_browser_delete_multiple($ga_push_browser_event_ids) {
   return entity_delete_multiple('ga_push_browser_event', $ga_push_browser_event_ids);
 }
-
-
 
 /**
  * Implements hook_menu().
@@ -150,13 +150,26 @@ function ga_push_browser_menu() {
     'type' => MENU_LOCAL_TASK,
   );
 
-
   return $items;
-
 }
 
-
-
+/**
+ * Control the access to the ga push browser event.
+ *
+ * @global type $user
+ *
+ * @param string $op
+ *   Entity access operation.
+ * @param object $event
+ *   GA push browser event.
+ * @param object $account
+ *   User.
+ * @param string $entity_type
+ *   Entity type.
+ * 
+ * @return bool
+ *   Access.
+ */
 function ga_push_browser_event_access($op, $event, $account = NULL, $entity_type = NULL) {
   global $user;
 
@@ -166,7 +179,6 @@ function ga_push_browser_event_access($op, $event, $account = NULL, $entity_type
 
   return user_access('admin ga push', $account);
 }
-
 
 /**
  * Implements hook_views_api().

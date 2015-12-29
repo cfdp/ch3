@@ -5,30 +5,41 @@
  */
 
 /**
- * Method: PHP-GA
+ * GA Push Method callback: PHP-GA (php).
  */
-function ga_push_method_php_ga($push, $type) {
+function ga_push_method_php_ga($push, $type, $options) {
 
   $php_ga_path = libraries_get_path('php-ga');
-  include_once($php_ga_path . '/src/autoload.php');
+  include_once $php_ga_path . '/src/autoload.php';
 
-  //use UnitedPrototype\GoogleAnalytics;  //causes 500 Internal Server error, so need to use full namespace references eg UnitedPrototype\GoogleAnalytics\Tracker instead of GoogleAnalytics\Tracker
+  /*
+   * use UnitedPrototype\GoogleAnalytics;
+   * causes 500 Internal Server error, so need to use full namespace references.
+   * For example:
+   * UnitedPrototype\GoogleAnalytics\Tracker instead of GoogleAnalytics\Tracker
+   */
 
-  $ua = variable_get('googleanalytics_account', '');
+  $ua = !empty($options['tid']) ? $options['tid'] : variable_get('googleanalytics_account', '');
   $host = str_replace(array('http://', 'https://'), array('', ''), $GLOBALS['base_url']);
   $tracker = new UnitedPrototype\GoogleAnalytics\Tracker($ua, $host);
 
   // Visitor:
   $visitor = new UnitedPrototype\GoogleAnalytics\Visitor();
-  $visitor->setIpAddress($_SERVER['REMOTE_ADDR']);
+  $visitor->setIpAddress(ip_address());
   $visitor->setUserAgent($_SERVER['HTTP_USER_AGENT']);
-  if (!empty($_COOKIE['__utma'])) {
+  if (!empty($options['utma'])) {
+    $visitor->fromUtma($options['utma']);
+  }
+  elseif (!empty($_COOKIE['__utma'])) {
     $visitor->fromUtma($_COOKIE['__utma']);
   }
 
   // Session:
   $session = new UnitedPrototype\GoogleAnalytics\Session();
-  if (!empty($_COOKIE['__utmb'])) {
+  if (!empty($options['utmb'])) {
+    $session->fromUtmb($options['utmb']);
+  }
+  elseif (!empty($_COOKIE['__utmb'])) {
     $session->fromUtmb($_COOKIE['__utmb']);
   }
 
@@ -36,11 +47,11 @@ function ga_push_method_php_ga($push, $type) {
 
     case GA_PUSH_TYPE_EVENT:
       $event = new UnitedPrototype\GoogleAnalytics\Event();
-      
+
       // Required:
       $event->setCategory($push['category']);
       $event->setAction($push['action']);
-      
+
       // Optional:
       if (isset($push['label'])) {
         $event->setLabel($push['label']);
@@ -51,7 +62,7 @@ function ga_push_method_php_ga($push, $type) {
       if (isset($push['non-interaction'])) {
         $event->setNoninteraction($push['non-interaction']);
       }
-      
+
       $tracker->trackEvent($event, $session, $visitor);
       break;
 
@@ -74,8 +85,10 @@ function ga_push_method_php_ga($push, $type) {
           $item->setOrderId($value['order_id']);
           $item->setSku($value['sku']);
           $item->setName($value['name']);
-          //$item->setCategory($value['category]);
-          //Until it changes in the current library, the category method  -> set Variation. http://code.google.com/p/php-ga/issues/detail?id=13
+          // $item->setCategory($value['category]);
+          // Until it changes in the current library:
+          // the category method -> set Variation.
+          // http://code.google.com/p/php-ga/issues/detail?id=13
           $item->setVariation($value['category']);
           $item->setPrice($value['price']);
           $item->setQuantity($value['quantity']);

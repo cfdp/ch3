@@ -1,23 +1,23 @@
 <?php
 /**
  * @file
- *   GA Push Browser event classes.
+ * GA Push Browser event classes.
  */
 
- /**
-  * CRUD controller for GA Push Browser events.
+/**
+ * CRUD controller for GA Push Browser events.
  */
 class GAPushBrowserEventController extends EntityAPIController {
 
   /**
-   * @brief Creates a GA Push Browser event.
+   * Creates a GA Push Browser event.
    *
-   * @param $values
+   * @param array $values
    *   Intial values for the GA Push Browser event.
    *
-   * @return
+   * @return object
    *   A new GA Push Browser Event instance.
-   **/
+   */
   public function create(array $values = array()) {
 
     $values += array(
@@ -35,10 +35,9 @@ class GAPushBrowserEventController extends EntityAPIController {
   }
 }
 
-
 /**
- * @brief Entity class
+ * Entity class
  */
 class GAPushBrowserEvent extends Entity {
-  //TODO!
+  // @TODO!
 }

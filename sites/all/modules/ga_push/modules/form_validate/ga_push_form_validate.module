@@ -1,7 +1,11 @@
 <?php
+/**
+ * @file
+ * Drupal Module: GA Push (form validate).
+ */
 
 /**
- * Implements hook_menu
+ * Implements hook_menu().
  */
 function ga_push_form_validate_menu() {
 
@@ -17,11 +21,10 @@ function ga_push_form_validate_menu() {
   );
 
   return $items;
-
 }
 
 /**
- * Implements hook_form_alter
+ * Implements hook_form_alter().
  */
 function ga_push_form_validate_form_alter(&$form, &$form_state, $form_id) {
 
@@ -34,7 +37,7 @@ function ga_push_form_validate_form_alter(&$form, &$form_state, $form_id) {
   $logged_forms = ga_push_form_validate_get_logged_forms();
   $log = FALSE;
   foreach ($logged_forms as $value) {
-    $pattern = '/' . $value . '/'; //TODO: mirar para expresiones regulares si quitar el /
+    $pattern = '/' . $value . '/';
     if (preg_match($pattern, $form_id)) {
       $log = TRUE;
     }
@@ -46,7 +49,7 @@ function ga_push_form_validate_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
- * Add the function on the last place to record all errors
+ * Add the function on the last place to record all errors.
  */
 function ga_push_form_validate_form_after_build($form, $form_state) {
   $form['#validate'][] = 'ga_push_form_validate_get_validate_errors';
@@ -54,27 +57,27 @@ function ga_push_form_validate_form_after_build($form, $form_state) {
 }
 
 /**
- * Add erros info to push
+ * Push form errors to GA.
  */
 function ga_push_form_validate_get_validate_errors($form, $form_state) {
   $errors = form_get_errors();
 
   if (is_array($errors)) {
     foreach ($errors as $key => $error) {
-      //@TODO ¿filter the field?
+      // @TODO: filter the error output.
       $push = array(
         'category' => t('Form validate error'),
         'action'   => $form['form_id']['#value'] . ' - ' . $key,
         'label'    => $error,
-        'value'    => 1
+        'value'    => 1,
       );
-      ga_push_add($push, GA_PUSH_TYPE_EVENT);
+      ga_push_add_event($push);
     }
   }
 }
 
 /**
- * Returns all logged forms
+ * Returns all logged forms.
  */
 function ga_push_form_validate_get_logged_forms() {
   $forms = variable_get('ga_push_form_validate_forms', '');

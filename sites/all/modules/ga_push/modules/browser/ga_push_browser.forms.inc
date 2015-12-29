@@ -17,8 +17,15 @@ function ga_push_browser_event_add() {
   return $output;
 }
 
-
-
+/**
+ * GA Push browser event create/edit form.
+ *
+ * @param object $gapb_event
+ *   GA Push browser event.
+ *
+ * @return array
+ *   Form.
+ */
 function ga_push_browser_event_form($form, &$form_state, $gapb_event) {
   $form_state['gapb_event'] = $gapb_event;
 
@@ -94,11 +101,11 @@ function ga_push_browser_event_form($form, &$form_state, $gapb_event) {
   $form['#redirect'] = array();
 
   return $form;
-
 }
 
-
-
+/**
+ * Form submit: ga_push_browser_event_form().
+ */
 function ga_push_browser_event_form_submit($form, &$form_state) {
   entity_form_submit_build_entity('ga_push_browser_event', $form_state['gapb_event'], $form, $form_state);
   if (ga_push_browser_event_save($form_state['gapb_event'])) {
@@ -108,16 +115,14 @@ function ga_push_browser_event_form_submit($form, &$form_state) {
   $form_state['redirect'] = 'admin/config/system/ga-push/browser';
 }
 
-
-
 /**
  * Delete GA Push browser event confirm form.
  *
- * @param $ga_push_browser_event
+ * @param object $ga_push_browser_event
  *   GA Push browser evento to delete.
  *
- * @return
- *   Form structure.
+ * @return array
+ *   Form.
  */
 function ga_push_browser_event_confirm_delete_form($form, &$form_state, $ga_push_browser_event) {
 
@@ -129,10 +134,7 @@ function ga_push_browser_event_confirm_delete_form($form, &$form_state, $ga_push
     t('Delete'),
     t('Cancel')
   );
-
-
 }
-
 
 /**
  * Submit function for GA Push browser event delete confirm form.
@@ -141,4 +143,3 @@ function ga_push_browser_event_confirm_delete_form_submit($form, &$form_state) {
   ga_push_browser_delete($form['ga_push_browser_id']['#value']);
   $form_state['redirect'] = '/admin/config/system/ga-push/browser/';
 }
-

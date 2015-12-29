@@ -36,6 +36,10 @@ Requeriments: Google Analytics 7.x-1.x https://drupal.org/project/google_analyti
     Use the default libraries directory, usually "sites/all/libraries/",
     naming the folder "php-ga" (sites/all/libraries/php-ga).
 
+    Example:
+      /sites/all/libraries/php-ga/src/autoload.php
+      /sites/all/libraries/php-ga/src/GoogleAnalytics
+
 --------------------------------------------------------------------------------
  FEATURES:
 --------------------------------------------------------------------------------

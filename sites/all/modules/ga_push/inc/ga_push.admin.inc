@@ -5,11 +5,9 @@
  */
 
 /**
- * Form: ga_push settings().
+ * Form: GA Push settings.
  */
-function ga_push_settings_form($form, $form_state) {
-
-  $form = array();
+function ga_push_settings_form($form, &$form_state) {
 
   $options = ga_push_get_methods_option_list(NULL, FALSE);
 
@@ -23,5 +21,4 @@ function ga_push_settings_form($form, $form_state) {
   );
 
   return system_settings_form($form);
-
 }

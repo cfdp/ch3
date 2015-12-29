@@ -1,11 +1,10 @@
 name = Node add title
 description = Allows configuring the title of the node add pages.
 core = 7.x
-package = Other
 
-; Information added by  packaging script on 2013-11-09
+; Information added by Drupal.org packaging script on 2015-10-29
 version = "7.x-1.x-dev"
 core = "7.x"
 project = "node_add_title"
-datestamp = "1383993505"
+datestamp = "1446141842"
 
