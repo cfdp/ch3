@@ -8,7 +8,7 @@
 
 	#block-system-main {
 		@media(max-width: 979px) {
-			width: 616px;
+			width: 626px;
 			margin: auto; }
 
 		@media (max-width: 654px) {
@@ -120,6 +120,7 @@
 		overflow: hidden;
 		.masonry-item {
 			margin: 10px 10px 10px 5px;
+      width: 293px;
 			position: relative;
 			background: transparent url("../img/grid-box-shadow.png") no-repeat bottom center;
 			padding-bottom: 8px;
