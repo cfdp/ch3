@@ -16,20 +16,13 @@
     embedLocation: ".region-tabs-right-inner",
   };
   var opekaFoldout3 = {
-    chatName: "kram",
-    chatType: "group",
-    baseURL: "https://kram.curachat.com",
-    clientURL: "http://cyberhus.dk",
-    embedLocation: ".region-tabs-right-inner",
-  };
-  var opekaFoldout4 = {
     chatName: "kbh",
     chatType: "pair",
     baseURL: "https://kbh.curachat.com",
     clientURL: "http://cyberhus.dk",
     embedLocation: ".region-tabs-right-inner",
   };
-  opekaFoldout.cssFiles = [["opeka.widget.foldout.css", opekaFoldout.baseURL+"/sites/all/modules/custom/opeka/css/"],["opeka.widgets.css", opekaFoldout2.clientURL+"/sites/all/themes/cyberhus/css/"]];
+opekaFoldout.cssFiles = [["opeka.widget.foldout.css", opekaFoldout.baseURL+"/sites/all/modules/custom/opeka/css/"],["opeka.widgets.css", opekaFoldout2.clientURL+"/sites/all/themes/cyberhus/css/"]];
   var i = 0;
 
   $(document).ready(function() {
@@ -68,9 +61,6 @@
       }, 1000);
       setTimeout(function(){
         addWidget(opekaFoldout3);
-      }, 1000);
-      setTimeout(function(){
-        addWidget(opekaFoldout4);
       }, 1000);
     }
   }
