@@ -140,6 +140,13 @@ body {
 
 // Forsiden
 .page-forside {
+  #block-views-exp-forside-page {
+    h2.block-title {
+      font-size: 200%;
+      text-align: center;
+      color:  #999;
+    }
+  }
 	#page {
 		background: none;
 		#section-content {
