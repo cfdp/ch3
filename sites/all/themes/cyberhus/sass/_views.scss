@@ -278,7 +278,7 @@
         background: url("../img/icons/hemmeligheder_inv.png");
       }
       .masonry-inner {
-        background: #2980b9;
+        background: $color_blaa;
         color: #FFFFFF;
         .masonry-title a {
           color: #e67e22;
@@ -286,6 +286,18 @@
         }
        .masonry-title a:visited {
          color: #d66e12;
+        }
+      }
+
+      &.Ordet-er-dit {
+        .masonry-inner {
+          background: $color_lilla;
+        }
+      }
+
+      &.Lifehack {
+        .masonry-inner {
+          background: $color_groen;
         }
       }
 		}
@@ -1222,7 +1234,7 @@
 	}
 
 	.views-field-nothing {
-    background: #2980b9 none repeat scroll 0 0;
+    background: $color_blaa none repeat scroll 0 0;
     color: #ffffff;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.33);
     height: 190px;
@@ -1236,6 +1248,13 @@
 			left: 60px;
 		}
 	}
+
+  /* Ordet er dit - page customizations */
+  &.view-display-id-page_1 {
+    .views-field-nothing {
+      background: $color_lilla none repeat scroll 0 0;
+    }
+  }
 
 	.more-link {
 		text-align: center;

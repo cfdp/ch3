@@ -334,7 +334,7 @@
 	}
 }
 
-// Located on cyberhus.dk/kropshemligheder
+// Located on cyberhus.dk/hemmeligheder
 .page-node-add-body-secret {
 
 	.author-wrapper {
@@ -352,9 +352,12 @@
 		&.author-1 {
 			margin-bottom: 3em;
 		}
-
-
 	}
+
+  /* Hide the category for anonymous users */
+  &.not-logged-in .field-name-field-secrets-category {
+    display: none;
+  }
 }
 
 .node-body_secret-form {
