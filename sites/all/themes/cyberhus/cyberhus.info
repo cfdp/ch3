@@ -47,7 +47,6 @@ scripts[] = js/TimelineLite.min.js
 scripts[] = js/TimelineMax.min.js
 scripts[] = js/jquery.screwdefaultbuttons.min.js
 scripts[] = js/custom_settings.js
-scripts[] = js/chat_widget_tab_right.js
 scripts[] = js/scripts.js
 scripts[] = js/curachat.embed.js
 
