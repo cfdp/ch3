@@ -24,8 +24,8 @@
   };
   var opekaMultiWidget = {
     embedLocation: ".region-tabs-right-inner",
-    chat1: { chatName: "kbh", chatType: "pair", baseURL: "https://dev.demo", clientURL: "http://dev.ch3"},
-    chat2: { chatName: "rksk", chatType: "pair", baseURL: "https://dev.demo", clientURL: "http://dev.ch3"}
+    chat1: { chatName: "kbh", chatType: "pair", baseURL: "https://kbh.curachat.com", clientURL: "http://cyberhus.dk"},
+    chat2: { chatName: "rksk", chatType: "pair", baseURL: "https://rksk.curachat.com", clientURL: "http://cyberhus.dk"}
   };
 
   opekaFoldout.cssFiles = [["opeka.widget.foldout.css", opekaFoldout.baseURL+"/sites/all/modules/custom/opeka/css/"],["opeka.widgets.css", opekaFoldout2.clientURL+"/sites/all/themes/cyberhus/css/"]];
