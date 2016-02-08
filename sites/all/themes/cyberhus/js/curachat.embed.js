@@ -121,7 +121,7 @@
   }
 
   function embedMultiWidget() {
-    $( ".region-tabs-right-inner" ).append( '<div class="opeka-chat-foldout-wrapper multi"><div id="opeka-chat-iframe-multi"><iframe src="http://dev.ch3/sites/all/themes/cyberhus/chat-multi-widget/embed.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" height="200"></iframe></div></div>' );
+    $( ".region-tabs-right-inner" ).append( '<div class="opeka-chat-foldout-wrapper multi"><div id="opeka-chat-iframe-multi"><iframe src="http://dev.ch3/sites/all/themes/cyberhus/chat-multi-widget/embed.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" height="280"></iframe></div></div>' );
   }
 
 })(jQuery);
