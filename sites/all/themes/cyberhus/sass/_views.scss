@@ -291,7 +291,8 @@
 
       &.Ordet-er-dit {
         .masonry-inner {
-          background: black;
+          background: $color_lysblaa;
+          color: black;
         }
       }
 
@@ -1252,7 +1253,8 @@
   /* Ordet er dit - page customizations */
   &.view-display-id-page_1 {
     .views-field-nothing {
-      background: black none repeat scroll 0 0;
+      background: $color_lysblaa none repeat scroll 0 0;
+      color: black;
     }
   }
 
