@@ -78,6 +78,22 @@ function cyberhus_form_alter(&$form, &$form_state, $form_id) {
     // HTML5 placeholder attribute
     $form['search_block_form']['#attributes']['placeholder'] = t('Search here');
   }
+
+  /* Altering the body secrets form to incorporate Ordet er dit and Lifehack funtionality */
+  if ($form_id == 'body_secret_node_form') {
+    $params = drupal_get_query_parameters();
+    if (!empty($params)) {
+      $key = check_plain(key($params['edit']['field_secrets_category']['und']));
+      if ($key == "2325") {
+        // Ordet er dit
+        $form['body']['und'][0]['value']['#title'] = t('Ordet er dit');
+      }
+      else if ($key == "2326") {
+        // Lifehacks
+        $form['body']['und'][0]['value']['#title'] = t('Lifehack');
+      }
+    }
+  }
 }
 
 /**
@@ -114,7 +130,7 @@ function cyberhus_preprocess_author_pane(&$variables) {
 }
 
 /**
- * Rewrite title on body secrets / hemmeligheder page - Ordet er dit and Lifehack terms
+ * Rewrite title on body secrets / hemmeligheder page - Ordet er dit and Lifehack
  */
 function cyberhus_preprocess_page(&$variables){
   $path = current_path();
@@ -122,11 +138,11 @@ function cyberhus_preprocess_page(&$variables){
     $params = drupal_get_query_parameters();
     if (!empty($params)) {
       $key = check_plain(key($params['edit']['field_secrets_category']['und']));
-      if ($key == "2327") {
+      if ($key == "2325") {
         // Ordet er dit
         drupal_set_title('Ordet er dit!');
       }
-      else if ($key == "2328") {
+      else if ($key == "2326") {
         // Lifehacks
         drupal_set_title('Del dit Lifehack!');
       }
@@ -149,7 +165,6 @@ function cyberhus_preprocess_node(&$vars) {
 */
 
 function cyberhus_form_brevkasse_node_form_alter(&$form){
-  //dpm($form);
 
   //Select teh taxonomy vocabulary holding the values for the brevkasse categories
   $taxonomy = "vocabulary_3";
