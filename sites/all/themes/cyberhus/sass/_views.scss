@@ -1258,6 +1258,13 @@
     }
   }
 
+  /* Lifehacks - page customizations */
+  &.view-display-id-page_2 {
+    .views-field-nothing {
+      background: $color_lysblaa none repeat scroll 0 0;
+    }
+  }
+
 	.more-link {
 		text-align: center;
 		a {
