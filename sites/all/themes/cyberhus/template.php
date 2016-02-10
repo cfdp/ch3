@@ -84,11 +84,11 @@ function cyberhus_form_alter(&$form, &$form_state, $form_id) {
     $params = drupal_get_query_parameters();
     if (!empty($params)) {
       $key = check_plain(key($params['edit']['field_secrets_category']['und']));
-      if ($key == "2325") {
+      if ($key == "2327") {
         // Ordet er dit
         $form['body']['und'][0]['value']['#title'] = t('Ordet er dit');
       }
-      else if ($key == "2326") {
+      else if ($key == "2328") {
         // Lifehacks
         $form['body']['und'][0]['value']['#title'] = t('Lifehack');
       }
@@ -138,11 +138,11 @@ function cyberhus_preprocess_page(&$variables){
     $params = drupal_get_query_parameters();
     if (!empty($params)) {
       $key = check_plain(key($params['edit']['field_secrets_category']['und']));
-      if ($key == "2325") {
+      if ($key == "2327") {
         // Ordet er dit
         drupal_set_title('Ordet er dit!');
       }
-      else if ($key == "2326") {
+      else if ($key == "2328") {
         // Lifehacks
         drupal_set_title('Del dit Lifehack!');
       }
