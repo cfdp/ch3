@@ -113,8 +113,28 @@ function cyberhus_preprocess_author_pane(&$variables) {
   $variables['show_template_location'] = TRUE;
 }
 
-/* Forum form - removed Homepage field*/
+/**
+ * Rewrite title on body secrets / hemmeligheder page - Ordet er dit and Lifehack terms
+ */
+function cyberhus_preprocess_page(&$variables){
+  $path = current_path();
+  if ($path == "node/add/body-secret") {
+    $params = drupal_get_query_parameters();
+    if (!empty($params)) {
+      $key = check_plain(key($params['edit']['field_secrets_category']['und']));
+      if ($key == "2327") {
+        // Ordet er dit
+        drupal_set_title('Ordet er dit!');
+      }
+      else if ($key == "2328") {
+        // Lifehacks
+        drupal_set_title('Del dit Lifehack!');
+      }
+    }
+  }
+}
 
+/* Forum form - removed Homepage field*/
 function cyberhus_form_comment_node_forum_form_alter(&$form) {
   $form['author']['homepage']['#access'] = FALSE;
 }
