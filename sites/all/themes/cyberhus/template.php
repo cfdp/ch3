@@ -82,13 +82,14 @@ function cyberhus_form_alter(&$form, &$form_state, $form_id) {
   /* Altering the body secrets form to incorporate Ordet er dit and Lifehack funtionality */
   if ($form_id == 'body_secret_node_form') {
     $params = drupal_get_query_parameters();
+    dpm($params);
     if (!empty($params)) {
-      $keys = check_plain(key($params['edit']['field_secrets_category']['und']));
-      if ( (array_key_exists('2327', $keys)) || (array_key_exists('2328', $keys)) ) {
+      $keys = array_keys($params['edit']['field_secrets_category']['und']);
+      if ( (array_key_exists('2327', $keys)) && (array_key_exists('2328', $keys)) ) {
         // Ordet er dit & Lifehack
         $form['body']['und'][0]['value']['#title'] = t('Lifehack');
       }
-      else if ( (array_key_exists('2327', $keys)) || (array_key_exists('2329', $keys)) ) {
+      else if ( (array_key_exists('2327', $keys)) && (array_key_exists('2329', $keys)) ) {
         // Ordet er dit & Virkelighed
         $form['body']['und'][0]['value']['#title'] = t('Virkelighed');
       }
@@ -149,12 +150,12 @@ function cyberhus_preprocess_page(&$variables){
   if ($path == "node/add/body-secret") {
     $params = drupal_get_query_parameters();
     if (!empty($params)) {
-      $keys = check_plain(key($params['edit']['field_secrets_category']['und']));
-      if ( (array_key_exists('2327', $keys)) || (array_key_exists('2328', $keys)) ) {
+      $keys = array_keys($params['edit']['field_secrets_category']['und']);
+      if ( (array_key_exists('2327', $keys)) && (array_key_exists('2328', $keys)) ) {
         // Ordet er dit & Lifehack
         drupal_set_title(t('Del dit Lifehack!'));
       }
-      else if ( (array_key_exists('2327', $keys)) || (array_key_exists('2329', $keys)) ) {
+      else if ( (array_key_exists('2327', $keys)) && (array_key_exists('2329', $keys)) ) {
         // Ordet er dit & Virkelighed
         drupal_set_title(t('Del din virkelighed!'));
       }
