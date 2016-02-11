@@ -83,14 +83,26 @@ function cyberhus_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'body_secret_node_form') {
     $params = drupal_get_query_parameters();
     if (!empty($params)) {
-      $key = check_plain(key($params['edit']['field_secrets_category']['und']));
-      if ($key == "2327") {
+      $keys = check_plain(key($params['edit']['field_secrets_category']['und']));
+      if ( (array_has_key('2327', $keys)) || (array_has_key('2328', $keys)) ) {
+        // Ordet er dit & Lifehack
+        $form['body']['und'][0]['value']['#title'] = t('Lifehack');
+      }
+      else if ( (array_has_key('2327', $keys)) || (array_has_key('2329', $keys)) ) {
+        // Ordet er dit & Virkelighed
+        $form['body']['und'][0]['value']['#title'] = t('Virkelighed');
+      }
+      else if ($keys == "2327") {
         // Ordet er dit
         $form['body']['und'][0]['value']['#title'] = t('Ordet er dit');
       }
-      else if ($key == "2328") {
+      else if ($keys == "2328") {
         // Lifehacks
         $form['body']['und'][0]['value']['#title'] = t('Lifehack');
+      }
+      else if ($keys == "2329") {
+        // Lifehacks
+        $form['body']['und'][0]['value']['#title'] = t('Virkelighed');
       }
     }
   }
@@ -137,14 +149,22 @@ function cyberhus_preprocess_page(&$variables){
   if ($path == "node/add/body-secret") {
     $params = drupal_get_query_parameters();
     if (!empty($params)) {
-      $key = check_plain(key($params['edit']['field_secrets_category']['und']));
-      if ($key == "2327") {
-        // Ordet er dit
-        drupal_set_title('Ordet er dit!');
+      $keys = check_plain(key($params['edit']['field_secrets_category']['und']));
+      if ( (array_has_key('2327', $keys)) || (array_has_key('2328', $keys)) ) {
+        // Ordet er dit & Lifehack
+        drupal_set_title(t('Del dit Lifehack!'));
       }
-      else if ($key == "2328") {
+      else if ( (array_has_key('2327', $keys)) || (array_has_key('2329', $keys)) ) {
+        // Ordet er dit & Virkelighed
+        drupal_set_title(t('Del din virkelighed!'));
+      }
+      else if ($keys == "2327") {
+        // Ordet er dit
+        drupal_set_title(t('Ordet er dit!'));
+      }
+      else if ($keys == "2328") {
         // Lifehacks
-        drupal_set_title('Del dit Lifehack!');
+        drupal_set_title(t('Del dit Lifehack!'));
       }
     }
   }
