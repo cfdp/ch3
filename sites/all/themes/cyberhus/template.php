@@ -82,7 +82,6 @@ function cyberhus_form_alter(&$form, &$form_state, $form_id) {
   /* Altering the body secrets form to incorporate Ordet er dit and Lifehack funtionality */
   if ($form_id == 'body_secret_node_form') {
     $params = drupal_get_query_parameters();
-    dpm($params);
     if (!empty($params)) {
       $keys = array_keys($params['edit']['field_secrets_category']['und']);
       if ( (array_key_exists('2327', $keys)) && (array_key_exists('2328', $keys)) ) {
