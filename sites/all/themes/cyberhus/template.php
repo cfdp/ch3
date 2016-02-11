@@ -84,11 +84,11 @@ function cyberhus_form_alter(&$form, &$form_state, $form_id) {
     $params = drupal_get_query_parameters();
     if (!empty($params)) {
       $keys = check_plain(key($params['edit']['field_secrets_category']['und']));
-      if ( (array_has_key('2327', $keys)) || (array_has_key('2328', $keys)) ) {
+      if ( (array_key_exists('2327', $keys)) || (array_key_exists('2328', $keys)) ) {
         // Ordet er dit & Lifehack
         $form['body']['und'][0]['value']['#title'] = t('Lifehack');
       }
-      else if ( (array_has_key('2327', $keys)) || (array_has_key('2329', $keys)) ) {
+      else if ( (array_key_exists('2327', $keys)) || (array_key_exists('2329', $keys)) ) {
         // Ordet er dit & Virkelighed
         $form['body']['und'][0]['value']['#title'] = t('Virkelighed');
       }
@@ -150,11 +150,11 @@ function cyberhus_preprocess_page(&$variables){
     $params = drupal_get_query_parameters();
     if (!empty($params)) {
       $keys = check_plain(key($params['edit']['field_secrets_category']['und']));
-      if ( (array_has_key('2327', $keys)) || (array_has_key('2328', $keys)) ) {
+      if ( (array_key_exists('2327', $keys)) || (array_key_exists('2328', $keys)) ) {
         // Ordet er dit & Lifehack
         drupal_set_title(t('Del dit Lifehack!'));
       }
-      else if ( (array_has_key('2327', $keys)) || (array_has_key('2329', $keys)) ) {
+      else if ( (array_key_exists('2327', $keys)) || (array_key_exists('2329', $keys)) ) {
         // Ordet er dit & Virkelighed
         drupal_set_title(t('Del din virkelighed!'));
       }
