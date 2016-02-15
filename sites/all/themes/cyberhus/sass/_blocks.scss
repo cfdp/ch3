@@ -12,10 +12,25 @@
     position: absolute;
     top: 65px;
 
-    .front-page-stamp {
+    .ordet-er-dit-campaign {
+      background: url(/sites/default/files/stamp_no_text.png) no-repeat;
+      background-size: contain;
+      height: 165px;
       left: 425px;
       position: relative;
       top: -85px;
+      width: 227px;
+
+      > a {
+        @include transform(rotate(29deg));
+        color: white;
+        display: block;
+        font-size: 14px;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        top: 63px;
+      }
     }
   }
 }

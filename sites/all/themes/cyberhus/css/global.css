@@ -1666,13 +1666,31 @@
   top: 65px;
 }
 /* line 15, ../sass/_blocks.scss */
-.front .block_tagline-front .front-page-stamp {
+.front .block_tagline-front .ordet-er-dit-campaign {
+  background: url(/sites/default/files/stamp_no_text.png) no-repeat;
+  background-size: contain;
+  height: 165px;
   left: 425px;
   position: relative;
   top: -85px;
+  width: 227px;
+}
+/* line 24, ../sass/_blocks.scss */
+.front .block_tagline-front .ordet-er-dit-campaign > a {
+  -moz-transform: rotate(29deg);
+  -ms-transform: rotate(29deg);
+  -webkit-transform: rotate(29deg);
+  transform: rotate(29deg);
+  color: white;
+  display: block;
+  font-size: 14px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  top: 63px;
 }
 
-/* line 24, ../sass/_blocks.scss */
+/* line 39, ../sass/_blocks.scss */
 .block-menu-andet ul {
   padding-left: 0 !important;
 }
