@@ -1479,10 +1479,40 @@
   text-align: center;
 }
 /* line 1152, ../sass/_views.scss */
-.view-id-body_secrets .view-header .opret_btn a, .view-id-body_secrets .view-content .opret_btn a {
-  width: 90%;
+.view-id-body_secrets .view-header .btn-wrapper, .view-id-body_secrets .view-content .btn-wrapper {
+  text-align: center;
 }
-/* line 1157, ../sass/_views.scss */
+/* line 1156, ../sass/_views.scss */
+.view-id-body_secrets .view-header .opret_btn, .view-id-body_secrets .view-content .opret_btn {
+  display: inline-block;
+}
+/* line 1159, ../sass/_views.scss */
+.view-id-body_secrets .view-header .opret_btn a, .view-id-body_secrets .view-content .opret_btn a {
+  display: block;
+  margin-top: .5em;
+}
+/* line 1164, ../sass/_views.scss */
+.view-id-body_secrets .view-header .opret_btn .secrets-icon, .view-id-body_secrets .view-content .opret_btn .secrets-icon {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+}
+/* line 1171, ../sass/_views.scss */
+.view-id-body_secrets .view-header .opret_btn.virkelighed .secrets-icon, .view-id-body_secrets .view-content .opret_btn.virkelighed .secrets-icon {
+  background: url("../img/icons/virkeligheder_ikon_dark.png") no-repeat;
+  width: 74px;
+}
+/* line 1177, ../sass/_views.scss */
+.view-id-body_secrets .view-header .opret_btn.lifehack .secrets-icon, .view-id-body_secrets .view-content .opret_btn.lifehack .secrets-icon {
+  background: url("../img/icons/lifehack_ikon_dark.png") no-repeat;
+}
+@media (min-width: 655px) {
+  /* line 1156, ../sass/_views.scss */
+  .view-id-body_secrets .view-header .opret_btn, .view-id-body_secrets .view-content .opret_btn {
+    max-width: 40%;
+  }
+}
+/* line 1189, ../sass/_views.scss */
 .view-id-body_secrets .views-row {
   display: inline-block;
   width: 260px;
@@ -1493,7 +1523,7 @@
   text-align: left;
   vertical-align: text-top;
 }
-/* line 1167, ../sass/_views.scss */
+/* line 1199, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body_secret_icon {
   background: transparent url("../img/icons/hemmeligheder_inv.png") repeat scroll 0 0;
   height: 40px;
@@ -1502,11 +1532,11 @@
   top: 10px;
   width: 40px;
 }
-/* line 1177, ../sass/_views.scss */
+/* line 1209, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body-secrets-field.field-category {
   margin-bottom: 15px;
 }
-/* line 1180, ../sass/_views.scss */
+/* line 1212, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body-secrets-field.field-body {
   font-size: 12px;
   line-height: 1.25em;
@@ -1514,32 +1544,32 @@
   text-shadow: none;
   word-wrap: break-word;
 }
-/* line 1188, ../sass/_views.scss */
+/* line 1220, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body-secrets-field.field-sex, .view-id-body_secrets .views-row .body-secrets-field.field-age {
   font-size: 11px;
 }
-/* line 1193, ../sass/_views.scss */
+/* line 1225, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body-secrets-field.field-created {
   font-size: 11px;
   position: absolute;
   bottom: 27px;
 }
-/* line 1201, ../sass/_views.scss */
+/* line 1233, ../sass/_views.scss */
 .view-id-body_secrets .views-field-created {
   float: right;
   margin: 0px 0 6px 0;
 }
-/* line 1206, ../sass/_views.scss */
+/* line 1238, ../sass/_views.scss */
 .view-id-body_secrets .views-field-body {
   clear: both;
   line-height: 15px;
   margin-bottom: 5px;
 }
-/* line 1212, ../sass/_views.scss */
+/* line 1244, ../sass/_views.scss */
 .view-id-body_secrets .views-field-field-brevk-koen, .view-id-body_secrets .views-field-field-brevk-alder, .view-id-body_secrets .views-field-created {
   color: #888888;
 }
-/* line 1218, ../sass/_views.scss */
+/* line 1250, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing a {
   margin-top: 10px;
   color: #ffffff !important;
@@ -1547,7 +1577,7 @@
   display: inline-block;
   border-radius: 3px;
 }
-/* line 1228, ../sass/_views.scss */
+/* line 1260, ../sass/_views.scss */
 .view-id-body_secrets .view-footer > a {
   background: transparent url(../img/next_yellow.png) center left no-repeat;
   float: left;
@@ -1555,7 +1585,7 @@
   padding-left: 18px;
   margin-bottom: 8px;
 }
-/* line 1237, ../sass/_views.scss */
+/* line 1269, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing {
   background: #2980b9 none repeat scroll 0 0;
   color: #ffffff;
@@ -1564,27 +1594,27 @@
   padding: 25px 25px 15px;
   text-shadow: none;
 }
-/* line 1245, ../sass/_views.scss */
+/* line 1277, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing a {
   padding: 5px 10px;
   position: absolute;
   bottom: 10px;
   left: 60px;
 }
-/* line 1255, ../sass/_views.scss */
+/* line 1287, ../sass/_views.scss */
 .view-id-body_secrets.view-display-id-page_1 .views-field-nothing {
   background: #8CC6E8 none repeat scroll 0 0;
   color: black;
 }
-/* line 1263, ../sass/_views.scss */
+/* line 1295, ../sass/_views.scss */
 .view-id-body_secrets.view-display-id-page_2 .views-field-nothing {
   background: #27ae61 none repeat scroll 0 0;
 }
-/* line 1268, ../sass/_views.scss */
+/* line 1300, ../sass/_views.scss */
 .view-id-body_secrets .more-link {
   text-align: center;
 }
-/* line 1270, ../sass/_views.scss */
+/* line 1302, ../sass/_views.scss */
 .view-id-body_secrets .more-link a {
   padding: 15px 20px;
   background-color: #e67e22;
@@ -1604,13 +1634,13 @@
   background-color: #e98b39;
 }
 
-/* line 1278, ../sass/_views.scss */
+/* line 1310, ../sass/_views.scss */
 #page #section-content #region-sidebar-first #block-views-body-secrets-block-1 .opret_btn a {
   color: #fff;
   text-decoration: none;
 }
 
-/* line 1287, ../sass/_views.scss */
+/* line 1319, ../sass/_views.scss */
 .view-id-related_articles .view-content .field-content a {
   background: transparent url(../img/next_yellow.png) center left no-repeat;
   float: left;
@@ -1622,13 +1652,13 @@
 }
 
 /* General stuff */
-/* line 1301, ../sass/_views.scss */
+/* line 1333, ../sass/_views.scss */
 .opret_btn {
   position: relative;
   margin-bottom: 30px;
   padding: 0 15px 0 15px;
 }
-/* line 1305, ../sass/_views.scss */
+/* line 1337, ../sass/_views.scss */
 .opret_btn a {
   padding: 15px 20px;
   background-color: #e67e22;

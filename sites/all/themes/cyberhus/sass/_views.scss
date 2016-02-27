@@ -1149,9 +1149,41 @@
     margin-bottom: 10px;
     text-align: center;
 
-    .opret_btn a {
-      width: 90%;
+    .btn-wrapper {
+      text-align: center;
     }
+
+    .opret_btn {
+      display: inline-block;
+
+      a {
+        display: block;
+        margin-top: .5em;
+      }
+
+      .secrets-icon {
+          display: inline-block;
+          height: 40px;
+          width: 40px;
+      }
+
+      &.virkelighed {
+        .secrets-icon  {
+          background: url('../img/icons/virkeligheder_ikon_dark.png') no-repeat;
+          width: 74px;
+        }
+      }
+      &.lifehack {
+        .secrets-icon {
+          background: url('../img/icons/lifehack_ikon_dark.png') no-repeat;
+        }
+      }
+      @media (min-width: 655px) {
+        max-width: 40%;
+      }
+    }
+
+
   }
 
   .views-row {
