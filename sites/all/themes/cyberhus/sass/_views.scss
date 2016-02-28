@@ -1197,12 +1197,22 @@
 		vertical-align: text-top;
 
     .body_secret_icon {
-      background: rgba(0, 0, 0, 0) url("../img/icons/hemmeligheder_inv.png") repeat scroll 0 0;
+      background: rgba(0, 0, 0, 0) url("../img/icons/hemmeligheder_inv.png") no-repeat scroll 0 0;
+      background-size: contain;
       height: 40px;
       position: absolute;
       right: 15px;
       top: 10px;
       width: 40px;
+    }
+
+    &.Virkelighed .body_secret_icon {
+      background-image: url("../img/icons/virkeligheder_ikon_light.png");
+      background-position: center;
+    }
+
+    &.Lifehack .body_secret_icon {
+      background-image: url("../img/icons/lifehack_ikon_light.png");
     }
 
     .body-secrets-field {
