@@ -1613,18 +1613,25 @@
 }
 /* line 1297, ../sass/_views.scss */
 .view-id-body_secrets.view-display-id-page_1 .views-field-nothing {
-  background: #8CC6E8 none repeat scroll 0 0;
-  color: black;
+  background: #2980b9 none repeat scroll 0 0;
+}
+/* line 1301, ../sass/_views.scss */
+.view-id-body_secrets.view-display-id-page_1 .Virkelighed .views-field-nothing {
+  background: #BE222C none repeat scroll 0 0;
 }
 /* line 1305, ../sass/_views.scss */
+.view-id-body_secrets.view-display-id-page_1 .Lifehack .views-field-nothing {
+  background: #27ae61 none repeat scroll 0 0;
+}
+/* line 1312, ../sass/_views.scss */
 .view-id-body_secrets.view-display-id-page_2 .views-field-nothing {
   background: #27ae61 none repeat scroll 0 0;
 }
-/* line 1310, ../sass/_views.scss */
+/* line 1317, ../sass/_views.scss */
 .view-id-body_secrets .more-link {
   text-align: center;
 }
-/* line 1312, ../sass/_views.scss */
+/* line 1319, ../sass/_views.scss */
 .view-id-body_secrets .more-link a {
   padding: 15px 20px;
   background-color: #e67e22;
@@ -1644,13 +1651,13 @@
   background-color: #e98b39;
 }
 
-/* line 1320, ../sass/_views.scss */
+/* line 1327, ../sass/_views.scss */
 #page #section-content #region-sidebar-first #block-views-body-secrets-block-1 .opret_btn a {
   color: #fff;
   text-decoration: none;
 }
 
-/* line 1329, ../sass/_views.scss */
+/* line 1336, ../sass/_views.scss */
 .view-id-related_articles .view-content .field-content a {
   background: transparent url(../img/next_yellow.png) center left no-repeat;
   float: left;
@@ -1662,13 +1669,13 @@
 }
 
 /* General stuff */
-/* line 1343, ../sass/_views.scss */
+/* line 1350, ../sass/_views.scss */
 .opret_btn {
   position: relative;
   margin-bottom: 30px;
   padding: 0 15px 0 15px;
 }
-/* line 1347, ../sass/_views.scss */
+/* line 1354, ../sass/_views.scss */
 .opret_btn a {
   padding: 15px 20px;
   background-color: #e67e22;

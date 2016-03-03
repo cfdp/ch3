@@ -1295,8 +1295,15 @@
   /* Ordet er dit - page customizations */
   &.view-display-id-page_1 {
     .views-field-nothing {
-      background: $color_lysblaa none repeat scroll 0 0;
-      color: black;
+      background: $color_blaa none repeat scroll 0 0;
+    }
+
+    .Virkelighed .views-field-nothing {
+      background: $color_roed none repeat scroll 0 0;
+    }
+
+    .Lifehack .views-field-nothing {
+      background: $color_groen none repeat scroll 0 0;
     }
   }
 
