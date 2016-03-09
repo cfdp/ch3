@@ -7,7 +7,7 @@
 (function ($) {
   window.addEventListener("message", receiveMessage, false);
   var chatStates = {}, // Object holding the state of the embedded chat services
-    validOrigins = ['https://dev.demo','https://aarhus.curachat.com', 'https://kbh.curachat.com', 'https://rksk.curachat.com'],
+    validOrigins = ['https://aarhus.curachat.com', 'https://kbh.curachat.com', 'https://rksk.curachat.com'],
     opekaMultiWidgetState = 'chat-closed';
 
   /**
@@ -17,8 +17,8 @@
    * @param {Object} event
    */
   function receiveMessage(event) {
-    console.log('message received');
     if (validOrigins.indexOf(event.origin) !== -1) {
+
       // Update status of the messaging chat
       chatStates[event.origin] = event.data;
       calculateMultiWidgetState();

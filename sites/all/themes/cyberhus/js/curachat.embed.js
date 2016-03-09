@@ -49,7 +49,7 @@
     if((typeof multiWidgetController == "undefined") && (width >= 980)){
       opekaMultiWidget.embedScript = document.createElement('script');
       opekaMultiWidget.embedScript.type='text/javascript';
-      opekaMultiWidget.embedScript.src = opekaMultiWidget.chat1.baseURL+"/sites/all/modules/custom/opeka/widgets/js/multiWidgetController.js";
+      opekaMultiWidget.embedScript.src = opekaMultiWidget.chat1.baseURL+"/sites/all/modules/custom/opeka/widgets/multi/js/multiWidgetController.js";
       document.body.appendChild(opekaMultiWidget.embedScript);
     }
   });
