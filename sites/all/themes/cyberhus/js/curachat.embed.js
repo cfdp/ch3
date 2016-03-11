@@ -5,27 +5,27 @@
     chatName: "1-1-chat",
     chatType: "pair",
     baseURL: "https://ch.curachat.com",
-    clientURL: "http://cyberhus.dk",
+    clientURL: "https://cyberhus.dk",
     embedLocation: ".region-tabs-right-inner",
   };
   var opekaFoldout2 = {
     chatName: "group",
     chatType: "group",
     baseURL: "https://ch-group.curachat.com",
-    clientURL: "http://cyberhus.dk",
+    clientURL: "https://cyberhus.dk",
     embedLocation: ".region-tabs-right-inner",
   };
   var opekaFoldout3 = {
     chatName: "kbh",
     chatType: "pair",
     baseURL: "https://kbh.curachat.com",
-    clientURL: "http://cyberhus.dk",
+    clientURL: "https://cyberhus.dk",
     embedLocation: ".region-tabs-right-inner",
   };
   var opekaMultiWidget = {
     embedLocation: ".region-tabs-right-inner",
-    chat1: { chatName: "kbh", chatType: "pair", baseURL: "https://kbh.curachat.com", clientURL: "http://cyberhus.dk"},
-    chat2: { chatName: "rksk", chatType: "pair", baseURL: "https://rksk.curachat.com", clientURL: "http://cyberhus.dk"}
+    chat1: { chatName: "kbh", chatType: "pair", baseURL: "https://kbh.curachat.com", clientURL: "https://cyberhus.dk"},
+    chat2: { chatName: "rksk", chatType: "pair", baseURL: "https://rksk.curachat.com", clientURL: "https://cyberhus.dk"}
   };
 
   opekaFoldout.cssFiles = [["opeka.widget.foldout.css", opekaFoldout.baseURL+"/sites/all/modules/custom/opeka/css/"],["opeka.widgets.css", opekaFoldout2.clientURL+"/sites/all/themes/cyberhus/css/"]];
@@ -121,7 +121,7 @@
   }
 
   function embedMultiWidget() {
-    $( ".region-tabs-right-inner" ).append( '<div class="opeka-chat-foldout-wrapper multi"><div id="opeka-chat-iframe-multi"><iframe src="http://cyberhus.dk/sites/all/themes/cyberhus/chat-multi-widget/embed.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" height="280"></iframe></div></div>' );
+    $( ".region-tabs-right-inner" ).append( '<div class="opeka-chat-foldout-wrapper multi"><div id="opeka-chat-iframe-multi"><iframe src="https://cyberhus.dk/sites/all/themes/cyberhus/chat-multi-widget/embed.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" height="280"></iframe></div></div>' );
   }
 
 })(jQuery);
