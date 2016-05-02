@@ -53,15 +53,14 @@
   * @returns {Boolean} Returns true if the value was found, else false
   */
   function searchObject(needle) {
-    for (var prop in chatStates) {
-      if (chatStates.hasOwnProperty(prop)) {
-        if (chatStates[prop] === needle) {
+    for (var key in chatStates) {
+      if (chatStates.hasOwnProperty(key)) {
+        if (chatStates[key] == needle) {
           return true;
-        }
-        else {
-          return false;
         }
       }
     }
+    // The key wasn't found
+    return false;
   }
 }(jQuery));
