@@ -22,10 +22,12 @@
     clientURL: "https://cyberhus.dk",
     embedLocation: ".region-tabs-right-inner",
   };
+  /* This object is actually not being used for much, a residue from other implementation. @todo: cleanup */
   var opekaMultiWidget = {
     embedLocation: ".region-tabs-right-inner",
     chat1: { chatName: "kbh", chatType: "pair", baseURL: "https://kbh.curachat.com", clientURL: "https://cyberhus.dk"},
-    chat2: { chatName: "rksk", chatType: "pair", baseURL: "https://rksk.curachat.com", clientURL: "https://cyberhus.dk"}
+    chat2: { chatName: "rksk", chatType: "pair", baseURL: "https://rksk.curachat.com", clientURL: "https://cyberhus.dk"},
+    chat3: { chatName: "aarhus", chatType: "pair", baseURL: "https://aarhus.curachat.com", clientURL: "https://cyberhus.dk"}
   };
 
   opekaFoldout.cssFiles = [["opeka.widget.foldout.css", opekaFoldout.baseURL+"/sites/all/modules/custom/opeka/css/"],["opeka.widgets.css", opekaFoldout2.clientURL+"/sites/all/themes/cyberhus/css/"]];
@@ -46,12 +48,6 @@
       opekaFoldout.embedScript.src = opekaFoldout.baseURL+"/sites/all/modules/custom/opeka/widgets/foldout/js/foldoutController.js";
       document.body.appendChild(opekaFoldout.embedScript);
     }
-    if((typeof multiWidgetController == "undefined") && (width >= 980)){
-      opekaMultiWidget.embedScript = document.createElement('script');
-      opekaMultiWidget.embedScript.type='text/javascript';
-      opekaMultiWidget.embedScript.src = opekaMultiWidget.chat1.baseURL+"/sites/all/modules/custom/opeka/widgets/multi/js/multiWidgetController.js";
-      document.body.appendChild(opekaMultiWidget.embedScript);
-    }
   });
 
   /**
@@ -63,7 +59,7 @@
       console.log("Opeka chat could not be loaded");
       return;
     }
-    else if((typeof foldoutController == "undefined") || (typeof multiWidgetController == "undefined") ){
+    else if( typeof foldoutController == "undefined" ){
       i++;
       window.setTimeout(waitForFnc,100);
     }
@@ -97,13 +93,11 @@
   }
 
   function addMultiWidget(widget) {
-/*    newWidget = new multiWidgetController(jQuery, widget);
-    newWidget.init();*/
     embedMultiWidget();
     foldoutAnimation("multi");
   }
 
-  /* @todo: should be deleted when multi-widget is integrated in foldout */
+  /* @todo: should be deleted when / if multi-widget is integrated in foldout */
   //Foldout animation
   function foldoutAnimation(chatName) {
     $(".opeka-chat-foldout-wrapper."+chatName).hover(
