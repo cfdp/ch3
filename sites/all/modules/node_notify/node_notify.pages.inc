@@ -31,13 +31,16 @@ function node_notify_disable_page($token) {
  * Subscription page callback.
  */
 function node_notify_subscribe_page($node) {
-  if (user_is_logged_in()) {
+  if (!user_is_logged_in()) {
+    return drupal_get_form('node_notify_subscribe_form', $node);
+  }
+  elseif (!node_notify_check_token('subscribe', $node->nid)) {
+    drupal_access_denied();
+  }
+  else {
     node_notify_subscribe($node->nid, $GLOBALS['user']->uid);
     drupal_set_message(t('Subscribed to %title.', array('%title' => $node->title)));
     drupal_goto('node/' . $node->nid);
-  }
-  else {
-    return drupal_get_form('node_notify_subscribe_form', $node);
   }
 }
 
@@ -80,7 +83,7 @@ function node_notify_subscribe_form_submit($form, &$form_state) {
  * Page callback to unsubscribe current user from a node.
  */
 function node_notify_unsubscribe_page($node) {
-  if (user_is_logged_in()) {
+  if (user_is_logged_in() && node_notify_check_token('unsubscribe', $node->nid)) {
     node_notify_unsubscribe($node->nid, $GLOBALS['user']->uid);
     drupal_set_message(t('Unsubscribed from %title.', array('%title' => $node->title)));
     drupal_goto('node/' . $node->nid);
@@ -116,7 +119,7 @@ function node_notify_node_subscriptions_page($node) {
     $url = 'node/' . $node->nid . '/subscriptions/' . $record->sid;
     $rows[] = array(
       $record->uid ? l($record->name, 'user/' . $record->uid) : NULL,
-      $record->email, format_date($record->subscribed_on),
+      check_plain($record->email), format_date($record->subscribed_on),
       $record->enabled ?
       l(t('Disable'), $url . '/disable', array('query' => drupal_get_destination())) :
       l(t('Enable'), $url . '/enable', array('query' => drupal_get_destination())),
@@ -128,7 +131,6 @@ function node_notify_node_subscriptions_page($node) {
     '#header' => $header,
     '#rows' => $rows,
     '#empty' => t('No subscriptions yet.'),
-    // '#attributes' => array(),
   );
 
   return render($build) . theme('pager');
@@ -183,7 +185,6 @@ function node_notify_user_subscriptions_page($account) {
     '#header' => $header,
     '#rows' => $rows,
     '#empty' => t('No subscriptions yet.'),
-    // '#attributes' => array(),
   );
 
   return render($build) . theme('pager');

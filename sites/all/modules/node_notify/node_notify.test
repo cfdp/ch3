@@ -29,7 +29,7 @@ class NodeNotifyTestCase extends DrupalWebTestCase {
    * Set up state before testing.
    */
   protected function setUp() {
-    parent::setUp('node_notify', 'comment_notify');
+    parent::setUp('node_notify', 'comment_notify', 'dblog');
 
     $this->type = $this->createContentType();
 
@@ -128,14 +128,13 @@ class NodeNotifyTestCase extends DrupalWebTestCase {
    * field. Registered users are subscribed at once and redirected.
    */
   protected function testNodeNotifySubscribeLink() {
-    $type = $this->type->type;
     $nid = $this->node->nid;
     $email = $this->getRandomEmail();
     $this->enableContentType($this->type);
 
     $this->drupalLogout();
 
-    $this->drupalGet("node/$nid/subscribe");
+    $this->drupalGet("node/$nid/subscribe", array('query' => array('token' => $this->drupalGetToken("node_notify_subscribe_$nid"))));
     $this->assertResponse(403, 'Forbidden');
 
     user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('subscribe to node'));
@@ -143,7 +142,7 @@ class NodeNotifyTestCase extends DrupalWebTestCase {
     $this->drupalLogin($this->admin);
     $this->drupalLogout();
 
-    $this->drupalGet("node/$nid/subscribe");
+    $this->drupalGet("node/$nid/subscribe", array('query' => array('token' => $this->drupalGetToken("node_notify_subscribe_$nid"))));
     $this->assertResponse(200, 'Accessible');
     $this->assertPattern('/node-notify-subscribe-form/', 'Subscription form is displayed for anonymous user.');
 
@@ -152,14 +151,14 @@ class NodeNotifyTestCase extends DrupalWebTestCase {
     $this->assertUrl("node/$nid", array(), 'Redirected to node page.');
     $this->assertTrue(node_notify_is_subscribed($nid, 0, $email), 'Anonymous user subscribed with node/N/subscribe form.');
 
-    $this->drupalGet("node/$nid/unsubscribe");
+    $this->drupalGet("node/$nid/unsubscribe", array('query' => array('token' => $this->drupalGetToken("node_notify_unsubscribe_$nid"))));
     $this->assertResponse(403, 'Anonymous user is not allowed to access node/N/unsubscribe URL.');
 
     user_role_revoke_permissions(DRUPAL_ANONYMOUS_RID, array('subscribe to node'));
 
     $this->drupalLogin($this->unprivileged);
 
-    $this->drupalGet("node/$nid/subscribe");
+    $this->drupalGet("node/$nid/subscribe", array('query' => array('token' => $this->drupalGetToken("node_notify_subscribe_$nid"))));
     $this->assertResponse(403, 'Forbidden for unprivileged user.');
 
     $this->drupalLogout();
@@ -167,15 +166,58 @@ class NodeNotifyTestCase extends DrupalWebTestCase {
     $this->drupalLogin($this->privileged);
 
     $this->drupalGet("node/$nid/subscribe");
+    $this->assertResponse(403, 'Forbidden to privileged user without token.');
+
+    $this->drupalLogout();
+
+    $this->drupalLogin($this->privileged);
+
+    $this->drupalGet("node/$nid/subscribe", array('query' => array('token' => $this->drupalGetToken("node_notify_subscribe_{$nid}_"))));
+    $this->assertResponse(403, 'Forbidden to privileged user with wrong token.');
+
+    $this->drupalLogout();
+
+    $this->drupalLogin($this->privileged);
+
+    $this->drupalGet("node/$nid/subscribe", array('query' => array('token' => $this->drupalGetToken("node_notify_subscribe_$nid"))));
     $this->assertResponse(200, 'Accessible to privileged user.');
 
-    $this->drupalGet("node/$nid/subscribe");
+    $this->drupalLogout();
+
+    $this->drupalLogin($this->privileged);
+
+    $this->drupalGet("node/$nid/subscribe", array('query' => array('token' => $this->drupalGetToken("node_notify_subscribe_$nid"))));
     $this->assertResponse(200, 'Accessible');
     $this->assertNoPattern('/node-notify-subscribe-form/', 'Subscription form is not displayed for privileged user.');
     $this->assertUrl("node/$nid", array(), 'Privileged user should be redirected back to node page.');
     $this->assertTrue(node_notify_is_subscribed($nid, $this->privileged->uid), 'Privileged user is subscribed.');
 
+    $this->drupalLogout();
+
+    $this->drupalLogin($this->privileged);
+
     $this->drupalGet("node/$nid/unsubscribe");
+    $this->assertResponse(403, 'Forbidden to privileged user without token.');
+
+    $this->drupalLogout();
+
+    $this->drupalLogin($this->privileged);
+
+    $this->drupalGet("node/$nid/unsubscribe", array('query' => array('token' => $this->drupalGetToken("node_notify_subscribe_{$nid}_"))));
+    $this->assertResponse(403, 'Forbidden to privileged user with wrong token.');
+
+    $this->drupalLogout();
+
+    $this->drupalLogin($this->privileged);
+
+    $this->drupalGet("node/$nid/unsubscribe", array('query' => array('token' => $this->drupalGetToken("node_notify_unsubscribe_$nid"))));
+    $this->assertResponse(200, 'Accessible to privileged user.');
+
+    $this->drupalLogout();
+
+    $this->drupalLogin($this->privileged);
+
+    $this->drupalGet("node/$nid/unsubscribe", array('query' => array('token' => $this->drupalGetToken("node_notify_unsubscribe_$nid"))));
     $this->assertUrl("node/$nid", array(), 'Privileged user should be redirected back to node page.');
     $this->assertPattern('/Unsubscribed from/', 'Privileged user should see "Unsubscribe" message.');
     $this->assertFalse(node_notify_is_subscribed($nid, $this->privileged->uid), 'Privileged user is unsubscribed.');
@@ -348,6 +390,54 @@ class NodeNotifyTestCase extends DrupalWebTestCase {
     $note = node_notify_get_notification($data['id'], $nid, 0, $email);
     $this->assertTrue($note->notified == NODE_NOTIFY_SENT, 'Notification marked as sent.');
     $this->assertMail('to', $email, "Notification mail sent to anonymous subscriber.");
+  }
+
+  protected function testNodeNotifyXSS() {
+    db_delete('watchdog');
+
+    $nid = $this->node->nid;
+    $this->enableContentType($this->type);
+    $email = '<script>alert("XSS");</script>';
+
+    user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('subscribe to node', 'access content'));
+
+    // This skips permission checking.
+    node_notify_subscribe($nid, 0, $email);
+    node_notify_subscribe($nid, $this->privileged->uid);
+
+    $this->drupalLogin($this->privileged);
+    $this->drupalGet("node/$nid");
+    $data = $this->postComment($this->node, '<script>alert("XSS");</script>', '<script>alert("XSS");</script>', NULL, NULL, FALSE);
+    $this->drupalLogout();
+
+    // Send notifications.
+    node_notify_get_notification($data['id'], $nid, 0, $email);
+    $this->assertMailNoString('subject', '<script>alert("XSS");</script>');
+    $this->assertMailNoString('body', '<script>alert("XSS");</script>');
+
+    node_notify_get_notification($data['id'], $nid, $this->privileged->uid);
+    $this->assertMailNoString('subject', '<script>alert("XSS");</script>');
+    $this->assertMailNoString('body', '<script>alert("XSS");</script>');
+
+    // Check watchdog.
+    $this->drupalLogin($this->admin);
+    $this->drupalGet("node/$nid/subscriptions");
+    $this->assertNoRaw('<script>alert("XSS");</script>', 'XSS is filtered out at node subscriptions page.');
+
+    // Check if there's XSS in the watchdog log.
+    $query = db_select('watchdog', 'w');
+    $result = $query
+      ->fields('w', array('wid'))
+      ->execute();
+    foreach ($result as $dblog) {
+      $this->drupalGet("admin/reports/event/{$dblog->wid}");
+      $this->assertNoRaw('<script>alert("XSS");</script>', "No XSS is in watchdog {$dblog->wid}.");
+    }
+
+    $this->drupalLogout();
+
+
+
   }
 
   /**
@@ -734,5 +824,31 @@ class NodeNotifyTestCase extends DrupalWebTestCase {
         'comment' => $comment,
       );
     }
+  }
+
+  /**
+   * Asserts that the most recently sent e-mail message hasn't the substring in it.
+   *
+   * @param $field_name
+   *   Name of field or message property to assert: subject, body, id, ...
+   * @param $string
+   *   String to search for.
+   *
+   * @return
+   *   TRUE on pass, FALSE on fail.
+   */
+  protected function assertMailNoString($field_name, $string) {
+    $mails = $this->drupalGetMails();
+    $mail = end($mails);
+    $found = strpos($mail[$field_name], $string) !== FALSE;
+    return $this->assertFalse($found, t('Text not found in @field of email message: "@string".', array('@field' => $field_name, '@string' => $string)));
+  }
+  /**
+   * Generate a token for the currently logged in user.
+   *
+   * The original method is buggy, see https://www.drupal.org/node/1555862.
+   */
+  protected function drupalGetToken($value = '') {
+    return drupal_hmac_base64($value, $this->session_id . drupal_get_private_key() . drupal_get_hash_salt());
   }
 }
