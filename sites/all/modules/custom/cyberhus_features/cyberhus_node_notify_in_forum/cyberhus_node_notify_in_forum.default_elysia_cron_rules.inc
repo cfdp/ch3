@@ -14,7 +14,7 @@ function cyberhus_node_notify_in_forum_default_elysia_cron_rules() {
   $cron_rule->disabled = FALSE; /* Edit this to true to make a default cron_rule disabled initially */
   $cron_rule->api_version = 1;
   $cron_rule->name = 'node_notify_cron';
-  $cron_rule->disable = TRUE;
+  $cron_rule->disable = NULL;
   $cron_rule->rule = '*/5 * * * *';
   $cron_rule->weight = NULL;
   $cron_rule->context = NULL;
