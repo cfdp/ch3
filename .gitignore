@@ -15,7 +15,7 @@ sites/all/modules/reroute_email
 sites/all/modules/smtp
 robots.txt
 FirePHPCore
-
+sites/all/modules/xhprof
 !sites/default/files/logo-beta*
 
 .DS_Store
