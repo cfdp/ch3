@@ -1,0 +1,28 @@
+# Danish translation of Reroute Email (7.x-1.2)
+# Copyright (c) 2014 by the Danish translation team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Reroute Email (7.x-1.2)\n"
+"POT-Creation-Date: 2014-11-03 12:07+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: Danish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "Body"
+msgstr "Brødtekst"
+msgid "Development"
+msgstr "Udvikling"
+msgid "Subject"
+msgstr "Emne"
+msgid "Send email"
+msgstr "Send e-mail"
+msgid "Settings"
+msgstr "Indstillinger"
+msgid "To"
+msgstr "Til"
+msgid "Email addresses"
+msgstr "E-mail-adresser"
