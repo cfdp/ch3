@@ -111,6 +111,7 @@
     <div class="forum-post-links">
       <?php print render($content['links']); ?>
     </div>
+    <div id="jquery_ajax_load_target"></div>
   </div> <?php // End of footer div ?>
 </div> <?php // End of main wrapping div ?>
 

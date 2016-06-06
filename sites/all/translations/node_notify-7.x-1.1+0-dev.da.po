@@ -1,0 +1,335 @@
+# $Id$
+#
+# Danish translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  node_notify.admin.inc: n/a
+#  node_notify.pages.inc: n/a
+#  node_notify.module: n/a
+#  node_notify.tokens.inc: n/a
+#  node_notify.install: n/a
+#  node_notify.info: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2016-06-03 10:51+0200\n"
+"PO-Revision-Date: 2016-06-06 10:00+0100\n"
+"Last-Translator: Benjamin Christensen <udvikling@greenvolcano.dk>\n"
+"Language-Team: Danish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: Danish\n"
+
+#: node_notify.admin.inc:18
+msgid "Subscribable content types"
+msgstr "Indholdstyper som der kan følges / abonneres på"
+
+#: node_notify.admin.inc:25
+msgid "Subscription enabled by default on"
+msgstr "Abonnement aktiveret som standard på"
+
+#: node_notify.admin.inc:29
+msgid ""
+"Choose content types to tick off subscription checkbox by default for new "
+"content."
+msgstr ""
+"Vælg hvilke indholdstyper der skal have abonnements-checkboksen krydset af "
+"for nyt indhold"
+
+#: node_notify.admin.inc:33
+msgid "Remove expired subscriptions"
+msgstr "Slet udløbne abonnementer"
+
+#: node_notify.admin.inc:34
+msgid "Remove disabled and expired subscriptions when cron is run."
+msgstr "Slet deaktiverede og udløbne abonnementer når cron kører"
+
+#: node_notify.admin.inc:40
+msgid "Expiration date"
+msgstr "Udløbsdato"
+
+#: node_notify.admin.inc:41
+msgid ""
+"Subscription is considered expired if it is disabled and subscription or "
+"modification date is earlier than this setting. Expiration date can and "
+"should be <a href=\"http://www.php.net/manual/en/datetime.formats.relative."
+"php\">relative</a>. Current value would produce <span id=\"node-notify-"
+"expires-test\">%time</span>."
+msgstr ""
+"Abonnementet anses som udløbet hvis det er deaktiveret og abonnements eller "
+"ændringsdato er tidligere end denne indstilling. Udløbsdato skal være <a "
+"href=\"http://www.php.net/manual/en/datetime.formats.relative.php\">relativ</"
+"a>. Den nuværende værdi ville give <span id=\"node-notify-expires-test\">"
+"%time</span>."
+
+#: node_notify.admin.inc:52
+msgid "Notification template"
+msgstr "Notifikationsskabelon"
+
+#: node_notify.admin.inc:55
+msgid "Subject"
+msgstr "Emne"
+
+#: node_notify.admin.inc:63
+msgid "Body"
+msgstr "Brødtekst"
+
+#: node_notify.admin.inc:78
+msgid "Log notifications"
+msgstr "Lognotifikationer"
+
+#: node_notify.admin.inc:80
+msgid ""
+"Log information about notifications and email messages if they are sent."
+msgstr ""
+"Log informationer om notifikationer og email beskeder hvis de bliver sendt."
+
+#: node_notify.pages.inc:22
+msgid "Subscription canceled."
+msgstr "Du følger ikke længere dette indlæg."
+
+#: node_notify.pages.inc:25
+msgid "Sorry, there was a problem unsubscribing from notifications."
+msgstr ""
+"Beklager, men der var et problem med at slette dit abonnement på dette "
+"indlæg."
+
+#: node_notify.pages.inc:42;78
+msgid "Subscribed to %title."
+msgstr "Du følger nu  %title."
+
+#: node_notify.pages.inc:55 node_notify.module:249;266;273
+msgid "Receive comment notifications by email"
+msgstr "Modtag notifikationer på email når der er nye kommentarer"
+
+#: node_notify.pages.inc:56 node_notify.module:274
+msgid "Enter your email address to receive email notifications."
+msgstr "Angiv din email-adressse for at modtage notifikationer."
+
+#: node_notify.pages.inc:63 node_notify.module:399;410
+msgid "Subscribe"
+msgstr "Abonnér"
+
+#: node_notify.pages.inc:88
+msgid "Unsubscribed from %title."
+msgstr "Du følger nu ikke længere %title."
+
+#: node_notify.pages.inc:101
+msgid "User"
+msgstr "Bruger"
+
+#: node_notify.pages.inc:102
+msgid "Email"
+msgstr "E-mail"
+
+#: node_notify.pages.inc:103;157
+msgid "Date"
+msgstr "Dato"
+
+#: node_notify.pages.inc:124;178
+msgid "Disable"
+msgstr "Deaktivér"
+
+#: node_notify.pages.inc:125;179
+msgid "Enable"
+msgstr "Aktivér"
+
+#: node_notify.pages.inc:133;187
+msgid "No subscriptions yet."
+msgstr "Ingen abonnementer endnu."
+
+#: node_notify.pages.inc:156
+msgid "Title"
+msgstr "Titel"
+
+#: node_notify.tokens.inc:13
+msgid "Subscriber"
+msgstr "Abonnent"
+
+#: node_notify.tokens.inc:14
+msgid "User subscribed to a node comment notifications."
+msgstr "En bruger følger nu et indlæg og får notifikationer v. nye kommentarer"
+
+#: node_notify.tokens.inc:19
+msgid "Subscription"
+msgstr "Tilmelding"
+
+#: node_notify.tokens.inc:20
+msgid "Subscription information."
+msgstr "Abonnementsinformation."
+
+#: node_notify.tokens.inc:24
+msgid "Unsubscribe URL"
+msgstr "URL til ophævelse af abonnement"
+
+#: node_notify.tokens.inc:25
+msgid "Unique URL to cancel subscription."
+msgstr "Unik URL til ophævelse af abonnement."
+
+#: node_notify.module:42
+msgid "About"
+msgstr "Om"
+
+#: node_notify.module:43
+msgid ""
+"Node Notify is a lightweight module to allow subscription to comments on "
+"nodes for registered and anonymous users. It was specifically designed to "
+"integrate with <a href=\"!comment_notify_url\">Comment Notify</a>, i.e. Node "
+"Notify will not send email notifications if they are sent by Comment Notify."
+msgstr ""
+"Node Notify er et letvægtsmodul, der gør det muligt at abonnere på "
+"kommentarer på nodes for registrerede og anonyme brugere. Det er specielt "
+"designet til at integrere med  <a href=\"!comment_notify_url\">Comment "
+"Notify</a>, dvs. Node Notify vil ikke sende notifikationer ud, hvis de "
+"allerede sendes af Comment Notify."
+
+#: node_notify.module:44
+msgid "Uses"
+msgstr "Bruger"
+
+#: node_notify.module:45
+msgid ""
+"Node types to enable subscription to should be selected at <a href=\"!"
+"config_url\">configuration page</a>. Email template can be customized there "
+"too. Do not forget to adjust <a href=\"!perm_url\">permissions</a>:"
+msgstr ""
+"Indholdstyper som man skal kunne abonnere på, skal vælges på <a href=\"!"
+"config_url\">konfigurationssiden</a>. Email-skabelonen kan også tilpasses "
+"der. Husk at konfigurere <a href=\"!perm_url\">tilladelserne</a>:"
+
+#: node_notify.module:50;67
+msgid "Administer Node Notify"
+msgstr "Administrér Node Notify"
+
+#: node_notify.module:51
+msgid "Enables role to access Node Notify configuration page."
+msgstr "Tillader en rolle at tilgå konfigurationssiden for Node Notify."
+
+#: node_notify.module:52;71
+msgid "Administer node subscriptions"
+msgstr "Administrér abonnementer på indlæg"
+
+#: node_notify.module:53
+msgid ""
+"Enables role to disable or enable existing subscriptions on a node through "
+"\"Subscriptions\" tab on node page. Allows changing node's subscription "
+"status for node's (registered) author when combined with permission to edit "
+"node."
+msgstr ""
+"Tillader en rolle at aktivere eller deaktivere eksisterende abonnementer på "
+"et indlæg gennem \"Abonnementer\" fanebladet på et indlæg. Tillader at ændre "
+"et indlægs abonnementsstatus for et indlægs (registrerede) forfatter hvis "
+"der er tilladelse til at redigere indlægget."
+
+#: node_notify.module:54;77
+msgid "Subscribe to node notifications"
+msgstr "Abonnér på indlægs-notifikationer"
+
+#: node_notify.module:55
+msgid "Allows role to subscribe to comment notifications on nodes."
+msgstr "Tillader en rolle at abonnere på kommentar-notifikationer på indlæg."
+
+#: node_notify.module:68
+msgid "Change global Node Notify settings."
+msgstr "Konfigurér globale Node Notify indstillinger."
+
+#: node_notify.module:72
+msgid "View and edit node subscriptions."
+msgstr "Tilgå og redigér indlægs-abonnementer."
+
+#: node_notify.module:74
+msgid "Trusted user will be able to see email addresses."
+msgstr "Betroede brugere kan se email adresser."
+
+#: node_notify.module:78
+msgid "Subscribe to receive notifications about new node comments."
+msgstr ""
+"Abonnér for at modtage notifikationer når der kommer nye indlægs-kommentarer."
+
+#: node_notify.module:256
+msgid "Author receives comment notifications by email"
+msgstr "Forfatteren modtager kommentar-notifikationer på email"
+
+#: node_notify.module:287
+msgid "You must provide valid email address to receive comment notifications."
+msgstr ""
+"Du skal angive en gyldig email-adresse for at modtage notifikationer ved nye "
+"kommentarer."
+
+#: node_notify.module:309
+msgid "Comment notifications"
+msgstr "Kommentar-notifikationer"
+
+#: node_notify.module:310
+msgid "Receive notifications about comments"
+msgstr "Få notifikationer ved nye kommentarer"
+
+#: node_notify.module:390;173
+msgid "Unsubscribe"
+msgstr "Opsig abonnement"
+
+#: node_notify.module:850
+msgid "user"
+msgstr "bruger"
+
+#: node_notify.module:880
+msgid "node_notify"
+msgstr "node_notify"
+
+#: node_notify.module:880
+msgid "Unknown notification state @state. Comment !comment. Subscription @sid."
+msgstr ""
+"ukendt notifikations status @state. Kommentar !comment. Abonnement @sid."
+
+#: node_notify.module:90
+msgid "Node notify"
+msgstr "Node notify"
+
+#: node_notify.module:91
+msgid "Configure Node Notify global settings."
+msgstr "Konfigurér globale Node Notify indstillinger."
+
+#: node_notify.module:99;126;135;145
+msgid "Subscriptions"
+msgstr "Tilmeldinger"
+
+#: node_notify.module:108
+msgid "Enable subscription"
+msgstr "Aktiver abonnement"
+
+#: node_notify.module:117
+msgid "Disable subscription"
+msgstr "Ophæv abonnement"
+
+#: node_notify.module:154
+msgid "Enable subscriptions"
+msgstr "Aktivér abonnementer"
+
+#: node_notify.module:163
+msgid "Disable subscriptions"
+msgstr "Ophæv abonnementer"
+
+#: (duplicate) node_notify.install:20 node_notify.info:0
+msgid "Node Notify"
+msgstr "Node Notify"
+
+#: (duplicate) node_notify.install:22
+msgid "Node Notify was tested with Comment Notify version's up to 7.x-1.2."
+msgstr "Node Notify er teste med Comment Notify versioner op til 7.x-1.2."
+
+#: (duplicate) node_notify.install:36
+msgid "Configure Node Notify at !url to start using it."
+msgstr "Konfigurér Node Notify på !url før du begynder at bruge det."
+
+#: (duplicate) node_notify.install:41
+msgid "<a href=\"!url\">Configure</a> Node Notify to start using it."
+msgstr ""
+"<a href=\"!url\">Konfigurér</a> Node Notify før du begynder at bruge det."
+
+#: node_notify.info:0
+msgid "Comment notifications for nodes for anonymous and registered users."
+msgstr "Kommentarnotifikationer på indlæg for anonyme og registrerede brugere."
