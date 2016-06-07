@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2016-06-03 10:51+0200\n"
-"PO-Revision-Date: 2016-06-06 10:00+0100\n"
+"PO-Revision-Date: 2016-06-06 11:16+0100\n"
 "Last-Translator: Benjamin Christensen <udvikling@greenvolcano.dk>\n"
 "Language-Team: Danish <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -112,7 +112,7 @@ msgstr "Angiv din email-adressse for at modtage notifikationer."
 
 #: node_notify.pages.inc:63 node_notify.module:399;410
 msgid "Subscribe"
-msgstr "Abonnér"
+msgstr "Følg"
 
 #: node_notify.pages.inc:88
 msgid "Unsubscribed from %title."
@@ -270,7 +270,7 @@ msgstr "Få notifikationer ved nye kommentarer"
 
 #: node_notify.module:390;173
 msgid "Unsubscribe"
-msgstr "Opsig abonnement"
+msgstr "Stop med at følge dette indlæg"
 
 #: node_notify.module:850
 msgid "user"
