@@ -1,0 +1,237 @@
+<?php
+function bloggere() {
+
+$view = new view();
+$view->name = 'bloggere';
+$view->description = 'Oversigt over alle bloggere';
+$view->tag = 'default';
+$view->base_table = 'users';
+$view->human_name = 'Bloggere';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['title'] = 'Blogs';
+$handler->display->display_options['css_class'] = 'view view-ungeblogs-oversigt view-id-ungeblogs_oversigt';
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['use_more_text'] = 'mere';
+$handler->display->display_options['access']['type'] = 'none';
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+$handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+$handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+$handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+$handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+$handler->display->display_options['pager']['type'] = 'full';
+$handler->display->display_options['pager']['options']['items_per_page'] = '22';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['pager']['options']['id'] = '0';
+$handler->display->display_options['pager']['options']['quantity'] = '9';
+$handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+$handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+$handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+$handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+$handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+$handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+$handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['row_plugin'] = 'fields';
+$handler->display->display_options['row_options']['hide_empty'] = TRUE;
+/* Forbindelse: Bruger: Repræsentativ node */
+$handler->display->display_options['relationships']['uid_representative']['id'] = 'uid_representative';
+$handler->display->display_options['relationships']['uid_representative']['table'] = 'users';
+$handler->display->display_options['relationships']['uid_representative']['field'] = 'uid_representative';
+$handler->display->display_options['relationships']['uid_representative']['subquery_sort'] = 'node.created';
+$handler->display->display_options['relationships']['uid_representative']['subquery_view'] = '';
+$handler->display->display_options['relationships']['uid_representative']['subquery_namespace'] = '';
+/* Felt: Hidden: Uid */
+$handler->display->display_options['fields']['uid']['id'] = 'uid';
+$handler->display->display_options['fields']['uid']['table'] = 'users';
+$handler->display->display_options['fields']['uid']['field'] = 'uid';
+$handler->display->display_options['fields']['uid']['ui_name'] = 'Hidden: Uid';
+$handler->display->display_options['fields']['uid']['label'] = '';
+$handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+$handler->display->display_options['fields']['uid']['element_type'] = 'div';
+$handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
+/* Felt: Blog name */
+$handler->display->display_options['fields']['value']['id'] = 'value';
+$handler->display->display_options['fields']['value']['table'] = 'profile_value_profile_blogname';
+$handler->display->display_options['fields']['value']['field'] = 'value';
+$handler->display->display_options['fields']['value']['ui_name'] = 'Blog name';
+$handler->display->display_options['fields']['value']['label'] = '';
+$handler->display->display_options['fields']['value']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['value']['alter']['text'] = '<h3>[value] &nbsp;&nbsp; </h3><a href="/blogs/[uid]">Gå til blog</a>';
+$handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['value']['link_to_user'] = FALSE;
+/* Felt: Hidden: User name */
+$handler->display->display_options['fields']['name']['id'] = 'name';
+$handler->display->display_options['fields']['name']['table'] = 'users';
+$handler->display->display_options['fields']['name']['field'] = 'name';
+$handler->display->display_options['fields']['name']['ui_name'] = 'Hidden: User name';
+$handler->display->display_options['fields']['name']['label'] = '';
+$handler->display->display_options['fields']['name']['exclude'] = TRUE;
+$handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+$handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+/* Felt: Hidden: User image */
+$handler->display->display_options['fields']['picture']['id'] = 'picture';
+$handler->display->display_options['fields']['picture']['table'] = 'users';
+$handler->display->display_options['fields']['picture']['field'] = 'picture';
+$handler->display->display_options['fields']['picture']['ui_name'] = 'Hidden: User image';
+$handler->display->display_options['fields']['picture']['label'] = '';
+$handler->display->display_options['fields']['picture']['exclude'] = TRUE;
+$handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
+/* Felt: Embeded: Blog partial view */
+$handler->display->display_options['fields']['view']['id'] = 'view';
+$handler->display->display_options['fields']['view']['table'] = 'views';
+$handler->display->display_options['fields']['view']['field'] = 'view';
+$handler->display->display_options['fields']['view']['ui_name'] = 'Embeded: Blog partial view';
+$handler->display->display_options['fields']['view']['label'] = '';
+$handler->display->display_options['fields']['view']['exclude'] = TRUE;
+$handler->display->display_options['fields']['view']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['view']['view'] = 'ungeblogs_oversigten';
+$handler->display->display_options['fields']['view']['arguments'] = '[!uid]';
+/* Felt: Compile: Hidden Content */
+$handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['table'] = 'views';
+$handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['ui_name'] = 'Compile: Hidden Content';
+$handler->display->display_options['fields']['nothing']['label'] = '';
+$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="blog_oversigt_left">
+[picture]
+</div>
+<div class="blog_oversigt_right">
+[view]
+</div>';
+$handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+/* Filterkriterie: Bruger: Aktiv */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'users';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = '1';
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filterkriterie: Fjern Kristian Lund */
+$handler->display->display_options['filters']['uid_raw']['id'] = 'uid_raw';
+$handler->display->display_options['filters']['uid_raw']['table'] = 'users';
+$handler->display->display_options['filters']['uid_raw']['field'] = 'uid_raw';
+$handler->display->display_options['filters']['uid_raw']['ui_name'] = 'Fjern Kristian Lund';
+$handler->display->display_options['filters']['uid_raw']['operator'] = '!=';
+$handler->display->display_options['filters']['uid_raw']['value']['value'] = '41';
+/* Filterkriterie: Fjern Mie */
+$handler->display->display_options['filters']['uid_raw_1']['id'] = 'uid_raw_1';
+$handler->display->display_options['filters']['uid_raw_1']['table'] = 'users';
+$handler->display->display_options['filters']['uid_raw_1']['field'] = 'uid_raw';
+$handler->display->display_options['filters']['uid_raw_1']['ui_name'] = 'Fjern Mie';
+$handler->display->display_options['filters']['uid_raw_1']['operator'] = '!=';
+$handler->display->display_options['filters']['uid_raw_1']['value']['value'] = '255';
+
+/* Display: All blogs */
+$handler = $view->new_display('block', 'All blogs', 'all_blogs');
+$handler->display->display_options['enabled'] = FALSE;
+$handler->display->display_options['block_description'] = 'Alle Blogs';
+
+/* Display: Bloggere */
+$handler = $view->new_display('page', 'Bloggere', 'page_1');
+$handler->display->display_options['defaults']['title'] = FALSE;
+$handler->display->display_options['title'] = 'Bloggere';
+$handler->display->display_options['defaults']['relationships'] = FALSE;
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Felt: Hidden: Uid */
+$handler->display->display_options['fields']['uid']['id'] = 'uid';
+$handler->display->display_options['fields']['uid']['table'] = 'users';
+$handler->display->display_options['fields']['uid']['field'] = 'uid';
+$handler->display->display_options['fields']['uid']['ui_name'] = 'Hidden: Uid';
+$handler->display->display_options['fields']['uid']['label'] = '';
+$handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+$handler->display->display_options['fields']['uid']['element_type'] = 'div';
+$handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
+/* Felt: Blog name */
+$handler->display->display_options['fields']['value']['id'] = 'value';
+$handler->display->display_options['fields']['value']['table'] = 'profile_value_profile_blogname';
+$handler->display->display_options['fields']['value']['field'] = 'value';
+$handler->display->display_options['fields']['value']['ui_name'] = 'Blog name';
+$handler->display->display_options['fields']['value']['label'] = '';
+$handler->display->display_options['fields']['value']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['value']['alter']['text'] = '<h3>[value] &nbsp;&nbsp; </h3><a href="/blogs/[uid]">Gå til blog</a>';
+$handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['value']['link_to_user'] = FALSE;
+/* Felt: Hidden: User name */
+$handler->display->display_options['fields']['name']['id'] = 'name';
+$handler->display->display_options['fields']['name']['table'] = 'users';
+$handler->display->display_options['fields']['name']['field'] = 'name';
+$handler->display->display_options['fields']['name']['ui_name'] = 'Hidden: User name';
+$handler->display->display_options['fields']['name']['label'] = '';
+$handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+$handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+/* Felt: Hidden: User image */
+$handler->display->display_options['fields']['picture']['id'] = 'picture';
+$handler->display->display_options['fields']['picture']['table'] = 'users';
+$handler->display->display_options['fields']['picture']['field'] = 'picture';
+$handler->display->display_options['fields']['picture']['ui_name'] = 'Hidden: User image';
+$handler->display->display_options['fields']['picture']['label'] = '';
+$handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
+$handler->display->display_options['fields']['picture']['image_style'] = 'blog_profilbillede_oversigt';
+$handler->display->display_options['defaults']['sorts'] = FALSE;
+/* Sorteringskriterie: Bruger: Navn */
+$handler->display->display_options['sorts']['name']['id'] = 'name';
+$handler->display->display_options['sorts']['name']['table'] = 'users';
+$handler->display->display_options['sorts']['name']['field'] = 'name';
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filterkriterie: Bruger: Aktiv */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'users';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = '1';
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filterkriterie: Profil: Profil: Offentliggør blog */
+$handler->display->display_options['filters']['value']['id'] = 'value';
+$handler->display->display_options['filters']['value']['table'] = 'profile_value_profile_blogpublic';
+$handler->display->display_options['filters']['value']['field'] = 'value';
+$handler->display->display_options['filters']['value']['value'] = '1';
+$handler->display->display_options['path'] = 'bloggere';
+$translatables['bloggere'] = array(
+  t('Master'),
+  t('Blogs'),
+  t('mere'),
+  t('Udfør'),
+  t('Gendan'),
+  t('Sortér efter'),
+  t('Stigende'),
+  t('Faldende'),
+  t('Antal elementer'),
+  t('- Alle -'),
+  t('Forskydning'),
+  t('« første'),
+  t('‹ forrige'),
+  t('næste ›'),
+  t('sidste »'),
+  t('Repræsentativ node'),
+  t('<h3>[value] &nbsp;&nbsp; </h3><a href="/blogs/[uid]">Gå til blog</a>'),
+  t('<div class="blog_oversigt_left">
+[picture]
+</div>
+<div class="blog_oversigt_right">
+[view]
+</div>'),
+  t('All blogs'),
+  t('Alle Blogs'),
+  t('Bloggere'),
+);
+
+  return $view;
+
+}
