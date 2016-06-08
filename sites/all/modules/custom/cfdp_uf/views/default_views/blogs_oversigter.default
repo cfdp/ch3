@@ -198,7 +198,8 @@ $handler->display->display_options['defaults']['header'] = FALSE;
 $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['content'] = '<h1>Seneste blogindlæg</h1>';
+$handler->display->display_options['header']['area']['content'] = '<h1>Blogs oversigt</h1>
+<p>Se alle <a title="Cyberhus\' bloggere" href="/bloggere">bloggere</a></p>';
 $handler->display->display_options['header']['area']['format'] = '2';
 $handler->display->display_options['header']['area']['tokenize'] = TRUE;
 $handler->display->display_options['defaults']['relationships'] = FALSE;
@@ -207,16 +208,24 @@ $handler->display->display_options['relationships']['uid']['id'] = 'uid';
 $handler->display->display_options['relationships']['uid']['table'] = 'node';
 $handler->display->display_options['relationships']['uid']['field'] = 'uid';
 $handler->display->display_options['defaults']['fields'] = FALSE;
-/* Felt: Profil: Profil: Blog navn */
-$handler->display->display_options['fields']['value']['id'] = 'value';
-$handler->display->display_options['fields']['value']['table'] = 'profile_value_profile_blogname';
-$handler->display->display_options['fields']['value']['field'] = 'value';
-$handler->display->display_options['fields']['value']['relationship'] = 'uid';
-$handler->display->display_options['fields']['value']['label'] = '';
-$handler->display->display_options['fields']['value']['element_type'] = 'h2';
-$handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['value']['empty'] = 'Blognavn ikke angivet';
-$handler->display->display_options['fields']['value']['link_to_user'] = FALSE;
+/* Felt: Bruger: Uid */
+$handler->display->display_options['fields']['uid']['id'] = 'uid';
+$handler->display->display_options['fields']['uid']['table'] = 'users';
+$handler->display->display_options['fields']['uid']['field'] = 'uid';
+$handler->display->display_options['fields']['uid']['relationship'] = 'uid';
+$handler->display->display_options['fields']['uid']['label'] = '';
+$handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+$handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
+/* Felt: Indhold: Titel */
+$handler->display->display_options['fields']['title']['id'] = 'title';
+$handler->display->display_options['fields']['title']['table'] = 'node';
+$handler->display->display_options['fields']['title']['field'] = 'title';
+$handler->display->display_options['fields']['title']['label'] = '';
+$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+$handler->display->display_options['fields']['title']['element_type'] = 'h2';
+$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
 /* Felt: Bruger: Billede */
 $handler->display->display_options['fields']['picture']['id'] = 'picture';
 $handler->display->display_options['fields']['picture']['table'] = 'users';
@@ -225,13 +234,18 @@ $handler->display->display_options['fields']['picture']['relationship'] = 'uid';
 $handler->display->display_options['fields']['picture']['label'] = '';
 $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['picture']['image_style'] = 'blog_profilbillede_oversigt';
-/* Felt: Indhold: Titel */
-$handler->display->display_options['fields']['title']['id'] = 'title';
-$handler->display->display_options['fields']['title']['table'] = 'node';
-$handler->display->display_options['fields']['title']['field'] = 'title';
-$handler->display->display_options['fields']['title']['label'] = '';
-$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+/* Felt: Profil: Profil: Blog navn */
+$handler->display->display_options['fields']['value']['id'] = 'value';
+$handler->display->display_options['fields']['value']['table'] = 'profile_value_profile_blogname';
+$handler->display->display_options['fields']['value']['field'] = 'value';
+$handler->display->display_options['fields']['value']['relationship'] = 'uid';
+$handler->display->display_options['fields']['value']['label'] = '';
+$handler->display->display_options['fields']['value']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['value']['alter']['make_link'] = TRUE;
+$handler->display->display_options['fields']['value']['alter']['path'] = '/blog/[uid]';
+$handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['value']['empty'] = 'Blognavn ikke angivet';
+$handler->display->display_options['fields']['value']['link_to_user'] = FALSE;
 /* Felt: Indhold: Kommentarantal */
 $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
 $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
@@ -254,9 +268,20 @@ $handler->display->display_options['fields']['body']['id'] = 'body';
 $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
 $handler->display->display_options['fields']['body']['field'] = 'body';
 $handler->display->display_options['fields']['body']['label'] = '';
+$handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = TRUE;
 $handler->display->display_options['fields']['body']['alter']['max_length'] = '400';
+$handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
 $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+$handler->display->display_options['fields']['body']['alter']['preserve_tags'] = '<p><br>';
+$handler->display->display_options['fields']['body']['alter']['html'] = TRUE;
 $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+/* Felt: Indhold: Link */
+$handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+$handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+$handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+$handler->display->display_options['fields']['view_node']['label'] = '';
+$handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['view_node']['text'] = 'Læs mere';
 $handler->display->display_options['defaults']['arguments'] = FALSE;
 $handler->display->display_options['path'] = 'blogs';
 $translatables['blogs_oversigter'] = array(
@@ -287,7 +312,8 @@ $translatables['blogs_oversigter'] = array(
   t('Læs mere'),
   t('Oversigt over de seneste blogindlæg'),
   t('Blogs oversigt'),
-  t('<h1>Seneste blogindlæg</h1>'),
+  t('<h1>Blogs oversigt</h1>
+<p>Se alle <a title="Cyberhus\' bloggere" href="/bloggere">bloggere</a></p>'),
 );
 
 

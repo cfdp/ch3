@@ -26,7 +26,7 @@ $handler->display->display_options['exposed_form']['options']['reset_button_labe
 $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
 $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
 $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
-$handler->display->display_options['pager']['type'] = 'full';
+$handler->display->display_options['pager']['type'] = 'load_more';
 $handler->display->display_options['pager']['options']['items_per_page'] = '22';
 $handler->display->display_options['pager']['options']['offset'] = '0';
 $handler->display->display_options['pager']['options']['id'] = '0';
@@ -38,6 +38,8 @@ $handler->display->display_options['pager']['options']['tags']['first'] = '« f�
 $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
 $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
 $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+$handler->display->display_options['pager']['options']['effects']['type'] = 'fade';
+$handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
 $handler->display->display_options['style_plugin'] = 'default';
 $handler->display->display_options['row_plugin'] = 'fields';
 $handler->display->display_options['row_options']['hide_empty'] = TRUE;
@@ -142,6 +144,8 @@ $handler->display->display_options['block_description'] = 'Alle Blogs';
 $handler = $view->new_display('page', 'Bloggere', 'page_1');
 $handler->display->display_options['defaults']['title'] = FALSE;
 $handler->display->display_options['title'] = 'Bloggere';
+$handler->display->display_options['defaults']['use_ajax'] = FALSE;
+$handler->display->display_options['use_ajax'] = TRUE;
 $handler->display->display_options['defaults']['header'] = FALSE;
 /* Overskrift: Global: Tekstområde */
 $handler->display->display_options['header']['area']['id'] = 'area';
@@ -230,6 +234,7 @@ $translatables['bloggere'] = array(
   t('‹ forrige'),
   t('næste ›'),
   t('sidste »'),
+  t('Load more'),
   t('Repræsentativ node'),
   t('<h3>[value] &nbsp;&nbsp; </h3><a href="/blogs/[uid]">Gå til blog</a>'),
   t('<div class="blog_oversigt_left">
