@@ -142,8 +142,23 @@ $handler->display->display_options['block_description'] = 'Alle Blogs';
 $handler = $view->new_display('page', 'Bloggere', 'page_1');
 $handler->display->display_options['defaults']['title'] = FALSE;
 $handler->display->display_options['title'] = 'Bloggere';
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['content'] = '<h1>Bloggere</h1>';
+$handler->display->display_options['header']['area']['format'] = '2';
 $handler->display->display_options['defaults']['relationships'] = FALSE;
 $handler->display->display_options['defaults']['fields'] = FALSE;
+/* Felt: Profil: Profil: Blog navn */
+$handler->display->display_options['fields']['value_2']['id'] = 'value_2';
+$handler->display->display_options['fields']['value_2']['table'] = 'profile_value_profile_blogname';
+$handler->display->display_options['fields']['value_2']['field'] = 'value';
+$handler->display->display_options['fields']['value_2']['label'] = '';
+$handler->display->display_options['fields']['value_2']['element_type'] = 'h2';
+$handler->display->display_options['fields']['value_2']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['value_2']['link_to_user'] = FALSE;
 /* Felt: Hidden: Uid */
 $handler->display->display_options['fields']['uid']['id'] = 'uid';
 $handler->display->display_options['fields']['uid']['table'] = 'users';
@@ -154,26 +169,6 @@ $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
 $handler->display->display_options['fields']['uid']['element_type'] = 'div';
 $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
-/* Felt: Blog name */
-$handler->display->display_options['fields']['value']['id'] = 'value';
-$handler->display->display_options['fields']['value']['table'] = 'profile_value_profile_blogname';
-$handler->display->display_options['fields']['value']['field'] = 'value';
-$handler->display->display_options['fields']['value']['ui_name'] = 'Blog name';
-$handler->display->display_options['fields']['value']['label'] = '';
-$handler->display->display_options['fields']['value']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['value']['alter']['text'] = '<h3>[value] &nbsp;&nbsp; </h3><a href="/blogs/[uid]">Gå til blog</a>';
-$handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['value']['link_to_user'] = FALSE;
-/* Felt: Hidden: User name */
-$handler->display->display_options['fields']['name']['id'] = 'name';
-$handler->display->display_options['fields']['name']['table'] = 'users';
-$handler->display->display_options['fields']['name']['field'] = 'name';
-$handler->display->display_options['fields']['name']['ui_name'] = 'Hidden: User name';
-$handler->display->display_options['fields']['name']['label'] = '';
-$handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
-$handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
-$handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
 /* Felt: Hidden: User image */
 $handler->display->display_options['fields']['picture']['id'] = 'picture';
 $handler->display->display_options['fields']['picture']['table'] = 'users';
@@ -183,6 +178,22 @@ $handler->display->display_options['fields']['picture']['label'] = '';
 $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
 $handler->display->display_options['fields']['picture']['image_style'] = 'blog_profilbillede_oversigt';
+/* Felt: Profil: Profil: Lidt om mig... */
+$handler->display->display_options['fields']['value_1']['id'] = 'value_1';
+$handler->display->display_options['fields']['value_1']['table'] = 'profile_value_profile_NUeH';
+$handler->display->display_options['fields']['value_1']['field'] = 'value';
+$handler->display->display_options['fields']['value_1']['label'] = '';
+$handler->display->display_options['fields']['value_1']['element_label_colon'] = FALSE;
+/* Felt: Blog name */
+$handler->display->display_options['fields']['value']['id'] = 'value';
+$handler->display->display_options['fields']['value']['table'] = 'profile_value_profile_blogname';
+$handler->display->display_options['fields']['value']['field'] = 'value';
+$handler->display->display_options['fields']['value']['ui_name'] = 'Blog name';
+$handler->display->display_options['fields']['value']['label'] = '';
+$handler->display->display_options['fields']['value']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['value']['alter']['text'] = '<a href="/blog/[uid]">Gå til blog</a>';
+$handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['value']['link_to_user'] = FALSE;
 $handler->display->display_options['defaults']['sorts'] = FALSE;
 /* Sorteringskriterie: Bruger: Navn */
 $handler->display->display_options['sorts']['name']['id'] = 'name';
@@ -230,7 +241,10 @@ $translatables['bloggere'] = array(
   t('All blogs'),
   t('Alle Blogs'),
   t('Bloggere'),
+  t('<h1>Bloggere</h1>'),
+  t('<a href="/blog/[uid]">Gå til blog</a>'),
 );
+
 
   return $view;
 
