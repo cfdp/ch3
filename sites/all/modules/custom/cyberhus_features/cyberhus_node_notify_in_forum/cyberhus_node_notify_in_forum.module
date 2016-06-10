@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Cyberhus Node notify in Forum feature.
+ */
+
+include_once 'cyberhus_node_notify_in_forum.features.inc';

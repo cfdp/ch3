@@ -1,0 +1,10 @@
+name = Permissions for anonymous user role
+description = Permissions for anonymous user role
+core = 7.x
+package = Features
+version = 7.x-1.0
+dependencies[] = features
+dependencies[] = features_roles_permissions
+features[features_api][] = api:2
+features[roles_permissions][] = anonymous user
+project path = sites/all/modules/custom/cyberhus_features

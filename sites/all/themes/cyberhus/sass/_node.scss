@@ -54,6 +54,14 @@
       top: -18px;
       left: -18px;
     }
+
+    /* Jquery Ajax Load id - used for e.g. Node Notify subscribe form on forum posts */
+    #jquery_ajax_load_target {
+      clear: both;
+      display: block;
+      float: left;
+      margin-top: 1em;
+    }
   }
   
   &.logged-in.responsive-layout-normal {

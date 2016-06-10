@@ -1,0 +1,24 @@
+# Danish translation of jQuery AJAX Load (7.x-1.4)
+# Copyright (c) 2014 by the Danish translation team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jQuery AJAX Load (7.x-1.4)\n"
+"POT-Creation-Date: 2014-05-27 07:01+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: Danish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "Test"
+msgstr "Test"
+msgid "Access denied"
+msgstr "Adgang nægtet"
+msgid "Page not found"
+msgstr "Side ikke fundet"
+msgid "Loading"
+msgstr "Indlæser"
+msgid "Site under maintenance"
+msgstr "Site under opdatering"
