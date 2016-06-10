@@ -198,8 +198,8 @@ $handler->display->display_options['defaults']['header'] = FALSE;
 $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['content'] = '<h1>Blogs oversigt</h1>
-<p>Se alle <a title="Cyberhus\' bloggere" href="/bloggere">bloggere</a></p>';
+$handler->display->display_options['header']['area']['content'] = '<h1>Seneste blogindlæg</h1>
+<!--<p>Se alle <a title="Cyberhus\' bloggere" href="/bloggere">bloggere</a></p>-->';
 $handler->display->display_options['header']['area']['format'] = '2';
 $handler->display->display_options['header']['area']['tokenize'] = TRUE;
 $handler->display->display_options['defaults']['relationships'] = FALSE;
@@ -312,8 +312,8 @@ $translatables['blogs_oversigter'] = array(
   t('Læs mere'),
   t('Oversigt over de seneste blogindlæg'),
   t('Blogs oversigt'),
-  t('<h1>Blogs oversigt</h1>
-<p>Se alle <a title="Cyberhus\' bloggere" href="/bloggere">bloggere</a></p>'),
+  t('<h1>Seneste blogindlæg</h1>
+<!--<p>Se alle <a title="Cyberhus\' bloggere" href="/bloggere">bloggere</a></p>-->'),
 );
 
 
