@@ -1057,16 +1057,25 @@
 .view.view-tegn-selv-enkeltvisning {
   margin-bottom: 20px;
 }
+/* Load more pager */
+.view ul.pager-load-more {
+  li {
+    font-size: 16px;
+  }
+}
 
 #page {
   /* Blogs - individuel blog oversigt */
   .view-blogs-oversigter {
     .view-content {
       .views-row {
+        border-top: 1px solid #efefef;
         margin: 0 0 30px 0;
+        padding: 30px 15px 0 15px;
       }
     }
   }
+
   /* Ungeblogs/Voksenblogs - oversigt */
   .view.view-ungeblogs-oversigt,
   .view.view-voksenblogs-oversigt {
