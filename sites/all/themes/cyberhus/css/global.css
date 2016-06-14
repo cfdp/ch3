@@ -1415,30 +1415,38 @@
   margin-bottom: 20px;
 }
 
-/* line 1061, ../sass/_views.scss */
+/* Load more pager */
+/* line 1062, ../sass/_views.scss */
+.view ul.pager-load-more li {
+  font-size: 16px;
+}
+
+/* line 1067, ../sass/_views.scss */
 #page {
   /* Blogs - individuel blog oversigt */
   /* Ungeblogs/Voksenblogs - oversigt */
 }
-/* line 1065, ../sass/_views.scss */
+/* line 1071, ../sass/_views.scss */
 #page .view-blogs-oversigter .view-content .views-row {
+  border-top: 1px solid #efefef;
   margin: 0 0 30px 0;
+  padding: 30px 15px 0 15px;
 }
-/* line 1074, ../sass/_views.scss */
+/* line 1083, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row,
 #page .view.view-voksenblogs-oversigt .view-content .views-row {
   margin: 0 0 30px 0;
   border-top: 1px solid #efefef;
   padding: 30px 15px 0 15px;
 }
-/* line 1078, ../sass/_views.scss */
+/* line 1087, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value,
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name,
 #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value,
 #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name {
   overflow: hidden;
 }
-/* line 1081, ../sass/_views.scss */
+/* line 1090, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value h3,
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name h3,
 #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value h3,
@@ -1446,7 +1454,7 @@
   float: left;
   margin-right: 5px;
 }
-/* line 1085, ../sass/_views.scss */
+/* line 1094, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value a,
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name a,
 #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value a,
@@ -1460,44 +1468,44 @@
   line-height: 1;
   height: 15px;
 }
-/* line 1094, ../sass/_views.scss */
+/* line 1103, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-value a:hover,
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field-name a:hover,
 #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-value a:hover,
 #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field-name a:hover {
   text-decoration: underline;
 }
-/* line 1099, ../sass/_views.scss */
+/* line 1108, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing,
 #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing {
   overflow: hidden;
 }
-/* line 1101, ../sass/_views.scss */
+/* line 1110, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_left,
 #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_left {
   float: left;
   margin-right: 15px;
 }
-/* line 1108, ../sass/_views.scss */
+/* line 1117, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right,
 #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right {
   float: left;
   width: 450px;
 }
-/* line 1111, ../sass/_views.scss */
+/* line 1120, ../sass/_views.scss */
 #page .view.view-ungeblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right p,
 #page .view.view-voksenblogs-oversigt .view-content .views-row .views-field.views-field-nothing .blog_oversigt_right p {
   margin-bottom: 0;
 }
 
 /* Ungeblogs - enkeltvisning  */
-/* line 1125, ../sass/_views.scss */
+/* line 1134, ../sass/_views.scss */
 #page .view.view-blogs-enkeltvisning-oversigt.view-id-blogs_enkeltvisning_oversigt .view-content .views-row {
   margin: 0 0 30px 0;
   border-top: 1px solid #efefef;
   padding: 30px 15px 0 15px;
 }
-/* line 1130, ../sass/_views.scss */
+/* line 1139, ../sass/_views.scss */
 #page .view.view-blogs-enkeltvisning-oversigt.view-id-blogs_enkeltvisning_oversigt .view-content .views-row .views-field.views-field-title a {
   color: #e67e22;
   background: url("../img/next_yellow.png");
@@ -1509,59 +1517,59 @@
 }
 
 /* Body secrets */
-/* line 1145, ../sass/_views.scss */
+/* line 1154, ../sass/_views.scss */
 .view-id-body_secrets {
   /* Ordet er dit - page customizations */
   /* Lifehacks - page customizations */
 }
-/* line 1146, ../sass/_views.scss */
+/* line 1155, ../sass/_views.scss */
 .view-id-body_secrets .view-header,
 .view-id-body_secrets .view-content {
   margin-bottom: 10px;
   text-align: center;
 }
-/* line 1150, ../sass/_views.scss */
+/* line 1159, ../sass/_views.scss */
 .view-id-body_secrets .view-header .btn-wrapper,
 .view-id-body_secrets .view-content .btn-wrapper {
   text-align: center;
 }
-/* line 1153, ../sass/_views.scss */
+/* line 1162, ../sass/_views.scss */
 .view-id-body_secrets .view-header .opret_btn,
 .view-id-body_secrets .view-content .opret_btn {
   display: inline-block;
 }
-/* line 1155, ../sass/_views.scss */
+/* line 1164, ../sass/_views.scss */
 .view-id-body_secrets .view-header .opret_btn a,
 .view-id-body_secrets .view-content .opret_btn a {
   display: block;
   margin-top: .5em;
 }
-/* line 1159, ../sass/_views.scss */
+/* line 1168, ../sass/_views.scss */
 .view-id-body_secrets .view-header .opret_btn .secrets-icon,
 .view-id-body_secrets .view-content .opret_btn .secrets-icon {
   display: inline-block;
   height: 40px;
   width: 40px;
 }
-/* line 1165, ../sass/_views.scss */
+/* line 1174, ../sass/_views.scss */
 .view-id-body_secrets .view-header .opret_btn.virkelighed .secrets-icon,
 .view-id-body_secrets .view-content .opret_btn.virkelighed .secrets-icon {
   background: url("../img/icons/virkeligheder_ikon_dark.png") no-repeat;
   width: 74px;
 }
-/* line 1171, ../sass/_views.scss */
+/* line 1180, ../sass/_views.scss */
 .view-id-body_secrets .view-header .opret_btn.lifehack .secrets-icon,
 .view-id-body_secrets .view-content .opret_btn.lifehack .secrets-icon {
   background: url("../img/icons/lifehack_ikon_dark.png") no-repeat;
 }
 @media (min-width: 655px) {
-  /* line 1153, ../sass/_views.scss */
+  /* line 1162, ../sass/_views.scss */
   .view-id-body_secrets .view-header .opret_btn,
   .view-id-body_secrets .view-content .opret_btn {
     max-width: 40%;
   }
 }
-/* line 1180, ../sass/_views.scss */
+/* line 1189, ../sass/_views.scss */
 .view-id-body_secrets .views-row {
   display: inline-block;
   width: 260px;
@@ -1572,7 +1580,7 @@
   text-align: left;
   vertical-align: text-top;
 }
-/* line 1189, ../sass/_views.scss */
+/* line 1198, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body_secret_icon {
   background: transparent url("../img/icons/hemmeligheder_inv.png") no-repeat scroll 0 0;
   background-size: contain;
@@ -1582,20 +1590,20 @@
   top: 10px;
   width: 40px;
 }
-/* line 1198, ../sass/_views.scss */
+/* line 1207, ../sass/_views.scss */
 .view-id-body_secrets .views-row.Virkelighed .body_secret_icon {
   background-image: url("../img/icons/virkeligheder_ikon_light.png");
   background-position: center;
 }
-/* line 1202, ../sass/_views.scss */
+/* line 1211, ../sass/_views.scss */
 .view-id-body_secrets .views-row.Lifehack .body_secret_icon {
   background-image: url("../img/icons/lifehack_ikon_light.png");
 }
-/* line 1206, ../sass/_views.scss */
+/* line 1215, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body-secrets-field.field-category {
   margin-bottom: 15px;
 }
-/* line 1209, ../sass/_views.scss */
+/* line 1218, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body-secrets-field.field-body {
   font-size: 12px;
   line-height: 1.25em;
@@ -1603,34 +1611,34 @@
   text-shadow: none;
   word-wrap: break-word;
 }
-/* line 1216, ../sass/_views.scss */
+/* line 1225, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body-secrets-field.field-sex, .view-id-body_secrets .views-row .body-secrets-field.field-age {
   font-size: 11px;
 }
-/* line 1220, ../sass/_views.scss */
+/* line 1229, ../sass/_views.scss */
 .view-id-body_secrets .views-row .body-secrets-field.field-created {
   font-size: 11px;
   position: absolute;
   bottom: 27px;
 }
-/* line 1227, ../sass/_views.scss */
+/* line 1236, ../sass/_views.scss */
 .view-id-body_secrets .views-field-created {
   float: right;
   margin: 0px 0 6px 0;
 }
-/* line 1231, ../sass/_views.scss */
+/* line 1240, ../sass/_views.scss */
 .view-id-body_secrets .views-field-body {
   clear: both;
   line-height: 15px;
   margin-bottom: 5px;
 }
-/* line 1236, ../sass/_views.scss */
+/* line 1245, ../sass/_views.scss */
 .view-id-body_secrets .views-field-field-brevk-koen,
 .view-id-body_secrets .views-field-field-brevk-alder,
 .view-id-body_secrets .views-field-created {
   color: #888888;
 }
-/* line 1242, ../sass/_views.scss */
+/* line 1251, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing a {
   margin-top: 10px;
   color: #ffffff !important;
@@ -1638,7 +1646,7 @@
   display: inline-block;
   border-radius: 3px;
 }
-/* line 1251, ../sass/_views.scss */
+/* line 1260, ../sass/_views.scss */
 .view-id-body_secrets .view-footer > a {
   background: transparent url(../img/next_yellow.png) center left no-repeat;
   float: left;
@@ -1646,7 +1654,7 @@
   padding-left: 18px;
   margin-bottom: 8px;
 }
-/* line 1259, ../sass/_views.scss */
+/* line 1268, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing {
   background: #2980b9 none repeat scroll 0 0;
   color: #ffffff;
@@ -1655,34 +1663,34 @@
   padding: 25px 25px 15px;
   text-shadow: none;
 }
-/* line 1266, ../sass/_views.scss */
+/* line 1275, ../sass/_views.scss */
 .view-id-body_secrets .views-field-nothing a {
   padding: 5px 10px;
   position: absolute;
   bottom: 10px;
   left: 60px;
 }
-/* line 1275, ../sass/_views.scss */
+/* line 1284, ../sass/_views.scss */
 .view-id-body_secrets.view-display-id-page_1 .views-field-nothing {
   background: #2980b9 none repeat scroll 0 0;
 }
-/* line 1278, ../sass/_views.scss */
+/* line 1287, ../sass/_views.scss */
 .view-id-body_secrets.view-display-id-page_1 .Virkelighed .views-field-nothing {
   background: #BE222C none repeat scroll 0 0;
 }
-/* line 1281, ../sass/_views.scss */
+/* line 1290, ../sass/_views.scss */
 .view-id-body_secrets.view-display-id-page_1 .Lifehack .views-field-nothing {
   background: #27ae61 none repeat scroll 0 0;
 }
-/* line 1287, ../sass/_views.scss */
+/* line 1296, ../sass/_views.scss */
 .view-id-body_secrets.view-display-id-page_2 .views-field-nothing {
   background: #27ae61 none repeat scroll 0 0;
 }
-/* line 1291, ../sass/_views.scss */
+/* line 1300, ../sass/_views.scss */
 .view-id-body_secrets .more-link {
   text-align: center;
 }
-/* line 1293, ../sass/_views.scss */
+/* line 1302, ../sass/_views.scss */
 .view-id-body_secrets .more-link a {
   padding: 15px 20px;
   background-color: #e67e22;
@@ -1702,13 +1710,13 @@
   background-color: #e98b39;
 }
 
-/* line 1301, ../sass/_views.scss */
+/* line 1310, ../sass/_views.scss */
 #page #section-content #region-sidebar-first #block-views-body-secrets-block-1 .opret_btn a {
   color: #fff;
   text-decoration: none;
 }
 
-/* line 1310, ../sass/_views.scss */
+/* line 1319, ../sass/_views.scss */
 .view-id-related_articles .view-content .field-content a {
   background: transparent url(../img/next_yellow.png) center left no-repeat;
   float: left;
@@ -1720,13 +1728,13 @@
 }
 
 /* General stuff */
-/* line 1326, ../sass/_views.scss */
+/* line 1335, ../sass/_views.scss */
 .opret_btn {
   position: relative;
   margin-bottom: 30px;
   padding: 0 15px 0 15px;
 }
-/* line 1330, ../sass/_views.scss */
+/* line 1339, ../sass/_views.scss */
 .opret_btn a {
   padding: 15px 20px;
   background-color: #e67e22;
