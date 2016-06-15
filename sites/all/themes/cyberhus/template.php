@@ -217,3 +217,31 @@ function cyberhus_menu_link__menu_top_menu($variables) {
   return '<li ' . drupal_attributes($link['#attributes']) . '><a href="/' . $link['#href'] . '" title="' . $link['#title'] . '"><img class="icon" src="/' . drupal_get_path('theme', 'cyberhus') . '/img/icons/' . $link['#attributes']['id'] . '.png"/><img class="icon_inv" src="/' . drupal_get_path('theme', 'cyberhus') . '/img/icons/' . $link['#attributes']['id'] . '_inv.png"/>' . $link['#title'] . '</a></li>';
 }
 
+/**
+* Remove add forum topic link from forum pages
+* @param Array $variables
+*/
+function cyberhus_menu_local_action($variables) {
+  $link = $variables['element']['#link'];
+  // Remove add new forum topic from /forum page
+  $path = current_path();
+  dpm(arg(0), substr($link['href'],0, 14));
+  if (arg(0) == 'forum' &&  substr($link['href'], 0, 14) == 'node/add/forum') {
+    $output = null;
+  }
+  else {
+    $output = '<li>';
+    if (isset($link['href'])) {
+      $output .= l($link['title'], $link['href'], isset($link['localized_options']) ? $link['localized_options'] : array());
+    }
+    elseif (!empty($link['localized_options']['html'])) {
+      $output .= $link['title'];
+    }
+    else {
+      $output .= check_plain($link['title']);
+    }
+    $output .= "</li>\n";
+  }
+
+  return $output;
+}
