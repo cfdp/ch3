@@ -5,7 +5,7 @@
 #page .view-cyberhus-forum-topic-list {
   & > .view-header,
   & > .view-footer {
-    margin-bottom: 2em;
+    margin: 2em 0;
     .view-content {
       margin-bottom: 1em;
       .views-row {
@@ -14,7 +14,6 @@
     }
     .views-field-field-tag-shorthand {
       color: $color_gray;
-      display: inline;
       font-size: $font_size_medium;
       padding-right: 1em;
     }
