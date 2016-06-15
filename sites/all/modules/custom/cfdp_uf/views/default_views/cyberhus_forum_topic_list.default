@@ -59,6 +59,7 @@ $handler->display->display_options['relationships']['term_node_tid']['id'] = 'te
 $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
 $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
 $handler->display->display_options['relationships']['term_node_tid']['label'] = 'forum term';
+$handler->display->display_options['relationships']['term_node_tid']['required'] = TRUE;
 $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
   'forumss' => 'forumss',
   'vocabulary_3' => 0,
@@ -113,15 +114,23 @@ $handler->display->display_options['fields']['tid']['relationship'] = 'term_node
 $handler->display->display_options['fields']['tid']['label'] = '';
 $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
 $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['tid']['separator'] = '';
 /* Felt: Ord i ordforråd: tag shorthand */
 $handler->display->display_options['fields']['field_tag_shorthand']['id'] = 'field_tag_shorthand';
 $handler->display->display_options['fields']['field_tag_shorthand']['table'] = 'field_data_field_tag_shorthand';
 $handler->display->display_options['fields']['field_tag_shorthand']['field'] = 'field_tag_shorthand';
 $handler->display->display_options['fields']['field_tag_shorthand']['relationship'] = 'term_node_tid';
 $handler->display->display_options['fields']['field_tag_shorthand']['label'] = '';
-$handler->display->display_options['fields']['field_tag_shorthand']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['field_tag_shorthand']['exclude'] = TRUE;
 $handler->display->display_options['fields']['field_tag_shorthand']['alter']['text'] = 'Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] • [created] siden';
 $handler->display->display_options['fields']['field_tag_shorthand']['element_label_colon'] = FALSE;
+/* Felt: Global: Tilpasset tekst */
+$handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['table'] = 'views';
+$handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['label'] = '';
+$handler->display->display_options['fields']['nothing']['alter']['text'] = 'Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] • [created] siden';
+$handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
 /* Felt: Indhold: Titel */
 $handler->display->display_options['fields']['title']['id'] = 'title';
 $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -254,9 +263,19 @@ $handler->display->display_options['defaults']['header'] = FALSE;
 $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['content'] = '<a href="/node/add/forum" title="Skriv indlæg" class="btn">Skriv indlæg</a>';
+$handler->display->display_options['header']['area']['label'] = 'Titel';
+$handler->display->display_options['header']['area']['empty'] = TRUE;
+$handler->display->display_options['header']['area']['content'] = '<h1>[field_tag_shorthand]</h1>';
 $handler->display->display_options['header']['area']['format'] = '2';
 $handler->display->display_options['header']['area']['tokenize'] = TRUE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area_1']['id'] = 'area_1';
+$handler->display->display_options['header']['area_1']['table'] = 'views';
+$handler->display->display_options['header']['area_1']['field'] = 'area';
+$handler->display->display_options['header']['area_1']['empty'] = TRUE;
+$handler->display->display_options['header']['area_1']['content'] = '<a href="/node/add/forum/[tid]" title="Skriv indlæg" class="btn">Skriv indlæg</a>';
+$handler->display->display_options['header']['area_1']['format'] = '2';
+$handler->display->display_options['header']['area_1']['tokenize'] = TRUE;
 $handler->display->display_options['defaults']['footer'] = FALSE;
 /* Sidefod: Global: View-område */
 $handler->display->display_options['footer']['view']['id'] = 'view';
@@ -285,17 +304,19 @@ $translatables['cyberhus_forum_topic_list'] = array(
   t('Afstemningsresultater'),
   t('Anonym'),
   t('.'),
-  t(','),
   t('Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] • [created] siden'),
   t('<span title="Dette indlæg har fået [value] likes" class="cyberlikes">[value]</span>'),
+  t(','),
   t('<span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span>'),
   t('Alle'),
   t('Forum oversigt'),
   t('Oversigt over indlæg fra alle fora'),
   t('Forum oversigt, enkelt forum'),
   t('Visning af de seneste indlæg i et bestemt forum'),
+  t('Titel'),
+  t('<h1>[field_tag_shorthand]</h1>'),
+  t('<a href="/node/add/forum/[tid]" title="Skriv indlæg" class="btn">Skriv indlæg</a>'),
 );
-
 
   return $view;
 

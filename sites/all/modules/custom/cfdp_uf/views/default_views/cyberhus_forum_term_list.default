@@ -1,6 +1,5 @@
 <?php
 function cyberhus_forum_term_list() {
-
 $view = new view();
 $view->name = 'cyberhus_forum_term_list';
 $view->description = '';
@@ -16,7 +15,11 @@ $handler = $view->new_display('default', 'Master', 'default');
 $handler->display->display_options['use_more_always'] = FALSE;
 $handler->display->display_options['use_more_text'] = 'mere';
 $handler->display->display_options['access']['type'] = 'perm';
-$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['cache']['type'] = 'time';
+$handler->display->display_options['cache']['results_lifespan'] = '21600';
+$handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+$handler->display->display_options['cache']['output_lifespan'] = '21600';
+$handler->display->display_options['cache']['output_lifespan_custom'] = '0';
 $handler->display->display_options['query']['type'] = 'views_query';
 $handler->display->display_options['exposed_form']['type'] = 'basic';
 $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
@@ -35,7 +38,8 @@ $handler->display->display_options['fields']['tid']['field'] = 'tid';
 $handler->display->display_options['fields']['tid']['label'] = '';
 $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
 $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
-/* Felt: Ord i ordforråd: tag shorthand */
+$handler->display->display_options['fields']['tid']['separator'] = '';
+/* Felt: Ord i ordforråd: Tag shorthand */
 $handler->display->display_options['fields']['field_tag_shorthand']['id'] = 'field_tag_shorthand';
 $handler->display->display_options['fields']['field_tag_shorthand']['table'] = 'field_data_field_tag_shorthand';
 $handler->display->display_options['fields']['field_tag_shorthand']['field'] = 'field_tag_shorthand';
@@ -59,8 +63,8 @@ $translatables['cyberhus_forum_term_list'] = array(
   t('Stigende'),
   t('Faldende'),
   t('.'),
-  t(','),
 );
+
   return $view;
 
 }
