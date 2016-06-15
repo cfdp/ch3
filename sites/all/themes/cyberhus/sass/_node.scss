@@ -324,31 +324,31 @@
     width: 100%;
     height: 35px;
     margin: 0;
-    .alternate-votes-display {
+    .cyberlike-votes-display {
       border: none;
       font-family: $std-font-family;
-      width: 110px;
+      width: 26px;
       font-weight: $font_weight_brodtekst;
       font-size: 13px;
       text-align: right;
       float: right;
       font-style: italic;
     }
-    .alternate-votes-display:after {
-      content: " synes godt om";
+    .cyberlike-votes-display:after {
+      /* content: " synes godt om"; */
     }
     .vud-link-up, .up-active {
-      width: 89px;
-      height: 26px;
-      background: url("../img/cyberlike.png");
+      width: 26px;
+      height: 24px;
+      background: url("../img/heart_cleaned.svg");
       background-repeat: no-repeat;
       display: block;
       float: right;
-      margin-right: 15px;
-      .up-inactive {
-        display: none;
-      }
     }
+    .up-active {
+      background: url("../img/heart-fill_cleaned.svg");
+    }
+
     .reset-active {
       float: right;
       display: none;
@@ -388,7 +388,7 @@
   }
   .comment-unpublished {
     .field.field-name-field-kommentar-cyberlike {
-      .alternate-votes-display {
+      .cyberlike-votes-display {
         width: 55px;
       }
     }

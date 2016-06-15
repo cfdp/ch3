@@ -1,0 +1,23 @@
+diff --git a/modules/forum/forum.module b/modules/forum/forum.module
+index 1224418..cfc568e 100644
+--- a/modules/forum/forum.module
++++ b/modules/forum/forum.module
+@@ -166,7 +166,17 @@ function forum_menu_local_tasks_alter(&$data, $router_item,
+
+   // Add action link to 'node/add/forum' on 'forum' sub-pages.
+   if ($root_path == 'forum' || $root_path == 'forum/%') {
+-    $tid = (isset($router_item['page_arguments'][0]) ? $router_item['page_argum
++    // Oh no the forum module can't be overridden by views
++    // adding logic to prevent a non-object notice. Sorry!
++    // XX <- DEAD KITTEN START
++    if (isset($router_item['page_arguments'][0]) && !is_string($router_item['pa
++      $tid = $router_item['page_arguments'][0]->tid;
++    }
++    else {
++      $path = current_path();
++      $tid = ((arg(1) !== null) ? check_plain(arg(1)) : 0 );
++    }
++    // XX <-- DEAD KITTEN END
+     $forum_term = forum_forum_load($tid);
+     if ($forum_term) {
+       $links = array();

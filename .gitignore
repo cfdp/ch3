@@ -10,6 +10,8 @@ sites/*/private
 sites/default
 
 # Ignore devel modules and files
+sites/all/modules/devel_themer
+sites/all/modules/simplehtmldom
 sites/all/modules/stage_file_proxy
 sites/all/modules/reroute_email
 sites/all/modules/smtp
