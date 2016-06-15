@@ -3,21 +3,56 @@
  */
 
 #page .view-cyberhus-forum-topic-list {
-  .view-filters .bef-select-as-links .form-type-bef-link {
-    display: inline;
-    margin-right: 1em;
-  }
-  .view-content {
-    .item-list > ul {
-      padding: 0;
-      > li {
-        margin: 0 0 2em 0;
+  & > .view-header,
+  & > .view-footer {
+    margin-bottom: 2em;
+    .view-content {
+      margin-bottom: 1em;
+      .views-row {
+        display: inline-block;
       }
-      h2 {
-        margin: 0;
+    }
+    .views-field-field-tag-shorthand {
+      color: $color_gray;
+      display: inline;
+      font-size: $font_size_medium;
+      padding-right: 1em;
+    }
+  }
+  .view-filters {
+    margin-bottom: 1em;
+
+    /* Hide description: https://www.drupal.org/node/339384#comment-10587426 */
+    .form-type-select .description {
+      display: none;
+    }
+  }
+  & > .view-content {
+    .views-row {
+      margin-bottom: 2em;
+    }
+    h2 {
+      margin: 0;
+    }
+    .views-field-field-tag-shorthand {
+      color: $color_gray;
+    }
+    .cyberlikes, .comment-count {
+      background: url('../img/heart_cleaned_gray.svg') no-repeat 0 0;
+      color: $color_gray;
+      display: inline-block;
+      height: 30px;
+      margin-top: 0.7em;
+      padding-left: 40px;
+    }
+    .comment-count {
+      background-image: none;
+      &:after {
+        content: " kommentarer";
       }
     }
   }
+
 }
 
 .page-forum {
@@ -157,12 +192,6 @@
   .view-empty {
     margin: 0;
     padding: 0;
-  }
-  .views-field-comment-count {
-    text-align: center;
-    @media(max-width: 500px) {
-      display: none;
-    }
   }
   .views-field-field-brevk-koen {
     @media(max-width: 500px) {
