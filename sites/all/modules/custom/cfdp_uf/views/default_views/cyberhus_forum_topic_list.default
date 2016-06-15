@@ -13,101 +13,18 @@ $view->disabled = FALSE; /* Edit this to true to make a default view disabled in
 
 /* Display: Master */
 $handler = $view->new_display('default', 'Master', 'default');
-$handler->display->display_options['title'] = 'Cyberhus debat';
 $handler->display->display_options['use_ajax'] = TRUE;
 $handler->display->display_options['use_more_always'] = FALSE;
 $handler->display->display_options['use_more_text'] = 'mere';
 $handler->display->display_options['access']['type'] = 'perm';
 $handler->display->display_options['cache']['type'] = 'none';
 $handler->display->display_options['query']['type'] = 'views_query';
-$handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+$handler->display->display_options['exposed_form']['type'] = 'basic';
 $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
 $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
 $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
 $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
 $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
-$handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
-$handler->display->display_options['exposed_form']['options']['bef'] = array(
-  'general' => array(
-    'allow_secondary' => 0,
-    'secondary_label' => 'Avancerede indstillinger',
-    'collapsible_label' => NULL,
-    'combine_rewrite' => NULL,
-    'reset_label' => NULL,
-    'bef_filter_description' => NULL,
-    'any_label' => NULL,
-    'filter_rewrite_values' => NULL,
-  ),
-  'taxonomy_forums_tid' => array(
-    'bef_format' => 'bef_links',
-    'more_options' => array(
-      'bef_select_all_none' => FALSE,
-      'bef_collapsible' => 0,
-      'is_secondary' => 0,
-      'any_label' => '',
-      'bef_filter_description' => '',
-      'tokens' => array(
-        'available' => array(
-          0 => 'global_types',
-          1 => 'vocabulary',
-          'secondary_label' => NULL,
-          'collapsible_label' => NULL,
-          'combine_rewrite' => NULL,
-          'reset_label' => NULL,
-          'bef_filter_description' => NULL,
-          'any_label' => NULL,
-          'filter_rewrite_values' => NULL,
-        ),
-        'secondary_label' => NULL,
-        'collapsible_label' => NULL,
-        'combine_rewrite' => NULL,
-        'reset_label' => NULL,
-        'bef_filter_description' => NULL,
-        'any_label' => NULL,
-        'filter_rewrite_values' => NULL,
-      ),
-      'rewrite' => array(
-        'filter_rewrite_values' => '- Enhver -|Vis alle
-Dét gør mig glad|#glad
-Teenageliv|#teenageliv
-Verden omkring dig|#verden
-Lyst & Seksualitet|#sex
-Når det gør ondt inderst inde|#ondt
-KRAM|#KRAM
-Social reality - livet på nettet|#nettet
-Blandede bolsjer|#blandet
-Gør Cyberhus endnu bedre!|#feedback',
-        'secondary_label' => NULL,
-        'collapsible_label' => NULL,
-        'combine_rewrite' => NULL,
-        'reset_label' => NULL,
-        'bef_filter_description' => NULL,
-        'any_label' => NULL,
-      ),
-      'secondary_label' => NULL,
-      'collapsible_label' => NULL,
-      'combine_rewrite' => NULL,
-      'reset_label' => NULL,
-      'filter_rewrite_values' => NULL,
-    ),
-    'secondary_label' => NULL,
-    'collapsible_label' => NULL,
-    'combine_rewrite' => NULL,
-    'reset_label' => NULL,
-    'bef_filter_description' => NULL,
-    'any_label' => NULL,
-    'filter_rewrite_values' => NULL,
-  ),
-  'secondary_label' => NULL,
-  'collapsible_label' => NULL,
-  'combine_rewrite' => NULL,
-  'reset_label' => NULL,
-  'bef_filter_description' => NULL,
-  'any_label' => NULL,
-  'filter_rewrite_values' => NULL,
-);
-$handler->display->display_options['exposed_form']['options']['input_required'] = 0;
-$handler->display->display_options['exposed_form']['options']['text_input_required_format'] = '1';
 $handler->display->display_options['pager']['type'] = 'load_more';
 $handler->display->display_options['pager']['options']['items_per_page'] = '5';
 $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -125,12 +42,16 @@ $handler->display->display_options['pager']['options']['effects']['type'] = 'fad
 $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
 $handler->display->display_options['style_plugin'] = 'default';
 $handler->display->display_options['row_plugin'] = 'fields';
+/* Overskrift: Global: View-område */
+$handler->display->display_options['header']['view']['id'] = 'view';
+$handler->display->display_options['header']['view']['table'] = 'views';
+$handler->display->display_options['header']['view']['field'] = 'view';
+$handler->display->display_options['header']['view']['view_to_insert'] = 'cyberhus_forum_term_list:default';
 /* Overskrift: Global: Tekstområde */
 $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['content'] = '<h1>Cyberhus Debatten</h1>
-<a href="/node/add/forum" title="Skriv indlæg" class="btn">Skriv indlæg</a>';
+$handler->display->display_options['header']['area']['content'] = '<a href="/node/add/forum" title="Skriv indlæg" class="btn">Skriv indlæg</a>';
 $handler->display->display_options['header']['area']['format'] = '2';
 $handler->display->display_options['header']['area']['tokenize'] = TRUE;
 /* Forbindelse: Indhold: Taksonomitermer på node */
@@ -164,6 +85,16 @@ $handler->display->display_options['relationships']['votingapi_cache']['votingap
   'tag' => 'vote',
   'function' => 'sum',
 );
+/* Felt: Indhold: Oprettelsesdato */
+$handler->display->display_options['fields']['created']['id'] = 'created';
+$handler->display->display_options['fields']['created']['table'] = 'node';
+$handler->display->display_options['fields']['created']['field'] = 'created';
+$handler->display->display_options['fields']['created']['label'] = '';
+$handler->display->display_options['fields']['created']['exclude'] = TRUE;
+$handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['created']['date_format'] = 'raw time ago';
+$handler->display->display_options['fields']['created']['custom_date_format'] = '1';
+$handler->display->display_options['fields']['created']['second_date_format'] = 'long';
 /* Felt: Indhold: Navn */
 $handler->display->display_options['fields']['field_forum_forf_navn']['id'] = 'field_forum_forf_navn';
 $handler->display->display_options['fields']['field_forum_forf_navn']['table'] = 'field_data_field_forum_forf_navn';
@@ -182,16 +113,15 @@ $handler->display->display_options['fields']['tid']['relationship'] = 'term_node
 $handler->display->display_options['fields']['tid']['label'] = '';
 $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
 $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
-/* Felt: Ord i ordforråd: Navn */
-$handler->display->display_options['fields']['name']['id'] = 'name';
-$handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
-$handler->display->display_options['fields']['name']['field'] = 'name';
-$handler->display->display_options['fields']['name']['relationship'] = 'term_node_tid';
-$handler->display->display_options['fields']['name']['label'] = '';
-$handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['name']['alter']['text'] = 'Indlæg i <a href="/forum/[tid]>[name]</a> af [field_forum_forf_navn]';
-$handler->display->display_options['fields']['name']['alter']['path'] = '/forum/[tid]';
-$handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+/* Felt: Ord i ordforråd: tag shorthand */
+$handler->display->display_options['fields']['field_tag_shorthand']['id'] = 'field_tag_shorthand';
+$handler->display->display_options['fields']['field_tag_shorthand']['table'] = 'field_data_field_tag_shorthand';
+$handler->display->display_options['fields']['field_tag_shorthand']['field'] = 'field_tag_shorthand';
+$handler->display->display_options['fields']['field_tag_shorthand']['relationship'] = 'term_node_tid';
+$handler->display->display_options['fields']['field_tag_shorthand']['label'] = '';
+$handler->display->display_options['fields']['field_tag_shorthand']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['field_tag_shorthand']['alter']['text'] = 'Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] • [created] siden';
+$handler->display->display_options['fields']['field_tag_shorthand']['element_label_colon'] = FALSE;
 /* Felt: Indhold: Titel */
 $handler->display->display_options['fields']['title']['id'] = 'title';
 $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -222,7 +152,9 @@ $handler->display->display_options['fields']['value']['relationship'] = 'votinga
 $handler->display->display_options['fields']['value']['label'] = '';
 $handler->display->display_options['fields']['value']['alter']['alter_text'] = TRUE;
 $handler->display->display_options['fields']['value']['alter']['text'] = '<span title="Dette indlæg har fået [value] likes" class="cyberlikes">[value]</span>';
+$handler->display->display_options['fields']['value']['element_type'] = '0';
 $handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['value']['element_wrapper_type'] = '0';
 $handler->display->display_options['fields']['value']['hide_empty'] = TRUE;
 $handler->display->display_options['fields']['value']['empty_zero'] = TRUE;
 $handler->display->display_options['fields']['value']['precision'] = '0';
@@ -232,8 +164,11 @@ $handler->display->display_options['fields']['comment_count']['table'] = 'node_c
 $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
 $handler->display->display_options['fields']['comment_count']['label'] = '';
 $handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['comment_count']['alter']['text'] = '<span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-number">[comment_count]</span>';
+$handler->display->display_options['fields']['comment_count']['alter']['text'] = '<span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span>';
+$handler->display->display_options['fields']['comment_count']['element_type'] = '0';
 $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['comment_count']['element_wrapper_type'] = '0';
+$handler->display->display_options['fields']['comment_count']['element_default_classes'] = FALSE;
 $handler->display->display_options['fields']['comment_count']['hide_empty'] = TRUE;
 $handler->display->display_options['fields']['comment_count']['empty_zero'] = TRUE;
 /* Sorteringskriterie: Indhold: Oprettelsesdato */
@@ -241,6 +176,22 @@ $handler->display->display_options['sorts']['created']['id'] = 'created';
 $handler->display->display_options['sorts']['created']['table'] = 'node';
 $handler->display->display_options['sorts']['created']['field'] = 'created';
 $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+/* Kontekstuelt filter: Ord i ordforråd: Term ID */
+$handler->display->display_options['arguments']['tid']['id'] = 'tid';
+$handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['arguments']['tid']['field'] = 'tid';
+$handler->display->display_options['arguments']['tid']['relationship'] = 'term_node_tid';
+$handler->display->display_options['arguments']['tid']['default_action'] = 'empty';
+$handler->display->display_options['arguments']['tid']['exception']['title'] = 'Alle';
+$handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
+$handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+$handler->display->display_options['arguments']['tid']['specify_validation'] = TRUE;
+$handler->display->display_options['arguments']['tid']['validate']['type'] = 'taxonomy_term';
+$handler->display->display_options['arguments']['tid']['validate_options']['vocabularies'] = array(
+  'forumss' => 'forumss',
+);
 /* Filterkriterie: Indhold: Udgivet */
 $handler->display->display_options['filters']['status']['id'] = 'status';
 $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -270,7 +221,6 @@ $handler->display->display_options['filters']['taxonomy_forums_tid']['value'] = 
   1189 => '1189',
   1966 => '1966',
 );
-$handler->display->display_options['filters']['taxonomy_forums_tid']['exposed'] = TRUE;
 $handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['operator_id'] = 'taxonomy_forums_tid_op';
 $handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['operator'] = 'taxonomy_forums_tid_op';
 $handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['identifier'] = 'taxonomy_forums_tid';
@@ -290,30 +240,38 @@ $handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['
 $handler->display->display_options['filters']['taxonomy_forums_tid']['type'] = 'select';
 $handler->display->display_options['filters']['taxonomy_forums_tid']['vocabulary'] = 'forumss';
 
-/* Display: Page */
-$handler = $view->new_display('page', 'Page', 'page');
-$handler->display->display_options['path'] = 'debat-ny';
+/* Display: Forum oversigt */
+$handler = $view->new_display('page', 'Forum oversigt', 'page');
+$handler->display->display_options['display_description'] = 'Oversigt over indlæg fra alle fora';
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+$handler->display->display_options['path'] = 'forum';
+
+/* Display: Forum oversigt, enkelt forum */
+$handler = $view->new_display('page', 'Forum oversigt, enkelt forum', 'page_1');
+$handler->display->display_options['display_description'] = 'Visning af de seneste indlæg i et bestemt forum';
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['content'] = '<a href="/node/add/forum" title="Skriv indlæg" class="btn">Skriv indlæg</a>';
+$handler->display->display_options['header']['area']['format'] = '2';
+$handler->display->display_options['header']['area']['tokenize'] = TRUE;
+$handler->display->display_options['defaults']['footer'] = FALSE;
+/* Sidefod: Global: View-område */
+$handler->display->display_options['footer']['view']['id'] = 'view';
+$handler->display->display_options['footer']['view']['table'] = 'views';
+$handler->display->display_options['footer']['view']['field'] = 'view';
+$handler->display->display_options['footer']['view']['view_to_insert'] = 'cyberhus_forum_term_list:default';
+$handler->display->display_options['path'] = 'forum/%';
 $translatables['cyberhus_forum_topic_list'] = array(
   t('Master'),
-  t('Cyberhus debat'),
   t('mere'),
   t('Udfør'),
   t('Gendan'),
   t('Sortér efter'),
   t('Stigende'),
   t('Faldende'),
-  t('Avancerede indstillinger'),
-  t('- Enhver -|Vis alle
-Dét gør mig glad|#glad
-Teenageliv|#teenageliv
-Verden omkring dig|#verden
-Lyst & Seksualitet|#sex
-Når det gør ondt inderst inde|#ondt
-KRAM|#KRAM
-Social reality - livet på nettet|#nettet
-Blandede bolsjer|#blandet
-Gør Cyberhus endnu bedre!|#feedback'),
-  t('Vælg et filter og klik på Anvend for at se resultater'),
   t('Antal elementer'),
   t('- Alle -'),
   t('Forskydning'),
@@ -322,17 +280,20 @@ Gør Cyberhus endnu bedre!|#feedback'),
   t('næste ›'),
   t('sidste »'),
   t('Flere indlæg'),
-  t('<h1>Cyberhus Debatten</h1>
-<a href="/node/add/forum" title="Skriv indlæg" class="btn">Skriv indlæg</a>'),
+  t('<a href="/node/add/forum" title="Skriv indlæg" class="btn">Skriv indlæg</a>'),
   t('forum term'),
   t('Afstemningsresultater'),
   t('Anonym'),
   t('.'),
   t(','),
-  t('Indlæg i <a href="/forum/[tid]>[name]</a> af [field_forum_forf_navn]'),
+  t('Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] • [created] siden'),
   t('<span title="Dette indlæg har fået [value] likes" class="cyberlikes">[value]</span>'),
-  t('<span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-number">[comment_count]</span>'),
-  t('Page'),
+  t('<span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span>'),
+  t('Alle'),
+  t('Forum oversigt'),
+  t('Oversigt over indlæg fra alle fora'),
+  t('Forum oversigt, enkelt forum'),
+  t('Visning af de seneste indlæg i et bestemt forum'),
 );
 
 
