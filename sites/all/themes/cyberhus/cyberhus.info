@@ -35,6 +35,8 @@ css[global.css][name] = 'Your custom global styles'
 css[global.css][description] = 'This file holds all the globally active custom CSS of your theme.'
 css[global.css][options][weight] = '10'
 
+plugins[vud][widgets] = widgets
+
 stylesheets[all][] = css/backend.css
 stylesheets[all][] = css/frontend.css
 
