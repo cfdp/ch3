@@ -11,7 +11,7 @@
     <div class="cyberlike-votes-display"><?php print $unsigned_points; ?></div>
     <?php if ($show_links): ?>
       <?php if ($show_up_as_link): ?>
-        <a href="<?php print $link_up; ?>" rel="nofollow" class="<?php print $link_class_up; ?>">
+        <a href="<?php print $link_up; ?>" rel="nofollow" class="<?php print $link_class_up; ?>" title="<?php print t('Vote up!'); ?>">
       <?php endif; ?>
           <div class="<?php print $class_up; ?>" title="<?php print t('Vote up!'); ?>"></div>
           <div class="element-invisible"><?php print t('Vote up!'); ?></div>

@@ -211,6 +211,13 @@
 
 .node-type-forum,
 .page-comment-reply {
+  /* CORE FORUM */
+  .links .subscribe a {
+    @include btn();
+  }
+
+  /* ADVANCED FORUM */
+
   /**
    * TOP POST
    */
