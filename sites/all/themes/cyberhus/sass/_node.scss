@@ -59,7 +59,6 @@
     #jquery_ajax_load_target {
       clear: both;
       display: block;
-      float: left;
       margin-top: 1em;
     }
   }
@@ -344,6 +343,9 @@
       background-repeat: no-repeat;
       display: block;
       float: right;
+      .up-inactive {
+        display: none;
+      }
     }
     .up-active {
       background: url("../img/heart-fill_cleaned.svg");
