@@ -115,7 +115,7 @@ $handler->display->display_options['fields']['tid']['label'] = '';
 $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
 $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['tid']['separator'] = '';
-/* Felt: Ord i ordforråd: tag shorthand */
+/* Felt: Ord i ordforråd: Tag shorthand */
 $handler->display->display_options['fields']['field_tag_shorthand']['id'] = 'field_tag_shorthand';
 $handler->display->display_options['fields']['field_tag_shorthand']['table'] = 'field_data_field_tag_shorthand';
 $handler->display->display_options['fields']['field_tag_shorthand']['field'] = 'field_tag_shorthand';
@@ -180,6 +180,22 @@ $handler->display->display_options['fields']['comment_count']['element_wrapper_t
 $handler->display->display_options['fields']['comment_count']['element_default_classes'] = FALSE;
 $handler->display->display_options['fields']['comment_count']['hide_empty'] = TRUE;
 $handler->display->display_options['fields']['comment_count']['empty_zero'] = TRUE;
+/* Felt: Ord i ordforråd: Beskrivelse af term */
+$handler->display->display_options['fields']['description']['id'] = 'description';
+$handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['fields']['description']['field'] = 'description';
+$handler->display->display_options['fields']['description']['relationship'] = 'term_node_tid';
+$handler->display->display_options['fields']['description']['label'] = '';
+$handler->display->display_options['fields']['description']['exclude'] = TRUE;
+$handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
+/* Felt: Ord i ordforråd: Navn */
+$handler->display->display_options['fields']['name']['id'] = 'name';
+$handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['fields']['name']['field'] = 'name';
+$handler->display->display_options['fields']['name']['relationship'] = 'term_node_tid';
+$handler->display->display_options['fields']['name']['label'] = '';
+$handler->display->display_options['fields']['name']['exclude'] = TRUE;
+$handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
 /* Sorteringskriterie: Indhold: Oprettelsesdato */
 $handler->display->display_options['sorts']['created']['id'] = 'created';
 $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -265,7 +281,7 @@ $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
 $handler->display->display_options['header']['area']['label'] = 'Titel';
 $handler->display->display_options['header']['area']['empty'] = TRUE;
-$handler->display->display_options['header']['area']['content'] = '<h1>[field_tag_shorthand]</h1>';
+$handler->display->display_options['header']['area']['content'] = '<h1>[name]</h1>';
 $handler->display->display_options['header']['area']['format'] = '2';
 $handler->display->display_options['header']['area']['tokenize'] = TRUE;
 /* Overskrift: Global: Tekstområde */
@@ -273,7 +289,7 @@ $handler->display->display_options['header']['area_1']['id'] = 'area_1';
 $handler->display->display_options['header']['area_1']['table'] = 'views';
 $handler->display->display_options['header']['area_1']['field'] = 'area';
 $handler->display->display_options['header']['area_1']['empty'] = TRUE;
-$handler->display->display_options['header']['area_1']['content'] = '<a href="/node/add/forum/[tid]" title="Skriv indlæg" class="btn">Skriv indlæg</a>';
+$handler->display->display_options['header']['area_1']['content'] = '<p>[description]</p><a href="/node/add/forum/[tid]" title="Skriv indlæg" class="btn">Skriv indlæg</a>';
 $handler->display->display_options['header']['area_1']['format'] = '2';
 $handler->display->display_options['header']['area_1']['tokenize'] = TRUE;
 $handler->display->display_options['defaults']['footer'] = FALSE;
@@ -314,9 +330,10 @@ $translatables['cyberhus_forum_topic_list'] = array(
   t('Forum oversigt, enkelt forum'),
   t('Visning af de seneste indlæg i et bestemt forum'),
   t('Titel'),
-  t('<h1>[field_tag_shorthand]</h1>'),
-  t('<a href="/node/add/forum/[tid]" title="Skriv indlæg" class="btn">Skriv indlæg</a>'),
+  t('<h1>[name]</h1>'),
+  t('<p>[description]</p><a href="/node/add/forum/[tid]" title="Skriv indlæg" class="btn">Skriv indlæg</a>'),
 );
+
 
   return $view;
 

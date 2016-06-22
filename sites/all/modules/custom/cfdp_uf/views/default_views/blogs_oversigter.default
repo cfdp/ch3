@@ -193,6 +193,7 @@ $handler->display->display_options['path'] = 'blog/%';
 $handler = $view->new_display('page', 'Oversigt over de seneste blogindlæg', 'page_1');
 $handler->display->display_options['defaults']['title'] = FALSE;
 $handler->display->display_options['title'] = 'Blogs oversigt';
+$handler->display->display_options['enabled'] = FALSE;
 $handler->display->display_options['defaults']['header'] = FALSE;
 /* Overskrift: Global: Tekstområde */
 $handler->display->display_options['header']['area']['id'] = 'area';
