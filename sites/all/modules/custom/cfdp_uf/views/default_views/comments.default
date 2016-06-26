@@ -1,4 +1,6 @@
 <?php
+function comments() {
+
 $view = new view();
 $view->name = 'comments';
 $view->description = '';
