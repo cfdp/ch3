@@ -1,0 +1,88 @@
+/* Overall layout elements */
+.l-region--header {
+  position: absolute;
+}
+.l-branding {
+  margin-top: $margin-std;
+  margin-bottom: $margin-std;
+  text-align: center;
+  a.site-logo {
+  }
+}
+.l-main {
+  background-color: $light-grey;
+  margin: auto;
+  margin-bottom: 0;
+  padding-top: $padding-std;
+  padding-bottom: 6em;
+  background-image: image-url('bylinje.png');
+  background-repeat: repeat-x;
+  background-position: bottom;
+}
+
+.l-content {
+  background-color: $white;
+  margin: auto;
+  max-width: 586px;
+}
+
+.l-region--navigation {
+  ul.menu {
+    text-align: center;
+    li {
+      display: inline-block;
+      list-style-type: none;
+      margin-right: $margin-std;
+    }
+    a {
+      background-position: top center;
+      color: $grey;
+      display: block;
+      font-weight: 700;
+      height: 46px;
+      min-width: 26px;
+      padding: 26px 0 0 0;
+    }
+  }
+}
+
+.l-footer {
+  background-color: $dark-grey;
+  
+  a {
+    color: white;
+  }
+  
+  .footer-wrapper {
+    padding-bottom: 2em;
+  }
+  
+  .block--block-43 {
+    margin: auto;
+    max-width: 586px;
+    p, h2 {
+      color: $white;
+    }
+    .footer-icons .rounded {
+      height: 36px;
+      width: 36px;
+      border-radius: 36px;
+      margin-right: $margin-std;
+    }
+  }
+  
+  .block--menu-menu-andet {
+    background-color: $medium-grey;
+    height: 50px;
+    margin-bottom: $margin-std;
+    ul.menu {
+      padding-top: 1em;
+      text-align: center;
+    }
+    li {
+      display: inline-block;
+      list-style-type: none;
+      margin-right: $margin-std;
+    }
+  }
+}
