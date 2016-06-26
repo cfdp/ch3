@@ -129,7 +129,7 @@ $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
 $handler->display->display_options['fields']['nothing']['table'] = 'views';
 $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
 $handler->display->display_options['fields']['nothing']['label'] = '';
-$handler->display->display_options['fields']['nothing']['alter']['text'] = 'Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] • [created] siden';
+$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="author-timestamp">Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] • [created] siden</div>';
 $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
 /* Felt: Indhold: Titel */
 $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -321,6 +321,7 @@ $translatables['cyberhus_forum_topic_list'] = array(
   t('Anonym'),
   t('.'),
   t('Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] • [created] siden'),
+  t('<div class="author-timestamp">Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] • [created] siden</div>'),
   t('<span title="Dette indlæg har fået [value] likes" class="cyberlikes">[value]</span>'),
   t(','),
   t('<span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span>'),

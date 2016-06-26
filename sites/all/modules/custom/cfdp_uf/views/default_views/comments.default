@@ -1,0 +1,143 @@
+<?php
+$view = new view();
+$view->name = 'comments';
+$view->description = '';
+$view->tag = 'default';
+$view->base_table = 'comment';
+$view->human_name = 'Kommentarer';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['title'] = 'Kommentarer';
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['use_more_text'] = 'mere';
+$handler->display->display_options['access']['type'] = 'perm';
+$handler->display->display_options['access']['perm'] = 'access comments';
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+$handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+$handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+$handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+$handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+$handler->display->display_options['pager']['type'] = 'load_more';
+$handler->display->display_options['pager']['options']['items_per_page'] = '5';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['pager']['options']['id'] = '0';
+$handler->display->display_options['pager']['options']['quantity'] = '9';
+$handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+$handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+$handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+$handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+$handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+$handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+$handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+$handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['row_plugin'] = 'fields';
+/* Forbindelse: Kommentar: Indhold */
+$handler->display->display_options['relationships']['nid']['id'] = 'nid';
+$handler->display->display_options['relationships']['nid']['table'] = 'comment';
+$handler->display->display_options['relationships']['nid']['field'] = 'nid';
+$handler->display->display_options['relationships']['nid']['required'] = TRUE;
+/* Felt: Kommentar: Oprettelsesdato */
+$handler->display->display_options['fields']['created']['id'] = 'created';
+$handler->display->display_options['fields']['created']['table'] = 'comment';
+$handler->display->display_options['fields']['created']['field'] = 'created';
+$handler->display->display_options['fields']['created']['label'] = '';
+$handler->display->display_options['fields']['created']['exclude'] = TRUE;
+$handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['created']['date_format'] = 'raw time ago';
+$handler->display->display_options['fields']['created']['custom_date_format'] = '1';
+$handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+/* Felt: Kommentar: Forfatter */
+$handler->display->display_options['fields']['name']['id'] = 'name';
+$handler->display->display_options['fields']['name']['table'] = 'comment';
+$handler->display->display_options['fields']['name']['field'] = 'name';
+$handler->display->display_options['fields']['name']['label'] = '';
+$handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['name']['alter']['text'] = '<div class="author-timestamp">Kommentar af [name] • [created] siden</div>';
+$handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+/* Felt: Kommentar: Kommentar */
+$handler->display->display_options['fields']['comment_body']['id'] = 'comment_body';
+$handler->display->display_options['fields']['comment_body']['table'] = 'field_data_comment_body';
+$handler->display->display_options['fields']['comment_body']['field'] = 'comment_body';
+$handler->display->display_options['fields']['comment_body']['label'] = '';
+$handler->display->display_options['fields']['comment_body']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['comment_body']['settings'] = array(
+  'trim_length' => '600',
+);
+/* Felt: Kommentar: Cyberlike */
+$handler->display->display_options['fields']['field_kommentar_cyberlike']['id'] = 'field_kommentar_cyberlike';
+$handler->display->display_options['fields']['field_kommentar_cyberlike']['table'] = 'field_data_field_kommentar_cyberlike';
+$handler->display->display_options['fields']['field_kommentar_cyberlike']['field'] = 'field_kommentar_cyberlike';
+$handler->display->display_options['fields']['field_kommentar_cyberlike']['label'] = '';
+$handler->display->display_options['fields']['field_kommentar_cyberlike']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_kommentar_cyberlike']['click_sort_column'] = 'vud_widget';
+/* Sorteringskriterie: Kommentar: Oprettelsesdato */
+$handler->display->display_options['sorts']['created']['id'] = 'created';
+$handler->display->display_options['sorts']['created']['table'] = 'comment';
+$handler->display->display_options['sorts']['created']['field'] = 'created';
+$handler->display->display_options['sorts']['created']['order'] = 'DESC';
+/* Kontekstuelt filter: Indhold: Nid */
+$handler->display->display_options['arguments']['nid']['id'] = 'nid';
+$handler->display->display_options['arguments']['nid']['table'] = 'node';
+$handler->display->display_options['arguments']['nid']['field'] = 'nid';
+$handler->display->display_options['arguments']['nid']['relationship'] = 'nid';
+$handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+$handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
+$handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+$handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+$handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+/* Filterkriterie: Kommentar: Godkendt */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'comment';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filterkriterie: Indhold: Udgivet */
+$handler->display->display_options['filters']['status_node']['id'] = 'status_node';
+$handler->display->display_options['filters']['status_node']['table'] = 'node';
+$handler->display->display_options['filters']['status_node']['field'] = 'status';
+$handler->display->display_options['filters']['status_node']['relationship'] = 'nid';
+$handler->display->display_options['filters']['status_node']['value'] = 1;
+$handler->display->display_options['filters']['status_node']['group'] = 1;
+$handler->display->display_options['filters']['status_node']['expose']['operator'] = FALSE;
+
+/* Display: Load more comments */
+$handler = $view->new_display('block', 'Load more comments', 'block_1');
+$handler->display->display_options['display_description'] = 'Load more comments';
+$translatables['comments'] = array(
+  t('Master'),
+  t('Kommentarer'),
+  t('mere'),
+  t('Udfør'),
+  t('Gendan'),
+  t('Sortér efter'),
+  t('Stigende'),
+  t('Faldende'),
+  t('Antal elementer'),
+  t('- Alle -'),
+  t('Forskydning'),
+  t('« første'),
+  t('‹ forrige'),
+  t('næste ›'),
+  t('sidste »'),
+  t('Load more'),
+  t('Indhold'),
+  t('<div class="author-timestamp">Kommentar af [name] • [created] siden</div>'),
+  t('Alle'),
+  t('Load more comments'),
+);
+
+  return $view;
+
+}
