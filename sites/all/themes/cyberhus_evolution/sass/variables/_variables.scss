@@ -1,34 +1,40 @@
+@import "compass";
+
+$tab: 44em;
+$desk: 70em;
+
+$content-width: 586px;
+
 $font-family-std: 'Lato', sans-serif;
 $font-family-header: 'Merriweather', serif;
 
 /* Font-weight */
-$font_weight_bold: 700;
-$font_weight_std: 400;
+$font-weight-bold: 700;
+$font-weight-std: 400;
 
 /* Letter-spacing and line-height */
 $line-height-std: 1.438em;
 
 /* Font-size */
-$font_size_lille: .075em;
-$font_size_normal: 1em; 
-$font_size_medium: 1.5em;
+$font-size-small: .85em; // 13px
+$font-size-normal: 1em; // 16px
+$font-size-medium: 1.3em;
 
-
-/* Font colors */
+/* Font colors and backgrounds */
 $black: #231E19;
 $blue: #2980B9;
 $grey: #6B6866;
 $primary-color: #e67e22; // Orange
 
-/* Backgrounds */
 $light-grey: #F1F1F1;
 $medium-grey: #484243;
 $dark-grey: #2d2728;
 $white: #fff;
 
 /* Margin and padding */
-$margin-small: .625em;
+$margin-small: .75em; //
 $margin-std: 1em;
+$margin-big: 2em;
 $padding-std: 1em;
 
 /* Border color */

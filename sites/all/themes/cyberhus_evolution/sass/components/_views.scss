@@ -1,0 +1,61 @@
+/**
+ * GENERAL VIEWS STYLING
+ */
+.view {
+  & > .view-header,
+  & > .view-footer {
+    margin: $margin-big 0;
+    .view-content {
+      margin-bottom: $margin-std;
+      .views-row {
+        display: inline-block;
+      }
+    }
+  }
+  .view-filters {
+    margin-bottom: $margin-std;
+
+    /* Hide description: https://www.drupal.org/node/339384#comment-10587426 */
+    .form-type-select .description {
+      display: none;
+    }
+  }
+  & > .view-content {
+    .views-row {
+      margin-top: $margin-big;
+    }
+    h2 {
+      margin: 0;
+    }
+    .comment-count {
+      background-image: none;
+      &:after {
+        content: " kommentarer";
+      }
+    }
+  }
+}
+
+/* Load more pager */
+
+.pager-load-more a {
+  @include button-bg($blue, $white);
+}
+/**
+ * FORUM LIST & TOPIC LIST
+ */
+.view-cyberhus-forum-topic-list {
+  & > .view-header,
+  & > .view-footer {
+    .views-field-field-tag-shorthand {
+      color: $grey;
+      font-size: $font_size_medium;
+      padding-right: $padding-std;
+    }
+  }
+  & > .view-content {
+    .views-field-field-tag-shorthand {
+      color: $grey;
+    }
+  }
+}

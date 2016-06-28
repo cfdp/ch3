@@ -11,7 +11,6 @@ body {
 }
 
 h2 {
-  color: $blue;
   font-family: $font-family-header;
   font-size: $font_size_medium;
   font-weight: $font_weight_bold;
@@ -21,4 +20,8 @@ h2 {
 a {
   color: $blue;
   text-decoration: none;
+}
+
+.btn {
+  @include button-bg();
 }

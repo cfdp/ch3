@@ -9,9 +9,8 @@
   a.site-logo {
   }
 }
-.l-main {
+.l-main--wrapper {
   background-color: $light-grey;
-  margin: auto;
   margin-bottom: 0;
   padding-top: $padding-std;
   padding-bottom: 6em;
@@ -19,11 +18,15 @@
   background-repeat: repeat-x;
   background-position: bottom;
 }
+.l-main {
+  margin: auto;
+
+}
 
 .l-content {
   background-color: $white;
   margin: auto;
-  max-width: 586px;
+  max-width: $content-width;
 }
 
 .l-region--navigation {
@@ -46,43 +49,17 @@
   }
 }
 
-.l-footer {
+.l-footer--wrapper {
   background-color: $dark-grey;
-  
+}
+.l-footer {
+
+}
+.l-region--footer {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 2em 0;
   a {
     color: white;
-  }
-  
-  .footer-wrapper {
-    padding-bottom: 2em;
-  }
-  
-  .block--block-43 {
-    margin: auto;
-    max-width: 586px;
-    p, h2 {
-      color: $white;
-    }
-    .footer-icons .rounded {
-      height: 36px;
-      width: 36px;
-      border-radius: 36px;
-      margin-right: $margin-std;
-    }
-  }
-  
-  .block--menu-menu-andet {
-    background-color: $medium-grey;
-    height: 50px;
-    margin-bottom: $margin-std;
-    ul.menu {
-      padding-top: 1em;
-      text-align: center;
-    }
-    li {
-      display: inline-block;
-      list-style-type: none;
-      margin-right: $margin-std;
-    }
   }
 }

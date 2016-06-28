@@ -1,0 +1,31 @@
+$button-color: $white !default;
+$button-background-color: $blue !default;
+$button-border-color: $blue !default;
+$button-radius: 3px !default;
+
+@mixin button-bg($color: $button-color, $bg: $button-background-color, $bbc: $button-border-color, $br: $button-radius) {
+  background: $bg;
+  @include border-radius($br);
+  color: $color;
+  border-color: $bbc;
+  border-style: solid;
+  border-width: thin;
+  font-weight: $font-weight-bold;
+  padding: .7em 1em;
+  display: block;
+  margin: $margin-std auto;
+  max-width: 10em;
+  text-align: center;
+  &:hover {
+    background:darken($bg,8%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background:darken($bg,25%);
+  }
+}
+
+@mixin font-metadata() {
+  color: $grey;
+  font-size: $font-size-small;
+}

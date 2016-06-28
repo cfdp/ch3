@@ -1,0 +1,72 @@
+/**
+ * FORUM LIST & TOPIC LIST
+ */
+
+.view-cyberhus-forum-topic-list {
+  & > .view-content {
+    .cyberlikes, .comment-count {
+      background: image-url('icons/cyberlike/heart_cleaned_gray.svg') no-repeat 0 0;
+      color: $grey;
+      display: inline-block;
+      height: 30px;
+      margin-top: 0.7em;
+      padding-left: 40px;
+    }
+    .comment-count {
+      background-image: none;
+    }
+  }
+}
+/* Cyberlike in nodes */
+.field.field--name-field-blog-cyberlike,
+.field.field--name-field-kommentar-cyberlike,
+.field.field--name-field-cyberlike,
+.views-field-field-kommentar-cyberlike{
+  .vud-widget {
+    float: none;
+    width: 100%;
+    height: 35px;
+    margin: 0;
+    .cyberlike-votes-display {
+      border: none;
+      display: inline-block;
+      font-family: $font-family-std;
+      font-size: $font-size-normal;
+      width: 26px;
+      text-align: right;
+    }
+    .cyberlike-votes-display:after {
+      /* content: " synes godt om"; */
+    }
+    .vud-link-up, .up-active {
+      width: 26px;
+      height: 24px;
+      background: image-url('icons/cyberlike/heart_cleaned.svg');
+      background-repeat: no-repeat;
+      display: inline-block;
+      float: left;
+      .up-inactive {
+        display: none;
+      }
+    }
+    .up-active {
+      background: image-url('icons/cyberlike/heart-fill_cleaned.svg');
+    }
+
+    .reset-active {
+      float: right;
+      display: none;
+    }
+  }
+}
+
+/* Cyberlike in comments */
+.field.field-name-field-kommentar-cyberlike {
+  padding-top: 12px;
+  @media(max-width: $tab){
+    float: left;
+  }
+}
+.field.field-name-field-blog-cyberlike, .field.field-name-field-cyberlike {
+  margin: 20px 20px 0 0;
+}

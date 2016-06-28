@@ -4,12 +4,12 @@
  * Styling of the "simple" layout demonstrating the Compass grid extension Susy
  * and building mobile first layouts.
  ******************************************************************************/
+
 @import "compass";
 @import "breakpoint";
 @import "susy";
 
 // Susy Variables
-
 // Set consistent vertical and horizontal spacing units.
 $vert-spacing-unit: 20px;
 $horz-spacing-unit: 1em;
@@ -52,6 +52,8 @@ $desk-columns: 16; // use 16 columns.
 .l-region--sidebar-second {
   margin-bottom: $vert-spacing-unit;
 }
+
+
 
 @include susy-breakpoint($tab, $tab-columns) { // At a given Susy Media Layout, use a given amount of columns.
   .l-header,
@@ -96,7 +98,7 @@ $desk-columns: 16; // use 16 columns.
   }
 
   .l-region--header {
-    @include span(6 of $desk-columns); // Span 6 out of 16 columns.
+    @include span(3 of $desk-columns); // Span 6 out of 16 columns.
   }
   /*
   .l-branding {

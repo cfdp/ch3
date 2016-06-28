@@ -18,6 +18,12 @@ stylesheets[all][] = css/layouts/cybersimple/cybersimple.layout.css
 scripts[] = js/cyberhus-evolution.behaviors.js
 
 ; ========================================
+; Plugins
+; ========================================
+plugins[vud][widgets] = widgets
+
+
+; ========================================
 ; Regions
 ; ========================================
 regions[branding] = Branding

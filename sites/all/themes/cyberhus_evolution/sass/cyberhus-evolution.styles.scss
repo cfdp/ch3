@@ -1,7 +1,11 @@
 // Import variables, abstractions, base styles and components.
 // Uncomment the next lines and adjust them to your needs.
 @import "variables/_variables";
-//@import "abstractions/{YOUR FILE NAME HERE}";
+@import "abstractions/_mixins";
 @import "base/_base";
 @import "components/_layout";
-
+@import "components/_node";
+@import "components/_blocks";
+@import "components/_views";
+@import "components/_forum";
+@import "components/_cyberlike";

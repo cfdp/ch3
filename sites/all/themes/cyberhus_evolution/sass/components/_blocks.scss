@@ -1,0 +1,29 @@
+.block--block-43 {
+  margin: $margin-big auto;
+  max-width: 586px;
+  p,
+  h2 {
+    color: $white;
+  }
+  .footer-icons .rounded {
+    height: 36px;
+    width: 36px;
+    border-radius: 36px;
+    margin-right: $margin-std;
+  }
+}
+
+.block--menu-menu-andet {
+  background-color: $medium-grey;
+  height: 50px;
+  margin-bottom: $margin-std;
+  ul.menu {
+    padding-top: 1em;
+    text-align: center;
+  }
+  li {
+    display: inline-block;
+    list-style-type: none;
+    margin-right: $margin-std;
+  }
+}
