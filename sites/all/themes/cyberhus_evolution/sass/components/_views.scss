@@ -5,7 +5,7 @@
 .view {
   & > .view-header,
   & > .view-footer {
-    margin: $margin-big 0;
+    margin: $margin-big 0 0 0;
     .view-content {
       margin-bottom: $margin-std;
       .views-row {
@@ -51,11 +51,26 @@
   }
 }
 
+/* BEF form */
+.bef-select-as-links .form-type-bef-link {
+  display: inline-block;
+  margin: $margin-small;
+  a {
+    @include label();
+  }
+}
+
+/**
+ * FORSIDE
+ */
+.view-header h2.node__title {
+  margin-left: $margin-std-px;
+}
+
 
 /**
  * FORUM LIST & TOPIC LIST
  */
-
 .view-cyberhus-forum-topic-list {
   & > .view-header,
   & > .view-footer {
@@ -76,7 +91,7 @@
     display: inline-block;
     margin: $margin-small;
     a {
-    @include label();
+      @include label();
     }
   }
 }

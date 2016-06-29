@@ -193,7 +193,7 @@ a {
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\000036}}
 .view > .view-header, .view > .view-footer {
-  margin: 2em 0; }
+  margin: 2em 0 0 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\000039}}
   .view > .view-header .view-content, .view > .view-footer .view-content {
     margin-bottom: 1em; }
@@ -256,24 +256,48 @@ a {
     .pager-load-more a:active {
       background: #bfbfbf; }
 
+/* BEF form */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000355}}
+.bef-select-as-links .form-type-bef-link {
+  display: inline-block;
+  margin: 0.75em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000358}}
+  .bef-select-as-links .form-type-bef-link a {
+    background-color: #e7f2fa;
+    padding: .4em .5em;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/abstractions\/_mixins\.scss}line{font-family:\0000332}}
+    .bef-select-as-links .form-type-bef-link a:hover {
+      background: #c6e1f2;
+      transition: all 0.3s ease; }
+
+/**
+ * FORSIDE
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000366}}
+.view-header h2.node__title {
+  margin-left: 16px; }
+
 /**
  * FORUM LIST & TOPIC LIST
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000362}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000377}}
 .view-cyberhus-forum-topic-list > .view-header .views-field-field-tag-shorthand, .view-cyberhus-forum-topic-list > .view-footer .views-field-field-tag-shorthand {
   color: #6B6866;
   font-size: 1.3em;
   padding-right: 1em; }
 
 /* Forum term list */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000372}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000387}}
 .view-cyberhus-forum-term-list .view-content {
   background-color: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000375}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000390}}
 .view-cyberhus-forum-term-list .tag-shorthand {
   display: inline-block;
   margin: 0.75em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000378}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000393}}
   .view-cyberhus-forum-term-list .tag-shorthand a {
     background-color: #e7f2fa;
     padding: .4em .5em;
@@ -288,15 +312,15 @@ a {
 /**
  * BLOG LIST & BLOGGERS
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000390}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003105}}
 .view-bloggere .views-field-value-2,
 .view-blogs-oversigter .views-field-value-2 {
   float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000393}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003108}}
 .view-bloggere .views-field-picture,
 .view-blogs-oversigter .views-field-picture {
   text-align: right; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003110}}
   .view-bloggere .views-field-picture img,
   .view-blogs-oversigter .views-field-picture img {
     width: 64px;
@@ -305,7 +329,7 @@ a {
     -webkit-border-radius: 32px;
     border-radius: 32px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003103}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003118}}
 .view-blogs-oversigter .views-field-picture {
   padding-right: 1em; }
 

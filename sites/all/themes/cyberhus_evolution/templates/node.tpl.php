@@ -114,6 +114,6 @@
     $block = _block_get_renderable_array(_block_render_blocks(array($blockObject)));
     $output = drupal_render($block);
     print $output;
-    ?>
+  ?>
 
 </article>
