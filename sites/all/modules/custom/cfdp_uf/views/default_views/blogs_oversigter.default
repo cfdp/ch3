@@ -336,6 +336,17 @@ $handler->display->display_options['fields']['title']['alter']['word_boundary'] 
 $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
 $handler->display->display_options['fields']['title']['element_type'] = 'h2';
 $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+/* Felt: Indhold: Billede */
+$handler->display->display_options['fields']['field_billede']['id'] = 'field_billede';
+$handler->display->display_options['fields']['field_billede']['table'] = 'field_data_field_billede';
+$handler->display->display_options['fields']['field_billede']['field'] = 'field_billede';
+$handler->display->display_options['fields']['field_billede']['label'] = '';
+$handler->display->display_options['fields']['field_billede']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_billede']['click_sort_column'] = 'fid';
+$handler->display->display_options['fields']['field_billede']['settings'] = array(
+  'image_style' => '',
+  'image_link' => '',
+);
 /* Felt: Bruger: Billede */
 $handler->display->display_options['fields']['picture']['id'] = 'picture';
 $handler->display->display_options['fields']['picture']['table'] = 'users';
