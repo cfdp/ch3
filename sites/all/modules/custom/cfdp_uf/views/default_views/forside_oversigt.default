@@ -1,0 +1,453 @@
+<?php
+function forside_oversigt() {
+
+$view = new view();
+$view->name = 'forside_oversigt';
+$view->description = 'Oversigt over de seneste indlæg';
+$view->tag = 'default';
+$view->base_table = 'node';
+$view->human_name = 'Forside oversigt';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['title'] = 'Seneste blogindlæg';
+$handler->display->display_options['use_ajax'] = TRUE;
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['use_more_text'] = 'mere';
+$handler->display->display_options['access']['type'] = 'perm';
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+$handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+$handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+$handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+$handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
+$handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+$handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+$handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+$handler->display->display_options['exposed_form']['options']['bef'] = array(
+  'general' => array(
+    'allow_secondary' => 0,
+    'secondary_label' => 'Avancerede indstillinger',
+    'collapsible_label' => NULL,
+    'combine_rewrite' => NULL,
+    'reset_label' => NULL,
+    'bef_filter_description' => NULL,
+    'any_label' => NULL,
+    'filter_rewrite_values' => NULL,
+  ),
+  'type' => array(
+    'bef_format' => 'bef_links',
+    'more_options' => array(
+      'bef_select_all_none' => 0,
+      'bef_collapsible' => 0,
+      'is_secondary' => 0,
+      'any_label' => '',
+      'bef_filter_description' => '',
+      'tokens' => array(
+        'available' => array(
+          0 => 'global_types',
+          'secondary_label' => NULL,
+          'collapsible_label' => NULL,
+          'combine_rewrite' => NULL,
+          'reset_label' => NULL,
+          'bef_filter_description' => NULL,
+          'any_label' => NULL,
+          'filter_rewrite_values' => NULL,
+        ),
+        'secondary_label' => NULL,
+        'collapsible_label' => NULL,
+        'combine_rewrite' => NULL,
+        'reset_label' => NULL,
+        'bef_filter_description' => NULL,
+        'any_label' => NULL,
+        'filter_rewrite_values' => NULL,
+      ),
+      'rewrite' => array(
+        'filter_rewrite_values' => 'Artikel|artikler
+Billede|billeder
+Brevkassespørgsmål|brevkasse
+Blogindlæg|blog
+Forumemne|forum
+Hemmelighed|psst!',
+        'secondary_label' => NULL,
+        'collapsible_label' => NULL,
+        'combine_rewrite' => NULL,
+        'reset_label' => NULL,
+        'bef_filter_description' => NULL,
+        'any_label' => NULL,
+      ),
+      'secondary_label' => NULL,
+      'collapsible_label' => NULL,
+      'combine_rewrite' => NULL,
+      'reset_label' => NULL,
+      'filter_rewrite_values' => NULL,
+    ),
+    'secondary_label' => NULL,
+    'collapsible_label' => NULL,
+    'combine_rewrite' => NULL,
+    'reset_label' => NULL,
+    'bef_filter_description' => NULL,
+    'any_label' => NULL,
+    'filter_rewrite_values' => NULL,
+  ),
+  'secondary_label' => NULL,
+  'collapsible_label' => NULL,
+  'combine_rewrite' => NULL,
+  'reset_label' => NULL,
+  'bef_filter_description' => NULL,
+  'any_label' => NULL,
+  'filter_rewrite_values' => NULL,
+);
+$handler->display->display_options['exposed_form']['options']['input_required'] = 0;
+$handler->display->display_options['exposed_form']['options']['text_input_required_format'] = '1';
+$handler->display->display_options['pager']['type'] = 'load_more';
+$handler->display->display_options['pager']['options']['items_per_page'] = '10';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['pager']['options']['id'] = '0';
+$handler->display->display_options['pager']['options']['quantity'] = '9';
+$handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+$handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+$handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+$handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+$handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+$handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+$handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+$handler->display->display_options['pager']['options']['more_button_text'] = 'Vis mere';
+$handler->display->display_options['pager']['options']['effects']['type'] = 'fade';
+$handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['row_plugin'] = 'fields';
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['content'] = '<h1>[value]</h1>
+<div class="views-field-picture">[picture]</div>
+<div class="content-list-header">
+[value_2]
+</div>
+<h3>Seneste indlæg</h3>
+';
+$handler->display->display_options['header']['area']['format'] = '2';
+$handler->display->display_options['header']['area']['tokenize'] = TRUE;
+/* Forbindelse: Indhold: Forfatter */
+$handler->display->display_options['relationships']['uid']['id'] = 'uid';
+$handler->display->display_options['relationships']['uid']['table'] = 'node';
+$handler->display->display_options['relationships']['uid']['field'] = 'uid';
+/* Forbindelse: Indhold: Vote results */
+$handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
+$handler->display->display_options['relationships']['votingapi_cache']['table'] = 'node';
+$handler->display->display_options['relationships']['votingapi_cache']['field'] = 'votingapi_cache';
+$handler->display->display_options['relationships']['votingapi_cache']['label'] = 'Afstemningsresultater';
+$handler->display->display_options['relationships']['votingapi_cache']['votingapi'] = array(
+  'value_type' => 'points',
+  'tag' => 'vote',
+  'function' => 'sum',
+);
+/* Felt: Indhold: Titel */
+$handler->display->display_options['fields']['title']['id'] = 'title';
+$handler->display->display_options['fields']['title']['table'] = 'node';
+$handler->display->display_options['fields']['title']['field'] = 'title';
+$handler->display->display_options['fields']['title']['label'] = '';
+$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+$handler->display->display_options['fields']['title']['element_type'] = 'h2';
+$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+/* Felt: Indhold: Kommentarantal */
+$handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
+$handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
+$handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
+$handler->display->display_options['fields']['comment_count']['label'] = '';
+$handler->display->display_options['fields']['comment_count']['exclude'] = TRUE;
+$handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['comment_count']['suffix'] = ' Kommentare(r)';
+/* Felt: Indhold: Oprettelsesdato */
+$handler->display->display_options['fields']['created']['id'] = 'created';
+$handler->display->display_options['fields']['created']['table'] = 'node';
+$handler->display->display_options['fields']['created']['field'] = 'created';
+$handler->display->display_options['fields']['created']['label'] = '';
+$handler->display->display_options['fields']['created']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['created']['alter']['text'] = '[created] | [comment_count]';
+$handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['created']['date_format'] = 'field_deadline_default';
+/* Felt: Indhold: Body */
+$handler->display->display_options['fields']['body']['id'] = 'body';
+$handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+$handler->display->display_options['fields']['body']['field'] = 'body';
+$handler->display->display_options['fields']['body']['label'] = '';
+$handler->display->display_options['fields']['body']['alter']['max_length'] = '100';
+$handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+$handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['body']['type'] = 'text_plain';
+/* Felt: Profil: Profil: Blog navn */
+$handler->display->display_options['fields']['value']['id'] = 'value';
+$handler->display->display_options['fields']['value']['table'] = 'profile_value_profile_blogname';
+$handler->display->display_options['fields']['value']['field'] = 'value';
+$handler->display->display_options['fields']['value']['relationship'] = 'uid';
+$handler->display->display_options['fields']['value']['label'] = '';
+$handler->display->display_options['fields']['value']['exclude'] = TRUE;
+$handler->display->display_options['fields']['value']['element_type'] = 'h2';
+$handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['value']['empty'] = 'Blognavn ikke angivet';
+$handler->display->display_options['fields']['value']['link_to_user'] = FALSE;
+/* Sorteringskriterie: Indhold: Oprettelsesdato */
+$handler->display->display_options['sorts']['created']['id'] = 'created';
+$handler->display->display_options['sorts']['created']['table'] = 'node';
+$handler->display->display_options['sorts']['created']['field'] = 'created';
+$handler->display->display_options['sorts']['created']['order'] = 'DESC';
+/* Kontekstuelt filter: Bruger: Uid */
+$handler->display->display_options['arguments']['uid']['id'] = 'uid';
+$handler->display->display_options['arguments']['uid']['table'] = 'users';
+$handler->display->display_options['arguments']['uid']['field'] = 'uid';
+$handler->display->display_options['arguments']['uid']['relationship'] = 'uid';
+$handler->display->display_options['arguments']['uid']['exception']['title'] = 'Alle';
+$handler->display->display_options['arguments']['uid']['default_argument_type'] = 'fixed';
+$handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+/* Filterkriterie: Indhold: Udgivet */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filterkriterie: Indhold: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'link_artikel' => 'link_artikel',
+  'image' => 'image',
+  'blog' => 'blog',
+  'brevkasse' => 'brevkasse',
+  'forum' => 'forum',
+  'body_secret' => 'body_secret',
+);
+$handler->display->display_options['filters']['type']['exposed'] = TRUE;
+$handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
+$handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
+$handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
+$handler->display->display_options['filters']['type']['expose']['multiple'] = TRUE;
+$handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
+  2 => '2',
+  8 => 0,
+  1 => 0,
+  5 => 0,
+  10 => 0,
+  3 => 0,
+  9 => 0,
+  4 => 0,
+  11 => 0,
+);
+$handler->display->display_options['filters']['type']['expose']['reduce'] = TRUE;
+/* Filterkriterie: Indhold: Type */
+$handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+$handler->display->display_options['filters']['type_1']['table'] = 'node';
+$handler->display->display_options['filters']['type_1']['field'] = 'type';
+$handler->display->display_options['filters']['type_1']['value'] = array(
+  'link_artikel' => 'link_artikel',
+  'image' => 'image',
+  'blog' => 'blog',
+  'brevkasse' => 'brevkasse',
+  'forum' => 'forum',
+  'body_secret' => 'body_secret',
+);
+
+/* Display: Oversigt over det seneste indhold */
+$handler = $view->new_display('page', 'Oversigt over det seneste indhold', 'page_1');
+$handler->display->display_options['defaults']['title'] = FALSE;
+$handler->display->display_options['display_description'] = 'Oversigt over det seneste indhold';
+$handler->display->display_options['exposed_block'] = TRUE;
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Overskrift: Entity: Renderet entity */
+$handler->display->display_options['header']['entity']['id'] = 'entity';
+$handler->display->display_options['header']['entity']['table'] = 'entity__global';
+$handler->display->display_options['header']['entity']['field'] = 'entity';
+$handler->display->display_options['header']['entity']['entity_id'] = '40764';
+$handler->display->display_options['header']['entity']['bypass_access'] = 0;
+/* Overskrift: Global: PHP */
+$handler->display->display_options['header']['php']['id'] = 'php';
+$handler->display->display_options['header']['php']['table'] = 'views';
+$handler->display->display_options['header']['php']['field'] = 'php';
+$handler->display->display_options['header']['php']['php_output'] = '  <?php
+    // Print views BEF block
+    $blockObject = block_load(\'views\', \'-exp-forside_oversigt-page_1\');
+    $block = _block_get_renderable_array(_block_render_blocks(array($blockObject)));
+    $output = drupal_render($block);
+    print $output;
+  ?>';
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['content'] = '<h3>Seneste indhold</h3>';
+$handler->display->display_options['header']['area']['format'] = '2';
+$handler->display->display_options['defaults']['relationships'] = FALSE;
+/* Forbindelse: Indhold: Forfatter */
+$handler->display->display_options['relationships']['uid']['id'] = 'uid';
+$handler->display->display_options['relationships']['uid']['table'] = 'node';
+$handler->display->display_options['relationships']['uid']['field'] = 'uid';
+/* Forbindelse: Indhold: Vote results */
+$handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
+$handler->display->display_options['relationships']['votingapi_cache']['table'] = 'node';
+$handler->display->display_options['relationships']['votingapi_cache']['field'] = 'votingapi_cache';
+$handler->display->display_options['relationships']['votingapi_cache']['label'] = 'Afstemningsresultater';
+$handler->display->display_options['relationships']['votingapi_cache']['votingapi'] = array(
+  'value_type' => 'points',
+  'tag' => 'vote',
+  'function' => 'sum',
+);
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Felt: Indhold: Type */
+$handler->display->display_options['fields']['type']['id'] = 'type';
+$handler->display->display_options['fields']['type']['table'] = 'node';
+$handler->display->display_options['fields']['type']['field'] = 'type';
+$handler->display->display_options['fields']['type']['label'] = '';
+$handler->display->display_options['fields']['type']['exclude'] = TRUE;
+$handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
+/* Felt: Indhold: Navn */
+$handler->display->display_options['fields']['field_forum_forf_navn']['id'] = 'field_forum_forf_navn';
+$handler->display->display_options['fields']['field_forum_forf_navn']['table'] = 'field_data_field_forum_forf_navn';
+$handler->display->display_options['fields']['field_forum_forf_navn']['field'] = 'field_forum_forf_navn';
+$handler->display->display_options['fields']['field_forum_forf_navn']['label'] = '';
+$handler->display->display_options['fields']['field_forum_forf_navn']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_forum_forf_navn']['element_label_colon'] = FALSE;
+/* Felt: Indhold: Navn */
+$handler->display->display_options['fields']['field_navn']['id'] = 'field_navn';
+$handler->display->display_options['fields']['field_navn']['table'] = 'field_data_field_navn';
+$handler->display->display_options['fields']['field_navn']['field'] = 'field_navn';
+$handler->display->display_options['fields']['field_navn']['label'] = '';
+$handler->display->display_options['fields']['field_navn']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_navn']['element_label_colon'] = FALSE;
+/* Felt: Profil: Profil: Fulde navn */
+$handler->display->display_options['fields']['value']['id'] = 'value';
+$handler->display->display_options['fields']['value']['table'] = 'profile_value_profile_fulde_navn';
+$handler->display->display_options['fields']['value']['field'] = 'value';
+$handler->display->display_options['fields']['value']['relationship'] = 'uid';
+$handler->display->display_options['fields']['value']['label'] = '';
+$handler->display->display_options['fields']['value']['exclude'] = TRUE;
+$handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['value']['link_to_user'] = FALSE;
+/* Felt: Bruger: Navn */
+$handler->display->display_options['fields']['name']['id'] = 'name';
+$handler->display->display_options['fields']['name']['table'] = 'users';
+$handler->display->display_options['fields']['name']['field'] = 'name';
+$handler->display->display_options['fields']['name']['relationship'] = 'uid';
+$handler->display->display_options['fields']['name']['label'] = '';
+$handler->display->display_options['fields']['name']['exclude'] = TRUE;
+$handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+/* Felt: Bruger: Uid */
+$handler->display->display_options['fields']['uid']['id'] = 'uid';
+$handler->display->display_options['fields']['uid']['table'] = 'users';
+$handler->display->display_options['fields']['uid']['field'] = 'uid';
+$handler->display->display_options['fields']['uid']['relationship'] = 'uid';
+$handler->display->display_options['fields']['uid']['label'] = '';
+$handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+$handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
+/* Felt: Indhold: Oprettelsesdato */
+$handler->display->display_options['fields']['created']['id'] = 'created';
+$handler->display->display_options['fields']['created']['table'] = 'node';
+$handler->display->display_options['fields']['created']['field'] = 'created';
+$handler->display->display_options['fields']['created']['label'] = '';
+$handler->display->display_options['fields']['created']['exclude'] = TRUE;
+$handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['created']['date_format'] = 'raw time ago';
+$handler->display->display_options['fields']['created']['custom_date_format'] = '1';
+$handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+/* Felt: Author timestamp */
+$handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['table'] = 'views';
+$handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['ui_name'] = 'Author timestamp';
+$handler->display->display_options['fields']['nothing']['label'] = '';
+$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="author-timestamp">[type] • [created] siden</div>';
+$handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+/* Felt: Indhold: Titel */
+$handler->display->display_options['fields']['title']['id'] = 'title';
+$handler->display->display_options['fields']['title']['table'] = 'node';
+$handler->display->display_options['fields']['title']['field'] = 'title';
+$handler->display->display_options['fields']['title']['label'] = '';
+$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+$handler->display->display_options['fields']['title']['element_type'] = 'h2';
+$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+/* Felt: Indhold: Billede */
+$handler->display->display_options['fields']['field_billede']['id'] = 'field_billede';
+$handler->display->display_options['fields']['field_billede']['table'] = 'field_data_field_billede';
+$handler->display->display_options['fields']['field_billede']['field'] = 'field_billede';
+$handler->display->display_options['fields']['field_billede']['label'] = '';
+$handler->display->display_options['fields']['field_billede']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_billede']['click_sort_column'] = 'fid';
+$handler->display->display_options['fields']['field_billede']['settings'] = array(
+  'image_style' => 'large',
+  'image_link' => '',
+);
+/* Felt: Indhold: Body */
+$handler->display->display_options['fields']['body']['id'] = 'body';
+$handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+$handler->display->display_options['fields']['body']['field'] = 'body';
+$handler->display->display_options['fields']['body']['label'] = '';
+$handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = TRUE;
+$handler->display->display_options['fields']['body']['alter']['max_length'] = '400';
+$handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
+$handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+$handler->display->display_options['fields']['body']['alter']['preserve_tags'] = '<p><br>';
+$handler->display->display_options['fields']['body']['alter']['html'] = TRUE;
+$handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+$handler->display->display_options['path'] = 'forside';
+$translatables['forside_oversigt'] = array(
+  t('Master'),
+  t('Seneste blogindlæg'),
+  t('mere'),
+  t('Udfør'),
+  t('Gendan'),
+  t('Sortér efter'),
+  t('Stigende'),
+  t('Faldende'),
+  t('Avancerede indstillinger'),
+  t('Artikel|artikler
+Billede|billeder
+Brevkassespørgsmål|brevkasse
+Blogindlæg|blog
+Forumemne|forum
+Hemmelighed|psst!'),
+  t('Vælg et filter og klik på Anvend for at se resultater'),
+  t('Antal elementer'),
+  t('- Alle -'),
+  t('Forskydning'),
+  t('« første'),
+  t('‹ forrige'),
+  t('næste ›'),
+  t('sidste »'),
+  t('Vis mere'),
+  t('<h1>[value]</h1>
+<div class="views-field-picture">[picture]</div>
+<div class="content-list-header">
+[value_2]
+</div>
+<h3>Seneste indlæg</h3>
+'),
+  t('forfatter'),
+  t('Afstemningsresultater'),
+  t('.'),
+  t(','),
+  t(' Kommentare(r)'),
+  t('[created] | [comment_count]'),
+  t('Blognavn ikke angivet'),
+  t('Alle'),
+  t('Oversigt over det seneste indhold'),
+  t('<h3>Seneste indhold</h3>'),
+  t('<div class="author-timestamp">[type] • [created] siden</div>'),
+);
+
+  return $view;
+
+}
