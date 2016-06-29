@@ -1,6 +1,7 @@
 /**
  * GENERAL VIEWS STYLING
  */
+
 .view {
   & > .view-header,
   & > .view-footer {
@@ -11,39 +12,50 @@
         display: inline-block;
       }
     }
+    .content-list-header {
+      margin: $margin-std;
+      @include italic-description();
+    }
   }
   .view-filters {
     margin-bottom: $margin-std;
-
     /* Hide description: https://www.drupal.org/node/339384#comment-10587426 */
     .form-type-select .description {
       display: none;
     }
   }
   & > .view-content {
+    background-color: $bg-grey;
     .views-row {
-      margin-top: $margin-big;
+      background-color: $bg-white;
+      margin: 0 0 $margin-std 0;
+      padding: $padding-std;
+
     }
     h2 {
       margin: 0;
     }
-    .comment-count {
+    .views-field-comment-count {
       background-image: none;
-      &:after {
-        content: " kommentarer";
-      }
     }
   }
 }
 
-/* Load more pager */
 
-.pager-load-more a {
-  @include button-bg($blue, $white);
+/* Load more pager */
+.pager-load-more {
+  background-color: $bg-grey;
+  padding: $padding-std;
+  a {
+    @include button-bg($blue, $white);
+  }
 }
+
+
 /**
  * FORUM LIST & TOPIC LIST
  */
+
 .view-cyberhus-forum-topic-list {
   & > .view-header,
   & > .view-footer {
@@ -53,9 +65,42 @@
       padding-right: $padding-std;
     }
   }
-  & > .view-content {
-    .views-field-field-tag-shorthand {
-      color: $grey;
+}
+
+/* Forum term list */
+.view-cyberhus-forum-term-list {
+  .view-content {
+    background-color: $bg-white;
+  }
+  .tag-shorthand {
+    display: inline-block;
+    margin: $margin-small;
+    a {
+    @include label();
     }
+  }
+}
+
+/**
+ * BLOG LIST & BLOGGERS
+ */
+
+.view-bloggere,
+.view-blogs-oversigter {
+  .views-field-value-2 {
+    float: left;
+  }
+  .views-field-picture {
+    text-align: right;
+    img {
+      @include circular();
+    }
+  }
+}
+
+
+.view-blogs-oversigter {
+  .views-field-picture {
+    padding-right: $padding-std;
   }
 }

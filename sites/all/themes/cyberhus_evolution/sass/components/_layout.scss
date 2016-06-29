@@ -1,16 +1,20 @@
-/* Overall layout elements */
+/**
+ * OVERALL LAYOUT ELEMENTS
+ */
+
 .l-region--header {
   position: absolute;
 }
+
 .l-branding {
   margin-top: $margin-std;
   margin-bottom: $margin-std;
   text-align: center;
-  a.site-logo {
-  }
+  a.site-logo {}
 }
+
 .l-main--wrapper {
-  background-color: $light-grey;
+  background-color: $bg-grey;
   margin-bottom: 0;
   padding-top: $padding-std;
   padding-bottom: 6em;
@@ -18,15 +22,30 @@
   background-repeat: repeat-x;
   background-position: bottom;
 }
+
 .l-main {
   margin: auto;
-
 }
 
 .l-content {
-  background-color: $white;
   margin: auto;
   max-width: $content-width;
+  background-color: $bg-white;
+
+  ul.breadcrumb {
+    background-color: $bg-grey;
+    padding: 0 $padding-small $padding-small;
+
+    li {
+      display: inline;
+
+      &:after {
+      content: " > ";
+      }
+    }
+  }
+
+
 }
 
 .l-region--navigation {
@@ -50,11 +69,11 @@
 }
 
 .l-footer--wrapper {
-  background-color: $dark-grey;
+  background-color: $darkest-grey;
 }
-.l-footer {
 
-}
+.l-footer {}
+
 .l-region--footer {
   max-width: $content-width;
   margin: 0 auto;

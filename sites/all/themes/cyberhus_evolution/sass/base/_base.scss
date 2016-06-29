@@ -10,13 +10,28 @@ body {
   line-height: $line-height-std;
 }
 
+h1 {
+  font-family: $font-family-header;
+  font-size: $font-size-big;
+  font-weight: $font-weight-bold;
+  margin: $margin-std-px;
+}
 h2 {
   font-family: $font-family-header;
-  font-size: $font_size_medium;
-  font-weight: $font_weight_bold;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-bold;
   margin: 0 0 $margin-small 0;
 }
 
+h3 {
+  background-color: $bg-grey;
+  color: $light-grey;
+  font-size: $font-size-normal;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  margin: 0 0 $margin-small 0;
+  padding: $padding-std;
+}
 a {
   color: $blue;
   text-decoration: none;

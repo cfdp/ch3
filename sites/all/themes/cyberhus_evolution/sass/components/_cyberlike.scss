@@ -1,10 +1,10 @@
 /**
- * FORUM LIST & TOPIC LIST
+ * FORUM AND BLOG TOPIC VIEW LISTS
  */
 
-.view-cyberhus-forum-topic-list {
+.view {
   & > .view-content {
-    .cyberlikes, .comment-count {
+    .cyberlikes, .views-field-comment-count, .comment-count {
       background: image-url('icons/cyberlike/heart_cleaned_gray.svg') no-repeat 0 0;
       color: $grey;
       display: inline-block;
@@ -12,8 +12,15 @@
       margin-top: 0.7em;
       padding-left: 40px;
     }
-    .comment-count {
+    .views-field-comment-count, .comment-count {
       background-image: none;
+    }
+
+  }
+  /* Blog oversigt */
+  &.view-blogs-oversigter {
+    .views-field-value-1 {
+      display: inline-block;
     }
   }
 }

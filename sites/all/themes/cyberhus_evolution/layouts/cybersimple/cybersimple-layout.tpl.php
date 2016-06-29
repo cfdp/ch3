@@ -27,8 +27,8 @@
   <div class="l-main--wrapper">
     <div class="l-main">
       <div class="l-content" role="main">
-        <?php print render($page['highlighted']); ?>
         <?php print $breadcrumb; ?>
+        <?php print render($page['highlighted']); ?>
         <a id="main-content"></a>
         <?php print render($title_prefix); ?>
         <?php if ($title): ?>

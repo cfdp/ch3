@@ -19,23 +19,31 @@ $line-height-std: 1.438em;
 $font-size-small: .85em; // 13px
 $font-size-normal: 1em; // 16px
 $font-size-medium: 1.3em;
+$font-size-big: 1.5em;
 
 /* Font colors and backgrounds */
 $black: #231E19;
 $blue: #2980B9;
-$grey: #6B6866;
-$primary-color: #e67e22; // Orange
+$light-blue: lighten($blue, 50%);
 
-$light-grey: #F1F1F1;
+$grey: #6B6866;
+$light-grey: lighten($grey, 10%);
+$dark-grey: darken($grey, 10%);
+$bg-grey: #F1F1F1;
+
 $medium-grey: #484243;
-$dark-grey: #2d2728;
+$darkest-grey: #2d2728;
+$primary-color: #e67e22; // Orange
+$bg-white: #fff;
 $white: #fff;
 
 /* Margin and padding */
 $margin-small: .75em; //
 $margin-std: 1em;
+$margin-std-px: 16px;
 $margin-big: 2em;
 $padding-std: 1em;
+$padding-small: .75em; //
 
 /* Border color */
 $border_color_lys: #bababa;

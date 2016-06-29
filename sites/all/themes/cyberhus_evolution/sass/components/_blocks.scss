@@ -1,3 +1,13 @@
+/**
+ * MAIN CONTENT BLOCKS
+ */
+.l-content .block {
+  margin: $margin-std;
+}
+
+/**
+ * FOOTER BLOCKS
+ */
 .block--block-43 {
   margin: $margin-big auto;
   max-width: 586px;

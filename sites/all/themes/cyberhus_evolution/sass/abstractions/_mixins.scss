@@ -17,15 +17,36 @@ $button-radius: 3px !default;
   max-width: 10em;
   text-align: center;
   &:hover {
-    background:darken($bg,8%);
+    background: darken($bg, 8%);
     transition: all 0.3s ease;
   }
   &:active {
-    background:darken($bg,25%);
+    background: darken($bg, 25%);
+  }
+}
+
+@mixin label() {
+  background-color: $light-blue;
+  padding: .4em .5em;
+  @include border-radius(3px);
+  &:hover {
+    background: darken($light-blue, 8%);
+    transition: all 0.3s ease;
   }
 }
 
 @mixin font-metadata() {
   color: $grey;
   font-size: $font-size-small;
+}
+
+@mixin circular() {
+  width: 64px;
+  height: 64px;
+  @include border-radius(32px);
+}
+
+@mixin italic-description() {
+  color: $grey;
+  font-style:italic;
 }
