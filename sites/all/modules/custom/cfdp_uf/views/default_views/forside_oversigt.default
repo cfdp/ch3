@@ -276,10 +276,8 @@ $handler->display->display_options['header']['php']['table'] = 'views';
 $handler->display->display_options['header']['php']['field'] = 'php';
 $handler->display->display_options['header']['php']['php_output'] = '  <?php
     // Print views BEF block
-    $blockObject = block_load(\'views\', \'-exp-forside_oversigt-page_1\');
-    $block = _block_get_renderable_array(_block_render_blocks(array($blockObject)));
-    $output = drupal_render($block);
-    print $output;
+    $block = module_invoke(\'views\', \'block_view\', \'-exp-forside_oversigt-page_1\');
+    print render($block[\'content\']);
   ?>';
 /* Overskrift: Global: Tekstområde */
 $handler->display->display_options['header']['area']['id'] = 'area';
