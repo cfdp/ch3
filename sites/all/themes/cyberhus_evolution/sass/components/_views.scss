@@ -6,6 +6,9 @@
   & > .view-header,
   & > .view-footer {
     margin: $margin-big 0 0 0;
+    h3 {
+      @include headline-grey-bg();
+    }
     .view-content {
       margin-bottom: $margin-std;
       .views-row {
@@ -30,7 +33,6 @@
       background-color: $bg-white;
       margin: 0 0 $margin-std 0;
       padding: $padding-std;
-
     }
     h2 {
       margin: 0;
@@ -43,6 +45,7 @@
 
 
 /* Load more pager */
+
 .pager-load-more {
   background-color: $bg-grey;
   padding: $padding-std;
@@ -51,7 +54,9 @@
   }
 }
 
+
 /* BEF form */
+
 .bef-select-as-links .form-type-bef-link {
   display: inline-block;
   margin: $margin-small;
@@ -60,9 +65,11 @@
   }
 }
 
+
 /**
  * FORSIDE
  */
+
 .view-header h2.node__title {
   margin-left: $margin-std-px;
 }
@@ -71,6 +78,7 @@
 /**
  * FORUM LIST & TOPIC LIST
  */
+
 .view-cyberhus-forum-topic-list {
   & > .view-header,
   & > .view-footer {
@@ -82,7 +90,9 @@
   }
 }
 
+
 /* Forum term list */
+
 .view-cyberhus-forum-term-list {
   .view-content {
     background-color: $bg-white;
@@ -95,6 +105,7 @@
     }
   }
 }
+
 
 /**
  * BLOG LIST & BLOGGERS
@@ -112,7 +123,6 @@
     }
   }
 }
-
 
 .view-blogs-oversigter {
   .views-field-picture {

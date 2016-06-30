@@ -1,4 +1,4 @@
-<div id="page">
+<div id="page" class="ungi-city">
 	<div id="ungi-city">
 		<div id="ungi-desc">
 			<h2><?php print $city->name ?></h2>

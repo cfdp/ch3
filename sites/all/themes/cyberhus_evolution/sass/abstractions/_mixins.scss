@@ -3,6 +3,8 @@ $button-background-color: $blue !default;
 $button-border-color: $blue !default;
 $button-radius: 3px !default;
 
+$margin: 0 !default;
+
 @mixin button-bg($color: $button-color, $bg: $button-background-color, $bbc: $button-border-color, $br: $button-radius) {
   background: $bg;
   @include border-radius($br);
@@ -49,4 +51,13 @@ $button-radius: 3px !default;
 @mixin italic-description() {
   color: $grey;
   font-style:italic;
+}
+
+@mixin headline-grey-bg($mrg: $margin) {
+  background-color: $bg-grey;
+  color: $light-grey;
+  font-weight: $font-weight-bold;
+  margin: 0 $mrg;
+  text-transform: uppercase;
+  padding: $padding-std;
 }

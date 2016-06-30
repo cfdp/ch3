@@ -12,9 +12,8 @@
             <?php print et('Ung i forside'); ?>
         </div>
     </div>
-    <br/>
-    <hr/>
     <div id="ungi-cities">
+      <h3>Alle Ung-i byer</h3>
         <ul>
             <?php foreach ($cities as $city): ?>
                 <li class="ungi-city">
@@ -28,13 +27,15 @@
                     </span><span class="ungi-half">
                         <a class="btn" href="<?php print $city->url; ?>">Tilbud i kommunen</a>
                         <?php if (!empty($city->chaturl)): ?>
+                          <div class="ungi-chat-wrapper"><span class="chat-label">Chat</span>
                             <iframe src="<?php print $city->chaturl . "/inline/" . $city->chattype; ?>"></iframe>
+                          </div>
                         <?php else: ?>
-                            <a class="btn chat-closed" href="<?php print $city->chaturl; ?>">Ingen chat til rådighed</a>
+                          <div class="ungi-chat-wrapper">
+                            <span class="ungi-chat-closed">Ingen chat til rådighed</span>
+                          </div>
                         <?php endif ?>
-                    </span><br/>
-
-                    <hr/>
+                    </span>
                 </li>
             <?php endforeach; ?>
         </ul>

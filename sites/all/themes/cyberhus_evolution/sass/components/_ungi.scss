@@ -1,0 +1,57 @@
+body.page-ung-i {
+  .l-content {}
+}
+
+
+/* Center DK-map */
+
+#ungi-map {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+#ungi-intro {
+  padding: $padding-std;
+}
+
+#ungi-cities {
+  background-color: $bg-grey;
+  h3 {
+    @include headline-grey-bg();
+  }
+  .ungi-city {
+    background-color: $bg-white;
+    margin: 0 0 $margin-std 0;
+    padding: $padding-std;
+  }
+  .ungi-half {
+    max-width: 100%;
+    .btn {
+      display: inline-block;
+      margin: 0 0 $margin-std 0;
+    }
+  }
+  iframe {
+    margin: 0;
+  }
+  .chat-label {
+    float: left;
+    padding-top: 10px;
+    margin-right: $margin-std;
+  }
+  .chat-desc {
+    margin: $margin-small 0;
+  }
+  .ungi-chat-wrapper {
+    display: inline-block;
+    float: right;
+  }
+}
+
+#page.ungi-city {
+  padding: $padding-std;
+  & > h3 {
+    @include headline-grey-bg(-1em);
+  }
+}
