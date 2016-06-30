@@ -53,8 +53,8 @@ function ungi_by($termname) {
 
 	drupal_set_title("Ung i " . $term->name);
 	drupal_add_css(drupal_get_path('module', 'ungi') . '/css/ungi.css');
-	drupal_add_library('system', 'ui.accordion');
-	drupal_add_js(drupal_get_path('module', 'ungi') . '/js/accordian.js');
+	//drupal_add_library('system', 'ui.accordion');
+	drupal_add_js(drupal_get_path('module', 'ungi') . '/js/ungi-accordion.js');
 
 	return theme('ungi_by', array('city' => $city, 'nodes' => $views));
 }

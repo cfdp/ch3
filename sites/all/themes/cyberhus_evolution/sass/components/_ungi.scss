@@ -1,10 +1,4 @@
-body.page-ung-i {
-  .l-content {}
-}
-
-
 /* Center DK-map */
-
 #ungi-map {
   display: block;
   text-align: center;
@@ -50,7 +44,18 @@ body.page-ung-i {
 }
 
 #page.ungi-city {
-  padding: $padding-std;
+  h1 {
+    display: none;
+  }
+  .ungi-desc {
+    @include italic-description();
+  }
+  .block {
+    margin: 0;
+  }
+  #ungi-city {
+    padding: $padding-std;
+  }
   & > h3 {
     @include headline-grey-bg(-1em);
   }

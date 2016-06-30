@@ -20,6 +20,9 @@
       @include italic-description();
     }
   }
+  .views-field-body .field-content {
+    font-family: $font-family-std;
+  }
   .view-filters {
     margin-bottom: $margin-std;
     /* Hide description: https://www.drupal.org/node/339384#comment-10587426 */

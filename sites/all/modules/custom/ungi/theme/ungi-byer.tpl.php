@@ -1,16 +1,8 @@
 <div id="page">
     <div id="ungi-intro">
-        <div id="ungi-map">
-            <?php foreach ($cities as $city): ?>
-                <?php if ($city->y > 0): ?>
-                    <a class="ungi-dot" title="<?php print $city->name; ?>" href="<?php print $city->url; ?>" style="margin-left: <?php print $city->x; ?>px; margin-top: <?php print $city->y; ?>px;">&nbsp;</a>
-                <?php endif; ?>
-            <?php endforeach; ?>
-            <img src="/<?php print drupal_get_path('module', 'ungi'); ?>/images/map_condensed.png"/>
-        </div>
-        <div id="ungi-desc">
-            <?php print et('Ung i forside'); ?>
-        </div>
+      <div id="ungi-desc">
+          <?php print et('Ung i forside'); ?>
+      </div>
     </div>
     <div id="ungi-cities">
       <h3>Alle Ung-i byer</h3>

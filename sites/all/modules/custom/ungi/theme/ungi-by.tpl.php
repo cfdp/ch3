@@ -2,7 +2,7 @@
 	<div id="ungi-city">
 		<div id="ungi-desc">
 			<h2><?php print $city->name ?></h2>
-			<?php print $city->desc; ?>
+			<div class="ungi-desc"><?php print $city->desc; ?></div>
 			<br/>
 			<h3>Chat</h3>
 			<?php if (!empty($city->chaturl)): ?>
@@ -20,8 +20,16 @@
 		</div>
 	</div>
 	<br/>
-	<h3>Tilbud i kommunen</h3>
+	<h3>Tilbud i <?php print $city->name; ?></h3>
 	<div id="ungi-nodes" class="view-ung-i-visning view-id-ung_i_visning">
-		<?php print render($nodes); ?>
+		<?php /* print render($nodes); */ ?>
 	</div>
+
+    <?php
+    // Print views "Ung i" views block
+    $blockObject = block_load('views', 'ung_i_tilbud-block');
+    $block = _block_get_renderable_array(_block_render_blocks(array($blockObject)));
+    $output = drupal_render($block);
+    print $output;
+  ?>
 </div>

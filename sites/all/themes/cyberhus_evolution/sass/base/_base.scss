@@ -33,10 +33,23 @@ a {
   text-decoration: none;
 }
 
+p {
+  font-family: $font-family-std;
+  margin: $margin-std 0;
+}
+
+strong {
+  font-weight: 700;
+}
+
 .btn {
   @include button-bg();
 }
 
 .headline-grey-bg {
   @include headline-grey-bg();
+}
+
+.author-timestamp {
+  @include font-metadata;
 }

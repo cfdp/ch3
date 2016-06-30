@@ -82,3 +82,20 @@
     color: white;
   }
 }
+
+.btn {
+  @include button-bg();
+}
+
+.headline-grey-bg {
+  @include headline-grey-bg();
+}
+
+.author-timestamp {
+  @include font-metadata;
+}
+
+article.node {
+  padding: $padding-std;
+}
+
