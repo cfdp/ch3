@@ -11,9 +11,6 @@
     <div id="ungi-desc">
       <?php print et('Ung i forside'); ?>
     </div>
-    <div id="ungi-desc">
-      <?php print et('Ung i forside'); ?>
-    </div>
   </div>
   <div id="ungi-cities">
     <h3>Alle Ung-i byer</h3>

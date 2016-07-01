@@ -1,7 +1,9 @@
 @import "breakpoint";
 
 /* Center DK-map */
-#ungi-map {
+
+#ungi-cities #ungi-map,
+#ungi-city #ungi-map {
   display: block;
   text-align: center;
   width: 100%;
@@ -63,20 +65,29 @@
   }
 }
 
+
 /* Responsive styles */
 
-#ungi-city #ungi-desc h2 {
-  display: none;
-}
-
-
-@include breakpoint($tab, true) {
-  #ungi-city h1 {
+#ungi-city {
+  #ungi-desc h2,
+  #ungi-map {
     display: none;
   }
+}
 
-  #ungi-city #ungi-desc h2 {
-    display: block;
-    background: white url("/sites/all/modules/custom/ungi/images/citysign.png") no-repeat scroll center bottom;
+@include breakpoint($tab, true) {
+  body.page-ung-i {
+    h1 {
+      display: none;
+    }
+  }
+  #ungi-city {
+    #ungi-desc h2 {
+      display: block;
+      background: white url("/sites/all/modules/custom/ungi/images/citysign.png") no-repeat scroll center bottom;
+    }
+    #ungi-map {
+      display: block;
+    }
   }
 }
