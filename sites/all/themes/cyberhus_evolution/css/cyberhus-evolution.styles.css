@@ -649,3 +649,7 @@ article.node {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_accordion\.scss}line{font-family:\0000376}}
 .ui-icon-triangle-1-e {
   background-position: -32px 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_accordion\.scss}line{font-family:\0000380}}
+.ui-widget-content a {
+  color: #2980B9; }
