@@ -12,12 +12,6 @@
 				<p><?php print $city->name ?> Kommune har endnu ikke en lokal chat på Cyberhus, men du er mere end velkommen til at benytte <a href="/chat">Cyberhus’ egen chat</a>, hvor du kan snakke med rådgiverne og andre unge.</p>
 			<?php endif ?>
 		</div>
-		<div id="ungi-map">
-			<?php if ($city->y > 0): ?>
-				<span class="ungi-dot" title="<?php print $city->name; ?>" style="margin-left: <?php print $city->x; ?>px; margin-top: <?php print $city->y; ?>px;">&nbsp;</span>
-			<?php endif; ?>
-			<img src="/<?php print drupal_get_path('module', 'ungi'); ?>/images/smallmap_condensed.png"/>
-		</div>
 	</div>
 	<br/>
 	<h3>Tilbud i <?php print $city->name; ?></h3>

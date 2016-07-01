@@ -1,3 +1,5 @@
+@import "breakpoint";
+
 /* Center DK-map */
 #ungi-map {
   display: block;
@@ -58,5 +60,23 @@
   }
   & > h3 {
     @include headline-grey-bg(-1em);
+  }
+}
+
+/* Responsive styles */
+
+#ungi-city #ungi-desc h2 {
+  display: none;
+}
+
+
+@include breakpoint($tab, true) {
+  #ungi-city h1 {
+    display: none;
+  }
+
+  #ungi-city #ungi-desc h2 {
+    display: block;
+    background: white url("/sites/all/modules/custom/ungi/images/citysign.png") no-repeat scroll center bottom;
   }
 }
