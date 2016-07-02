@@ -31,21 +31,16 @@
   margin: auto;
   max-width: $content-width;
   background-color: $bg-white;
-
   ul.breadcrumb {
     background-color: $bg-grey;
     padding: 0 $padding-small $padding-small;
-
     li {
       display: inline;
-
       &:after {
-      content: " > ";
+        content: " > ";
       }
     }
   }
-
-
 }
 
 .l-region--navigation {
@@ -94,8 +89,3 @@
 .author-timestamp {
   @include font-metadata;
 }
-
-article.node {
-  padding: $padding-std;
-}
-

@@ -2,12 +2,6 @@
 	<div id="ungi-city">
 		<div id="ungi-desc">
 			<h2><?php print $city->name ?></h2>
-    <div id="ungi-map">
-      <?php if ($city->y > 0): ?>
-        <span class="ungi-dot" title="<?php print $city->name; ?>" style="margin-left: <?php print $city->x; ?>px; margin-top: <?php print $city->y; ?>px;">&nbsp;</span>
-      <?php endif; ?>
-      <img src="/<?php print drupal_get_path('module', 'ungi'); ?>/images/smallmap_condensed.png"/>
-    </div>
 			<div class="ungi-desc"><?php print $city->desc; ?></div>
 			<h3>Chat</h3>
 			<?php if (!empty($city->chaturl)): ?>

@@ -1,0 +1,19 @@
+/* Node specific */
+
+article {
+  &.node {
+    padding: $padding-std;
+  }
+  &.node--simpel-side-med-view {
+    padding: 0;
+    .field--name-field-billede,
+    .field--name-body {
+      padding: $padding-std;
+    }
+  }
+  .field--type-viewreference {
+    .ui-accordion {
+      padding-top: $padding-small;
+    }
+  }
+}
