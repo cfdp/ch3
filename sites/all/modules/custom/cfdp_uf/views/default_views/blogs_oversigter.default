@@ -267,7 +267,7 @@ $handler->display->display_options['defaults']['header'] = FALSE;
 $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['content'] = '<p class="content-list-header">Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. </p><a class="btn" title="Cyberhus\' bloggere" href="/bloggere">Se alle bloggere</a>
+$handler->display->display_options['header']['area']['content'] = '<p class="content-list-header">Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. </p><a class="btn" title="Cyberhus\' bloggere" href="/blogs">Se alle bloggere</a>
 <h3>Seneste blogindlæg</h3>
 ';
 $handler->display->display_options['header']['area']['format'] = '2';
@@ -461,7 +461,7 @@ $translatables['blogs_oversigter'] = array(
   t('<span title="Dette indlæg har fået [value_1] likes" class="cyberlikes">[value_1]</span>'),
   t('Oversigt over de seneste blogindlæg'),
   t('Blogs'),
-  t('<p class="content-list-header">Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. </p><a class="btn" title="Cyberhus\' bloggere" href="/bloggere">Se alle bloggere</a>
+  t('<p class="content-list-header">Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. </p><a class="btn" title="Cyberhus\' bloggere" href="/blogs">Se alle bloggere</a>
 <h3>Seneste blogindlæg</h3>
 '),
   t('<div class="author-timestamp">Indlæg på [value] • [created] siden</div>'),
