@@ -8,8 +8,6 @@
 
 
 function cyberhus_evolution_menu_link__menu_andet(array $variables) {
-  dpm($variables);
-
   $element = $variables['element'];
   $sub_menu = '';
 
@@ -17,7 +15,7 @@ function cyberhus_evolution_menu_link__menu_andet(array $variables) {
     $sub_menu = drupal_render($element['#below']);
   }
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
-  return 'hej<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
 
 
