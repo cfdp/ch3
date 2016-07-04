@@ -50,6 +50,10 @@ img {
   @include button-bg();
 }
 
+.btn-light {
+  @include button-bg($blue, $white);
+}
+
 .headline-grey-bg {
   @include headline-grey-bg();
 }

@@ -7,6 +7,20 @@
  */
 
 
+function cyberhus_evolution_menu_link__menu_andet(array $variables) {
+  dpm($variables);
+
+  $element = $variables['element'];
+  $sub_menu = '';
+
+  if ($element['#below']) {
+    $sub_menu = drupal_render($element['#below']);
+  }
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+  return 'hej<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+}
+
+
 /**
 * Remove add forum topic link from forum pages
 * @param Array $variables

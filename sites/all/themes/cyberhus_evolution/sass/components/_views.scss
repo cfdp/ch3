@@ -20,6 +20,10 @@
       @include italic-description();
     }
   }
+  & > .view-footer {
+      background-color: $bg-grey;
+      padding: $padding-small;
+  }
   .views-field-body .field-content {
     font-family: $font-family-std;
   }
@@ -44,6 +48,17 @@
       background-image: none;
     }
   }
+
+  /* Mini lists are small lists of content links e.g. used on /blogs page */
+  &.mini-list {
+    > .view-content .views-row {
+    display: block;
+    margin: 0;
+    padding: $padding-std;
+    }
+  }
+
+
 }
 
 
