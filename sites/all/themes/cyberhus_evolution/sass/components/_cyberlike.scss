@@ -5,15 +5,18 @@
 .view {
   & > .view-content {
     .cyberlikes, .views-field-comment-count, .comment-count {
-      background: image-url('icons/cyberlike/heart_cleaned_gray.svg') no-repeat 0 0;
+      background: image-url('icons/svg/cyberlike/heart_cleaned_gray.svg') no-repeat 0 0;
       color: $grey;
       display: inline-block;
       height: 30px;
-      margin-top: 0.7em;
-      padding-left: 40px;
+      margin-top: $padding-small;
+      padding-left: 35px;
+    }
+    .cyberlikes {
+      margin-right: $margin-small ;
     }
     .views-field-comment-count, .comment-count {
-      background-image: none;
+      background-image: image-url('icons/svg/comments.svg');
     }
 
   }
@@ -48,7 +51,7 @@
     .vud-link-up, .up-active {
       width: 26px;
       height: 24px;
-      background: image-url('icons/cyberlike/heart_cleaned.svg');
+      background: image-url('icons/svg/cyberlike/heart_cleaned.svg');
       background-repeat: no-repeat;
       display: inline-block;
       float: left;
@@ -57,7 +60,7 @@
       }
     }
     .up-active {
-      background: image-url('icons/cyberlike/heart-fill_cleaned.svg');
+      background: image-url('icons/svg/cyberlike/heart-fill_cleaned.svg');
     }
 
     .reset-active {

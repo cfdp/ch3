@@ -46,7 +46,7 @@ $handler->display->display_options['row_plugin'] = 'fields';
 $handler->display->display_options['header']['view']['id'] = 'view';
 $handler->display->display_options['header']['view']['table'] = 'views';
 $handler->display->display_options['header']['view']['field'] = 'view';
-$handler->display->display_options['header']['view']['view_to_insert'] = 'cyberhus_forum_term_list:default';
+$handler->display->display_options['header']['view']['view_to_insert'] = 'cyberhus_forum_term_list:attachment_1';
 /* Overskrift: Global: Tekstområde */
 $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
@@ -181,7 +181,6 @@ $handler->display->display_options['fields']['comment_count']['element_wrapper_t
 $handler->display->display_options['fields']['comment_count']['element_default_classes'] = FALSE;
 $handler->display->display_options['fields']['comment_count']['hide_empty'] = TRUE;
 $handler->display->display_options['fields']['comment_count']['empty_zero'] = TRUE;
-$handler->display->display_options['fields']['comment_count']['suffix'] = ' kommentar(er)';
 /* Felt: Ord i ordforråd: Beskrivelse af term */
 $handler->display->display_options['fields']['description']['id'] = 'description';
 $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
@@ -329,7 +328,6 @@ $translatables['cyberhus_forum_topic_list'] = array(
   t('<span title="Dette indlæg har fået [value] likes" class="cyberlikes">[value]</span>'),
   t(','),
   t('<span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span>'),
-  t(' kommentar(er)'),
   t('Alle'),
   t('Forum oversigt'),
   t('Oversigt over indlæg fra alle fora'),
@@ -340,7 +338,6 @@ $translatables['cyberhus_forum_topic_list'] = array(
   t('<div class="content-list-header">[description]</div><a href="/node/add/forum/[tid]" title="Skriv indlæg" class="btn">Skriv indlæg</a>
 <h3>Seneste indlæg</h3>'),
 );
-
 
   return $view;
 

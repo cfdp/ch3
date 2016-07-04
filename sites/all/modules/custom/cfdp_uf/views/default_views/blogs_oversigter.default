@@ -228,6 +228,7 @@ $handler->display->display_options['fields']['value_1']['label'] = '';
 $handler->display->display_options['fields']['value_1']['alter']['alter_text'] = TRUE;
 $handler->display->display_options['fields']['value_1']['alter']['text'] = '<span title="Dette indlæg har fået [value_1] likes" class="cyberlikes">[value_1]</span>';
 $handler->display->display_options['fields']['value_1']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['value_1']['hide_empty'] = TRUE;
 $handler->display->display_options['fields']['value_1']['precision'] = '0';
 /* Felt: Indhold: Kommentarantal */
 $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
@@ -236,7 +237,7 @@ $handler->display->display_options['fields']['comment_count']['field'] = 'commen
 $handler->display->display_options['fields']['comment_count']['label'] = '';
 $handler->display->display_options['fields']['comment_count']['exclude'] = TRUE;
 $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['comment_count']['suffix'] = ' Kommentare(r)';
+$handler->display->display_options['fields']['comment_count']['hide_empty'] = TRUE;
 /* Felt: Profil: Profil: Lidt om mig... */
 $handler->display->display_options['fields']['value_2']['id'] = 'value_2';
 $handler->display->display_options['fields']['value_2']['table'] = 'profile_value_profile_NUeH';
@@ -384,7 +385,7 @@ $handler->display->display_options['fields']['comment_count']['table'] = 'node_c
 $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
 $handler->display->display_options['fields']['comment_count']['label'] = '';
 $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['comment_count']['suffix'] = ' Kommentare(r)';
+$handler->display->display_options['fields']['comment_count']['hide_empty'] = TRUE;
 $handler->display->display_options['defaults']['arguments'] = FALSE;
 $handler->display->display_options['path'] = 'blogs/alle';
 
@@ -467,6 +468,7 @@ $translatables['blogs_oversigter'] = array(
   t('<h3>Seneste indlæg</h3>'),
   t('<a href="/blogs/alle" class="btn-light">Se alle indlæg</a>'),
 );
+
 
   return $view;
 
