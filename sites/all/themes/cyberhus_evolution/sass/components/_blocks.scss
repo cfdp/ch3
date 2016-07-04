@@ -23,17 +23,95 @@
   }
 }
 
+#block-block-44 {
+  text-align: center;
+  p, a {
+    color: $white;
+    font-weight: $font-weight-bold;
+  }
+}
+
+/* Footer menu */
 .block--menu-menu-andet {
-  background-color: $medium-grey;
-  height: 50px;
+  background-color: #000;
   margin-bottom: $margin-std;
   ul.menu {
-    padding-top: 1em;
+    padding: $padding-std 0;
     text-align: center;
   }
   li {
     display: inline-block;
     list-style-type: none;
     margin-right: $margin-std;
+
+    a {
+      color: $white;
+      font-weight: $font-weight-bold;
+    }
+  }
+}
+
+/**
+ * MENU BLOCKS WITH JUICY SVG IMGS!!
+ */
+
+$icon-size-footer: 35px;
+$icon-color-footer: #fff;
+$icon-color-highlight-footer: #2980B9;
+
+$icon-size-top: 25px;
+$icon-color-top: $grey;
+$icon-color-highlight-top: #000;
+
+#block-menu-menu-andet,
+#block-menu-menu-top-menu {
+  li {
+    display: inline-block;
+    text-align: center;
+    margin: 0 $margin-std 0;
+    transition: stroke .25s ease, width .5s ease;
+    a {
+      display: block;
+    }
+    svg {
+      display: inline-block;
+      g {
+        transition: fill .25s ease;
+      }
+    }
+  }
+}
+
+#block-menu-menu-andet {
+  li {
+    svg {
+      height: $icon-size-footer;
+      width: $icon-size-footer;
+      g {
+        fill: $icon-color-footer;
+      }
+    }
+    &:hover {
+      svg g {
+        fill: $icon-color-highlight-footer;
+      }
+    }
+  }
+}
+
+#block-menu-menu-top-menu {
+  li {
+    svg {
+      height: $icon-size-top;
+      width: $icon-size-top;
+      g {
+        fill: $icon-color-top;
+      }
+    }
+    &:hover {
+      svg g {
+        fill: $icon-color-highlight-top;
+      }
+    }
   }
 }

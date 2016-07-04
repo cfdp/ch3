@@ -7,15 +7,44 @@
  */
 
 
+/**
+ * Overriding the menu_link hook to inject svg images
+ *
+ * NOTE: We use the menu_attributes id item to identify the svg file
+ */
 function cyberhus_evolution_menu_link__menu_andet(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
+  $menu_id = '';
 
   if ($element['#below']) {
     $sub_menu = drupal_render($element['#below']);
   }
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
-  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+
+  $menu_id = (isset($element['#attributes']['id'])) ? $element['#attributes']['id'] : 'articles';
+
+  return '<li' . drupal_attributes($element['#attributes']) . '>' . file_get_contents(path_to_theme() . "/images/icons/svg/" . $menu_id . ".svg") . $output . $sub_menu . "</li>\n";
+}
+
+/**
+ * Overriding the menu_link hook to inject svg images
+ *
+ * NOTE: We use the menu_attributes id item to identify the svg file
+ */
+function cyberhus_evolution_menu_link__menu_top_menu(array $variables) {
+  $element = $variables['element'];
+  $sub_menu = '';
+  $menu_id = '';
+
+  if ($element['#below']) {
+    $sub_menu = drupal_render($element['#below']);
+  }
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+
+  $menu_id = (isset($element['#attributes']['id'])) ? $element['#attributes']['id'] : 'articles';
+
+  return '<li' . drupal_attributes($element['#attributes']) . '>' . file_get_contents(path_to_theme() . "/images/icons/svg/" . $menu_id . ".svg") . $output . $sub_menu . "</li>\n";
 }
 
 

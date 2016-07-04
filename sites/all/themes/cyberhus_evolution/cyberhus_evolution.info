@@ -35,6 +35,7 @@ regions[content] = Content
 regions[sidebar_first] = First Sidebar
 regions[sidebar_second] = Second Sidebar
 regions[footer] = Footer
+regions[footer_second] = Second Footer
 
 ; ========================================
 ; Settings
@@ -86,6 +87,7 @@ settings[omega_demo_regions_list][content] = content
 settings[omega_demo_regions_list][sidebar_first] = sidebar_first
 settings[omega_demo_regions_list][sidebar_second] = sidebar_second
 settings[omega_demo_regions_list][footer] = footer
+settings[omega_demo_regions_list][footer_second] = footer_second
 settings[omega_toggle_extension_compatibility] = 1
 settings[omega_conditional_classes_html] = 1
 settings[omega_apple_touch] = 1

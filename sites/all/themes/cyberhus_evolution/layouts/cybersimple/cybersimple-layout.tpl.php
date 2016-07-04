@@ -54,6 +54,8 @@
     <footer class="l-footer" role="contentinfo">
         <?php print render($page['footer']); ?>
     </footer>
+    <?php print render($page['footer_second']); ?>
+
   </div>
 
 </div>
