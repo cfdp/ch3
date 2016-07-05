@@ -38,7 +38,7 @@
    *   Drupal.settings directly you should use this because of potential
    *   modifications made by the Ajax callback that also produced 'context'.
    */
-  Drupal.behaviors.cyberhusEvolutionExampleBehavior = {
+  Drupal.behaviors.cyberhusEvolutionAttachLink = {
     attach: function (context, settings) {
       // By using the 'context' variable we make sure that our code only runs on
       // the relevant HTML. Furthermore, by using jQuery.once() we make sure that
@@ -46,13 +46,14 @@
       // processed previously. By using .once('foo') all processed elements will
       // get tagged with a 'foo-processed' class, causing all future invocations
       // of this behavior to ignore them.
-      $('.some-selector', context).once('foo', function () {
+      $('#block-menu-menu-andet', context).once('attach-link', function () {
         // Now, we are invoking the previously declared theme function using two
         // settings as arguments.
-        var $anchor = Drupal.theme('cyberhusEvolutionExampleButton', settings.myExampleLinkPath, settings.myExampleLinkTitle);
+        $("li.svg-menu").click(function() {
+          window.location = $(this).find("a").attr("href");
+          return false;
+        });
 
-        // The anchor is then appended to the current element.
-        $anchor.appendTo(this);
       });
     }
   };

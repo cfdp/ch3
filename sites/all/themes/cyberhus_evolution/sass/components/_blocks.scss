@@ -66,6 +66,7 @@ $icon-color-highlight-top: #000;
 #block-menu-menu-andet,
 #block-menu-menu-top-menu {
   li {
+    cursor: pointer; // Link is added via javascript
     display: inline-block;
     text-align: center;
     margin: 0 $margin-std 0;

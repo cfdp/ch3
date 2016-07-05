@@ -23,6 +23,7 @@ function cyberhus_evolution_menu_link__menu_andet(array $variables) {
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
 
   $menu_id = (isset($element['#attributes']['id'])) ? $element['#attributes']['id'] : 'articles';
+  $element['#attributes']['class'][] = 'svg-menu';
 
   return '<li' . drupal_attributes($element['#attributes']) . '>' . file_get_contents(path_to_theme() . "/images/icons/svg/" . $menu_id . ".svg") . $output . $sub_menu . "</li>\n";
 }
@@ -43,6 +44,7 @@ function cyberhus_evolution_menu_link__menu_top_menu(array $variables) {
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
 
   $menu_id = (isset($element['#attributes']['id'])) ? $element['#attributes']['id'] : 'articles';
+  $element['#attributes']['class'][] = 'svg-menu';
 
   return '<li' . drupal_attributes($element['#attributes']) . '>' . file_get_contents(path_to_theme() . "/images/icons/svg/" . $menu_id . ".svg") . $output . $sub_menu . "</li>\n";
 }
