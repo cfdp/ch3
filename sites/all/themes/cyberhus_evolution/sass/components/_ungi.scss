@@ -26,7 +26,7 @@
   .ungi-half {
     max-width: 100%;
     .btn {
-      display: inline-block;
+      display: none; // Hide btn in mobile view
       margin: 0 0 $margin-std 0;
     }
   }
@@ -34,6 +34,9 @@
     margin: 0;
   }
   .chat-label {
+    color: $grey;
+    font-family: $font-family-header;
+    font-weight: $font-weight-bold;
     float: left;
     padding-top: 10px;
     margin-right: $margin-std;
@@ -43,7 +46,7 @@
   }
   .ungi-chat-wrapper {
     display: inline-block;
-    float: right;
+    float: left;
   }
 }
 
@@ -79,6 +82,16 @@
   body.page-ung-i {
     h1 {
       display: none;
+    }
+  }
+  #ungi-cities {
+    .ungi-half {
+      a.btn {
+        display: inline-block; // Show button
+      }
+    }
+    .ungi-chat-wrapper {
+      float: right;
     }
   }
   #ungi-city {

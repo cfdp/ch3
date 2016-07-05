@@ -61,3 +61,10 @@ $margin: 0 !default;
   text-transform: uppercase;
   padding: $padding-std;
 }
+
+@mixin headline-orange($mrg: $margin) {
+  color: $primary-color;
+  font-family: $font-family-header;
+  font-weight: $font-weight-bold;
+  margin: 0 $mrg;
+}

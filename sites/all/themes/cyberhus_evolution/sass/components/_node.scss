@@ -17,3 +17,9 @@ article {
     }
   }
 }
+
+/* Brevkasse */
+
+.field--name-field-brevk-svar .field__label {
+  @include headline-orange();
+}
