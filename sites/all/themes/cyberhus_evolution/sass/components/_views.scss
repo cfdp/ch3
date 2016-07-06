@@ -19,6 +19,15 @@
       margin: $margin-std;
       @include italic-description();
     }
+    /* For embedding entities in view header / footer */
+    article {
+      h2, p {
+        margin-left: 0;
+      }
+      &.node {
+        padding: 0 $padding-std;
+      }
+    }
   }
   & > .view-footer {
       background-color: $bg-grey;
@@ -57,8 +66,6 @@
     padding: $padding-std;
     }
   }
-
-
 }
 
 
@@ -131,19 +138,31 @@
 
 .view-bloggere,
 .view-blogs-oversigter {
+  .view-content h2 {
+    margin-bottom: $margin-std;
+  }
   .views-field-value-2 {
     float: left;
   }
   .views-field-picture {
-    text-align: right;
+    display: inline-block;
+    vertical-align: top;
     img {
       @include circular();
     }
   }
-}
 
-.view-blogs-oversigter {
-  .views-field-picture {
+  .view-header .content-list-header,
+  .view-content .views-field-value-1 {
+    display: inline-block;
+    margin: 0;;
+    max-width: 67%;
     padding-right: $padding-std;
+    p {
+      margin-top: 0;
+    }
+  }
+  .view-header .content-list-header {
+    margin-left: $margin-std;
   }
 }

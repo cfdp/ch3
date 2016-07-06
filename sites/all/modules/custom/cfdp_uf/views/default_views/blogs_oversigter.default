@@ -48,13 +48,13 @@ $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
 $handler->display->display_options['header']['area']['content'] = '<h1>[value]</h1>
-<div class="views-field-picture">[picture]</div>
 <div class="content-list-header">
 [value_2]
 </div>
+<div class="views-field-picture">[picture]</div>
 <h3>Seneste indlæg</h3>
 ';
-$handler->display->display_options['header']['area']['format'] = '2';
+$handler->display->display_options['header']['area']['format'] = 'admin_html';
 $handler->display->display_options['header']['area']['tokenize'] = TRUE;
 /* Forbindelse: Indhold: Forfatter */
 $handler->display->display_options['relationships']['uid']['id'] = 'uid';
@@ -442,10 +442,10 @@ $translatables['blogs_oversigter'] = array(
   t('sidste »'),
   t('Vis mere'),
   t('<h1>[value]</h1>
-<div class="views-field-picture">[picture]</div>
 <div class="content-list-header">
 [value_2]
 </div>
+<div class="views-field-picture">[picture]</div>
 <h3>Seneste indlæg</h3>
 '),
   t('forfatter'),

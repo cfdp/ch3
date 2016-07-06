@@ -13,6 +13,7 @@
 .block--block-43 {
   margin: $margin-big auto;
   max-width: 586px;
+  margin: $margin-std;
   p,
   h2 {
     color: $white;
@@ -26,6 +27,7 @@
 }
 
 #block-block-44 {
+  margin: $margin-std;
   text-align: center;
   p, a {
     color: $white;
@@ -47,6 +49,7 @@
   }
   .form-item .form-text {
     border: 0px;
+    width: auto;
   }
   input[type="text"] {
     @include input-placeholder {
@@ -64,6 +67,7 @@
 .block--menu-menu-andet {
   background-color: #000;
   margin-bottom: $margin-std;
+  padding: $padding-std;
   ul.menu {
     padding: $padding-std 0;
     text-align: center;

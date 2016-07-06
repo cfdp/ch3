@@ -156,7 +156,7 @@ $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
 $handler->display->display_options['header']['area']['content'] = '<p class="content-list-header">Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. </p>
 ';
-$handler->display->display_options['header']['area']['format'] = '2';
+$handler->display->display_options['header']['area']['format'] = 'admin_html';
 /* Overskrift: Global: View-område */
 $handler->display->display_options['header']['view']['id'] = 'view';
 $handler->display->display_options['header']['view']['table'] = 'views';
@@ -167,7 +167,7 @@ $handler->display->display_options['header']['area_1']['id'] = 'area_1';
 $handler->display->display_options['header']['area_1']['table'] = 'views';
 $handler->display->display_options['header']['area_1']['field'] = 'area';
 $handler->display->display_options['header']['area_1']['content'] = '<h3>Bloggere</h3>';
-$handler->display->display_options['header']['area_1']['format'] = '2';
+$handler->display->display_options['header']['area_1']['format'] = 'admin_html';
 $handler->display->display_options['defaults']['relationships'] = FALSE;
 /* Forbindelse: Bruger: Forfatter */
 $handler->display->display_options['relationships']['uid']['id'] = 'uid';
@@ -195,6 +195,12 @@ $handler->display->display_options['fields']['value_2']['alter']['text'] = '<a h
 $handler->display->display_options['fields']['value_2']['element_type'] = 'h2';
 $handler->display->display_options['fields']['value_2']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['value_2']['link_to_user'] = FALSE;
+/* Felt: Profil: Profil: Lidt om mig... */
+$handler->display->display_options['fields']['value_1']['id'] = 'value_1';
+$handler->display->display_options['fields']['value_1']['table'] = 'profile_value_profile_NUeH';
+$handler->display->display_options['fields']['value_1']['field'] = 'value';
+$handler->display->display_options['fields']['value_1']['label'] = '';
+$handler->display->display_options['fields']['value_1']['element_label_colon'] = FALSE;
 /* Felt: User image */
 $handler->display->display_options['fields']['picture']['id'] = 'picture';
 $handler->display->display_options['fields']['picture']['table'] = 'users';
@@ -207,12 +213,6 @@ $handler->display->display_options['fields']['picture']['element_label_colon'] =
 $handler->display->display_options['fields']['picture']['empty'] = '<img src="http://dev.ch3/sites/all/themes/cyberhus/img/default_profile.png" title="intet billede endnu...">';
 $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
 $handler->display->display_options['fields']['picture']['image_style'] = 'square__50x50_';
-/* Felt: Profil: Profil: Lidt om mig... */
-$handler->display->display_options['fields']['value_1']['id'] = 'value_1';
-$handler->display->display_options['fields']['value_1']['table'] = 'profile_value_profile_NUeH';
-$handler->display->display_options['fields']['value_1']['field'] = 'value';
-$handler->display->display_options['fields']['value_1']['label'] = '';
-$handler->display->display_options['fields']['value_1']['element_label_colon'] = FALSE;
 $handler->display->display_options['defaults']['sorts'] = FALSE;
 /* Sorteringskriterie: Bruger: Navn */
 $handler->display->display_options['sorts']['name']['id'] = 'name';
@@ -267,7 +267,6 @@ $translatables['bloggere'] = array(
   t('<a href="/blog/[uid]" title="[value_2] ">[value_2]</a>'),
   t('<img src="http://dev.ch3/sites/all/themes/cyberhus/img/default_profile.png" title="intet billede endnu...">'),
 );
-
 
   return $view;
 
