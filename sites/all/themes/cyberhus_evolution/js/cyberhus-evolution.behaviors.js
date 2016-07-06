@@ -38,7 +38,7 @@
    *   Drupal.settings directly you should use this because of potential
    *   modifications made by the Ajax callback that also produced 'context'.
    */
-  Drupal.behaviors.cyberhusEvolutionAttachLink = {
+  Drupal.behaviors.cyberhusEvolutionMisc = {
     attach: function (context, settings) {
       // By using the 'context' variable we make sure that our code only runs on
       // the relevant HTML. Furthermore, by using jQuery.once() we make sure that
@@ -47,13 +47,16 @@
       // get tagged with a 'foo-processed' class, causing all future invocations
       // of this behavior to ignore them.
       $('#block-menu-menu-andet', context).once('attach-link', function () {
-        // Now, we are invoking the previously declared theme function using two
-        // settings as arguments.
+        // Add link
         $("li.svg-menu").click(function() {
           window.location = $(this).find("a").attr("href");
           return false;
         });
 
+      });
+      $('#block-custom-search-blocks-1', context).once('add-placeholder', function () {
+        // Add placeholder element to search input form
+        $("#edit-custom-search-blocks-form-1--2").attr("placeholder", "Søg");
       });
     }
   };

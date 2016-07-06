@@ -3,6 +3,8 @@ $button-background-color: $blue !default;
 $button-border-color: $blue !default;
 $button-radius: 3px !default;
 
+$label-background-color: $light-blue !default;
+
 $margin: 0 !default;
 
 @mixin button-bg($color: $button-color, $bg: $button-background-color, $bbc: $button-border-color, $br: $button-radius) {
@@ -27,8 +29,28 @@ $margin: 0 !default;
   }
 }
 
-@mixin label() {
-  background-color: $light-blue;
+@mixin button-bg-left($color: $button-color, $bg: $button-background-color, $bbc: $button-border-color, $br: $button-radius) {
+  background: $bg;
+  @include border-radius($br);
+  color: $color;
+  border-color: $bbc;
+  border-style: solid;
+  border-width: thin;
+  font-weight: $font-weight-bold;
+  padding: .7em 1em;
+  display: block;
+  max-width: 12em;
+  &:hover {
+    background: darken($bg, 8%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background: darken($bg, 25%);
+  }
+}
+
+@mixin label($lbb: $label-background-color) {
+  background-color: $lbb;
   padding: .4em .5em;
   @include border-radius(3px);
   &:hover {

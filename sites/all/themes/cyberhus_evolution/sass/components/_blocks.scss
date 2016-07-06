@@ -1,3 +1,5 @@
+@import "breakpoint";
+
 /**
  * MAIN CONTENT BLOCKS
  */
@@ -31,6 +33,33 @@
   }
 }
 
+/* Search block */
+.custom-search-blocks-form-1 {
+  #edit-custom-search-blocks-form-1--2 {
+    background-image:image-url('icons/svg/search.svg');
+    background-repeat:no-repeat;
+    background-position:7px center;
+    height: 20px;
+    padding-left: 35px;
+  }
+  #edit-actions { // hide submit btn
+    display: none;
+  }
+  .form-item .form-text {
+    border: 0px;
+  }
+  input[type="text"] {
+    @include input-placeholder {
+      color: $blue;
+      font-family: $font-family-std;
+      font-size: $font-size-medium;
+    }
+    &:focus::-webkit-input-placeholder { color:transparent; }
+    &:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+    &:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+    &:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+  }
+}
 /* Footer menu */
 .block--menu-menu-andet {
   background-color: #000;
@@ -75,44 +104,64 @@ $icon-color-highlight-top: #000;
       display: block;
     }
     svg {
+      display: none;
+    }
+  }
+}
+/* Only svg menus for tab and desktop */
+@include breakpoint($tab, true) {
+  #block-menu-menu-andet,
+  #block-menu-menu-top-menu {
+    li {
+      cursor: pointer; // Link is added via javascript
       display: inline-block;
-      g {
-        transition: fill .25s ease;
+      text-align: center;
+      margin: 0 $margin-std 0;
+      transition: stroke .25s ease, width .5s ease;
+      a {
+        display: block;
+      }
+      svg {
+        display: inline-block;
+        g {
+          transition: fill .25s ease;
+        }
+      }
+    }
+  }
+
+  #block-menu-menu-andet {
+    li {
+      svg {
+        height: $icon-size-footer;
+        width: $icon-size-footer;
+        g {
+          fill: $icon-color-footer;
+        }
+      }
+      &:hover {
+        svg g {
+          fill: $icon-color-highlight-footer;
+        }
+      }
+    }
+  }
+
+  #block-menu-menu-top-menu {
+    li {
+      svg {
+        height: $icon-size-top;
+        width: $icon-size-top;
+        g {
+          fill: $icon-color-top;
+        }
+      }
+      &:hover {
+        svg g {
+          fill: $icon-color-highlight-top;
+        }
       }
     }
   }
 }
 
-#block-menu-menu-andet {
-  li {
-    svg {
-      height: $icon-size-footer;
-      width: $icon-size-footer;
-      g {
-        fill: $icon-color-footer;
-      }
-    }
-    &:hover {
-      svg g {
-        fill: $icon-color-highlight-footer;
-      }
-    }
-  }
-}
-
-#block-menu-menu-top-menu {
-  li {
-    svg {
-      height: $icon-size-top;
-      width: $icon-size-top;
-      g {
-        fill: $icon-color-top;
-      }
-    }
-    &:hover {
-      svg g {
-        fill: $icon-color-highlight-top;
-      }
-    }
-  }
-}

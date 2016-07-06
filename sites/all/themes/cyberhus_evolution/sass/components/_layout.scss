@@ -4,6 +4,9 @@
 
 .l-region--header {
   position: absolute;
+  left: $margin-std;
+  top: 50px;
+  right: $margin-std;
 }
 
 .l-branding {
@@ -44,6 +47,7 @@
 }
 
 .l-region--navigation {
+  margin-top: 50px;
   ul.menu {
     text-align: center;
     li {
@@ -77,10 +81,41 @@
   }
 }
 
+/* Responsive  */
+@include breakpoint($tab, true) {
+  .l-region--header {
+    left: auto;
+    top: $margin-std;
+    right: auto;
+  }
+  .l-region--navigation  {
+    margin-top: 0;
+  }
+}
+
+/* Search */
+body.page-search {
+  form.search-form,
+  section.search-results {
+    margin: $margin-std;
+    #edit-submit {
+      margin-top: $margin-std;
+    }
+  }
+  .l-content {
+    h2 {
+      @include headline-grey-bg();
+    }
+  }
+}
+/* buttons */
 .btn {
   @include button-bg();
 }
 
+input.form-submit {
+  @include button-bg-left();
+}
 .headline-grey-bg {
   @include headline-grey-bg();
 }
