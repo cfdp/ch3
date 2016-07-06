@@ -18,6 +18,13 @@ article {
   }
 }
 
+/* Subscribe - Node notify */
+ul.links {
+  li.subscribe {
+    @include button-bg($blue, $white);
+  }
+}
+
 /* Brevkasse */
 
 .field--name-field-brevk-svar .field__label {

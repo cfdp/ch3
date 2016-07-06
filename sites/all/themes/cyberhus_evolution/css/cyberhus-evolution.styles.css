@@ -245,7 +245,7 @@ img {
   height: 20px;
   padding-left: 35px; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\0000345}}
-.custom-search-blocks-form-1 #edit-actions {
+.custom-search-blocks-form-1 .form-submit {
   display: none; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\0000348}}
 .custom-search-blocks-form-1 .form-item .form-text {
@@ -661,8 +661,33 @@ article.node--simpel-side-med-view {
 article .field--type-viewreference .ui-accordion {
   padding-top: 0.75em; }
 
-/* Brevkasse */
+/* Subscribe - Node notify */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_node\.scss}line{font-family:\0000323}}
+ul.links li.subscribe {
+  background: #fff;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #2980B9;
+  border-color: #2980B9;
+  border-style: solid;
+  border-width: thin;
+  font-weight: 700;
+  padding: .7em 1em;
+  display: block;
+  margin: 1em auto;
+  max-width: 12em;
+  text-align: center; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/abstractions\/_mixins\.scss}line{font-family:\0000323}}
+  ul.links li.subscribe:hover {
+    background: #ebebeb;
+    transition: all 0.3s ease; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/abstractions\/_mixins\.scss}line{font-family:\0000327}}
+  ul.links li.subscribe:active {
+    background: #bfbfbf; }
+
+/* Brevkasse */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_node\.scss}line{font-family:\0000330}}
 .field--name-field-brevk-svar .field__label {
   color: #e67e22;
   font-family: "Merriweather", serif;

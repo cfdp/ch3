@@ -92,7 +92,7 @@
 
   <?php if ($display_submitted): ?>
     <footer class="node__submitted">
-      <?php print $user_picture; ?>
+      <?php /* print $user_picture; */ ?>
       <p class="submitted"><?php print $submitted; ?></p>
     </footer>
   <?php endif; ?>
@@ -107,6 +107,7 @@
   </div>
 
   <?php print render($content['links']); ?>
+  <div id="jquery_ajax_load_target"></div>
   
   <?php
     // Print views "load more" comments block
