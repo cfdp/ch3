@@ -32,30 +32,31 @@ h2 {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000326}}
 h3 {
+  font-family: "Merriweather", serif;
   font-size: 1em;
   font-weight: 700;
   margin: 1em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000332}}
 a {
   color: #2980B9;
   text-decoration: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000337}}
 p {
   font-family: "Lato", sans-serif;
   margin: 1em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000342}}
 strong {
   font-weight: 700; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000346}}
 img {
   height: auto;
   max-width: 100%; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000350}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000351}}
 .btn {
   background: #2980B9;
   -moz-border-radius: 3px;
@@ -79,7 +80,7 @@ img {
   .btn:active {
     background: #123851; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000355}}
 .btn-light {
   background: #fff;
   -moz-border-radius: 3px;
@@ -103,16 +104,18 @@ img {
   .btn-light:active {
     background: #bfbfbf; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000359}}
 .headline-grey-bg {
   background-color: #F1F1F1;
   color: #85817f;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
   font-weight: 700;
   margin: 0 0;
   text-transform: uppercase;
   padding: 1em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000362}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000363}}
 .author-timestamp {
   color: #6B6866;
   font-size: 0.85em; }
@@ -518,7 +521,7 @@ img {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000349}}
 .l-region--navigation {
-  margin-top: 50px; }
+  margin-top: 60px; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000351}}
   .l-region--navigation ul.menu {
     text-align: center; }
@@ -573,6 +576,8 @@ body.page-search section.search-results {
 body.page-search .l-content h2 {
   background-color: #F1F1F1;
   color: #85817f;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
   font-weight: 700;
   margin: 0 0;
   text-transform: uppercase;
@@ -629,6 +634,8 @@ input.form-submit {
 .headline-grey-bg {
   background-color: #F1F1F1;
   color: #85817f;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
   font-weight: 700;
   margin: 0 0;
   text-transform: uppercase;
@@ -681,6 +688,8 @@ article .field--type-viewreference .ui-accordion {
   #ungi-cities h3 {
     background-color: #F1F1F1;
     color: #85817f;
+    font-family: "Lato", sans-serif;
+    font-size: 1em;
     font-weight: 700;
     margin: 0 0;
     text-transform: uppercase;
@@ -733,6 +742,8 @@ article .field--type-viewreference .ui-accordion {
 #page.ungi-city > h3 {
   background-color: #F1F1F1;
   color: #85817f;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
   font-weight: 700;
   margin: 0 -1em;
   text-transform: uppercase;
@@ -776,6 +787,8 @@ article .field--type-viewreference .ui-accordion {
     .view > .view-header h3, .view > .view-footer h3 {
       background-color: #F1F1F1;
       color: #85817f;
+      font-family: "Lato", sans-serif;
+      font-size: 1em;
       font-weight: 700;
       margin: 0 0;
       text-transform: uppercase;
