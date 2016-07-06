@@ -85,7 +85,7 @@
 @include breakpoint($tab, true) {
   .l-region--header {
     left: auto;
-    top: $margin-std;
+    top: auto;
     right: auto;
   }
   .l-region--navigation  {
