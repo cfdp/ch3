@@ -130,3 +130,30 @@ function cfdp_uf_views_api() {
     'path' => drupal_get_path('module', 'cfdp_uf') . '/views',
   );
 }
+
+function cfdp_uf_front_page_svg($content_type) {
+  $svg = 'forum'; // default;
+  switch ($content_type) {
+    case 'body_secret':
+        $svg = 'secrets';
+        break;
+    case 'forum':
+        $svg = 'forum';
+        break;
+    case 'blog':
+        $svg = 'blog';
+        break;
+    case 'image':
+        $svg = 'images';
+        break;
+    case 'brevkasse':
+        $svg = 'letterbox';
+        break;
+    case 'historie':
+        $svg = 'forum';
+        break;
+    default:
+        echo $content_type;
+  }
+  print file_get_contents(DRUPAL_ROOT . "/sites/all/themes/cyberhus_evolution/images/icons/svg/" . $svg . ".svg");
+}

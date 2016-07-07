@@ -76,3 +76,34 @@ function cyberhus_evolution_menu_local_action($variables) {
 
   return $output;
 }
+
+function cyberhus_evolution_form_alter(&$form, &$form_state, $form_id) {
+  /* Altering the body secrets form to incorporate Ordet er dit
+  and Lifehack funtionality */
+  if ($form_id == 'body_secret_node_form') {
+    $params = drupal_get_query_parameters();
+    if (!empty($params['edit']['field_secrets_category']['und'])) {
+      $keys = array_keys($params['edit']['field_secrets_category']['und']);
+      if ( (in_array('2327', $keys)) && (in_array('2328', $keys)) ) {
+        // Ordet er dit & Lifehack
+        $form['body']['und'][0]['value']['#title'] = t('Lifehack');
+      }
+      else if ( (in_array('2327', $keys)) && (in_array('2329', $keys)) ) {
+        // Ordet er dit & Virkelighed
+        $form['body']['und'][0]['value']['#title'] = t('Virkelighed');
+      }
+      else if ($keys == "2327") {
+        // Ordet er dit
+        $form['body']['und'][0]['value']['#title'] = t('Ordet er dit');
+      }
+      else if ($keys == "2328") {
+        // Lifehacks
+        $form['body']['und'][0]['value']['#title'] = t('Lifehack');
+      }
+      else if ($keys == "2329") {
+        // Lifehacks
+        $form['body']['und'][0]['value']['#title'] = t('Virkelighed');
+      }
+    }
+  }
+}
