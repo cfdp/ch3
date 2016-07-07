@@ -359,6 +359,19 @@ $handler->display->display_options['fields']['created']['element_label_colon'] =
 $handler->display->display_options['fields']['created']['date_format'] = 'raw time ago';
 $handler->display->display_options['fields']['created']['custom_date_format'] = '1';
 $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+/* Felt: PHP: Print svg image */
+$handler->display->display_options['fields']['php']['id'] = 'php';
+$handler->display->display_options['fields']['php']['table'] = 'views';
+$handler->display->display_options['fields']['php']['field'] = 'php';
+$handler->display->display_options['fields']['php']['ui_name'] = 'PHP: Print svg image';
+$handler->display->display_options['fields']['php']['label'] = '';
+$handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+$handler->display->display_options['fields']['php']['php_output'] = '<?php
+  cfdp_uf_front_page_svg($row->type);
+?>';
+$handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+$handler->display->display_options['fields']['php']['php_click_sortable'] = '';
 /* Felt: Author timestamp */
 $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
 $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -372,8 +385,9 @@ $handler->display->display_options['fields']['title']['id'] = 'title';
 $handler->display->display_options['fields']['title']['table'] = 'node';
 $handler->display->display_options['fields']['title']['field'] = 'title';
 $handler->display->display_options['fields']['title']['label'] = '';
+$handler->display->display_options['fields']['title']['alter']['max_length'] = '15';
 $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+$handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
 $handler->display->display_options['fields']['title']['element_type'] = 'h2';
 $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
 /* Felt: Indhold: Billede */
@@ -445,6 +459,7 @@ Hemmelighed|psst!'),
   t('<h3>Seneste indhold</h3>'),
   t('<div class="author-timestamp">[type] • [created] siden</div>'),
 );
+
 
   return $view;
 
