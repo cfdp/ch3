@@ -48,22 +48,6 @@
 
 .l-region--navigation {
   margin-top: 60px;
-  ul.menu {
-    text-align: center;
-    li {
-      display: inline-block;
-      list-style-type: none;
-      margin-right: $margin-std;
-    }
-    a {
-      background-position: top center;
-      color: $grey;
-      display: block;
-      font-weight: 700;
-      height: 46px;
-      min-width: 26px;
-    }
-  }
 }
 
 .l-footer--wrapper {

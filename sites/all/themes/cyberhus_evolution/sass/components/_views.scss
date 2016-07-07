@@ -21,7 +21,7 @@
     }
     /* For embedding entities in view header / footer */
     article {
-      h2, p {
+      p {
         margin-left: 0;
       }
       &.node {
@@ -92,15 +92,6 @@
 
 
 /**
- * FORSIDE
- */
-
-.view-header h2.node__title {
-  margin-left: $margin-std-px;
-}
-
-
-/**
  * FORUM LIST & TOPIC LIST
  */
 
@@ -142,7 +133,7 @@
     margin-bottom: $margin-std;
   }
   .views-field-value-2 {
-    float: left;
+    /*float: left;*/
   }
   .views-field-picture {
     display: inline-block;

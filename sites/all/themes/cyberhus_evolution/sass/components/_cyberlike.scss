@@ -1,5 +1,5 @@
 /**
- * FORUM AND BLOG TOPIC VIEW LISTS
+ * FORUM, BLOG, BILLEDER VIEWS LISTS
  */
 
 .view {
@@ -20,13 +20,14 @@
     }
 
   }
-  /* Blog oversigt */
-  &.view-blogs-oversigter {
+  /* cyberhus oversigter - blogs, forum, billeder etc */
+  &.cyberhus-oversigt {
     .views-field-value-1 {
       display: inline-block;
     }
   }
 }
+
 /* Cyberlike in nodes */
 .field.field--name-field-blog-cyberlike,
 .field.field--name-field-kommentar-cyberlike,

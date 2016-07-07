@@ -31,6 +31,16 @@
   &.form-item-field-brevk-alder-und {
     max-width: 50%;
   }
+
+  /* Billede upload */
+  .image-widget-data {
+    margin-bottom: $margin-std;
+    input.form-file,
+    input.form-submit {
+      display: inline-block;
+    }
+
+  }
 }
 
 .container-inline {

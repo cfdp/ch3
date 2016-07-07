@@ -95,7 +95,25 @@ $icon-color-highlight-footer: #2980B9;
 $icon-size-top: 25px;
 $icon-color-top: $grey;
 $icon-color-highlight-top: #000;
-
+#block-menu-menu-top-menu {
+  ul.menu {
+    text-align: center;
+    li {
+      list-style-type: none;
+    }
+    a {
+      background-position: top center;
+      color: $grey;
+      display: block;
+      font-weight: $font-weight-bold;
+      height: 46px;
+      min-width: 26px;
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+}
 #block-menu-menu-andet,
 #block-menu-menu-top-menu {
   li {
@@ -169,3 +187,47 @@ $icon-color-highlight-top: #000;
   }
 }
 
+/**
+ * COMMENT BLOCKS
+ */
+#block-views-comments-block-1 {
+  margin: $margin-std 0;
+  h2 {
+    @include headline-orange();
+  }
+  .view-comments {
+    .view-content {
+      background-color: $bg-white;
+    }
+    .views-row {
+      margin: 0;
+      padding: $padding-std 0;
+    }
+    p {
+      margin-top: 0;
+    }
+  }
+}
+
+/**
+ * BILLEDER BLOCKS
+ */
+#block-views-billeder-oversigter-block-1 {
+  h2 {
+    font-size: $font-size-normal;
+  }
+  h3 {
+    @include headline-grey-bg(-1em);
+  }
+  .view-content {
+    background-color: $bg-white;
+  }
+  .views-row {
+    display: inline-block;
+    max-width: 160px;
+  }
+  ul.pager-load-more {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+}

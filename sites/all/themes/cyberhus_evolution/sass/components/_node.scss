@@ -16,6 +16,10 @@ article {
       padding-top: $padding-small;
     }
   }
+  /* Comment related */
+  li.comment-add a {
+    @include button-bg();
+  }
 }
 
 /* Subscribe - Node notify */
