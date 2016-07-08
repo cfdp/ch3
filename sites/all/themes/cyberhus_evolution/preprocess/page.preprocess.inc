@@ -62,7 +62,7 @@ function cyberhus_evolution_preprocess_page(&$vars) {
 
     // Retrieve an array which contains the path pieces
     $path_args = explode('/', current_path()); // Remember current_path() take system path
-    if (count($path_args == 2)) {
+    if (count($path_args) == 2) {
       if ($path_args[0] == 'brevkasse') {
         //$crumbs[] = l(t('Brevkasse'), 'brevkasse');
       }
@@ -71,6 +71,10 @@ function cyberhus_evolution_preprocess_page(&$vars) {
       }
       else if ($path_args[0] == 'blog') {
         $crumbs[] = l(t('Blog'), 'blogs');
+      }
+      else if ($path_args[0] == 'ung-i') {
+        dpm(count($path_args));
+        $crumbs[] = l(t('Ung i haha'), 'ung-i');
       }
     }
   }
