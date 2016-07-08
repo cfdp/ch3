@@ -19,7 +19,6 @@
 .l-main--wrapper {
   background-color: $bg-grey;
   margin-bottom: 0;
-  padding-top: $padding-std;
   padding-bottom: 6em;
   background-image: image-url('bylinje.png');
   background-repeat: repeat-x;
@@ -35,12 +34,17 @@
   max-width: $content-width;
   background-color: $bg-white;
   ul.breadcrumb {
-    background-color: $bg-grey;
-    padding: 0 $padding-small $padding-small;
+    border-top: 1px solid $grey-2;
+    border-bottom: 1px solid $grey-2;
+    padding: $padding-small;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     li {
       display: inline;
-      &:after {
-        content: " > ";
+      &:not(:last-child):after {
+          color: $grey-2;
+          content:' > ';
       }
     }
   }
@@ -74,6 +78,16 @@
   }
   .l-region--navigation  {
     margin-top: 0;
+  }
+  .l-main--wrapper {
+    padding-top: $padding-std;
+  }
+  .l-content {
+    ul.breadcrumb {
+      background-color: $bg-grey;
+      border: none;
+      padding-top: 0;
+    }
   }
 }
 

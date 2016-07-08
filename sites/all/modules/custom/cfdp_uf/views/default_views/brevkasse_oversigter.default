@@ -4,7 +4,7 @@ function brevkasse_oversigter() {
 $view = new view();
 $view->name = 'brevkasse_oversigter';
 $view->description = 'Oversigt over individuelle brevkasser og de seneste spørgsmål og svar';
-$view->tag = 'default';
+$view->tag = 'oversigter';
 $view->base_table = 'node';
 $view->human_name = 'Brevkasse oversigter';
 $view->core = 7;
@@ -163,7 +163,7 @@ $handler->display->display_options['header']['area_1']['content'] = '<h1>[field_
 <div class="content-list-header">[description]</div>
 <a class="btn" href="/node/add/brevkasse?edit[field_brevk_kategori][und]=[tid]">Opret spørgsmål</a>
 <h3>Seneste spørgsmål</h3>';
-$handler->display->display_options['header']['area_1']['format'] = '2';
+$handler->display->display_options['header']['area_1']['format'] = 'admin_html';
 $handler->display->display_options['header']['area_1']['tokenize'] = TRUE;
 $handler->display->display_options['defaults']['footer'] = FALSE;
 /* Sidefod: Global: View-område */
@@ -257,6 +257,9 @@ $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_inde
 $handler->display->display_options['arguments']['tid']['field'] = 'tid';
 $handler->display->display_options['arguments']['tid']['default_action'] = 'not found';
 $handler->display->display_options['arguments']['tid']['exception']['title'] = 'Alle';
+$handler->display->display_options['arguments']['tid']['title_enable'] = TRUE;
+$handler->display->display_options['arguments']['tid']['title'] = '%1';
+$handler->display->display_options['arguments']['tid']['breadcrumb'] = '%1';
 $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
 $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
 $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
@@ -329,6 +332,7 @@ $translatables['brevkasse_oversigter'] = array(
   t('brevkasse term'),
   t('.'),
   t(','),
+  t('%1'),
   t('Brevkasser oversigt'),
   t('Brevkasser'),
   t('Oversigt over de seneste brevkassespørgsmål'),
