@@ -200,6 +200,8 @@ $handler->display->display_options['fields']['value_1']['id'] = 'value_1';
 $handler->display->display_options['fields']['value_1']['table'] = 'profile_value_profile_NUeH';
 $handler->display->display_options['fields']['value_1']['field'] = 'value';
 $handler->display->display_options['fields']['value_1']['label'] = '';
+$handler->display->display_options['fields']['value_1']['alter']['max_length'] = '300';
+$handler->display->display_options['fields']['value_1']['alter']['trim'] = TRUE;
 $handler->display->display_options['fields']['value_1']['element_label_colon'] = FALSE;
 /* Felt: User image */
 $handler->display->display_options['fields']['picture']['id'] = 'picture';
@@ -267,6 +269,7 @@ $translatables['bloggere'] = array(
   t('<a href="/blog/[uid]" title="[value_2] ">[value_2]</a>'),
   t('<img src="http://dev.ch3/sites/all/themes/cyberhus/img/default_profile.png" title="intet billede endnu...">'),
 );
+
 
   return $view;
 

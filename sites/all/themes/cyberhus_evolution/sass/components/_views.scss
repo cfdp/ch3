@@ -158,8 +158,6 @@
       @include circular();
     }
   }
-
-  .view-header .content-list-header,
   .view-content .views-field-value-1 {
     display: inline-block;
     margin: 0;
@@ -171,6 +169,18 @@
   }
   .view-header .content-list-header {
     margin-left: $margin-std;
+  }
+}
+
+.view-blogs-oversigter {
+  .view-header .content-list-header{
+    display: inline-block;
+    //margin: 0;
+    max-width: 67%;
+    padding-right: $padding-std;
+    p {
+      margin-top: 0;
+    }
   }
 }
 

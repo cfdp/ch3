@@ -225,7 +225,7 @@ $handler->display->display_options['fields']['field_billede']['element_label_col
 $handler->display->display_options['fields']['field_billede']['click_sort_column'] = 'fid';
 $handler->display->display_options['fields']['field_billede']['settings'] = array(
   'image_style' => '',
-  'image_link' => '',
+  'image_link' => 'content',
 );
 /* Felt: Indhold: Body */
 $handler->display->display_options['fields']['body']['id'] = 'body';
