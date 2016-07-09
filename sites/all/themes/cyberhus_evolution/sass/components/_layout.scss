@@ -1,19 +1,26 @@
 /**
  * OVERALL LAYOUT ELEMENTS
  */
-
+.l-header {
+  border-bottom: 1px solid $grey-2;
+}
 .l-region--header {
-  position: absolute;
-  left: $margin-std;
-  top: 50px;
-  right: $margin-std;
+  display: inline-block;
+  height: 30px;
+  margin: $margin-small 0 0 $margin-std;
+  vertical-align: top;
+  width: 40px;
 }
 
 .l-branding {
+  display: inline-block;
+  height: 40px;
   margin-top: $margin-std;
   margin-bottom: $margin-std;
   text-align: center;
-  a.site-logo {}
+  a.site-logo {
+    display: block;
+  }
 }
 
 .l-main--wrapper {
@@ -34,7 +41,6 @@
   max-width: $content-width;
   background-color: $bg-white;
   ul.breadcrumb {
-    border-top: 1px solid $grey-2;
     border-bottom: 1px solid $grey-2;
     padding: $padding-small;
     overflow: hidden;
@@ -51,7 +57,6 @@
 }
 
 .l-region--navigation {
-  margin-top: 60px;
 }
 
 .l-footer--wrapper {
@@ -71,6 +76,9 @@
 
 /* Responsive  */
 @include breakpoint($tab, true) {
+  .l-header {
+    border: none;
+  }
   .l-region--header {
     left: auto;
     top: auto;

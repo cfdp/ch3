@@ -30,7 +30,7 @@ $susy: (
 );
 
 // Susy Media Layouts @see http://susy.oddbird.net/guides/reference/#ref-media-layouts
-$tab: 44em; // At 44em,
+$tab: 36.625em; //586px
 $tab-columns: 12; // use 12 columns.
 $desk: 70em; // At 70em,
 $desk-columns: 16; // use 16 columns.
@@ -41,7 +41,6 @@ $desk-columns: 16; // use 16 columns.
   @include container; // Define these elements as the grid containers.
 }
 
-.l-header,
 .l-footer {
   margin-bottom: $vert-spacing-unit;
 }

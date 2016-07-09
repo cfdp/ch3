@@ -35,34 +35,8 @@
   }
 }
 
-/* Search block */
-.custom-search-blocks-form-1 {
-  #edit-custom-search-blocks-form-1--2 {
-    background-image:image-url('icons/svg/search.svg');
-    background-repeat:no-repeat;
-    background-position:7px center;
-    height: 20px;
-    padding-left: 35px;
-  }
-  .form-submit { // hide submit btn
-    display: none;
-  }
-  .form-item .form-text {
-    border: 0px;
-    width: auto;
-  }
-  input[type="text"] {
-    @include input-placeholder {
-      color: $blue;
-      font-family: $font-family-std;
-      font-size: $font-size-medium;
-    }
-    &:focus::-webkit-input-placeholder { color:transparent; }
-    &:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
-    &:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
-    &:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
-  }
-}
+/* Search block - See forms/_search-form.scss */
+
 /* Footer menu */
 .block--menu-menu-andet {
   background-color: #000;

@@ -64,7 +64,7 @@
     padding: $padding-std;
   }
   & > h3 {
-    @include headline-grey-bg(-1em);
+    @include headline-grey-bg();
   }
 }
 

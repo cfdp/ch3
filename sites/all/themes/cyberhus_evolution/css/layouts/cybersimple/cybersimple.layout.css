@@ -20,25 +20,24 @@
     clear: both; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000344}}
-.l-header,
 .l-footer {
   margin-bottom: 20px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000348}}
 .l-region--highlighted,
 .l-region--help,
 .l-region--sidebar-first,
 .l-region--sidebar-second {
   margin-bottom: 20px; }
 
-@media (min-width: 44em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000359}}
+@media (min-width: 36.625em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000358}}
   .l-header,
   .l-main,
   .l-footer {
     max-width: 1024px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000364}}
   .l-region--header {
     width: 32.20339%;
     float: left;
@@ -49,18 +48,18 @@
     @include span(last 8 of $tab-columns); // Span the last (omega) 8 columns of 12.
   }
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000373}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000372}}
   .l-region--navigation {
     clear: both; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000380}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000379}}
   .has-sidebar-first .l-content,
   .has-sidebar-second .l-content,
   .has-two-sidebars .l-content {
     width: 66.10169%;
     float: left;
     margin-right: 1.69492%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000383}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000382}}
   .has-sidebar-first .l-region--sidebar-first,
   .has-sidebar-first .l-region--sidebar-second,
   .has-sidebar-second .l-region--sidebar-first,
@@ -70,19 +69,19 @@
     width: 32.20339%;
     float: right;
     margin-right: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000386}}
   .has-sidebar-first .l-region--sidebar-second,
   .has-sidebar-second .l-region--sidebar-second,
   .has-two-sidebars .l-region--sidebar-second {
     clear: right; } }
 @media (min-width: 70em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000394}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000393}}
   .l-header,
   .l-main,
   .l-footer {
     max-width: 1024px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003100}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\0000399}}
   .l-region--header {
     width: 17.72152%;
     float: left;
@@ -93,45 +92,45 @@
      @include span(last 10 of $desk-columns);  // Span the last (omega) 10 columns of 16.
   }
   */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003110}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003109}}
   .has-sidebar-first .l-content {
     width: 74.68354%;
     float: right;
     margin-right: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003113}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003112}}
   .has-sidebar-first .l-region--sidebar-first {
     width: 24.05063%;
     float: left;
     margin-right: 1.26582%; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003118}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003117}}
   .has-sidebar-second .l-content {
     width: 74.68354%;
     float: left;
     margin-right: 1.26582%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003121}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003120}}
   .has-sidebar-second .l-region--sidebar-second {
     width: 24.05063%;
     float: right;
     margin-right: 0;
     clear: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003127}}
   .has-two-sidebars .l-content {
     width: 49.36709%;
     float: left;
     margin-right: 1.26582%;
     margin-left: 25.31646%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003132}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003131}}
   .has-two-sidebars .l-region--sidebar-first,
   .has-two-sidebars .l-region--sidebar-second {
     width: 24.05063%;
     float: left;
     margin-right: 1.26582%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003136}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003135}}
   .has-two-sidebars .l-region--sidebar-first {
     margin-left: -75.94937%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003139}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/layouts\/cybersimple\/cybersimple\.layout\.scss}line{font-family:\00003138}}
   .has-two-sidebars .l-region--sidebar-second {
     float: right;
     margin-right: 0;
