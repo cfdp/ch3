@@ -73,8 +73,7 @@ function cyberhus_evolution_preprocess_page(&$vars) {
         $crumbs[] = l(t('Blog'), 'blogs');
       }
       else if ($path_args[0] == 'ung-i') {
-        dpm(count($path_args));
-        $crumbs[] = l(t('Ung i haha'), 'ung-i');
+        $crumbs[] = l(t('Ung i'), 'ung-i');
       }
     }
   }
