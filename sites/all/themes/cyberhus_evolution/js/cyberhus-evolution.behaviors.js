@@ -10,10 +10,11 @@
    * In most cases, there is no good reason to NOT wrap your markup producing
    * JavaScript in a theme function.
    */
-  Drupal.theme.prototype.cyberhusEvolutionExampleButton = function (path, title) {
+/*  Drupal.theme.prototype.cyberhusEvolutionMoreAuthorInfo = function (path, title) {
     // Create an anchor element with jQuery.
+
     return $('<a href="' + path + '" title="' + title + '">' + title + '</a>');
-  };
+  };*/
 
   /**
    * Behaviors are Drupal's way of applying JavaScript to a page. In short, the
@@ -46,6 +47,8 @@
       // processed previously. By using .once('foo') all processed elements will
       // get tagged with a 'foo-processed' class, causing all future invocations
       // of this behavior to ignore them.
+
+      /* Add link to containing li element in svg menus */
       $('#block-menu-menu-andet', context).once('attach-link', function () {
         // Add link
         $("li.svg-menu").click(function() {
@@ -54,8 +57,8 @@
         });
 
       });
+      /* Add placeholder element to search input form */
       $('#block-custom-search-blocks-1', context).once('add-placeholder', function () {
-        // Add placeholder element to search input form
         $("#edit-custom-search-blocks-form-1--2").attr("placeholder", "Søg");
       });
     }

@@ -130,9 +130,13 @@
     $block = _block_get_renderable_array(_block_render_blocks(array($blockObject)));
     $output = drupal_render($block);
     print $output;
-    /* Print comment form */
-    print drupal_render(drupal_get_form("comment_node_{$node->type}_form", (object) array('nid' => $node->nid)));
-
+    /* Print comment form if comments are allowed */
+    if ($comment == 2) {
+      $comment = new stdClass;
+      $comment->nid = $node->nid;
+      $form = drupal_get_form('comment_form', $comment);
+      print render($form);
+    }
   ?>
 
 </article>
