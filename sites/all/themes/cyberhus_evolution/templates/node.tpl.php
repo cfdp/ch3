@@ -121,7 +121,7 @@
     ?>
   </div>
 
-  <?php print render($content['links']); dpm($content['links']); ?>
+  <?php print render($content['links']); ?>
 
   <div id="jquery_ajax_load_target"></div>
   
