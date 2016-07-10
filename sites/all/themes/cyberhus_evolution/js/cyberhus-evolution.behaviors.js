@@ -58,8 +58,12 @@
 
       });
       /* Add placeholder element to search input form */
-      $('#block-custom-search-blocks-1', context).once('add-placeholder', function () {
+      $('#block-custom-search-blocks-1', context).once('add-placeholder-search', function () {
         $("#edit-custom-search-blocks-form-1--2").attr("placeholder", "Søg");
+      });
+      /* Add placeholder element to comment form */
+      $('.comment-form', context).once('add-placeholder-comment', function () {
+        $("#edit-comment-body-und-0-value--2").attr("placeholder", "Skriv kommentar");
       });
     }
   };

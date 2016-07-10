@@ -112,6 +112,7 @@
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
       hide($content['links']);
+      hide($content['links']['comment']);
       if (isset($author_date_key)) {
         hide($content[$author_date_key]);
       }
@@ -120,7 +121,8 @@
     ?>
   </div>
 
-  <?php print render($content['links']); ?>
+  <?php print render($content['links']); dpm($content['links']); ?>
+
   <div id="jquery_ajax_load_target"></div>
   
   <?php
