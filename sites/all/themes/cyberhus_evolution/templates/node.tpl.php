@@ -89,19 +89,33 @@
       <?php print render($title_suffix); ?>
     </header>
   <?php endif; ?>
-
-  <?php if ($display_submitted): ?>
-    <footer class="node__submitted">
-      <?php /* print $user_picture; */ ?>
-      <p class="submitted"><?php print $submitted; ?></p>
-    </footer>
-  <?php endif; ?>
+  <header>
+    <?php
+      /* Print the author and date EVA field if present */
+      foreach($content as $key=>$value){
+        if("author_timestamp_" == substr($key,0,17)){
+          $author_date_key = $key;
+          print render($content[$author_date_key]);
+        }
+      }
+    ?>
+    <?php
+      /* We print the h1 header in the node template to get the author
+       * info rendered first */
+      print render($title_prefix); ?>
+      <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
+    <?php print render($title_suffix); ?>
+  </header>
 
   <div<?php print $content_attributes; ?>>
     <?php
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
       hide($content['links']);
+      if (isset($author_date_key)) {
+        hide($content[$author_date_key]);
+      }
+
       print render($content);
     ?>
   </div>
@@ -110,11 +124,13 @@
   <div id="jquery_ajax_load_target"></div>
   
   <?php
-    // Print views "load more" comments block
+
+    /* Print comments: views "load more" comments block */
     $blockObject = block_load('views', 'comments-block_1');
     $block = _block_get_renderable_array(_block_render_blocks(array($blockObject)));
     $output = drupal_render($block);
     print $output;
+
   ?>
 
 </article>

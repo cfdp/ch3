@@ -1,5 +1,5 @@
 /**
- * FORUM, BLOG, BILLEDER VIEWS LISTS
+ * FORUM, BLOG, BILLEDER VIEWS LISTS (OVERSIGTER)
  */
 
 .view {
@@ -22,7 +22,8 @@
   }
   /* cyberhus oversigter - blogs, forum, billeder etc */
   &.cyberhus-oversigt {
-    .views-field-value-1 {
+    .views-field-value-1,
+    .views-field-value {
       display: inline-block;
     }
   }

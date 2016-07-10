@@ -1,36 +1,49 @@
-/* Node specific */
-
-article {
-  &.node {
-    padding: $padding-std;
+/* General node stuff */
+body.page-node {
+  article h1 {
+    margin: 0;
+    padding:0;
   }
-  &.node--simpel-side-med-view {
-    padding: 0;
-    .field--name-field-billede,
-    .field--name-body {
+  article {
+    &.node {
       padding: $padding-std;
     }
-  }
-  .field--type-viewreference {
-    .ui-accordion {
-      padding-top: $padding-small;
+    .view-author-timestamp-eva-field-nodes .view-content > .views-row {
+      margin: 0;
+      padding: 0;
+    }
+    &.node--simpel-side-med-view {
+      padding: 0;
+      h1 {
+        padding: $padding-std;
+      }
+      .field--name-field-billede,
+      .field--name-body {
+        padding: $padding-std;
+      }
+    }
+    .field--type-viewreference {
+      .ui-accordion {
+        padding-top: $padding-small;
+      }
+    }
+    /* Comment related */
+    li.comment-add a {
+      @include button-bg();
     }
   }
-  /* Comment related */
-  li.comment-add a {
-    @include button-bg();
+
+  /* Subscribe - Node notify */
+  ul.links {
+    li.subscribe {
+      @include button-bg($blue, $white);
+    }
   }
-}
 
-/* Subscribe - Node notify */
-ul.links {
-  li.subscribe {
-    @include button-bg($blue, $white);
+  /* Brevkasse */
+
+  .field--name-field-brevk-svar .field__label {
+    @include headline-orange();
   }
-}
 
-/* Brevkasse */
-
-.field--name-field-brevk-svar .field__label {
-  @include headline-orange();
 }
