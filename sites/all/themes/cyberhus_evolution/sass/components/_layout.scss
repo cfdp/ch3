@@ -40,8 +40,10 @@
   margin: auto;
   max-width: $content-width;
   background-color: $bg-white;
+  padding-top: $padding-std;
   ul.breadcrumb {
     border-bottom: 1px solid $grey-2;
+    margin-top: -1em;
     padding: $padding-small;
     overflow: hidden;
     white-space: nowrap;
@@ -99,6 +101,11 @@
   }
 }
 
+/* Custom header styling */
+body.page-blogs h1,
+body.page-node-add h1 {
+  padding-top: $padding-smaller;
+}
 /* Search */
 body.page-search {
   form.search-form,

@@ -62,18 +62,43 @@ function cyberhus_evolution_preprocess_page(&$vars) {
 
     // Retrieve an array which contains the path pieces
     $path_args = explode('/', current_path()); // Remember current_path() take system path
-    if (count($path_args) == 2) {
+    if (count($path_args) == 1) {
+      if ($path_args[0] == 'blogs') {
+        $crumbs[] = l(t('Blogs'), 'blogs/alle');
+      }
+    }
+    else if (count($path_args) == 2) {
       if ($path_args[0] == 'brevkasse') {
-        //$crumbs[] = l(t('Brevkasse'), 'brevkasse');
+        $crumbs[] = l(t('Brevkasse'), 'brevkasse');
       }
       else if ($path_args[0] == 'forum') {
-        //$crumbs[] = l(t('Forum'), 'forum');
+        $crumbs[] = l(t('Forum'), 'forum');
       }
       else if ($path_args[0] == 'blog') {
         $crumbs[] = l(t('Blog'), 'blogs');
       }
       else if ($path_args[0] == 'ung-i') {
         $crumbs[] = l(t('Ung i'), 'ung-i');
+      }
+    }
+    else if ($path_args[0] == 'node' && $path_args[1] == 'add') {
+      if ($path_args[2] == 'brevkasse') {
+        $crumbs[] = l(t('Brevkasse'), 'brevkasse');
+      }
+      else if ($path_args[2] == 'forum') {
+        $crumbs[] = l(t('Forum'), 'forum');
+      }
+      else if ($path_args[2] == 'blog') {
+        $crumbs[] = l(t('Blog'), 'blogs');
+      }
+      else if ($path_args[2] == 'body_secret') {
+        $crumbs[] = l(t('Hemmeligheder'), 'hemmeligheder/alle');
+      }
+      else if ($path_args[2] == 'image') {
+        $crumbs[] = l(t('Billeder'), 'billeder');
+      }
+      else if ($path_args[2] == 'historie') {
+        $crumbs[] = l(t('Fortællinger'), 'livsfortaellinger');
       }
     }
   }

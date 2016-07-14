@@ -15,8 +15,7 @@ h1 {
   font-size: $font-size-big;
   font-weight: $font-weight-bold;
   line-height: $font-size-big;
-  margin: $margin-std-px;
-  padding-top: .5em;
+  margin: 0 $margin-std-px $margin-std-px $margin-std-px;
 }
 h2 {
   font-family: $font-family-header;

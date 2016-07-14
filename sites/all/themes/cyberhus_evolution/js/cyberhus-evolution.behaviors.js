@@ -65,6 +65,9 @@
       $('.comment-form', context).once('add-placeholder-comment', function () {
         $("#edit-comment-body-und-0-value--2").attr("placeholder", "Skriv kommentar");
       });
+      $('.comment-form', context).once('add-placeholder-comment-name', function () {
+        $("#edit-name--2").attr("placeholder", "Kaldenavn eller fornavn");
+      });
     }
   };
 

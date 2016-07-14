@@ -5,7 +5,7 @@
 .view {
   & > .view-header,
   & > .view-footer {
-    margin: $margin-big 0 0 0;
+    margin: $margin-std 0 0 0;
     h3 {
       @include headline-grey-bg();
     }
@@ -91,17 +91,22 @@
 }
 
 /**
- * FORSIDE
+ * FORSIDE / FRONT PAGE
  */
 
-.view-forside-oversigt {
-  .views-field-php {
-    float: right;
-    svg {
-      height: 25px;
-      width: 25px;
-      g {
-        fill: $black;
+body.front {
+  .view-forside-oversigt {
+    h1.node__title {
+      display: none;
+    }
+    .views-field-php {
+      float: right;
+      svg {
+        height: 25px;
+        width: 25px;
+        g {
+          fill: $black;
+        }
       }
     }
   }
