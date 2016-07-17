@@ -26,7 +26,8 @@ $black: #231E19;
 $blue: #2980B9;
 $light-blue: lighten($blue, 50%);
 
-$grey: #6B6866;
+$grey-orig: #6B6866; // Original grey proposed by lajlev
+$grey: lighten($grey-orig, 10%);
 $grey-2: #BFBFBF;
 $grey-3: #F2F2F2;
 $light-grey: lighten($grey, 10%);

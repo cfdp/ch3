@@ -46,7 +46,7 @@ a {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000338}}
 p {
   font-family: "Lato", sans-serif;
-  margin: 1em 0; }
+  margin: 0.75em 0; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000343}}
 strong {
@@ -108,7 +108,7 @@ img {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000360}}
 .headline-grey-bg {
   background-color: #F1F1F1;
-  color: #85817f;
+  color: #9e9b99;
   font-family: "Lato", sans-serif;
   font-size: 1em;
   font-weight: 700;
@@ -118,7 +118,7 @@ img {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000364}}
 .author-timestamp {
-  color: #6B6866;
+  color: #85817f;
   font-size: 0.85em; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_accordion\.scss}line{font-family:\000031}}
@@ -272,7 +272,7 @@ img {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\0000378}}
   #block-menu-menu-top-menu ul.menu a {
     background-position: top center;
-    color: #6B6866;
+    color: #85817f;
     display: block;
     font-weight: 700;
     height: 46px;
@@ -338,7 +338,7 @@ img {
     width: 25px; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003151}}
     #block-menu-menu-top-menu li svg g {
-      fill: #6B6866; }
+      fill: #85817f; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003156}}
   #block-menu-menu-top-menu li:hover svg g {
     fill: #000; } }
@@ -374,7 +374,7 @@ img {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003193}}
 #block-views-billeder-oversigter-block-1 h3 {
   background-color: #F1F1F1;
-  color: #85817f;
+  color: #9e9b99;
   font-family: "Lato", sans-serif;
   font-size: 1em;
   font-weight: 700;
@@ -402,7 +402,7 @@ img {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\000037}}
   .view > .view-content .cyberlikes, .view > .view-content .views-field-comment-count, .view > .view-content .comment-count {
     background: url('../images/icons/svg/cyberlike/heart_cleaned_gray.svg?1467113545') no-repeat 0 0;
-    color: #6B6866;
+    color: #85817f;
     display: inline-block;
     height: 30px;
     margin-top: 0.75em;
@@ -434,18 +434,19 @@ img {
   .field.field--name-field-cyberlike .vud-widget .cyberlike-votes-display,
   .views-field-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display {
     border: none;
+    color: #85817f;
     display: inline-block;
     font-family: "Lato", sans-serif;
     font-size: 1em;
-    width: 26px;
+    width: 14px;
     text-align: right; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000350}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000351}}
   .field.field--name-field-blog-cyberlike .vud-widget .cyberlike-votes-display:after,
   .field.field--name-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display:after,
   .field.field--name-field-cyberlike .vud-widget .cyberlike-votes-display:after,
   .views-field-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display:after {
     /* content: " synes godt om"; */ }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000353}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000354}}
   .field.field--name-field-blog-cyberlike .vud-widget .vud-link-up, .field.field--name-field-blog-cyberlike .vud-widget .up-active,
   .field.field--name-field-kommentar-cyberlike .vud-widget .vud-link-up,
   .field.field--name-field-kommentar-cyberlike .vud-widget .up-active,
@@ -454,12 +455,13 @@ img {
   .views-field-field-kommentar-cyberlike .vud-widget .vud-link-up,
   .views-field-field-kommentar-cyberlike .vud-widget .up-active {
     width: 26px;
-    height: 24px;
+    height: 26px;
     background: url('../images/icons/svg/cyberlike/heart_cleaned.svg?1467113544');
     background-repeat: no-repeat;
+    background-position-y: 2px;
     display: inline-block;
     float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000360}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000362}}
     .field.field--name-field-blog-cyberlike .vud-widget .vud-link-up .up-inactive, .field.field--name-field-blog-cyberlike .vud-widget .up-active .up-inactive,
     .field.field--name-field-kommentar-cyberlike .vud-widget .vud-link-up .up-inactive,
     .field.field--name-field-kommentar-cyberlike .vud-widget .up-active .up-inactive,
@@ -468,13 +470,15 @@ img {
     .views-field-field-kommentar-cyberlike .vud-widget .vud-link-up .up-inactive,
     .views-field-field-kommentar-cyberlike .vud-widget .up-active .up-inactive {
       display: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000364}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000366}}
   .field.field--name-field-blog-cyberlike .vud-widget .up-active,
   .field.field--name-field-kommentar-cyberlike .vud-widget .up-active,
   .field.field--name-field-cyberlike .vud-widget .up-active,
   .views-field-field-kommentar-cyberlike .vud-widget .up-active {
-    background: url('../images/icons/svg/cyberlike/heart-fill_cleaned.svg?1467113544'); }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000368}}
+    background: url('../images/icons/svg/cyberlike/heart-fill_cleaned.svg?1467113544');
+    background-repeat: no-repeat;
+    background-position-y: 2px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000372}}
   .field.field--name-field-blog-cyberlike .vud-widget .reset-active,
   .field.field--name-field-kommentar-cyberlike .vud-widget .reset-active,
   .field.field--name-field-cyberlike .vud-widget .reset-active,
@@ -483,15 +487,15 @@ img {
     display: none; }
 
 /* Cyberlike in comments */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000376}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000380}}
 .field.field-name-field-kommentar-cyberlike {
   padding-top: 12px; }
   @media (max-width: 36.625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000376}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000380}}
     .field.field-name-field-kommentar-cyberlike {
       float: left; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000382}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_cyberlike\.scss}line{font-family:\0000386}}
 .field.field-name-field-blog-cyberlike, .field.field-name-field-cyberlike {
   margin: 20px 20px 0 0; }
 
@@ -617,7 +621,7 @@ body.page-search section.search-results {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003119}}
 body.page-search .l-content h2 {
   background-color: #F1F1F1;
-  color: #85817f;
+  color: #9e9b99;
   font-family: "Lato", sans-serif;
   font-size: 1em;
   font-weight: 700;
@@ -675,7 +679,7 @@ input.form-submit {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003132}}
 .headline-grey-bg {
   background-color: #F1F1F1;
-  color: #85817f;
+  color: #9e9b99;
   font-family: "Lato", sans-serif;
   font-size: 1em;
   font-weight: 700;
@@ -685,17 +689,18 @@ input.form-submit {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003136}}
 .author-timestamp {
-  color: #6B6866;
+  color: #85817f;
   font-size: 0.85em; }
 
 /* General node stuff */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_node\.scss}line{font-family:\000032}}
 body.page-node {
   /* Subscribe - Node notify */
-  /* Brevkasse */ }
+  /* Brevkasse */
+  /* Blog */ }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_node\.scss}line{font-family:\000033}}
   body.page-node article h1 {
-    margin: 0;
+    margin: .3em 0 0 0;
     padding: 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_node\.scss}line{font-family:\000037}}
   body.page-node article {
@@ -766,12 +771,15 @@ body.page-node {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/abstractions\/_mixins\.scss}line{font-family:\0000327}}
     body.page-node ul.links li.subscribe:active {
       background: #bfbfbf; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_node\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_node\.scss}line{font-family:\0000344}}
   body.page-node .field--name-field-brevk-svar .field__label {
     color: #e67e22;
     font-family: "Merriweather", serif;
     font-weight: 700;
     margin: 0 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_node\.scss}line{font-family:\0000350}}
+  body.page-node.node-type-blog li.blog_usernames_blog {
+    display: none; }
 
 /* Center DK-map */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_ungi\.scss}line{font-family:\000035}}
@@ -791,7 +799,7 @@ body.page-node {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_ungi\.scss}line{font-family:\0000318}}
   #ungi-cities h3 {
     background-color: #F1F1F1;
-    color: #85817f;
+    color: #9e9b99;
     font-family: "Lato", sans-serif;
     font-size: 1em;
     font-weight: 700;
@@ -815,7 +823,7 @@ body.page-node {
     margin: 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_ungi\.scss}line{font-family:\0000336}}
   #ungi-cities .chat-label {
-    color: #6B6866;
+    color: #85817f;
     font-family: "Merriweather", serif;
     font-weight: 700;
     float: left;
@@ -834,7 +842,7 @@ body.page-node {
   display: none; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_ungi\.scss}line{font-family:\0000357}}
 #page.ungi-city .ungi-desc {
-  color: #6B6866;
+  color: #85817f;
   font-style: italic; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_ungi\.scss}line{font-family:\0000360}}
 #page.ungi-city .block {
@@ -845,7 +853,7 @@ body.page-node {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_ungi\.scss}line{font-family:\0000366}}
 #page.ungi-city > h3 {
   background-color: #F1F1F1;
-  color: #85817f;
+  color: #9e9b99;
   font-family: "Lato", sans-serif;
   font-size: 1em;
   font-weight: 700;
@@ -891,7 +899,7 @@ body.page-node {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\000039}}
     .view > .view-header h3, .view > .view-footer h3 {
       background-color: #F1F1F1;
-      color: #85817f;
+      color: #9e9b99;
       font-family: "Lato", sans-serif;
       font-size: 1em;
       font-weight: 700;
@@ -907,7 +915,7 @@ body.page-node {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000318}}
     .view > .view-header .content-list-header, .view > .view-footer .content-list-header {
       margin: 1em;
-      color: #6B6866;
+      color: #85817f;
       font-style: italic; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\0000324}}
     .view > .view-header article p, .view > .view-footer article p {
@@ -1017,7 +1025,7 @@ body.front .view-forside-oversigt .views-field-php {
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003122}}
 .view-cyberhus-forum-topic-list > .view-header .views-field-field-tag-shorthand, .view-cyberhus-forum-topic-list > .view-footer .views-field-field-tag-shorthand {
-  color: #6B6866;
+  color: #85817f;
   font-size: 1.3em;
   padding-right: 1em; }
 
@@ -1126,7 +1134,7 @@ html.js fieldset.collapsible {
   html.js fieldset.collapsible .fieldset-title {
     display: block;
     padding: 1em;
-    background-color: #85817f;
+    background-color: #9e9b99;
     color: #2980B9;
     text-decoration: none; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_collapsible\.scss}line{font-family:\0000327}}
@@ -1136,7 +1144,7 @@ html.js fieldset.collapsible {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_collapsible\.scss}line{font-family:\0000332}}
   html.js fieldset.collapsible .fieldset-wrapper {
     padding: 1em;
-    border: 1px solid #85817f; }
+    border: 1px solid #9e9b99; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_collapsible\.scss}line{font-family:\0000338}}
 html.js fieldset.collapsed {
@@ -1152,7 +1160,7 @@ html.js fieldset.collapsed {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_fieldsets\.scss}line{font-family:\000039}}
 .fieldset-description {
   margin-bottom: 0.5em;
-  color: #6B6866;
+  color: #85817f;
   font-style: italic; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_fieldsets\.scss}line{font-family:\0000315}}
@@ -1187,7 +1195,7 @@ html.js fieldset.collapsed {
     padding: 0.75em;
     background-color: #fff;
     border: 1px solid #BFBFBF;
-    color: #6B6866;
+    color: #85817f;
     vertical-align: middle; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000321}}
   .form-item .form-text {
@@ -1246,7 +1254,7 @@ div.password-indicator {
 .password-indicator {
   height: 0.8em;
   background: none;
-  border: 1px solid #85817f; }
+  border: 1px solid #9e9b99; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_password-indicator\.scss}line{font-family:\000039}}
   .password-indicator .indicator {
     background: #e67e22; }

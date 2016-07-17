@@ -1,7 +1,7 @@
 /* General node stuff */
 body.page-node {
   article h1 {
-    margin: 0;
+    margin: .3em 0 0 0;
     padding:0;
   }
   article {
@@ -41,9 +41,15 @@ body.page-node {
   }
 
   /* Brevkasse */
-
   .field--name-field-brevk-svar .field__label {
     @include headline-orange();
+  }
+
+  /* Blog */
+  &.node-type-blog {
+    li.blog_usernames_blog {
+      display: none;
+    }
   }
 
 }
