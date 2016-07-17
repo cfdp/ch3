@@ -279,6 +279,12 @@ $handler->display->display_options['defaults']['title'] = FALSE;
 $handler->display->display_options['title'] = 'Brevkasser';
 $handler->display->display_options['display_description'] = 'Oversigt over de seneste brevkassespørgsmål';
 $handler->display->display_options['defaults']['header'] = FALSE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area_1']['id'] = 'area_1';
+$handler->display->display_options['header']['area_1']['table'] = 'views';
+$handler->display->display_options['header']['area_1']['field'] = 'area';
+$handler->display->display_options['header']['area_1']['content'] = '<h1>Brevkasser</h1>';
+$handler->display->display_options['header']['area_1']['format'] = '2';
 /* Overskrift: Global: View-område */
 $handler->display->display_options['header']['view']['id'] = 'view';
 $handler->display->display_options['header']['view']['table'] = 'views';
@@ -336,6 +342,7 @@ $translatables['brevkasse_oversigter'] = array(
   t('Brevkasser oversigt'),
   t('Brevkasser'),
   t('Oversigt over de seneste brevkassespørgsmål'),
+  t('<h1>Brevkasser</h1>'),
   t('<a class="btn" href="/node/add/brevkasse">Opret spørgsmål</a>
 <h3>Seneste spørgsmål</h3>
 '),
