@@ -16,13 +16,35 @@ function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
             }
           }
       }
+      // Change submit text
+      $form['actions']['submit']['#value'] = 'Send';
 
       // Brevkasse title validation, alowed charaters (a to z, 0 to 9, ?, !, ., ,, -,)
       $form['#validate'][] = 'cfdp_uf_brevkasse_title_form_validate';
-      break;
-/*    case 'body_secret_node_form':
-      $form['#submit'][] = 'cfdp_uf_custom_status_message';
-      break;*/
+
+      // @todo: deactivated until the right condition sorting out the archived terms
+      // has been implemented
+      // Populate select list with the long version of the category names
+      //Select the taxonomy vocabulary holding the values for the brevkasse categories
+
+/*      $taxonomy = "vocabulary_3";
+      $closed_states = array(
+        "temp_closed",
+        "archived"
+      );
+
+      //Query the DB for the extra added field holding the labels (long version names of the brevkasse categories)
+      $results = db_select('field_data_field_brev_tax_label', 't')
+        ->fields('t', array('entity_id', 'field_brev_tax_label_value'))
+        ->condition("t.bundle", $taxonomy)
+        ->execute();
+
+      // Populate the selectlist with the new values
+      $options = array();
+      foreach ($results as $term)  {
+        $form['field_brevk_kategori']['und']['#options'][$term->entity_id] = $term->field_brev_tax_label_value;
+      }*/
+    break;
   }
 }
 

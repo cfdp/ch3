@@ -39,7 +39,7 @@
    *   Drupal.settings directly you should use this because of potential
    *   modifications made by the Ajax callback that also produced 'context'.
    */
-  Drupal.behaviors.cyberhusEvolutionMisc = {
+  Drupal.behaviors.cyberhusEvolutionForms = {
     attach: function (context, settings) {
       // By using the 'context' variable we make sure that our code only runs on
       // the relevant HTML. Furthermore, by using jQuery.once() we make sure that
@@ -48,6 +48,43 @@
       // get tagged with a 'foo-processed' class, causing all future invocations
       // of this behavior to ignore them.
 
+      /* Add placeholder element to search input form */
+      $('#block-custom-search-blocks-1', context).once('add-placeholder-search', function () {
+        $("#edit-custom-search-blocks-form-1--2").attr("placeholder", "Søg");
+      });
+      /* Add placeholder element to comment form, body item */
+      $('.comment-form', context).once('add-placeholder-comment', function () {
+        $("#edit-comment-body-und-0-value--2").attr("placeholder", "Skriv kommentar");
+      });
+      /* Add placeholder element for name field */
+      $('.comment-form', context).once('add-placeholder-name', function () {
+        $("#edit-name--2").attr("placeholder", "Kaldenavn eller fornavn");
+      });
+      /* Node forms: Add placeholder elements and other manipulations */
+      $('.node-form', context).once('various-ops', function () {
+        // Title
+        $("#edit-title").attr("placeholder", "Skriv titel");
+        // Email
+        $("#edit-node-notify-subscribe, #edit-field-brevk-email-und-0-value, #edit-field-email-und-0-value").attr("placeholder", "Skriv din email-adresse");
+        // Name
+        $("#edit-field-forum-forf-navn-und-0-value, #edit-field-navn-und-0-value").attr("placeholder", "Kaldenavn eller fornavn");
+
+        // Age
+        $('select#edit-field-brevk-alder-und option:contains("- Vælg en værdi -")').text('Vælg alder');
+      });
+
+      /* Forum */
+      $('.node-forum-form', context).once('add-placeholder-forum-node', function () {
+$("#edit-body-und-0-value").attr("placeholder", "Skriv som om du skriver til en ven");
+
+$('select#edit-taxonomy-forums-und option:contains("- Vælg en værdi -")').text('Vælg emne');
+
+      });
+    }
+  };
+
+  Drupal.behaviors.cyberhusEvolutionSVGMenu = {
+    attach: function (context, settings) {
       /* Add link to containing li element in svg menus */
       $('#block-menu-menu-andet', context).once('attach-link', function () {
         // Add link
@@ -55,18 +92,6 @@
           window.location = $(this).find("a").attr("href");
           return false;
         });
-
-      });
-      /* Add placeholder element to search input form */
-      $('#block-custom-search-blocks-1', context).once('add-placeholder-search', function () {
-        $("#edit-custom-search-blocks-form-1--2").attr("placeholder", "Søg");
-      });
-      /* Add placeholder element to comment form */
-      $('.comment-form', context).once('add-placeholder-comment', function () {
-        $("#edit-comment-body-und-0-value--2").attr("placeholder", "Skriv kommentar");
-      });
-      $('.comment-form', context).once('add-placeholder-comment-name', function () {
-        $("#edit-name--2").attr("placeholder", "Kaldenavn eller fornavn");
       });
     }
   };

@@ -126,6 +126,10 @@ body.page-search {
   @include button-bg();
 }
 
+.btn-select {
+  @include form-select-btn();
+}
+
 input.form-submit {
   @include button-bg-left();
 }

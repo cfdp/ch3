@@ -1,9 +1,14 @@
 /**
  * $FORM-ITEM
  */
+
+#edit-field-brevk-alder {
+  margin-right: $margin-std;
+  max-width: 50%;
+}
+
 .form-item {
   color: $black;
-
   label {
     margin-bottom: 0.4em;
   }
@@ -25,13 +30,6 @@
     margin-top: 0.2em;
     font-style: italic;
   }
-  &.form-item-field-brevk-koen-und {
-    max-width: 50%;
-  }
-  &.form-item-field-brevk-alder-und {
-    max-width: 50%;
-  }
-
   /* Billede upload */
   .image-widget-data {
     margin-bottom: $margin-std;
@@ -39,7 +37,56 @@
     input.form-submit {
       display: inline-block;
     }
-
+  }
+  /* Forum subscribe */
+  &.form-item-node-notify-subscribe .description {
+    display: none;
+  }
+  /* Display radios as normal buttons */
+  &.form-type-radios {
+    list-style-type: none;
+    margin: 25px 0 0 0;
+    padding: 0;
+    .description {
+      clear: both;
+    }
+  }
+  .form-type-radio {
+    float: left;
+    margin: 0 $margin-std 0 0;
+    width: 80px;
+    height: 45px;
+    position: relative;
+    input, label {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    input[type="radio"] {
+      opacity: 0.01;
+      z-index: 100;
+    }
+    input[type="radio"]:checked + label,
+    .Checked + label {
+      border: 1px solid $primary-color;
+      color: $primary-color;
+    }
+    label {
+      @include border-radius(2px);
+      color: $grey-2;
+      padding: 5px;
+      border: 1px solid $grey-2;
+      cursor: pointer;
+      z-index: 90;
+      text-align: center;
+      &:hover {
+        border: 1px solid $primary-color;
+        color: $primary-color;
+      }
+    }
   }
 }
 
@@ -48,5 +95,11 @@
   .form-text,
   .form-textarea {
     width: auto;
+  }
+}
+
+body.not-logged-in {
+  .wysiwyg-toggle-wrapper {
+    display: none;
   }
 }

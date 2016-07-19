@@ -59,6 +59,20 @@ $margin: 0 !default;
   }
 }
 
+@mixin form-select-btn() {
+  background-color: $bg-white;
+  border: 1px solid $grey-2;
+  color: $grey-2;
+  padding: .4em .5em;
+  display: inline-block;
+  margin-right: $margin-std;
+  @include border-radius(3px);
+  &:hover {
+    background: lighten($grey-2, 20%);
+    transition: all 0.3s ease;
+  }
+}
+
 @mixin font-metadata() {
   color: $grey;
   font-size: $font-size-small;
