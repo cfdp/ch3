@@ -83,6 +83,7 @@ $('select#edit-taxonomy-forums-und option:contains("- Vælg en værdi -")').text
     }
   };
 
+  /* Add links to menu container elements */
   Drupal.behaviors.cyberhusEvolutionSVGMenu = {
     attach: function (context, settings) {
       /* Add link to containing li element in svg menus */
@@ -91,6 +92,18 @@ $('select#edit-taxonomy-forums-und option:contains("- Vælg en værdi -")').text
         $("li.svg-menu").click(function() {
           window.location = $(this).find("a").attr("href");
           return false;
+        });
+      });
+    }
+  };
+
+  /* Add helper class for sidr hamburger icon animation */
+  Drupal.behaviors.cyberhusEvolutionSidrHelper = {
+    attach: function (context, settings) {
+      $('.sidr', context).once('sidr-helper', function () {
+        // Add class
+        $('#nav-icon3').click(function(){
+          $(this).toggleClass('open');
         });
       });
     }
