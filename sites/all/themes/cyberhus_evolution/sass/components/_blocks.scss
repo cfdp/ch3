@@ -104,6 +104,74 @@ $icon-color-highlight-top: #000;
     }
   }
 }
+
+// Sidr menu
+#sidr-wrapper-0 {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  #sidr-0-button  {
+    display: block;
+    padding: 10px;
+  }
+  #sidr-hamburger {
+    background-image: image-url('icons/svg/responsive-menu.svg');
+    background-repeat: none;
+    height: 17px;
+    width: 22px;
+
+  }
+
+}
+.sidr {
+  background: $bg-white;
+  @include box-shadow(none);
+  font-size: $font-size-normal;
+  font-family: $font-family-std;
+  top: 60px;
+
+  ul.sidr-class-menu {
+    border-top: 1px solid $grey-2;
+    border-bottom: none;
+    border-left: 1px solid $grey-2;
+
+    li {
+      border-bottom: 1px solid $grey-2;
+      border-top: none;
+      padding-left: $padding-small;
+      &:hover>a {
+        @include box-shadow(none);
+      }
+      a {
+        color: $grey;
+        display: inline-block;
+        font-weight: $font-weight-bold;
+      }
+      svg {
+        vertical-align: middle;
+      }
+    }
+
+  }
+}
+
+#block-menu-menu-top-menu,
+.sidr {
+  li {
+    svg {
+      height: $icon-size-top;
+      width: $icon-size-top;
+      g {
+        fill: $icon-color-top;
+      }
+    }
+    &:hover {
+      svg g {
+        fill: $icon-color-highlight-top;
+      }
+    }
+  }
+}
 /* Only svg menus for tab and desktop */
 @include breakpoint($tab, true) {
   #block-menu-menu-andet,
@@ -138,23 +206,6 @@ $icon-color-highlight-top: #000;
       &:hover {
         svg g {
           fill: $icon-color-highlight-footer;
-        }
-      }
-    }
-  }
-
-  #block-menu-menu-top-menu {
-    li {
-      svg {
-        height: $icon-size-top;
-        width: $icon-size-top;
-        g {
-          fill: $icon-color-top;
-        }
-      }
-      &:hover {
-        svg g {
-          fill: $icon-color-highlight-top;
         }
       }
     }

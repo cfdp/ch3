@@ -298,9 +298,72 @@ img {
   #block-menu-menu-top-menu li svg {
     display: none; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003109}}
+#sidr-wrapper-0 {
+  position: absolute;
+  top: 10px;
+  right: 0px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003113}}
+  #sidr-wrapper-0 #sidr-0-button {
+    display: block;
+    padding: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003117}}
+  #sidr-wrapper-0 #sidr-hamburger {
+    background-image: url('../images/icons/svg/responsive-menu.svg?1468973080');
+    background-repeat: none;
+    height: 17px;
+    width: 22px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003126}}
+.sidr {
+  background: #fff;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-size: 1em;
+  font-family: "Lato", sans-serif;
+  top: 60px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003133}}
+  .sidr ul.sidr-class-menu {
+    border-top: 1px solid #BFBFBF;
+    border-bottom: none;
+    border-left: 1px solid #BFBFBF; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003138}}
+    .sidr ul.sidr-class-menu li {
+      border-bottom: 1px solid #BFBFBF;
+      border-top: none;
+      padding-left: 0.75em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003142}}
+      .sidr ul.sidr-class-menu li:hover > a {
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003145}}
+      .sidr ul.sidr-class-menu li a {
+        color: #85817f;
+        display: inline-block;
+        font-weight: 700; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003150}}
+      .sidr ul.sidr-class-menu li svg {
+        vertical-align: middle; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003161}}
+#block-menu-menu-top-menu li svg,
+.sidr li svg {
+  height: 25px;
+  width: 25px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003164}}
+  #block-menu-menu-top-menu li svg g,
+  .sidr li svg g {
+    fill: #85817f; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003169}}
+#block-menu-menu-top-menu li:hover svg g,
+.sidr li:hover svg g {
+  fill: #000; }
+
 /* Only svg menus for tab and desktop */
 @media (min-width: 36.625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003111}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003179}}
   #block-menu-menu-andet li,
   #block-menu-menu-top-menu li {
     cursor: pointer;
@@ -308,70 +371,59 @@ img {
     text-align: center;
     margin: 0 1em 0;
     transition: stroke .25s ease, width .5s ease; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003117}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003185}}
     #block-menu-menu-andet li a,
     #block-menu-menu-top-menu li a {
       display: block; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003120}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003188}}
     #block-menu-menu-andet li svg,
     #block-menu-menu-top-menu li svg {
       display: inline-block; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003122}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003190}}
       #block-menu-menu-andet li svg g,
       #block-menu-menu-top-menu li svg g {
         transition: fill .25s ease; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003131}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003199}}
   #block-menu-menu-andet li svg {
     height: 35px;
     width: 35px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003134}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003202}}
     #block-menu-menu-andet li svg g {
       fill: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003139}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003207}}
   #block-menu-menu-andet li:hover svg g {
-    fill: #2980B9; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003148}}
-  #block-menu-menu-top-menu li svg {
-    height: 25px;
-    width: 25px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003151}}
-    #block-menu-menu-top-menu li svg g {
-      fill: #85817f; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003156}}
-  #block-menu-menu-top-menu li:hover svg g {
-    fill: #000; } }
+    fill: #2980B9; } }
 /**
  * COMMENT BLOCKS
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003167}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003218}}
 #block-views-comments-block-1 {
   margin: 1em 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003169}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003220}}
   #block-views-comments-block-1 h2 {
     color: #e67e22;
     font-family: "Merriweather", serif;
     font-weight: 700;
     margin: 0 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003173}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003224}}
   #block-views-comments-block-1 .view-comments .view-content {
     background-color: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003176}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003227}}
   #block-views-comments-block-1 .view-comments .views-row {
     margin: 0;
     padding: 1em 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003180}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003231}}
   #block-views-comments-block-1 .view-comments p {
     margin-top: 0; }
 
 /**
  * BILLEDER BLOCKS
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003190}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003241}}
 #block-views-billeder-oversigter-block-1 h2 {
   font-size: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003193}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003244}}
 #block-views-billeder-oversigter-block-1 h3 {
   background-color: #F1F1F1;
   color: #9e9b99;
@@ -381,14 +433,14 @@ img {
   margin: 0 -1em;
   text-transform: uppercase;
   padding: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003196}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003247}}
 #block-views-billeder-oversigter-block-1 .view-content {
   background-color: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003199}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003250}}
 #block-views-billeder-oversigter-block-1 .views-row {
   display: inline-block;
   max-width: 160px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003203}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003254}}
 #block-views-billeder-oversigter-block-1 ul.pager-load-more {
   margin-left: -1em;
   margin-right: -1em; }
@@ -513,24 +565,23 @@ img {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\000037}}
 .l-region--header {
-  display: inline-block;
   height: 30px;
-  margin: 0.75em 0 0 1em;
+  margin-right: 1em;
+  position: absolute;
   vertical-align: top;
   width: 40px; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000315}}
 .l-branding {
-  display: inline-block;
   height: 40px;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000321}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000320}}
   .l-branding a.site-logo {
     display: block; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000325}}
 .l-main--wrapper {
   background-color: #F1F1F1;
   margin-bottom: 0;
@@ -539,17 +590,17 @@ img {
   background-repeat: repeat-x;
   background-position: bottom; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000334}}
 .l-main {
   margin: auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000339}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000338}}
 .l-content {
   margin: auto;
   max-width: 586px;
   background-color: #fff;
   padding-top: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000343}}
   .l-content ul.breadcrumb {
     border-bottom: 1px solid #BFBFBF;
     margin-top: -1em;
@@ -557,68 +608,68 @@ img {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000350}}
     .l-content ul.breadcrumb li {
       display: inline; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000353}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000352}}
       .l-content ul.breadcrumb li:not(:last-child):after {
         color: #BFBFBF;
         content: ' > '; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000364}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000363}}
 .l-footer--wrapper {
   background-color: #2d2728; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000370}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000369}}
 .l-region--footer {
   max-width: 586px;
   margin: 0 auto;
   padding: 2em 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000374}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000373}}
   .l-region--footer a {
     color: white; }
 
 /* Responsive  */
 @media (min-width: 36.625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000380}}
   .l-header {
     border: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000384}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000383}}
   .l-region--header {
     left: auto;
     top: auto;
     right: auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000389}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000388}}
   .l-region--navigation {
     margin-top: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000391}}
   .l-main--wrapper {
     padding-top: 1em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\0000395}}
   .l-content ul.breadcrumb {
     background-color: #F1F1F1;
     border: none;
     padding-top: 0; } }
 /* Custom header styling */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003105}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003104}}
 body.page-blogs h1,
 body.page-node-add h1 {
   padding-top: 0.5em; }
 
 /* Search */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003111}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003110}}
 body.page-search form.search-form,
 body.page-search section.search-results {
   margin: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003114}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003113}}
   body.page-search form.search-form #edit-submit,
   body.page-search section.search-results #edit-submit {
     margin-top: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003119}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003118}}
 body.page-search .l-content h2 {
   background-color: #F1F1F1;
   color: #9e9b99;
@@ -630,7 +681,7 @@ body.page-search .l-content h2 {
   padding: 1em; }
 
 /* buttons */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003125}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003124}}
 .btn {
   background: #2980B9;
   -moz-border-radius: 3px;
@@ -654,7 +705,7 @@ body.page-search .l-content h2 {
   .btn:active {
     background: #123851; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003129}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003128}}
 .btn-select {
   background-color: #fff;
   border: 1px solid #BFBFBF;
@@ -670,7 +721,7 @@ body.page-search .l-content h2 {
     background: #f2f2f2;
     transition: all 0.3s ease; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003133}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003132}}
 input.form-submit {
   background: #2980B9;
   -moz-border-radius: 3px;
@@ -692,7 +743,7 @@ input.form-submit {
   input.form-submit:active {
     background: #123851; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003136}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003135}}
 .headline-grey-bg {
   background-color: #F1F1F1;
   color: #9e9b99;
@@ -703,7 +754,7 @@ input.form-submit {
   text-transform: uppercase;
   padding: 1em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003140}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003139}}
 .author-timestamp {
   color: #85817f;
   font-size: 0.85em; }
@@ -1342,87 +1393,95 @@ div.password-indicator {
   width: auto;
   padding: 0.4em; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000311}}
+.custom-search-blocks-form-1 {
+  /* Responsive  */ }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000312}}
-.custom-search-blocks-form-1 #edit-custom-search-blocks-form-1--2 {
-  background-image: url('../images/icons/svg/search.svg?1467801380');
-  background-repeat: no-repeat;
-  background-position: 7px center;
-  height: 20px;
-  padding-left: 35px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000319}}
-.custom-search-blocks-form-1 .form-submit {
-  display: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000322}}
-.custom-search-blocks-form-1 .form-item .form-text {
-  border: 0px;
-  width: auto; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000326}}
-.custom-search-blocks-form-1 input[type="text"] {
-  /* Hide the placeholder text on mobile */
-  /* FF 4-18 */
-  /* FF 19+ */
-  /* IE 10+ */
-  /* Responsive - show placeholder on tab and above */ }
+  .custom-search-blocks-form-1 #edit-custom-search-blocks-form-1--2 {
+    background-image: url('../images/icons/svg/search.svg?1467801380');
+    background-repeat: no-repeat;
+    background-position: 7px center;
+    height: 20px;
+    max-width: 50px;
+    padding-left: 35px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000320}}
+  .custom-search-blocks-form-1 .form-submit {
+    display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000323}}
+  .custom-search-blocks-form-1 .form-item .form-text {
+    border: 0px;
+    width: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000327}}
+  .custom-search-blocks-form-1 input[type="text"] {
+    /* Hide the placeholder text on mobile */
+    /* FF 4-18 */
+    /* FF 19+ */
+    /* IE 10+ */
+    /* Responsive - show placeholder on tab and above */ }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/vendor\/bundle\/ruby\/2\.3\.0\/gems\/compass-core-1\.0\.3\/stylesheets\/compass\/css3\/_user-interface\.scss}line{font-family:\0000361}}
-  .custom-search-blocks-form-1 input[type="text"]:-moz-placeholder {
-    color: transparent;
-    font-family: "Lato", sans-serif;
-    font-size: 1.3em; }
+    .custom-search-blocks-form-1 input[type="text"]:-moz-placeholder {
+      color: transparent;
+      font-family: "Lato", sans-serif;
+      font-size: 1.3em; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/vendor\/bundle\/ruby\/2\.3\.0\/gems\/compass-core-1\.0\.3\/stylesheets\/compass\/css3\/_user-interface\.scss}line{font-family:\0000364}}
-  .custom-search-blocks-form-1 input[type="text"]::-moz-placeholder {
-    color: transparent;
-    font-family: "Lato", sans-serif;
-    font-size: 1.3em; }
+    .custom-search-blocks-form-1 input[type="text"]::-moz-placeholder {
+      color: transparent;
+      font-family: "Lato", sans-serif;
+      font-size: 1.3em; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/vendor\/bundle\/ruby\/2\.3\.0\/gems\/compass-core-1\.0\.3\/stylesheets\/compass\/css3\/_user-interface\.scss}line{font-family:\0000367}}
-  .custom-search-blocks-form-1 input[type="text"]:-ms-input-placeholder {
-    color: transparent;
-    font-family: "Lato", sans-serif;
-    font-size: 1.3em; }
+    .custom-search-blocks-form-1 input[type="text"]:-ms-input-placeholder {
+      color: transparent;
+      font-family: "Lato", sans-serif;
+      font-size: 1.3em; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/vendor\/bundle\/ruby\/2\.3\.0\/gems\/compass-core-1\.0\.3\/stylesheets\/compass\/css3\/_user-interface\.scss}line{font-family:\0000356}}
-  .custom-search-blocks-form-1 input[type="text"]::-webkit-input-placeholder {
-    color: transparent;
-    font-family: "Lato", sans-serif;
-    font-size: 1.3em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000333}}
-  .custom-search-blocks-form-1 input[type="text"] ::-webkit-input-placeholder {
-    color: transparent; }
+    .custom-search-blocks-form-1 input[type="text"]::-webkit-input-placeholder {
+      color: transparent;
+      font-family: "Lato", sans-serif;
+      font-size: 1.3em; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000334}}
-  .custom-search-blocks-form-1 input[type="text"] :-moz-placeholder {
-    color: transparent; }
+    .custom-search-blocks-form-1 input[type="text"] ::-webkit-input-placeholder {
+      color: transparent; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000335}}
-  .custom-search-blocks-form-1 input[type="text"] ::-moz-placeholder {
-    color: transparent; }
+    .custom-search-blocks-form-1 input[type="text"] :-moz-placeholder {
+      color: transparent; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000336}}
-  .custom-search-blocks-form-1 input[type="text"] :-ms-input-placeholder {
-    color: transparent; }
-  @media (min-width: 36.625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000326}}
-    .custom-search-blocks-form-1 input[type="text"] {
-      /* Hide the placeholder text on focus */
-      /* FF 4-18 */
-      /* FF 19+ */
-      /* IE 10+ */ }
+    .custom-search-blocks-form-1 input[type="text"] ::-moz-placeholder {
+      color: transparent; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000337}}
+    .custom-search-blocks-form-1 input[type="text"] :-ms-input-placeholder {
+      color: transparent; }
+    @media (min-width: 36.625em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000327}}
+      .custom-search-blocks-form-1 input[type="text"] {
+        /* Hide the placeholder text on focus */
+        /* FF 4-18 */
+        /* FF 19+ */
+        /* IE 10+ */ }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/vendor\/bundle\/ruby\/2\.3\.0\/gems\/compass-core-1\.0\.3\/stylesheets\/compass\/css3\/_user-interface\.scss}line{font-family:\0000361}}
-      .custom-search-blocks-form-1 input[type="text"]:-moz-placeholder {
-        color: #2980B9; }
+        .custom-search-blocks-form-1 input[type="text"]:-moz-placeholder {
+          color: #2980B9; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/vendor\/bundle\/ruby\/2\.3\.0\/gems\/compass-core-1\.0\.3\/stylesheets\/compass\/css3\/_user-interface\.scss}line{font-family:\0000364}}
-      .custom-search-blocks-form-1 input[type="text"]::-moz-placeholder {
-        color: #2980B9; }
+        .custom-search-blocks-form-1 input[type="text"]::-moz-placeholder {
+          color: #2980B9; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/vendor\/bundle\/ruby\/2\.3\.0\/gems\/compass-core-1\.0\.3\/stylesheets\/compass\/css3\/_user-interface\.scss}line{font-family:\0000367}}
-      .custom-search-blocks-form-1 input[type="text"]:-ms-input-placeholder {
-        color: #2980B9; }
+        .custom-search-blocks-form-1 input[type="text"]:-ms-input-placeholder {
+          color: #2980B9; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/vendor\/bundle\/ruby\/2\.3\.0\/gems\/compass-core-1\.0\.3\/stylesheets\/compass\/css3\/_user-interface\.scss}line{font-family:\0000356}}
-      .custom-search-blocks-form-1 input[type="text"]::-webkit-input-placeholder {
-        color: #2980B9; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000344}}
-      .custom-search-blocks-form-1 input[type="text"]:focus::-webkit-input-placeholder {
-        color: transparent; }
+        .custom-search-blocks-form-1 input[type="text"]::-webkit-input-placeholder {
+          color: #2980B9; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000345}}
-      .custom-search-blocks-form-1 input[type="text"]:focus:-moz-placeholder {
-        color: transparent; }
+        .custom-search-blocks-form-1 input[type="text"]:focus::-webkit-input-placeholder {
+          color: transparent; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000346}}
-      .custom-search-blocks-form-1 input[type="text"]:focus::-moz-placeholder {
-        color: transparent; }
+        .custom-search-blocks-form-1 input[type="text"]:focus:-moz-placeholder {
+          color: transparent; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000347}}
-      .custom-search-blocks-form-1 input[type="text"]:focus:-ms-input-placeholder {
-        color: transparent; } }
+        .custom-search-blocks-form-1 input[type="text"]:focus::-moz-placeholder {
+          color: transparent; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000348}}
+        .custom-search-blocks-form-1 input[type="text"]:focus:-ms-input-placeholder {
+          color: transparent; } }
+  @media (min-width: 36.625em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000354}}
+    .custom-search-blocks-form-1 #edit-custom-search-blocks-form-1--2 {
+      max-width: 100px; } }

@@ -14,6 +14,7 @@
     background-repeat:no-repeat;
     background-position:7px center;
     height: 20px;
+    max-width: 50px;
     padding-left: 35px;
   }
   .form-submit { // hide submit btn
@@ -48,6 +49,12 @@
     }
   }
 
+  /* Responsive  */
+  @include breakpoint($tab, true) {
+    #edit-custom-search-blocks-form-1--2 {
+      max-width: 100px;
+    }
+  }
 }
 
 
