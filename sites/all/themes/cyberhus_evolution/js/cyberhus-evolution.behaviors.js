@@ -97,16 +97,5 @@ $('select#edit-taxonomy-forums-und option:contains("- Vælg en værdi -")').text
     }
   };
 
-  /* Add helper class for sidr hamburger icon animation */
-  Drupal.behaviors.cyberhusEvolutionSidrHelper = {
-    attach: function (context, settings) {
-      $('.sidr', context).once('sidr-helper', function () {
-        // Add class
-        $('#nav-icon3').click(function(){
-          $(this).toggleClass('open');
-        });
-      });
-    }
-  };
 
 })(jQuery);
