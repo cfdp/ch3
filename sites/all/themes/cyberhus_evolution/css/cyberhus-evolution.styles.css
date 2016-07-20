@@ -444,7 +444,7 @@ img {
   fill: #000; }
 
 /* Only svg menus for tab and desktop */
-@media (min-width: 36.625em) {
+@media (min-width: 70em) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_blocks\.scss}line{font-family:\00003243}}
   #block-menu-menu-andet li,
   #block-menu-menu-top-menu li {

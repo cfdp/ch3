@@ -237,7 +237,7 @@ $icon-color-highlight-top: #000;
   }
 }
 /* Only svg menus for tab and desktop */
-@include breakpoint($tab, true) {
+@include breakpoint($desk, true) {
   #block-menu-menu-andet,
   #block-menu-menu-top-menu {
     li {
