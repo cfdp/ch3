@@ -3168,106 +3168,129 @@
 }
 
 /* Cyberlike */
-/* line 319, ../sass/_node.scss */
-.field.field-name-field-blog-cyberlike, .field.field-name-field-kommentar-cyberlike, .field.field-name-field-cyberlike {
-  float: right;
-}
-/* line 321, ../sass/_node.scss */
-.field.field-name-field-blog-cyberlike .vud-widget, .field.field-name-field-kommentar-cyberlike .vud-widget, .field.field-name-field-cyberlike .vud-widget {
+/* line 323, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike .vud-widget,
+.field.field-name-field-kommentar-cyberlike .vud-widget,
+.field.field-name-field-cyberlike .vud-widget,
+.views-field-field-kommentar-cyberlike .vud-widget {
   float: none;
   width: 100%;
   height: 35px;
   margin: 0;
 }
-/* line 326, ../sass/_node.scss */
-.field.field-name-field-blog-cyberlike .vud-widget .cyberlike-votes-display, .field.field-name-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display, .field.field-name-field-cyberlike .vud-widget .cyberlike-votes-display {
+/* line 328, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike .vud-widget .cyberlike-votes-display,
+.field.field-name-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display,
+.field.field-name-field-cyberlike .vud-widget .cyberlike-votes-display,
+.views-field-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display {
   border: none;
+  display: inline-block;
   font-family: "Cabin", sans-serif;
   width: 26px;
   font-weight: 400;
   font-size: 13px;
   text-align: right;
-  float: right;
   font-style: italic;
 }
-/* line 336, ../sass/_node.scss */
-.field.field-name-field-blog-cyberlike .vud-widget .cyberlike-votes-display:after, .field.field-name-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display:after, .field.field-name-field-cyberlike .vud-widget .cyberlike-votes-display:after {
+/* line 338, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike .vud-widget .cyberlike-votes-display:after,
+.field.field-name-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display:after,
+.field.field-name-field-cyberlike .vud-widget .cyberlike-votes-display:after,
+.views-field-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display:after {
   /* content: " synes godt om"; */
 }
-/* line 339, ../sass/_node.scss */
-.field.field-name-field-blog-cyberlike .vud-widget .vud-link-up, .field.field-name-field-blog-cyberlike .vud-widget .up-active, .field.field-name-field-kommentar-cyberlike .vud-widget .vud-link-up, .field.field-name-field-kommentar-cyberlike .vud-widget .up-active, .field.field-name-field-cyberlike .vud-widget .vud-link-up, .field.field-name-field-cyberlike .vud-widget .up-active {
+/* line 341, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike .vud-widget .vud-link-up, .field.field-name-field-blog-cyberlike .vud-widget .up-active,
+.field.field-name-field-kommentar-cyberlike .vud-widget .vud-link-up,
+.field.field-name-field-kommentar-cyberlike .vud-widget .up-active,
+.field.field-name-field-cyberlike .vud-widget .vud-link-up,
+.field.field-name-field-cyberlike .vud-widget .up-active,
+.views-field-field-kommentar-cyberlike .vud-widget .vud-link-up,
+.views-field-field-kommentar-cyberlike .vud-widget .up-active {
   width: 26px;
   height: 24px;
   background: url("../img/heart_cleaned.svg");
   background-repeat: no-repeat;
-  display: block;
-  float: right;
+  display: inline-block;
+  float: left;
 }
-/* line 346, ../sass/_node.scss */
-.field.field-name-field-blog-cyberlike .vud-widget .vud-link-up .up-inactive, .field.field-name-field-blog-cyberlike .vud-widget .up-active .up-inactive, .field.field-name-field-kommentar-cyberlike .vud-widget .vud-link-up .up-inactive, .field.field-name-field-kommentar-cyberlike .vud-widget .up-active .up-inactive, .field.field-name-field-cyberlike .vud-widget .vud-link-up .up-inactive, .field.field-name-field-cyberlike .vud-widget .up-active .up-inactive {
+/* line 348, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike .vud-widget .vud-link-up .up-inactive, .field.field-name-field-blog-cyberlike .vud-widget .up-active .up-inactive,
+.field.field-name-field-kommentar-cyberlike .vud-widget .vud-link-up .up-inactive,
+.field.field-name-field-kommentar-cyberlike .vud-widget .up-active .up-inactive,
+.field.field-name-field-cyberlike .vud-widget .vud-link-up .up-inactive,
+.field.field-name-field-cyberlike .vud-widget .up-active .up-inactive,
+.views-field-field-kommentar-cyberlike .vud-widget .vud-link-up .up-inactive,
+.views-field-field-kommentar-cyberlike .vud-widget .up-active .up-inactive {
   display: none;
 }
-/* line 350, ../sass/_node.scss */
-.field.field-name-field-blog-cyberlike .vud-widget .up-active, .field.field-name-field-kommentar-cyberlike .vud-widget .up-active, .field.field-name-field-cyberlike .vud-widget .up-active {
+/* line 352, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike .vud-widget .up-active,
+.field.field-name-field-kommentar-cyberlike .vud-widget .up-active,
+.field.field-name-field-cyberlike .vud-widget .up-active,
+.views-field-field-kommentar-cyberlike .vud-widget .up-active {
   background: url("../img/heart-fill_cleaned.svg");
 }
-/* line 354, ../sass/_node.scss */
-.field.field-name-field-blog-cyberlike .vud-widget .reset-active, .field.field-name-field-kommentar-cyberlike .vud-widget .reset-active, .field.field-name-field-cyberlike .vud-widget .reset-active {
+/* line 356, ../sass/_node.scss */
+.field.field-name-field-blog-cyberlike .vud-widget .reset-active,
+.field.field-name-field-kommentar-cyberlike .vud-widget .reset-active,
+.field.field-name-field-cyberlike .vud-widget .reset-active,
+.views-field-field-kommentar-cyberlike .vud-widget .reset-active {
   float: right;
   display: none;
 }
 
-/* line 360, ../sass/_node.scss */
+/* line 362, ../sass/_node.scss */
 .field.field-name-field-kommentar-cyberlike {
   padding-top: 12px;
 }
 @media (max-width: 600px) {
-  /* line 360, ../sass/_node.scss */
+  /* line 362, ../sass/_node.scss */
   .field.field-name-field-kommentar-cyberlike {
     float: left;
   }
 }
 
-/* line 366, ../sass/_node.scss */
+/* line 368, ../sass/_node.scss */
 .field.field-name-field-blog-cyberlike, .field.field-name-field-cyberlike {
   margin: 20px 20px 0 0;
 }
 
-/* line 372, ../sass/_node.scss */
+/* line 374, ../sass/_node.scss */
 .node-type-image .links.node-links li {
   padding: 0;
 }
-/* line 376, ../sass/_node.scss */
+/* line 378, ../sass/_node.scss */
 .node-type-image .field.field-name-field-kommentar-cyberlike {
   padding-top: 55px;
 }
-/* line 379, ../sass/_node.scss */
+/* line 381, ../sass/_node.scss */
 .node-type-image #comments {
   margin-top: 10px;
 }
 
-/* line 384, ../sass/_node.scss */
+/* line 386, ../sass/_node.scss */
 .node-type-blog .links.node-links {
   position: absolute;
   margin-top: -70px;
 }
 @media (max-width: 600px) {
-  /* line 384, ../sass/_node.scss */
+  /* line 386, ../sass/_node.scss */
   .node-type-blog .links.node-links {
     margin-top: -35px;
   }
 }
-/* line 393, ../sass/_node.scss */
+/* line 395, ../sass/_node.scss */
 .node-type-blog .comment-unpublished .field.field-name-field-kommentar-cyberlike .cyberlike-votes-display {
   width: 55px;
 }
 
 /* Kommentarer generelt på sitet */
-/* line 401, ../sass/_node.scss */
+/* line 403, ../sass/_node.scss */
 .links.node-links {
   margin: 30px 0 15px 15px;
 }
-/* line 404, ../sass/_node.scss */
+/* line 406, ../sass/_node.scss */
 .links.node-links .comment-add a {
   background-color: #e67e22;
   color: #FFFFFF;
@@ -3278,56 +3301,56 @@
   text-shadow: none;
 }
 
-/* line 415, ../sass/_node.scss */
+/* line 417, ../sass/_node.scss */
 #comments {
   background: url("../img/content-border.png") repeat-x top left;
   margin-top: 30px;
   padding-top: 30px;
 }
-/* line 419, ../sass/_node.scss */
+/* line 421, ../sass/_node.scss */
 #comments a {
   color: #000;
 }
-/* line 422, ../sass/_node.scss */
+/* line 424, ../sass/_node.scss */
 #comments h2 {
   padding: 0 15px 0 15px;
 }
-/* line 425, ../sass/_node.scss */
+/* line 427, ../sass/_node.scss */
 #comments .comment {
   background: url("../img/livsfortaelling_repeat.png");
   padding: 30px;
   margin-bottom: 15px;
 }
-/* line 429, ../sass/_node.scss */
+/* line 431, ../sass/_node.scss */
 #comments .comment h3 {
   margin-bottom: 0;
 }
-/* line 431, ../sass/_node.scss */
+/* line 433, ../sass/_node.scss */
 #comments .comment h3 a {
   font-size: 14px;
 }
-/* line 435, ../sass/_node.scss */
+/* line 437, ../sass/_node.scss */
 #comments .comment .comment-submitted {
   margin-bottom: 15px;
 }
-/* line 438, ../sass/_node.scss */
+/* line 440, ../sass/_node.scss */
 #comments .comment .comment-links {
   margin-top: 18px;
 }
 @media (max-width: 600px) {
-  /* line 438, ../sass/_node.scss */
+  /* line 440, ../sass/_node.scss */
   #comments .comment .comment-links {
     margin-top: 60px;
   }
 }
-/* line 444, ../sass/_node.scss */
+/* line 446, ../sass/_node.scss */
 #comments .comment .comment-links ul li {
   margin: 0 5px 0 0;
   padding: 0;
   float: left;
   margin-top: 5px;
 }
-/* line 449, ../sass/_node.scss */
+/* line 451, ../sass/_node.scss */
 #comments .comment .comment-links ul li a {
   padding: 8px 12px;
   background-color: #585253;
@@ -3340,12 +3363,12 @@
 
 /* Kropshemmeligheder */
 /* No content bg color on body secrets page */
-/* line 468, ../sass/_node.scss */
+/* line 470, ../sass/_node.scss */
 .context-hemmeligheder.node-type-simpel-side-med-view h2.node-title {
   display: none;
 }
 
-/* line 473, ../sass/_node.scss */
+/* line 475, ../sass/_node.scss */
 .node-body-secret .content {
   width: 260px;
   height: 150px;
@@ -3356,7 +3379,7 @@
   box-shadow: 5px 5px #aaaaaa;
   position: relative;
 }
-/* line 484, ../sass/_node.scss */
+/* line 486, ../sass/_node.scss */
 .node-body-secret .body_secret_icon {
   width: 60px;
   height: 60px;
@@ -3370,24 +3393,24 @@
   left: 50%;
   margin-left: -30px;
 }
-/* line 498, ../sass/_node.scss */
+/* line 500, ../sass/_node.scss */
 .node-body-secret .field-name-body {
   margin: 25px 0 5px 0;
 }
-/* line 502, ../sass/_node.scss */
+/* line 504, ../sass/_node.scss */
 .node-body-secret .bottom_info {
   color: #888888;
 }
-/* line 506, ../sass/_node.scss */
+/* line 508, ../sass/_node.scss */
 .node-body-secret .field-name-field-brevk-koen, .node-body-secret .field-name-field-brevk-alder {
   display: inline;
 }
-/* line 510, ../sass/_node.scss */
+/* line 512, ../sass/_node.scss */
 .node-body-secret .date {
   float: right;
   color: #888888;
 }
-/* line 515, ../sass/_node.scss */
+/* line 517, ../sass/_node.scss */
 .node-body-secret .btn {
   padding: 8px 10px !important;
   border-radius: 3px !important;

@@ -1,0 +1,141 @@
+/**
+ * OVERALL LAYOUT ELEMENTS
+ */
+.l-header {
+  border-bottom: 1px solid $grey-2;
+}
+.l-region--header {
+  height: 30px;
+  margin-right: $margin-std;
+  position: absolute;
+  vertical-align: top;
+  width: 40px;
+}
+
+.l-branding {
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  a.site-logo {
+    display: block;
+  }
+}
+
+.l-main--wrapper {
+  background-color: $bg-grey;
+  margin-bottom: 0;
+  padding-bottom: 6em;
+  background-image: image-url('bylinje.png');
+  background-repeat: repeat-x;
+  background-position: bottom;
+}
+
+.l-main {
+  margin: auto;
+}
+
+.l-content {
+  margin: auto;
+  max-width: $content-width;
+  background-color: $bg-white;
+  padding-top: $padding-std;
+  ul.breadcrumb {
+    border-bottom: 1px solid $grey-2;
+    margin-top: -1em;
+    padding: $padding-small;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    li {
+      display: inline;
+      &:not(:last-child):after {
+          color: $grey-2;
+          content:' > ';
+      }
+    }
+  }
+}
+
+.l-region--navigation {
+}
+
+.l-footer--wrapper {
+  background-color: $darkest-grey;
+}
+
+.l-footer {}
+
+.l-region--footer {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 2em 0;
+  a {
+    color: white;
+  }
+}
+
+/* Responsive  */
+@include breakpoint($tab, true) {
+  .l-header {
+    border: none;
+  }
+  .l-region--header {
+    left: auto;
+    top: auto;
+    right: auto;
+  }
+  .l-region--navigation  {
+    margin-top: 0;
+  }
+  .l-main--wrapper {
+    padding-top: $padding-std;
+  }
+  .l-content {
+    ul.breadcrumb {
+      background-color: $bg-grey;
+      border: none;
+      padding-top: 0;
+    }
+  }
+}
+
+/* Custom header styling */
+body.page-blogs h1,
+body.page-node-add h1 {
+  padding-top: $padding-smaller;
+}
+/* Search */
+body.page-search {
+  form.search-form,
+  section.search-results {
+    margin: $margin-std;
+    #edit-submit {
+      margin-top: $margin-std;
+    }
+  }
+  .l-content {
+    h2 {
+      @include headline-grey-bg();
+    }
+  }
+}
+/* buttons */
+.btn {
+  @include button-bg();
+}
+
+.btn-select {
+  @include form-select-btn();
+}
+
+input.form-submit {
+  @include button-bg-left();
+}
+.headline-grey-bg {
+  @include headline-grey-bg();
+}
+
+.author-timestamp {
+  @include font-metadata;
+}

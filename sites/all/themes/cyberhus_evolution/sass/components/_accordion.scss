@@ -1,0 +1,82 @@
+.ui-accordion.view-content {
+  /* Reset default views elements */
+  .views-row {
+    padding: 0;
+  }
+  .ui-accordion-header {
+    cursor: pointer;
+    position: relative;
+    margin-top: 1px;
+    zoom: 1;
+  }
+  .ui-accordion-li-fix {
+    display: inline;
+  }
+  .ui-accordion-header-active {
+    border-bottom: 0 !important;
+  }
+  .ui-accordion-header a {
+    display: block;
+    color: $blue;
+    font-family: $font-family-header;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-bold;
+    margin: $margin-small 0;
+    padding: 0;
+  }
+  /* IE7-/Win - Fix extra vertical space in lists */
+  a {
+    zoom: 1;
+  }
+  .ui-accordion-header .ui-icon {
+    position: absolute;
+    left: .5em;
+    top: 50%;
+    margin-top: -8px;
+  }
+  .ui-accordion-content {
+    padding: 0 $padding-std $padding-std $padding-std;
+    border-top: 0;
+    margin-top: -2px;
+    position: relative;
+    top: 1px;
+    margin-bottom: 2px;
+    overflow: auto;
+    display: none;
+    zoom: 1;
+  }
+  .ui-accordion-content-active {
+    display: block;
+  }
+}
+
+.ui-accordion-icons .ui-accordion-header a {
+  padding-left: 2.2em;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  background: $bg-white;
+  border: none;
+  color: $black;
+  font-weight: 400;
+}
+
+.ui-widget-content {
+    border: none;
+    background: none;
+    color: $black;
+}
+
+.ui-icon-triangle-1-s {
+  background-position: -64px 0;
+}
+
+.ui-icon-triangle-1-e {
+    background-position: -32px 0;
+}
+
+.ui-widget-content a {
+    color: $blue;
+}

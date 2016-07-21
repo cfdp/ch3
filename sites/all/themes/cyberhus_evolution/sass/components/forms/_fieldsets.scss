@@ -1,0 +1,17 @@
+/**
+ * $FIELDSETS
+ */
+.form-wrapper {
+  margin-bottom: $margin-std;
+}
+
+
+.fieldset-description {
+  margin-bottom: $margin-std / 2;
+  color: $grey;
+  font-style: italic;
+}
+
+.vertical-tabs fieldset.vertical-tabs-pane {
+  padding: $padding-std;
+}

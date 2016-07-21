@@ -1,0 +1,396 @@
+<?php
+function hemmeligheder_oversigter() {
+
+$view = new view();
+$view->name = 'hemmeligheder_oversigter';
+$view->description = 'Oversigter over billeder';
+$view->tag = 'oversigter';
+$view->base_table = 'node';
+$view->human_name = 'Hemmeligheder oversigter';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['title'] = 'Seneste billeder';
+$handler->display->display_options['css_class'] = 'cyberhus-oversigt';
+$handler->display->display_options['use_ajax'] = TRUE;
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['use_more_text'] = 'mere';
+$handler->display->display_options['access']['type'] = 'perm';
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+$handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+$handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+$handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+$handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+$handler->display->display_options['pager']['type'] = 'load_more';
+$handler->display->display_options['pager']['options']['items_per_page'] = '10';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['pager']['options']['id'] = '0';
+$handler->display->display_options['pager']['options']['quantity'] = '9';
+$handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+$handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+$handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+$handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+$handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+$handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+$handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+$handler->display->display_options['pager']['options']['more_button_text'] = 'Vis mere';
+$handler->display->display_options['pager']['options']['effects']['type'] = 'fade';
+$handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['row_plugin'] = 'fields';
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['content'] = '<h1>[value]</h1>
+<div class="content-list-header">
+[value_2]
+</div>
+<div class="views-field-picture">[picture]</div>
+<h3>Seneste indlæg</h3>
+';
+$handler->display->display_options['header']['area']['format'] = 'admin_html';
+$handler->display->display_options['header']['area']['tokenize'] = TRUE;
+/* Forbindelse: Indhold: Forfatter */
+$handler->display->display_options['relationships']['uid']['id'] = 'uid';
+$handler->display->display_options['relationships']['uid']['table'] = 'node';
+$handler->display->display_options['relationships']['uid']['field'] = 'uid';
+/* Forbindelse: Indhold: Vote results */
+$handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
+$handler->display->display_options['relationships']['votingapi_cache']['table'] = 'node';
+$handler->display->display_options['relationships']['votingapi_cache']['field'] = 'votingapi_cache';
+$handler->display->display_options['relationships']['votingapi_cache']['label'] = 'Afstemningsresultater';
+$handler->display->display_options['relationships']['votingapi_cache']['votingapi'] = array(
+  'value_type' => 'points',
+  'tag' => 'vote',
+  'function' => 'sum',
+);
+/* Felt: Indhold: Titel */
+$handler->display->display_options['fields']['title']['id'] = 'title';
+$handler->display->display_options['fields']['title']['table'] = 'node';
+$handler->display->display_options['fields']['title']['field'] = 'title';
+$handler->display->display_options['fields']['title']['label'] = '';
+$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+$handler->display->display_options['fields']['title']['element_type'] = 'h2';
+$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+/* Felt: Indhold: Kommentarantal */
+$handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
+$handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
+$handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
+$handler->display->display_options['fields']['comment_count']['label'] = '';
+$handler->display->display_options['fields']['comment_count']['exclude'] = TRUE;
+$handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['comment_count']['suffix'] = ' Kommentare(r)';
+/* Felt: Indhold: Oprettelsesdato */
+$handler->display->display_options['fields']['created']['id'] = 'created';
+$handler->display->display_options['fields']['created']['table'] = 'node';
+$handler->display->display_options['fields']['created']['field'] = 'created';
+$handler->display->display_options['fields']['created']['label'] = '';
+$handler->display->display_options['fields']['created']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['created']['alter']['text'] = '[created] | [comment_count]';
+$handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['created']['date_format'] = 'field_deadline_default';
+/* Felt: Indhold: Body */
+$handler->display->display_options['fields']['body']['id'] = 'body';
+$handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+$handler->display->display_options['fields']['body']['field'] = 'body';
+$handler->display->display_options['fields']['body']['label'] = '';
+$handler->display->display_options['fields']['body']['alter']['max_length'] = '100';
+$handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+$handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['body']['type'] = 'text_plain';
+/* Felt: Profil: Profil: Blog navn */
+$handler->display->display_options['fields']['value']['id'] = 'value';
+$handler->display->display_options['fields']['value']['table'] = 'profile_value_profile_blogname';
+$handler->display->display_options['fields']['value']['field'] = 'value';
+$handler->display->display_options['fields']['value']['relationship'] = 'uid';
+$handler->display->display_options['fields']['value']['label'] = '';
+$handler->display->display_options['fields']['value']['exclude'] = TRUE;
+$handler->display->display_options['fields']['value']['element_type'] = 'h2';
+$handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['value']['empty'] = 'Blognavn ikke angivet';
+$handler->display->display_options['fields']['value']['link_to_user'] = FALSE;
+/* Sorteringskriterie: Indhold: Oprettelsesdato */
+$handler->display->display_options['sorts']['created']['id'] = 'created';
+$handler->display->display_options['sorts']['created']['table'] = 'node';
+$handler->display->display_options['sorts']['created']['field'] = 'created';
+$handler->display->display_options['sorts']['created']['order'] = 'DESC';
+/* Kontekstuelt filter: Bruger: Uid */
+$handler->display->display_options['arguments']['uid']['id'] = 'uid';
+$handler->display->display_options['arguments']['uid']['table'] = 'users';
+$handler->display->display_options['arguments']['uid']['field'] = 'uid';
+$handler->display->display_options['arguments']['uid']['relationship'] = 'uid';
+$handler->display->display_options['arguments']['uid']['exception']['title'] = 'Alle';
+$handler->display->display_options['arguments']['uid']['default_argument_type'] = 'fixed';
+$handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+/* Filterkriterie: Indhold: Udgivet */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filterkriterie: Indhold: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'body_secret' => 'body_secret',
+);
+
+/* Display: Seneste hemmeligheder */
+$handler = $view->new_display('page', 'Seneste hemmeligheder', 'page_1');
+$handler->display->display_options['defaults']['title'] = FALSE;
+$handler->display->display_options['title'] = 'Hemmeligheder';
+$handler->display->display_options['display_description'] = 'Oversigt over de seneste hemmeligheder';
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['content'] = '<div class="content-list-header"><p>Vi er allesammen bare mennesker - her kan du dele din hemmelighed med maks 150 tegn og se hvad andre fortæller fra deres liv. Hvis du gerne vil have svar, skal du i stedet skrive til <a href="/brevkasse" title="Brevkassen">Brevkassen</a>, vores <a href="/forum" title="Forum">Forum</a> eller <a href="/chat" title="Chatten">Chatten</a>. Du kan også læse vores <a href="/artikler" title="artikler">Artikler</a>.</p></div>
+<a class="btn" href="/hemmeligheder">Del hemmelighed</a></p>
+<h3>Seneste hemmeligheder</h3>
+';
+$handler->display->display_options['header']['area']['format'] = 'admin_html';
+$handler->display->display_options['header']['area']['tokenize'] = TRUE;
+$handler->display->display_options['defaults']['relationships'] = FALSE;
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Felt: Indhold: Oprettelsesdato */
+$handler->display->display_options['fields']['created']['id'] = 'created';
+$handler->display->display_options['fields']['created']['table'] = 'node';
+$handler->display->display_options['fields']['created']['field'] = 'created';
+$handler->display->display_options['fields']['created']['label'] = '';
+$handler->display->display_options['fields']['created']['exclude'] = TRUE;
+$handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['created']['date_format'] = 'raw time ago';
+$handler->display->display_options['fields']['created']['custom_date_format'] = '1';
+$handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+/* Felt: Author timestamp */
+$handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['table'] = 'views';
+$handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['ui_name'] = 'Author timestamp';
+$handler->display->display_options['fields']['nothing']['label'] = '';
+$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="author-timestamp">Hemmelighed • [created] siden</div>';
+$handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+/* Felt: Indhold: Titel */
+$handler->display->display_options['fields']['title']['id'] = 'title';
+$handler->display->display_options['fields']['title']['table'] = 'node';
+$handler->display->display_options['fields']['title']['field'] = 'title';
+$handler->display->display_options['fields']['title']['label'] = '';
+$handler->display->display_options['fields']['title']['alter']['max_length'] = '15';
+$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
+$handler->display->display_options['fields']['title']['element_type'] = 'h2';
+$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+/* Felt: Indhold: Body */
+$handler->display->display_options['fields']['body']['id'] = 'body';
+$handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+$handler->display->display_options['fields']['body']['field'] = 'body';
+$handler->display->display_options['fields']['body']['label'] = '';
+$handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = TRUE;
+$handler->display->display_options['fields']['body']['alter']['max_length'] = '400';
+$handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
+$handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+$handler->display->display_options['fields']['body']['alter']['preserve_tags'] = '<p><br>';
+$handler->display->display_options['fields']['body']['alter']['html'] = TRUE;
+$handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+$handler->display->display_options['path'] = 'hemmeligheder/alle';
+
+/* Display: Bilag, seneste hemmeligheder */
+$handler = $view->new_display('attachment', 'Bilag, seneste hemmeligheder', 'attachment_1');
+$handler->display->display_options['defaults']['title'] = FALSE;
+$handler->display->display_options['title'] = 'Seneste indlæg ';
+$handler->display->display_options['defaults']['css_class'] = FALSE;
+$handler->display->display_options['css_class'] = 'mini-list';
+$handler->display->display_options['display_description'] = 'Her vises en håndfuld af de seneste indlæg';
+$handler->display->display_options['pager']['type'] = 'some';
+$handler->display->display_options['pager']['options']['items_per_page'] = '3';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['content'] = '<h3>Seneste billeder</h3>';
+$handler->display->display_options['header']['area']['format'] = '2';
+$handler->display->display_options['defaults']['footer'] = FALSE;
+/* Sidefod: Global: Tekstområde */
+$handler->display->display_options['footer']['area']['id'] = 'area';
+$handler->display->display_options['footer']['area']['table'] = 'views';
+$handler->display->display_options['footer']['area']['field'] = 'area';
+$handler->display->display_options['footer']['area']['content'] = '<a href="/billeder" class="btn-light">Se alle billeder</a>';
+$handler->display->display_options['footer']['area']['format'] = '1';
+$handler->display->display_options['defaults']['relationships'] = FALSE;
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Felt: Indhold: Titel */
+$handler->display->display_options['fields']['title']['id'] = 'title';
+$handler->display->display_options['fields']['title']['table'] = 'node';
+$handler->display->display_options['fields']['title']['field'] = 'title';
+$handler->display->display_options['fields']['title']['label'] = '';
+$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filterkriterie: Indhold: Udgivet */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filterkriterie: Indhold: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'body_secret' => 'body_secret',
+);
+/* Filterkriterie: Felt: Kategori (field_secrets_category) */
+$handler->display->display_options['filters']['field_secrets_category_tid']['id'] = 'field_secrets_category_tid';
+$handler->display->display_options['filters']['field_secrets_category_tid']['table'] = 'field_data_field_secrets_category';
+$handler->display->display_options['filters']['field_secrets_category_tid']['field'] = 'field_secrets_category_tid';
+$handler->display->display_options['filters']['field_secrets_category_tid']['value'] = array(
+  2327 => '2327',
+);
+$handler->display->display_options['filters']['field_secrets_category_tid']['type'] = 'select';
+$handler->display->display_options['filters']['field_secrets_category_tid']['vocabulary'] = 'hemmeligheder';
+
+/* Display: Blok, Ordet er dit */
+$handler = $view->new_display('block', 'Blok, Ordet er dit', 'block_1');
+$handler->display->display_options['defaults']['title'] = FALSE;
+$handler->display->display_options['title'] = 'Seneste indlæg i Ordet er dit';
+$handler->display->display_options['display_description'] = 'Blok, Seneste indlæg i Ordet er dit';
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['content'] = '<div class="btn-wrapper"><div class="opret_btn virkelighed"><span class="secrets-icon"></span><p>Med en virkelighed giver du andre et hurtigt indblik i dit liv.</p><a class="btn" href="/hemmeligheder?edit[field_secrets_category][und][2327]=Ordet-er-dit&edit[field_secrets_category][und][2329]=Virkelighed">Del din virkelighed!</a></div>
+<div class="opret_btn lifehack"><span class="secrets-icon"></span><p>Et lifehack er et godt råd eller et tip som andre kan bruge</p><a class="btn" href="/hemmeligheder?edit[field_secrets_category][und][2327]=Ordet-er-dit&edit[field_secrets_category][und][2328]=Lifehack">Del dit lifehack!</a></div></div>
+<h3>Seneste indlæg</h3>
+';
+$handler->display->display_options['header']['area']['format'] = 'admin_html';
+$handler->display->display_options['header']['area']['tokenize'] = TRUE;
+$handler->display->display_options['defaults']['relationships'] = FALSE;
+/* Forbindelse: Indhold: Forfatter */
+$handler->display->display_options['relationships']['uid']['id'] = 'uid';
+$handler->display->display_options['relationships']['uid']['table'] = 'node';
+$handler->display->display_options['relationships']['uid']['field'] = 'uid';
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Felt: Indhold: Titel */
+$handler->display->display_options['fields']['title']['id'] = 'title';
+$handler->display->display_options['fields']['title']['table'] = 'node';
+$handler->display->display_options['fields']['title']['field'] = 'title';
+$handler->display->display_options['fields']['title']['label'] = '';
+$handler->display->display_options['fields']['title']['alter']['max_length'] = '20';
+$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
+$handler->display->display_options['fields']['title']['element_type'] = 'h2';
+$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+/* Felt: Indhold: Body */
+$handler->display->display_options['fields']['body']['id'] = 'body';
+$handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+$handler->display->display_options['fields']['body']['field'] = 'body';
+$handler->display->display_options['fields']['body']['label'] = '';
+$handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filterkriterie: Indhold: Udgivet */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filterkriterie: Indhold: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'body_secret' => 'body_secret',
+);
+$handler->display->display_options['filters']['type']['group'] = 1;
+/* Filterkriterie: Felt: Kategori (field_secrets_category) */
+$handler->display->display_options['filters']['field_secrets_category_tid']['id'] = 'field_secrets_category_tid';
+$handler->display->display_options['filters']['field_secrets_category_tid']['table'] = 'field_data_field_secrets_category';
+$handler->display->display_options['filters']['field_secrets_category_tid']['field'] = 'field_secrets_category_tid';
+$handler->display->display_options['filters']['field_secrets_category_tid']['value'] = array(
+  2327 => '2327',
+);
+$handler->display->display_options['filters']['field_secrets_category_tid']['type'] = 'select';
+$handler->display->display_options['filters']['field_secrets_category_tid']['vocabulary'] = 'hemmeligheder';
+$translatables['hemmeligheder_oversigter'] = array(
+  t('Master'),
+  t('Seneste billeder'),
+  t('mere'),
+  t('Udfør'),
+  t('Gendan'),
+  t('Sortér efter'),
+  t('Stigende'),
+  t('Faldende'),
+  t('Antal elementer'),
+  t('- Alle -'),
+  t('Forskydning'),
+  t('« første'),
+  t('‹ forrige'),
+  t('næste ›'),
+  t('sidste »'),
+  t('Vis mere'),
+  t('<h1>[value]</h1>
+<div class="content-list-header">
+[value_2]
+</div>
+<div class="views-field-picture">[picture]</div>
+<h3>Seneste indlæg</h3>
+'),
+  t('forfatter'),
+  t('Afstemningsresultater'),
+  t('.'),
+  t(','),
+  t(' Kommentare(r)'),
+  t('[created] | [comment_count]'),
+  t('Blognavn ikke angivet'),
+  t('Alle'),
+  t('Seneste hemmeligheder'),
+  t('Hemmeligheder'),
+  t('Oversigt over de seneste hemmeligheder'),
+  t('<div class="content-list-header"><p>Vi er allesammen bare mennesker - her kan du dele din hemmelighed med maks 150 tegn og se hvad andre fortæller fra deres liv. Hvis du gerne vil have svar, skal du i stedet skrive til <a href="/brevkasse" title="Brevkassen">Brevkassen</a>, vores <a href="/forum" title="Forum">Forum</a> eller <a href="/chat" title="Chatten">Chatten</a>. Du kan også læse vores <a href="/artikler" title="artikler">Artikler</a>.</p></div>
+<a class="btn" href="/hemmeligheder">Del hemmelighed</a></p>
+<h3>Seneste hemmeligheder</h3>
+'),
+  t('<div class="author-timestamp">Hemmelighed • [created] siden</div>'),
+  t('Bilag, seneste hemmeligheder'),
+  t('Seneste indlæg '),
+  t('Her vises en håndfuld af de seneste indlæg'),
+  t('<h3>Seneste billeder</h3>'),
+  t('<a href="/billeder" class="btn-light">Se alle billeder</a>'),
+  t('Blok, Ordet er dit'),
+  t('Seneste indlæg i Ordet er dit'),
+  t('Blok, Seneste indlæg i Ordet er dit'),
+  t('<div class="btn-wrapper"><div class="opret_btn virkelighed"><span class="secrets-icon"></span><p>Med en virkelighed giver du andre et hurtigt indblik i dit liv.</p><a class="btn" href="/hemmeligheder?edit[field_secrets_category][und][2327]=Ordet-er-dit&edit[field_secrets_category][und][2329]=Virkelighed">Del din virkelighed!</a></div>
+<div class="opret_btn lifehack"><span class="secrets-icon"></span><p>Et lifehack er et godt råd eller et tip som andre kan bruge</p><a class="btn" href="/hemmeligheder?edit[field_secrets_category][und][2327]=Ordet-er-dit&edit[field_secrets_category][und][2328]=Lifehack">Del dit lifehack!</a></div></div>
+<h3>Seneste indlæg</h3>
+'),
+);
+
+
+  return $view;
+
+}

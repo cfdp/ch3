@@ -1,0 +1,55 @@
+/* General node stuff */
+body.page-node {
+  article h1 {
+    margin: .3em 0 0 0;
+    padding:0;
+  }
+  article {
+    &.node {
+      padding: $padding-std;
+    }
+    .view-author-timestamp-eva-field-nodes .view-content > .views-row {
+      margin: 0;
+      padding: 0;
+    }
+    &.node--simpel-side-med-view {
+      padding: 0;
+      h1 {
+        padding: 0 $padding-std;
+      }
+      .field--name-field-billede,
+      .field--name-body {
+        padding: $padding-std;
+      }
+    }
+    .field--type-viewreference {
+      .ui-accordion {
+        padding-top: $padding-small;
+      }
+    }
+    /* Comment related */
+    li.comment-add a {
+      @include button-bg();
+    }
+  }
+
+  /* Subscribe - Node notify */
+  ul.links {
+    li.subscribe {
+      @include button-bg($blue, $white);
+    }
+  }
+
+  /* Brevkasse */
+  .field--name-field-brevk-svar .field__label {
+    @include headline-orange();
+  }
+
+  /* Blog */
+  &.node-type-blog {
+    li.blog_usernames_blog {
+      display: none;
+    }
+  }
+
+}

@@ -30,6 +30,12 @@
       <div id="jquery_ajax_load_target"></div>
     <?php endif; ?>
 
-    <?php print render($content['comments']); ?>
+    <?php
+      // Print views "load more" comments block
+      $blockObject = block_load('views', 'comments-block_1');
+      $block = _block_get_renderable_array(_block_render_blocks(array($blockObject)));
+      $output = drupal_render($block);
+      print $output;
+    ?>
   </div>
 </article>

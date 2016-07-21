@@ -1,0 +1,60 @@
+/**
+ * $SEARCH-FORM
+ */
+.search-block-form {
+  .form-text {
+    width: auto;
+    padding: 0.4em;
+  }
+}
+
+.custom-search-blocks-form-1 {
+  #edit-custom-search-blocks-form-1--2 {
+    background-image:image-url('icons/svg/search.svg');
+    background-repeat:no-repeat;
+    background-position:7px center;
+    height: 20px;
+    max-width: 50px;
+    padding-left: 35px;
+  }
+  .form-submit { // hide submit btn
+    display: none;
+  }
+  .form-item .form-text {
+    border: 0px;
+    width: auto;
+  }
+  input[type="text"] {
+    @include input-placeholder {
+      color: transparent;
+      font-family: $font-family-std;
+      font-size: $font-size-medium;
+    }
+    /* Hide the placeholder text on mobile */
+    ::-webkit-input-placeholder { color:transparent; }
+    :-moz-placeholder { color:transparent; } /* FF 4-18 */
+    ::-moz-placeholder { color:transparent; } /* FF 19+ */
+    :-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+    /* Responsive - show placeholder on tab and above */
+    @include breakpoint($tab, true){
+      @include input-placeholder {
+        color: $blue;
+      }
+      /* Hide the placeholder text on focus */
+      &:focus::-webkit-input-placeholder { color:transparent; }
+      &:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+      &:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+      &:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+    }
+  }
+
+  /* Responsive  */
+  @include breakpoint($tab, true) {
+    #edit-custom-search-blocks-form-1--2 {
+      max-width: 100px;
+    }
+  }
+}
+
+

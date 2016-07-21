@@ -1,0 +1,111 @@
+@import "breakpoint";
+
+/* Center DK-map */
+
+#ungi-cities #ungi-map,
+#ungi-city #ungi-map {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+#ungi-intro {
+  padding: $padding-std;
+}
+
+#ungi-cities {
+  background-color: $bg-grey;
+  h3 {
+    @include headline-grey-bg();
+  }
+  .ungi-city {
+    background-color: $bg-white;
+    margin: 0 0 $margin-std 0;
+    padding: $padding-std;
+  }
+  .ungi-half {
+    max-width: 100%;
+    .btn {
+      display: none; // Hide btn in mobile view
+      margin: 0 0 $margin-std 0;
+    }
+  }
+  iframe {
+    margin: 0;
+  }
+  .chat-label {
+    color: $grey;
+    font-family: $font-family-header;
+    font-weight: $font-weight-bold;
+    float: left;
+    padding-top: 10px;
+    margin-right: $margin-std;
+  }
+  .chat-desc {
+    margin: $margin-small 0;
+  }
+  .ungi-chat-wrapper {
+    display: inline-block;
+    float: left;
+  }
+}
+
+#page.ungi-city {
+  h1 {
+    display: none;
+  }
+  .ungi-desc {
+    @include italic-description();
+  }
+  .block {
+    margin: 0;
+  }
+  #ungi-city {
+    padding: $padding-std;
+  }
+  & > h3 {
+    @include headline-grey-bg();
+  }
+}
+
+
+/* Responsive styles */
+
+#ungi-city {
+  #ungi-desc h2,
+  #ungi-map {
+    display: none;
+  }
+}
+
+body.page-ung-i {
+  h1 {
+    margin: 16px 16px 0;
+  }
+}
+@include breakpoint($tab, true) {
+  body.page-ung-i {
+    h1 {
+      display: none;
+    }
+  }
+  #ungi-cities {
+    .ungi-half {
+      a.btn {
+        display: inline-block; // Show button
+      }
+    }
+    .ungi-chat-wrapper {
+      float: right;
+    }
+  }
+  #ungi-city {
+    #ungi-desc h2 {
+      display: block;
+      background: white url("/sites/all/modules/custom/ungi/images/citysign.png") no-repeat scroll center bottom;
+    }
+    #ungi-map {
+      display: block;
+    }
+  }
+}

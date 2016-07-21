@@ -316,8 +316,10 @@
 }
 
 /* Cyberlike */
-.field.field-name-field-blog-cyberlike, .field.field-name-field-kommentar-cyberlike, .field.field-name-field-cyberlike {
-  float: right;
+.field.field-name-field-blog-cyberlike,
+.field.field-name-field-kommentar-cyberlike,
+.field.field-name-field-cyberlike,
+.views-field-field-kommentar-cyberlike{
   .vud-widget {
     float: none;
     width: 100%;
@@ -325,12 +327,12 @@
     margin: 0;
     .cyberlike-votes-display {
       border: none;
+      display: inline-block;
       font-family: $std-font-family;
       width: 26px;
       font-weight: $font_weight_brodtekst;
       font-size: 13px;
       text-align: right;
-      float: right;
       font-style: italic;
     }
     .cyberlike-votes-display:after {
@@ -341,8 +343,8 @@
       height: 24px;
       background: url("../img/heart_cleaned.svg");
       background-repeat: no-repeat;
-      display: block;
-      float: right;
+      display: inline-block;
+      float: left;
       .up-inactive {
         display: none;
       }
