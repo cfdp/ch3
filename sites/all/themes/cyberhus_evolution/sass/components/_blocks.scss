@@ -91,9 +91,6 @@ $icon-color-highlight-top: #000;
 }
 #block-menu-menu-andet,
 #block-menu-menu-top-menu {
-  ul.menu {
-    display: block;
-  }
   li {
     cursor: pointer; // Link is added via javascript
     display: inline-block;
@@ -240,6 +237,9 @@ $icon-color-highlight-top: #000;
 @include breakpoint($desk, true) {
   #block-menu-menu-andet,
   #block-menu-menu-top-menu {
+    ul.menu {
+      display: block;
+    }
     li {
       cursor: pointer; // Link is added via javascript
       display: inline-block;

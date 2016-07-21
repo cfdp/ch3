@@ -78,6 +78,11 @@
   }
 }
 
+body.page-ung-i {
+  h1 {
+    margin: 16px 16px 0;
+  }
+}
 @include breakpoint($tab, true) {
   body.page-ung-i {
     h1 {
