@@ -4,7 +4,7 @@ function blogs_oversigter() {
 $view = new view();
 $view->name = 'blogs_oversigter';
 $view->description = 'Oversigt over individuelle blogs og de seneste blogindlæg';
-$view->tag = 'default';
+$view->tag = 'oversigter';
 $view->base_table = 'node';
 $view->human_name = 'Blogs oversigter';
 $view->core = 7;
@@ -187,7 +187,7 @@ $handler->display->display_options['fields']['title']['alter']['word_boundary'] 
 $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
 $handler->display->display_options['fields']['title']['element_type'] = 'h2';
 $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-/* Felt: Indhold: Billede */
+/* Felt: Felt: Billede */
 $handler->display->display_options['fields']['field_billede']['id'] = 'field_billede';
 $handler->display->display_options['fields']['field_billede']['table'] = 'field_data_field_billede';
 $handler->display->display_options['fields']['field_billede']['field'] = 'field_billede';
@@ -195,8 +195,8 @@ $handler->display->display_options['fields']['field_billede']['label'] = '';
 $handler->display->display_options['fields']['field_billede']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_billede']['click_sort_column'] = 'fid';
 $handler->display->display_options['fields']['field_billede']['settings'] = array(
-  'image_style' => '',
-  'image_link' => '',
+  'image_style' => 'full_width_no_crop__554px_',
+  'image_link' => 'content',
 );
 /* Felt: Indhold: Body */
 $handler->display->display_options['fields']['body']['id'] = 'body';
@@ -268,7 +268,7 @@ $handler->display->display_options['defaults']['header'] = FALSE;
 $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['content'] = '<p class="content-list-header">Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. </p><a class="btn" title="Cyberhus\' bloggere" href="/blogs">Se alle bloggere</a>
+$handler->display->display_options['header']['area']['content'] = '<p class="content-list-header">Her kan du læse de nyeste blogindlæg fra alle bloggerne. </p><a class="btn" title="Cyberhus\' bloggere" href="/blogs">Se alle bloggere</a>
 <h3>Seneste blogindlæg</h3>
 ';
 $handler->display->display_options['header']['area']['format'] = '2';
@@ -338,7 +338,7 @@ $handler->display->display_options['fields']['title']['alter']['word_boundary'] 
 $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
 $handler->display->display_options['fields']['title']['element_type'] = 'h2';
 $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-/* Felt: Indhold: Billede */
+/* Felt: Felt: Billede */
 $handler->display->display_options['fields']['field_billede']['id'] = 'field_billede';
 $handler->display->display_options['fields']['field_billede']['table'] = 'field_data_field_billede';
 $handler->display->display_options['fields']['field_billede']['field'] = 'field_billede';
@@ -347,7 +347,7 @@ $handler->display->display_options['fields']['field_billede']['element_label_col
 $handler->display->display_options['fields']['field_billede']['click_sort_column'] = 'fid';
 $handler->display->display_options['fields']['field_billede']['settings'] = array(
   'image_style' => '',
-  'image_link' => '',
+  'image_link' => 'content',
 );
 /* Felt: Bruger: Billede */
 $handler->display->display_options['fields']['picture']['id'] = 'picture';
@@ -462,7 +462,7 @@ $translatables['blogs_oversigter'] = array(
   t('<span title="Dette indlæg har fået [value_1] likes" class="cyberlikes">[value_1]</span>'),
   t('Oversigt over de seneste blogindlæg'),
   t('Blogs'),
-  t('<p class="content-list-header">Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. Her følger en dejlig introtekst. </p><a class="btn" title="Cyberhus\' bloggere" href="/blogs">Se alle bloggere</a>
+  t('<p class="content-list-header">Her kan du læse de nyeste blogindlæg fra alle bloggerne. </p><a class="btn" title="Cyberhus\' bloggere" href="/blogs">Se alle bloggere</a>
 <h3>Seneste blogindlæg</h3>
 '),
   t('<div class="author-timestamp">Indlæg på [value] • [created] siden</div>'),
@@ -471,7 +471,6 @@ $translatables['blogs_oversigter'] = array(
   t('<h3>Seneste indlæg</h3>'),
   t('<a href="/blogs/alle" class="btn-light">Se alle indlæg</a>'),
 );
-
 
   return $view;
 

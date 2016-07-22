@@ -44,7 +44,7 @@ $handler->display->display_options['fields']['tid']['label'] = '';
 $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
 $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['tid']['separator'] = '';
-/* Felt: Ord i ordforråd: tag shorthand */
+/* Felt: Ord i ordforråd: Tag shorthand */
 $handler->display->display_options['fields']['field_tag_shorthand']['id'] = 'field_tag_shorthand';
 $handler->display->display_options['fields']['field_tag_shorthand']['table'] = 'field_data_field_tag_shorthand';
 $handler->display->display_options['fields']['field_tag_shorthand']['field'] = 'field_tag_shorthand';
@@ -101,7 +101,6 @@ $handler->display->display_options['filters']['field_taxonomy_brevk_status_value
 $handler->display->display_options['filters']['field_taxonomy_brevk_status_value']['field'] = 'field_taxonomy_brevk_status_value';
 $handler->display->display_options['filters']['field_taxonomy_brevk_status_value']['operator'] = 'not';
 $handler->display->display_options['filters']['field_taxonomy_brevk_status_value']['value'] = array(
-  'temp_closed' => 'temp_closed',
   'archived' => 'archived',
 );
 $translatables['cyberhus_forum_term_list'] = array(

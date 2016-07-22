@@ -16,8 +16,6 @@ function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
             }
           }
       }
-      // Change submit text
-      $form['actions']['submit']['#value'] = 'Send';
 
       // Brevkasse title validation, alowed charaters (a to z, 0 to 9, ?, !, ., ,, -,)
       $form['#validate'][] = 'cfdp_uf_brevkasse_title_form_validate';
@@ -45,6 +43,10 @@ function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
         $form['field_brevk_kategori']['und']['#options'][$term->entity_id] = $term->field_brev_tax_label_value;
       }*/
     break;
+  }
+  // Change submit text to "Send" on all node forms
+  if ((isset($form['#node_edit_form']) && $form['#node_edit_form'])) {
+    $form['actions']['submit']['#value'] = 'Send';
   }
 }
 
