@@ -50,6 +50,12 @@ function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
   }
 }
 
+function cfdp_uf_form_comment_form_alter(&$form, &$form_state) {
+  if (isset($form['actions']['submit'])) {
+    $form['actions']['submit']['#value'] = t('Send');
+  }
+}
+
 /*
 *  Set custom status message
 *
@@ -155,6 +161,7 @@ function cfdp_uf_views_api() {
   );
 }
 
+/* Helper function for front page View - used for displaying the right svg img */
 function cfdp_uf_front_page_svg($content_type) {
   $svg = 'forum'; // default;
   switch ($content_type) {
