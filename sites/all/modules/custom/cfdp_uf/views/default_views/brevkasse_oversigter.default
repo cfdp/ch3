@@ -81,13 +81,29 @@ $handler->display->display_options['relationships']['term_node_tid']['vocabulari
   'vocabulary_10' => 0,
   'vocabulary_11' => 0,
 );
+/* Felt: Indhold: Alder */
+$handler->display->display_options['fields']['field_brevk_alder']['id'] = 'field_brevk_alder';
+$handler->display->display_options['fields']['field_brevk_alder']['table'] = 'field_data_field_brevk_alder';
+$handler->display->display_options['fields']['field_brevk_alder']['field'] = 'field_brevk_alder';
+$handler->display->display_options['fields']['field_brevk_alder']['label'] = '';
+$handler->display->display_options['fields']['field_brevk_alder']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_brevk_alder']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_brevk_alder']['type'] = 'taxonomy_term_reference_plain';
+/* Felt: Indhold: Køn */
+$handler->display->display_options['fields']['field_brevk_koen']['id'] = 'field_brevk_koen';
+$handler->display->display_options['fields']['field_brevk_koen']['table'] = 'field_data_field_brevk_koen';
+$handler->display->display_options['fields']['field_brevk_koen']['field'] = 'field_brevk_koen';
+$handler->display->display_options['fields']['field_brevk_koen']['label'] = '';
+$handler->display->display_options['fields']['field_brevk_koen']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_brevk_koen']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_brevk_koen']['type'] = 'taxonomy_term_reference_plain';
 /* Felt: Indhold: Oprettelsesdato */
 $handler->display->display_options['fields']['created']['id'] = 'created';
 $handler->display->display_options['fields']['created']['table'] = 'node';
 $handler->display->display_options['fields']['created']['field'] = 'created';
 $handler->display->display_options['fields']['created']['label'] = '';
 $handler->display->display_options['fields']['created']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['created']['alter']['text'] = '<div class="author-timestamp">Spørgsmål af Anonym • [created] siden</div>';
+$handler->display->display_options['fields']['created']['alter']['text'] = '<div class="author-timestamp">Spørgsmål af [field_brevk_koen] [field_brevk_alder] • [created] siden</div>';
 $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['created']['date_format'] = 'raw time ago';
 $handler->display->display_options['fields']['created']['custom_date_format'] = '1';
@@ -195,13 +211,29 @@ $handler->display->display_options['relationships']['term_node_tid']['vocabulari
   'vocabulary_11' => 0,
 );
 $handler->display->display_options['defaults']['fields'] = FALSE;
+/* Felt: Indhold: Alder */
+$handler->display->display_options['fields']['field_brevk_alder']['id'] = 'field_brevk_alder';
+$handler->display->display_options['fields']['field_brevk_alder']['table'] = 'field_data_field_brevk_alder';
+$handler->display->display_options['fields']['field_brevk_alder']['field'] = 'field_brevk_alder';
+$handler->display->display_options['fields']['field_brevk_alder']['label'] = '';
+$handler->display->display_options['fields']['field_brevk_alder']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_brevk_alder']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_brevk_alder']['type'] = 'taxonomy_term_reference_plain';
+/* Felt: Indhold: Køn */
+$handler->display->display_options['fields']['field_brevk_koen']['id'] = 'field_brevk_koen';
+$handler->display->display_options['fields']['field_brevk_koen']['table'] = 'field_data_field_brevk_koen';
+$handler->display->display_options['fields']['field_brevk_koen']['field'] = 'field_brevk_koen';
+$handler->display->display_options['fields']['field_brevk_koen']['label'] = '';
+$handler->display->display_options['fields']['field_brevk_koen']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_brevk_koen']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_brevk_koen']['type'] = 'taxonomy_term_reference_plain';
 /* Felt: Indhold: Oprettelsesdato */
 $handler->display->display_options['fields']['created']['id'] = 'created';
 $handler->display->display_options['fields']['created']['table'] = 'node';
 $handler->display->display_options['fields']['created']['field'] = 'created';
 $handler->display->display_options['fields']['created']['label'] = '';
 $handler->display->display_options['fields']['created']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['created']['alter']['text'] = '<div class="author-timestamp">Spørgsmål af Anonym • [created] siden</div>';
+$handler->display->display_options['fields']['created']['alter']['text'] = '<div class="author-timestamp">Spørgsmål af [field_brevk_koen] [field_brevk_alder] • [created] siden</div>';
 $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['created']['date_format'] = 'raw time ago';
 $handler->display->display_options['fields']['created']['custom_date_format'] = '1';
@@ -259,6 +291,7 @@ $handler->display->display_options['arguments']['tid']['default_action'] = 'not 
 $handler->display->display_options['arguments']['tid']['exception']['title'] = 'Alle';
 $handler->display->display_options['arguments']['tid']['title_enable'] = TRUE;
 $handler->display->display_options['arguments']['tid']['title'] = '%1';
+$handler->display->display_options['arguments']['tid']['breadcrumb_enable'] = TRUE;
 $handler->display->display_options['arguments']['tid']['breadcrumb'] = '%1';
 $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
 $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
@@ -283,8 +316,11 @@ $handler->display->display_options['defaults']['header'] = FALSE;
 $handler->display->display_options['header']['area_1']['id'] = 'area_1';
 $handler->display->display_options['header']['area_1']['table'] = 'views';
 $handler->display->display_options['header']['area_1']['field'] = 'area';
-$handler->display->display_options['header']['area_1']['content'] = '<h1>Brevkasser</h1>';
-$handler->display->display_options['header']['area_1']['format'] = '2';
+$handler->display->display_options['header']['area_1']['content'] = '<h1>Brevkasser</h1>
+<div class="content-list-header"><p>Her sidder der frivillige voksne som gerne vil prøve at hjælpe dig.</p>
+<p>Find den kategori der passer bedst til dit spørgsmål og se efter om der allerede er et svar du kan bruge.</p>
+<p>Vi svarer alle der skriver til os og vi prøver at besvare dit spørgsmål så hurtigt vi kan, men der kan gå op til 10 dage. (<a href="/node/41027" title="Hvordan finder jeg mit svar?">Kan du ikke finde dit svar?</a>)</p></div>';
+$handler->display->display_options['header']['area_1']['format'] = 'admin_html';
 /* Overskrift: Global: View-område */
 $handler->display->display_options['header']['view']['id'] = 'view';
 $handler->display->display_options['header']['view']['table'] = 'views';
@@ -327,7 +363,7 @@ $translatables['brevkasse_oversigter'] = array(
 '),
   t('forfatter'),
   t('term'),
-  t('<div class="author-timestamp">Spørgsmål af Anonym • [created] siden</div>'),
+  t('<div class="author-timestamp">Spørgsmål af [field_brevk_koen] [field_brevk_alder] • [created] siden</div>'),
   t('Alle'),
   t('Enkelt brevkasse'),
   t('Oversigt over en enkelt brevkasse'),
@@ -342,11 +378,15 @@ $translatables['brevkasse_oversigter'] = array(
   t('Brevkasser oversigt'),
   t('Brevkasser'),
   t('Oversigt over de seneste brevkassespørgsmål'),
-  t('<h1>Brevkasser</h1>'),
+  t('<h1>Brevkasser</h1>
+<div class="content-list-header"><p>Her sidder der frivillige voksne som gerne vil prøve at hjælpe dig.</p>
+<p>Find den kategori der passer bedst til dit spørgsmål og se efter om der allerede er et svar du kan bruge.</p>
+<p>Vi svarer alle der skriver til os og vi prøver at besvare dit spørgsmål så hurtigt vi kan, men der kan gå op til 10 dage. (<a href="/node/41027" title="Hvordan finder jeg mit svar?">Kan du ikke finde dit svar?</a>)</p></div>'),
   t('<a class="btn" href="/node/add/brevkasse">Opret spørgsmål</a>
 <h3>Seneste spørgsmål</h3>
 '),
 );
+
 
   return $view;
 
