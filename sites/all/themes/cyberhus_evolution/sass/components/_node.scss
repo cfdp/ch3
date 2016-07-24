@@ -1,5 +1,6 @@
 /* General node stuff */
-body.page-node {
+body.page-node,
+body.page-comment-reply {
   article h1 {
     margin: .3em 0 0 0;
     padding:0;
@@ -51,5 +52,12 @@ body.page-node {
       display: none;
     }
   }
+}
 
+/* Hide the obsolete comment form when Mollom activites comment/reply page */
+body.page-comment-reply {
+  #comment-form,
+  h2.node__title {
+    display: none;
+  }
 }
