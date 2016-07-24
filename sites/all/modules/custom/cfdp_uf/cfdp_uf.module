@@ -188,3 +188,39 @@ function cfdp_uf_front_page_svg($content_type) {
   }
   print file_get_contents(DRUPAL_ROOT . "/sites/all/themes/cyberhus_evolution/images/icons/svg/" . $svg . ".svg");
 }
+
+/**
+ * Protect our custom comment form in node.tpl.php
+ *
+ * Implements hook_mollom_form_list().
+ */
+function cfdp_uf_mollom_form_list() {
+  $forms['comment_form'] = array(
+    'title' => 'Cyberhus custom comment form',
+  );
+  return $forms;
+}
+
+/**
+ * Implements hook_mollom_form_info().
+ */
+function cfdp_uf_mollom_form_info($form_id) {
+  dpm('comment_form');
+  switch ($form_id) {
+    case 'comment_form':
+      $form_info = array(
+        'mode' => MOLLOM_MODE_CAPTCHA,
+      );
+      return $form_info;
+  }
+}
+
+/**
+ * Implements hook_preprocess_comment().
+ */
+function cfdp_uf_preprocess_comment(&$variables) {
+  // dont display extra comment form
+  drupal_set_message('hej');
+  $variables = "";
+}
+
