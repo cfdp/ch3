@@ -1,5 +1,5 @@
 name = Cybersimple
-description = A simple 3 column layout demonstrating mobile first and Susy.
+description = A simple 3 column layout for the Cyberhus Evolution theme.
 preview = preview.png
 template = cybersimple-layout
 
