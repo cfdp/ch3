@@ -16,6 +16,7 @@ stylesheets[all][] = css/layouts/cybersimple/cybersimple.layout.css
 ; Scripts
 ; ========================================
 scripts[] = js/cyberhus-evolution.behaviors.js
+scripts[] = js/curachat.embed.js
 
 ; ========================================
 ; Plugins

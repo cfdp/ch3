@@ -527,6 +527,38 @@ img {
   margin-left: -1em;
   margin-right: -1em; }
 
+/* The CuraChat widget in the right side of the window */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_curachat\.scss}line{font-family:\000034}}
+.curachat-widgets {
+  /* Multi-site foldout widget styles */ }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_curachat\.scss}line{font-family:\000035}}
+  .curachat-widgets .slideout {
+    right: -260px;
+    top: 15%;
+    position: fixed;
+    z-index: 100; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_curachat\.scss}line{font-family:\0000310}}
+    .curachat-widgets .slideout.groupchat {
+      top: 35%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_curachat\.scss}line{font-family:\0000313}}
+    .curachat-widgets .slideout.kramchat {
+      top: 55%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_curachat\.scss}line{font-family:\0000316}}
+    .curachat-widgets .slideout.kbhchat {
+      top: 75%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_curachat\.scss}line{font-family:\0000321}}
+  .curachat-widgets .multi {
+    top: 63%; }
+
+/* Responsive - show widgets on tab and above */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_curachat\.scss}line{font-family:\0000327}}
+.curachat-widgets {
+  display: none; }
+
+@media (min-width: 36.625em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_curachat\.scss}line{font-family:\0000331}}
+  .curachat-widgets {
+    display: block; } }
 /**
  * FORUM, BLOG, BILLEDER VIEWS LISTS (OVERSIGTER)
  */
