@@ -1,0 +1,34 @@
+@import "breakpoint";
+
+/* The CuraChat widget in the right side of the window */
+.curachat-widgets {
+  .slideout {
+    right: -260px;
+    top: 15%;
+    position: fixed;
+    z-index: 100;
+    &.groupchat {
+      top: 35%;
+    }
+    &.kramchat{
+      top: 55%;
+    }
+    &.kbhchat{
+      top: 75%;
+    }
+  }
+  /* Multi-site foldout widget styles */
+  .multi{
+    top: 63%;
+  }
+}
+
+/* Responsive - show widgets on tab and above */
+  .curachat-widgets {
+    display: none;
+  }
+@include breakpoint($tab, true) {
+  .curachat-widgets {
+    display: block;
+  }
+}
