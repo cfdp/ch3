@@ -139,3 +139,21 @@ input.form-submit {
 .author-timestamp {
   @include font-metadata;
 }
+/* youtube video embedding - responsive adjustments */
+.media-youtube-video {
+  float: none;
+  clear: both;
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+  margin-bottom: 1em;
+}
+.media-youtube-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
