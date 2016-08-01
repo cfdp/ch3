@@ -205,7 +205,6 @@ function cfdp_uf_mollom_form_list() {
  * Implements hook_mollom_form_info().
  */
 function cfdp_uf_mollom_form_info($form_id) {
-  dpm('comment_form');
   switch ($form_id) {
     case 'comment_form':
       $form_info = array(
@@ -213,14 +212,5 @@ function cfdp_uf_mollom_form_info($form_id) {
       );
       return $form_info;
   }
-}
-
-/**
- * Implements hook_preprocess_comment().
- */
-function cfdp_uf_preprocess_comment(&$variables) {
-  // dont display extra comment form
-  drupal_set_message('hej');
-  $variables = "";
 }
 

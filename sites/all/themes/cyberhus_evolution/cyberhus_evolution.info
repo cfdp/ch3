@@ -16,12 +16,12 @@ stylesheets[all][] = css/layouts/cybersimple/cybersimple.layout.css
 ; Scripts
 ; ========================================
 scripts[] = js/cyberhus-evolution.behaviors.js
+scripts[] = js/curachat.embed.js
 
 ; ========================================
 ; Plugins
 ; ========================================
 plugins[vud][widgets] = widgets
-
 
 ; ========================================
 ; Regions
@@ -49,7 +49,7 @@ settings[toggle_comment_user_verification] = 0
 settings[toggle_favicon] = 1
 settings[toggle_main_menu] = 1
 settings[toggle_secondary_menu] = 1
-settings[omega_toggle_front_page_content] = 1
+settings[omega_toggle_front_page_content] = 0
 settings[default_logo] = 0
 settings[logo_path] = sites/all/themes/cyberhus_evolution/images/cyberhus-logo.svg
 settings[logo_upload] = ""
@@ -57,17 +57,6 @@ settings[default_favicon] = 1
 settings[favicon_path] = ""
 settings[favicon_upload] = ""
 settings[omega_enable_warning] = 1
-settings[omega_toggle_extension_assets] = 1
-settings[omega_libraries][selectivizr][status] = 0
-settings[omega_libraries][selectivizr][variant] = _default
-settings[omega_libraries][respond][status] = 0
-settings[omega_libraries][respond][variant] = _default
-settings[omega_libraries][pie][status] = 0
-settings[omega_libraries][pie][variant] = _default
-settings[omega_libraries][html5shiv][status] = 0
-settings[omega_libraries][html5shiv][variant] = _default
-settings[omega_toggle_extension_layouts] = 1
-settings[omega_layout] = cybersimple
 settings[omega_toggle_extension_development] = 1
 settings[omega_enable_export_reminder] = 1
 settings[omega_rebuild_theme_registry] = 0
@@ -101,3 +90,14 @@ settings[omega_viewport_minimum_scale] = _default
 settings[omega_viewport_maximum_scale] = _default
 settings[omega_chrome_edge] = 1
 settings[omega_internet_explorer_support] = _none
+settings[omega_toggle_extension_assets] = 1
+settings[omega_libraries][selectivizr][status] = 0
+settings[omega_libraries][selectivizr][variant] = _default
+settings[omega_libraries][respond][status] = 0
+settings[omega_libraries][respond][variant] = _default
+settings[omega_libraries][pie][status] = 0
+settings[omega_libraries][pie][variant] = _default
+settings[omega_libraries][html5shiv][status] = 0
+settings[omega_libraries][html5shiv][variant] = _default
+settings[omega_toggle_extension_layouts] = 1
+settings[omega_layout] = cybersimple
