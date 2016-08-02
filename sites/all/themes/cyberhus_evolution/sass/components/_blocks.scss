@@ -141,15 +141,30 @@ $icon-color-highlight-top: #000;
       border-bottom: 1px solid $grey-2;
       border-top: none;
       padding-left: $padding-small;
+      position: relative;
+      width: 100%;
+      min-height: 49px;
+      &:hover {
+        line-height: 48px;
+      }
       &:hover>a {
         @include box-shadow(none);
       }
       a {
         color: $grey;
-        display: inline-block;
+        display: block;
         font-weight: $font-weight-bold;
+        padding-left: 32px;
+        position: absolute;
+        width: 100%;
+        &:hover {
+          color: $black;
+        }
       }
       svg {
+        position: absolute;
+        top: 10px;
+        left: 10px;
         vertical-align: middle;
       }
     }
