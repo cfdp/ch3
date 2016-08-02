@@ -97,5 +97,16 @@ $('select#edit-taxonomy-forums-und option:contains("- Vælg en værdi -")').text
     }
   };
 
+  /* Manipulate more author info toggle fields on forms */
+  Drupal.behaviors.cyberhusEvolutionMoreAuthorInfo = {
+    attach: function (context, settings) {
+      $('.comment-form', context).once('more-author-info', function () {
+        // Move optional "more" elements to collapsible field group wrapper
+        $( ".form-item-name" ).prependTo( ".group-more-author-info .fieldset-wrapper" );
+        // Move submit button to bottom of form
+        $( ".comment-form .form-submit" ).appendTo( $( ".comment-form" ) );
+      });
+    }
+  };
 
 })(jQuery);
