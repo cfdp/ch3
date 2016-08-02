@@ -7,3 +7,12 @@ form.node-form {
 .page-node-add-body-secret.not-logged-in .field-name-field-secrets-category {
     display: none; /* Hide the category - it is set automatically */
 }
+
+/* More author info */
+.more-author-info {
+  display: block;
+  margin: $margin-small 0;
+  .more-author-info-toggle {
+    margin: 0 $margin-small;
+  }
+}
