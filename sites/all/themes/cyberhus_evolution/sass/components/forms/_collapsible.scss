@@ -19,10 +19,9 @@ html.js fieldset.collapsible { // Overspecified
   }
   .fieldset-title {
     display: block;
-    padding: 1em;
-    background-color: $light-grey;
     color: $blue;
     text-decoration: none;
+    padding: $padding-std $padding-std $padding-std 0;
 
     &:hover {
       background-color: $light-blue;
@@ -30,8 +29,6 @@ html.js fieldset.collapsible { // Overspecified
     }
   }
   .fieldset-wrapper {
-    padding: $padding-std;
-    border: 1px solid $light-grey;
   }
 }
 
