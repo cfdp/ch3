@@ -190,7 +190,7 @@ function cfdp_uf_front_page_svg($content_type) {
 }
 
 /**
- * Protect our custom comment form in node.tpl.php
+ * Protect our custom comment form in node.tpl.php with Mollom
  *
  * Implements hook_mollom_form_list().
  */
@@ -214,3 +214,18 @@ function cfdp_uf_mollom_form_info($form_id) {
   }
 }
 
+/**
+ * Remove the N/A option from radio buttons
+ */
+function cfdp_uf_element_info_alter(&$type) {
+  $type['radios']['#process'][] = '_cfdp_uf_remove_radio_na';
+}
+
+/**
+ * Remove the N/A option from radio buttons
+ */
+function _cfdp_uf_remove_radio_na($element) {
+  unset($element['#options']['_none']);
+  unset($element['_none']);
+  return $element;
+}

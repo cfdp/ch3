@@ -16,6 +16,10 @@
     height: 20px;
     max-width: 50px;
     padding-left: 35px;
+    @include transition(0.5s);
+    &:focus {
+      max-width: 300px;
+    }
   }
   .form-submit { // hide submit btn
     display: none;
