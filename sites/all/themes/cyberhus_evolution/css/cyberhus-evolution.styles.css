@@ -796,11 +796,11 @@ body.page-node-add h1 {
 
 /* Search */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003110}}
-body.page-search form.search-form,
+body.page-search #search-form,
 body.page-search section.search-results {
   margin: 1em; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003113}}
-  body.page-search form.search-form #edit-submit,
+  body.page-search #search-form #edit-submit,
   body.page-search section.search-results #edit-submit {
     margin-top: 1em; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_layout\.scss}line{font-family:\00003118}}
