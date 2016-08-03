@@ -30,6 +30,21 @@ html.js fieldset.collapsible { // Overspecified
   }
   .fieldset-wrapper {
   }
+
+  /* More author info */
+  &.group-more-author-info {
+    a.fieldset-title {
+      &:before {
+        content: "–";
+        margin-right: $margin-small;
+      }
+    }
+    &.collapsed a.fieldset-title {
+      &:before {
+        content: "+";
+      }
+    }
+  }
 }
 
 html.js fieldset.collapsed { // Overspecified
