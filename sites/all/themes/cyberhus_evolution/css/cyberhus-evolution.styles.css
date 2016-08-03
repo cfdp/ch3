@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Font-weight */
 /* Letter-spacing and line-height */
 /* Font-size */
@@ -1370,7 +1371,8 @@ body.page-brevkasse .view-header h1 {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_collapsible\.scss}line{font-family:\000034}}
 html.js fieldset.collapsible {
   padding: 0;
-  border: none; }
+  border: none;
+  /* More author info */ }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_collapsible\.scss}line{font-family:\000038}}
   html.js fieldset.collapsible legend {
     width: 100%;
@@ -1392,8 +1394,15 @@ html.js fieldset.collapsible {
     html.js fieldset.collapsible .fieldset-title:hover {
       background-color: #e7f2fa;
       color: #2980B9; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_collapsible\.scss}line{font-family:\0000337}}
+  html.js fieldset.collapsible.group-more-author-info a.fieldset-title:before {
+    content: "–";
+    margin-right: 0.75em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_collapsible\.scss}line{font-family:\0000343}}
+  html.js fieldset.collapsible.group-more-author-info.collapsed a.fieldset-title:before {
+    content: "+"; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_collapsible\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_collapsible\.scss}line{font-family:\0000350}}
 html.js fieldset.collapsed {
   height: 3.7em; }
 
@@ -1538,15 +1547,6 @@ form.node-form {
   display: none;
   /* Hide the category - it is set automatically */ }
 
-/* More author info */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_forms-misc\.scss}line{font-family:\0000312}}
-.more-author-info {
-  display: block;
-  margin: 0.75em 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_forms-misc\.scss}line{font-family:\0000315}}
-  .more-author-info .more-author-info-toggle {
-    margin: 0 0.75em; }
-
 /**
  * $PASSWORD-CONFIRM
  */
@@ -1593,15 +1593,22 @@ div.password-indicator {
     background-position: 7px center;
     height: 20px;
     max-width: 50px;
-    padding-left: 35px; }
+    padding-left: 35px;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000320}}
+    .custom-search-blocks-form-1 #edit-custom-search-blocks-form-1--2:focus {
+      max-width: 300px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000324}}
   .custom-search-blocks-form-1 .form-submit {
     display: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000323}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000327}}
   .custom-search-blocks-form-1 .form-item .form-text {
     border: 0px;
     width: auto; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000331}}
   .custom-search-blocks-form-1 input[type="text"] {
     /* Hide the placeholder text on mobile */
     /* FF 4-18 */
@@ -1628,20 +1635,20 @@ div.password-indicator {
       color: transparent;
       font-family: "Lato", sans-serif;
       font-size: 1.3em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000334}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000338}}
     .custom-search-blocks-form-1 input[type="text"] ::-webkit-input-placeholder {
       color: transparent; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000339}}
     .custom-search-blocks-form-1 input[type="text"] :-moz-placeholder {
       color: transparent; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000340}}
     .custom-search-blocks-form-1 input[type="text"] ::-moz-placeholder {
       color: transparent; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000341}}
     .custom-search-blocks-form-1 input[type="text"] :-ms-input-placeholder {
       color: transparent; }
     @media (min-width: 36.625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000331}}
       .custom-search-blocks-form-1 input[type="text"] {
         /* Hide the placeholder text on focus */
         /* FF 4-18 */
@@ -1659,19 +1666,19 @@ div.password-indicator {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/vendor\/bundle\/ruby\/2\.3\.0\/gems\/compass-core-1\.0\.3\/stylesheets\/compass\/css3\/_user-interface\.scss}line{font-family:\0000356}}
         .custom-search-blocks-form-1 input[type="text"]::-webkit-input-placeholder {
           color: #2980B9; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000349}}
         .custom-search-blocks-form-1 input[type="text"]:focus::-webkit-input-placeholder {
           color: transparent; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000350}}
         .custom-search-blocks-form-1 input[type="text"]:focus:-moz-placeholder {
           color: transparent; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000347}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000351}}
         .custom-search-blocks-form-1 input[type="text"]:focus::-moz-placeholder {
           color: transparent; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000352}}
         .custom-search-blocks-form-1 input[type="text"]:focus:-ms-input-placeholder {
           color: transparent; } }
   @media (min-width: 36.625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_search-form\.scss}line{font-family:\0000358}}
     .custom-search-blocks-form-1 #edit-custom-search-blocks-form-1--2 {
       max-width: 100px; } }
