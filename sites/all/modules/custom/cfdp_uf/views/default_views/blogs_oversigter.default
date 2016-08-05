@@ -195,7 +195,7 @@ $handler->display->display_options['fields']['field_billede']['label'] = '';
 $handler->display->display_options['fields']['field_billede']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_billede']['click_sort_column'] = 'fid';
 $handler->display->display_options['fields']['field_billede']['settings'] = array(
-  'image_style' => 'full_width_no_crop__554px_',
+  'image_style' => '',
   'image_link' => 'content',
 );
 /* Felt: Indhold: Body */
