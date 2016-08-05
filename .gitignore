@@ -10,6 +10,7 @@ sites/*/private
 sites/default
 
 # Ignore devel modules and files
+sites/all/modules/search_krumo
 sites/all/modules/devel_themer
 sites/all/modules/simplehtmldom
 sites/all/modules/stage_file_proxy
