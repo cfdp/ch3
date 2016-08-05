@@ -1,5 +1,6 @@
 <?php
 function cyberhus_forum_topic_list() {
+
 $view = new view();
 $view->name = 'cyberhus_forum_topic_list';
 $view->description = '';
@@ -107,6 +108,22 @@ $handler->display->display_options['fields']['field_forum_forf_navn']['element_l
 $handler->display->display_options['fields']['field_forum_forf_navn']['empty'] = 'Anonym';
 $handler->display->display_options['fields']['field_forum_forf_navn']['hide_alter_empty'] = FALSE;
 $handler->display->display_options['fields']['field_forum_forf_navn']['type'] = 'text_plain';
+/* Felt: Felt: Alder */
+$handler->display->display_options['fields']['field_brevk_alder']['id'] = 'field_brevk_alder';
+$handler->display->display_options['fields']['field_brevk_alder']['table'] = 'field_data_field_brevk_alder';
+$handler->display->display_options['fields']['field_brevk_alder']['field'] = 'field_brevk_alder';
+$handler->display->display_options['fields']['field_brevk_alder']['label'] = '';
+$handler->display->display_options['fields']['field_brevk_alder']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_brevk_alder']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_brevk_alder']['type'] = 'taxonomy_term_reference_plain';
+/* Felt: Felt: Køn */
+$handler->display->display_options['fields']['field_brevk_koen']['id'] = 'field_brevk_koen';
+$handler->display->display_options['fields']['field_brevk_koen']['table'] = 'field_data_field_brevk_koen';
+$handler->display->display_options['fields']['field_brevk_koen']['field'] = 'field_brevk_koen';
+$handler->display->display_options['fields']['field_brevk_koen']['label'] = '';
+$handler->display->display_options['fields']['field_brevk_koen']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_brevk_koen']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_brevk_koen']['type'] = 'taxonomy_term_reference_plain';
 /* Felt: Ord i ordforråd: Term ID */
 $handler->display->display_options['fields']['tid']['id'] = 'tid';
 $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
@@ -116,7 +133,7 @@ $handler->display->display_options['fields']['tid']['label'] = '';
 $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
 $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['tid']['separator'] = '';
-/* Felt: Ord i ordforråd: tag shorthand */
+/* Felt: Ord i ordforråd: Tag shorthand */
 $handler->display->display_options['fields']['field_tag_shorthand']['id'] = 'field_tag_shorthand';
 $handler->display->display_options['fields']['field_tag_shorthand']['table'] = 'field_data_field_tag_shorthand';
 $handler->display->display_options['fields']['field_tag_shorthand']['field'] = 'field_tag_shorthand';
@@ -130,7 +147,7 @@ $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
 $handler->display->display_options['fields']['nothing']['table'] = 'views';
 $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
 $handler->display->display_options['fields']['nothing']['label'] = '';
-$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="author-timestamp">Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] • [created] siden</div>';
+$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="author-timestamp">Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] [field_brevk_koen] [field_brevk_alder] • [created] siden</div>';
 $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
 /* Felt: Indhold: Titel */
 $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -324,7 +341,7 @@ $translatables['cyberhus_forum_topic_list'] = array(
   t('Anonym'),
   t('.'),
   t('Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] • [created] siden'),
-  t('<div class="author-timestamp">Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] • [created] siden</div>'),
+  t('<div class="author-timestamp">Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] [field_brevk_koen] [field_brevk_alder] • [created] siden</div>'),
   t('<span title="Dette indlæg har fået [value] likes" class="cyberlikes">[value]</span>'),
   t(','),
   t('<span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span>'),

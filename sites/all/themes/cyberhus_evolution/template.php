@@ -57,7 +57,7 @@ function cyberhus_evolution_menu_link__menu_top_menu(array $variables) {
 function cyberhus_evolution_menu_local_action($variables) {
   $link = $variables['element']['#link'];
   // Remove add new forum topic from /forum page
-  if (arg(0) == 'forum' &&  substr($link['href'], 0, 14) == 'node/add/forum') {
+  if (isset($link['href']) && arg(0) == 'forum' &&  substr($link['href'], 0, 14) == 'node/add/forum') {
     $output = null;
   }
   else {

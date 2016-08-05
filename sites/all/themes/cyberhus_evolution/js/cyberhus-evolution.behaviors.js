@@ -48,29 +48,31 @@
       // get tagged with a 'foo-processed' class, causing all future invocations
       // of this behavior to ignore them.
 
+      /* General replacements */
+      // Navn
+      $('form', context).once('add-placeholders', function () {
+        $(".field-name-field-navn input, .form-item-name input, .field-name-field-forum-forf-navn input").attr("placeholder", "Kaldenavn eller fornavn");
+        // Age
+        $('.field-name-field-brevk-alder select option:contains("- Vælg en værdi -")').text('Vælg alder');
+        $('.field-name-field-brevk-alder select option:contains("- Ingen -")').text('Vælg alder');
+        // Email
+        $("#edit-node-notify-subscribe, .field-name-field-email input").attr("placeholder", "Skriv din email-adresse");
+      });
+
       /* Add placeholder element to search input form */
       $('#block-custom-search-blocks-1', context).once('add-placeholder-search', function () {
         $("#edit-custom-search-blocks-form-1--2").attr("placeholder", "Søg");
       });
+
       /* Add placeholder element to comment form, body item */
       $('.comment-form', context).once('add-placeholder-comment', function () {
-        $("#edit-comment-body-und-0-value--2").attr("placeholder", "Skriv kommentar");
+        $(".form-textarea").attr("placeholder", "Skriv kommentar");
       });
-      /* Add placeholder element for name field */
-      $('.comment-form', context).once('add-placeholder-name', function () {
-        $("#edit-name--2").attr("placeholder", "Kaldenavn eller fornavn");
-      });
+
       /* Node forms: Add placeholder elements and other manipulations */
       $('.node-form', context).once('various-ops', function () {
         // Title
         $("#edit-title").attr("placeholder", "Skriv titel");
-        // Email
-        $("#edit-node-notify-subscribe, #edit-field-brevk-email-und-0-value, #edit-field-email-und-0-value").attr("placeholder", "Skriv din email-adresse");
-        // Name
-        $("#edit-field-forum-forf-navn-und-0-value, #edit-field-navn-und-0-value").attr("placeholder", "Kaldenavn eller fornavn");
-
-        // Age
-        $('select#edit-field-brevk-alder-und option:contains("- Vælg en værdi -")').text('Vælg alder');
       });
 
       /* Forum */

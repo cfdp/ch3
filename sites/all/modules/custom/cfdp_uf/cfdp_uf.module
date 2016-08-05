@@ -4,6 +4,13 @@
  */
 function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
   switch ($form_id) {
+    case 'user_profile_form':
+      $user_roles = $form['#user']->roles;
+      // Only show the brevkassefields if user page belongs to a brevkasseredaktør
+      if (!array_key_exists(5,$user_roles)) {
+        $form['field_account_brevkasse']['#access'] = 0;
+      }
+    break;
     case 'brevkasse_node_form':
       // Brevkasse-status: Iterate over the terms and unset any closed or archived terms from the select list
       $brevk_terms = taxonomy_term_load_multiple(array(), array('vid' => '3'));
