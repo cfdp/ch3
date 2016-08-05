@@ -40,6 +40,10 @@ p {
   margin: $margin-small 0;
 }
 
+ol {
+  list-style:decimal;
+  padding-left: $padding-std;
+}
 strong {
   font-weight: 700;
 }

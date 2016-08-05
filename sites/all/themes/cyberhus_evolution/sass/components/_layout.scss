@@ -120,6 +120,17 @@ body.page-search {
     }
   }
 }
+/* User pages */
+body.page-user {
+  .l-content {
+    padding: $padding-std;
+  }
+  ul.tabs--secondary {
+    li a {
+      @include button-bg();
+    }
+  }
+}
 /* buttons */
 .btn {
   @include button-bg();
