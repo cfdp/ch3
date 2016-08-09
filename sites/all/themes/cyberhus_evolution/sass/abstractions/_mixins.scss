@@ -38,7 +38,7 @@ $margin: 0 !default;
   border-width: thin;
   font-weight: $font-weight-bold;
   padding: .7em 1em;
-  display: block;
+  display: inline-block;
   max-width: 12em;
   &:hover {
     background: darken($bg, 8%);

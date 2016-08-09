@@ -119,37 +119,6 @@ body.front {
 }
 
 /**
- * FORUM LIST & TOPIC LIST
- */
-
-.view-cyberhus-forum-topic-list {
-  & > .view-header,
-  & > .view-footer {
-    .views-field-field-tag-shorthand {
-      color: $grey;
-      font-size: $font_size_medium;
-      padding-right: $padding-std;
-    }
-  }
-}
-
-
-/* Forum term list */
-
-.view-cyberhus-forum-term-list {
-  .view-content {
-    background-color: $bg-white;
-  }
-  .tag-shorthand {
-    display: inline-block;
-    margin: $margin-small;
-    a {
-      @include label();
-    }
-  }
-}
-
-/**
  * BREVKASSE
  */
 body.page-brevkasse {

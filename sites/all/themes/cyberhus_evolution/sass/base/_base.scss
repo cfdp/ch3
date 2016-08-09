@@ -48,6 +48,10 @@ strong {
   font-weight: 700;
 }
 
+em {
+  font-style: italic;
+}
+
 img {
   height: auto;
   max-width: 100%;
@@ -61,6 +65,10 @@ img {
   @include button-bg($blue, $white);
 }
 
+.btn-light-left {
+  @include button-bg-left($blue, $white);
+}
+
 .headline-grey-bg {
   @include headline-grey-bg();
 }
@@ -68,3 +76,4 @@ img {
 .author-timestamp {
   @include font-metadata;
 }
+
