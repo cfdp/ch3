@@ -99,6 +99,12 @@
     }
   }
 }
+/* Responsive class used on elements that should only be shown on mobile */
+@include breakpoint($tab, true) {
+  .cyberhus-mobile {
+    display: none;
+  }
+}
 
 /* Custom header styling */
 body.page-blogs h1,
@@ -150,6 +156,7 @@ input.form-submit {
 .author-timestamp {
   @include font-metadata;
 }
+
 /* youtube video embedding - responsive adjustments */
 .media-youtube-video {
   float: none;

@@ -1,4 +1,39 @@
-/* Forum header */
-.view-cyberhus-forum-topic-list .view-header p {
-  margin: $margin-std;
+/**
+ * FORUM LIST & TOPIC LIST
+ */
+.view {
+  &.view-cyberhus-forum-topic-list {
+    & > .view-header,
+    & > .view-footer {
+      .views-field-field-tag-shorthand {
+        color: $grey;
+        font-size: $font_size_medium;
+        padding-right: $padding-std;
+      }
+    }
+    & > .view-footer {
+      background-color: $bg-white;
+      padding: 0;
+    }
+  }
+
+
+  /* Forum term list */
+  &.view-cyberhus-forum-term-list {
+    .view-content {
+      background-color: $bg-white;
+    }
+    .tag-shorthand {
+      display: inline-block;
+      margin: $margin-small;
+      a {
+        @include label();
+      }
+    }
+  }
+
+  /* Forum header */
+  &.view-cyberhus-forum-topic-list .view-header p {
+    margin: $margin-std;
+  }
 }
