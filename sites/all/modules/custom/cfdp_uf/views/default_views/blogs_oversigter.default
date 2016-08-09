@@ -236,8 +236,12 @@ $handler->display->display_options['fields']['comment_count']['id'] = 'comment_c
 $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
 $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
 $handler->display->display_options['fields']['comment_count']['label'] = '';
-$handler->display->display_options['fields']['comment_count']['exclude'] = TRUE;
+$handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['comment_count']['alter']['text'] = '<span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span>';
+$handler->display->display_options['fields']['comment_count']['element_type'] = '0';
 $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['comment_count']['element_wrapper_type'] = '0';
+$handler->display->display_options['fields']['comment_count']['element_default_classes'] = FALSE;
 $handler->display->display_options['fields']['comment_count']['hide_empty'] = TRUE;
 /* Felt: Profil: Profil: Lidt om mig... */
 $handler->display->display_options['fields']['value_2']['id'] = 'value_2';
@@ -460,6 +464,7 @@ $translatables['blogs_oversigter'] = array(
   t('Oversigt over individuel blog'),
   t('<div class="author-timestamp">Skrevet for [created] siden</div>'),
   t('<span title="Dette indlæg har fået [value_1] likes" class="cyberlikes">[value_1]</span>'),
+  t('<span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span>'),
   t('Oversigt over de seneste blogindlæg'),
   t('Blogs'),
   t('<p class="content-list-header">Her kan du læse de nyeste blogindlæg fra alle bloggerne. </p><a class="btn" title="Cyberhus\' bloggere" href="/blogs">Se alle bloggere</a>

@@ -257,6 +257,11 @@ $handler->display->display_options['filters']['type_1']['value'] = array(
   'forum' => 'forum',
   'body_secret' => 'body_secret',
 );
+/* Filterkriterie: Indhold: Forfremmet til forsiden */
+$handler->display->display_options['filters']['promote']['id'] = 'promote';
+$handler->display->display_options['filters']['promote']['table'] = 'node';
+$handler->display->display_options['filters']['promote']['field'] = 'promote';
+$handler->display->display_options['filters']['promote']['value'] = '1';
 
 /* Display: Oversigt over det seneste indhold */
 $handler = $view->new_display('page', 'Oversigt over det seneste indhold', 'page_1');

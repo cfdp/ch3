@@ -1,6 +1,6 @@
 @import "breakpoint";
 
-/* The CuraChat widget in the right side of the window */
+/* The sticky CuraChat widgets in the right side of the window */
 .curachat-widgets {
   .slideout {
     right: -260px;
@@ -23,10 +23,11 @@
   }
 }
 
-/* Responsive - show widgets on tab and above */
-  .curachat-widgets {
-    display: none;
-  }
+/* Responsive styles */
+/* Show sticky side widgets on tab and above */
+.curachat-widgets {
+  display: none;
+}
 @include breakpoint($tab, true) {
   .curachat-widgets {
     display: block;
