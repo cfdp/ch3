@@ -61,3 +61,12 @@ body.page-comment-reply {
     display: none;
   }
 }
+
+/* ENABLE 2 ACT custom page */
+body.page-node-41282 {
+  .field--name-field-vedh-ft-view,
+  .block--views-comments-block-1,
+  .comment-form {
+     padding: $padding-std;
+  }
+}

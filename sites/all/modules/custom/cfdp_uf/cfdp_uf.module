@@ -4,6 +4,9 @@
  */
 function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
   switch ($form_id) {
+    case 'forum_node_form':
+      //
+    break;
     case 'user_profile_form':
       $user_roles = $form['#user']->roles;
       // Only show the brevkassefields if user page belongs to a brevkasseredaktør
