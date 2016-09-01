@@ -134,6 +134,21 @@ body.page-brevkasse {
 }
 
 /**
+ * KAMPAGNER
+ */
+body.page-kampagner {
+  .view > .view-content {
+    padding-top: $padding-std;
+    h2 {
+      margin-bottom: $margin-small;
+    }
+    .views-row {
+      margin: 0 0 $margin-std;
+    }
+  }
+}
+
+/**
  * BLOG LIST & BLOGGERS
  */
 

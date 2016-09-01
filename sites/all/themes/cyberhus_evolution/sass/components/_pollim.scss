@@ -1,0 +1,14 @@
+/* General pollim styling */
+
+body.page-pollim {
+  .entity-pollim {
+    padding: $padding-std;
+  }
+  .view > .view-content {
+    background-color: #ffffff;
+    .views-row {
+      margin: 0 0 1em;
+      padding: 0;
+    }
+  }
+}
