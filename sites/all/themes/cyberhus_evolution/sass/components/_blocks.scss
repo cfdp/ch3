@@ -10,23 +10,35 @@
 /**
  * FOOTER BLOCKS
  */
+
+/* EU info and social icons */
 .block--block-43 {
+  .footer-eu-wrapper,
+  .footer-social-icons-wrapper {
+    display: inline-block;
+    max-width: 250px;
+    margin-right: $margin-std;
+  }
   margin: $margin-big auto;
   max-width: 586px;
   margin: $margin-std;
   p,
-  h2 {
-    color: $white;
+  h2{
+    color: $bg-white;
+  }
+  h3 {
+    color: $grey;
   }
   img.rounded {
     height: 36px;
     width: 36px;
     border-radius: 36px;
-    margin-right: $margin-std;
   }
 }
 
+/* Footer menu */
 #block-block-44 {
+  display: inline-block;
   margin: $margin-std;
   text-align: center;
   p, a {
@@ -291,6 +303,26 @@ $icon-color-highlight-top: #000;
   }
 }
 
+/* Other blocks with juicy svgs */
+/* EU info and social icons */
+.block--block-43 {
+  a {
+    display: inline-block;
+    margin-right: $margin-std;
+    svg {
+      height: $icon-size-footer;
+      width: $icon-size-footer;
+      g {
+        fill: $icon-color-footer;
+      }
+    }
+    &:hover {
+      svg g {
+        fill: $icon-color-highlight-footer;
+      }
+    }
+  }
+}
 /**
  * COMMENT BLOCKS
  */
