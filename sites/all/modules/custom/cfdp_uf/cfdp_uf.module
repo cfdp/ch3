@@ -4,6 +4,24 @@
  */
 function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
   switch ($form_id) {
+    case 'image_node_form':
+      $hide_age_field = false;
+      /* Tegn selv moderator user do not need to enter age on own images -
+      @todo: calculate from profile birthday field */
+      // Tegn selv moderator creates a new image
+      if (user_has_role(11) && $form['#action'] == '/node/add/image') {
+        $hide_age_field = true;
+      }
+      // Tegn selv moderator edits an image she owns
+      else if (user_has_role(11) && ($form['uid']['#value'] == $form['#node']->uid)) {
+        $hide_age_field = true;
+      }
+      if ($hide_age_field) {
+        $lang = $form['field_brevk_alder']['#language'];
+        $form['field_brevk_alder'][$lang]['#required'] = false;
+        $form['field_brevk_alder']['#access'] = 0;
+      }
+    break;
     case 'forum_node_form':
       //
     break;
