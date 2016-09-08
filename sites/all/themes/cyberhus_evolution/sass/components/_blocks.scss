@@ -19,6 +19,12 @@
     max-width: 250px;
     margin-right: $margin-std;
   }
+/* Only gfloat social icons right on tablet and above*/
+@include breakpoint($tab, true) {
+    .footer-social-icons-wrapper {
+      float: right;
+    }
+  }
   margin: $margin-big auto;
   max-width: 586px;
   margin: $margin-std;
@@ -52,7 +58,6 @@
 /* Footer menu */
 .block--menu-menu-andet {
   background-color: $bg-grey-2;
-  margin-bottom: $margin-std;
   padding: $padding-std;
   ul.menu {
     padding: $padding-std 0;
@@ -61,7 +66,8 @@
   li {
     display: inline-block;
     list-style-type: none;
-    margin-right: $margin-std;
+    margin: 0 $margin-std $margin-std 0;
+
 
     a {
       color: $white;
@@ -107,7 +113,7 @@ $icon-color-highlight-top: #000;
     cursor: pointer; // Link is added via javascript
     display: inline-block;
     text-align: center;
-    margin: 0 $margin-std 0;
+    //margin: 0 $margin-std 0;
     transition: stroke .25s ease, width .5s ease;
     a {
       display: block;
