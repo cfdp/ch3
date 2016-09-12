@@ -148,6 +148,8 @@ body.page-kampagner {
   }
 }
 
+
+
 /**
  * BLOG LIST & BLOGGERS
  */
@@ -192,9 +194,26 @@ body.page-kampagner {
     }
   }
 }
+/**
+ * SIMPEL SIDE MED VIEW
+ */
 
 .node-type-simpel-side-med-view {
   .view-header p {
     margin: 0 $margin-std;
   }
 }
+
+/**
+ * SIDE MED CHAT INTEGRATION OG VIEWS
+ */
+body.node-type-chat {
+  .view > .view-content {
+    background-color: #ffffff;
+    .views-row {
+      margin: 0 0 1em;
+      padding: 0;
+    }
+  }
+}
+

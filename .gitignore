@@ -13,6 +13,7 @@ sites/default
 sites/all/modules/search_krumo
 sites/all/modules/devel_themer
 sites/all/modules/simplehtmldom
+sites/all/modules/search_krumo
 sites/all/modules/stage_file_proxy
 sites/all/modules/reroute_email
 sites/all/modules/smtp
