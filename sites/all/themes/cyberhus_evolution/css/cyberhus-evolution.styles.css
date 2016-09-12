@@ -1161,6 +1161,9 @@ body.page-node-41282 .field--name-field-vedh-ft-view,
 body.page-node-41282 .block--views-comments-block-1,
 body.page-node-41282 .comment-form {
   padding: 1em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_node\.scss}line{font-family:\0000372}}
+body.page-node-41282 .choice-votecount {
+  margin-right: 1em; }
 
 /* General pollim styling */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_pollim\.scss}line{font-family:\000034}}
@@ -1450,20 +1453,20 @@ body.page-kampagner .view > .view-content {
 /**
  * BLOG LIST & BLOGGERS
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003157}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003159}}
 .view-bloggere .view-content h2,
 .view-blogs-oversigter .view-content h2 {
   margin-bottom: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003160}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003162}}
 .view-bloggere .views-field-value-2,
 .view-blogs-oversigter .views-field-value-2 {
   /*float: left;*/ }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003163}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003165}}
 .view-bloggere .views-field-picture,
 .view-blogs-oversigter .views-field-picture {
   display: inline-block;
   vertical-align: top; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003166}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003168}}
   .view-bloggere .views-field-picture img,
   .view-blogs-oversigter .views-field-picture img {
     width: 64px;
@@ -1471,34 +1474,48 @@ body.page-kampagner .view > .view-content {
     -moz-border-radius: 32px;
     -webkit-border-radius: 32px;
     border-radius: 32px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003170}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003172}}
 .view-bloggere .view-content .views-field-value-1,
 .view-blogs-oversigter .view-content .views-field-value-1 {
   display: inline-block;
   margin: 0;
   max-width: 67%;
   padding-right: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003175}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003177}}
   .view-bloggere .view-content .views-field-value-1 p,
   .view-blogs-oversigter .view-content .views-field-value-1 p {
     margin-top: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003179}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003181}}
 .view-bloggere .view-header .content-list-header,
 .view-blogs-oversigter .view-header .content-list-header {
   margin-left: 1em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003185}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003187}}
 .view-blogs-oversigter .view-header .content-list-header {
   display: inline-block;
   max-width: 67%;
   padding-right: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003190}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003192}}
   .view-blogs-oversigter .view-header .content-list-header p {
     margin-top: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003197}}
+/**
+ * SIMPEL SIDE MED VIEW
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003202}}
 .node-type-simpel-side-med-view .view-header p {
   margin: 0 1em; }
+
+/**
+ * SIDE MED CHAT INTEGRATION OG VIEWS
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003211}}
+body.node-type-chat .view > .view-content {
+  background-color: #ffffff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_views\.scss}line{font-family:\00003213}}
+  body.node-type-chat .view > .view-content .views-row {
+    margin: 0 0 1em;
+    padding: 0; }
 
 /**
  * $COLLAPSIBLE
@@ -1574,16 +1591,25 @@ html.js fieldset.collapsed {
   margin-right: 1em;
   max-width: 50%; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000311}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000312}}
+.form-wrapper.field-widget-options-buttons {
+  overflow: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000315}}
+.form-wrapper.error {
+  background-color: #fef5f1;
+  border: 1px solid #ed541d;
+  padding: 1em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000322}}
 .form-item {
   color: #231E19;
   /* Billede upload */
   /* Forum subscribe */
-  /* Display radios as normal buttons */ }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000313}}
+  /* Errors - also handled in  */ }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000324}}
   .form-item label {
     margin-bottom: 0.4em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000327}}
   .form-item .form-select,
   .form-item .form-text,
   .form-item .form-textarea {
@@ -1596,57 +1622,62 @@ html.js fieldset.collapsed {
     border: 1px solid #BFBFBF;
     color: #231E19;
     vertical-align: middle; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000338}}
   .form-item .form-text {
     width: 96%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000330}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000341}}
   .form-item .description {
     margin-top: 0.2em;
     font-style: italic; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000346}}
   .form-item .image-widget-data {
     margin-bottom: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000348}}
     .form-item .image-widget-data input.form-file,
     .form-item .image-widget-data input.form-submit {
       display: inline-block; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000343}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000354}}
   .form-item.form-item-node-notify-subscribe .description {
     display: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000347}}
-  .form-item.form-type-radios {
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000364}}
+form.node-form .form-item {
+  /* Display radios as normal buttons */ }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000366}}
+  form.node-form .form-item.form-type-radios {
     list-style-type: none;
     margin: 25px 0 0 0;
     padding: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000351}}
-    .form-item.form-type-radios .description {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000370}}
+    form.node-form .form-item.form-type-radios .description {
       clear: both; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000355}}
-  .form-item .form-type-radio {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000374}}
+  form.node-form .form-item .form-type-radio {
     float: left;
     margin: 0 1em 0 0;
     width: 80px;
     height: 45px;
     position: relative; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000361}}
-    .form-item .form-type-radio input, .form-item .form-type-radio label {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000380}}
+    form.node-form .form-item .form-type-radio input,
+    form.node-form .form-item .form-type-radio label {
       display: block;
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000369}}
-    .form-item .form-type-radio input[type="radio"] {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000389}}
+    form.node-form .form-item .form-type-radio input[type="radio"] {
       opacity: 0.01;
       z-index: 100; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000373}}
-    .form-item .form-type-radio input[type="radio"]:checked + label,
-    .form-item .form-type-radio .Checked + label {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000393}}
+    form.node-form .form-item .form-type-radio input[type="radio"]:checked + label,
+    form.node-form .form-item .form-type-radio .Checked + label {
       border: 1px solid #e67e22;
       color: #e67e22; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000378}}
-    .form-item .form-type-radio label {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000398}}
+    form.node-form .form-item .form-type-radio label {
       -moz-border-radius: 2px;
       -webkit-border-radius: 2px;
       border-radius: 2px;
@@ -1656,18 +1687,18 @@ html.js fieldset.collapsed {
       cursor: pointer;
       z-index: 90;
       text-align: center; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000386}}
-      .form-item .form-type-radio label:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003106}}
+      form.node-form .form-item .form-type-radio label:hover {
         border: 1px solid #e67e22;
         color: #e67e22; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003116}}
 .container-inline .form-select,
 .container-inline .form-text,
 .container-inline .form-textarea {
   width: auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003103}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003124}}
 body.not-logged-in .wysiwyg-toggle-wrapper {
   display: none; }
 
