@@ -4,11 +4,17 @@
  * Implements hook_preprocess_page().
  */
 function cyberhus_evolution_preprocess_page(&$vars) {
-  /* Customize breadcrumb */
+  /* Customize breadcrumb  - note that Pollim breadcrumbs are generated in
+  layouts/cybersimple/cybersimple-layout.preprocess.inc */
   $crumbs = array();
   if ($node = menu_get_object()) {
     // We're on a node page...
     switch ($node->type) {
+      case 'chat':
+        if (!empty($node->field_kampagneside)) {
+          $crumbs[] = l(t('Zoom'), 'zoom');
+        }
+        break;
       case 'brevkasse':
         $crumbs[] = l(t('Brevkasse'), 'brevkasse');
         $tid = $node->field_brevk_kategori;

@@ -49,7 +49,6 @@
       // of this behavior to ignore them.
 
       /* General replacements */
-      // Navn
       $('form', context).once('add-placeholders', function () {
         $(".field-name-field-navn input, .form-item-name input, .field-name-field-forum-forf-navn input").attr("placeholder", "Kaldenavn eller fornavn");
         // Age
@@ -57,6 +56,18 @@
         $('.field-name-field-brevk-alder select option:contains("- Ingen -")').text('Vælg alder');
         // Email
         $("#edit-node-notify-subscribe, .field-name-field-email input").attr("placeholder", "Skriv din email-adresse");
+      });
+
+      /* Handle errors */
+      $('form', context).once('handle-errors', function () {
+        if ($("input, select").hasClass("error")) {
+          $("input.error").closest(".form-wrapper").addClass('error');
+          $("select.error").closest(".form-wrapper").addClass('error');
+          /* Scroll to first error */
+          $('html, body').animate({
+            scrollTop: $('.error:visible:first').offset().top
+          }, 1000);
+        }
       });
 
       /* Add placeholder element to search input form */
