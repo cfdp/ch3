@@ -8,6 +8,17 @@
   max-width: 50%;
 }
 
+.form-wrapper {
+   &.field-widget-options-buttons {
+    overflow: auto;
+   }
+  &.error {
+    background-color: #fef5f1;
+    border: 1px solid #ed541d;
+    padding: $margin-std;
+  }
+}
+
 .form-item {
   color: $black;
   label {
@@ -43,49 +54,59 @@
   &.form-item-node-notify-subscribe .description {
     display: none;
   }
-  /* Display radios as normal buttons */
-  &.form-type-radios {
-    list-style-type: none;
-    margin: 25px 0 0 0;
-    padding: 0;
-    .description {
-      clear: both;
-    }
+  /* Errors - also handled in  */
+  .error {
+
   }
-  .form-type-radio {
-    float: left;
-    margin: 0 $margin-std 0 0;
-    width: 80px;
-    height: 45px;
-    position: relative;
-    input, label {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+}
+
+form.node-form {
+  .form-item {
+    /* Display radios as normal buttons */
+    &.form-type-radios {
+      list-style-type: none;
+      margin: 25px 0 0 0;
+      padding: 0;
+      .description {
+        clear: both;
+      }
     }
-    input[type="radio"] {
-      opacity: 0.01;
-      z-index: 100;
-    }
-    input[type="radio"]:checked + label,
-    .Checked + label {
-      border: 1px solid $primary-color;
-      color: $primary-color;
-    }
-    label {
-      @include border-radius(2px);
-      color: $grey-2;
-      padding: 5px;
-      border: 1px solid $grey-2;
-      cursor: pointer;
-      z-index: 90;
-      text-align: center;
-      &:hover {
+    .form-type-radio {
+      float: left;
+      margin: 0 $margin-std 0 0;
+      width: 80px;
+      height: 45px;
+      position: relative;
+      input,
+      label {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      input[type="radio"] {
+        opacity: 0.01;
+        z-index: 100;
+      }
+      input[type="radio"]:checked + label,
+      .Checked + label {
         border: 1px solid $primary-color;
         color: $primary-color;
+      }
+      label {
+        @include border-radius(2px);
+        color: $grey-2;
+        padding: 5px;
+        border: 1px solid $grey-2;
+        cursor: pointer;
+        z-index: 90;
+        text-align: center;
+        &:hover {
+          border: 1px solid $primary-color;
+          color: $primary-color;
+        }
       }
     }
   }
