@@ -58,7 +58,7 @@
         $("#edit-node-notify-subscribe, .field-name-field-email input").attr("placeholder", "Skriv din email-adresse");
       });
 
-      /* Handle errors */
+      /* Handle errors - highlight form errors and sroll to error position */
       $('form', context).once('handle-errors', function () {
         if ($("input, select").hasClass("error")) {
           $("input.error").closest(".form-wrapper").addClass('error');
@@ -88,10 +88,8 @@
 
       /* Forum */
       $('.node-forum-form', context).once('add-placeholder-forum-node', function () {
-$("#edit-body-und-0-value").attr("placeholder", "Skriv som om du skriver til en ven");
-
-$('select#edit-taxonomy-forums-und option:contains("- Vælg en værdi -")').text('Vælg emne');
-
+        $("#edit-body-und-0-value").attr("placeholder", "Skriv som om du skriver til en ven");
+        $('select#edit-taxonomy-forums-und option:contains("- Vælg en værdi -")').text('Vælg emne');
       });
     }
   };
@@ -118,6 +116,24 @@ $('select#edit-taxonomy-forums-und option:contains("- Vælg en værdi -")').text
         $( ".form-item-name" ).prependTo( ".group-more-author-info .fieldset-wrapper" );
         // Move submit button to bottom of form
         $( ".comment-form .form-submit" ).appendTo( $( ".comment-form" ) );
+      });
+    }
+  };
+  
+  /* Show Pollim / Poll Improved results after vote has been cast */
+  Drupal.behaviors.cyberhusEvolutionHidePollimResults = {
+    attach: function (context, settings) {
+      $('.entity-pollim', context).once('hide-pollim-results', function () {
+        $('.entity-pollim .choice-votecount').hide();
+        $('.entity-pollim .choice-percentage-bar').hide();
+        if ($(".entity-pollim input.choice").is(':checked')) {
+          $('.entity-pollim .choice-votecount').show();
+          $('.entity-pollim .choice-percentage-bar').show();
+        }
+        $( "input.choice" ).change(function() {
+          $('.entity-pollim .choice-votecount').show();
+          $('.entity-pollim .choice-percentage-bar').show();
+        });
       });
     }
   };

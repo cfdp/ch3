@@ -3,6 +3,8 @@
 body.page-pollim {
   .entity-pollim {
     padding: $padding-std;
+    .choice-percentage-bar {
+    }
   }
   .view > .view-content {
     background-color: #ffffff;
@@ -10,5 +12,18 @@ body.page-pollim {
       margin: 0 0 1em;
       padding: 0;
     }
+  }
+}
+
+.entity-pollim {
+  .choice-percentage-bar {
+    background-color: $black;
+    height: 15px;
+  }
+  .choice-item {
+    margin-bottom: $margin-std;
+  }
+  .choice-votecount {
+    margin-right: $margin-std;
   }
 }
