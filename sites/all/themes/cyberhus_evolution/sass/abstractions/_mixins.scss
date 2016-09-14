@@ -106,3 +106,10 @@ $margin: 0 !default;
   font-weight: $font-weight-bold;
   margin: 0 $mrg;
 }
+
+@mixin headline-h2() {
+  font-family: $font-family-header;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-bold;
+  margin: 0 0 $margin-small 0;
+}
