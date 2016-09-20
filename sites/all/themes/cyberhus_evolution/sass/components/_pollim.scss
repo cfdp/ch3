@@ -26,4 +26,10 @@ body.page-pollim {
   .choice-votecount {
     margin-right: $margin-std;
   }
+  .choice-data {
+    label {
+      margin-left: $margin-std;
+      vertical-align: middle;
+    }
+  }
 }
