@@ -7,7 +7,7 @@ body.page-comment-reply {
   }
   article {
     &.node {
-      padding: $padding-std;
+      padding: 0 $padding-std $padding-std $padding-std;
     }
     .view-author-timestamp-eva-field-nodes .view-content > .views-row {
       margin: 0;
@@ -62,15 +62,17 @@ body.page-comment-reply {
   }
 }
 
+/* Side med kode og view */
+body.node-type-chat {
+
+}
+
 /* ENABLE 2 ACT custom page */
 body.page-node-41282 {
   .field--name-field-vedh-ft-view,
   .block--views-comments-block-1,
   .comment-form {
      padding: $padding-std;
-  }
-  .choice-votecount {
-    margin-right: 1em;
   }
 }
 
