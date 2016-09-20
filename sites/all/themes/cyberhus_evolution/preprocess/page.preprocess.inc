@@ -157,14 +157,21 @@ function cyberhus_evolution_preprocess_page(&$vars) {
         // Ordet er dit & Virkelighed
         drupal_set_title(t('Del din virkelighed!'));
       }
-      else if ($keys == "2327") {
+      else if (in_array('2327', $keys)) {
         // Ordet er dit
         drupal_set_title(t('Ordet er dit!'));
       }
-      else if ($keys == "2328") {
+      else if (in_array('2328', $keys)) {
         // Lifehacks
         drupal_set_title(t('Del dit Lifehack!'));
       }
+      else if (in_array('2335', $keys)) {
+        // Enable 2 act
+        drupal_set_title(t('Share your secret!'));
+      }
     }
+  }
+  else if ($path == "node/add/forum/2334") {
+    drupal_set_title(t('New forum post'));
   }
 }

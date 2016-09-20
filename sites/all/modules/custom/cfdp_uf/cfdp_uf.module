@@ -4,6 +4,22 @@
  */
 function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
   switch ($form_id) {
+    case 'body_secret_node_form':
+      // request uri
+      $uri =  request_uri();
+      // we are on a Enable-2-act page
+      if ($uri == "/hemmeligheder?edit[field_secrets_category][und][2335]=enable-2-actø") {
+        drupal_set_message("You can always go back to <a href='/node/41282' title='ENABLE-2ACT'>ENABLE-2-ACTs</a> front page. ");
+      }
+    break;
+    case 'forum_node_form':
+      // request uri
+      $uri =  request_uri();
+      // we are on a Enable-2-act page
+      if ($uri == "/node/add/forum/2334") {
+        drupal_set_message("You can always go back to <a href='/node/41282' title='ENABLE-2ACT'>ENABLE-2-ACTs</a> front page. ");
+      }
+    break;
     case 'image_node_form':
       $hide_age_field = false;
       /* Tegn selv moderator user do not need to enter age on own images -
@@ -21,9 +37,6 @@ function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
         $form['field_brevk_alder'][$lang]['#required'] = false;
         $form['field_brevk_alder']['#access'] = 0;
       }
-    break;
-    case 'forum_node_form':
-      //
     break;
     case 'user_profile_form':
       $user_roles = $form['#user']->roles;
