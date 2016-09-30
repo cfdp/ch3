@@ -3,6 +3,7 @@ sites/*/settings*.php
 *.sql
 .htaccess
 .ruby-version
+.bundle/
 
 # Ignore paths that contain user-generated content.
 sites/*/files
