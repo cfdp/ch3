@@ -58,6 +58,10 @@ img {
   @include button-bg();
 }
 
+.btn-left {
+  @include button-bg-left();
+}
+
 .btn-light {
   @include button-bg($blue, $white);
 }

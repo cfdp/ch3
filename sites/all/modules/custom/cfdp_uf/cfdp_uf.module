@@ -270,3 +270,22 @@ function _cfdp_uf_remove_radio_na($element) {
   unset($element['_none']);
   return $element;
 }
+
+/**
+ * Implements of hook_node_view()
+ */
+function cfdp_uf_node_view($node, $view_mode, $langcode) {
+  /* Send along user signature for registered users */
+  if (($node->uid) !== 0) {
+    $reg_user = user_load($node->uid);
+    if (isset($reg_user->signature)) {
+      if (($node->type == 'blog' || $node->type == 'image' ) && $view_mode == 'full') {
+       $signature = check_markup($reg_user->signature, 1);
+        $node->content['signature'] = array(
+         "#markup"=> '<div class="user-signature clearfix">'.$signature.'</div>',
+         "#weight"=> 3
+        );
+      }
+    }
+  }
+}

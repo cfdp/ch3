@@ -39,6 +39,7 @@ $margin: 0 !default;
   font-weight: $font-weight-bold;
   padding: .7em 1em;
   display: inline-block;
+  margin-right: $margin-std;
   max-width: 12em;
   &:hover {
     background: darken($bg, 8%);

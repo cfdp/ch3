@@ -113,12 +113,14 @@
       hide($content['comments']);
       hide($content['links']);
       hide($content['links']['comment']);
+      hide($content['field_cyberlike']);
       if (isset($author_date_key)) {
         hide($content[$author_date_key]);
       }
 
       print render($content);
     ?>
+    <?php print render($content['field_cyberlike']); ?>
   </div>
 
   <?php print render($content['links']); ?>
