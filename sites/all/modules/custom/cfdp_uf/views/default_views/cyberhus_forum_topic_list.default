@@ -317,7 +317,191 @@ $handler->display->display_options['footer']['view']['id'] = 'view';
 $handler->display->display_options['footer']['view']['table'] = 'views';
 $handler->display->display_options['footer']['view']['field'] = 'view';
 $handler->display->display_options['footer']['view']['view_to_insert'] = 'cyberhus_forum_term_list:default';
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filterkriterie: Indhold: Udgivet */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filterkriterie: Indhold: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'forum' => 'forum',
+);
+/* Filterkriterie: Indhold: Forum (taxonomy_forums) */
+$handler->display->display_options['filters']['taxonomy_forums_tid']['id'] = 'taxonomy_forums_tid';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['table'] = 'field_data_taxonomy_forums';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['field'] = 'taxonomy_forums_tid';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['value'] = array(
+  715 => '715',
+  2334 => '2334',
+  39 => '39',
+  785 => '785',
+  36 => '36',
+  40 => '40',
+  2125 => '2125',
+  2331 => '2331',
+  1189 => '1189',
+  1966 => '1966',
+);
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['operator_id'] = 'taxonomy_forums_tid_op';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['operator'] = 'taxonomy_forums_tid_op';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['identifier'] = 'taxonomy_forums_tid';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['required'] = TRUE;
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['remember_roles'] = array(
+  2 => '2',
+  8 => 0,
+  1 => 0,
+  5 => 0,
+  10 => 0,
+  3 => 0,
+  9 => 0,
+  4 => 0,
+  11 => 0,
+);
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['reduce'] = TRUE;
+$handler->display->display_options['filters']['taxonomy_forums_tid']['type'] = 'select';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['vocabulary'] = 'forumss';
 $handler->display->display_options['path'] = 'forum/%';
+
+/* Display: ENABLE block */
+$handler = $view->new_display('block', 'ENABLE block', 'block_1');
+$handler->display->display_options['display_description'] = 'Show the 3 latest posts';
+$handler->display->display_options['defaults']['pager'] = FALSE;
+$handler->display->display_options['pager']['type'] = 'some';
+$handler->display->display_options['pager']['options']['items_per_page'] = '3';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area_1']['id'] = 'area_1';
+$handler->display->display_options['header']['area_1']['table'] = 'views';
+$handler->display->display_options['header']['area_1']['field'] = 'area';
+$handler->display->display_options['header']['area_1']['label'] = 'Title';
+$handler->display->display_options['header']['area_1']['content'] = '<h2>From the forum</h2>';
+$handler->display->display_options['header']['area_1']['format'] = '2';
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['label'] = 'New post button';
+$handler->display->display_options['header']['area']['content'] = '<a href="/node/add/forum/2334" title="New post" class="btn">New post</a>
+';
+$handler->display->display_options['header']['area']['format'] = '2';
+$handler->display->display_options['header']['area']['tokenize'] = TRUE;
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filterkriterie: Indhold: Udgivet */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filterkriterie: Indhold: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'forum' => 'forum',
+);
+/* Filterkriterie: Indhold: Forum (taxonomy_forums) */
+$handler->display->display_options['filters']['taxonomy_forums_tid']['id'] = 'taxonomy_forums_tid';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['table'] = 'field_data_taxonomy_forums';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['field'] = 'taxonomy_forums_tid';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['value'] = array(
+  2334 => '2334',
+);
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['operator_id'] = 'taxonomy_forums_tid_op';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['operator'] = 'taxonomy_forums_tid_op';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['identifier'] = 'taxonomy_forums_tid';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['required'] = TRUE;
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['remember_roles'] = array(
+  2 => '2',
+  8 => 0,
+  1 => 0,
+  5 => 0,
+  10 => 0,
+  3 => 0,
+  9 => 0,
+  4 => 0,
+  11 => 0,
+);
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['reduce'] = TRUE;
+$handler->display->display_options['filters']['taxonomy_forums_tid']['type'] = 'select';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['vocabulary'] = 'forumss';
+
+/* Display: "Min familie" block */
+$handler = $view->new_display('block', '"Min familie" block', 'block_2');
+$handler->display->display_options['display_description'] = 'Show the 3 latest posts';
+$handler->display->display_options['defaults']['pager'] = FALSE;
+$handler->display->display_options['pager']['type'] = 'some';
+$handler->display->display_options['pager']['options']['items_per_page'] = '3';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area_1']['id'] = 'area_1';
+$handler->display->display_options['header']['area_1']['table'] = 'views';
+$handler->display->display_options['header']['area_1']['field'] = 'area';
+$handler->display->display_options['header']['area_1']['label'] = 'Titel';
+$handler->display->display_options['header']['area_1']['content'] = '<h2>Fra forummet Mig & Verden</h2>';
+$handler->display->display_options['header']['area_1']['format'] = '2';
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['label'] = 'Knapper';
+$handler->display->display_options['header']['area']['content'] = '<p style="text-align:center; margin: 2em 0;"><a href="/node/add/forum/785" title="Nyt indlæg" class="btn-left">Skriv indlæg</a><a href="/forum/785" title="Gå til Mig & Verden forummet" class="btn-left">Til debatten</a></p>
+';
+$handler->display->display_options['header']['area']['format'] = 'admin_html';
+$handler->display->display_options['header']['area']['tokenize'] = TRUE;
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filterkriterie: Indhold: Udgivet */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filterkriterie: Indhold: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'forum' => 'forum',
+);
+/* Filterkriterie: Indhold: Forum (taxonomy_forums) */
+$handler->display->display_options['filters']['taxonomy_forums_tid']['id'] = 'taxonomy_forums_tid';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['table'] = 'field_data_taxonomy_forums';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['field'] = 'taxonomy_forums_tid';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['value'] = array(
+  785 => '785',
+);
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['operator_id'] = 'taxonomy_forums_tid_op';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['operator'] = 'taxonomy_forums_tid_op';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['identifier'] = 'taxonomy_forums_tid';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['required'] = TRUE;
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['remember_roles'] = array(
+  2 => '2',
+  8 => 0,
+  1 => 0,
+  5 => 0,
+  10 => 0,
+  3 => 0,
+  9 => 0,
+  4 => 0,
+  11 => 0,
+);
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['reduce'] = TRUE;
+$handler->display->display_options['filters']['taxonomy_forums_tid']['type'] = 'select';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['vocabulary'] = 'forumss';
 $translatables['cyberhus_forum_topic_list'] = array(
   t('Master'),
   t('mere'),
@@ -354,7 +538,20 @@ $translatables['cyberhus_forum_topic_list'] = array(
   t('<h1>[name]</h1>'),
   t('<div class="content-list-header">[description]</div><a href="/node/add/forum/[tid]" title="Skriv indlæg" class="btn">Skriv indlæg</a>
 <h3>Seneste indlæg</h3>'),
+  t('ENABLE block'),
+  t('Show the 3 latest posts'),
+  t('Title'),
+  t('<h2>From the forum</h2>'),
+  t('New post button'),
+  t('<a href="/node/add/forum/2334" title="New post" class="btn">New post</a>
+'),
+  t('"Min familie" block'),
+  t('<h2>Fra forummet Mig & Verden</h2>'),
+  t('Knapper'),
+  t('<p style="text-align:center; margin: 2em 0;"><a href="/node/add/forum/785" title="Nyt indlæg" class="btn-left">Skriv indlæg</a><a href="/forum/785" title="Gå til Mig & Verden forummet" class="btn-left">Til debatten</a></p>
+'),
 );
+
 
   return $view;
 

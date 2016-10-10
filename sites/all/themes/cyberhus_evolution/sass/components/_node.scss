@@ -1,6 +1,9 @@
 /* General node stuff */
 body.page-node,
 body.page-comment-reply {
+  ul.tabs.tabs--primary {
+    margin: 0 $margin-std $margin-std;
+  }
   article h1 {
     margin: .3em 0 0 0;
     padding:0;
@@ -13,10 +16,11 @@ body.page-comment-reply {
       margin: 0;
       padding: 0;
     }
-    &.node--simpel-side-med-view {
+    &.node--simpel-side-med-view,
+    &.node--chat--full {
       padding: 0;
       h1 {
-        padding: 0 $padding-std;
+        margin: 0 $margin-std-px;
       }
       .field--name-field-billede,
       .field--name-body {
@@ -62,9 +66,18 @@ body.page-comment-reply {
   }
 }
 
-/* Side med kode og view */
-body.node-type-chat {
+/**
+ * SIDE MED INDLEJRING AF KODE OG VIEWS
+ */
+.content-type-chat {
 
+  .field--name-field-admin-php {
+    background-color: $bg-grey;
+    p {
+      background-color: $bg-white;
+      padding: $padding-std;
+    }
+  }
 }
 
 /* ENABLE 2 ACT custom page */
