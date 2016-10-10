@@ -17,4 +17,12 @@ function cyberhus_evolution_preprocess_html(&$variables) {
     );
     drupal_add_js(drupal_get_path('theme', 'cyberhus_evolution'). '/js/curachat.embed.js', $options);
   }
+
+  // add content type to body classes
+  $node = menu_get_object();
+  $type = isset($node->type) ? $node->type : 'none';
+  $type = ($type == 'none' && arg(0) == 'node' && arg(1) == 'add') ? arg(2) : $type;
+  $content_type_class = 'content-type-'.$type;
+  $variables['attributes_array']['class'][] = $content_type_class;
+
 }

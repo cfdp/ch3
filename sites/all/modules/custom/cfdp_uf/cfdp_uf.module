@@ -8,7 +8,7 @@ function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
       // request uri
       $uri =  request_uri();
       // we are on a Enable-2-act page
-      if ($uri == "/hemmeligheder?edit[field_secrets_category][und][2335]=enable-2-actø") {
+      if ($uri == "/hemmeligheder?edit[field_secrets_category][und][2335]=enable-2-act") {
         drupal_set_message("You can always go back to <a href='/node/41282' title='ENABLE-2ACT'>ENABLE-2-ACTs</a> front page. ");
       }
     break;

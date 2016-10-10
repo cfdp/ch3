@@ -7,6 +7,7 @@
     cursor: pointer;
     position: relative;
     margin-top: 1px;
+    padding: 0 0 0 $padding-big;
     zoom: 1;
   }
   .ui-accordion-li-fix {
@@ -16,13 +17,9 @@
     border-bottom: 0 !important;
   }
   .ui-accordion-header a {
-    display: block;
+    @include headline-h3();
     color: $blue;
-    font-family: $font-family-header;
-    font-size: $font-size-medium;
-    font-weight: $font-weight-bold;
-    margin: $margin-small 0;
-    padding: 0;
+    display: block;
   }
   /* IE7-/Win - Fix extra vertical space in lists */
   a {
