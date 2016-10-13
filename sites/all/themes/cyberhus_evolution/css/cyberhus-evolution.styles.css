@@ -173,6 +173,17 @@ img {
   padding: 1em; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000375}}
+.headline-grey-bg-neg-mrg {
+  background-color: #F1F1F1;
+  color: #9e9b99;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0 -1em;
+  text-transform: uppercase;
+  padding: 1em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000379}}
 .author-timestamp {
   color: #85817f;
   font-size: 0.85em;

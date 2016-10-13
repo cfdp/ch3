@@ -72,6 +72,10 @@ img {
   @include headline-grey-bg();
 }
 
+.headline-grey-bg-neg-mrg {
+  @include headline-grey-bg(-1em);
+}
+
 .author-timestamp {
   @include font-metadata;
   margin-bottom: $margin-small;
