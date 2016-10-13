@@ -1,4 +1,5 @@
 /* General node stuff */
+
 body.page-node,
 body.page-comment-reply {
   ul.tabs.tabs--primary {
@@ -6,7 +7,7 @@ body.page-comment-reply {
   }
   article h1 {
     margin: .3em 0 0 0;
-    padding:0;
+    padding: 0;
   }
   article {
     &.node {
@@ -18,7 +19,7 @@ body.page-comment-reply {
     }
     &.node--simpel-side-med-view,
     &.node--chat--full {
-      padding: 0;
+      padding: 0 0 .5em 0;
       h1 {
         margin: 0 $margin-std-px;
       }
@@ -29,7 +30,7 @@ body.page-comment-reply {
     }
     .field--type-viewreference {
       .ui-accordion {
-        padding-top: $padding-small;
+        /*padding-top: $padding-small;*/
       }
     }
     /* Comment related */
@@ -37,28 +38,27 @@ body.page-comment-reply {
       @include button-bg();
     }
   }
-
   /* Subscribe - Node notify */
   ul.links {
     li.subscribe {
       @include button-bg($blue, $white);
     }
   }
-
   /* Brevkasse */
   .field--name-field-brevk-svar .field__label {
     @include headline-orange();
   }
-
   /* Blog */
-  &.node-type-blog {
+  &.content-type-blog {
     li.blog_usernames_blog {
       display: none;
     }
   }
 }
 
+
 /* Hide the obsolete comment form when Mollom activites comment/reply page */
+
 body.page-comment-reply {
   #comment-form,
   h2.node__title {
@@ -66,31 +66,80 @@ body.page-comment-reply {
   }
 }
 
-/**
- * SIDE MED INDLEJRING AF KODE OG VIEWS
- */
-.content-type-chat {
 
-  .field--name-field-admin-php {
+/**
+ * SIDE MED INDLEJRING AF KODE OG VIEWS & SIMPEL SIDE MED VIEW
+ */
+
+.content-type-chat,
+.content-type-simpel_side_med_view {
+  .group-fold-out-text-wrapper {
+    margin-bottom: 1em;
+  }
+  // UI ACCORDION ADJUSTMENTS
+  .ui-accordion-header-icon {
+    display: none;
+  }
+  .ui-accordion.view-content  {
+    background-color: $bg-white;
+    h3 {
+      margin: 0;
+    }
+    .views-row {
+      padding: 0 1em;
+    }
+    .ui-accordion-header {
+        padding-left: 0;
+        a {
+          font-size: $font-size-normal;
+          font-weight: $font-weight-std;
+          font-family: $font-family-std;
+        }
+      }
+  }
+  .ui-accordion-icons {
+    padding-left: $padding-std;
+  }
+  .field--name-field-admin-php,
+  .field--name-field-relevant-articles,
+  .views-accordion-cyberhus_chat-block_1-header {
     background-color: $bg-grey;
     p {
       background-color: $bg-white;
+      margin: 0;
       padding: $padding-std;
     }
   }
+  .field--name-field-footer-text {
+    margin: $margin-std;
+  }
 }
 
+
 /* ENABLE 2 ACT custom page */
+
 body.page-node-41282 {
   .field--name-field-vedh-ft-view,
   .block--views-comments-block-1,
   .comment-form {
-     padding: $padding-std;
+    padding: $padding-std;
   }
 }
 
+
 /* Fields */
 /* fold-out text field */
+
 .field--name-field-fold-out-text-title .field__item {
   color: $blue;
+}
+/* relevant articles field */
+.field--name-field-relevant-articles {
+  .field__label {
+    @include headline-grey-bg();
+  }
+  .field__items {
+    background-color: $bg-white;
+    padding: $padding-std;
+  }
 }

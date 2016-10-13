@@ -33,7 +33,7 @@ $handler->display->display_options['row_plugin'] = 'fields';
 $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['content'] = '<h2>Blogindlæg</h2>';
+$handler->display->display_options['header']['area']['content'] = '<h3>Blogindlæg</h3>';
 $handler->display->display_options['header']['area']['format'] = '2';
 /* Forbindelse: Indhold: Forfatter */
 $handler->display->display_options['relationships']['uid']['id'] = 'uid';
@@ -213,8 +213,8 @@ $handler->display->display_options['filters']['uid']['value'] = array(
   0 => '5083',
 );
 
-/* Display: Min familie blogs */
-$handler = $view->new_display('block', 'Min familie blogs', 'block_3');
+/* Display: "Mig og verden" blogs */
+$handler = $view->new_display('block', '"Mig og verden" blogs', 'block_3');
 $handler->display->display_options['defaults']['title'] = FALSE;
 $handler->display->display_options['title'] = 'Min familie blogs';
 $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -305,7 +305,7 @@ $translatables['kampagner'] = array(
   t('Sortér efter'),
   t('Stigende'),
   t('Faldende'),
-  t('<h2>Blogindlæg</h2>'),
+  t('<h3>Blogindlæg</h3>'),
   t('forfatter'),
   t('<div class="author-timestamp">Indlæg på [value] • [created] siden</div>'),
   t('Kampagne: BRUS blogs'),
@@ -317,6 +317,7 @@ $translatables['kampagner'] = array(
   t('ny kampagne'),
   t('BRUS bloggere'),
   t('BRUS'),
+  t('"Mig og verden" blogs'),
   t('Min familie blogs'),
   t('Forfatter uid'),
   t('test kampagne: test blogs'),
@@ -324,6 +325,7 @@ $translatables['kampagner'] = array(
   t('<h2>Læs om andres oplevelser<h2>
 <p>Her kan du finde blog indlæg fra unge, som har skrevet noget til test kampagnen. Du kan læse om deres oplevelser, tanker og følelser, og sende dem en kommentar hvis du har lyst.</p>'),
 );
+
 
   return $view;
 

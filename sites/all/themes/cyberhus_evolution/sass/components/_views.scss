@@ -194,6 +194,7 @@ body.page-kampagner {
     }
   }
 }
+
 /**
  * SIMPEL SIDE MED VIEW
  */
@@ -204,4 +205,15 @@ body.page-kampagner {
   }
 }
 
-
+/**
+ * SIDE MED INDLEJRING AF KODE OG VIEWS
+ */
+.content-type-chat {
+  .view-header {
+    //margin: $margin-std;
+    p {
+      background-color: $bg-white;
+      padding: $padding-std;
+    }
+  }
+}
