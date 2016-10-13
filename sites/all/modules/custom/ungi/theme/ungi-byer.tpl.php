@@ -20,7 +20,7 @@
                         <a class="btn" href="<?php print $city->url; ?>">Tilbud i kommunen</a>
                         <?php if (!empty($city->chaturl)): ?>
                           <div class="ungi-chat-wrapper"><span class="chat-label">Chat</span>
-          <iframe src="<?php print $city->chaturl . "/inline/" . $city->chattype; ?>"></iframe>
+          <iframe class="curachat-widgets-inline" src="<?php print $city->chaturl . "/inline/" . $city->chattype; ?>"></iframe>
   </div>
   <?php else: ?>
     <div class="ungi-chat-wrapper">

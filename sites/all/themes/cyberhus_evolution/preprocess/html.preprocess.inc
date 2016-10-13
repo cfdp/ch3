@@ -11,7 +11,7 @@
 function cyberhus_evolution_preprocess_html(&$variables) {
   // Only add sidebar chat on prod and staging site
   global $base_url;
-  if (($base_url == "https://cyberhus.dk") || ($base_url == "https://udvikling.cyberhus.dk")) {
+  if (($base_url == "https://cyberhus.dk") || ($base_url == "https://udvikling.cyberhus.dk") || ($base_url == "https://dev.ch3")) {
     $options = array(
       'group' => JS_THEME,
     );
