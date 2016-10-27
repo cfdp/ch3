@@ -224,6 +224,9 @@ function cfdp_uf_front_page_svg($content_type) {
     case 'historie':
         $svg = 'forum';
         break;
+    case 'link_artikel':
+        $svg = 'articles';
+        break;
     default:
         echo $content_type;
   }
