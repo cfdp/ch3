@@ -189,11 +189,6 @@ img {
   font-size: 0.85em;
   margin-bottom: 0.75em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000384}}
-ol, ul {
-  list-style: disc;
-  margin-left: 1em; }
-
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_accordion\.scss}line{font-family:\000031}}
 .ui-accordion.view-content {
   /* Reset default views elements */
