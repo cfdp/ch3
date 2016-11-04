@@ -80,8 +80,3 @@ img {
   @include font-metadata;
   margin-bottom: $margin-small;
 }
-
-ol, ul {
-  list-style: disc;
-  margin-left: $margin-std;
-}
