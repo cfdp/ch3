@@ -12,6 +12,10 @@ body.page-comment-reply {
   article {
     &.node {
       padding: 0 $padding-std $padding-std $padding-std;
+      ol, ul {
+        list-style: disc;
+        margin-left: $margin-std;
+      }
     }
     .view-author-timestamp-eva-field-nodes .view-content > .views-row {
       margin: 0;
@@ -30,7 +34,6 @@ body.page-comment-reply {
     }
     .field--type-viewreference {
       .ui-accordion {
-        /*padding-top: $padding-small;*/
       }
     }
     /* Comment related */
