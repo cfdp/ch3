@@ -81,3 +81,11 @@ img {
   margin-bottom: $margin-small;
 }
 
+ol, ul {
+  list-style: disc;
+}
+
+ol {
+  margin-left: $margin-std;
+}
+
