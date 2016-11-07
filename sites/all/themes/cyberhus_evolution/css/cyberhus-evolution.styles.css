@@ -188,6 +188,20 @@ img {
   color: #85817f;
   font-size: 0.85em;
   margin-bottom: 0.75em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000382}}
+  .author-timestamp .gender {
+    padding: 0 4px 0 12px;
+    background-size: 14px 14px;
+    background-repeat: no-repeat; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000387}}
+  .author-timestamp .gender.tid-2150 {
+    background-image: url('../images/icons/svg/gender/female.svg?1478524437'); }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000390}}
+  .author-timestamp .gender.tid-2149 {
+    background-image: url('../images/icons/svg/gender/male.svg?1478525388'); }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/base\/_base\.scss}line{font-family:\0000393}}
+  .author-timestamp .gender.tid-2336 {
+    background-image: url('../images/icons/svg/gender/non-binary.svg?1478542890'); }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/_accordion\.scss}line{font-family:\000031}}
 .ui-accordion.view-content {
@@ -1803,9 +1817,9 @@ form.node-form .form-item {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000374}}
   form.node-form .form-item .form-type-radio {
     float: left;
-    margin: 0 1em 0 0;
-    width: 80px;
-    height: 45px;
+    min-width: 70px;
+    margin: 0 0.75em 0 0;
+    height: 40px;
     position: relative; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\0000380}}
     form.node-form .form-item .form-type-radio input,
@@ -1831,23 +1845,48 @@ form.node-form .form-item {
       -webkit-border-radius: 2px;
       border-radius: 2px;
       color: #BFBFBF;
+      font-size: 11px;
       padding: 5px;
       border: 1px solid #BFBFBF;
       cursor: pointer;
-      z-index: 90;
-      text-align: center; }
+      z-index: 90; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003106}}
+      form.node-form .form-item .form-type-radio label[for] {
+        background-repeat: no-repeat;
+        background-size: 12px 12px;
+        background-position: 10px 10px;
+        padding-left: 24px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003112}}
+      form.node-form .form-item .form-type-radio label[for="edit-field-brevk-koen-und-2149"] {
+        background-image: url('../images/icons/svg/gender/male-grey2.svg?1478548808'); }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003115}}
+      form.node-form .form-item .form-type-radio label[for="edit-field-brevk-koen-und-2150"] {
+        background-image: url('../images/icons/svg/gender/female-grey2.svg?1478548839'); }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003118}}
+      form.node-form .form-item .form-type-radio label[for="edit-field-brevk-koen-und-2336"] {
+        background-image: url('../images/icons/svg/gender/non-binary-grey2.svg?1478548782');
+        min-width: 60px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003122}}
       form.node-form .form-item .form-type-radio label:hover {
         border: 1px solid #e67e22;
         color: #e67e22; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003125}}
+        form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2149"] {
+          background-image: url('../images/icons/svg/gender/male-orange.svg?1478549895'); }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003128}}
+        form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2150"] {
+          background-image: url('../images/icons/svg/gender/female-orange.svg?1478549856'); }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003131}}
+        form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2336"] {
+          background-image: url('../images/icons/svg/gender/non-binary-orange.svg?1478549933'); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003116}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003141}}
 .container-inline .form-select,
 .container-inline .form-text,
 .container-inline .form-textarea {
   width: auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003124}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/cyberhus\/public_html\/sites\/all\/themes\/cyberhus_evolution\/sass\/components\/forms\/_form-items\.scss}line{font-family:\00003149}}
 body.not-logged-in .wysiwyg-toggle-wrapper {
   display: none; }
 

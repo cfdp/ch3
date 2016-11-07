@@ -79,4 +79,19 @@ img {
 .author-timestamp {
   @include font-metadata;
   margin-bottom: $margin-small;
+  .gender {
+    padding: 0 4px 0 12px;
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+  }
+  .gender.tid-2150 {
+    background-image: image-url('icons/svg/gender/female.svg');
+  }
+  .gender.tid-2149 {
+    background-image: image-url('icons/svg/gender/male.svg');
+  }
+  .gender.tid-2336 {
+    background-image: image-url('icons/svg/gender/non-binary.svg');
+  }
+
 }
