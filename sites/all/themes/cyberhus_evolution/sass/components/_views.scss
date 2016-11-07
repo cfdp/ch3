@@ -29,8 +29,8 @@
     }
   }
   & > .view-footer {
-      background-color: $bg-grey;
-      padding: $padding-small;
+    background-color: $bg-grey;
+    padding: $padding-small;
   }
   .views-field-body .field-content {
     font-family: $font-family-std;
@@ -44,7 +44,11 @@
   }
   & > .view-content {
     background-color: $bg-grey;
-
+    ol,
+    ul {
+      list-style: disc;
+      margin-left: $margin-std;
+    }
     .views-row {
       background-color: $bg-white;
       margin: 0 0 $margin-std 0;
@@ -57,13 +61,12 @@
       background-image: image-url('icons/svg/comments.svg');
     }
   }
-
   /* Mini lists are small lists of content links e.g. used on /blogs page */
   &.mini-list {
     > .view-content .views-row {
-    display: block;
-    margin: 0;
-    padding: $padding-std;
+      display: block;
+      margin: 0;
+      padding: $padding-std;
     }
   }
 }
@@ -75,7 +78,8 @@
   background-color: $bg-grey;
   padding: $padding-std;
   a {
-    @include button-bg($blue, $white);
+    @include button-bg($blue,
+    $white);
   }
 }
 
@@ -95,6 +99,7 @@
     @include label();
   }
 }
+
 
 /**
  * FORSIDE / FRONT PAGE
@@ -121,9 +126,11 @@ body.front {
   }
 }
 
+
 /**
  * BREVKASSE
  */
+
 body.page-brevkasse {
   h1 {
     display: none;
@@ -133,9 +140,11 @@ body.page-brevkasse {
   }
 }
 
+
 /**
  * KAMPAGNER
  */
+
 body.page-kampagner {
   .view > .view-content {
     padding-top: $padding-std;
@@ -147,7 +156,6 @@ body.page-kampagner {
     }
   }
 }
-
 
 
 /**
@@ -184,7 +192,7 @@ body.page-kampagner {
 }
 
 .view-blogs-oversigter {
-  .view-header .content-list-header{
+  .view-header .content-list-header {
     display: inline-block;
     //margin: 0;
     max-width: 67%;
@@ -194,6 +202,7 @@ body.page-kampagner {
     }
   }
 }
+
 
 /**
  * SIMPEL SIDE MED VIEW
@@ -205,9 +214,11 @@ body.page-kampagner {
   }
 }
 
+
 /**
  * SIDE MED INDLEJRING AF KODE OG VIEWS
  */
+
 .content-type-chat {
   .view-header {
     //margin: $margin-std;
