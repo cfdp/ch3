@@ -73,9 +73,9 @@ form.node-form {
     }
     .form-type-radio {
       float: left;
-      margin: 0 $margin-std 0 0;
-      width: 80px;
-      height: 45px;
+      min-width: 70px;
+      margin: 0 $margin-small 0 0;
+      height: 40px;
       position: relative;
       input,
       label {
@@ -98,14 +98,39 @@ form.node-form {
       label {
         @include border-radius(2px);
         color: $grey-2;
+        font-size: 11px;
         padding: 5px;
         border: 1px solid $grey-2;
         cursor: pointer;
         z-index: 90;
-        text-align: center;
+        &[for] {
+          background-repeat: no-repeat;
+          background-size: 12px 12px;
+          background-position: 10px 10px;
+          padding-left: 24px;
+        }
+        &[for="edit-field-brevk-koen-und-2149"] {
+          background-image: image-url("icons/svg/gender/male-grey2.svg");
+        }
+        &[for="edit-field-brevk-koen-und-2150"] {
+          background-image: image-url("icons/svg/gender/female-grey2.svg");
+        }
+        &[for="edit-field-brevk-koen-und-2336"] {
+          background-image: image-url("icons/svg/gender/non-binary-grey2.svg");
+          min-width: 60px;
+        }
         &:hover {
           border: 1px solid $primary-color;
           color: $primary-color;
+          &[for="edit-field-brevk-koen-und-2149"] {
+            background-image: image-url("icons/svg/gender/male-orange.svg");
+          }
+          &[for="edit-field-brevk-koen-und-2150"] {
+            background-image: image-url("icons/svg/gender/female-orange.svg");
+          }
+          &[for="edit-field-brevk-koen-und-2336"] {
+            background-image: image-url("icons/svg/gender/non-binary-orange.svg");
+          }
         }
       }
     }
