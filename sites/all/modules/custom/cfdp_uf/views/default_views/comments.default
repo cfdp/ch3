@@ -48,6 +48,30 @@ $handler->display->display_options['relationships']['nid']['id'] = 'nid';
 $handler->display->display_options['relationships']['nid']['table'] = 'comment';
 $handler->display->display_options['relationships']['nid']['field'] = 'nid';
 $handler->display->display_options['relationships']['nid']['required'] = TRUE;
+/* Forbindelse: Kommentar: Forfatter */
+$handler->display->display_options['relationships']['uid']['id'] = 'uid';
+$handler->display->display_options['relationships']['uid']['table'] = 'comment';
+$handler->display->display_options['relationships']['uid']['field'] = 'uid';
+$handler->display->display_options['relationships']['uid']['required'] = TRUE;
+/* Felt: Felt: Køn */
+$handler->display->display_options['fields']['field_brevk_koen_1']['id'] = 'field_brevk_koen_1';
+$handler->display->display_options['fields']['field_brevk_koen_1']['table'] = 'field_data_field_brevk_koen';
+$handler->display->display_options['fields']['field_brevk_koen_1']['field'] = 'field_brevk_koen';
+$handler->display->display_options['fields']['field_brevk_koen_1']['label'] = '';
+$handler->display->display_options['fields']['field_brevk_koen_1']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_brevk_koen_1']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_brevk_koen_1']['type'] = 'taxonomy_term_reference_plain';
+/* Felt: Køn, term id */
+$handler->display->display_options['fields']['field_brevk_koen']['id'] = 'field_brevk_koen';
+$handler->display->display_options['fields']['field_brevk_koen']['table'] = 'field_data_field_brevk_koen';
+$handler->display->display_options['fields']['field_brevk_koen']['field'] = 'field_brevk_koen';
+$handler->display->display_options['fields']['field_brevk_koen']['ui_name'] = 'Køn, term id';
+$handler->display->display_options['fields']['field_brevk_koen']['label'] = '';
+$handler->display->display_options['fields']['field_brevk_koen']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_brevk_koen']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['field_brevk_koen']['alter']['text'] = ' <span class="gender tid-[field_brevk_koen-tid]" title="[field_brevk_koen_1]"></span>';
+$handler->display->display_options['fields']['field_brevk_koen']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_brevk_koen']['type'] = 'taxonomy_term_reference_plain';
 /* Felt: Kommentar: Oprettelsesdato */
 $handler->display->display_options['fields']['created']['id'] = 'created';
 $handler->display->display_options['fields']['created']['table'] = 'comment';
@@ -64,7 +88,7 @@ $handler->display->display_options['fields']['name']['table'] = 'comment';
 $handler->display->display_options['fields']['name']['field'] = 'name';
 $handler->display->display_options['fields']['name']['label'] = '';
 $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['name']['alter']['text'] = '<div class="author-timestamp">Kommentar af [name] • [created] siden</div>';
+$handler->display->display_options['fields']['name']['alter']['text'] = '<div class="author-timestamp">Kommentar af [name][field_brevk_koen] • [created] siden</div>';
 $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
 /* Felt: Kommentar: Kommentar */
@@ -83,6 +107,24 @@ $handler->display->display_options['fields']['field_kommentar_cyberlike']['field
 $handler->display->display_options['fields']['field_kommentar_cyberlike']['label'] = '';
 $handler->display->display_options['fields']['field_kommentar_cyberlike']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_kommentar_cyberlike']['click_sort_column'] = 'vud_widget';
+/* Felt: Bruger: Signatur */
+$handler->display->display_options['fields']['signature']['id'] = 'signature';
+$handler->display->display_options['fields']['signature']['table'] = 'users';
+$handler->display->display_options['fields']['signature']['field'] = 'signature';
+$handler->display->display_options['fields']['signature']['relationship'] = 'uid';
+$handler->display->display_options['fields']['signature']['label'] = '';
+$handler->display->display_options['fields']['signature']['exclude'] = TRUE;
+$handler->display->display_options['fields']['signature']['element_label_colon'] = FALSE;
+/* Felt: Global: PHP */
+$handler->display->display_options['fields']['php']['id'] = 'php';
+$handler->display->display_options['fields']['php']['table'] = 'views';
+$handler->display->display_options['fields']['php']['field'] = 'php';
+$handler->display->display_options['fields']['php']['label'] = '';
+$handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+$handler->display->display_options['fields']['php']['php_output'] = '<?php $safe_sig = check_markup($row->signature,1); print $safe_sig; ?>';
+$handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+$handler->display->display_options['fields']['php']['php_click_sortable'] = '';
 /* Sorteringskriterie: Kommentar: Oprettelsesdato */
 $handler->display->display_options['sorts']['created']['id'] = 'created';
 $handler->display->display_options['sorts']['created']['table'] = 'comment';
@@ -137,7 +179,9 @@ $translatables['comments'] = array(
   t('sidste »'),
   t('Vis mere'),
   t('Indhold'),
-  t('<div class="author-timestamp">Kommentar af [name] • [created] siden</div>'),
+  t('forfatter'),
+  t(' <span class="gender tid-[field_brevk_koen-tid]" title="[field_brevk_koen_1]"></span>'),
+  t('<div class="author-timestamp">Kommentar af [name][field_brevk_koen] • [created] siden</div>'),
   t('Alle'),
   t('Load more comments'),
 );
