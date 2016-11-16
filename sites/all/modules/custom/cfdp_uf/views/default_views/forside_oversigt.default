@@ -388,16 +388,16 @@ $handler->display->display_options['fields']['uid']['label'] = '';
 $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
 $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
-/* Felt: Indhold: Oprettelsesdato */
-$handler->display->display_options['fields']['created']['id'] = 'created';
-$handler->display->display_options['fields']['created']['table'] = 'node';
-$handler->display->display_options['fields']['created']['field'] = 'created';
-$handler->display->display_options['fields']['created']['label'] = '';
-$handler->display->display_options['fields']['created']['exclude'] = TRUE;
-$handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['created']['date_format'] = 'raw time ago';
-$handler->display->display_options['fields']['created']['custom_date_format'] = '1';
-$handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+/* Felt: Indhold: Opdateret/kommenteret dato */
+$handler->display->display_options['fields']['last_updated']['id'] = 'last_updated';
+$handler->display->display_options['fields']['last_updated']['table'] = 'node_comment_statistics';
+$handler->display->display_options['fields']['last_updated']['field'] = 'last_updated';
+$handler->display->display_options['fields']['last_updated']['label'] = '';
+$handler->display->display_options['fields']['last_updated']['exclude'] = TRUE;
+$handler->display->display_options['fields']['last_updated']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['last_updated']['date_format'] = 'raw time ago';
+$handler->display->display_options['fields']['last_updated']['custom_date_format'] = '1';
+$handler->display->display_options['fields']['last_updated']['second_date_format'] = 'long';
 /* Felt: PHP: Print svg image */
 $handler->display->display_options['fields']['php']['id'] = 'php';
 $handler->display->display_options['fields']['php']['table'] = 'views';
@@ -417,7 +417,7 @@ $handler->display->display_options['fields']['nothing']['table'] = 'views';
 $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
 $handler->display->display_options['fields']['nothing']['ui_name'] = 'Author timestamp';
 $handler->display->display_options['fields']['nothing']['label'] = '';
-$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="author-timestamp">[type][field_brevk_koen_1] [field_brevk_alder] • [created] siden</div>';
+$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="author-timestamp">[type][field_brevk_koen_1] [field_brevk_alder] • seneste aktivitet [last_updated] siden</div>';
 $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
 /* Felt: Indhold: Titel */
 $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -508,7 +508,7 @@ Hemmelighed|psst!'),
   t('Oversigt over det seneste indhold'),
   t('<h3>Seneste indhold</h3>'),
   t(' af <span class="gender tid-[field_brevk_koen_1-tid]" title="[field_brevk_koen]"></span>'),
-  t('<div class="author-timestamp">[type][field_brevk_koen_1] [field_brevk_alder] • [created] siden</div>'),
+  t('<div class="author-timestamp">[type][field_brevk_koen_1] [field_brevk_alder] • seneste aktivitet [last_updated] siden</div>'),
 );
 
 
