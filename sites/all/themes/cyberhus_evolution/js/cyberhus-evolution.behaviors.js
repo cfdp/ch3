@@ -60,7 +60,14 @@
 
       /* Handle errors - highlight form errors and sroll to error position */
       $('form', context).once('handle-errors', function () {
-        if ($("input, select").hasClass("error")) {
+        // The Mollom case is special
+        if ($(".form-item-mollom-captcha input").hasClass("error")) {
+          $(".form-item-mollom-captcha").addClass('error');
+          $('html, body').animate({
+            scrollTop: $('.error:visible:first').offset().top
+          }, 1000);
+        }
+        else if ($("input, select").hasClass("error")) {
           $("input.error").closest(".form-wrapper").addClass('error');
           $("select.error").closest(".form-wrapper").addClass('error');
           /* Scroll to first error */
