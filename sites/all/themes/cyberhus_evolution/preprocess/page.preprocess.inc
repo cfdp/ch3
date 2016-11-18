@@ -71,7 +71,7 @@ function cyberhus_evolution_preprocess_page(&$vars) {
         $account = user_load($node->uid);
         $blog_name = $account->profile_blogname;
         $blog_url = "blog/".$node->uid;
-        $crumbs[] = l(t('Blog'), 'blogs');
+        $crumbs[] = l(t('Blogs'), 'blogs');
         if (!($blog_name == NULL)) {
           $crumbs[] = l($blog_name, $blog_url);
         }
@@ -109,7 +109,7 @@ function cyberhus_evolution_preprocess_page(&$vars) {
         $crumbs[] = l(t('Forum'), 'forum');
       }
       else if ($path_args[0] == 'blog') {
-        $crumbs[] = l(t('Blog'), 'blogs');
+        $crumbs[] = l(t('Blogs'), 'blogs');
       }
       else if ($path_args[0] == 'ung-i') {
         $crumbs[] = l(t('Ung i'), 'ung-i');
@@ -123,7 +123,7 @@ function cyberhus_evolution_preprocess_page(&$vars) {
         $crumbs[] = l(t('Forum'), 'forum');
       }
       else if ($path_args[2] == 'blog') {
-        $crumbs[] = l(t('Blog'), 'blogs');
+        $crumbs[] = l(t('Blogs'), 'blogs');
       }
       else if ($path_args[2] == 'body_secret') {
         $crumbs[] = l(t('Hemmeligheder'), 'hemmeligheder/alle');
