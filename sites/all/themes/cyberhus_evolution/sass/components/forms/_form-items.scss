@@ -124,7 +124,8 @@ form.comment-form {
           min-width: 60px;
         }
         &:hover,
-        &:focus {
+        &:focus,
+        &:active {
           border: 1px solid $primary-color;
           color: $primary-color;
           &[for="edit-field-brevk-koen-und-2149"],

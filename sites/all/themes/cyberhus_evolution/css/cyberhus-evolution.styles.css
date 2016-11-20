@@ -1902,31 +1902,38 @@ form.comment-form .form-item .form-type-radio label[for="edit-field-brevk-koen-u
   background-image: url('../images/icons/svg/gender/non-binary-grey2.svg?1478556783');
   min-width: 60px;
 }
-form.node-form .form-item .form-type-radio label:hover, form.node-form .form-item .form-type-radio label:focus,
+form.node-form .form-item .form-type-radio label:hover, form.node-form .form-item .form-type-radio label:focus, form.node-form .form-item .form-type-radio label:active,
 form.comment-form .form-item .form-type-radio label:hover,
-form.comment-form .form-item .form-type-radio label:focus {
+form.comment-form .form-item .form-type-radio label:focus,
+form.comment-form .form-item .form-type-radio label:active {
   border: 1px solid #e67e22;
   color: #e67e22;
 }
-form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2149"], form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2149--2"], form.node-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2149"], form.node-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2149--2"],
+form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2149"], form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2149--2"], form.node-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2149"], form.node-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2149--2"], form.node-form .form-item .form-type-radio label:active[for="edit-field-brevk-koen-und-2149"], form.node-form .form-item .form-type-radio label:active[for="edit-field-brevk-koen-und-2149--2"],
 form.comment-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2149"],
 form.comment-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2149--2"],
 form.comment-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2149"],
-form.comment-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2149--2"] {
+form.comment-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2149--2"],
+form.comment-form .form-item .form-type-radio label:active[for="edit-field-brevk-koen-und-2149"],
+form.comment-form .form-item .form-type-radio label:active[for="edit-field-brevk-koen-und-2149--2"] {
   background-image: url('../images/icons/svg/gender/male-orange.svg?1478556783');
 }
-form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2150"], form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2150--2"], form.node-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2150"], form.node-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2150--2"],
+form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2150"], form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2150--2"], form.node-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2150"], form.node-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2150--2"], form.node-form .form-item .form-type-radio label:active[for="edit-field-brevk-koen-und-2150"], form.node-form .form-item .form-type-radio label:active[for="edit-field-brevk-koen-und-2150--2"],
 form.comment-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2150"],
 form.comment-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2150--2"],
 form.comment-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2150"],
-form.comment-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2150--2"] {
+form.comment-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2150--2"],
+form.comment-form .form-item .form-type-radio label:active[for="edit-field-brevk-koen-und-2150"],
+form.comment-form .form-item .form-type-radio label:active[for="edit-field-brevk-koen-und-2150--2"] {
   background-image: url('../images/icons/svg/gender/female-orange.svg?1478556783');
 }
-form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2350"], form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2350--2"], form.node-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2350"], form.node-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2350--2"],
+form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2350"], form.node-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2350--2"], form.node-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2350"], form.node-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2350--2"], form.node-form .form-item .form-type-radio label:active[for="edit-field-brevk-koen-und-2350"], form.node-form .form-item .form-type-radio label:active[for="edit-field-brevk-koen-und-2350--2"],
 form.comment-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2350"],
 form.comment-form .form-item .form-type-radio label:hover[for="edit-field-brevk-koen-und-2350--2"],
 form.comment-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2350"],
-form.comment-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2350--2"] {
+form.comment-form .form-item .form-type-radio label:focus[for="edit-field-brevk-koen-und-2350--2"],
+form.comment-form .form-item .form-type-radio label:active[for="edit-field-brevk-koen-und-2350"],
+form.comment-form .form-item .form-type-radio label:active[for="edit-field-brevk-koen-und-2350--2"] {
   background-image: url('../images/icons/svg/gender/non-binary-orange.svg?1478556783');
 }
 
