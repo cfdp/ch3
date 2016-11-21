@@ -126,9 +126,11 @@ $icon-color-highlight-top: #000;
 
 // Sidr menu
 #sidr-wrapper-0 {
+  border-left: 1px solid $grey-2;
   position: absolute;
-  top: 10px;
+  top: 0px;
   right: 0px;
+  padding: 6px;
   #sidr-0-button  {
     display: block;
     padding: 10px;
@@ -138,16 +140,19 @@ $icon-color-highlight-top: #000;
     background-repeat: none;
     height: 17px;
     width: 22px;
-
   }
-
+  /* Hide border on tab and above */
+  @include breakpoint($tab, true) {
+    border-left: none;
+  }
 }
+
 .sidr {
   background: $bg-white;
   @include box-shadow(none);
   font-size: $font-size-normal;
   font-family: $font-family-std;
-  top: 60px;
+  top: 50px;
   width: 100%;
 
   ul.sidr-class-menu {
