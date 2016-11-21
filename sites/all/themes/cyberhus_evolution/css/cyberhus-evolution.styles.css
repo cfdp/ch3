@@ -10,7 +10,8 @@ html {
   font-size: 100%;
 }
 
-body, div {
+body,
+div {
   color: #231E19;
   font-size: 1em;
   font-family: "Lato", sans-serif;
@@ -401,9 +402,12 @@ img {
 }
 
 #sidr-wrapper-0 {
+  border-left: 1px solid #BFBFBF;
   position: absolute;
-  top: 10px;
+  top: 0px;
   right: 0px;
+  padding: 6px;
+  /* Hide border on tab and above */
 }
 #sidr-wrapper-0 #sidr-0-button {
   display: block;
@@ -415,6 +419,11 @@ img {
   height: 17px;
   width: 22px;
 }
+@media (min-width: 36.625em) {
+  #sidr-wrapper-0 {
+    border-left: none;
+  }
+}
 
 .sidr {
   background: #fff;
@@ -423,7 +432,7 @@ img {
   box-shadow: none;
   font-size: 1em;
   font-family: "Lato", sans-serif;
-  top: 60px;
+  top: 50px;
   width: 100%;
 }
 .sidr ul.sidr-class-menu {
@@ -858,17 +867,16 @@ img {
   margin-right: 1em;
   position: absolute;
   vertical-align: top;
-  width: 40px;
+  width: 50px;
 }
 
 .l-branding {
-  height: 40px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  height: 50px;
   text-align: center;
 }
 .l-branding a.site-logo {
   display: block;
+  padding-top: 10px;
 }
 
 .l-main--wrapper {
@@ -1687,14 +1695,14 @@ body.page-kampagner .view > .view-content .views-row {
 /**
  * SIMPEL SIDE MED VIEW
  */
-.content-type-simpel-side-med-view .view-header p {
+.node-type-simpel-side-med-view .view-header p {
   margin: 0 1em;
 }
 
 /**
  * SIDE MED INDLEJRING AF KODE OG VIEWS
  */
-.content-type-chat .view-header p {
+.node-type-chat .view-header p {
   background-color: #fff;
   padding: 1em;
 }
@@ -1744,7 +1752,7 @@ html.js fieldset.collapsed {
  * $FIELDSETS
  */
 .form-wrapper {
-  margin-bottom: 1em;
+  margin-bottom: 0.75em;
 }
 
 .fieldset-description {
@@ -1773,25 +1781,30 @@ html.js fieldset.collapsed {
   max-width: 50%;
 }
 
-.form-wrapper.field-widget-options-buttons {
-  overflow: auto;
+.form-item-custom-search-blocks-form-1 {
+  margin-bottom: 0;
 }
+
 .form-wrapper.error {
   background-color: #fef5f1;
   border: 1px solid #ed541d;
   padding: 1em;
+}
+.form-wrapper .description {
+  color: #BFBFBF;
+  font-size: 0.85em;
+  font-style: italic;
+  margin-top: .2em;
 }
 
 .form-item {
   color: #231E19;
   /* Billede upload */
   /* Forum subscribe */
-  /* Errors - also handled in  */
 }
 .form-item label {
   margin-bottom: 0.4em;
 }
-.form-item .form-select,
 .form-item .form-text,
 .form-item .form-textarea {
   -moz-border-radius: 2px;
@@ -1808,6 +1821,7 @@ html.js fieldset.collapsed {
   width: 96%;
 }
 .form-item .description {
+  color: #BFBFBF;
   margin-top: 0.2em;
   font-style: italic;
 }
@@ -1937,6 +1951,20 @@ form.comment-form .form-item .form-type-radio label:active[for="edit-field-brevk
   background-image: url('../images/icons/svg/gender/non-binary-orange.svg?1478556783');
 }
 
+/* Select list on node add forms */
+body.page-node-add .form-item.form-type-select {
+  width: 240px;
+}
+body.page-node-add .form-item.form-type-select select.form-select {
+  background: transparent;
+  border: 1px solid #BFBFBF;
+  color: #BFBFBF;
+  height: 34px;
+  padding: 5px;
+  /* If you add too much padding here, the options won't show in IE */
+  width: 268px;
+}
+
 .container-inline .form-select,
 .container-inline .form-text,
 .container-inline .form-textarea {
@@ -1994,6 +2022,18 @@ div.password-indicator {
   padding: 0.4em;
 }
 
+.block--custom-search-blocks-1 {
+  padding: 0 8px;
+  border: none;
+  border-right: 1px solid #BFBFBF;
+  /* Responsive  */
+}
+@media (min-width: 36.625em) {
+  .block--custom-search-blocks-1 {
+    border-right: none;
+  }
+}
+
 .custom-search-blocks-form-1 {
   /* Responsive  */
 }
@@ -2001,9 +2041,9 @@ div.password-indicator {
   background-image: url('../images/icons/svg/search.svg?1474286442');
   background-repeat: no-repeat;
   background-position: 7px center;
-  height: 20px;
-  max-width: 50px;
-  padding-left: 35px;
+  height: 33px;
+  max-width: 20px;
+  padding-left: 5px;
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
   -webkit-transition: 0.5s;
@@ -2011,9 +2051,13 @@ div.password-indicator {
 }
 .custom-search-blocks-form-1 #edit-custom-search-blocks-form-1--2:focus {
   max-width: 300px;
+  padding-left: 35px;
 }
 .custom-search-blocks-form-1 .form-submit {
   display: none;
+}
+.custom-search-blocks-form-1 .form-wrapper {
+  margin-bottom: 0;
 }
 .custom-search-blocks-form-1 .form-item .form-text {
   border: 0px;
@@ -2091,7 +2135,12 @@ div.password-indicator {
   }
 }
 @media (min-width: 36.625em) {
+  .custom-search-blocks-form-1 {
+    border-right: none;
+  }
   .custom-search-blocks-form-1 #edit-custom-search-blocks-form-1--2 {
+    max-width: 50px;
+    padding-left: 35px;
     max-width: 100px;
   }
 }
