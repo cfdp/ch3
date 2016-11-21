@@ -74,6 +74,13 @@ $margin: 0 !default;
   }
 }
 
+@mixin font-form-descriptions() {
+  color: $grey-2;
+  font-size: $font-size-small;
+  font-style: italic;
+  margin-top: .2em;
+}
+
 @mixin font-metadata() {
   color: $grey;
   font-size: $font-size-small;

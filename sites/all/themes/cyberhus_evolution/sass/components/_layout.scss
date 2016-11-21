@@ -9,16 +9,15 @@
   margin-right: $margin-std;
   position: absolute;
   vertical-align: top;
-  width: 40px;
+  width: 50px;
 }
 
 .l-branding {
-  height: 40px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  height: 50px;
   text-align: center;
   a.site-logo {
     display: block;
+    padding-top: 10px;
   }
 }
 

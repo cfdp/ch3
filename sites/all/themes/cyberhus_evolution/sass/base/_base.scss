@@ -3,7 +3,8 @@ html {
   font-size: 100%;
 }
 
-body, div {
+body,
+div {
   color: $black;
   font-size: 1em;
   font-family: $font-family-std;
@@ -17,6 +18,7 @@ h1 {
   line-height: $font-size-big;
   margin: 0 $margin-std-px $margin-std-px $margin-std-px;
 }
+
 h2 {
   @include headline-h2();
 }
@@ -36,9 +38,10 @@ p {
 }
 
 ol {
-  list-style:decimal;
+  list-style: decimal;
   padding-left: $padding-std;
 }
+
 strong {
   font-weight: 700;
 }
@@ -93,5 +96,4 @@ img {
   .gender.tid-2350 {
     background-image: image-url('icons/svg/gender/non-binary.svg');
   }
-
 }

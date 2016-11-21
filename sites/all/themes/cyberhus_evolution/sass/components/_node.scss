@@ -42,10 +42,17 @@ body.page-comment-reply {
     }
   }
   /* Subscribe - Node notify */
-  ul.links {
+  ul.links.links--inline {
+    list-style: none;
+    margin-left: 0;
     li.subscribe {
-      @include button-bg($blue, $white);
+      float: right;
+      margin-top: -60px;
+      a {
+        @include button-bg($blue, $white);
+      }
     }
+
   }
   /* Brevkasse */
   .field--name-field-brevk-svar .field__label {

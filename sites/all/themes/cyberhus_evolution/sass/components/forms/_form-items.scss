@@ -8,14 +8,21 @@
   max-width: 50%;
 }
 
+.form-item-custom-search-blocks-form-1 {
+  margin-bottom: 0;
+}
+
 .form-wrapper {
-   &.field-widget-options-buttons {
-    overflow: auto;
-   }
+  &.field-widget-options-buttons {
+  //overflow: auto;
+  }
   &.error {
     background-color: #fef5f1;
     border: 1px solid #ed541d;
     padding: $margin-std;
+  }
+  .description {
+    @include font-form-descriptions();
   }
 }
 
@@ -24,7 +31,6 @@
   label {
     margin-bottom: 0.4em;
   }
-  .form-select,
   .form-text,
   .form-textarea {
     @include border-radius(2px);
@@ -39,6 +45,7 @@
     width: 96%;
   }
   .description {
+    color: $grey-2;
     margin-top: 0.2em;
     font-style: italic;
   }
@@ -53,10 +60,6 @@
   /* Forum subscribe */
   &.form-item-node-notify-subscribe .description {
     display: none;
-  }
-  /* Errors - also handled in  */
-  .error {
-
   }
 }
 
@@ -124,7 +127,8 @@ form.comment-form {
           min-width: 60px;
         }
         &:hover,
-        &:focus {
+        &:focus,
+        &:active {
           border: 1px solid $primary-color;
           color: $primary-color;
           &[for="edit-field-brevk-koen-und-2149"],
@@ -141,6 +145,20 @@ form.comment-form {
           }
         }
       }
+    }
+  }
+}
+/* Select list on node add forms */
+body.page-node-add {
+  .form-item.form-type-select {
+    width: 240px;
+    select.form-select {
+      background: transparent;
+      border: 1px solid $grey-2;
+      color: $grey-2;
+      height: 34px;
+      padding: 5px; /* If you add too much padding here, the options won't show in IE */
+      width: 268px;
     }
   }
 }
