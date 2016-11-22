@@ -81,8 +81,9 @@ img {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 12em;
+  max-width: 18em;
   text-align: center;
+  /* Not too big buttons on tab and above */
 }
 .btn:hover {
   background: #226998;
@@ -90,6 +91,11 @@ img {
 }
 .btn:active {
   background: #123851;
+}
+@media (min-width: 36.625em) {
+  .btn {
+    max-width: 12em;
+  }
 }
 
 .btn-left {
@@ -128,8 +134,9 @@ img {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 12em;
+  max-width: 18em;
   text-align: center;
+  /* Not too big buttons on tab and above */
 }
 .btn-light:hover {
   background: #ebebeb;
@@ -137,6 +144,11 @@ img {
 }
 .btn-light:active {
   background: #bfbfbf;
+}
+@media (min-width: 36.625em) {
+  .btn-light {
+    max-width: 12em;
+  }
 }
 
 .btn-light-left {
@@ -1002,8 +1014,9 @@ body.page-user ul.tabs--secondary li a {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 12em;
+  max-width: 18em;
   text-align: center;
+  /* Not too big buttons on tab and above */
 }
 body.page-user ul.tabs--secondary li a:hover {
   background: #226998;
@@ -1011,6 +1024,11 @@ body.page-user ul.tabs--secondary li a:hover {
 }
 body.page-user ul.tabs--secondary li a:active {
   background: #123851;
+}
+@media (min-width: 36.625em) {
+  body.page-user ul.tabs--secondary li a {
+    max-width: 12em;
+  }
 }
 
 /* buttons */
@@ -1027,8 +1045,9 @@ body.page-user ul.tabs--secondary li a:active {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 12em;
+  max-width: 18em;
   text-align: center;
+  /* Not too big buttons on tab and above */
 }
 .btn:hover {
   background: #226998;
@@ -1036,6 +1055,11 @@ body.page-user ul.tabs--secondary li a:active {
 }
 .btn:active {
   background: #123851;
+}
+@media (min-width: 36.625em) {
+  .btn {
+    max-width: 12em;
+  }
 }
 
 .btn-select {
@@ -1181,8 +1205,9 @@ body.page-comment-reply article li.comment-add a {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 12em;
+  max-width: 18em;
   text-align: center;
+  /* Not too big buttons on tab and above */
 }
 body.page-node article li.comment-add a:hover,
 body.page-comment-reply article li.comment-add a:hover {
@@ -1192,6 +1217,12 @@ body.page-comment-reply article li.comment-add a:hover {
 body.page-node article li.comment-add a:active,
 body.page-comment-reply article li.comment-add a:active {
   background: #123851;
+}
+@media (min-width: 36.625em) {
+  body.page-node article li.comment-add a,
+  body.page-comment-reply article li.comment-add a {
+    max-width: 12em;
+  }
 }
 body.page-node ul.links.links--inline,
 body.page-comment-reply ul.links.links--inline {
@@ -1217,8 +1248,9 @@ body.page-comment-reply ul.links.links--inline li.subscribe a {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 12em;
+  max-width: 18em;
   text-align: center;
+  /* Not too big buttons on tab and above */
 }
 body.page-node ul.links.links--inline li.subscribe a:hover,
 body.page-comment-reply ul.links.links--inline li.subscribe a:hover {
@@ -1228,6 +1260,12 @@ body.page-comment-reply ul.links.links--inline li.subscribe a:hover {
 body.page-node ul.links.links--inline li.subscribe a:active,
 body.page-comment-reply ul.links.links--inline li.subscribe a:active {
   background: #bfbfbf;
+}
+@media (min-width: 36.625em) {
+  body.page-node ul.links.links--inline li.subscribe a,
+  body.page-comment-reply ul.links.links--inline li.subscribe a {
+    max-width: 12em;
+  }
 }
 body.page-node .field--name-field-brevk-svar .field__label,
 body.page-comment-reply .field--name-field-brevk-svar .field__label {
@@ -1566,8 +1604,9 @@ body.page-ung-i h1 {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 12em;
+  max-width: 18em;
   text-align: center;
+  /* Not too big buttons on tab and above */
 }
 .pager-load-more a:hover {
   background: #ebebeb;
@@ -1575,6 +1614,11 @@ body.page-ung-i h1 {
 }
 .pager-load-more a:active {
   background: #bfbfbf;
+}
+@media (min-width: 36.625em) {
+  .pager-load-more a {
+    max-width: 12em;
+  }
 }
 
 body.page-node .view-comments .pager-load-more {

@@ -1,3 +1,5 @@
+@import "breakpoint";
+
 $button-color: $white !default;
 $button-background-color: $blue !default;
 $button-border-color: $blue !default;
@@ -18,7 +20,7 @@ $margin: 0 !default;
   padding: .7em 1em;
   display: block;
   margin: $margin-std auto;
-  max-width: 12em;
+  max-width: 18em;
   text-align: center;
   &:hover {
     background: darken($bg, 8%);
@@ -26,6 +28,10 @@ $margin: 0 !default;
   }
   &:active {
     background: darken($bg, 25%);
+  }
+  /* Not too big buttons on tab and above */
+  @include breakpoint($tab, true) {
+    max-width: 12em;
   }
 }
 
