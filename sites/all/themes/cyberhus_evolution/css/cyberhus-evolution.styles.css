@@ -1725,6 +1725,7 @@ body.page-kampagner .view > .view-content .views-row {
 .view-bloggere .view-header .content-list-header,
 .view-blogs-oversigter .view-header .content-list-header {
   margin-left: 1em;
+  margin-top: 0;
 }
 
 .view-blogs-oversigter .view-header .content-list-header {
