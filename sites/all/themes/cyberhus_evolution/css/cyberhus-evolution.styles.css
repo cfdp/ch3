@@ -81,8 +81,9 @@ img {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 12em;
+  max-width: 24em;
   text-align: center;
+  /* Not too big buttons on tab and above */
 }
 .btn:hover {
   background: #226998;
@@ -90,6 +91,11 @@ img {
 }
 .btn:active {
   background: #123851;
+}
+@media (min-width: 36.625em) {
+  .btn {
+    max-width: 12em;
+  }
 }
 
 .btn-left {
@@ -128,8 +134,9 @@ img {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 12em;
+  max-width: 24em;
   text-align: center;
+  /* Not too big buttons on tab and above */
 }
 .btn-light:hover {
   background: #ebebeb;
@@ -137,6 +144,11 @@ img {
 }
 .btn-light:active {
   background: #bfbfbf;
+}
+@media (min-width: 36.625em) {
+  .btn-light {
+    max-width: 12em;
+  }
 }
 
 .btn-light-left {
@@ -298,69 +310,36 @@ img {
   margin: 1em;
 }
 
-/**
- * FOOTER BLOCKS
- */
-/* EU info and social icons */
-.block--block-43 {
-  /* Only gfloat social icons right on tablet and above*/
-  margin: 2em auto;
-  max-width: 586px;
-  margin: 1em;
-}
-.block--block-43 .footer-eu-wrapper,
-.block--block-43 .footer-social-icons-wrapper {
-  display: inline-block;
-  max-width: 250px;
-  margin-right: 1em;
-}
-@media (min-width: 36.625em) {
-  .block--block-43 .footer-social-icons-wrapper {
-    float: right;
-  }
-}
-.block--block-43 p,
-.block--block-43 h2 {
-  color: #fff;
-}
-.block--block-43 h3 {
+/* Forum */
+.block.forum-description .block__content {
   color: #85817f;
-}
-.block--block-43 img.rounded {
-  height: 36px;
-  width: 36px;
-  border-radius: 36px;
+  font-style: italic;
 }
 
-/* Footer menu */
-#block-block-44 {
-  display: inline-block;
-  margin: 1em;
-  text-align: center;
+/* Billeder */
+#block-views-billeder-oversigter-block-1 h2 {
+  font-size: 1em;
 }
-#block-block-44 p, #block-block-44 a {
-  color: #fff;
+#block-views-billeder-oversigter-block-1 h3 {
+  background-color: #F1F1F1;
+  color: #9e9b99;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
   font-weight: 700;
-}
-
-/* Search block - See forms/_search-form.scss */
-/* Footer menu */
-.block--menu-menu-andet {
-  background-color: #454042;
+  margin: 0 -1em;
+  text-transform: uppercase;
   padding: 1em;
 }
-.block--menu-menu-andet ul.menu {
-  padding: 1em 0;
-  text-align: center;
+#block-views-billeder-oversigter-block-1 .view-content {
+  background-color: #fff;
 }
-.block--menu-menu-andet li {
+#block-views-billeder-oversigter-block-1 .views-row {
   display: inline-block;
-  list-style-type: none;
-  margin: 0 1em 1em 0;
+  max-width: 160px;
 }
-.block--menu-menu-andet li a {
-  color: #fff;
-  font-weight: 700;
+#block-views-billeder-oversigter-block-1 ul.pager-load-more {
+  margin-left: -1em;
+  margin-right: -1em;
 }
 
 /**
@@ -643,31 +622,67 @@ img {
 }
 
 /**
- * BILLEDER BLOCKS
+ * FOOTER BLOCKS
  */
-#block-views-billeder-oversigter-block-1 h2 {
-  font-size: 1em;
+/* EU info and social icons */
+.block--block-43 {
+  /* Only gfloat social icons right on tablet and above*/
+  margin: 2em auto;
+  max-width: 586px;
+  margin: 1em;
 }
-#block-views-billeder-oversigter-block-1 h3 {
-  background-color: #F1F1F1;
-  color: #9e9b99;
-  font-family: "Lato", sans-serif;
-  font-size: 1em;
+.block--block-43 .footer-eu-wrapper,
+.block--block-43 .footer-social-icons-wrapper {
+  display: inline-block;
+  max-width: 250px;
+  margin-right: 1em;
+}
+@media (min-width: 36.625em) {
+  .block--block-43 .footer-social-icons-wrapper {
+    float: right;
+  }
+}
+.block--block-43 p,
+.block--block-43 h2 {
+  color: #fff;
+}
+.block--block-43 h3 {
+  color: #85817f;
+}
+.block--block-43 img.rounded {
+  height: 36px;
+  width: 36px;
+  border-radius: 36px;
+}
+
+/* Footer menu */
+#block-block-44 {
+  display: inline-block;
+  margin: 1em;
+  text-align: center;
+}
+#block-block-44 p, #block-block-44 a {
+  color: #fff;
   font-weight: 700;
-  margin: 0 -1em;
-  text-transform: uppercase;
+}
+
+/* Footer menu */
+.block--menu-menu-andet {
+  background-color: #454042;
   padding: 1em;
 }
-#block-views-billeder-oversigter-block-1 .view-content {
-  background-color: #fff;
+.block--menu-menu-andet ul.menu {
+  padding: 1em 0;
+  text-align: center;
 }
-#block-views-billeder-oversigter-block-1 .views-row {
+.block--menu-menu-andet li {
   display: inline-block;
-  max-width: 160px;
+  list-style-type: none;
+  margin: 0 1em 1em 0;
 }
-#block-views-billeder-oversigter-block-1 ul.pager-load-more {
-  margin-left: -1em;
-  margin-right: -1em;
+.block--menu-menu-andet li a {
+  color: #fff;
+  font-weight: 700;
 }
 
 /* The sticky CuraChat widgets in the right side of the window */
@@ -826,12 +841,14 @@ img {
  */
 .view {
   /* Forum term list */
-  /* Forum header */
 }
 .view.view-cyberhus-forum-topic-list > .view-header .views-field-field-tag-shorthand, .view.view-cyberhus-forum-topic-list > .view-footer .views-field-field-tag-shorthand {
   color: #85817f;
   font-size: 1.3em;
   padding-right: 1em;
+}
+.view.view-cyberhus-forum-topic-list > .view-header h1 {
+  padding-top: 0.5em;
 }
 .view.view-cyberhus-forum-term-list .view-content {
   background-color: #fff;
@@ -850,9 +867,6 @@ img {
 .view.view-cyberhus-forum-term-list .tag-shorthand a:hover {
   background: #c6e1f2;
   transition: all 0.3s ease;
-}
-.view.view-cyberhus-forum-topic-list .view-header p {
-  margin: 1em;
 }
 
 /**
@@ -1002,8 +1016,9 @@ body.page-user ul.tabs--secondary li a {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 12em;
+  max-width: 24em;
   text-align: center;
+  /* Not too big buttons on tab and above */
 }
 body.page-user ul.tabs--secondary li a:hover {
   background: #226998;
@@ -1011,6 +1026,11 @@ body.page-user ul.tabs--secondary li a:hover {
 }
 body.page-user ul.tabs--secondary li a:active {
   background: #123851;
+}
+@media (min-width: 36.625em) {
+  body.page-user ul.tabs--secondary li a {
+    max-width: 12em;
+  }
 }
 
 /* buttons */
@@ -1027,8 +1047,9 @@ body.page-user ul.tabs--secondary li a:active {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 12em;
+  max-width: 24em;
   text-align: center;
+  /* Not too big buttons on tab and above */
 }
 .btn:hover {
   background: #226998;
@@ -1036,6 +1057,11 @@ body.page-user ul.tabs--secondary li a:active {
 }
 .btn:active {
   background: #123851;
+}
+@media (min-width: 36.625em) {
+  .btn {
+    max-width: 12em;
+  }
 }
 
 .btn-select {
@@ -1181,8 +1207,9 @@ body.page-comment-reply article li.comment-add a {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 12em;
+  max-width: 24em;
   text-align: center;
+  /* Not too big buttons on tab and above */
 }
 body.page-node article li.comment-add a:hover,
 body.page-comment-reply article li.comment-add a:hover {
@@ -1192,6 +1219,12 @@ body.page-comment-reply article li.comment-add a:hover {
 body.page-node article li.comment-add a:active,
 body.page-comment-reply article li.comment-add a:active {
   background: #123851;
+}
+@media (min-width: 36.625em) {
+  body.page-node article li.comment-add a,
+  body.page-comment-reply article li.comment-add a {
+    max-width: 12em;
+  }
 }
 body.page-node ul.links.links--inline,
 body.page-comment-reply ul.links.links--inline {
@@ -1217,8 +1250,9 @@ body.page-comment-reply ul.links.links--inline li.subscribe a {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 12em;
+  max-width: 24em;
   text-align: center;
+  /* Not too big buttons on tab and above */
 }
 body.page-node ul.links.links--inline li.subscribe a:hover,
 body.page-comment-reply ul.links.links--inline li.subscribe a:hover {
@@ -1229,12 +1263,19 @@ body.page-node ul.links.links--inline li.subscribe a:active,
 body.page-comment-reply ul.links.links--inline li.subscribe a:active {
   background: #bfbfbf;
 }
-body.page-node .field--name-field-brevk-svar .field__label,
-body.page-comment-reply .field--name-field-brevk-svar .field__label {
+@media (min-width: 36.625em) {
+  body.page-node ul.links.links--inline li.subscribe a,
+  body.page-comment-reply ul.links.links--inline li.subscribe a {
+    max-width: 12em;
+  }
+}
+body.page-node .answer.field__label,
+body.page-comment-reply .answer.field__label {
   color: #e67e22;
   font-family: "Merriweather", serif;
   font-weight: 700;
   margin: 0 0;
+  font-size: 1.3em;
 }
 body.page-node.content-type-blog li.blog_usernames_blog,
 body.page-comment-reply.content-type-blog li.blog_usernames_blog {
@@ -1566,8 +1607,9 @@ body.page-ung-i h1 {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 12em;
+  max-width: 24em;
   text-align: center;
+  /* Not too big buttons on tab and above */
 }
 .pager-load-more a:hover {
   background: #ebebeb;
@@ -1575,6 +1617,11 @@ body.page-ung-i h1 {
 }
 .pager-load-more a:active {
   background: #bfbfbf;
+}
+@media (min-width: 36.625em) {
+  .pager-load-more a {
+    max-width: 12em;
+  }
 }
 
 body.page-node .view-comments .pager-load-more {
@@ -1628,6 +1675,7 @@ body.page-brevkasse h1 {
 }
 body.page-brevkasse .view-header h1 {
   display: block;
+  padding-top: 0.5em;
 }
 
 /**
@@ -1681,6 +1729,7 @@ body.page-kampagner .view > .view-content .views-row {
 .view-bloggere .view-header .content-list-header,
 .view-blogs-oversigter .view-header .content-list-header {
   margin-left: 1em;
+  margin-top: 0;
 }
 
 .view-blogs-oversigter .view-header .content-list-header {

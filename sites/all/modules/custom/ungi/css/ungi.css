@@ -39,9 +39,6 @@ and open the template in the editor.
 	text-align: left;
 	width: 100%;
 }
-.ungi-half.ungi-cityname {
-	color: #e98b39;
-}
 .ungi-half h2 {
 	display: inline;
 }
@@ -53,10 +50,6 @@ and open the template in the editor.
 }
 .ungi-half a.btn {
 	vertical-align: top;
-}
-#ungi-cities ul li p {
-	font-size: 12px;
-	color: black;
 }
 #ungi-cities .chat-closed {
 	background: #888;
@@ -101,9 +94,7 @@ and open the template in the editor.
 	height: 180px;
   width: 100%;
 }
-#ungi-city p.chat-desc {
-	font-size: 12px;
-}
+
 #ungi-city #ungi-desc {
     max-width: 600px;
 }

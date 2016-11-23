@@ -55,8 +55,9 @@ body.page-comment-reply {
 
   }
   /* Brevkasse */
-  .field--name-field-brevk-svar .field__label {
+  .answer.field__label {
     @include headline-orange();
+    font-size: $font-size-medium;
   }
   /* Blog */
   &.content-type-blog {

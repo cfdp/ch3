@@ -12,7 +12,7 @@
           <span class="ungi-half ungi-cityname">
                         <h2><a href="<?php print $city->url; ?>"><?php print $city->name; ?></a></h2>
                         <?php if (!empty($city->chaturl)): ?>
-                            <p class="chat-desc"><b>OBS: </b><?php print $city->chatdesc; ?></p>
+                            <p class="chat-desc"><?php print $city->chatdesc; ?></p>
                         <?php else: ?>
                             <p class="chat-desc">&nbsp;</p>
                         <?php endif ?>
