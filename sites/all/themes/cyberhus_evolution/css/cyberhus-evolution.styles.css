@@ -81,7 +81,7 @@ img {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 18em;
+  max-width: 24em;
   text-align: center;
   /* Not too big buttons on tab and above */
 }
@@ -134,7 +134,7 @@ img {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 18em;
+  max-width: 24em;
   text-align: center;
   /* Not too big buttons on tab and above */
 }
@@ -1016,7 +1016,7 @@ body.page-user ul.tabs--secondary li a {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 18em;
+  max-width: 24em;
   text-align: center;
   /* Not too big buttons on tab and above */
 }
@@ -1047,7 +1047,7 @@ body.page-user ul.tabs--secondary li a:active {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 18em;
+  max-width: 24em;
   text-align: center;
   /* Not too big buttons on tab and above */
 }
@@ -1207,7 +1207,7 @@ body.page-comment-reply article li.comment-add a {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 18em;
+  max-width: 24em;
   text-align: center;
   /* Not too big buttons on tab and above */
 }
@@ -1250,7 +1250,7 @@ body.page-comment-reply ul.links.links--inline li.subscribe a {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 18em;
+  max-width: 24em;
   text-align: center;
   /* Not too big buttons on tab and above */
 }
@@ -1607,7 +1607,7 @@ body.page-ung-i h1 {
   padding: .7em 1em;
   display: block;
   margin: 1em auto;
-  max-width: 18em;
+  max-width: 24em;
   text-align: center;
   /* Not too big buttons on tab and above */
 }
