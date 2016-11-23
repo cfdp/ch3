@@ -1269,12 +1269,13 @@ body.page-comment-reply ul.links.links--inline li.subscribe a:active {
     max-width: 12em;
   }
 }
-body.page-node .field--name-field-brevk-svar .field__label,
-body.page-comment-reply .field--name-field-brevk-svar .field__label {
+body.page-node .answer.field__label,
+body.page-comment-reply .answer.field__label {
   color: #e67e22;
   font-family: "Merriweather", serif;
   font-weight: 700;
   margin: 0 0;
+  font-size: 1.3em;
 }
 body.page-node.content-type-blog li.blog_usernames_blog,
 body.page-comment-reply.content-type-blog li.blog_usernames_blog {
