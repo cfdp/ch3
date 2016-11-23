@@ -319,7 +319,7 @@ $handler->display->display_options['header']['area_1']['field'] = 'area';
 $handler->display->display_options['header']['area_1']['empty'] = TRUE;
 $handler->display->display_options['header']['area_1']['content'] = '<div class="content-list-header">[description]</div><a href="/node/add/forum/[tid]" title="Skriv indlæg" class="btn">Skriv indlæg</a>
 <h3>Seneste indlæg</h3>';
-$handler->display->display_options['header']['area_1']['format'] = '2';
+$handler->display->display_options['header']['area_1']['format'] = 'admin_html';
 $handler->display->display_options['header']['area_1']['tokenize'] = TRUE;
 $handler->display->display_options['defaults']['footer'] = FALSE;
 /* Sidefod: Global: View-område */
@@ -512,6 +512,74 @@ $handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['
 $handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['reduce'] = TRUE;
 $handler->display->display_options['filters']['taxonomy_forums_tid']['type'] = 'select';
 $handler->display->display_options['filters']['taxonomy_forums_tid']['vocabulary'] = 'forumss';
+
+/* Display: Mobning nej tak forum teenageliv */
+$handler = $view->new_display('block', 'Mobning nej tak forum teenageliv', 'block_3');
+$handler->display->display_options['display_description'] = 'Show the 3 latest posts';
+$handler->display->display_options['defaults']['pager'] = FALSE;
+$handler->display->display_options['pager']['type'] = 'some';
+$handler->display->display_options['pager']['options']['items_per_page'] = '3';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area_1']['id'] = 'area_1';
+$handler->display->display_options['header']['area_1']['table'] = 'views';
+$handler->display->display_options['header']['area_1']['field'] = 'area';
+$handler->display->display_options['header']['area_1']['label'] = 'Titel';
+$handler->display->display_options['header']['area_1']['content'] = '<h3>Fra forummet Teenageliv</h3>';
+$handler->display->display_options['header']['area_1']['format'] = '2';
+$handler->display->display_options['defaults']['footer'] = FALSE;
+/* Sidefod: Global: Tekstområde */
+$handler->display->display_options['footer']['area']['id'] = 'area';
+$handler->display->display_options['footer']['area']['table'] = 'views';
+$handler->display->display_options['footer']['area']['field'] = 'area';
+$handler->display->display_options['footer']['area']['label'] = 'Knapper';
+$handler->display->display_options['footer']['area']['empty'] = TRUE;
+$handler->display->display_options['footer']['area']['content'] = '<p><a href="/node/add/forum/39" title="Nyt indlæg" class="btn">Skriv indlæg</a><a href="/forum/39" title="Gå til Inderst inde forummet" class="btn-light">Til debatten</a></p>
+';
+$handler->display->display_options['footer']['area']['format'] = '2';
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filterkriterie: Indhold: Udgivet */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filterkriterie: Indhold: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'forum' => 'forum',
+);
+/* Filterkriterie: Indhold: Forum (taxonomy_forums) */
+$handler->display->display_options['filters']['taxonomy_forums_tid']['id'] = 'taxonomy_forums_tid';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['table'] = 'field_data_taxonomy_forums';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['field'] = 'taxonomy_forums_tid';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['value'] = array(
+  39 => '39',
+);
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['operator_id'] = 'taxonomy_forums_tid_op';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['operator'] = 'taxonomy_forums_tid_op';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['identifier'] = 'taxonomy_forums_tid';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['required'] = TRUE;
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['remember_roles'] = array(
+  2 => '2',
+  8 => 0,
+  1 => 0,
+  5 => 0,
+  10 => 0,
+  3 => 0,
+  9 => 0,
+  4 => 0,
+  11 => 0,
+);
+$handler->display->display_options['filters']['taxonomy_forums_tid']['expose']['reduce'] = TRUE;
+$handler->display->display_options['filters']['taxonomy_forums_tid']['type'] = 'select';
+$handler->display->display_options['filters']['taxonomy_forums_tid']['vocabulary'] = 'forumss';
 $translatables['cyberhus_forum_topic_list'] = array(
   t('Master'),
   t('mere'),
@@ -560,8 +628,11 @@ $translatables['cyberhus_forum_topic_list'] = array(
   t('<h3>Fra forummet Mig & Verden</h3>'),
   t('Knapper'),
   t('<p><a href="/node/add/forum/785" title="Nyt indlæg" class="btn">Skriv indlæg</a><a href="/forum/785" title="Gå til Mig & Verden forummet" class="btn-light">Til debatten</a></p>'),
+  t('Mobning nej tak forum teenageliv'),
+  t('<h3>Fra forummet Teenageliv</h3>'),
+  t('<p><a href="/node/add/forum/39" title="Nyt indlæg" class="btn">Skriv indlæg</a><a href="/forum/39" title="Gå til Inderst inde forummet" class="btn-light">Til debatten</a></p>
+'),
 );
-
 
   return $view;
 

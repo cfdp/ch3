@@ -141,6 +141,7 @@ body.page-brevkasse {
   }
   .view-header h1 {
     display: block;
+    padding-top: $padding-smaller;
   }
 }
 
@@ -192,13 +193,13 @@ body.page-kampagner {
   }
   .view-header .content-list-header {
     margin-left: $margin-std;
+    margin-top: 0;
   }
 }
 
 .view-blogs-oversigter {
   .view-header .content-list-header {
     display: inline-block;
-    //margin: 0;
     max-width: 67%;
     padding-right: $padding-std;
     p {

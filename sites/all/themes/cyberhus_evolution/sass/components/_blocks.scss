@@ -7,75 +7,31 @@
   margin: $margin-std;
 }
 
-/**
- * FOOTER BLOCKS
- */
+/* Forum */
+.block.forum-description .block__content {
+  @include italic-description();
+}
 
-/* EU info and social icons */
-.block--block-43 {
-  .footer-eu-wrapper,
-  .footer-social-icons-wrapper {
-    display: inline-block;
-    max-width: 250px;
-    margin-right: $margin-std;
-  }
-/* Only gfloat social icons right on tablet and above*/
-@include breakpoint($tab, true) {
-    .footer-social-icons-wrapper {
-      float: right;
-    }
-  }
-  margin: $margin-big auto;
-  max-width: 586px;
-  margin: $margin-std;
-  p,
-  h2{
-    color: $bg-white;
+/* Billeder */
+#block-views-billeder-oversigter-block-1 {
+  h2 {
+    font-size: $font-size-normal;
   }
   h3 {
-    color: $grey;
+    @include headline-grey-bg(-1em);
   }
-  img.rounded {
-    height: 36px;
-    width: 36px;
-    border-radius: 36px;
+  .view-content {
+    background-color: $bg-white;
   }
-}
-
-/* Footer menu */
-#block-block-44 {
-  display: inline-block;
-  margin: $margin-std;
-  text-align: center;
-  p, a {
-    color: $white;
-    font-weight: $font-weight-bold;
-  }
-}
-
-/* Search block - See forms/_search-form.scss */
-
-/* Footer menu */
-.block--menu-menu-andet {
-  background-color: $bg-grey-2;
-  padding: $padding-std;
-  ul.menu {
-    padding: $padding-std 0;
-    text-align: center;
-  }
-  li {
+  .views-row {
     display: inline-block;
-    list-style-type: none;
-    margin: 0 $margin-std $margin-std 0;
-
-
-    a {
-      color: $white;
-      font-weight: $font-weight-bold;
-    }
+    max-width: 160px;
+  }
+  ul.pager-load-more {
+    margin-left: -1em;
+    margin-right: -1em;
   }
 }
-
 /**
  * MENU BLOCKS WITH JUICY SVG IMGS!!
  */
@@ -356,25 +312,70 @@ $icon-color-highlight-top: #000;
   }
 }
 
+
 /**
- * BILLEDER BLOCKS
+ * FOOTER BLOCKS
  */
-#block-views-billeder-oversigter-block-1 {
-  h2 {
-    font-size: $font-size-normal;
+
+/* EU info and social icons */
+.block--block-43 {
+  .footer-eu-wrapper,
+  .footer-social-icons-wrapper {
+    display: inline-block;
+    max-width: 250px;
+    margin-right: $margin-std;
+  }
+/* Only gfloat social icons right on tablet and above*/
+@include breakpoint($tab, true) {
+    .footer-social-icons-wrapper {
+      float: right;
+    }
+  }
+  margin: $margin-big auto;
+  max-width: 586px;
+  margin: $margin-std;
+  p,
+  h2{
+    color: $bg-white;
   }
   h3 {
-    @include headline-grey-bg(-1em);
+    color: $grey;
   }
-  .view-content {
-    background-color: $bg-white;
+  img.rounded {
+    height: 36px;
+    width: 36px;
+    border-radius: 36px;
   }
-  .views-row {
+}
+
+/* Footer menu */
+#block-block-44 {
+  display: inline-block;
+  margin: $margin-std;
+  text-align: center;
+  p, a {
+    color: $white;
+    font-weight: $font-weight-bold;
+  }
+}
+
+/* Footer menu */
+.block--menu-menu-andet {
+  background-color: $bg-grey-2;
+  padding: $padding-std;
+  ul.menu {
+    padding: $padding-std 0;
+    text-align: center;
+  }
+  li {
     display: inline-block;
-    max-width: 160px;
-  }
-  ul.pager-load-more {
-    margin-left: -1em;
-    margin-right: -1em;
+    list-style-type: none;
+    margin: 0 $margin-std $margin-std 0;
+
+
+    a {
+      color: $white;
+      font-weight: $font-weight-bold;
+    }
   }
 }

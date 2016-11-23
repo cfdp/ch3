@@ -11,6 +11,9 @@
         padding-right: $padding-std;
       }
     }
+    & > .view-header h1 {
+      padding-top: $padding-smaller;
+    }
   }
 
 
@@ -26,10 +29,5 @@
         @include label();
       }
     }
-  }
-
-  /* Forum header */
-  &.view-cyberhus-forum-topic-list .view-header p {
-    margin: $margin-std;
   }
 }

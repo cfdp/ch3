@@ -427,7 +427,52 @@ $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
 $handler->display->display_options['fields']['nothing']['table'] = 'views';
 $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
 $handler->display->display_options['fields']['nothing']['label'] = '';
-$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="author-timestamp">Spørgsmål af[field_brevk_koen_1] [field_brevk_alder] • [created] siden</div>';
+$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="author-timestamp"><strong>Spørgsmål</strong> af[field_brevk_koen_1] [field_brevk_alder] • [created] siden</div>';
+$handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+$handler->display->display_options['entity_type'] = 'node';
+$handler->display->display_options['bundles'] = array(
+  0 => 'brevkasse',
+);
+
+/* Display: Brevkasse, EVA Field, counselor */
+$handler = $view->new_display('entity_view', 'Brevkasse, EVA Field, counselor', 'entity_view_7');
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Felt: Profil: Profil: Rådgivernavn */
+$handler->display->display_options['fields']['value']['id'] = 'value';
+$handler->display->display_options['fields']['value']['table'] = 'profile_value_profile_counselor_nickname';
+$handler->display->display_options['fields']['value']['field'] = 'value';
+$handler->display->display_options['fields']['value']['relationship'] = 'uid';
+$handler->display->display_options['fields']['value']['label'] = '';
+$handler->display->display_options['fields']['value']['exclude'] = TRUE;
+$handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['value']['empty'] = 'Rådgiver';
+$handler->display->display_options['fields']['value']['link_to_user'] = FALSE;
+/* Felt: Indhold: Opdateringsdato */
+$handler->display->display_options['fields']['changed']['id'] = 'changed';
+$handler->display->display_options['fields']['changed']['table'] = 'node';
+$handler->display->display_options['fields']['changed']['field'] = 'changed';
+$handler->display->display_options['fields']['changed']['label'] = '';
+$handler->display->display_options['fields']['changed']['exclude'] = TRUE;
+$handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['changed']['date_format'] = 'raw time ago';
+$handler->display->display_options['fields']['changed']['custom_date_format'] = '1';
+$handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
+/* Felt: Indhold: Oprettelsesdato */
+$handler->display->display_options['fields']['created']['id'] = 'created';
+$handler->display->display_options['fields']['created']['table'] = 'node';
+$handler->display->display_options['fields']['created']['field'] = 'created';
+$handler->display->display_options['fields']['created']['label'] = '';
+$handler->display->display_options['fields']['created']['exclude'] = TRUE;
+$handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['created']['date_format'] = 'raw time ago';
+$handler->display->display_options['fields']['created']['custom_date_format'] = '1';
+$handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+/* Felt: Global: Tilpasset tekst */
+$handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['table'] = 'views';
+$handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['label'] = '';
+$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="author-timestamp">[value] fra Cyberhus • [changed] siden</div>';
 $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
 $handler->display->display_options['entity_type'] = 'node';
 $handler->display->display_options['bundles'] = array(
@@ -465,7 +510,10 @@ $translatables['author_timestamp_eva_field_nodes'] = array(
   t('EVA Field, Hemmeligheder'),
   t('<div class="author-timestamp">Hemmelighed af [name][field_brevk_koen_1] [field_brevk_alder] • [created] siden</div>'),
   t('Brevkasse, EVA Field'),
-  t('<div class="author-timestamp">Spørgsmål af[field_brevk_koen_1] [field_brevk_alder] • [created] siden</div>'),
+  t('<div class="author-timestamp"><strong>Spørgsmål</strong> af[field_brevk_koen_1] [field_brevk_alder] • [created] siden</div>'),
+  t('Brevkasse, EVA Field, counselor'),
+  t('Rådgiver'),
+  t('<div class="author-timestamp">[value] fra Cyberhus • [changed] siden</div>'),
 );
 
   return $view;
