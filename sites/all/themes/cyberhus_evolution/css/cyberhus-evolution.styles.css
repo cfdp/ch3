@@ -6,6 +6,7 @@
 /* Margin and padding */
 /* Border color */
 /* General colors */
+/* Used for e.g. term listing title */
 html {
   font-size: 100%;
 }
@@ -1518,6 +1519,7 @@ body.page-ung-i h1 {
  * GENERAL VIEWS STYLING
  */
 .view {
+  /* Term lists are list of terms e.g. in brevkasse and forum */
   /* Mini lists are small lists of content links e.g. used on /blogs page */
 }
 .view > .view-header, .view > .view-footer {
@@ -1582,6 +1584,12 @@ body.page-ung-i h1 {
 }
 .view > .view-content .views-field-comment-count {
   background-image: url('../images/icons/svg/comments.svg?1474286442');
+}
+.view.view-cyberhus-forum-term-list p {
+  color: #9e9b99;
+  font-size: 0.85em;
+  margin: 0 0;
+  text-transform: uppercase;
 }
 .view.mini-list > .view-content .views-row {
   display: block;
