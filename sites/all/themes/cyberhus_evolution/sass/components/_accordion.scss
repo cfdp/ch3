@@ -1,3 +1,4 @@
+/* Accordion in views */
 .ui-accordion.view-content {
   /* Reset default views elements */
   .views-row {
@@ -32,7 +33,7 @@
     margin-top: -8px;
   }
   .ui-accordion-content {
-    padding: 0 $padding-std $padding-std $padding-std;
+    padding: 0;
     border-top: 0;
     margin-top: -2px;
     position: relative;
@@ -47,6 +48,7 @@
   }
 }
 
+/* Accordion, general styling */
 .ui-accordion-icons .ui-accordion-header a {
   padding-left: 2.2em;
 }
@@ -63,6 +65,9 @@
   font-weight: 400;
 }
 
+.ui-accordion .ui-accordion-content {
+  padding: 0 $padding-std;
+}
 .ui-widget-content {
     border: none;
     background: none;

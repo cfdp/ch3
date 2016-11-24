@@ -24,7 +24,7 @@
     }
     .tag-shorthand {
       display: inline-block;
-      margin: $margin-small;
+      margin: $margin-small $margin-small $margin-small 0;
       a {
         @include label();
       }

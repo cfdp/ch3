@@ -16,7 +16,7 @@ h1 {
   font-size: $font-size-big;
   font-weight: $font-weight-bold;
   line-height: $font-size-big;
-  margin: 0 $margin-std-px $margin-std-px $margin-std-px;
+  margin: $margin-std-px 0;
 }
 
 h2 {
@@ -55,6 +55,16 @@ img {
   max-width: 100%;
 }
 
+/* buttons */
+
+.btn-select {
+  @include form-select-btn();
+}
+
+input.form-submit {
+  @include button-bg-left();
+}
+
 .btn {
   @include button-bg();
 }
@@ -72,7 +82,7 @@ img {
 }
 
 .headline-grey-bg {
-  @include headline-grey-bg();
+  @include headline-grey-bg(-1em);
 }
 
 .headline-grey-bg-neg-mrg {

@@ -121,6 +121,14 @@ $margin: 0 !default;
   margin: 0 $mrg;
 }
 
+/* Used for e.g. term listing title */
+@mixin headline-grey($mrg: $margin) {
+  color: $light-grey;
+  font-size: $font-size-small;
+  margin: 0 $mrg;
+  text-transform: uppercase;
+}
+
 @mixin headline-h2() {
   font-family: $font-family-header;
   font-size: $font-size-medium;

@@ -6,7 +6,7 @@
   & > .view-header,
   & > .view-footer {
     h3 {
-      @include headline-grey-bg();
+      @include headline-grey-bg(-1em);
     }
     .view-content {
       margin-bottom: $margin-std;
@@ -15,7 +15,6 @@
       }
     }
     .content-list-header {
-      margin: $margin-std;
       @include italic-description();
     }
     /* For embedding entities in view header / footer */
@@ -27,6 +26,9 @@
         padding: 0 $padding-std;
       }
     }
+  }
+  &  .view-header {
+    margin: 0 $margin-std;
   }
   & > .view-footer {
     background-color: $bg-grey;
@@ -55,10 +57,24 @@
       padding: $padding-std;
     }
     h2 {
-      margin: 0;
+      margin: $margin-xx-small 0 0 0;
     }
     .views-field-comment-count {
       background-image: image-url('icons/svg/comments.svg');
+    }
+    .field-content {
+      p {
+        margin-top: 0;
+      }
+    }
+  }
+  /* Term lists are list of terms e.g. in brevkasse and forum */
+  &.view-cyberhus-forum-term-list {
+    .view-header {
+      margin: 0;
+      p {
+        @include headline-grey();
+      }
     }
   }
   /* Mini lists are small lists of content links e.g. used on /blogs page */
@@ -125,7 +141,7 @@ body.front {
       }
     }
     .views-field-field-billede {
-      margin-top: $margin-std;
+      margin-top: $margin-xx-small;
     }
   }
 }
@@ -141,7 +157,6 @@ body.page-brevkasse {
   }
   .view-header h1 {
     display: block;
-    padding-top: $padding-smaller;
   }
 }
 
@@ -208,7 +223,6 @@ body.page-kampagner {
   }
 }
 
-
 /**
  * SIMPEL SIDE MED VIEW
  */
@@ -216,20 +230,5 @@ body.page-kampagner {
 .node-type-simpel-side-med-view {
   .view-header p {
     margin: 0 $margin-std;
-  }
-}
-
-
-/**
- * SIDE MED INDLEJRING AF KODE OG VIEWS
- */
-
-.node-type-chat {
-  .view-header {
-    //margin: $margin-std;
-    p {
-      background-color: $bg-white;
-      padding: $padding-std;
-    }
   }
 }
