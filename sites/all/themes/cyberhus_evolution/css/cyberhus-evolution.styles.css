@@ -24,7 +24,7 @@ h1 {
   font-size: 1.5em;
   font-weight: 700;
   line-height: 1.5em;
-  margin: 0 16px 16px 16px;
+  margin: 16px 0;
 }
 
 h2 {
@@ -67,6 +67,46 @@ em {
 img {
   height: auto;
   max-width: 100%;
+}
+
+/* buttons */
+.btn-select {
+  background-color: #fff;
+  border: 1px solid #BFBFBF;
+  color: #BFBFBF;
+  padding: .4em .5em;
+  display: inline-block;
+  margin-right: 1em;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.btn-select:hover {
+  background: #f2f2f2;
+  transition: all 0.3s ease;
+}
+
+input.form-submit {
+  background: #2980B9;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #fff;
+  border-color: #2980B9;
+  border-style: solid;
+  border-width: thin;
+  font-weight: 700;
+  padding: .7em 1em;
+  display: inline-block;
+  margin-right: 1em;
+  max-width: 12em;
+}
+input.form-submit:hover {
+  background: #226998;
+  transition: all 0.3s ease;
+}
+input.form-submit:active {
+  background: #123851;
 }
 
 .btn {
@@ -181,7 +221,7 @@ img {
   font-family: "Lato", sans-serif;
   font-size: 1em;
   font-weight: 700;
-  margin: 0 0;
+  margin: 0 -1em;
   text-transform: uppercase;
   padding: 1em;
 }
@@ -217,6 +257,7 @@ img {
   background-image: url('../images/icons/svg/gender/non-binary.svg?1478556783');
 }
 
+/* Accordion in views */
 .ui-accordion.view-content {
   /* Reset default views elements */
   /* IE7-/Win - Fix extra vertical space in lists */
@@ -255,7 +296,7 @@ img {
   margin-top: -8px;
 }
 .ui-accordion.view-content .ui-accordion-content {
-  padding: 0 1em 1em 1em;
+  padding: 0;
   border-top: 0;
   margin-top: -2px;
   position: relative;
@@ -269,6 +310,7 @@ img {
   display: block;
 }
 
+/* Accordion, general styling */
 .ui-accordion-icons .ui-accordion-header a {
   padding-left: 2.2em;
 }
@@ -284,6 +326,10 @@ img {
   border: none;
   color: #231E19;
   font-weight: 400;
+}
+
+.ui-accordion .ui-accordion-content {
+  padding: 0 1em;
 }
 
 .ui-widget-content {
@@ -856,7 +902,7 @@ img {
 }
 .view.view-cyberhus-forum-term-list .tag-shorthand {
   display: inline-block;
-  margin: 0.75em;
+  margin: 0.75em 0.75em 0.75em 0;
 }
 .view.view-cyberhus-forum-term-list .tag-shorthand a {
   background-color: #e7f2fa;
@@ -976,8 +1022,10 @@ img {
 }
 /* Custom header styling */
 body.page-blogs h1,
-body.page-node-add h1 {
-  padding-top: 0.5em;
+body.page-node-add h1,
+body.page-billeder h1,
+body.page-hemmeligheder-alle h1 {
+  margin: 0 16px;
 }
 
 /* Search */
@@ -1032,92 +1080,6 @@ body.page-user ul.tabs--secondary li a:active {
   body.page-user ul.tabs--secondary li a {
     max-width: 12em;
   }
-}
-
-/* buttons */
-.btn {
-  background: #2980B9;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  color: #fff;
-  border-color: #2980B9;
-  border-style: solid;
-  border-width: thin;
-  font-weight: 700;
-  padding: .7em 1em;
-  display: block;
-  margin: 1em auto;
-  max-width: 24em;
-  text-align: center;
-  /* Not too big buttons on tab and above */
-}
-.btn:hover {
-  background: #226998;
-  transition: all 0.3s ease;
-}
-.btn:active {
-  background: #123851;
-}
-@media (min-width: 36.625em) {
-  .btn {
-    max-width: 12em;
-  }
-}
-
-.btn-select {
-  background-color: #fff;
-  border: 1px solid #BFBFBF;
-  color: #BFBFBF;
-  padding: .4em .5em;
-  display: inline-block;
-  margin-right: 1em;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-}
-.btn-select:hover {
-  background: #f2f2f2;
-  transition: all 0.3s ease;
-}
-
-input.form-submit {
-  background: #2980B9;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  color: #fff;
-  border-color: #2980B9;
-  border-style: solid;
-  border-width: thin;
-  font-weight: 700;
-  padding: .7em 1em;
-  display: inline-block;
-  margin-right: 1em;
-  max-width: 12em;
-}
-input.form-submit:hover {
-  background: #226998;
-  transition: all 0.3s ease;
-}
-input.form-submit:active {
-  background: #123851;
-}
-
-.headline-grey-bg {
-  background-color: #F1F1F1;
-  color: #9e9b99;
-  font-family: "Lato", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
-  margin: 0 0;
-  text-transform: uppercase;
-  padding: 1em;
-}
-
-.author-timestamp {
-  color: #85817f;
-  font-size: 0.85em;
 }
 
 /* youtube video embedding - responsive adjustments */
@@ -1332,7 +1294,7 @@ body.page-comment-reply h2.node__title {
 .content-type-simpel_side_med_view .field--name-field-admin-php,
 .content-type-simpel_side_med_view .field--name-field-relevant-articles,
 .content-type-simpel_side_med_view .views-accordion-cyberhus_chat-block_1-header {
-  background-color: #F1F1F1;
+  margin: 0 1em;
 }
 .content-type-chat .field--name-field-admin-php p,
 .content-type-chat .field--name-field-relevant-articles p,
@@ -1341,8 +1303,6 @@ body.page-comment-reply h2.node__title {
 .content-type-simpel_side_med_view .field--name-field-relevant-articles p,
 .content-type-simpel_side_med_view .views-accordion-cyberhus_chat-block_1-header p {
   background-color: #fff;
-  margin: 0;
-  padding: 1em;
 }
 .content-type-chat .field--name-field-footer-text,
 .content-type-simpel_side_med_view .field--name-field-footer-text {
@@ -1531,7 +1491,7 @@ body.page-ung-i h1 {
   font-family: "Lato", sans-serif;
   font-size: 1em;
   font-weight: 700;
-  margin: 0 0;
+  margin: 0 -1em;
   text-transform: uppercase;
   padding: 1em;
 }
@@ -1542,7 +1502,6 @@ body.page-ung-i h1 {
   display: inline-block;
 }
 .view > .view-header .content-list-header, .view > .view-footer .content-list-header {
-  margin: 1em;
   color: #85817f;
   font-style: italic;
 }
@@ -1551,6 +1510,9 @@ body.page-ung-i h1 {
 }
 .view > .view-header article.node, .view > .view-footer article.node {
   padding: 0 1em;
+}
+.view .view-header {
+  margin: 0 1em;
 }
 .view > .view-footer {
   background-color: #F1F1F1;
@@ -1580,12 +1542,18 @@ body.page-ung-i h1 {
   padding: 1em;
 }
 .view > .view-content h2 {
-  margin: 0;
+  margin: 0.25em 0 0 0;
 }
 .view > .view-content .views-field-comment-count {
   background-image: url('../images/icons/svg/comments.svg?1474286442');
 }
-.view.view-cyberhus-forum-term-list p {
+.view > .view-content .field-content p {
+  margin-top: 0;
+}
+.view.view-cyberhus-forum-term-list .view-header {
+  margin: 0;
+}
+.view.view-cyberhus-forum-term-list .view-header p {
   color: #9e9b99;
   font-size: 0.85em;
   margin: 0 0;
@@ -1672,7 +1640,7 @@ body.front .view-forside-oversigt .views-field-php svg g {
   fill: #231E19;
 }
 body.front .view-forside-oversigt .views-field-field-billede {
-  margin-top: 1em;
+  margin-top: 0.25em;
 }
 
 /**
@@ -1683,7 +1651,6 @@ body.page-brevkasse h1 {
 }
 body.page-brevkasse .view-header h1 {
   display: block;
-  padding-top: 0.5em;
 }
 
 /**
@@ -1754,14 +1721,6 @@ body.page-kampagner .view > .view-content .views-row {
  */
 .node-type-simpel-side-med-view .view-header p {
   margin: 0 1em;
-}
-
-/**
- * SIDE MED INDLEJRING AF KODE OG VIEWS
- */
-.node-type-chat .view-header p {
-  background-color: #fff;
-  padding: 1em;
 }
 
 /**

@@ -107,8 +107,10 @@
 
 /* Custom header styling */
 body.page-blogs h1,
-body.page-node-add h1 {
-  padding-top: $padding-smaller;
+body.page-node-add h1,
+body.page-billeder h1,
+body.page-hemmeligheder-alle h1 {
+  margin: 0 $margin-std-px;;
 }
 /* Search */
 body.page-search {
@@ -136,25 +138,7 @@ body.page-user {
     }
   }
 }
-/* buttons */
-.btn {
-  @include button-bg();
-}
 
-.btn-select {
-  @include form-select-btn();
-}
-
-input.form-submit {
-  @include button-bg-left();
-}
-.headline-grey-bg {
-  @include headline-grey-bg();
-}
-
-.author-timestamp {
-  @include font-metadata;
-}
 
 /* youtube video embedding - responsive adjustments */
 .media-youtube-video {

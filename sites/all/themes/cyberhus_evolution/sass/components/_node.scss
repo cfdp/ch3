@@ -67,7 +67,6 @@ body.page-comment-reply {
   }
 }
 
-
 /* Hide the obsolete comment form when Mollom activites comment/reply page */
 
 body.page-comment-reply {
@@ -114,11 +113,9 @@ body.page-comment-reply {
   .field--name-field-admin-php,
   .field--name-field-relevant-articles,
   .views-accordion-cyberhus_chat-block_1-header {
-    background-color: $bg-grey;
+    margin: 0 $margin-std;
     p {
       background-color: $bg-white;
-      margin: 0;
-      padding: $padding-std;
     }
   }
   .field--name-field-footer-text {
