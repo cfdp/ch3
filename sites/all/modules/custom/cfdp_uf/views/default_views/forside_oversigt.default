@@ -434,6 +434,7 @@ $handler->display->display_options['fields']['field_billede']['table'] = 'field_
 $handler->display->display_options['fields']['field_billede']['field'] = 'field_billede';
 $handler->display->display_options['fields']['field_billede']['label'] = '';
 $handler->display->display_options['fields']['field_billede']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_billede']['hide_empty'] = TRUE;
 $handler->display->display_options['fields']['field_billede']['click_sort_column'] = 'fid';
 $handler->display->display_options['fields']['field_billede']['settings'] = array(
   'image_style' => 'large',
@@ -510,7 +511,6 @@ Hemmelighed|psst!'),
   t(' af <span class="gender tid-[field_brevk_koen_1-tid]" title="[field_brevk_koen]"></span>'),
   t('<div class="author-timestamp">[type][field_brevk_koen_1] [field_brevk_alder] • seneste aktivitet [last_updated] siden</div>'),
 );
-
 
   return $view;
 
