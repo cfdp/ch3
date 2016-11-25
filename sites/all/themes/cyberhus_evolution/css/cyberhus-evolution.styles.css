@@ -297,6 +297,59 @@ input.form-submit:active {
   color: #2980B9;
 }
 
+/* Accordion in views */
+.ui-accordion.view-content {
+  /* Reset default views elements */
+  /* IE7-/Win - Fix extra vertical space in lists */
+}
+.ui-accordion.view-content .views-row {
+  margin-left: 0;
+}
+.ui-accordion.view-content .ui-accordion-header {
+  cursor: pointer;
+  position: relative;
+  margin-top: 1px;
+  padding: 0 0 0 2em;
+  zoom: 1;
+}
+.ui-accordion.view-content .ui-accordion-li-fix {
+  display: inline;
+}
+.ui-accordion.view-content .ui-accordion-header-active {
+  border-bottom: 0 !important;
+}
+.ui-accordion.view-content .ui-accordion-header a {
+  font-family: "Merriweather", serif;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 1em 0;
+  color: #2980B9;
+  display: block;
+}
+.ui-accordion.view-content a {
+  zoom: 1;
+}
+.ui-accordion.view-content .ui-accordion-header .ui-icon {
+  position: absolute;
+  left: .5em;
+  top: 50%;
+  margin-top: -8px;
+}
+.ui-accordion.view-content .ui-accordion-content {
+  padding: 0;
+  border-top: 0;
+  margin-top: -2px;
+  position: relative;
+  top: 1px;
+  margin-bottom: 2px;
+  overflow: auto;
+  display: none;
+  zoom: 1;
+}
+.ui-accordion.view-content .ui-accordion-content-active {
+  display: block;
+}
+
 /**
  * MAIN CONTENT BLOCKS
  */
@@ -311,18 +364,11 @@ input.form-submit:active {
 }
 
 /* Billeder */
+#block-views-billeder-oversigter-block-1 {
+  margin: 0;
+}
 #block-views-billeder-oversigter-block-1 h2 {
   font-size: 1em;
-}
-#block-views-billeder-oversigter-block-1 h3 {
-  background-color: #F1F1F1;
-  color: #9e9b99;
-  font-family: "Lato", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
-  margin: 0 -1em;
-  text-transform: uppercase;
-  padding: 1em;
 }
 #block-views-billeder-oversigter-block-1 .view-content {
   background-color: #fff;
@@ -330,10 +376,6 @@ input.form-submit:active {
 #block-views-billeder-oversigter-block-1 .views-row {
   display: inline-block;
   max-width: 160px;
-}
-#block-views-billeder-oversigter-block-1 ul.pager-load-more {
-  margin-left: -1em;
-  margin-right: -1em;
 }
 
 /**
@@ -1428,7 +1470,6 @@ body.page-ung-i h1 {
 .view {
   /* Term lists are list of terms e.g. in brevkasse and forum */
   /* Mini lists are small lists of content links e.g. used on /blogs page */
-  /* Accordion in views */
 }
 .view > .view-header h3, .view > .view-footer h3 {
   background-color: #F1F1F1;
@@ -1505,57 +1546,6 @@ body.page-ung-i h1 {
   display: block;
   margin: 0;
   padding: 1em;
-}
-.view .ui-accordion.view-content {
-  /* Reset default views elements */
-  /* IE7-/Win - Fix extra vertical space in lists */
-}
-.view .ui-accordion.view-content .views-row {
-  margin-left: 0;
-}
-.view .ui-accordion.view-content .ui-accordion-header {
-  cursor: pointer;
-  position: relative;
-  margin-top: 1px;
-  padding: 0 0 0 2em;
-  zoom: 1;
-}
-.view .ui-accordion.view-content .ui-accordion-li-fix {
-  display: inline;
-}
-.view .ui-accordion.view-content .ui-accordion-header-active {
-  border-bottom: 0 !important;
-}
-.view .ui-accordion.view-content .ui-accordion-header a {
-  font-family: "Merriweather", serif;
-  font-size: 1em;
-  font-weight: 700;
-  margin: 1em 0;
-  color: #2980B9;
-  display: block;
-}
-.view .ui-accordion.view-content a {
-  zoom: 1;
-}
-.view .ui-accordion.view-content .ui-accordion-header .ui-icon {
-  position: absolute;
-  left: .5em;
-  top: 50%;
-  margin-top: -8px;
-}
-.view .ui-accordion.view-content .ui-accordion-content {
-  padding: 0;
-  border-top: 0;
-  margin-top: -2px;
-  position: relative;
-  top: 1px;
-  margin-bottom: 2px;
-  overflow: auto;
-  display: none;
-  zoom: 1;
-}
-.view .ui-accordion.view-content .ui-accordion-content-active {
-  display: block;
 }
 
 /* Load more pager */
