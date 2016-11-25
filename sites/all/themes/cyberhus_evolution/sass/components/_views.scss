@@ -79,55 +79,6 @@
       padding: $padding-std;
     }
   }
-  /* Accordion in views */
-  .ui-accordion.view-content {
-    /* Reset default views elements */
-    .views-row {
-      margin-left: 0;
-    }
-    .ui-accordion-header {
-      cursor: pointer;
-      position: relative;
-      margin-top: 1px;
-      padding: 0 0 0 $padding-big;
-      zoom: 1;
-    }
-    .ui-accordion-li-fix {
-      display: inline;
-    }
-    .ui-accordion-header-active {
-      border-bottom: 0 !important;
-    }
-    .ui-accordion-header a {
-      @include headline-h3();
-      color: $blue;
-      display: block;
-    }
-    /* IE7-/Win - Fix extra vertical space in lists */
-    a {
-      zoom: 1;
-    }
-    .ui-accordion-header .ui-icon {
-      position: absolute;
-      left: .5em;
-      top: 50%;
-      margin-top: -8px;
-    }
-    .ui-accordion-content {
-      padding: 0;
-      border-top: 0;
-      margin-top: -2px;
-      position: relative;
-      top: 1px;
-      margin-bottom: 2px;
-      overflow: auto;
-      display: none;
-      zoom: 1;
-    }
-    .ui-accordion-content-active {
-      display: block;
-    }
-  }
 }
 
 

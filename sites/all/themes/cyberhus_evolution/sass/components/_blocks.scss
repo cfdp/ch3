@@ -14,11 +14,9 @@
 
 /* Billeder */
 #block-views-billeder-oversigter-block-1 {
+  margin: 0;
   h2 {
     font-size: $font-size-normal;
-  }
-  h3 {
-    @include headline-grey-bg(-1em);
   }
   .view-content {
     background-color: $bg-white;
@@ -26,10 +24,6 @@
   .views-row {
     display: inline-block;
     max-width: 160px;
-  }
-  ul.pager-load-more {
-    margin-left: -1em;
-    margin-right: -1em;
   }
 }
 /**
