@@ -36,6 +36,12 @@ $handler->display->display_options['style_options']['default_row_class'] = FALSE
 $handler->display->display_options['style_options']['row_class_special'] = FALSE;
 $handler->display->display_options['row_plugin'] = 'fields';
 $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['content'] = 'Emner';
+$handler->display->display_options['header']['area']['format'] = '6';
 /* Felt: Ord i ordforråd: Term ID */
 $handler->display->display_options['fields']['tid']['id'] = 'tid';
 $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
@@ -60,10 +66,29 @@ $handler->display->display_options['filters']['machine_name']['field'] = 'machin
 $handler->display->display_options['filters']['machine_name']['value'] = array(
   'forumss' => 'forumss',
 );
+/* Filterkriterie: Ord i ordforråd: Term ID */
+$handler->display->display_options['filters']['tid_raw']['id'] = 'tid_raw';
+$handler->display->display_options['filters']['tid_raw']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
 
 /* Display: Forum terms */
 $handler = $view->new_display('attachment', 'Forum terms', 'attachment_1');
 $handler->display->display_options['pager']['type'] = 'some';
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filterkriterie: Ordforråd: Internt navn */
+$handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+$handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+$handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+$handler->display->display_options['filters']['machine_name']['value'] = array(
+  'forumss' => 'forumss',
+);
+/* Filterkriterie: Ord i ordforråd: Term ID */
+$handler->display->display_options['filters']['tid_raw']['id'] = 'tid_raw';
+$handler->display->display_options['filters']['tid_raw']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
+$handler->display->display_options['filters']['tid_raw']['operator'] = '!=';
+$handler->display->display_options['filters']['tid_raw']['value']['value'] = '2334';
 
 /* Display: Brevkasse terms */
 $handler = $view->new_display('attachment', 'Brevkasse terms', 'attachment_2');
@@ -111,11 +136,13 @@ $translatables['cyberhus_forum_term_list'] = array(
   t('Sortér efter'),
   t('Stigende'),
   t('Faldende'),
+  t('Emner'),
   t('.'),
   t('<a href="#" >no-content</a>'),
   t('Forum terms'),
   t('Brevkasse terms'),
 );
+
 
   return $view;
 
