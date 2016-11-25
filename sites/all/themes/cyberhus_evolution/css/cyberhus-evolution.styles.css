@@ -311,18 +311,11 @@ input.form-submit:active {
 }
 
 /* Billeder */
+#block-views-billeder-oversigter-block-1 {
+  margin: 0;
+}
 #block-views-billeder-oversigter-block-1 h2 {
   font-size: 1em;
-}
-#block-views-billeder-oversigter-block-1 h3 {
-  background-color: #F1F1F1;
-  color: #9e9b99;
-  font-family: "Lato", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
-  margin: 0 -1em;
-  text-transform: uppercase;
-  padding: 1em;
 }
 #block-views-billeder-oversigter-block-1 .view-content {
   background-color: #fff;
@@ -330,10 +323,6 @@ input.form-submit:active {
 #block-views-billeder-oversigter-block-1 .views-row {
   display: inline-block;
   max-width: 160px;
-}
-#block-views-billeder-oversigter-block-1 ul.pager-load-more {
-  margin-left: -1em;
-  margin-right: -1em;
 }
 
 /**
