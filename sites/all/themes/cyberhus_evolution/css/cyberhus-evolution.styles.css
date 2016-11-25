@@ -257,60 +257,7 @@ input.form-submit:active {
   background-image: url('../images/icons/svg/gender/non-binary.svg?1478556783');
 }
 
-/* Accordion in views */
-.ui-accordion.view-content {
-  /* Reset default views elements */
-  /* IE7-/Win - Fix extra vertical space in lists */
-}
-.ui-accordion.view-content .views-row {
-  padding: 0;
-}
-.ui-accordion.view-content .ui-accordion-header {
-  cursor: pointer;
-  position: relative;
-  margin-top: 1px;
-  padding: 0 0 0 2em;
-  zoom: 1;
-}
-.ui-accordion.view-content .ui-accordion-li-fix {
-  display: inline;
-}
-.ui-accordion.view-content .ui-accordion-header-active {
-  border-bottom: 0 !important;
-}
-.ui-accordion.view-content .ui-accordion-header a {
-  font-family: "Merriweather", serif;
-  font-size: 1em;
-  font-weight: 700;
-  margin: 1em 0;
-  color: #2980B9;
-  display: block;
-}
-.ui-accordion.view-content a {
-  zoom: 1;
-}
-.ui-accordion.view-content .ui-accordion-header .ui-icon {
-  position: absolute;
-  left: .5em;
-  top: 50%;
-  margin-top: -8px;
-}
-.ui-accordion.view-content .ui-accordion-content {
-  padding: 0;
-  border-top: 0;
-  margin-top: -2px;
-  position: relative;
-  top: 1px;
-  margin-bottom: 2px;
-  overflow: auto;
-  display: none;
-  zoom: 1;
-}
-.ui-accordion.view-content .ui-accordion-content-active {
-  display: block;
-}
-
-/* Accordion, general styling */
+/* Accordion, general styling, see _views.scss for views embedded acc. */
 .ui-accordion-icons .ui-accordion-header a {
   padding-left: 2.2em;
 }
@@ -1154,7 +1101,7 @@ body.page-comment-reply article.node--simpel-side-med-view .field--name-field-bi
 body.page-comment-reply article.node--simpel-side-med-view .field--name-body,
 body.page-comment-reply article.node--chat--full .field--name-field-billede,
 body.page-comment-reply article.node--chat--full .field--name-body {
-  padding: 1em;
+  padding: 0 1em 1em 1em;
 }
 body.page-node article li.comment-add a,
 body.page-comment-reply article li.comment-add a {
@@ -1481,9 +1428,7 @@ body.page-ung-i h1 {
 .view {
   /* Term lists are list of terms e.g. in brevkasse and forum */
   /* Mini lists are small lists of content links e.g. used on /blogs page */
-}
-.view > .view-header, .view > .view-footer {
-  /* For embedding entities in view header / footer */
+  /* Accordion in views */
 }
 .view > .view-header h3, .view > .view-footer h3 {
   background-color: #F1F1F1;
@@ -1504,12 +1449,6 @@ body.page-ung-i h1 {
 .view > .view-header .content-list-header, .view > .view-footer .content-list-header {
   color: #85817f;
   font-style: italic;
-}
-.view > .view-header article p, .view > .view-footer article p {
-  margin-left: 0;
-}
-.view > .view-header article.node, .view > .view-footer article.node {
-  padding: 0 1em;
 }
 .view .view-header {
   margin: 0 1em;
@@ -1547,6 +1486,9 @@ body.page-ung-i h1 {
 .view > .view-content .views-field-comment-count {
   background-image: url('../images/icons/svg/comments.svg?1474286442');
 }
+.view > .view-content .views-field-field-billede {
+  margin-top: 0.25em;
+}
 .view > .view-content .field-content p {
   margin-top: 0;
 }
@@ -1563,6 +1505,57 @@ body.page-ung-i h1 {
   display: block;
   margin: 0;
   padding: 1em;
+}
+.view .ui-accordion.view-content {
+  /* Reset default views elements */
+  /* IE7-/Win - Fix extra vertical space in lists */
+}
+.view .ui-accordion.view-content .views-row {
+  margin-left: 0;
+}
+.view .ui-accordion.view-content .ui-accordion-header {
+  cursor: pointer;
+  position: relative;
+  margin-top: 1px;
+  padding: 0 0 0 2em;
+  zoom: 1;
+}
+.view .ui-accordion.view-content .ui-accordion-li-fix {
+  display: inline;
+}
+.view .ui-accordion.view-content .ui-accordion-header-active {
+  border-bottom: 0 !important;
+}
+.view .ui-accordion.view-content .ui-accordion-header a {
+  font-family: "Merriweather", serif;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 1em 0;
+  color: #2980B9;
+  display: block;
+}
+.view .ui-accordion.view-content a {
+  zoom: 1;
+}
+.view .ui-accordion.view-content .ui-accordion-header .ui-icon {
+  position: absolute;
+  left: .5em;
+  top: 50%;
+  margin-top: -8px;
+}
+.view .ui-accordion.view-content .ui-accordion-content {
+  padding: 0;
+  border-top: 0;
+  margin-top: -2px;
+  position: relative;
+  top: 1px;
+  margin-bottom: 2px;
+  overflow: auto;
+  display: none;
+  zoom: 1;
+}
+.view .ui-accordion.view-content .ui-accordion-content-active {
+  display: block;
 }
 
 /* Load more pager */
@@ -1609,7 +1602,7 @@ body.page-node .view-comments .pager-load-more {
 /* BEF form */
 .bef-select-as-links .form-type-bef-link {
   display: inline-block;
-  margin: 0.75em;
+  margin: 0.75em 0.75em 0.75em 0;
 }
 .bef-select-as-links .form-type-bef-link a {
   background-color: #e7f2fa;
@@ -1639,9 +1632,6 @@ body.front .view-forside-oversigt .views-field-php svg {
 body.front .view-forside-oversigt .views-field-php svg g {
   fill: #231E19;
 }
-body.front .view-forside-oversigt .views-field-field-billede {
-  margin-top: 0.25em;
-}
 
 /**
  * BREVKASSE
@@ -1669,10 +1659,6 @@ body.page-kampagner .view > .view-content .views-row {
 /**
  * BLOG LIST & BLOGGERS
  */
-.view-bloggere .view-content h2,
-.view-blogs-oversigter .view-content h2 {
-  margin-bottom: 1em;
-}
 .view-bloggere .views-field-value-2,
 .view-blogs-oversigter .views-field-value-2 {
   /*float: left;*/
@@ -1703,7 +1689,6 @@ body.page-kampagner .view > .view-content .views-row {
 }
 .view-bloggere .view-header .content-list-header,
 .view-blogs-oversigter .view-header .content-list-header {
-  margin-left: 1em;
   margin-top: 0;
 }
 
@@ -1714,6 +1699,9 @@ body.page-kampagner .view > .view-content .views-row {
 }
 .view-blogs-oversigter .view-header .content-list-header p {
   margin-top: 0;
+}
+.view-blogs-oversigter.mini-list {
+  margin: 1em -1em 0 -1em;
 }
 
 /**

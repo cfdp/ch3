@@ -17,15 +17,6 @@
     .content-list-header {
       @include italic-description();
     }
-    /* For embedding entities in view header / footer */
-    article {
-      p {
-        margin-left: 0;
-      }
-      &.node {
-        padding: 0 $padding-std;
-      }
-    }
   }
   &  .view-header {
     margin: 0 $margin-std;
@@ -62,6 +53,9 @@
     .views-field-comment-count {
       background-image: image-url('icons/svg/comments.svg');
     }
+    .views-field-field-billede {
+      margin-top: $margin-xx-small;
+    }
     .field-content {
       p {
         margin-top: 0;
@@ -83,6 +77,55 @@
       display: block;
       margin: 0;
       padding: $padding-std;
+    }
+  }
+  /* Accordion in views */
+  .ui-accordion.view-content {
+    /* Reset default views elements */
+    .views-row {
+      margin-left: 0;
+    }
+    .ui-accordion-header {
+      cursor: pointer;
+      position: relative;
+      margin-top: 1px;
+      padding: 0 0 0 $padding-big;
+      zoom: 1;
+    }
+    .ui-accordion-li-fix {
+      display: inline;
+    }
+    .ui-accordion-header-active {
+      border-bottom: 0 !important;
+    }
+    .ui-accordion-header a {
+      @include headline-h3();
+      color: $blue;
+      display: block;
+    }
+    /* IE7-/Win - Fix extra vertical space in lists */
+    a {
+      zoom: 1;
+    }
+    .ui-accordion-header .ui-icon {
+      position: absolute;
+      left: .5em;
+      top: 50%;
+      margin-top: -8px;
+    }
+    .ui-accordion-content {
+      padding: 0;
+      border-top: 0;
+      margin-top: -2px;
+      position: relative;
+      top: 1px;
+      margin-bottom: 2px;
+      overflow: auto;
+      display: none;
+      zoom: 1;
+    }
+    .ui-accordion-content-active {
+      display: block;
     }
   }
 }
@@ -114,7 +157,7 @@ body.page-node {
 
 .bef-select-as-links .form-type-bef-link {
   display: inline-block;
-  margin: $margin-small;
+  margin: $margin-small $margin-small $margin-small 0;
   a {
     @include label();
   }
@@ -139,9 +182,6 @@ body.front {
           fill: $black;
         }
       }
-    }
-    .views-field-field-billede {
-      margin-top: $margin-xx-small;
     }
   }
 }
@@ -184,9 +224,6 @@ body.page-kampagner {
 
 .view-bloggere,
 .view-blogs-oversigter {
-  .view-content h2 {
-    margin-bottom: $margin-std;
-  }
   .views-field-value-2 {
     /*float: left;*/
   }
@@ -207,7 +244,6 @@ body.page-kampagner {
     }
   }
   .view-header .content-list-header {
-    margin-left: $margin-std;
     margin-top: 0;
   }
 }
@@ -220,6 +256,9 @@ body.page-kampagner {
     p {
       margin-top: 0;
     }
+  }
+  &.mini-list {
+    margin: $margin-std -1*$margin-std 0 -1*$margin-std;
   }
 }
 

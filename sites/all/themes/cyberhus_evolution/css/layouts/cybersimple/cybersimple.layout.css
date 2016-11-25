@@ -23,11 +23,14 @@
   margin-bottom: 20px;
 }
 
-.l-region--highlighted,
 .l-region--help,
 .l-region--sidebar-first,
 .l-region--sidebar-second {
   margin-bottom: 20px;
+}
+
+.l-region--highlighted {
+  margin-bottom: 0;
 }
 
 @media (min-width: 36.625em) {
