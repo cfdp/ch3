@@ -45,13 +45,15 @@ $desk-columns: 16; // use 16 columns.
   margin-bottom: $vert-spacing-unit;
 }
 
-.l-region--highlighted,
 .l-region--help,
 .l-region--sidebar-first,
 .l-region--sidebar-second {
   margin-bottom: $vert-spacing-unit;
 }
 
+.l-region--highlighted {
+  margin-bottom: 0;
+}
 
 
 @include susy-breakpoint($tab, $tab-columns) { // At a given Susy Media Layout, use a given amount of columns.

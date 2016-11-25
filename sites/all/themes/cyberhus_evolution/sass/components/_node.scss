@@ -29,7 +29,7 @@ body.page-comment-reply {
       }
       .field--name-field-billede,
       .field--name-body {
-        padding: $padding-std;
+        padding: 0 $padding-std $padding-std $padding-std;
       }
     }
     .field--type-viewreference {
