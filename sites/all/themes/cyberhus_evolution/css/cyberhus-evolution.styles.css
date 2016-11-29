@@ -2169,6 +2169,9 @@ body.page-search section.search-results #edit-submit {
 body.page-search #search-form .form-wrapper {
   margin: 0 1em 1em 1em;
 }
+body.page-search #search-form .form-text {
+  max-width: 90%;
+}
 body.page-search .l-content h2 {
   background-color: #F1F1F1;
   color: #9e9b99;
