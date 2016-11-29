@@ -109,24 +109,11 @@
 body.page-blogs h1,
 body.page-node-add h1,
 body.page-billeder h1,
+body.page-search h1,
 body.page-hemmeligheder-alle h1 {
-  margin: 0 $margin-std-px;;
+  margin: 0 $margin-std-px;
 }
-/* Search */
-body.page-search {
-  #search-form,
-  section.search-results {
-    margin: $margin-std;
-    #edit-submit {
-      margin-top: $margin-std;
-    }
-  }
-  .l-content {
-    h2 {
-      @include headline-grey-bg();
-    }
-  }
-}
+
 /* User pages */
 body.page-user {
   .l-content {
