@@ -54,6 +54,15 @@
   h1 {
     display: none;
   }
+  h3 {
+    @include headline-grey-bg();
+  }
+  #ungi-desc {
+    h3 {
+      @include headline-grey-bg(-1em);
+      margin-bottom: $margin-std;
+    }
+  }
   .ungi-desc {
     @include italic-description();
   }
@@ -62,9 +71,6 @@
   }
   #ungi-city {
     padding: $padding-std;
-  }
-  & > h3 {
-    @include headline-grey-bg();
   }
 }
 

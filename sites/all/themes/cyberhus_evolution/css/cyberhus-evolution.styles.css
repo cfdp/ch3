@@ -1394,6 +1394,27 @@ body.page-pollim .view > .view-content .views-row {
 #page.ungi-city h1 {
   display: none;
 }
+#page.ungi-city h3 {
+  background-color: #F1F1F1;
+  color: #9e9b99;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0 0;
+  text-transform: uppercase;
+  padding: 1em;
+}
+#page.ungi-city #ungi-desc h3 {
+  background-color: #F1F1F1;
+  color: #9e9b99;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0 -1em;
+  text-transform: uppercase;
+  padding: 1em;
+  margin-bottom: 1em;
+}
 #page.ungi-city .ungi-desc {
   color: #85817f;
   font-style: italic;
@@ -1402,16 +1423,6 @@ body.page-pollim .view > .view-content .views-row {
   margin: 0;
 }
 #page.ungi-city #ungi-city {
-  padding: 1em;
-}
-#page.ungi-city > h3 {
-  background-color: #F1F1F1;
-  color: #9e9b99;
-  font-family: "Lato", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
-  margin: 0 0;
-  text-transform: uppercase;
   padding: 1em;
 }
 
