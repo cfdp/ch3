@@ -95,6 +95,9 @@ body.page-search {
     .form-wrapper {
       margin: 0 $margin-std $margin-std $margin-std;
     }
+    .form-text {
+      max-width: 90%;
+    }
   }
   .l-content {
     h2 {
