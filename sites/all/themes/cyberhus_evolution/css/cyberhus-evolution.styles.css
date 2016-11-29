@@ -1360,6 +1360,9 @@ body.page-pollim .view > .view-content .views-row {
   text-transform: uppercase;
   padding: 1em;
 }
+#ungi-cities h3.ungi-no-chat-header {
+  margin-top: -1em;
+}
 #ungi-cities .ungi-city {
   background-color: #fff;
   margin: 0 0 1em 0;
@@ -1372,13 +1375,14 @@ body.page-pollim .view > .view-content .views-row {
   display: none;
   margin: 0 0 1em 0;
 }
-#ungi-cities ul.ungi-no-chat .ungi-city {
-  display: inline-block;
-  margin: 0;
-  width: 100%;
+#ungi-cities ul.ungi-no-chat {
+  background-color: #fff;
+  padding-top: 0.25em;
 }
-#ungi-cities ul.ungi-no-chat .ungi-city .ungi-half {
-  width: 50%;
+#ungi-cities ul.ungi-no-chat .ungi-city {
+  display: block;
+  margin: 1em;
+  padding: 0;
 }
 #ungi-cities iframe {
   margin: 0;
@@ -1456,6 +1460,7 @@ body.page-ung-i h1 {
     background-color: #fff;
   }
   #ungi-cities ul.ungi-no-chat .ungi-city {
+    display: inline-block;
     width: 43%;
   }
   #ungi-cities ul.ungi-no-chat .ungi-city .ungi-half {
