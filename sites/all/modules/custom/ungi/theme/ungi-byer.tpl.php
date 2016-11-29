@@ -28,7 +28,7 @@
         <?php endif ?>
       <?php endforeach; ?>
     </ul>
-    <h3>Andre kommuner</h3>
+    <h3 class="ungi-no-chat-header">Andre kommuner</h3>
     <ul class="ungi-no-chat">
       <?php foreach ($cities as $city): ?>
         <?php if (empty($city->chaturl)): ?>
