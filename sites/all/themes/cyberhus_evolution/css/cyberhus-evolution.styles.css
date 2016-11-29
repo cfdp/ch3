@@ -1368,9 +1368,17 @@ body.page-pollim .view > .view-content .views-row {
 #ungi-cities .ungi-half {
   max-width: 100%;
 }
-#ungi-cities .ungi-half .btn {
+#ungi-cities ul.ungi-with-chat .ungi-half .btn {
   display: none;
   margin: 0 0 1em 0;
+}
+#ungi-cities ul.ungi-no-chat .ungi-city {
+  display: inline-block;
+  margin: 0;
+  width: 100%;
+}
+#ungi-cities ul.ungi-no-chat .ungi-city .ungi-half {
+  width: 50%;
 }
 #ungi-cities iframe {
   margin: 0;
@@ -1441,8 +1449,20 @@ body.page-ung-i h1 {
     display: none;
   }
 
-  #ungi-cities .ungi-half a.btn {
+  #ungi-cities .ungi-with-chat .ungi-half a.btn {
     display: inline-block;
+  }
+  #ungi-cities ul.ungi-no-chat {
+    background-color: #fff;
+  }
+  #ungi-cities ul.ungi-no-chat .ungi-city {
+    width: 43%;
+  }
+  #ungi-cities ul.ungi-no-chat .ungi-city .ungi-half {
+    width: 100%;
+  }
+  #ungi-cities ul.ungi-no-chat .ungi-city a.btn {
+    margin: 0.25em auto 1em 0;
   }
   #ungi-cities .ungi-chat-wrapper {
     float: right;
