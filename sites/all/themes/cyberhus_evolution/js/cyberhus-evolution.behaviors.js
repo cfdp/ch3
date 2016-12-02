@@ -145,4 +145,14 @@
     }
   };
 
+  /* Display expanded gender title - workaround: fetching the data via Views made
+   * the sql query too complex */
+  Drupal.behaviors.cyberhusEvolutionExpandedGenderTitle = {
+    attach: function (context, settings) {
+      $('.tid-2350', context).once('expanded-gender-title', function () {
+        $('.tid-2350').prop('title', 'Andet køn... dreng eller pige passer ikke helt på mig');
+      });
+    }
+  };
+
 })(jQuery);

@@ -16,7 +16,11 @@ $handler = $view->new_display('default', 'Master', 'default');
 $handler->display->display_options['use_more_always'] = FALSE;
 $handler->display->display_options['use_more_text'] = 'mere';
 $handler->display->display_options['access']['type'] = 'perm';
-$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['cache']['type'] = 'time';
+$handler->display->display_options['cache']['results_lifespan'] = '21600';
+$handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+$handler->display->display_options['cache']['output_lifespan'] = '21600';
+$handler->display->display_options['cache']['output_lifespan_custom'] = '0';
 $handler->display->display_options['query']['type'] = 'views_query';
 $handler->display->display_options['exposed_form']['type'] = 'basic';
 $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
@@ -144,6 +148,33 @@ $handler->display->display_options['bundles'] = array(
 
 /* Display: EVA Field, Forum */
 $handler = $view->new_display('entity_view', 'EVA Field, Forum', 'entity_view_2');
+$handler->display->display_options['defaults']['relationships'] = FALSE;
+/* Forbindelse: Indhold: Forfatter */
+$handler->display->display_options['relationships']['uid']['id'] = 'uid';
+$handler->display->display_options['relationships']['uid']['table'] = 'node';
+$handler->display->display_options['relationships']['uid']['field'] = 'uid';
+$handler->display->display_options['relationships']['uid']['required'] = TRUE;
+/* Forbindelse: Indhold: Taksonomitermer på node */
+$handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+$handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+$handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+$handler->display->display_options['relationships']['term_node_tid']['required'] = TRUE;
+$handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
+  'k_n' => 'k_n',
+  'vocabulary_3' => 0,
+  'forumss' => 0,
+  'vocabulary_2' => 0,
+  'vocabulary_23' => 0,
+  'alder' => 0,
+  'frie_tags' => 0,
+  'hemmeligheder' => 0,
+  'municipalities' => 0,
+  'temaer' => 0,
+  'ung_i_byer' => 0,
+  'vocabulary_24' => 0,
+  'vocabulary_10' => 0,
+  'vocabulary_11' => 0,
+);
 $handler->display->display_options['defaults']['fields'] = FALSE;
 /* Felt: Indhold: Navn */
 $handler->display->display_options['fields']['field_forum_forf_navn']['id'] = 'field_forum_forf_navn';
@@ -162,6 +193,15 @@ $handler->display->display_options['fields']['field_brevk_alder']['label'] = '';
 $handler->display->display_options['fields']['field_brevk_alder']['exclude'] = TRUE;
 $handler->display->display_options['fields']['field_brevk_alder']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_brevk_alder']['type'] = 'taxonomy_term_reference_plain';
+/* Felt: Ord i ordforråd: Beskrivelse af term */
+$handler->display->display_options['fields']['description']['id'] = 'description';
+$handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['fields']['description']['field'] = 'description';
+$handler->display->display_options['fields']['description']['relationship'] = 'term_node_tid';
+$handler->display->display_options['fields']['description']['label'] = '';
+$handler->display->display_options['fields']['description']['exclude'] = TRUE;
+$handler->display->display_options['fields']['description']['alter']['strip_tags'] = TRUE;
+$handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
 /* Felt: Felt: Køn */
 $handler->display->display_options['fields']['field_brevk_koen']['id'] = 'field_brevk_koen';
 $handler->display->display_options['fields']['field_brevk_koen']['table'] = 'field_data_field_brevk_koen';
@@ -178,7 +218,7 @@ $handler->display->display_options['fields']['field_brevk_koen_1']['ui_name'] = 
 $handler->display->display_options['fields']['field_brevk_koen_1']['label'] = '';
 $handler->display->display_options['fields']['field_brevk_koen_1']['exclude'] = TRUE;
 $handler->display->display_options['fields']['field_brevk_koen_1']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['field_brevk_koen_1']['alter']['text'] = ' <span class="gender tid-[field_brevk_koen_1-tid]" title="[field_brevk_koen]"></span>';
+$handler->display->display_options['fields']['field_brevk_koen_1']['alter']['text'] = ' <span class="gender tid-[field_brevk_koen_1-tid]" title="[description]"></span>';
 $handler->display->display_options['fields']['field_brevk_koen_1']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_brevk_koen_1']['type'] = 'taxonomy_term_reference_plain';
 /* Felt: Indhold: Oprettelsesdato */
@@ -205,6 +245,33 @@ $handler->display->display_options['bundles'] = array(
 
 /* Display: EVA Field, Billeder */
 $handler = $view->new_display('entity_view', 'EVA Field, Billeder', 'entity_view_3');
+$handler->display->display_options['defaults']['relationships'] = FALSE;
+/* Forbindelse: Indhold: Forfatter */
+$handler->display->display_options['relationships']['uid']['id'] = 'uid';
+$handler->display->display_options['relationships']['uid']['table'] = 'node';
+$handler->display->display_options['relationships']['uid']['field'] = 'uid';
+$handler->display->display_options['relationships']['uid']['required'] = TRUE;
+/* Forbindelse: Indhold: Taksonomitermer på node */
+$handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+$handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+$handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+$handler->display->display_options['relationships']['term_node_tid']['required'] = TRUE;
+$handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
+  'k_n' => 'k_n',
+  'vocabulary_3' => 0,
+  'forumss' => 0,
+  'vocabulary_2' => 0,
+  'vocabulary_23' => 0,
+  'alder' => 0,
+  'frie_tags' => 0,
+  'hemmeligheder' => 0,
+  'municipalities' => 0,
+  'temaer' => 0,
+  'ung_i_byer' => 0,
+  'vocabulary_24' => 0,
+  'vocabulary_10' => 0,
+  'vocabulary_11' => 0,
+);
 $handler->display->display_options['defaults']['fields'] = FALSE;
 /* Felt: Felt: Alder */
 $handler->display->display_options['fields']['field_brevk_alder']['id'] = 'field_brevk_alder';
@@ -222,6 +289,15 @@ $handler->display->display_options['fields']['field_brevk_koen']['label'] = '';
 $handler->display->display_options['fields']['field_brevk_koen']['exclude'] = TRUE;
 $handler->display->display_options['fields']['field_brevk_koen']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_brevk_koen']['type'] = 'taxonomy_term_reference_plain';
+/* Felt: Ord i ordforråd: Beskrivelse af term */
+$handler->display->display_options['fields']['description']['id'] = 'description';
+$handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['fields']['description']['field'] = 'description';
+$handler->display->display_options['fields']['description']['relationship'] = 'term_node_tid';
+$handler->display->display_options['fields']['description']['label'] = '';
+$handler->display->display_options['fields']['description']['exclude'] = TRUE;
+$handler->display->display_options['fields']['description']['alter']['strip_tags'] = TRUE;
+$handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
 /* Felt: Køn, term id */
 $handler->display->display_options['fields']['field_brevk_koen_1']['id'] = 'field_brevk_koen_1';
 $handler->display->display_options['fields']['field_brevk_koen_1']['table'] = 'field_data_field_brevk_koen';
@@ -230,7 +306,7 @@ $handler->display->display_options['fields']['field_brevk_koen_1']['ui_name'] = 
 $handler->display->display_options['fields']['field_brevk_koen_1']['label'] = '';
 $handler->display->display_options['fields']['field_brevk_koen_1']['exclude'] = TRUE;
 $handler->display->display_options['fields']['field_brevk_koen_1']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['field_brevk_koen_1']['alter']['text'] = ' <span class="gender tid-[field_brevk_koen_1-tid]" title="[field_brevk_koen]"></span> ';
+$handler->display->display_options['fields']['field_brevk_koen_1']['alter']['text'] = ' <span class="gender tid-[field_brevk_koen_1-tid]" title="[description]"></span> ';
 $handler->display->display_options['fields']['field_brevk_koen_1']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_brevk_koen_1']['type'] = 'taxonomy_term_reference_plain';
 /* Felt: Bruger: Navn */
@@ -266,6 +342,33 @@ $handler->display->display_options['bundles'] = array(
 
 /* Display: EVA Field, Fortællinger */
 $handler = $view->new_display('entity_view', 'EVA Field, Fortællinger', 'entity_view_4');
+$handler->display->display_options['defaults']['relationships'] = FALSE;
+/* Forbindelse: Indhold: Forfatter */
+$handler->display->display_options['relationships']['uid']['id'] = 'uid';
+$handler->display->display_options['relationships']['uid']['table'] = 'node';
+$handler->display->display_options['relationships']['uid']['field'] = 'uid';
+$handler->display->display_options['relationships']['uid']['required'] = TRUE;
+/* Forbindelse: Indhold: Taksonomitermer på node */
+$handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+$handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+$handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+$handler->display->display_options['relationships']['term_node_tid']['required'] = TRUE;
+$handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
+  'k_n' => 'k_n',
+  'vocabulary_3' => 0,
+  'forumss' => 0,
+  'vocabulary_2' => 0,
+  'vocabulary_23' => 0,
+  'alder' => 0,
+  'frie_tags' => 0,
+  'hemmeligheder' => 0,
+  'municipalities' => 0,
+  'temaer' => 0,
+  'ung_i_byer' => 0,
+  'vocabulary_24' => 0,
+  'vocabulary_10' => 0,
+  'vocabulary_11' => 0,
+);
 $handler->display->display_options['defaults']['fields'] = FALSE;
 /* Felt: Felt: Alder */
 $handler->display->display_options['fields']['field_brevk_alder']['id'] = 'field_brevk_alder';
@@ -275,6 +378,14 @@ $handler->display->display_options['fields']['field_brevk_alder']['label'] = '';
 $handler->display->display_options['fields']['field_brevk_alder']['exclude'] = TRUE;
 $handler->display->display_options['fields']['field_brevk_alder']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_brevk_alder']['type'] = 'taxonomy_term_reference_plain';
+/* Felt: Ord i ordforråd: Beskrivelse af term */
+$handler->display->display_options['fields']['description']['id'] = 'description';
+$handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['fields']['description']['field'] = 'description';
+$handler->display->display_options['fields']['description']['relationship'] = 'term_node_tid';
+$handler->display->display_options['fields']['description']['label'] = '';
+$handler->display->display_options['fields']['description']['exclude'] = TRUE;
+$handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
 /* Felt: Felt: Køn */
 $handler->display->display_options['fields']['field_brevk_koen']['id'] = 'field_brevk_koen';
 $handler->display->display_options['fields']['field_brevk_koen']['table'] = 'field_data_field_brevk_koen';
@@ -291,7 +402,7 @@ $handler->display->display_options['fields']['field_brevk_koen_1']['ui_name'] = 
 $handler->display->display_options['fields']['field_brevk_koen_1']['label'] = '';
 $handler->display->display_options['fields']['field_brevk_koen_1']['exclude'] = TRUE;
 $handler->display->display_options['fields']['field_brevk_koen_1']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['field_brevk_koen_1']['alter']['text'] = ' <span class="gender tid-[field_brevk_koen_1-tid]" title="[field_brevk_koen]"></span> ';
+$handler->display->display_options['fields']['field_brevk_koen_1']['alter']['text'] = ' <span class="gender tid-[field_brevk_koen_1-tid]" title="[description]"></span> ';
 $handler->display->display_options['fields']['field_brevk_koen_1']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_brevk_koen_1']['type'] = 'taxonomy_term_reference_plain';
 /* Felt: Bruger: Navn */
@@ -327,6 +438,33 @@ $handler->display->display_options['bundles'] = array(
 
 /* Display: EVA Field, Hemmeligheder */
 $handler = $view->new_display('entity_view', 'EVA Field, Hemmeligheder', 'entity_view_5');
+$handler->display->display_options['defaults']['relationships'] = FALSE;
+/* Forbindelse: Indhold: Forfatter */
+$handler->display->display_options['relationships']['uid']['id'] = 'uid';
+$handler->display->display_options['relationships']['uid']['table'] = 'node';
+$handler->display->display_options['relationships']['uid']['field'] = 'uid';
+$handler->display->display_options['relationships']['uid']['required'] = TRUE;
+/* Forbindelse: Indhold: Taksonomitermer på node */
+$handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+$handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+$handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+$handler->display->display_options['relationships']['term_node_tid']['required'] = TRUE;
+$handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
+  'k_n' => 'k_n',
+  'vocabulary_3' => 0,
+  'forumss' => 0,
+  'vocabulary_2' => 0,
+  'vocabulary_23' => 0,
+  'alder' => 0,
+  'frie_tags' => 0,
+  'hemmeligheder' => 0,
+  'municipalities' => 0,
+  'temaer' => 0,
+  'ung_i_byer' => 0,
+  'vocabulary_24' => 0,
+  'vocabulary_10' => 0,
+  'vocabulary_11' => 0,
+);
 $handler->display->display_options['defaults']['fields'] = FALSE;
 /* Felt: Felt: Alder */
 $handler->display->display_options['fields']['field_brevk_alder']['id'] = 'field_brevk_alder';
@@ -336,6 +474,15 @@ $handler->display->display_options['fields']['field_brevk_alder']['label'] = '';
 $handler->display->display_options['fields']['field_brevk_alder']['exclude'] = TRUE;
 $handler->display->display_options['fields']['field_brevk_alder']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_brevk_alder']['type'] = 'taxonomy_term_reference_plain';
+/* Felt: Ord i ordforråd: Beskrivelse af term */
+$handler->display->display_options['fields']['description']['id'] = 'description';
+$handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['fields']['description']['field'] = 'description';
+$handler->display->display_options['fields']['description']['relationship'] = 'term_node_tid';
+$handler->display->display_options['fields']['description']['label'] = '';
+$handler->display->display_options['fields']['description']['exclude'] = TRUE;
+$handler->display->display_options['fields']['description']['alter']['strip_tags'] = TRUE;
+$handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
 /* Felt: Køn, term id */
 $handler->display->display_options['fields']['field_brevk_koen_1']['id'] = 'field_brevk_koen_1';
 $handler->display->display_options['fields']['field_brevk_koen_1']['table'] = 'field_data_field_brevk_koen';
@@ -344,7 +491,7 @@ $handler->display->display_options['fields']['field_brevk_koen_1']['ui_name'] = 
 $handler->display->display_options['fields']['field_brevk_koen_1']['label'] = '';
 $handler->display->display_options['fields']['field_brevk_koen_1']['exclude'] = TRUE;
 $handler->display->display_options['fields']['field_brevk_koen_1']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['field_brevk_koen_1']['alter']['text'] = ' <span class="gender tid-[field_brevk_koen_1-tid]" title="[field_brevk_koen]"></span>';
+$handler->display->display_options['fields']['field_brevk_koen_1']['alter']['text'] = ' <span class="gender tid-[field_brevk_koen_1-tid]" title="[description]"></span>';
 $handler->display->display_options['fields']['field_brevk_koen_1']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_brevk_koen_1']['type'] = 'taxonomy_term_reference_plain';
 /* Felt: Felt: Køn */
@@ -388,6 +535,33 @@ $handler->display->display_options['bundles'] = array(
 
 /* Display: Brevkasse, EVA Field */
 $handler = $view->new_display('entity_view', 'Brevkasse, EVA Field', 'entity_view_6');
+$handler->display->display_options['defaults']['relationships'] = FALSE;
+/* Forbindelse: Indhold: Forfatter */
+$handler->display->display_options['relationships']['uid']['id'] = 'uid';
+$handler->display->display_options['relationships']['uid']['table'] = 'node';
+$handler->display->display_options['relationships']['uid']['field'] = 'uid';
+$handler->display->display_options['relationships']['uid']['required'] = TRUE;
+/* Forbindelse: Indhold: Taksonomitermer på node */
+$handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+$handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+$handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+$handler->display->display_options['relationships']['term_node_tid']['required'] = TRUE;
+$handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
+  'k_n' => 'k_n',
+  'vocabulary_3' => 0,
+  'forumss' => 0,
+  'vocabulary_2' => 0,
+  'vocabulary_23' => 0,
+  'alder' => 0,
+  'frie_tags' => 0,
+  'hemmeligheder' => 0,
+  'municipalities' => 0,
+  'temaer' => 0,
+  'ung_i_byer' => 0,
+  'vocabulary_24' => 0,
+  'vocabulary_10' => 0,
+  'vocabulary_11' => 0,
+);
 $handler->display->display_options['defaults']['fields'] = FALSE;
 /* Felt: Felt: Køn */
 $handler->display->display_options['fields']['field_brevk_koen']['id'] = 'field_brevk_koen';
@@ -397,6 +571,14 @@ $handler->display->display_options['fields']['field_brevk_koen']['label'] = '';
 $handler->display->display_options['fields']['field_brevk_koen']['exclude'] = TRUE;
 $handler->display->display_options['fields']['field_brevk_koen']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_brevk_koen']['type'] = 'taxonomy_term_reference_plain';
+/* Felt: Ord i ordforråd: Beskrivelse af term */
+$handler->display->display_options['fields']['description']['id'] = 'description';
+$handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['fields']['description']['field'] = 'description';
+$handler->display->display_options['fields']['description']['relationship'] = 'term_node_tid';
+$handler->display->display_options['fields']['description']['label'] = '';
+$handler->display->display_options['fields']['description']['exclude'] = TRUE;
+$handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
 /* Felt: Køn, term id */
 $handler->display->display_options['fields']['field_brevk_koen_1']['id'] = 'field_brevk_koen_1';
 $handler->display->display_options['fields']['field_brevk_koen_1']['table'] = 'field_data_field_brevk_koen';
@@ -405,7 +587,7 @@ $handler->display->display_options['fields']['field_brevk_koen_1']['ui_name'] = 
 $handler->display->display_options['fields']['field_brevk_koen_1']['label'] = '';
 $handler->display->display_options['fields']['field_brevk_koen_1']['exclude'] = TRUE;
 $handler->display->display_options['fields']['field_brevk_koen_1']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['field_brevk_koen_1']['alter']['text'] = ' <span class="gender tid-[field_brevk_koen_1-tid]" title="[field_brevk_koen]"></span>';
+$handler->display->display_options['fields']['field_brevk_koen_1']['alter']['text'] = ' <span class="gender tid-[field_brevk_koen_1-tid]" title="[description]"></span>';
 $handler->display->display_options['fields']['field_brevk_koen_1']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_brevk_koen_1']['type'] = 'taxonomy_term_reference_plain';
 /* Felt: Felt: Alder */
@@ -503,11 +685,12 @@ $translatables['author_timestamp_eva_field_nodes'] = array(
   t('Blog, EVA Field'),
   t('<div class="author-timestamp">Blogindlæg af [name] • [created] siden</div>'),
   t('EVA Field, Forum'),
+  t('term'),
   t('Anonym'),
-  t(' <span class="gender tid-[field_brevk_koen_1-tid]" title="[field_brevk_koen]"></span>'),
+  t(' <span class="gender tid-[field_brevk_koen_1-tid]" title="[description]"></span>'),
   t('<div class="author-timestamp">Indlæg af [field_forum_forf_navn][field_brevk_koen_1] [field_brevk_alder] • [created] siden</div>'),
   t('EVA Field, Billeder'),
-  t(' <span class="gender tid-[field_brevk_koen_1-tid]" title="[field_brevk_koen]"></span> '),
+  t(' <span class="gender tid-[field_brevk_koen_1-tid]" title="[description]"></span> '),
   t('<div class="author-timestamp">Billede af [name][field_brevk_koen_1]  [field_brevk_alder] • [created] siden</div>'),
   t('EVA Field, Fortællinger'),
   t('<div class="author-timestamp">Fortælling af [name][field_brevk_koen_1] [field_brevk_alder] • [created] siden</div>'),
