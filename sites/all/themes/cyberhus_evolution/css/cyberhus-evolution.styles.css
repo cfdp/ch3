@@ -1076,6 +1076,7 @@ body.page-user ul.tabs--secondary li a:active {
 body.page-node,
 body.page-comment-reply {
   /* Subscribe - Node notify */
+  /* Author timestamp */
   /* Brevkasse */
   /* Blog */
 }
@@ -1200,6 +1201,12 @@ body.page-comment-reply ul.links.links--inline li.subscribe a:active {
   body.page-node ul.links.links--inline li.subscribe a,
   body.page-comment-reply ul.links.links--inline li.subscribe a {
     max-width: 12em;
+  }
+}
+@media (min-width: 36.625em) {
+  body.page-node .author-timestamp,
+  body.page-comment-reply .author-timestamp {
+    margin-top: 1em;
   }
 }
 body.page-node .answer.field__label,

@@ -54,6 +54,12 @@ body.page-comment-reply {
     }
 
   }
+  /* Author timestamp */
+  @include breakpoint($tab, true) {
+    .author-timestamp {
+      margin-top: $margin-std;
+    }
+  }
   /* Brevkasse */
   .answer.field__label {
     @include headline-orange();
