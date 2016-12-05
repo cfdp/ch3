@@ -722,26 +722,15 @@ input.form-submit:active {
 }
 
 /* The sticky CuraChat widgets in the right side of the window */
-.curachat-widgets {
+.curachat-widgets .opeka-chat-foldout-wrapper {
+  top: 63%;
   /* Multi-site foldout widget styles */
 }
-.curachat-widgets .slideout {
-  right: -260px;
-  top: 15%;
-  position: fixed;
-  z-index: 100;
-}
-.curachat-widgets .slideout.groupchat {
+.curachat-widgets .opeka-chat-foldout-wrapper.groupchat {
   top: 35%;
 }
-.curachat-widgets .slideout.kramchat {
-  top: 55%;
-}
-.curachat-widgets .slideout.kbhchat {
-  top: 75%;
-}
-.curachat-widgets .multi {
-  top: 63%;
+.curachat-widgets .opeka-chat-foldout-wrapper.multi {
+  top: 15%;
 }
 
 .curachat-widgets-inline {
