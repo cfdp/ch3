@@ -2,13 +2,16 @@
 
 /* The sticky CuraChat widgets in the right side of the window */
 .curachat-widgets .opeka-chat-foldout-wrapper {
-  top: 63%;
-
-  &.groupchat {
-    top: 35%;
+  &.pair {
+    top: 63%;
+    z-index: 12;
+  }
+  &.group {
+    top: 38%;
+    z-index: 11;
   }
   /* Multi-site foldout widget styles */
-  &.multi{
+  &.multi {
     top: 15%;
   }
 }

@@ -723,11 +723,15 @@ input.form-submit:active {
 
 /* The sticky CuraChat widgets in the right side of the window */
 .curachat-widgets .opeka-chat-foldout-wrapper {
-  top: 63%;
   /* Multi-site foldout widget styles */
 }
-.curachat-widgets .opeka-chat-foldout-wrapper.groupchat {
-  top: 35%;
+.curachat-widgets .opeka-chat-foldout-wrapper.pair {
+  top: 63%;
+  z-index: 12;
+}
+.curachat-widgets .opeka-chat-foldout-wrapper.group {
+  top: 38%;
+  z-index: 11;
 }
 .curachat-widgets .opeka-chat-foldout-wrapper.multi {
   top: 15%;
@@ -889,6 +893,9 @@ input.form-submit:active {
 .view.view-cyberhus-forum-term-list .tag-shorthand a:hover {
   background: #c6e1f2;
   transition: all 0.3s ease;
+}
+.view.view-cyberhus-forum-term-list .tag-shorthand a.active {
+  color: #2980B9;
 }
 
 /**
