@@ -106,12 +106,15 @@
 }
 
 /* Custom header styling */
-body.page-blogs h1,
 body.page-node-add h1,
 body.page-billeder h1,
 body.page-search h1,
 body.page-hemmeligheder-alle h1 {
   margin: 0 $margin-std-px;
+}
+
+body.page-blogs h1 {
+  margin-left: $margin-std-px;
 }
 
 /* User pages */
