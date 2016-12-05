@@ -2,7 +2,7 @@
 (function($){
 /* Widget specific settings */
   var opekaFoldout = {
-    chatName: "1-1-chat",
+    chatName: "pair",
     chatType: "pair",
     baseURL: "https://ch.curachat.com",
     clientURL: "https://cyberhus.dk",
