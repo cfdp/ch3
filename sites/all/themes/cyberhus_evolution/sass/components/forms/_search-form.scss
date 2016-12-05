@@ -1,5 +1,5 @@
 /**
- * $SEARCH-FORM
+ * $SEARCH-FORM BLOCK
  */
 .search-block-form {
   .form-text {
@@ -80,4 +80,55 @@
   }
 }
 
-
+/**
+ * SEARCH RESULT PAGE
+ */
+/* Search */
+body.page-search {
+  #search-form,
+  section.search-results {
+    #edit-submit {
+      margin-top: $margin-std;
+    }
+  }
+  #search-form {
+    .form-wrapper {
+      margin: 0 $margin-std $margin-std $margin-std;
+    }
+    .form-text {
+      max-width: 90%;
+    }
+  }
+  .l-content {
+    h2 {
+      @include headline-grey-bg();
+    }
+    ul {
+      margin: $margin-std;
+    }
+  }
+  .search-results {
+    margin: 0;
+    background: $bg-grey;
+    .search-result {
+      background-color: $bg-white;
+      padding: $padding-std;
+      margin: $margin-std 0;
+      h3 {
+        font-size: 1.3em;
+        font-weight: 700;
+        margin: $margin-xx-small 0 0 0;
+      }
+      p.search-result__snippet {
+        margin-top: 0;
+        padding-left: 0;
+      }
+    }
+    .search-result:nth-child(1) {
+      margin-top: 0;
+    }
+  }
+  ul.pager {
+    padding: $padding-std;
+  }
+}

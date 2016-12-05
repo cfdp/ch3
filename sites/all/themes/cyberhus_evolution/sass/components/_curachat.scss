@@ -1,25 +1,18 @@
 @import "breakpoint";
 
 /* The sticky CuraChat widgets in the right side of the window */
-.curachat-widgets {
-  .slideout {
-    right: -260px;
-    top: 15%;
-    position: fixed;
-    z-index: 100;
-    &.groupchat {
-      top: 35%;
-    }
-    &.kramchat{
-      top: 55%;
-    }
-    &.kbhchat{
-      top: 75%;
-    }
+.curachat-widgets .opeka-chat-foldout-wrapper {
+  &.pair {
+    top: 63%;
+    z-index: 12;
+  }
+  &.group {
+    top: 38%;
+    z-index: 11;
   }
   /* Multi-site foldout widget styles */
-  .multi{
-    top: 63%;
+  &.multi {
+    top: 15%;
   }
 }
 

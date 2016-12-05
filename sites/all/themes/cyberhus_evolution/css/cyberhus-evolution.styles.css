@@ -722,26 +722,19 @@ input.form-submit:active {
 }
 
 /* The sticky CuraChat widgets in the right side of the window */
-.curachat-widgets {
+.curachat-widgets .opeka-chat-foldout-wrapper {
   /* Multi-site foldout widget styles */
 }
-.curachat-widgets .slideout {
-  right: -260px;
-  top: 15%;
-  position: fixed;
-  z-index: 100;
-}
-.curachat-widgets .slideout.groupchat {
-  top: 35%;
-}
-.curachat-widgets .slideout.kramchat {
-  top: 55%;
-}
-.curachat-widgets .slideout.kbhchat {
-  top: 75%;
-}
-.curachat-widgets .multi {
+.curachat-widgets .opeka-chat-foldout-wrapper.pair {
   top: 63%;
+  z-index: 12;
+}
+.curachat-widgets .opeka-chat-foldout-wrapper.group {
+  top: 38%;
+  z-index: 11;
+}
+.curachat-widgets .opeka-chat-foldout-wrapper.multi {
+  top: 15%;
 }
 
 .curachat-widgets-inline {
@@ -883,9 +876,6 @@ input.form-submit:active {
   font-size: 1.3em;
   padding-right: 1em;
 }
-.view.view-cyberhus-forum-topic-list > .view-header h1 {
-  padding-top: 0.5em;
-}
 .view.view-cyberhus-forum-term-list .view-content {
   background-color: #fff;
 }
@@ -903,6 +893,9 @@ input.form-submit:active {
 .view.view-cyberhus-forum-term-list .tag-shorthand a:hover {
   background: #c6e1f2;
   transition: all 0.3s ease;
+}
+.view.view-cyberhus-forum-term-list .tag-shorthand a.active {
+  color: #2980B9;
 }
 
 /**
@@ -1010,31 +1003,15 @@ input.form-submit:active {
   }
 }
 /* Custom header styling */
-body.page-blogs h1,
 body.page-node-add h1,
 body.page-billeder h1,
+body.page-search h1,
 body.page-hemmeligheder-alle h1 {
   margin: 0 16px;
 }
 
-/* Search */
-body.page-search #search-form,
-body.page-search section.search-results {
-  margin: 1em;
-}
-body.page-search #search-form #edit-submit,
-body.page-search section.search-results #edit-submit {
-  margin-top: 1em;
-}
-body.page-search .l-content h2 {
-  background-color: #F1F1F1;
-  color: #9e9b99;
-  font-family: "Lato", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
-  margin: 0 0;
-  text-transform: uppercase;
-  padding: 1em;
+body.page-blogs h1 {
+  margin-left: 16px;
 }
 
 /* User pages */
@@ -1095,6 +1072,7 @@ body.page-user ul.tabs--secondary li a:active {
 body.page-node,
 body.page-comment-reply {
   /* Subscribe - Node notify */
+  /* Author timestamp */
   /* Brevkasse */
   /* Blog */
 }
@@ -1219,6 +1197,12 @@ body.page-comment-reply ul.links.links--inline li.subscribe a:active {
   body.page-node ul.links.links--inline li.subscribe a,
   body.page-comment-reply ul.links.links--inline li.subscribe a {
     max-width: 12em;
+  }
+}
+@media (min-width: 36.625em) {
+  body.page-node .author-timestamp,
+  body.page-comment-reply .author-timestamp {
+    margin-top: 1em;
   }
 }
 body.page-node .answer.field__label,
@@ -1379,6 +1363,9 @@ body.page-pollim .view > .view-content .views-row {
   text-transform: uppercase;
   padding: 1em;
 }
+#ungi-cities h3.ungi-no-chat-header {
+  margin-top: -1em;
+}
 #ungi-cities .ungi-city {
   background-color: #fff;
   margin: 0 0 1em 0;
@@ -1387,9 +1374,18 @@ body.page-pollim .view > .view-content .views-row {
 #ungi-cities .ungi-half {
   max-width: 100%;
 }
-#ungi-cities .ungi-half .btn {
+#ungi-cities ul.ungi-with-chat .ungi-half .btn {
   display: none;
   margin: 0 0 1em 0;
+}
+#ungi-cities ul.ungi-no-chat {
+  background-color: #fff;
+  padding-top: 0.25em;
+}
+#ungi-cities ul.ungi-no-chat .ungi-city {
+  display: block;
+  margin: 1em;
+  padding: 0;
 }
 #ungi-cities iframe {
   margin: 0;
@@ -1413,6 +1409,27 @@ body.page-pollim .view > .view-content .views-row {
 #page.ungi-city h1 {
   display: none;
 }
+#page.ungi-city h3 {
+  background-color: #F1F1F1;
+  color: #9e9b99;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0 0;
+  text-transform: uppercase;
+  padding: 1em;
+}
+#page.ungi-city #ungi-desc h3 {
+  background-color: #F1F1F1;
+  color: #9e9b99;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0 -1em;
+  text-transform: uppercase;
+  padding: 1em;
+  margin-bottom: 1em;
+}
 #page.ungi-city .ungi-desc {
   color: #85817f;
   font-style: italic;
@@ -1421,16 +1438,6 @@ body.page-pollim .view > .view-content .views-row {
   margin: 0;
 }
 #page.ungi-city #ungi-city {
-  padding: 1em;
-}
-#page.ungi-city > h3 {
-  background-color: #F1F1F1;
-  color: #9e9b99;
-  font-family: "Lato", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
-  margin: 0 0;
-  text-transform: uppercase;
   padding: 1em;
 }
 
@@ -1449,8 +1456,21 @@ body.page-ung-i h1 {
     display: none;
   }
 
-  #ungi-cities .ungi-half a.btn {
+  #ungi-cities .ungi-with-chat .ungi-half a.btn {
     display: inline-block;
+  }
+  #ungi-cities ul.ungi-no-chat {
+    background-color: #fff;
+  }
+  #ungi-cities ul.ungi-no-chat .ungi-city {
+    display: inline-block;
+    width: 43%;
+  }
+  #ungi-cities ul.ungi-no-chat .ungi-city .ungi-half {
+    width: 100%;
+  }
+  #ungi-cities ul.ungi-no-chat .ungi-city a.btn {
+    margin: 0.25em auto 1em 0;
   }
   #ungi-cities .ungi-chat-wrapper {
     float: right;
@@ -2009,7 +2029,7 @@ div.password-indicator {
 }
 
 /**
- * $SEARCH-FORM
+ * $SEARCH-FORM BLOCK
  */
 .search-block-form .form-text {
   width: auto;
@@ -2139,4 +2159,56 @@ div.password-indicator {
     padding-left: 35px;
     max-width: 100px;
   }
+}
+
+/**
+ * SEARCH RESULT PAGE
+ */
+/* Search */
+body.page-search #search-form #edit-submit,
+body.page-search section.search-results #edit-submit {
+  margin-top: 1em;
+}
+body.page-search #search-form .form-wrapper {
+  margin: 0 1em 1em 1em;
+}
+body.page-search #search-form .form-text {
+  max-width: 90%;
+}
+body.page-search .l-content h2 {
+  background-color: #F1F1F1;
+  color: #9e9b99;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0 0;
+  text-transform: uppercase;
+  padding: 1em;
+}
+body.page-search .l-content ul {
+  margin: 1em;
+}
+body.page-search .search-results {
+  margin: 0;
+  background: #F1F1F1;
+}
+body.page-search .search-results .search-result {
+  background-color: #fff;
+  padding: 1em;
+  margin: 1em 0;
+}
+body.page-search .search-results .search-result h3 {
+  font-size: 1.3em;
+  font-weight: 700;
+  margin: 0.25em 0 0 0;
+}
+body.page-search .search-results .search-result p.search-result__snippet {
+  margin-top: 0;
+  padding-left: 0;
+}
+body.page-search .search-results .search-result:nth-child(1) {
+  margin-top: 0;
+}
+body.page-search ul.pager {
+  padding: 1em;
 }

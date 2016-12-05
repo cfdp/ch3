@@ -2,7 +2,7 @@
 (function($){
 /* Widget specific settings */
   var opekaFoldout = {
-    chatName: "1-1-chat",
+    chatName: "pair",
     chatType: "pair",
     baseURL: "https://ch.curachat.com",
     clientURL: "https://cyberhus.dk",
@@ -104,7 +104,7 @@
   }
 
   function embedMultiWidget() {
-    $( ".curachat-widgets" ).append( '<div class="opeka-chat-foldout-wrapper multi"><div id="opeka-chat-iframe-multi"><iframe src="https://cyberhus.dk/sites/all/themes/cyberhus_evolution/widgets/chat-multi-widget/embed.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" height="280"></iframe></div></div>' );
+    $( ".curachat-widgets" ).append( '<div class="opeka-chat-foldout-wrapper multi"><div id="opeka-chat-iframe-multi"><iframe src="https://cyberhus.dk/sites/all/themes/cyberhus_evolution/widgets/chat-multi-widget/embed.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" height="430"></iframe></div></div>' );
   }
 
 })(jQuery);

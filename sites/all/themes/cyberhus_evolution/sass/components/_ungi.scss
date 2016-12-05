@@ -18,6 +18,9 @@
   h3 {
     @include headline-grey-bg();
   }
+  h3.ungi-no-chat-header{
+    margin-top: -1*$margin-std;
+  }
   .ungi-city {
     background-color: $bg-white;
     margin: 0 0 $margin-std 0;
@@ -25,9 +28,22 @@
   }
   .ungi-half {
     max-width: 100%;
-    .btn {
-      display: none; // Hide btn in mobile view
-      margin: 0 0 $margin-std 0;
+  }
+  ul.ungi-with-chat {
+    .ungi-half {
+      .btn {
+        display: none; // Hide btn in mobile view
+        margin: 0 0 $margin-std 0;
+      }
+    }
+  }
+  ul.ungi-no-chat {
+    background-color: $bg-white;
+    padding-top: $margin-xx-small;
+    .ungi-city {
+      display: block;
+      margin: $margin-std;
+      padding: 0;
     }
   }
   iframe {
@@ -54,6 +70,15 @@
   h1 {
     display: none;
   }
+  h3 {
+    @include headline-grey-bg();
+  }
+  #ungi-desc {
+    h3 {
+      @include headline-grey-bg(-1em);
+      margin-bottom: $margin-std;
+    }
+  }
   .ungi-desc {
     @include italic-description();
   }
@@ -62,9 +87,6 @@
   }
   #ungi-city {
     padding: $padding-std;
-  }
-  & > h3 {
-    @include headline-grey-bg();
   }
 }
 
@@ -90,9 +112,24 @@ body.page-ung-i {
     }
   }
   #ungi-cities {
-    .ungi-half {
-      a.btn {
-        display: inline-block; // Show button
+    .ungi-with-chat {
+      .ungi-half {
+        a.btn {
+          display: inline-block; // Show button
+        }
+      }
+    }
+    ul.ungi-no-chat {
+      background-color: $bg-white;
+      .ungi-city {
+        display: inline-block;
+        width: 43%;
+        .ungi-half {
+          width: 100%;
+        }
+        a.btn {
+          margin: $margin-xx-small auto $margin-std 0;
+        }
       }
     }
     .ungi-chat-wrapper {

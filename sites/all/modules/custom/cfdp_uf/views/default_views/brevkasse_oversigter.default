@@ -150,7 +150,7 @@ $handler->display->display_options['fields']['created']['table'] = 'node';
 $handler->display->display_options['fields']['created']['field'] = 'created';
 $handler->display->display_options['fields']['created']['label'] = '';
 $handler->display->display_options['fields']['created']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['created']['alter']['text'] = '<div class="author-timestamp">Spørgsmål i [name] af [field_navn] <span class="gender tid-[field_brevk_koen_1]" title="[field_brevk_koen]"></span> [field_brevk_alder] • [created] siden</div>';
+$handler->display->display_options['fields']['created']['alter']['text'] = '<div class="author-timestamp"><strong>Spørgsmål</strong> i [name] af [field_navn] <span class="gender tid-[field_brevk_koen_1]" title="[field_brevk_koen]"></span> [field_brevk_alder] • [created] siden</div>';
 $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['created']['date_format'] = 'raw time ago';
 $handler->display->display_options['fields']['created']['custom_date_format'] = '1';
@@ -290,7 +290,7 @@ $handler->display->display_options['fields']['created']['table'] = 'node';
 $handler->display->display_options['fields']['created']['field'] = 'created';
 $handler->display->display_options['fields']['created']['label'] = '';
 $handler->display->display_options['fields']['created']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['created']['alter']['text'] = '<div class="author-timestamp">Spørgsmål af [field_navn] <span class="gender tid-[field_brevk_koen_1]" title="[field_brevk_koen]"></span> [field_brevk_alder] • [created] siden</div>';
+$handler->display->display_options['fields']['created']['alter']['text'] = '<div class="author-timestamp"><strong>Spørgsmål</strong> af [field_navn] <span class="gender tid-[field_brevk_koen_1]" title="[field_brevk_koen]"></span> [field_brevk_alder] • [created] siden</div>';
 $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['created']['date_format'] = 'raw time ago';
 $handler->display->display_options['fields']['created']['custom_date_format'] = '1';
@@ -422,7 +422,7 @@ $translatables['brevkasse_oversigter'] = array(
   t('term'),
   t('.'),
   t('[field_brevk_koen_1-tid]'),
-  t('<div class="author-timestamp">Spørgsmål i [name] af [field_navn] <span class="gender tid-[field_brevk_koen_1]" title="[field_brevk_koen]"></span> [field_brevk_alder] • [created] siden</div>'),
+  t('<div class="author-timestamp"><strong>Spørgsmål</strong> i [name] af [field_navn] <span class="gender tid-[field_brevk_koen_1]" title="[field_brevk_koen]"></span> [field_brevk_alder] • [created] siden</div>'),
   t('Alle'),
   t('Enkelt brevkasse'),
   t('Oversigt over en enkelt brevkasse'),
@@ -431,7 +431,7 @@ $translatables['brevkasse_oversigter'] = array(
 <a class="btn" href="/node/add/brevkasse?edit[field_brevk_kategori][und]=[tid]">Opret spørgsmål</a>
 <h3>Seneste spørgsmål</h3>'),
   t('brevkasse term'),
-  t('<div class="author-timestamp">Spørgsmål af [field_navn] <span class="gender tid-[field_brevk_koen_1]" title="[field_brevk_koen]"></span> [field_brevk_alder] • [created] siden</div>'),
+  t('<div class="author-timestamp"><strong>Spørgsmål</strong> af [field_navn] <span class="gender tid-[field_brevk_koen_1]" title="[field_brevk_koen]"></span> [field_brevk_alder] • [created] siden</div>'),
   t(','),
   t('%1'),
   t('Brevkasser oversigt'),

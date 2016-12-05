@@ -11,9 +11,6 @@
         padding-right: $padding-std;
       }
     }
-    & > .view-header h1 {
-      padding-top: $padding-smaller;
-    }
   }
 
 
@@ -27,6 +24,9 @@
       margin: $margin-small $margin-small $margin-small 0;
       a {
         @include label();
+        &.active {
+          color: $blue;
+        }
       }
     }
   }
