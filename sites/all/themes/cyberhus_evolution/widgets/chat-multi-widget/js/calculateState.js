@@ -7,7 +7,7 @@
 (function ($) {
   window.addEventListener("message", receiveMessage, false);
   var chatStates = {}, // Object holding the state of the embedded chat services
-    validOrigins = ['https://aarhus.curachat.com', 'https://kbh.curachat.com', 'https://rksk.curachat.com'],
+    validOrigins = ['https://aarhus.curachat.com', 'https://kbh.curachat.com', 'https://rksk.curachat.com', 'https://odder.curachat.com', 'https://halsnaes.curachat.com'],
     opekaMultiWidgetState = 'chat-closed';
 
   /**
@@ -24,7 +24,7 @@
       calculateMultiWidgetState();
     } else {
       // The origin is not valid
-      console.log("Bad window");
+      console.log("CuraChat says: Bad window!");
       return;
     }
   }
