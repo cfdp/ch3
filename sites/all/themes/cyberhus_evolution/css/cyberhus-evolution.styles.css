@@ -872,9 +872,6 @@ input.form-submit:active {
   font-size: 1.3em;
   padding-right: 1em;
 }
-.view.view-cyberhus-forum-topic-list > .view-header h1 {
-  padding-top: 0.5em;
-}
 .view.view-cyberhus-forum-term-list .view-content {
   background-color: #fff;
 }
@@ -999,12 +996,15 @@ input.form-submit:active {
   }
 }
 /* Custom header styling */
-body.page-blogs h1,
 body.page-node-add h1,
 body.page-billeder h1,
 body.page-search h1,
 body.page-hemmeligheder-alle h1 {
   margin: 0 16px;
+}
+
+body.page-blogs h1 {
+  margin-left: 16px;
 }
 
 /* User pages */
