@@ -894,6 +894,9 @@ input.form-submit:active {
   background: #c6e1f2;
   transition: all 0.3s ease;
 }
+.view.view-cyberhus-forum-term-list .tag-shorthand a.active {
+  color: #2980B9;
+}
 
 /**
  * OVERALL LAYOUT ELEMENTS
