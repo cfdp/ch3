@@ -292,3 +292,24 @@ function cfdp_uf_node_view($node, $view_mode, $langcode) {
     }
   }
 }
+
+/**
+ * Implementation of hook_field_widget_form_alter()
+ */
+function cfdp_uf_field_widget_form_alter(&$element, &$form_state, $context) {
+  // We can restrict the condition even more by targetting the field_name
+  // e.g. $element['#field_name'] == 'field_brevk_alder
+  if (isset($context['field']['settings']['allowed_values'][0]['vocabulary']) && 
+  $context['field']['settings']['allowed_values'][0]['vocabulary'] == 'alder') {
+    if ($element['#bundle'] !== 'comment_node_brevkasse' && $element['#bundle'] !== 'brevkasse') {
+      $element['#options'] = array_filter($element['#options'], '_filter_max_age');
+    }
+  }
+}
+
+/**
+ * Custom function for filtering out ages from an array.
+ */
+function _filter_max_age($age_term, $max_age = 23) {
+  return (int)$age_term > $max_age ? FALSE : TRUE;
+}

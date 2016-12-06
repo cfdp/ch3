@@ -242,3 +242,15 @@ function eva_form_views_ui_edit_form_alter(&$form, &$form_state, $form_id) {
   // created EVA views and/or exposed filters will appear.
   $form['actions']['save']["#submit"][] = 'field_cache_clear';
 }
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function eva_views_pre_view(&$view, &$display_id, &$args) {
+  // Change the pager id of all EVA's to avoid conflicts with other pagers.
+  if ($view->display_handler instanceof eva_plugin_display_entity) {
+    $pager_options = $view->display_handler->get_option('pager');
+    $pager_options['options']['id'] = variable_get('eva_pager_id', 10);
+    $view->display_handler->set_option('pager', $pager_options);
+  }
+}
