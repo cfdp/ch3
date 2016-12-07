@@ -498,7 +498,7 @@ $handler->display->display_options['fields']['comment_count']['table'] = 'node_c
 $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
 $handler->display->display_options['fields']['comment_count']['label'] = '';
 $handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href="/node/[nid]#comment-form--2" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>';
+$handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href="/node/[nid]#block-views-comments-block-1" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>';
 $handler->display->display_options['fields']['comment_count']['element_type'] = '0';
 $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['comment_count']['element_wrapper_type'] = '0';
@@ -552,8 +552,9 @@ Hemmelighed|psst!'),
   t('<h3>Seneste indhold</h3>'),
   t(' af <span class="gender tid-[field_brevk_koen_1-tid]" title="[field_brevk_koen]"></span>'),
   t('<div class="author-timestamp">[type][field_brevk_koen_1] [field_brevk_alder] • seneste aktivitet [last_updated] siden</div>'),
-  t('<a href="/node/[nid]#comment-form--2" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>'),
+  t('<a href="/node/[nid]#block-views-comments-block-1" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>'),
 );
+
 
   return $view;
 
