@@ -764,13 +764,13 @@ input.form-submit:active {
 .view {
   /* cyberhus oversigter - blogs, forum, billeder etc */
 }
-.view > .view-content .cyberlikes, .view > .view-content .views-field-comment-count, .view > .view-content .comment-count {
+.view > .view-content .cyberlikes,
+.view > .view-content .views-field-comment-count, .view > .view-content .comment-count {
   background: url('../images/icons/svg/cyberlike/heart_cleaned_gray.svg?1474286442') no-repeat 0 0;
   color: #85817f;
   display: inline-block;
   height: 30px;
-  margin-top: 0.75em;
-  padding-left: 35px;
+  padding-left: 32px;
 }
 .view > .view-content .cyberlikes {
   margin-right: 0.75em;
@@ -783,20 +783,21 @@ input.form-submit:active {
   display: inline-block;
 }
 
-/* Cyberlike in nodes */
+/* Cyberlike in nodes and front page oversigt */
 .field.field--name-field-blog-cyberlike .vud-widget,
 .field.field--name-field-kommentar-cyberlike .vud-widget,
 .field.field--name-field-cyberlike .vud-widget,
-.views-field-field-kommentar-cyberlike .vud-widget {
+.views-field-field-kommentar-cyberlike .vud-widget,
+.cyberhus-oversigt .vud-widget {
   float: none;
-  width: 100%;
   height: 35px;
   margin: 0;
 }
 .field.field--name-field-blog-cyberlike .vud-widget .cyberlike-votes-display,
 .field.field--name-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display,
 .field.field--name-field-cyberlike .vud-widget .cyberlike-votes-display,
-.views-field-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display {
+.views-field-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display,
+.cyberhus-oversigt .vud-widget .cyberlike-votes-display {
   border: none;
   color: #85817f;
   display: inline-block;
@@ -808,7 +809,8 @@ input.form-submit:active {
 .field.field--name-field-blog-cyberlike .vud-widget .cyberlike-votes-display:after,
 .field.field--name-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display:after,
 .field.field--name-field-cyberlike .vud-widget .cyberlike-votes-display:after,
-.views-field-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display:after {
+.views-field-field-kommentar-cyberlike .vud-widget .cyberlike-votes-display:after,
+.cyberhus-oversigt .vud-widget .cyberlike-votes-display:after {
   /* content: " synes godt om"; */
 }
 .field.field--name-field-blog-cyberlike .vud-widget .vud-link-up, .field.field--name-field-blog-cyberlike .vud-widget .up-active,
@@ -817,7 +819,9 @@ input.form-submit:active {
 .field.field--name-field-cyberlike .vud-widget .vud-link-up,
 .field.field--name-field-cyberlike .vud-widget .up-active,
 .views-field-field-kommentar-cyberlike .vud-widget .vud-link-up,
-.views-field-field-kommentar-cyberlike .vud-widget .up-active {
+.views-field-field-kommentar-cyberlike .vud-widget .up-active,
+.cyberhus-oversigt .vud-widget .vud-link-up,
+.cyberhus-oversigt .vud-widget .up-active {
   width: 26px;
   height: 26px;
   background: url('../images/icons/svg/cyberlike/heart_cleaned.svg?1474286442');
@@ -832,13 +836,16 @@ input.form-submit:active {
 .field.field--name-field-cyberlike .vud-widget .vud-link-up .up-inactive,
 .field.field--name-field-cyberlike .vud-widget .up-active .up-inactive,
 .views-field-field-kommentar-cyberlike .vud-widget .vud-link-up .up-inactive,
-.views-field-field-kommentar-cyberlike .vud-widget .up-active .up-inactive {
+.views-field-field-kommentar-cyberlike .vud-widget .up-active .up-inactive,
+.cyberhus-oversigt .vud-widget .vud-link-up .up-inactive,
+.cyberhus-oversigt .vud-widget .up-active .up-inactive {
   display: none;
 }
 .field.field--name-field-blog-cyberlike .vud-widget .up-active,
 .field.field--name-field-kommentar-cyberlike .vud-widget .up-active,
 .field.field--name-field-cyberlike .vud-widget .up-active,
-.views-field-field-kommentar-cyberlike .vud-widget .up-active {
+.views-field-field-kommentar-cyberlike .vud-widget .up-active,
+.cyberhus-oversigt .vud-widget .up-active {
   background: url('../images/icons/svg/cyberlike/heart-fill_cleaned.svg?1474286442');
   background-repeat: no-repeat;
   background-position-y: 2px;
@@ -846,9 +853,21 @@ input.form-submit:active {
 .field.field--name-field-blog-cyberlike .vud-widget .reset-active,
 .field.field--name-field-kommentar-cyberlike .vud-widget .reset-active,
 .field.field--name-field-cyberlike .vud-widget .reset-active,
-.views-field-field-kommentar-cyberlike .vud-widget .reset-active {
+.views-field-field-kommentar-cyberlike .vud-widget .reset-active,
+.cyberhus-oversigt .vud-widget .reset-active {
   float: right;
   display: none;
+}
+
+.cyberhus-oversigt .vud-widget-cyberlike {
+  display: inline-block;
+  margin: 0 0.75em 0 0;
+}
+.cyberhus-oversigt .comment-count-link {
+  display: inline-block;
+}
+.cyberhus-oversigt .view-content > .views-row div:last-of-type {
+  display: inline-block;
 }
 
 /* Cyberlike in comments */
@@ -1011,7 +1030,7 @@ body.page-hemmeligheder-alle h1 {
 }
 
 body.page-blogs h1 {
-  margin-left: 16px;
+  margin: 0 0 0 16px;
 }
 
 /* User pages */

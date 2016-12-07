@@ -14,6 +14,7 @@ $view->disabled = FALSE; /* Edit this to true to make a default view disabled in
 /* Display: Master */
 $handler = $view->new_display('default', 'Master', 'default');
 $handler->display->display_options['title'] = 'Seneste blogindlæg';
+$handler->display->display_options['css_class'] = 'cyberhus-oversigt';
 $handler->display->display_options['use_ajax'] = TRUE;
 $handler->display->display_options['use_more_always'] = FALSE;
 $handler->display->display_options['use_more_text'] = 'mere';
@@ -194,6 +195,14 @@ $handler->display->display_options['fields']['value']['element_type'] = 'h2';
 $handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['value']['empty'] = 'Blognavn ikke angivet';
 $handler->display->display_options['fields']['value']['link_to_user'] = FALSE;
+/* Felt: Indhold: Cyberlike */
+$handler->display->display_options['fields']['field_cyberlike']['id'] = 'field_cyberlike';
+$handler->display->display_options['fields']['field_cyberlike']['table'] = 'field_data_field_cyberlike';
+$handler->display->display_options['fields']['field_cyberlike']['field'] = 'field_cyberlike';
+/* Felt: Indhold: Cyberlike */
+$handler->display->display_options['fields']['field_blog_cyberlike']['id'] = 'field_blog_cyberlike';
+$handler->display->display_options['fields']['field_blog_cyberlike']['table'] = 'field_data_field_blog_cyberlike';
+$handler->display->display_options['fields']['field_blog_cyberlike']['field'] = 'field_blog_cyberlike';
 /* Sorteringskriterie: Indhold: Opdateret/kommenteret dato */
 $handler->display->display_options['sorts']['last_updated']['id'] = 'last_updated';
 $handler->display->display_options['sorts']['last_updated']['table'] = 'node_comment_statistics';
@@ -301,16 +310,6 @@ $handler->display->display_options['defaults']['relationships'] = FALSE;
 $handler->display->display_options['relationships']['uid']['id'] = 'uid';
 $handler->display->display_options['relationships']['uid']['table'] = 'node';
 $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-/* Forbindelse: Indhold: Vote results */
-$handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
-$handler->display->display_options['relationships']['votingapi_cache']['table'] = 'node';
-$handler->display->display_options['relationships']['votingapi_cache']['field'] = 'votingapi_cache';
-$handler->display->display_options['relationships']['votingapi_cache']['label'] = 'Afstemningsresultater';
-$handler->display->display_options['relationships']['votingapi_cache']['votingapi'] = array(
-  'value_type' => 'points',
-  'tag' => 'vote',
-  'function' => 'sum',
-);
 $handler->display->display_options['defaults']['fields'] = FALSE;
 /* Felt: Indhold: Type */
 $handler->display->display_options['fields']['type']['id'] = 'type';
@@ -464,6 +463,48 @@ $handler->display->display_options['fields']['field_brevk_spoergsmaal']['alter']
 $handler->display->display_options['fields']['field_brevk_spoergsmaal']['alter']['trim'] = TRUE;
 $handler->display->display_options['fields']['field_brevk_spoergsmaal']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_brevk_spoergsmaal']['hide_empty'] = TRUE;
+/* Felt: Indhold: Cyberlike */
+$handler->display->display_options['fields']['field_cyberlike']['id'] = 'field_cyberlike';
+$handler->display->display_options['fields']['field_cyberlike']['table'] = 'field_data_field_cyberlike';
+$handler->display->display_options['fields']['field_cyberlike']['field'] = 'field_cyberlike';
+$handler->display->display_options['fields']['field_cyberlike']['label'] = '';
+$handler->display->display_options['fields']['field_cyberlike']['element_type'] = '0';
+$handler->display->display_options['fields']['field_cyberlike']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_cyberlike']['element_wrapper_type'] = '0';
+$handler->display->display_options['fields']['field_cyberlike']['element_default_classes'] = FALSE;
+$handler->display->display_options['fields']['field_cyberlike']['hide_empty'] = TRUE;
+$handler->display->display_options['fields']['field_cyberlike']['click_sort_column'] = 'vud_widget';
+/* Felt: Indhold: Cyberlike */
+$handler->display->display_options['fields']['field_blog_cyberlike']['id'] = 'field_blog_cyberlike';
+$handler->display->display_options['fields']['field_blog_cyberlike']['table'] = 'field_data_field_blog_cyberlike';
+$handler->display->display_options['fields']['field_blog_cyberlike']['field'] = 'field_blog_cyberlike';
+$handler->display->display_options['fields']['field_blog_cyberlike']['label'] = '';
+$handler->display->display_options['fields']['field_blog_cyberlike']['element_type'] = '0';
+$handler->display->display_options['fields']['field_blog_cyberlike']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_blog_cyberlike']['element_wrapper_type'] = '0';
+$handler->display->display_options['fields']['field_blog_cyberlike']['element_default_classes'] = FALSE;
+$handler->display->display_options['fields']['field_blog_cyberlike']['hide_empty'] = TRUE;
+$handler->display->display_options['fields']['field_blog_cyberlike']['click_sort_column'] = 'vud_widget';
+/* Felt: Indhold: Nid */
+$handler->display->display_options['fields']['nid']['id'] = 'nid';
+$handler->display->display_options['fields']['nid']['table'] = 'node';
+$handler->display->display_options['fields']['nid']['field'] = 'nid';
+$handler->display->display_options['fields']['nid']['label'] = '';
+$handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+$handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+/* Felt: Indhold: Kommentarantal */
+$handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
+$handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
+$handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
+$handler->display->display_options['fields']['comment_count']['label'] = '';
+$handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href="/node/[nid]#comment-form--2" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>';
+$handler->display->display_options['fields']['comment_count']['element_type'] = '0';
+$handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['comment_count']['element_wrapper_type'] = '0';
+$handler->display->display_options['fields']['comment_count']['element_default_classes'] = FALSE;
+$handler->display->display_options['fields']['comment_count']['hide_empty'] = TRUE;
+$handler->display->display_options['fields']['comment_count']['empty_zero'] = TRUE;
 $handler->display->display_options['defaults']['arguments'] = FALSE;
 $handler->display->display_options['path'] = 'forside';
 $translatables['forside_oversigt'] = array(
@@ -505,11 +546,13 @@ Hemmelighed|psst!'),
   t(' Kommentare(r)'),
   t('[created] | [comment_count]'),
   t('Blognavn ikke angivet'),
+  t('Cyberlike'),
   t('Alle'),
   t('Oversigt over det seneste indhold'),
   t('<h3>Seneste indhold</h3>'),
   t(' af <span class="gender tid-[field_brevk_koen_1-tid]" title="[field_brevk_koen]"></span>'),
   t('<div class="author-timestamp">[type][field_brevk_koen_1] [field_brevk_alder] • seneste aktivitet [last_updated] siden</div>'),
+  t('<a href="/node/[nid]#comment-form--2" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>'),
 );
 
   return $view;
