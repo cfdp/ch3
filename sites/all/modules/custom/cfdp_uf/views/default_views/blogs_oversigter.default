@@ -61,16 +61,6 @@ $handler->display->display_options['header']['area']['tokenize'] = TRUE;
 $handler->display->display_options['relationships']['uid']['id'] = 'uid';
 $handler->display->display_options['relationships']['uid']['table'] = 'node';
 $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-/* Forbindelse: Indhold: Vote results */
-$handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
-$handler->display->display_options['relationships']['votingapi_cache']['table'] = 'node';
-$handler->display->display_options['relationships']['votingapi_cache']['field'] = 'votingapi_cache';
-$handler->display->display_options['relationships']['votingapi_cache']['label'] = 'Afstemningsresultater';
-$handler->display->display_options['relationships']['votingapi_cache']['votingapi'] = array(
-  'value_type' => 'points',
-  'tag' => 'vote',
-  'function' => 'sum',
-);
 /* Felt: Indhold: Titel */
 $handler->display->display_options['fields']['title']['id'] = 'title';
 $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -246,7 +236,7 @@ $handler->display->display_options['fields']['comment_count']['table'] = 'node_c
 $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
 $handler->display->display_options['fields']['comment_count']['label'] = '';
 $handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href="/node/[nid]#comment-form--2" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>';
+$handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href="/node/[nid]#block-views-comments-block-1" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>';
 $handler->display->display_options['fields']['comment_count']['element_type'] = '0';
 $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['comment_count']['element_wrapper_type'] = '0';
@@ -397,7 +387,7 @@ $handler->display->display_options['fields']['comment_count']['table'] = 'node_c
 $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
 $handler->display->display_options['fields']['comment_count']['label'] = '';
 $handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href="/node/[nid]#comment-form--2" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>';
+$handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href="/node/[nid]#block-views-comments-block-1" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>';
 $handler->display->display_options['fields']['comment_count']['element_type'] = '0';
 $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['comment_count']['element_wrapper_type'] = '0';
@@ -465,7 +455,6 @@ $translatables['blogs_oversigter'] = array(
 <h3>Seneste indlæg</h3>
 '),
   t('forfatter'),
-  t('Afstemningsresultater'),
   t('.'),
   t(','),
   t(' Kommentare(r)'),
@@ -474,7 +463,7 @@ $translatables['blogs_oversigter'] = array(
   t('Alle'),
   t('Oversigt over individuel blog'),
   t('<div class="author-timestamp">Skrevet for [created] siden</div>'),
-  t('<a href="/node/[nid]#comment-form--2" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>'),
+  t('<a href="/node/[nid]#block-views-comments-block-1" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>'),
   t('Oversigt over de seneste blogindlæg'),
   t('Blogs'),
   t('<p class="content-list-header">Her kan du læse de nyeste blogindlæg fra alle bloggerne. </p><a class="btn" title="Cyberhus\' bloggere" href="/blogs">Se alle bloggere</a>
@@ -486,6 +475,7 @@ $translatables['blogs_oversigter'] = array(
   t('<h3>Seneste indlæg</h3>'),
   t('<a href="/blogs/alle" class="btn-light">Se alle indlæg</a>'),
 );
+
 
   return $view;
 
