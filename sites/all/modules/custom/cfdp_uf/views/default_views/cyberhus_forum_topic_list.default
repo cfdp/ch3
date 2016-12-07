@@ -196,7 +196,7 @@ $handler->display->display_options['fields']['comment_count']['table'] = 'node_c
 $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
 $handler->display->display_options['fields']['comment_count']['label'] = '';
 $handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href="/node/[nid]#comment-form--2" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>';
+$handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href="/node/[nid]#block-views-comments-block-1" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>';
 $handler->display->display_options['fields']['comment_count']['element_type'] = '0';
 $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['comment_count']['element_wrapper_type'] = '0';
@@ -599,7 +599,7 @@ $translatables['cyberhus_forum_topic_list'] = array(
   t('Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] • [created] siden'),
   t('[field_brevk_koen_1-tid]'),
   t('<div class="author-timestamp">Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] <span class="gender tid-[field_brevk_koen_1]" title="[field_brevk_koen]"></span> [field_brevk_alder] • [created] siden</div>'),
-  t('<a href="/node/[nid]#comment-form--2" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>'),
+  t('<a href="/node/[nid]#block-views-comments-block-1" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>'),
   t(','),
   t('Alle'),
   t('Forum oversigt'),
