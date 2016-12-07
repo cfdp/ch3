@@ -78,16 +78,6 @@ $handler->display->display_options['relationships']['term_node_tid']['vocabulari
   'vocabulary_10' => 0,
   'vocabulary_11' => 0,
 );
-/* Forbindelse: Indhold: Vote results */
-$handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
-$handler->display->display_options['relationships']['votingapi_cache']['table'] = 'node';
-$handler->display->display_options['relationships']['votingapi_cache']['field'] = 'votingapi_cache';
-$handler->display->display_options['relationships']['votingapi_cache']['label'] = 'Afstemningsresultater';
-$handler->display->display_options['relationships']['votingapi_cache']['votingapi'] = array(
-  'value_type' => 'points',
-  'tag' => 'vote',
-  'function' => 'sum',
-);
 /* Felt: Indhold: Oprettelsesdato */
 $handler->display->display_options['fields']['created']['id'] = 'created';
 $handler->display->display_options['fields']['created']['table'] = 'node';
@@ -168,6 +158,13 @@ $handler->display->display_options['fields']['title']['alter']['word_boundary'] 
 $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
 $handler->display->display_options['fields']['title']['element_type'] = 'h2';
 $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+/* Felt: Indhold: Nid */
+$handler->display->display_options['fields']['nid']['id'] = 'nid';
+$handler->display->display_options['fields']['nid']['table'] = 'node';
+$handler->display->display_options['fields']['nid']['field'] = 'nid';
+$handler->display->display_options['fields']['nid']['label'] = '';
+$handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+$handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
 /* Felt: Indhold: Body */
 $handler->display->display_options['fields']['body']['id'] = 'body';
 $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -181,27 +178,25 @@ $handler->display->display_options['fields']['body']['type'] = 'text_trimmed';
 $handler->display->display_options['fields']['body']['settings'] = array(
   'trim_length' => '200',
 );
-/* Felt: Afstemningsresultater: Værdi */
-$handler->display->display_options['fields']['value']['id'] = 'value';
-$handler->display->display_options['fields']['value']['table'] = 'votingapi_cache';
-$handler->display->display_options['fields']['value']['field'] = 'value';
-$handler->display->display_options['fields']['value']['relationship'] = 'votingapi_cache';
-$handler->display->display_options['fields']['value']['label'] = '';
-$handler->display->display_options['fields']['value']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['value']['alter']['text'] = '<span title="Dette indlæg har fået [value] likes" class="cyberlikes">[value]</span>';
-$handler->display->display_options['fields']['value']['element_type'] = '0';
-$handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['value']['element_wrapper_type'] = '0';
-$handler->display->display_options['fields']['value']['hide_empty'] = TRUE;
-$handler->display->display_options['fields']['value']['empty_zero'] = TRUE;
-$handler->display->display_options['fields']['value']['precision'] = '0';
+/* Felt: Indhold: Cyberlike */
+$handler->display->display_options['fields']['field_cyberlike']['id'] = 'field_cyberlike';
+$handler->display->display_options['fields']['field_cyberlike']['table'] = 'field_data_field_cyberlike';
+$handler->display->display_options['fields']['field_cyberlike']['field'] = 'field_cyberlike';
+$handler->display->display_options['fields']['field_cyberlike']['label'] = '';
+$handler->display->display_options['fields']['field_cyberlike']['element_type'] = '0';
+$handler->display->display_options['fields']['field_cyberlike']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_cyberlike']['element_wrapper_type'] = '0';
+$handler->display->display_options['fields']['field_cyberlike']['element_default_classes'] = FALSE;
+$handler->display->display_options['fields']['field_cyberlike']['hide_empty'] = TRUE;
+$handler->display->display_options['fields']['field_cyberlike']['empty_zero'] = TRUE;
+$handler->display->display_options['fields']['field_cyberlike']['click_sort_column'] = 'vud_widget';
 /* Felt: Indhold: Kommentarantal */
 $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
 $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
 $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
 $handler->display->display_options['fields']['comment_count']['label'] = '';
 $handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
-$handler->display->display_options['fields']['comment_count']['alter']['text'] = '<span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span>';
+$handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href="/node/[nid]#comment-form--2" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>';
 $handler->display->display_options['fields']['comment_count']['element_type'] = '0';
 $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['comment_count']['element_wrapper_type'] = '0';
@@ -599,15 +594,13 @@ $translatables['cyberhus_forum_topic_list'] = array(
   t('<a href="/node/add/forum" title="Skriv indlæg" class="btn">Skriv indlæg</a>
 <h3>Seneste indlæg</h3>'),
   t('forum term'),
-  t('Afstemningsresultater'),
   t('Anonym'),
   t('.'),
   t('Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] • [created] siden'),
   t('[field_brevk_koen_1-tid]'),
   t('<div class="author-timestamp">Indlæg i <a href="/forum/[tid]" title="Gå til [field_tag_shorthand]-forum">[field_tag_shorthand] </a> af [field_forum_forf_navn] <span class="gender tid-[field_brevk_koen_1]" title="[field_brevk_koen]"></span> [field_brevk_alder] • [created] siden</div>'),
-  t('<span title="Dette indlæg har fået [value] likes" class="cyberlikes">[value]</span>'),
+  t('<a href="/node/[nid]#comment-form--2" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>'),
   t(','),
-  t('<span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span>'),
   t('Alle'),
   t('Forum oversigt'),
   t('Oversigt over indlæg fra alle fora'),

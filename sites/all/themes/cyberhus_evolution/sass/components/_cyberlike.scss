@@ -4,13 +4,13 @@
 
 .view {
   & > .view-content {
-    .cyberlikes, .views-field-comment-count, .comment-count {
+    .cyberlikes,
+    .views-field-comment-count, .comment-count {
       background: image-url('icons/svg/cyberlike/heart_cleaned_gray.svg') no-repeat 0 0;
       color: $grey;
       display: inline-block;
       height: 30px;
-      margin-top: $padding-small;
-      padding-left: 35px;
+      padding-left: 32px;
     }
     .cyberlikes {
       margin-right: $margin-small;
@@ -29,14 +29,14 @@
   }
 }
 
-/* Cyberlike in nodes */
+/* Cyberlike in nodes and front page oversigt */
 .field.field--name-field-blog-cyberlike,
 .field.field--name-field-kommentar-cyberlike,
 .field.field--name-field-cyberlike,
-.views-field-field-kommentar-cyberlike{
+.views-field-field-kommentar-cyberlike,
+.cyberhus-oversigt {
   .vud-widget {
     float: none;
-    width: 100%;
     height: 35px;
     margin: 0;
     .cyberlike-votes-display {
@@ -73,6 +73,20 @@
       float: right;
       display: none;
     }
+  }
+}
+
+.cyberhus-oversigt {
+  .vud-widget-cyberlike {
+    display: inline-block;
+    margin: 0 $margin-small 0 0;
+  }
+  .comment-count-link {
+    display: inline-block;
+  }
+  // needed because vote-up-down generates extra div on ajax call
+  .view-content > .views-row div:last-of-type {
+    display: inline-block;
   }
 }
 
