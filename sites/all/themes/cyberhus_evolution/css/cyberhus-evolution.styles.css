@@ -1662,6 +1662,9 @@ body.front .view-forside-oversigt .views-field-php svg {
 body.front .view-forside-oversigt .views-field-php svg g {
   fill: #231E19;
 }
+body.front .view-forside-oversigt .author-timestamp {
+  max-width: 90%;
+}
 
 /**
  * BREVKASSE
