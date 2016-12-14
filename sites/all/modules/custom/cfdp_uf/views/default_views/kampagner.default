@@ -14,6 +14,7 @@ $view->disabled = FALSE; /* Edit this to true to make a default view disabled in
 /* Display: Master */
 $handler = $view->new_display('default', 'Master', 'default');
 $handler->display->display_options['title'] = 'Kampagner';
+$handler->display->display_options['css_class'] = 'cyberhus-oversigt';
 $handler->display->display_options['use_more_always'] = FALSE;
 $handler->display->display_options['use_more_text'] = 'mere';
 $handler->display->display_options['access']['type'] = 'perm';
@@ -116,11 +117,12 @@ $handler->display->display_options['filters']['uid']['table'] = 'node';
 $handler->display->display_options['filters']['uid']['field'] = 'uid';
 $handler->display->display_options['filters']['uid']['value'] = array(
   0 => '5083',
-  1 => '3353',
+  1 => '4495',
+  2 => '3353',
 );
 
-/* Display: Kampagne: BRUS blogs */
-$handler = $view->new_display('block', 'Kampagne: BRUS blogs', 'block');
+/* Display: Brus ungeblogs */
+$handler = $view->new_display('block', 'Brus ungeblogs', 'block');
 $handler->display->display_options['defaults']['title'] = FALSE;
 $handler->display->display_options['title'] = 'BRUS blogindlæg';
 $handler->display->display_options['display_description'] = 'En blok med et udvalg af blogindlæg';
@@ -129,8 +131,8 @@ $handler->display->display_options['defaults']['header'] = FALSE;
 $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['content'] = '<h2>Læs om andres oplevelser<h2>
-<p>Her kan du finde blog indlæg fra unge, som har oplevet at være i en familie med rusmiddelproblemer. Du kan læse om deres oplevelser, tanker og følelser, og sende dem en kommentar hvis du har lyst.</p>';
+$handler->display->display_options['header']['area']['content'] = '<h3>Læs om andres oplevelser</h3>
+<p>Her kan du finde <strong>blogindlæg</strong> fra unge, som har oplevet at være i en familie med rusmiddelproblemer. Du kan læse om deres oplevelser, tanker og følelser, og sende dem en kommentar hvis du har lyst.</p>';
 $handler->display->display_options['header']['area']['format'] = '2';
 $handler->display->display_options['defaults']['filter_groups'] = FALSE;
 $handler->display->display_options['defaults']['filters'] = FALSE;
@@ -185,10 +187,18 @@ $handler->display->display_options['filters']['uid']['value'] = array(
   0 => '33',
 );
 
-/* Display: BRUS bloggere */
-$handler = $view->new_display('block', 'BRUS bloggere', 'block_2');
+/* Display: BRUS gruppechat blogs */
+$handler = $view->new_display('block', 'BRUS gruppechat blogs', 'block_2');
 $handler->display->display_options['defaults']['title'] = FALSE;
-$handler->display->display_options['title'] = 'BRUS';
+$handler->display->display_options['title'] = 'BRUS gruppechat blogs (navne)';
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['content'] = '<h3>Læs om gruppechatten</h3>
+';
+$handler->display->display_options['header']['area']['format'] = 'admin_html';
 $handler->display->display_options['defaults']['filter_groups'] = FALSE;
 $handler->display->display_options['defaults']['filters'] = FALSE;
 /* Filterkriterie: Indhold: Udgivet */
@@ -210,13 +220,14 @@ $handler->display->display_options['filters']['uid']['id'] = 'uid';
 $handler->display->display_options['filters']['uid']['table'] = 'node';
 $handler->display->display_options['filters']['uid']['field'] = 'uid';
 $handler->display->display_options['filters']['uid']['value'] = array(
-  0 => '5083',
+  0 => '4495',
+  1 => '3353',
 );
 
-/* Display: "Mig og verden" blogs */
-$handler = $view->new_display('block', '"Mig og verden" blogs', 'block_3');
+/* Display: Mig og verden ungeblogs */
+$handler = $view->new_display('block', 'Mig og verden ungeblogs', 'block_3');
 $handler->display->display_options['defaults']['title'] = FALSE;
-$handler->display->display_options['title'] = 'Min familie blogs';
+$handler->display->display_options['title'] = 'Mig og verden ungeblogs';
 $handler->display->display_options['defaults']['filter_groups'] = FALSE;
 $handler->display->display_options['defaults']['filters'] = FALSE;
 /* Filterkriterie: Indhold: Udgivet */
@@ -296,6 +307,118 @@ $handler->display->display_options['filters']['uid']['value'] = array(
   0 => '19',
   1 => '3353',
 );
+
+/* Display: Mig og verden gruppechatblog */
+$handler = $view->new_display('block', 'Mig og verden gruppechatblog', 'block_5');
+$handler->display->display_options['defaults']['title'] = FALSE;
+$handler->display->display_options['title'] = 'Mig og verden gruppechatblog';
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['content'] = '<h3>Blogindlæg om gruppechatten</h3>';
+$handler->display->display_options['header']['area']['format'] = '2';
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filterkriterie: Indhold: Udgivet */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filterkriterie: Indhold: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'blog' => 'blog',
+);
+/* Filterkriterie: Indhold: Frie tags (taxonomy_vocabulary_25) */
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['id'] = 'taxonomy_vocabulary_25_tid';
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['table'] = 'field_data_taxonomy_vocabulary_25';
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['field'] = 'taxonomy_vocabulary_25_tid';
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['value'] = array(
+  0 => '2347',
+);
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['vocabulary'] = 'frie_tags';
+
+/* Display: BRUS gruppechatblog frie tags */
+$handler = $view->new_display('block', 'BRUS gruppechatblog frie tags', 'block_6');
+$handler->display->display_options['defaults']['title'] = FALSE;
+$handler->display->display_options['title'] = 'BRUS gruppechat blogs (frie tags)';
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['content'] = '<h3>Blogindlæg om gruppechatten</h3>';
+$handler->display->display_options['header']['area']['format'] = '2';
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filterkriterie: Indhold: Udgivet */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filterkriterie: Indhold: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'blog' => 'blog',
+);
+/* Filterkriterie: Indhold: Frie tags (taxonomy_vocabulary_25) */
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['id'] = 'taxonomy_vocabulary_25_tid';
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['table'] = 'field_data_taxonomy_vocabulary_25';
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['field'] = 'taxonomy_vocabulary_25_tid';
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['value'] = array(
+  0 => '2346',
+);
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['vocabulary'] = 'frie_tags';
+
+/* Display: Mobning nej tak */
+$handler = $view->new_display('block', 'Mobning nej tak', 'block_7');
+$handler->display->display_options['defaults']['title'] = FALSE;
+$handler->display->display_options['title'] = 'Mobning nej tak';
+$handler->display->display_options['defaults']['pager'] = FALSE;
+$handler->display->display_options['pager']['type'] = 'some';
+$handler->display->display_options['pager']['options']['items_per_page'] = '12';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Overskrift: Global: Tekstområde */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['content'] = '<h3>Blogindlæg om mobning</h3>';
+$handler->display->display_options['header']['area']['format'] = '2';
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filterkriterie: Indhold: Udgivet */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filterkriterie: Indhold: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'blog' => 'blog',
+);
+/* Filterkriterie: Indhold: Frie tags (taxonomy_vocabulary_25) */
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['id'] = 'taxonomy_vocabulary_25_tid';
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['table'] = 'field_data_taxonomy_vocabulary_25';
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['field'] = 'taxonomy_vocabulary_25_tid';
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['value'] = array(
+  0 => '2348',
+);
+$handler->display->display_options['filters']['taxonomy_vocabulary_25_tid']['vocabulary'] = 'frie_tags';
 $translatables['kampagner'] = array(
   t('Master'),
   t('Kampagner'),
@@ -308,24 +431,30 @@ $translatables['kampagner'] = array(
   t('<h3>Blogindlæg</h3>'),
   t('forfatter'),
   t('<div class="author-timestamp">Indlæg på [value] • [created] siden</div>'),
-  t('Kampagne: BRUS blogs'),
+  t('Brus ungeblogs'),
   t('BRUS blogindlæg'),
   t('En blok med et udvalg af blogindlæg'),
-  t('<h2>Læs om andres oplevelser<h2>
-<p>Her kan du finde blog indlæg fra unge, som har oplevet at være i en familie med rusmiddelproblemer. Du kan læse om deres oplevelser, tanker og følelser, og sende dem en kommentar hvis du har lyst.</p>'),
+  t('<h3>Læs om andres oplevelser</h3>
+<p>Her kan du finde <strong>blogindlæg</strong> fra unge, som har oplevet at være i en familie med rusmiddelproblemer. Du kan læse om deres oplevelser, tanker og følelser, og sende dem en kommentar hvis du har lyst.</p>'),
   t('Ny kampagne blogs'),
   t('ny kampagne'),
-  t('BRUS bloggere'),
-  t('BRUS'),
-  t('"Mig og verden" blogs'),
-  t('Min familie blogs'),
+  t('BRUS gruppechat blogs'),
+  t('BRUS gruppechat blogs (navne)'),
+  t('<h3>Læs om gruppechatten</h3>
+'),
+  t('Mig og verden ungeblogs'),
   t('Forfatter uid'),
   t('test kampagne: test blogs'),
   t('Test kampagne blogindlæg'),
   t('<h2>Læs om andres oplevelser<h2>
 <p>Her kan du finde blog indlæg fra unge, som har skrevet noget til test kampagnen. Du kan læse om deres oplevelser, tanker og følelser, og sende dem en kommentar hvis du har lyst.</p>'),
+  t('Mig og verden gruppechatblog'),
+  t('<h3>Blogindlæg om gruppechatten</h3>'),
+  t('BRUS gruppechatblog frie tags'),
+  t('BRUS gruppechat blogs (frie tags)'),
+  t('Mobning nej tak'),
+  t('<h3>Blogindlæg om mobning</h3>'),
 );
-
 
   return $view;
 

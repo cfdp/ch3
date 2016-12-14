@@ -1510,6 +1510,7 @@ body.page-ung-i h1 {
 .view {
   /* Term lists are list of terms e.g. in brevkasse and forum */
   /* Mini lists are small lists of content links e.g. used on /blogs page */
+  /* Views rows are clickable on some pages - link behavior added with js */
 }
 .view > .view-header h3, .view > .view-footer h3 {
   background-color: #F1F1F1;
@@ -1587,6 +1588,13 @@ body.page-ung-i h1 {
   margin: 0;
   padding: 1em;
 }
+.view.cyberhus-oversigt > .view-content > .views-row {
+  cursor: pointer;
+}
+.view.cyberhus-oversigt > .view-content > .views-row .author-timestamp {
+  margin-top: 0;
+  max-width: 90%;
+}
 
 /* Load more pager */
 .pager-load-more {
@@ -1661,9 +1669,6 @@ body.front .view-forside-oversigt .views-field-php svg {
 }
 body.front .view-forside-oversigt .views-field-php svg g {
   fill: #231E19;
-}
-body.front .view-forside-oversigt .author-timestamp {
-  max-width: 90%;
 }
 
 /**
