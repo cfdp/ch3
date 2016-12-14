@@ -79,6 +79,14 @@
       padding: $padding-std;
     }
   }
+  /* Views rows are clickable on some pages - link behavior added with js */
+  &.cyberhus-oversigt > .view-content > .views-row {
+    cursor: pointer;
+    .author-timestamp {
+      margin-top: 0;
+      max-width: 90%;
+    }
+  }
 }
 
 
@@ -148,6 +156,15 @@ body.page-brevkasse {
   }
   .view-header h1 {
     display: block;
+  }
+  .view-brevkasse-oversigter {
+    & .view-footer {
+      padding: 0;
+      .view-cyberhus-forum-term-list {
+      background-color: $bg-white;
+      padding: $padding-std;
+    }
+    }
   }
 }
 
