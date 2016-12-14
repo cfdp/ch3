@@ -163,6 +163,11 @@
         window.location = $(this).attr("href");
         return false;
       });
+      /* We need to catch the clicks on links in the author timestamp */
+      $(".author-timestamp a").click(function() {
+        window.location = $(this).attr("href");
+        return false;
+      });
       $(".view-content .views-row").click(function() {
         window.location = $(this).find(".views-field-title a").attr("href");
         return false;
