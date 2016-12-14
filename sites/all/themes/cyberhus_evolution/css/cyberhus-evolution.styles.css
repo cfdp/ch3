@@ -1680,6 +1680,13 @@ body.page-brevkasse h1 {
 body.page-brevkasse .view-header h1 {
   display: block;
 }
+body.page-brevkasse .view-brevkasse-oversigter .view-footer {
+  padding: 0;
+}
+body.page-brevkasse .view-brevkasse-oversigter .view-footer .view-cyberhus-forum-term-list {
+  background-color: #fff;
+  padding: 1em;
+}
 
 /**
  * KAMPAGNER

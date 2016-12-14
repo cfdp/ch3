@@ -157,6 +157,15 @@ body.page-brevkasse {
   .view-header h1 {
     display: block;
   }
+  .view-brevkasse-oversigter {
+    & .view-footer {
+      padding: 0;
+      .view-cyberhus-forum-term-list {
+      background-color: $bg-white;
+      padding: $padding-std;
+    }
+    }
+  }
 }
 
 
