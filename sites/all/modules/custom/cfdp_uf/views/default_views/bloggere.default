@@ -154,7 +154,8 @@ $handler->display->display_options['defaults']['header'] = FALSE;
 $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['content'] = '<p class="content-list-header">Her finder du Cyberhus\' bloggere.</p>
+$handler->display->display_options['header']['area']['content'] = '<p class="content-list-header">Her finder du en række fantastiske mennesker med en masse på hjerte. De deler deres tanker, følelser og oplevelser om lige præcis det de synes er vigtigt og spændende. Har du også mod på at få din egen blog kan du læse mere i bunden af siden.</p>
+
 ';
 $handler->display->display_options['header']['area']['format'] = 'admin_html';
 /* Overskrift: Global: View-område */
@@ -264,7 +265,8 @@ $translatables['bloggere'] = array(
 [view]
 </div>'),
   t('Liste over den seneste håndfuld indlæg og samtlige aktive bloggere'),
-  t('<p class="content-list-header">Her finder du Cyberhus\' bloggere.</p>
+  t('<p class="content-list-header">Her finder du en række fantastiske mennesker med en masse på hjerte. De deler deres tanker, følelser og oplevelser om lige præcis det de synes er vigtigt og spændende. Har du også mod på at få din egen blog kan du læse mere i bunden af siden.</p>
+
 '),
   t('<h3>Bloggere</h3>'),
   t('indholdselementer'),
@@ -273,6 +275,7 @@ $translatables['bloggere'] = array(
   t('<p>Her kommer nok snart en beskrivelse af [value_2]  :-)</p>'),
   t('<img src="http://dev.ch3/sites/all/themes/cyberhus/img/default_profile.png" title="intet billede endnu...">'),
 );
+
 
   return $view;
 

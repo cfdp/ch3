@@ -155,4 +155,23 @@
     }
   };
 
+  /* Make the "cyberhus-oversigt" Views list items clickable */
+  Drupal.behaviors.cyberhusEvolutionClickableListItems = {
+    attach: function (context, settings) {
+      /* We need to catch the clicks on the comment count link */
+      $("a.comment-count-link").click(function() {
+        window.location = $(this).attr("href");
+        return false;
+      });
+      $(".view-content .views-row").click(function() {
+        window.location = $(this).find(".views-field-title a").attr("href");
+        return false;
+      });
+      $(".view-bloggere .view-content .views-row").click(function() {
+        window.location = $(this).find(".views-field-value-2 a").attr("href"); console.log('wee');
+        return false;
+      });
+    }
+  };
+
 })(jQuery);
