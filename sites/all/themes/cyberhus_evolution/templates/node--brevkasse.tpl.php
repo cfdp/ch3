@@ -110,6 +110,7 @@
       }
     ?>
     <?php
+      print render($content[$author_date_key]);
       /* We print the h1 header in the node template to get the author
        * info rendered first */
       print render($title_prefix); ?>
@@ -126,7 +127,6 @@
         hide($content[$author_date_key]);
       }
 
-      print render($content[$author_date_key]);
       print render($content[$question_key]);
       print "<div class='answer field__label'>" . t('Answer') . "</div>";;
       print render($content[$counselor_date_key]);
