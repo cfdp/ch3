@@ -887,9 +887,6 @@ input.form-submit:active {
 /**
  * FORUM LIST & TOPIC LIST
  */
-.view {
-  /* Forum term list */
-}
 .view.view-cyberhus-forum-topic-list > .view-header .views-field-field-tag-shorthand, .view.view-cyberhus-forum-topic-list > .view-footer .views-field-field-tag-shorthand {
   color: #85817f;
   font-size: 1.3em;
@@ -898,30 +895,9 @@ input.form-submit:active {
 .view.view-cyberhus-forum-topic-list > .view-footer {
   padding: 0;
 }
-.view.view-cyberhus-forum-term-list {
+.view.view-cyberhus-forum-topic-list > .view-footer .view-cyberhus-forum-term-list {
   background-color: #fff;
   padding: 1em;
-}
-.view.view-cyberhus-forum-term-list .view-content {
-  background-color: #fff;
-}
-.view.view-cyberhus-forum-term-list .tag-shorthand {
-  display: inline-block;
-  margin: 0.75em 0.75em 0.75em 0;
-}
-.view.view-cyberhus-forum-term-list .tag-shorthand a {
-  background-color: #e7f2fa;
-  padding: .4em .5em;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-}
-.view.view-cyberhus-forum-term-list .tag-shorthand a:hover {
-  background: #c6e1f2;
-  transition: all 0.3s ease;
-}
-.view.view-cyberhus-forum-term-list .tag-shorthand a.active {
-  color: #2980B9;
 }
 
 /**
@@ -1581,6 +1557,10 @@ body.page-ung-i h1 {
 .view > .view-content .field-content p {
   margin-top: 0;
 }
+.view.view-cyberhus-forum-term-list {
+  background-color: #fff;
+  padding: 0;
+}
 .view.view-cyberhus-forum-term-list .view-header {
   margin: 0;
 }
@@ -1589,6 +1569,30 @@ body.page-ung-i h1 {
   font-size: 0.85em;
   margin: 0 0;
   text-transform: uppercase;
+}
+.view.view-cyberhus-forum-term-list .view-content {
+  background-color: #fff;
+}
+.view.view-cyberhus-forum-term-list .view-footer {
+  padding: 0;
+}
+.view.view-cyberhus-forum-term-list .tag-shorthand {
+  display: inline-block;
+  margin: 0.75em 0.75em 0.75em 0;
+}
+.view.view-cyberhus-forum-term-list .tag-shorthand a {
+  background-color: #e7f2fa;
+  padding: .4em .5em;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.view.view-cyberhus-forum-term-list .tag-shorthand a:hover {
+  background: #c6e1f2;
+  transition: all 0.3s ease;
+}
+.view.view-cyberhus-forum-term-list .tag-shorthand a.active {
+  color: #2980B9;
 }
 .view.mini-list > .view-content .views-row {
   display: block;
