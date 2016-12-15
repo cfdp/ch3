@@ -11,14 +11,19 @@
         padding-right: $padding-std;
       }
     }
+    & > .view-footer {
+      padding: 0;
+    }
   }
-
 
   /* Forum term list */
   &.view-cyberhus-forum-term-list {
+      background-color: $bg-white;
+      padding: $padding-std;
     .view-content {
       background-color: $bg-white;
     }
+
     .tag-shorthand {
       display: inline-block;
       margin: $margin-small $margin-small $margin-small 0;

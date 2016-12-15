@@ -895,6 +895,13 @@ input.form-submit:active {
   font-size: 1.3em;
   padding-right: 1em;
 }
+.view.view-cyberhus-forum-topic-list > .view-footer {
+  padding: 0;
+}
+.view.view-cyberhus-forum-term-list {
+  background-color: #fff;
+  padding: 1em;
+}
 .view.view-cyberhus-forum-term-list .view-content {
   background-color: #fff;
 }

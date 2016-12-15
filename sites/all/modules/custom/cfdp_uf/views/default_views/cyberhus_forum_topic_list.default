@@ -321,7 +321,7 @@ $handler->display->display_options['defaults']['footer'] = FALSE;
 $handler->display->display_options['footer']['view']['id'] = 'view';
 $handler->display->display_options['footer']['view']['table'] = 'views';
 $handler->display->display_options['footer']['view']['field'] = 'view';
-$handler->display->display_options['footer']['view']['view_to_insert'] = 'cyberhus_forum_term_list:default';
+$handler->display->display_options['footer']['view']['view_to_insert'] = 'cyberhus_forum_term_list:attachment_1';
 $handler->display->display_options['defaults']['filter_groups'] = FALSE;
 $handler->display->display_options['defaults']['filters'] = FALSE;
 /* Filterkriterie: Indhold: Udgivet */
