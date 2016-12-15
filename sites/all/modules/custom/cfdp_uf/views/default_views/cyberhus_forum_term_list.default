@@ -74,6 +74,8 @@ $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
 /* Display: Forum terms */
 $handler = $view->new_display('attachment', 'Forum terms', 'attachment_1');
 $handler->display->display_options['pager']['type'] = 'some';
+$handler->display->display_options['pager']['options']['items_per_page'] = '0';
+$handler->display->display_options['pager']['options']['offset'] = '0';
 $handler->display->display_options['defaults']['filter_groups'] = FALSE;
 $handler->display->display_options['defaults']['filters'] = FALSE;
 /* Filterkriterie: Ordforråd: Internt navn */
