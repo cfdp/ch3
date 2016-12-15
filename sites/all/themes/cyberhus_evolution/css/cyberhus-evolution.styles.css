@@ -1220,6 +1220,13 @@ body.page-node.content-type-blog li.blog_usernames_blog,
 body.page-comment-reply.content-type-blog li.blog_usernames_blog {
   display: none;
 }
+body.page-node.node-type-body-secret .field--name-body .field__item,
+body.page-comment-reply.node-type-body-secret .field--name-body .field__item {
+  font-family: "Merriweather", serif;
+  font-size: 1.3em;
+  font-weight: 700;
+  margin: 0 0 0.75em 0;
+}
 
 /* Hide the obsolete comment form when Mollom activites comment/reply page */
 body.page-comment-reply #comment-form,
@@ -1697,6 +1704,20 @@ body.page-brevkasse .view-brevkasse-oversigter .view-footer {
 body.page-brevkasse .view-brevkasse-oversigter .view-footer .view-cyberhus-forum-term-list {
   background-color: #fff;
   padding: 1em;
+}
+
+/**
+ * HEMMELIGHEDER
+ */
+.view-hemmeligheder-oversigter > .view-content .views-field-body h2.field-content {
+  font-family: "Merriweather", serif;
+}
+
+body.node-type-body-secret .view-hemmeligheder-oversigter {
+  margin: 1em -1em;
+}
+body.node-type-body-secret article.node {
+  padding-bottom: 0;
 }
 
 /**
