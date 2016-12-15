@@ -186,6 +186,27 @@ body.page-brevkasse {
   }
 }
 
+/**
+ * HEMMELIGHEDER
+ */
+
+.view-hemmeligheder-oversigter {
+  & > .view-content .views-field-body {
+    h2.field-content {
+      font-family: $font-family-header;
+    }
+  } 
+}
+  
+// On node view 5 random items are shown with EVA
+body.node-type-body-secret {
+  .view-hemmeligheder-oversigter {
+    margin: $margin-std -1*$margin-std;
+  }
+  article.node {
+    padding-bottom: 0;
+  }
+}
 
 /**
  * KAMPAGNER
