@@ -18,7 +18,7 @@
       @include italic-description();
     }
   }
-  &  .view-header {
+  & .view-header {
     margin: 0 $margin-std;
   }
   & > .view-footer {
@@ -64,10 +64,28 @@
   }
   /* Term lists are list of terms e.g. in brevkasse and forum */
   &.view-cyberhus-forum-term-list {
+    background-color: $bg-white;
+    padding: 0;
     .view-header {
       margin: 0;
       p {
         @include headline-grey();
+      }
+    }
+    .view-content {
+      background-color: $bg-white;
+    }
+    .view-footer {
+      padding: 0;
+    }
+    .tag-shorthand {
+      display: inline-block;
+      margin: $margin-small $margin-small $margin-small 0;
+      a {
+        @include label();
+        &.active {
+          color: $blue;
+        }
       }
     }
   }
@@ -161,9 +179,9 @@ body.page-brevkasse {
     & .view-footer {
       padding: 0;
       .view-cyberhus-forum-term-list {
-      background-color: $bg-white;
-      padding: $padding-std;
-    }
+        background-color: $bg-white;
+        padding: $padding-std;
+      }
     }
   }
 }
@@ -229,6 +247,7 @@ body.page-kampagner {
     margin: $margin-std -1*$margin-std 0 -1*$margin-std;
   }
 }
+
 
 /**
  * SIMPEL SIDE MED VIEW
