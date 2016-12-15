@@ -71,6 +71,11 @@ body.page-comment-reply {
       display: none;
     }
   }
+  &.node-type-body-secret {
+    .field--name-body .field__item {
+      @include headline-h2();
+    }
+  }
 }
 
 /* Hide the obsolete comment form when Mollom activites comment/reply page */

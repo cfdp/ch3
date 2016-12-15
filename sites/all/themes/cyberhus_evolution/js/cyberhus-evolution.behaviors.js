@@ -168,11 +168,17 @@
         window.location = $(this).attr("href");
         return false;
       });
+      /* On hemmeligheder the body is the link */
+      $(".view-hemmeligheder-oversigter h2.field-content a").click(function() {
+        console.log('hej');
+        window.location = $(this).attr("href");
+        return false;
+      });
       $(".view-content .views-row").click(function() {
         window.location = $(this).find(".views-field-title a").attr("href");
         return false;
       });
-      $(".view-bloggere .view-content .views-row").click(function() {
+      $(".view-bloggere > .view-content .views-row").click(function() {
         window.location = $(this).find(".views-field-value-2 a").attr("href"); console.log('wee');
         return false;
       });
