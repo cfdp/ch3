@@ -118,6 +118,14 @@ body.page-blogs h1 {
   margin-left: $margin-std-px;
 }
 
+/* Front page */
+body.front {
+  h1,
+  .block--block-93 {
+    margin-top: 0;
+  }
+}
+
 /* User pages */
 body.page-user {
   .l-content {
