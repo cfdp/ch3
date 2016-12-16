@@ -16,6 +16,9 @@ and open the template in the editor.
 .responsive-layout-mobile #ungi-map {
 	display: none;
 }
+#editabletext-ung-i-forside {
+  display: block;
+}
 #ungi-desc {
 	display: inline-block;
 	max-width: 500px;

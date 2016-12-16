@@ -1,0 +1,84 @@
+<?php
+function Temaer() {
+
+$view = new view();
+$view->name = 'Temaer';
+$view->description = '';
+$view->tag = 'default';
+$view->base_table = 'taxonomy_term_data';
+$view->human_name = 'Temaer';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['title'] = 'temaer';
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['use_more_text'] = 'mere';
+$handler->display->display_options['access']['type'] = 'perm';
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+$handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+$handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+$handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+$handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+$handler->display->display_options['pager']['type'] = 'none';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['row_plugin'] = 'fields';
+/* Felt: Ord i ordforråd: Navn */
+$handler->display->display_options['fields']['name']['id'] = 'name';
+$handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['fields']['name']['field'] = 'name';
+$handler->display->display_options['fields']['name']['label'] = '';
+$handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
+$handler->display->display_options['fields']['name']['alter']['path'] = 'temaer/[name]';
+$handler->display->display_options['fields']['name']['alter']['replace_spaces'] = TRUE;
+$handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+$handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+/* Felt: Ord i ordforråd: Beskrivelse af term */
+$handler->display->display_options['fields']['description_1']['id'] = 'description_1';
+$handler->display->display_options['fields']['description_1']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['fields']['description_1']['field'] = 'description';
+$handler->display->display_options['fields']['description_1']['label'] = '';
+$handler->display->display_options['fields']['description_1']['element_label_colon'] = FALSE;
+/* Sorteringskriterie: Ord i ordforråd: Vægt */
+$handler->display->display_options['sorts']['weight']['id'] = 'weight';
+$handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['sorts']['weight']['field'] = 'weight';
+/* Filterkriterie: Ord i ordforråd: Ordforråd */
+$handler->display->display_options['filters']['vid']['id'] = 'vid';
+$handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['filters']['vid']['field'] = 'vid';
+$handler->display->display_options['filters']['vid']['value'] = array(
+  26 => '26',
+);
+/* Filterkriterie: Ord i ordforråd: Term ID */
+$handler->display->display_options['filters']['tid_raw']['id'] = 'tid_raw';
+$handler->display->display_options['filters']['tid_raw']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
+$handler->display->display_options['filters']['tid_raw']['operator'] = '!=';
+$handler->display->display_options['filters']['tid_raw']['value']['value'] = '2134';
+
+/* Display: Blok */
+$handler = $view->new_display('block', 'Blok', 'block_1');
+$translatables['Temaer'] = array(
+  t('Master'),
+  t('temaer'),
+  t('mere'),
+  t('Udfør'),
+  t('Gendan'),
+  t('Sortér efter'),
+  t('Stigende'),
+  t('Faldende'),
+  t('Blok'),
+);
+
+
+  return $view;
+
+}

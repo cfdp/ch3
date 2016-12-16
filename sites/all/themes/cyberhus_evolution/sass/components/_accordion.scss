@@ -1,4 +1,4 @@
-/* Accordion, general styling, see _views.scss for views embedded acc. */
+/* Accordions, general styling. */
 
 .ui-accordion-icons .ui-accordion-header a {
   padding-left: 2.2em;
@@ -28,30 +28,55 @@
 }
 
 .ui-icon-triangle-1-s {
-  background-position: -64px 0;
+  //background-position: -64px 0;
+  display: none;
 }
 
 .ui-icon-triangle-1-e {
   background-position: -32px 0;
+  display: none;
 }
 
 .ui-widget-content a {
   color: $blue;
 }
 
+/* We use + / - signs to signal active state */
+.views-accordion-header,
+.ui-accordion-header {
+  .field-content a,
+  .field__item {
+    &:before {
+      content: "+";
+      display: inline-block;
+      margin-right: $margin-small;
+      width: .75em;
+    }
+  }
+  &.ui-state-active .field-content a {
+    &:before {
+      content: "-";
+    }
+  }
+}
+
 
 /* Accordion in views */
 
-.ui-accordion.view-content {
+.view .ui-accordion.view-content {
   /* Reset default views elements */
+  .views-field-body {
+    padding: 0 $padding-std $padding-std;
+  }
   .views-row {
     margin-left: 0;
+    padding: 0;
   }
   .ui-accordion-header {
     cursor: pointer;
     position: relative;
     margin-top: 1px;
-    padding: 0 0 0 $padding-big;
+    padding: $padding-std;
     zoom: 1;
   }
   .ui-accordion-li-fix {
@@ -70,10 +95,11 @@
     zoom: 1;
   }
   .ui-accordion-header .ui-icon {
-    position: absolute;
+/*    position: absolute;
     left: .5em;
     top: 50%;
-    margin-top: -8px;
+    margin-top: -8px;*/
+    display: none;
   }
   .ui-accordion-content {
     padding: 0;
@@ -90,3 +116,4 @@
     display: block;
   }
 }
+

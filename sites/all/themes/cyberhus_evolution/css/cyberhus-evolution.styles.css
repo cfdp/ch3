@@ -257,7 +257,7 @@ input.form-submit:active {
   background-image: url('../images/icons/svg/gender/non-binary.svg?1478556783');
 }
 
-/* Accordion, general styling, see _views.scss for views embedded acc. */
+/* Accordions, general styling. */
 .ui-accordion-icons .ui-accordion-header a {
   padding-left: 2.2em;
 }
@@ -286,39 +286,59 @@ input.form-submit:active {
 }
 
 .ui-icon-triangle-1-s {
-  background-position: -64px 0;
+  display: none;
 }
 
 .ui-icon-triangle-1-e {
   background-position: -32px 0;
+  display: none;
 }
 
 .ui-widget-content a {
   color: #2980B9;
 }
 
+/* We use + / - signs to signal active state */
+.views-accordion-header .field-content a:before,
+.views-accordion-header .field__item:before,
+.ui-accordion-header .field-content a:before,
+.ui-accordion-header .field__item:before {
+  content: "+";
+  display: inline-block;
+  margin-right: 0.75em;
+  width: .75em;
+}
+.views-accordion-header.ui-state-active .field-content a:before,
+.ui-accordion-header.ui-state-active .field-content a:before {
+  content: "-";
+}
+
 /* Accordion in views */
-.ui-accordion.view-content {
+.view .ui-accordion.view-content {
   /* Reset default views elements */
   /* IE7-/Win - Fix extra vertical space in lists */
 }
-.ui-accordion.view-content .views-row {
-  margin-left: 0;
+.view .ui-accordion.view-content .views-field-body {
+  padding: 0 1em 1em;
 }
-.ui-accordion.view-content .ui-accordion-header {
+.view .ui-accordion.view-content .views-row {
+  margin-left: 0;
+  padding: 0;
+}
+.view .ui-accordion.view-content .ui-accordion-header {
   cursor: pointer;
   position: relative;
   margin-top: 1px;
-  padding: 0 0 0 2em;
+  padding: 1em;
   zoom: 1;
 }
-.ui-accordion.view-content .ui-accordion-li-fix {
+.view .ui-accordion.view-content .ui-accordion-li-fix {
   display: inline;
 }
-.ui-accordion.view-content .ui-accordion-header-active {
+.view .ui-accordion.view-content .ui-accordion-header-active {
   border-bottom: 0 !important;
 }
-.ui-accordion.view-content .ui-accordion-header a {
+.view .ui-accordion.view-content .ui-accordion-header a {
   font-family: "Merriweather", serif;
   font-size: 1em;
   font-weight: 700;
@@ -326,16 +346,17 @@ input.form-submit:active {
   color: #2980B9;
   display: block;
 }
-.ui-accordion.view-content a {
+.view .ui-accordion.view-content a {
   zoom: 1;
 }
-.ui-accordion.view-content .ui-accordion-header .ui-icon {
-  position: absolute;
-  left: .5em;
-  top: 50%;
-  margin-top: -8px;
+.view .ui-accordion.view-content .ui-accordion-header .ui-icon {
+  /*    position: absolute;
+      left: .5em;
+      top: 50%;
+      margin-top: -8px;*/
+  display: none;
 }
-.ui-accordion.view-content .ui-accordion-content {
+.view .ui-accordion.view-content .ui-accordion-content {
   padding: 0;
   border-top: 0;
   margin-top: -2px;
@@ -346,7 +367,7 @@ input.form-submit:active {
   display: none;
   zoom: 1;
 }
-.ui-accordion.view-content .ui-accordion-content-active {
+.view .ui-accordion.view-content .ui-accordion-content-active {
   display: block;
 }
 
