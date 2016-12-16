@@ -284,27 +284,22 @@ $handler->display->display_options['defaults']['title'] = FALSE;
 $handler->display->display_options['display_description'] = 'Oversigt over det seneste indhold';
 $handler->display->display_options['exposed_block'] = TRUE;
 $handler->display->display_options['defaults']['header'] = FALSE;
-/* Overskrift: Entity: Renderet entity */
-$handler->display->display_options['header']['entity']['id'] = 'entity';
-$handler->display->display_options['header']['entity']['table'] = 'entity__global';
-$handler->display->display_options['header']['entity']['field'] = 'entity';
-$handler->display->display_options['header']['entity']['entity_id'] = '41106';
-$handler->display->display_options['header']['entity']['bypass_access'] = 0;
-/* Overskrift: Global: PHP */
-$handler->display->display_options['header']['php']['id'] = 'php';
-$handler->display->display_options['header']['php']['table'] = 'views';
-$handler->display->display_options['header']['php']['field'] = 'php';
-$handler->display->display_options['header']['php']['php_output'] = '  <?php
-    // Print views BEF block
-    $block = module_invoke(\'views\', \'block_view\', \'-exp-forside_oversigt-page_1\');
-    print render($block[\'content\']);
-  ?>';
 /* Overskrift: Global: Tekstområde */
 $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['content'] = '<h3>Seneste indhold</h3>';
+$handler->display->display_options['header']['area']['content'] = '<h3>Seneste aktivitet</h3>';
 $handler->display->display_options['header']['area']['format'] = '2';
+/* Overskrift: Global: PHP */
+$handler->display->display_options['header']['php']['id'] = 'php';
+$handler->display->display_options['header']['php']['table'] = 'views';
+$handler->display->display_options['header']['php']['field'] = 'php';
+$handler->display->display_options['header']['php']['php_output'] = ' <div class="cyberhus-bef-header">Nyeste opslag</div>
+ <?php
+    // Print views BEF block
+    $block = module_invoke(\'views\', \'block_view\', \'-exp-forside_oversigt-page_1\');
+    print render($block[\'content\']);
+  ?>';
 $handler->display->display_options['defaults']['relationships'] = FALSE;
 /* Forbindelse: Indhold: Forfatter */
 $handler->display->display_options['relationships']['uid']['id'] = 'uid';
@@ -549,12 +544,11 @@ Hemmelighed|psst!'),
   t('Cyberlike'),
   t('Alle'),
   t('Oversigt over det seneste indhold'),
-  t('<h3>Seneste indhold</h3>'),
+  t('<h3>Seneste aktivitet</h3>'),
   t(' af <span class="gender tid-[field_brevk_koen_1-tid]" title="[field_brevk_koen]"></span>'),
   t('<div class="author-timestamp">[type][field_brevk_koen_1] [field_brevk_alder] • seneste aktivitet [last_updated] siden</div>'),
   t('<a href="/node/[nid]#block-views-comments-block-1" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>'),
 );
-
 
   return $view;
 
