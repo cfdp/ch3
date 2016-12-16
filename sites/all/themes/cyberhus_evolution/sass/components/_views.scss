@@ -89,6 +89,13 @@
       }
     }
   }
+  /* BEF filter header on front page */
+  &.view-forside-oversigt {
+    .cyberhus-bef-header {
+      @include headline-grey();
+      margin-top: $margin-std;
+    }
+  }
   /* Mini lists are small lists of content links e.g. used on /blogs page */
   &.mini-list {
     > .view-content .views-row {
