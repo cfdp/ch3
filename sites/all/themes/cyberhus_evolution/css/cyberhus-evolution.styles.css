@@ -1038,6 +1038,12 @@ body.page-blogs h1 {
   margin-left: 16px;
 }
 
+/* Front page */
+body.front h1,
+body.front .block--block-93 {
+  margin-top: 0;
+}
+
 /* User pages */
 body.page-user .l-content {
   padding: 1em;
@@ -1520,6 +1526,7 @@ body.page-ung-i h1 {
  */
 .view {
   /* Term lists are list of terms e.g. in brevkasse and forum */
+  /* BEF filter header on front page */
   /* Mini lists are small lists of content links e.g. used on /blogs page */
   /* Views rows are clickable on some pages - link behavior added with js */
 }
@@ -1621,6 +1628,13 @@ body.page-ung-i h1 {
 }
 .view.view-cyberhus-forum-term-list .tag-shorthand a.active {
   color: #2980B9;
+}
+.view.view-forside-oversigt .cyberhus-bef-header {
+  color: #9e9b99;
+  font-size: 0.85em;
+  margin: 0 0;
+  text-transform: uppercase;
+  margin-top: 1em;
 }
 .view.mini-list > .view-content .views-row {
   display: block;
