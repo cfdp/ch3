@@ -159,29 +159,33 @@
   Drupal.behaviors.cyberhusEvolutionClickableListItems = {
     attach: function (context, settings) {
       /* We need to catch the clicks on the comment count link */
-      $("a.comment-count-link").click(function() {
+      $(".cyberhus-oversigt a.comment-count-link").click(function() {
         window.location = $(this).attr("href");
         return false;
       });
       /* We need to catch the clicks on links in the author timestamp */
-      $(".author-timestamp a").click(function() {
+      $(".cyberhus-oversigt .author-timestamp a").click(function() {
         window.location = $(this).attr("href");
         return false;
       });
-      $(".view-content .views-row").click(function() {
+      $(".cyberhus-oversigt .view-content .views-row").click(function() {
         window.location = $(this).find(".views-field-title a").attr("href");
         return false;
       });
-      $(".view-bloggere > .view-content .views-row").click(function() {
+      $(".cyberhus-oversigt.view-bloggere > .view-content .views-row").click(function() {
         window.location = $(this).find(".views-field-value-2 a").attr("href");
         return false;
       });
       /* On hemmeligheder the body is the link */
-      $(".view-hemmeligheder-oversigter .view-content .views-row").click(function() {
+      $(".cyberhus-oversigt.view-hemmeligheder-oversigter .view-content .views-row").click(function() {
+        window.location = $(this).find("h2.field-content a").attr("href");
+        return false;
+      });
+      /* On artikler the name field is the link */
+      $(".cyberhus-oversigt.view-Temaer .view-content .views-row").click(function() {
         window.location = $(this).find("h2.field-content a").attr("href");
         return false;
       });
     }
   };
-
 })(jQuery);
