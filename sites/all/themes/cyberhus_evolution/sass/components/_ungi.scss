@@ -13,6 +13,10 @@
   padding: $padding-std;
 }
 
+.ungi-desc,
+#ungi-desc p {
+  @include italic-description();
+}
 #ungi-cities {
   background-color: $bg-grey;
   h3 {
@@ -78,9 +82,6 @@
       @include headline-grey-bg(-1em);
       margin-bottom: $margin-std;
     }
-  }
-  .ungi-desc {
-    @include italic-description();
   }
   .block {
     margin: 0;

@@ -272,7 +272,7 @@ $handler->display->display_options['defaults']['header'] = FALSE;
 $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['content'] = '<p class="content-list-header">Her kan du læse de nyeste blogindlæg fra alle bloggerne. </p><a class="btn" title="Cyberhus\' bloggere" href="/blogs">Se alle bloggere</a>
+$handler->display->display_options['header']['area']['content'] = '<a class="btn" title="Cyberhus\' bloggere" href="/blogs">Se alle bloggere</a>
 <h3>Seneste blogindlæg</h3>
 ';
 $handler->display->display_options['header']['area']['format'] = '2';
@@ -466,7 +466,7 @@ $translatables['blogs_oversigter'] = array(
   t('<a href="/node/[nid]#block-views-comments-block-1" title="Gå til seneste kommentar" class="comment-count-link"><span title ="Dette indlæg har fået [comment_count] kommentarer" class="comment-count">[comment_count]</span></a>'),
   t('Oversigt over de seneste blogindlæg'),
   t('Blogs'),
-  t('<p class="content-list-header">Her kan du læse de nyeste blogindlæg fra alle bloggerne. </p><a class="btn" title="Cyberhus\' bloggere" href="/blogs">Se alle bloggere</a>
+  t('<a class="btn" title="Cyberhus\' bloggere" href="/blogs">Se alle bloggere</a>
 <h3>Seneste blogindlæg</h3>
 '),
   t('<div class="author-timestamp">Indlæg på [value] • [created] siden</div>'),
@@ -475,7 +475,6 @@ $translatables['blogs_oversigter'] = array(
   t('<h3>Seneste indlæg</h3>'),
   t('<a href="/blogs/alle" class="btn-light">Se alle indlæg</a>'),
 );
-
 
   return $view;
 

@@ -167,8 +167,7 @@ $handler->display->display_options['defaults']['header'] = FALSE;
 $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['content'] = '<div class="content-list-header"><p>Vi er allesammen bare mennesker - her kan du dele din hemmelighed med maks 150 tegn og se hvad andre fortæller fra deres liv. Hvis du gerne vil have svar, skal du i stedet skrive til <a href="/brevkasse" title="Brevkassen">Brevkassen</a>, vores <a href="/forum" title="Forum">Forum</a> eller <a href="/chat" title="Chatten">Chatten</a>. Du kan også læse vores <a href="/artikler" title="artikler">Artikler</a>.</p></div>
-<a class="btn" href="/hemmeligheder">Del hemmelighed</a></p>
+$handler->display->display_options['header']['area']['content'] = '<a class="btn" href="/hemmeligheder">Del hemmelighed</a></p>
 <h3>Seneste hemmeligheder</h3>
 ';
 $handler->display->display_options['header']['area']['format'] = 'admin_html';
@@ -763,8 +762,7 @@ $translatables['hemmeligheder_oversigter'] = array(
   t('Seneste hemmeligheder'),
   t('Hemmeligheder'),
   t('Oversigt over de seneste hemmeligheder'),
-  t('<div class="content-list-header"><p>Vi er allesammen bare mennesker - her kan du dele din hemmelighed med maks 150 tegn og se hvad andre fortæller fra deres liv. Hvis du gerne vil have svar, skal du i stedet skrive til <a href="/brevkasse" title="Brevkassen">Brevkassen</a>, vores <a href="/forum" title="Forum">Forum</a> eller <a href="/chat" title="Chatten">Chatten</a>. Du kan også læse vores <a href="/artikler" title="artikler">Artikler</a>.</p></div>
-<a class="btn" href="/hemmeligheder">Del hemmelighed</a></p>
+  t('<a class="btn" href="/hemmeligheder">Del hemmelighed</a></p>
 <h3>Seneste hemmeligheder</h3>
 '),
   t('[field_brevk_koen_1-tid]'),

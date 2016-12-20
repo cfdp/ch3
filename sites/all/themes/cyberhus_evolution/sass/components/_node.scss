@@ -32,6 +32,11 @@ body.page-comment-reply {
         padding: 0 $padding-std $padding-std $padding-std;
       }
     }
+    &.node--chat--full {
+      h1 {
+        margin: $margin-std-px;
+      }
+    }
     .field--type-viewreference {
       .ui-accordion {
       }
@@ -71,9 +76,15 @@ body.page-comment-reply {
       display: none;
     }
   }
-  &.node-type-body-secret {
+  &.content-type-body_secret {
     .field--name-body .field__item {
       @include headline-h2();
+    }
+  }
+  /* Billeder */
+  &.content-type-image {
+    .node__content {
+      margin-bottom: $margin-std;
     }
   }
 }
@@ -94,6 +105,10 @@ body.page-comment-reply {
 
 .content-type-chat,
 .content-type-simpel_side_med_view {
+  /* body section is intro text  */
+  .field--name-body p {
+    @include italic-description();
+  }
   .group-fold-out-text-wrapper {
     margin-bottom: 1em;
   }
@@ -145,6 +160,13 @@ body.page-node-41282 {
   }
 }
 
+/* ZOOM custom page */
+
+body.page-node-41526 {
+  .field--name-body p {
+    @include italic-description();
+  }
+}
 
 /* Fields */
 /* fold-out text field */
