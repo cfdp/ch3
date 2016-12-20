@@ -53,9 +53,12 @@
       width: .75em;
     }
   }
-  &.ui-state-active .field-content a {
-    &:before {
-      content: "-";
+  &.ui-state-active {
+    .field-content a,
+    .field__item {
+      &:before {
+        content: "-";
+      }
     }
   }
 }

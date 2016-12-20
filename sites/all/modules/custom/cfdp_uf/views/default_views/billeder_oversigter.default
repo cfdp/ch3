@@ -157,8 +157,7 @@ $handler->display->display_options['defaults']['header'] = FALSE;
 $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['content'] = '<div class="content-list-header"><p>Her kan du dele foto, tegning, maleri, collage, skulptur og dine oplevelser. Du kan få feedback fra Lise (uddannet billedkunstner) og ikke mindst få inspiration fra andre unge.</p><p>Du kan lave dit billede i programmet Pixlr, hvor det er gratis at tegne og redigere fotos.</p><p>Når du uploader det, må du meget gerne skrive et par ord om det.&nbsp;</p></div>
-<a class="btn" href="node/add/image">Upload dit billede hér</a></p><p><a class="btn-light" title="Lises blog" href="/blog/19">Lises blog</a>
+$handler->display->display_options['header']['area']['content'] = '<a class="btn" href="node/add/image">Upload dit billede hér</a></p><p><a class="btn-light" title="Lises blog" href="/blog/19">Lises blog</a>
 <h3>Seneste billeder</h3>
 ';
 $handler->display->display_options['header']['area']['format'] = 'admin_html';
@@ -418,8 +417,7 @@ $translatables['billeder_oversigter'] = array(
   t('Alle'),
   t('Billeder'),
   t('Oversigt over de seneste billeder'),
-  t('<div class="content-list-header"><p>Her kan du dele foto, tegning, maleri, collage, skulptur og dine oplevelser. Du kan få feedback fra Lise (uddannet billedkunstner) og ikke mindst få inspiration fra andre unge.</p><p>Du kan lave dit billede i programmet Pixlr, hvor det er gratis at tegne og redigere fotos.</p><p>Når du uploader det, må du meget gerne skrive et par ord om det.&nbsp;</p></div>
-<a class="btn" href="node/add/image">Upload dit billede hér</a></p><p><a class="btn-light" title="Lises blog" href="/blog/19">Lises blog</a>
+  t('<a class="btn" href="node/add/image">Upload dit billede hér</a></p><p><a class="btn-light" title="Lises blog" href="/blog/19">Lises blog</a>
 <h3>Seneste billeder</h3>
 '),
   t('Anonym'),

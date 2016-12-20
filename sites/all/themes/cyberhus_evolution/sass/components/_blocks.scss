@@ -26,6 +26,13 @@
     max-width: 160px;
   }
 }
+/* Blocks with intro text in italics */
+.front,
+.cyberhus-oversigt {
+  .cyberhus-intro-text p {
+    @include italic-description();
+  }
+}
 /**
  * MENU BLOCKS WITH JUICY SVG IMGS!!
  */

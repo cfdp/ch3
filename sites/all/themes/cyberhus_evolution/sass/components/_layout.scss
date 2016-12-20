@@ -114,6 +114,10 @@ body.page-blogs-alle h1 {
   margin: 0 $margin-std-px;
 }
 
+body.content-type-blank_page article h1.node__title {
+  margin: 0;
+}
+
 body.page-blogs h1 {
   margin-left: $margin-std-px;
 }
