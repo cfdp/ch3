@@ -412,8 +412,7 @@ input.form-submit:active {
 }
 
 /* Blocks with intro text in italics */
-.front .cyberhus-intro-text p,
-.cyberhus-oversigt .cyberhus-intro-text p {
+.cyberhus-intro-text p {
   color: #85817f;
   font-style: italic;
 }
