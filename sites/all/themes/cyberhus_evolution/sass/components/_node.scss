@@ -76,9 +76,15 @@ body.page-comment-reply {
       display: none;
     }
   }
-  &.node-type-body-secret {
+  &.content-type-body_secret {
     .field--name-body .field__item {
       @include headline-h2();
+    }
+  }
+  /* Billeder */
+  &.content-type-image {
+    .node__content {
+      margin-bottom: $margin-std;
     }
   }
 }
