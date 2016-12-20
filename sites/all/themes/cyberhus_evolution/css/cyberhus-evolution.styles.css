@@ -309,7 +309,9 @@ input.form-submit:active {
   width: .75em;
 }
 .views-accordion-header.ui-state-active .field-content a:before,
-.ui-accordion-header.ui-state-active .field-content a:before {
+.views-accordion-header.ui-state-active .field__item:before,
+.ui-accordion-header.ui-state-active .field-content a:before,
+.ui-accordion-header.ui-state-active .field__item:before {
   content: "-";
 }
 
@@ -397,6 +399,13 @@ input.form-submit:active {
 #block-views-billeder-oversigter-block-1 .views-row {
   display: inline-block;
   max-width: 160px;
+}
+
+/* Blocks with intro text in italics */
+.front .cyberhus-intro-text p,
+.cyberhus-oversigt .cyberhus-intro-text p {
+  color: #85817f;
+  font-style: italic;
 }
 
 /**
@@ -1034,6 +1043,10 @@ body.page-blogs-alle h1 {
   margin: 0 16px;
 }
 
+body.content-type-blank_page article h1.node__title {
+  margin: 0;
+}
+
 body.page-blogs h1 {
   margin-left: 16px;
 }
@@ -1153,6 +1166,10 @@ body.page-comment-reply article.node--chat--full .field--name-field-billede,
 body.page-comment-reply article.node--chat--full .field--name-body {
   padding: 0 1em 1em 1em;
 }
+body.page-node article.node--chat--full h1,
+body.page-comment-reply article.node--chat--full h1 {
+  margin: 16px;
+}
 body.page-node article li.comment-add a,
 body.page-comment-reply article li.comment-add a {
   background: #2980B9;
@@ -1264,6 +1281,15 @@ body.page-comment-reply h2.node__title {
 /**
  * SIDE MED INDLEJRING AF KODE OG VIEWS & SIMPEL SIDE MED VIEW
  */
+.content-type-chat,
+.content-type-simpel_side_med_view {
+  /* body section is intro text  */
+}
+.content-type-chat .field--name-body p,
+.content-type-simpel_side_med_view .field--name-body p {
+  color: #85817f;
+  font-style: italic;
+}
 .content-type-chat .group-fold-out-text-wrapper,
 .content-type-simpel_side_med_view .group-fold-out-text-wrapper {
   margin-bottom: 1em;
@@ -1326,6 +1352,12 @@ body.page-node-41282 .comment-form {
   padding: 1em;
 }
 
+/* ZOOM custom page */
+body.page-node-41526 .field--name-body p {
+  color: #85817f;
+  font-style: italic;
+}
+
 /* Fields */
 /* fold-out text field */
 .field--name-field-fold-out-text-title .field__item {
@@ -1385,6 +1417,12 @@ body.page-pollim .view > .view-content .views-row {
 
 #ungi-intro {
   padding: 1em;
+}
+
+.ungi-desc,
+#ungi-desc p {
+  color: #85817f;
+  font-style: italic;
 }
 
 #ungi-cities {
@@ -1466,10 +1504,6 @@ body.page-pollim .view > .view-content .views-row {
   text-transform: uppercase;
   padding: 1em;
   margin-bottom: 1em;
-}
-#page.ungi-city .ungi-desc {
-  color: #85817f;
-  font-style: italic;
 }
 #page.ungi-city .block {
   margin: 0;
@@ -1727,7 +1761,7 @@ body.front .view-forside-oversigt .views-field-php svg g {
 /**
  * BREVKASSE
  */
-body.page-brevkasse h1 {
+body.page-brevkasse .l-content > h1 {
   display: none;
 }
 body.page-brevkasse .view-header h1 {

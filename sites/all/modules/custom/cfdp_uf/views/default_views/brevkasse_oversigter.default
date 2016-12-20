@@ -216,6 +216,7 @@ $handler->display->display_options['header']['area_1']['id'] = 'area_1';
 $handler->display->display_options['header']['area_1']['table'] = 'views';
 $handler->display->display_options['header']['area_1']['field'] = 'area';
 $handler->display->display_options['header']['area_1']['content'] = '<h1>[field_brev_tax_label]</h1>
+<div class="contextual-links-region"><div class="contextual-links-wrapper">[edit_term]</div></div>
 <div class="content-list-header">[description]</div>
 <a class="btn" href="/node/add/brevkasse?edit[field_brevk_kategori][und]=[tid]">Opret spørgsmål</a>
 <h3>Seneste spørgsmål</h3>';
@@ -340,6 +341,23 @@ $handler->display->display_options['fields']['tid']['relationship'] = 'term_node
 $handler->display->display_options['fields']['tid']['label'] = '';
 $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
 $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+/* Felt: Ord i ordforråd: Link til redigering af term */
+$handler->display->display_options['fields']['edit_term']['id'] = 'edit_term';
+$handler->display->display_options['fields']['edit_term']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['fields']['edit_term']['field'] = 'edit_term';
+$handler->display->display_options['fields']['edit_term']['relationship'] = 'term_node_tid';
+$handler->display->display_options['fields']['edit_term']['label'] = '';
+$handler->display->display_options['fields']['edit_term']['exclude'] = TRUE;
+$handler->display->display_options['fields']['edit_term']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['edit_term']['alter']['text'] = '<ul class="contextual-links"><li>[edit_term]</li></ul>';
+$handler->display->display_options['fields']['edit_term']['element_type'] = 'div';
+$handler->display->display_options['fields']['edit_term']['element_class'] = 'contextual-links-wrapper';
+$handler->display->display_options['fields']['edit_term']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['edit_term']['element_wrapper_type'] = 'div';
+$handler->display->display_options['fields']['edit_term']['element_wrapper_class'] = 'contextual-links-region';
+$handler->display->display_options['fields']['edit_term']['element_default_classes'] = FALSE;
+$handler->display->display_options['fields']['edit_term']['hide_empty'] = TRUE;
+$handler->display->display_options['fields']['edit_term']['text'] = 'Redigér brevkassebeskrivelse';
 $handler->display->display_options['defaults']['arguments'] = FALSE;
 /* Kontekstuelt filter: Indhold: Har taksonomiterm ID */
 $handler->display->display_options['arguments']['tid']['id'] = 'tid';
@@ -370,15 +388,6 @@ $handler->display->display_options['defaults']['title'] = FALSE;
 $handler->display->display_options['title'] = 'Brevkasse';
 $handler->display->display_options['display_description'] = 'Oversigt over de seneste brevkassespørgsmål';
 $handler->display->display_options['defaults']['header'] = FALSE;
-/* Overskrift: Global: Tekstområde */
-$handler->display->display_options['header']['area_1']['id'] = 'area_1';
-$handler->display->display_options['header']['area_1']['table'] = 'views';
-$handler->display->display_options['header']['area_1']['field'] = 'area';
-$handler->display->display_options['header']['area_1']['content'] = '<h1>Brevkasse</h1>
-<div class="content-list-header"><p>Her sidder der frivillige voksne som gerne vil prøve at hjælpe dig der er mellem 9 og 23 år.</p>
-<p>Find den kategori der passer bedst til dit spørgsmål og se efter om der allerede er et svar du kan bruge.</p>
-<p>Vi svarer alle der skriver til os og vi prøver at besvare dit spørgsmål så hurtigt vi kan, men der kan gå op til 10 dage. (<a href="/node/41027" title="Hvordan finder jeg mit svar?">Kan du ikke finde dit svar?</a>)</p></div>';
-$handler->display->display_options['header']['area_1']['format'] = 'admin_html';
 /* Overskrift: Global: View-område */
 $handler->display->display_options['header']['view']['id'] = 'view';
 $handler->display->display_options['header']['view']['table'] = 'views';
@@ -428,20 +437,19 @@ $translatables['brevkasse_oversigter'] = array(
   t('Enkelt brevkasse'),
   t('Oversigt over en enkelt brevkasse'),
   t('<h1>[field_brev_tax_label]</h1>
+<div class="contextual-links-region"><div class="contextual-links-wrapper">[edit_term]</div></div>
 <div class="content-list-header">[description]</div>
 <a class="btn" href="/node/add/brevkasse?edit[field_brevk_kategori][und]=[tid]">Opret spørgsmål</a>
 <h3>Seneste spørgsmål</h3>'),
   t('brevkasse term'),
   t('<div class="author-timestamp"><strong>Spørgsmål</strong> af [field_navn] <span class="gender tid-[field_brevk_koen_1]" title="[field_brevk_koen]"></span> [field_brevk_alder] • [created] siden</div>'),
   t(','),
+  t('<ul class="contextual-links"><li>[edit_term]</li></ul>'),
+  t('Redigér brevkassebeskrivelse'),
   t('%1'),
   t('Brevkasser oversigt'),
   t('Brevkasse'),
   t('Oversigt over de seneste brevkassespørgsmål'),
-  t('<h1>Brevkasse</h1>
-<div class="content-list-header"><p>Her sidder der frivillige voksne som gerne vil prøve at hjælpe dig der er mellem 9 og 23 år.</p>
-<p>Find den kategori der passer bedst til dit spørgsmål og se efter om der allerede er et svar du kan bruge.</p>
-<p>Vi svarer alle der skriver til os og vi prøver at besvare dit spørgsmål så hurtigt vi kan, men der kan gå op til 10 dage. (<a href="/node/41027" title="Hvordan finder jeg mit svar?">Kan du ikke finde dit svar?</a>)</p></div>'),
   t('<a class="btn" href="/node/add/brevkasse">Opret spørgsmål</a>
 <h3>Seneste spørgsmål</h3>
 '),
