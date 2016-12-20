@@ -95,6 +95,8 @@ input.form-submit {
   border-color: #2980B9;
   border-style: solid;
   border-width: thin;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
   font-weight: 700;
   padding: .7em 1em;
   display: inline-block;
@@ -118,6 +120,8 @@ input.form-submit:active {
   border-color: #2980B9;
   border-style: solid;
   border-width: thin;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
   font-weight: 700;
   padding: .7em 1em;
   display: block;
@@ -148,6 +152,8 @@ input.form-submit:active {
   border-color: #2980B9;
   border-style: solid;
   border-width: thin;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
   font-weight: 700;
   padding: .7em 1em;
   display: inline-block;
@@ -171,6 +177,8 @@ input.form-submit:active {
   border-color: #2980B9;
   border-style: solid;
   border-width: thin;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
   font-weight: 700;
   padding: .7em 1em;
   display: block;
@@ -201,6 +209,8 @@ input.form-submit:active {
   border-color: #2980B9;
   border-style: solid;
   border-width: thin;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
   font-weight: 700;
   padding: .7em 1em;
   display: inline-block;
@@ -1070,6 +1080,8 @@ body.page-user ul.tabs--secondary li a {
   border-color: #2980B9;
   border-style: solid;
   border-width: thin;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
   font-weight: 700;
   padding: .7em 1em;
   display: block;
@@ -1181,6 +1193,8 @@ body.page-comment-reply article li.comment-add a {
   border-color: #2980B9;
   border-style: solid;
   border-width: thin;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
   font-weight: 700;
   padding: .7em 1em;
   display: block;
@@ -1224,6 +1238,8 @@ body.page-comment-reply ul.links.links--inline li.subscribe a {
   border-color: #2980B9;
   border-style: solid;
   border-width: thin;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
   font-weight: 700;
   padding: .7em 1em;
   display: block;
@@ -1702,6 +1718,8 @@ body.page-ung-i h1 {
   border-color: #2980B9;
   border-style: solid;
   border-width: thin;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
   font-weight: 700;
   padding: .7em 1em;
   display: block;
