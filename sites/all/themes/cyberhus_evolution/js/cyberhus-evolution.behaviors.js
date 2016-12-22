@@ -82,6 +82,11 @@
         $("#edit-custom-search-blocks-form-1--2").attr("placeholder", "Søg");
       });
 
+      /* Clear search input field on focus out */
+      $( "#edit-custom-search-blocks-form-1--2" ).focusout(function() {
+        $( this ).val( "" );
+      });
+
       /* Add placeholder element to comment form, body item */
       $('.comment-form', context).once('add-placeholder-comment', function () {
         $(".form-textarea").attr("placeholder", "Skriv kommentar");
