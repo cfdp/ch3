@@ -6,15 +6,21 @@
 }
 .l-region--header {
   height: 50px;
-  margin-right: $margin-std;
-  position: absolute;
+  //margin-right: $margin-std;
+  //left: 0;
+  //right: 0;
+  //position: absolute;
   vertical-align: top;
-  width: 50px;
 }
 
 .l-branding {
   height: 50px;
-  text-align: center;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 125px;
   a.site-logo {
     display: block;
     padding-top: 10px;
