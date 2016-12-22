@@ -294,7 +294,7 @@ $handler->display->display_options['header']['area']['format'] = '2';
 $handler->display->display_options['header']['php']['id'] = 'php';
 $handler->display->display_options['header']['php']['table'] = 'views';
 $handler->display->display_options['header']['php']['field'] = 'php';
-$handler->display->display_options['header']['php']['php_output'] = ' <div class="cyberhus-bef-header">Nyeste opslag</div>
+$handler->display->display_options['header']['php']['php_output'] = ' <div class="cyberhus-bef-header">Du kan sortere her:</div>
  <?php
     // Print views BEF block
     $block = module_invoke(\'views\', \'block_view\', \'-exp-forside_oversigt-page_1\');
