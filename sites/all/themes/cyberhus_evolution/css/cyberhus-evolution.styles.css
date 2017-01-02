@@ -1047,11 +1047,11 @@ input.form-submit:active {
   }
 }
 /* Custom header styling */
-body.page-node-add h1,
 body.page-billeder h1,
 body.page-search h1,
 body.page-hemmeligheder-alle h1,
-body.page-blogs-alle h1 {
+body.page-blogs-alle h1,
+body.page-brevkasse h1 {
   margin: 0 16px;
 }
 
@@ -1059,7 +1059,8 @@ body.content-type-blank_page article h1.node__title {
   margin: 0;
 }
 
-body.page-blogs h1 {
+body.page-blogs h1,
+body.page-node-add h1 {
   margin-left: 16px;
 }
 
@@ -1786,9 +1787,6 @@ body.front .view-forside-oversigt .views-field-php svg g {
 /**
  * BREVKASSE
  */
-body.page-brevkasse .l-content > h1 {
-  display: none;
-}
 body.page-brevkasse .view-header h1 {
   display: block;
 }
@@ -1798,6 +1796,9 @@ body.page-brevkasse .view-brevkasse-oversigter .view-footer {
 body.page-brevkasse .view-brevkasse-oversigter .view-footer .view-cyberhus-forum-term-list {
   background-color: #fff;
   padding: 1em;
+}
+body.page-brevkasse .view-id-brevkasse_oversigter.view-display-id-attachment_1 .view-content {
+  background-color: #fff;
 }
 
 /**

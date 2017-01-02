@@ -217,9 +217,7 @@ $handler->display->display_options['header']['area_1']['table'] = 'views';
 $handler->display->display_options['header']['area_1']['field'] = 'area';
 $handler->display->display_options['header']['area_1']['content'] = '<h1>[field_brev_tax_label]</h1>
 <div class="contextual-links-region"><div class="contextual-links-wrapper">[edit_term]</div></div>
-<div class="content-list-header">[description]</div>
-<a class="btn" href="/node/add/brevkasse?edit[field_brevk_kategori][und]=[tid]">Opret spørgsmål</a>
-<h3>Seneste spørgsmål</h3>';
+<div class="content-list-header">[description]</div>';
 $handler->display->display_options['header']['area_1']['format'] = 'admin_html';
 $handler->display->display_options['header']['area_1']['tokenize'] = TRUE;
 $handler->display->display_options['defaults']['footer'] = FALSE;
@@ -404,6 +402,85 @@ $handler->display->display_options['header']['area']['format'] = '2';
 $handler->display->display_options['header']['area']['tokenize'] = TRUE;
 $handler->display->display_options['defaults']['arguments'] = FALSE;
 $handler->display->display_options['path'] = 'brevkasse';
+
+/* Display: New question button */
+$handler = $view->new_display('attachment', 'New question button', 'attachment_1');
+$handler->display->display_options['defaults']['title'] = FALSE;
+$handler->display->display_options['defaults']['css_class'] = FALSE;
+$handler->display->display_options['display_description'] = 'Button for adding a new question';
+$handler->display->display_options['pager']['type'] = 'some';
+$handler->display->display_options['pager']['options']['items_per_page'] = '1';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['defaults']['style_plugin'] = FALSE;
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['style_options']['default_row_class'] = FALSE;
+$handler->display->display_options['defaults']['style_options'] = FALSE;
+$handler->display->display_options['defaults']['row_plugin'] = FALSE;
+$handler->display->display_options['row_plugin'] = 'fields';
+$handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+$handler->display->display_options['defaults']['row_options'] = FALSE;
+$handler->display->display_options['defaults']['header'] = FALSE;
+$handler->display->display_options['defaults']['footer'] = FALSE;
+/* Sidefod: Global: Tekstområde */
+$handler->display->display_options['footer']['area']['id'] = 'area';
+$handler->display->display_options['footer']['area']['table'] = 'views';
+$handler->display->display_options['footer']['area']['field'] = 'area';
+$handler->display->display_options['footer']['area']['empty'] = TRUE;
+$handler->display->display_options['footer']['area']['content'] = '<h3 style="margin: 0;">Seneste spørgsmål</h3>';
+$handler->display->display_options['footer']['area']['format'] = 'admin_html';
+$handler->display->display_options['defaults']['relationships'] = FALSE;
+/* Forbindelse: Indhold: Taksonomitermer på node */
+$handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+$handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+$handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Felt: Ord i ordforråd: Term ID */
+$handler->display->display_options['fields']['tid']['id'] = 'tid';
+$handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['fields']['tid']['field'] = 'tid';
+$handler->display->display_options['fields']['tid']['relationship'] = 'term_node_tid';
+$handler->display->display_options['fields']['tid']['label'] = '';
+$handler->display->display_options['fields']['tid']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['tid']['alter']['text'] = '<a class="btn" href="/node/add/brevkasse?edit[field_brevk_kategori][und]=[tid]">Opret spørgsmål</a>';
+$handler->display->display_options['fields']['tid']['element_type'] = '0';
+$handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['tid']['element_wrapper_type'] = '0';
+$handler->display->display_options['fields']['tid']['element_default_classes'] = FALSE;
+$handler->display->display_options['fields']['tid']['separator'] = '';
+$handler->display->display_options['defaults']['sorts'] = FALSE;
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+/* Kontekstuelt filter: Indhold: Kategori (field_brevk_kategori) */
+$handler->display->display_options['arguments']['field_brevk_kategori_tid']['id'] = 'field_brevk_kategori_tid';
+$handler->display->display_options['arguments']['field_brevk_kategori_tid']['table'] = 'field_data_field_brevk_kategori';
+$handler->display->display_options['arguments']['field_brevk_kategori_tid']['field'] = 'field_brevk_kategori_tid';
+$handler->display->display_options['arguments']['field_brevk_kategori_tid']['default_action'] = 'not found';
+$handler->display->display_options['arguments']['field_brevk_kategori_tid']['exception']['title'] = 'Alle';
+$handler->display->display_options['arguments']['field_brevk_kategori_tid']['default_argument_type'] = 'fixed';
+$handler->display->display_options['arguments']['field_brevk_kategori_tid']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['field_brevk_kategori_tid']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['field_brevk_kategori_tid']['summary_options']['items_per_page'] = '25';
+$handler->display->display_options['arguments']['field_brevk_kategori_tid']['specify_validation'] = TRUE;
+$handler->display->display_options['arguments']['field_brevk_kategori_tid']['validate']['type'] = 'taxonomy_term';
+$handler->display->display_options['arguments']['field_brevk_kategori_tid']['validate_options']['vocabularies'] = array(
+  'vocabulary_3' => 'vocabulary_3',
+);
+$handler->display->display_options['arguments']['field_brevk_kategori_tid']['validate_options']['type'] = 'convert';
+$handler->display->display_options['arguments']['field_brevk_kategori_tid']['validate_options']['transform'] = TRUE;
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filterkriterie: Ord i ordforråd: Status (field_taxonomy_brevk_status) */
+$handler->display->display_options['filters']['field_taxonomy_brevk_status_value']['id'] = 'field_taxonomy_brevk_status_value';
+$handler->display->display_options['filters']['field_taxonomy_brevk_status_value']['table'] = 'field_data_field_taxonomy_brevk_status';
+$handler->display->display_options['filters']['field_taxonomy_brevk_status_value']['field'] = 'field_taxonomy_brevk_status_value';
+$handler->display->display_options['filters']['field_taxonomy_brevk_status_value']['relationship'] = 'term_node_tid';
+$handler->display->display_options['filters']['field_taxonomy_brevk_status_value']['value'] = array(
+  'open' => 'open',
+);
+$handler->display->display_options['displays'] = array(
+  'page' => 'page',
+  'default' => 0,
+  'page_1' => 0,
+);
 $translatables['brevkasse_oversigter'] = array(
   t('Master'),
   t('Seneste blogindlæg'),
@@ -438,9 +515,7 @@ $translatables['brevkasse_oversigter'] = array(
   t('Oversigt over en enkelt brevkasse'),
   t('<h1>[field_brev_tax_label]</h1>
 <div class="contextual-links-region"><div class="contextual-links-wrapper">[edit_term]</div></div>
-<div class="content-list-header">[description]</div>
-<a class="btn" href="/node/add/brevkasse?edit[field_brevk_kategori][und]=[tid]">Opret spørgsmål</a>
-<h3>Seneste spørgsmål</h3>'),
+<div class="content-list-header">[description]</div>'),
   t('brevkasse term'),
   t('<div class="author-timestamp"><strong>Spørgsmål</strong> af [field_navn] <span class="gender tid-[field_brevk_koen_1]" title="[field_brevk_koen]"></span> [field_brevk_alder] • [created] siden</div>'),
   t(','),
@@ -453,6 +528,10 @@ $translatables['brevkasse_oversigter'] = array(
   t('<a class="btn" href="/node/add/brevkasse">Opret spørgsmål</a>
 <h3>Seneste spørgsmål</h3>
 '),
+  t('New question button'),
+  t('Button for adding a new question'),
+  t('<h3 style="margin: 0;">Seneste spørgsmål</h3>'),
+  t('<a class="btn" href="/node/add/brevkasse?edit[field_brevk_kategori][und]=[tid]">Opret spørgsmål</a>'),
 );
 
   return $view;
