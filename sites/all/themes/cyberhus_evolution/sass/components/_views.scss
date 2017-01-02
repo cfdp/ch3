@@ -176,6 +176,9 @@ body.front {
  */
 
 body.page-brevkasse {
+  .l-content > h1 {
+    display: none;
+  }
   .view-header h1 {
     display: block;
   }
