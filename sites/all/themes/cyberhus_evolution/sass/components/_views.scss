@@ -176,9 +176,6 @@ body.front {
  */
 
 body.page-brevkasse {
-  .l-content > h1 {
-    display: none;
-  }
   .view-header h1 {
     display: block;
   }
@@ -189,6 +186,11 @@ body.page-brevkasse {
         background-color: $bg-white;
         padding: $padding-std;
       }
+    }
+  }
+  .view-id-brevkasse_oversigter.view-display-id-attachment_1 {
+    .view-content {
+      background-color: $bg-white;
     }
   }
 }
