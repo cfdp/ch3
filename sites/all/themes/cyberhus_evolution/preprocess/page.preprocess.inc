@@ -69,7 +69,7 @@ function cyberhus_evolution_preprocess_page(&$vars) {
         break;
       case 'blog':
         $account = user_load($node->uid);
-        $blog_name = $account->profile_blogname;
+        $blog_name = isset($account->profile_blogname) ? ($account->profile_blogname) : ("Anonym");
         $blog_url = "blog/".$node->uid;
         $crumbs[] = l(t('Blogs'), 'blogs');
         if (!($blog_name == NULL)) {
