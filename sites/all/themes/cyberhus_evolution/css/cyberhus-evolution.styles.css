@@ -1050,8 +1050,7 @@ input.form-submit:active {
 body.page-billeder h1,
 body.page-search h1,
 body.page-hemmeligheder-alle h1,
-body.page-blogs-alle h1,
-body.page-brevkasse h1 {
+body.page-blogs-alle h1 {
   margin: 0 16px;
 }
 
@@ -1787,6 +1786,9 @@ body.front .view-forside-oversigt .views-field-php svg g {
 /**
  * BREVKASSE
  */
+body.page-brevkasse .l-content > h1 {
+  display: none;
+}
 body.page-brevkasse .view-header h1 {
   display: block;
 }
