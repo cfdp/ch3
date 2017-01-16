@@ -87,6 +87,14 @@ function cyberhus_evolution_preprocess_page(&$vars) {
         break;
       case 'link_artikel':
         $crumbs[] = l(t('Artikler'), 'artikler');
+        $term = field_get_items('node', $node, 'field_tema_kategori');
+        $output = field_view_value('node', $node, 'field_tema_kategori', $term[0]);
+        $term_name = $output["#title"];
+        // We need to replace spaces in term name with dashes for the URL
+        $pattern = '/[\s]/';
+        $replacement = '-';
+        $term_name_preg = preg_replace($pattern, $replacement, $term_name);
+        $crumbs[] = l($term_name, 'temaer/'.$term_name_preg);
         break;
     }
   }
