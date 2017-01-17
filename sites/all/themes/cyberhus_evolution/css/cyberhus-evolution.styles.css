@@ -1050,7 +1050,8 @@ input.form-submit:active {
 body.page-billeder h1,
 body.page-search h1,
 body.page-hemmeligheder-alle h1,
-body.page-blogs-alle h1 {
+body.page-blogs-alle h1,
+body.page-temaer h1 {
   margin: 0 16px;
 }
 
