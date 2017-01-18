@@ -157,6 +157,15 @@ $handler->display->display_options['filters']['status_node']['relationship'] = '
 $handler->display->display_options['filters']['status_node']['value'] = 1;
 $handler->display->display_options['filters']['status_node']['group'] = 1;
 $handler->display->display_options['filters']['status_node']['expose']['operator'] = FALSE;
+/* Filterkriterie: Indhold: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['relationship'] = 'nid';
+$handler->display->display_options['filters']['type']['operator'] = 'not in';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'link_artikel' => 'link_artikel',
+);
 
 /* Display: Load more comments */
 $handler = $view->new_display('block', 'Load more comments', 'block_1');
