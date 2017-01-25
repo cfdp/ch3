@@ -1,0 +1,9 @@
+name = CfDP Anonymizer
+description = Helps keeping the users private info private
+package = CfDP Helper Modules
+
+files[] = cfdp_anonymizer.module
+
+version = "7.x-1.0"
+core = "7.x"
+project = "cfdp_anonymizer"
