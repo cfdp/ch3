@@ -18,6 +18,7 @@ sites/all/modules/search_krumo
 sites/all/modules/stage_file_proxy
 sites/all/modules/reroute_email
 sites/all/modules/smtp
+sites/all/modules/module_builder
 robots.txt
 FirePHPCore
 sites/all/modules/xhprof

@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ *
+ */
+
+/*
+ * Implementation of hook_form_comment_form_alter()
+ */
+function cfdp_anonymizer_form_comment_form_alter(&$form, &$form_state) {
+  if (isset($form["author"]["mail"])) {
+    $form["author"]["mail"]["#access"] = FALSE;
+  }
+}
+/*
+ * Implementation of hook_menu_alter()
+ *
+ * http://drupal.stackexchange.com/questions/30483/how-do-i-override-menu-items-with-my-own-implementation
+ */
+function cfdp_anonymizer_menu_alter(&$items) {
+  $items['node/%/subscriptions']['access callback'] = 'cfdp_uf_access_callback';
+  $items['node/%/subscriptions']['page callback'] = 'cfdp_uf_subscriptions_page_callback';
+}
+
+/*
+ * No access allowed to subscription pages
+ */
+function cfdp_anonymizer_access_callback($account) {
+    return FALSE;
+}
+
+/*
+ * Placeholder
+ */
+function cfdp_uf_subscriptions_page_callback($account) {
+
+}
