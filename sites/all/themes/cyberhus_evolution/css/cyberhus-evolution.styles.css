@@ -1473,6 +1473,9 @@ body.page-pollim .view > .view-content .views-row {
 #ungi-cities .ungi-half {
   max-width: 100%;
 }
+#ungi-cities ul.ungi-with-chat iframe {
+  height: 165px;
+}
 #ungi-cities ul.ungi-with-chat .ungi-half .btn {
   display: none;
   margin: 0 0 1em 0;
@@ -1499,10 +1502,6 @@ body.page-pollim .view > .view-content .views-row {
 }
 #ungi-cities .chat-desc {
   margin: 0.75em 0;
-}
-#ungi-cities .ungi-chat-wrapper {
-  display: inline-block;
-  float: left;
 }
 
 #page.ungi-city h1 {
@@ -1546,12 +1545,20 @@ body.page-ung-i h1 {
   margin: 16px 16px 0;
 }
 
-@media (min-width: 36.625em) {
+@media (min-width: 30em) {
+  #ungi-cities ul.ungi-with-chat iframe {
+    height: 130px;
+  }
+
   body.page-ung-i h1 {
     display: none;
   }
 
-  #ungi-cities .ungi-with-chat .ungi-half a.btn {
+  #ungi-cities .ungi-with-chat .city-options-text {
+    display: inline-block;
+    width: 67%;
+  }
+  #ungi-cities .ungi-with-chat .ungi-city-options a.btn {
     display: inline-block;
   }
   #ungi-cities ul.ungi-no-chat {
@@ -1567,9 +1574,6 @@ body.page-ung-i h1 {
   #ungi-cities ul.ungi-no-chat .ungi-city a.btn {
     margin: 0.25em auto 1em 0;
   }
-  #ungi-cities .ungi-chat-wrapper {
-    float: right;
-  }
 
   #ungi-city #ungi-desc h2 {
     display: block;
@@ -1577,6 +1581,11 @@ body.page-ung-i h1 {
   }
   #ungi-city #ungi-map {
     display: block;
+  }
+}
+@media (min-width: 36.625em) {
+  #ungi-cities ul.ungi-with-chat iframe {
+    height: 70px;
   }
 }
 /**
