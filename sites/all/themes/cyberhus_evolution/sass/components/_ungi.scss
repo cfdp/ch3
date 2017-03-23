@@ -34,6 +34,9 @@
     max-width: 100%;
   }
   ul.ungi-with-chat {
+    iframe {
+      height: 165px;
+    }
     .ungi-half {
       .btn {
         display: none; // Hide btn in mobile view
@@ -63,10 +66,6 @@
   }
   .chat-desc {
     margin: $margin-small 0;
-  }
-  .ungi-chat-wrapper {
-    display: inline-block;
-    float: left;
   }
 }
 
@@ -106,7 +105,15 @@ body.page-ung-i {
     margin: 16px 16px 0;
   }
 }
-@include breakpoint($tab, true) {
+
+@include breakpoint($smart, true) {
+  #ungi-cities {
+    ul.ungi-with-chat {
+      iframe {
+        height: 130px;
+      }
+    }
+  }
   body.page-ung-i {
     h1 {
       display: none;
@@ -114,7 +121,11 @@ body.page-ung-i {
   }
   #ungi-cities {
     .ungi-with-chat {
-      .ungi-half {
+      .city-options-text {
+        display: inline-block;
+        width: 67%;
+      }
+      .ungi-city-options {
         a.btn {
           display: inline-block; // Show button
         }
@@ -133,9 +144,6 @@ body.page-ung-i {
         }
       }
     }
-    .ungi-chat-wrapper {
-      float: right;
-    }
   }
   #ungi-city {
     #ungi-desc h2 {
@@ -144,6 +152,16 @@ body.page-ung-i {
     }
     #ungi-map {
       display: block;
+    }
+  }
+}
+
+@include breakpoint($tab, true) {
+  #ungi-cities {
+    ul.ungi-with-chat {
+      iframe {
+        height: 70px;
+      }
     }
   }
 }
