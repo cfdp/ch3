@@ -19,7 +19,7 @@ function ungi_term_to_city($term, $small = false) {
 	$city->chaturl = ungi_get_field_value($term->field_chat_url);
 	$city->chatdesc = ungi_get_field_value($term->field_chatbeskrivelse);
 	if (empty($city->chatdesc)) {
-		$city->chatdesc = $term->name . " har pt. ingen chat";
+		$city->chatdesc = "";
 	}
 	return $city;
 }
