@@ -775,6 +775,7 @@ input.form-submit:active {
 }
 .curachat-widgets .opeka-chat-foldout-wrapper.multi {
   top: 15%;
+  right: -390px;
 }
 
 .curachat-widgets-inline {
