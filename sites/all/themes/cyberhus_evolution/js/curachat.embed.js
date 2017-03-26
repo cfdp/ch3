@@ -89,6 +89,10 @@
   /* @todo: should be deleted when / if multi-widget is integrated in foldout */
   //Foldout animation
   function foldoutAnimation(chatName) {
+    var rightPos = -260;
+    if (chatName == "multi") {
+      rightPos = -390;
+    }
     $(".opeka-chat-foldout-wrapper."+chatName).hover(
       function() {
         $(this).stop(true,true).animate({
@@ -97,14 +101,14 @@
       },
       function() {
         $(this).stop(true,true).animate({
-          right: -260
+          right: rightPos
         },200);
       }
     );
   }
 
   function embedMultiWidget() {
-    $( ".curachat-widgets" ).append( '<div class="opeka-chat-foldout-wrapper multi"><div id="opeka-chat-iframe-multi"><iframe src="https://cyberhus.dk/sites/all/themes/cyberhus_evolution/widgets/chat-multi-widget/embed.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" height="430"></iframe></div></div>' );
+    $( ".curachat-widgets" ).append( '<div class="opeka-chat-foldout-wrapper multi"><div id="opeka-chat-iframe-multi"><iframe src="https://cyberhus.dk/sites/all/themes/cyberhus_evolution/widgets/chat-multi-widget/embed.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" height="410px" width="430px"></iframe></div></div>' );
   }
 
 })(jQuery);
