@@ -88,7 +88,8 @@ function cyberhus_evolution_preprocess_page(&$vars) {
       case 'link_artikel':
         $crumbs[] = l(t('Artikler'), 'artikler');
         $term = field_get_items('node', $node, 'field_tema_kategori');
-        if (isset($term)) {
+        // Make sure the article has a term
+        if ($term[0] != '') {
           $output = field_view_value('node', $node, 'field_tema_kategori', $term[0]);
           $term_name = $output["#title"];
           // We need to replace spaces in term name with dashes for the URL
