@@ -8,7 +8,7 @@
         <iframe class="curachat-widgets-header" src="<?php print $city->chaturl . "/header/" . $city->chattype; ?>"></iframe>
 				<p class="chat-desc"><?php print $city->chatdesc; ?></p>
 			<?php else: ?>
-				<p><?php print $city->name ?> Kommune har endnu ikke en lokal chat på Cyberhus, men du er mere end velkommen til at benytte <a href="/chat">Cyberhus’ egen chat</a>, hvor du kan snakke med rådgiverne og andre unge.</p>
+				<p><?php print $city->name ?> Kommune har endnu ikke en lokal chat på Cyberhus, men du er mere end velkommen til at benytte <a href="/chat">Cyberhus’ egne chats</a>, hvor du kan snakke med vores frivillige rådgivere og andre unge.</p>
 			<?php endif ?>
 		</div>
 	</div>
