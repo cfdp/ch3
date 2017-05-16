@@ -7,7 +7,7 @@
 (function ($) {
   window.addEventListener("message", receiveMessage, false);
   var chatStates = {}, // Object holding the state of the embedded chat services
-    validOrigins = ['https://aarhus.curachat.com', 'https://rksk.curachat.com', 'https://odder.curachat.com', 'https://halsnaes.curachat.com','https://vejle.curachat.com','https://skanderborg.curachat.com'],
+    validOrigins = ['https://aarhus.curachat.com', 'https://rksk.curachat.com', 'https://odder.curachat.com', 'https://halsnaes.curachat.com','https://vejle.curachat.com','https://skanderborg.curachat.com','https://brus.curachat.com','https://roskilde.curachat.com'],
     opekaMultiWidgetState = 'chat-closed';
 
   /**

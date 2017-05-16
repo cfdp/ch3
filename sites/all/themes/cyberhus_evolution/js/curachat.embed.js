@@ -108,7 +108,7 @@
   }
 
   function embedMultiWidget() {
-    $( ".curachat-widgets" ).append( '<div class="opeka-chat-foldout-wrapper multi"><div id="opeka-chat-iframe-multi"><iframe src="https://cyberhus.dk/sites/all/themes/cyberhus_evolution/widgets/chat-multi-widget/embed.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" height="410px" width="430px"></iframe></div></div>' );
+    $( ".curachat-widgets" ).append( '<div class="opeka-chat-foldout-wrapper multi"><div id="opeka-chat-iframe-multi"><iframe src="https://cyberhus.dk/sites/all/themes/cyberhus_evolution/widgets/chat-multi-widget/embed.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" height="450px" width="430px"></iframe></div></div>' );
   }
 
 })(jQuery);
