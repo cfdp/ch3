@@ -1,0 +1,267 @@
+<quiz>
+	<question id="1">
+		<storylinedreng><![CDATA[Gad vide hvor mange drenge på min alder, der spiser morgenmad på alle hverdage?]]></storylinedreng>
+		<storylinepige><![CDATA[Gad vide hvor mange piger på min alder, der spiser morgenmad på alle hverdage?]]></storylinepige>
+		<replyI>Der er </replyI>
+		<replyII> på min alder, der spiser morgenmad på alle hverdage.</replyII>
+		<answers>
+		   <answer id="p11">
+		        <item value="false" >20%</item>
+		    	<item value="false" >35%</item>
+		    	<item value="false" >68%</item>
+		    	<item value="true" >80%</item>
+		   </answer>
+		   <answer id="p13">
+		        <item value="false" >20%</item>
+		    	<item value="false" >35%</item>
+		    	<item value="true" >68%</item>
+		    	<item value="false" >80%</item>
+		   </answer>
+		   <answer id="p15">
+		        <item value="false" >21%</item>
+		    	<item value="false" >35%</item>
+		    	<item value="true" >57%</item>
+		    	<item value="false" >66%</item>
+		   </answer>
+		   <answer id="d11">
+		        <item value="false" >20%</item>
+		    	<item value="false" >35%</item>
+		    	<item value="false" >53%</item>
+		    	<item value="true" >82%</item>
+		   </answer>
+		   <answer id="d13">
+		        <item value="false" >26%</item>
+		    	<item value="false" >45%</item>
+		    	<item value="true" >76%</item>
+		    	<item value="false" >82%</item>
+		   </answer>
+		   <answer id="d15">
+		        <item value="false" >21%</item>
+		    	<item value="false" >35%</item>
+		    	<item value="false" >43%</item>
+		    	<item value="true" >69%</item>
+		   </answer>
+		</answers>
+	</question>
+	<question id="2">
+		<storylinedreng><![CDATA[Gad vide hvor mange drenge på min alder, der føler sig for tykke?]]></storylinedreng>
+		<storylinepige><![CDATA[Gad vide hvor mange piger på min alder, der føler sig for tykke?]]></storylinepige>
+		<replyI>Der er </replyI>
+		<replyII> på min alder, der føler sig for tykke, men i virkeligheden er det under 15%, der er overvægtige.</replyII>
+		<answers>
+		   <answer id="p11">
+		        <item value="false" >7%</item>
+		    	<item value="false" >15%</item>
+		    	<item value="false" >24%</item>
+		    	<item value="true" >31%</item>
+		   </answer>
+		   <answer id="p13" correct="">
+		        <item value="false" >7%</item>
+		    	<item value="false" >19%</item>
+		    	<item value="false" >30%</item>
+		    	<item value="true" >41%</item>
+		   </answer>
+		   <answer id="p15" correct="">
+		        <item value="false" >5%</item>
+		    	<item value="false" >18%</item>
+		    	<item value="false" >28%</item>
+		    	<item value="true" >45%</item>
+		   </answer>
+		   <answer id="d11">
+		        <item value="false" >5%</item>
+		    	<item value="false" >16%</item>
+		    	<item value="true" >24%</item>
+		    	<item value="false" >30%</item>
+		   </answer>
+		   <answer id="d13" correct="">
+		        <item value="false" >5%</item>
+		    	<item value="false" >16%</item>
+		    	<item value="true" >24%</item>
+		    	<item value="false" >30%</item>
+		   </answer>
+		   <answer id="d15" correct="">
+		        <item value="false" >6%</item>
+		    	<item value="false" >13%</item>
+		    	<item value="true" >21%</item>
+		    	<item value="false" >30%</item>
+		   </answer>
+		</answers>
+	</question>
+	<question id="3">
+		<storylinedreng><![CDATA[Gad vide hvor mange drenge på min alder, der spiser frugt hver dag?]]></storylinedreng>
+		<storylinepige><![CDATA[Gad vide hvor mange piger på min alder, der spiser frugt hver dag?]]></storylinepige>
+		<replyI>Der er </replyI>
+		<replyII> på min alder, der spiser frugt hver dag.</replyII>
+		<answers>
+		   <answer id="p11">
+		        <item value="false" >57%</item>
+		    	<item value="false" >63%</item>
+		    	<item value="true" >70%</item>
+		    	<item value="false" >42%</item>
+		   </answer>
+		   <answer id="p13">
+		   	    <item value="false" >45%</item>
+		        <item value="false" >52%</item>
+		    	<item value="true" >63%</item>
+		    	<item value="false" >68%</item>
+		   </answer>
+		   <answer id="p15">
+		        <item value="false" >17%</item>
+				<item value="false" >34%</item>
+		    	<item value="false" >45%</item>
+		    	<item value="true" >64%</item>
+		   </answer>
+		   <answer id="d11">
+		        <item value="false" >20%</item>
+		    	<item value="false" >35%</item>
+		    	<item value="true" >55%</item>
+		    	<item value="false" >82%</item>
+		   </answer>
+		   <answer id="d13">
+		        <item value="false" >26%</item>
+		    	<item value="false" >45%</item>
+		    	<item value="true" >51%</item>
+		    	<item value="false" >82%</item>
+		   </answer>
+		   <answer id="d15">
+		        <item value="false" >21%</item>
+				<item value="false" >33%</item>
+		    	<item value="true" >42%</item>
+		    	<item value="false" >69%</item>
+		   </answer>
+		</answers>
+	</question>
+	<question id="4">
+		<storylinedreng><![CDATA[Gad vide hvor mange drenge på min alder, der ikke drikker sodavand hver dag?]]></storylinedreng>
+		<storylinepige><![CDATA[Gad vide hvor mange piger på min alder, der ikke drikker sodavand hver dag?]]></storylinepige>		
+		<replyI>Der er </replyI>
+		<replyII> på min alder, der ikke drikker sodavand hver dag. Bøvs.</replyII>
+		<answers>
+		   <answer id="p11">
+		        <item value="false" >68%</item>
+		    	<item value="false" >79%</item>
+		    	<item value="false" >83%</item>
+		    	<item value="true" >91%</item>
+		   </answer>
+		   <answer id="p13" correct="">  
+		        <item value="false" >44%</item>
+		    	<item value="false" >66%</item>
+		    	<item value="false" >79%</item>
+		    	<item value="true" >87%</item>
+		   </answer>
+		   <answer id="p15" correct=""> 
+		        <item value="false" >33%</item>
+		    	<item value="false" >49%</item>
+		    	<item value="false" >67%</item>
+		    	<item value="true" >81%</item>
+		   </answer>
+		   <answer id="d11" correct=""> 
+		        <item value="false" >49%</item>
+		    	<item value="false" >66%</item>
+		    	<item value="false" >80%</item>
+		    	<item value="true" >86%</item>
+		   </answer>
+		   <answer id="d13" correct="">
+		    	<item value="false" >41%</item>
+		        <item value="false" >62%</item>
+		    	<item value="true" >75%</item>
+		    	<item value="false" >93%</item>
+		   </answer>
+		   <answer id="d15" correct=""> 
+		        <item value="false" >24%</item>
+				<item value="false" >49%</item>
+		    	<item value="false" >55%</item>
+		    	<item value="true" >67%</item>
+		   </answer>
+		</answers>
+	</question>
+	<question id="5">
+		<storylinedreng><![CDATA[Gad vide hvor mange drenge på min alder, der ikke spiser chips, pommes frites eller andet junkfood hver uge?]]></storylinedreng>
+		<storylinepige><![CDATA[Gad vide hvor mange piger på min alder, der ikke spiser chips, pommes frites eller andet junkfood hver uge?]]></storylinepige>		
+		<replyI>Der er </replyI>
+		<replyII> på min alder, der ikke spiser junkfood hver uge.</replyII>
+		<answers>
+		   <answer id="p11">
+		        <item value="false" >52%</item>
+		    	<item value="false" >70%</item>
+		    	<item value="true" >80%</item>
+		    	<item value="false" >91%</item>
+		   </answer>
+		   <answer id="p13">
+		        <item value="false" >45%</item>
+				<item value="false" >52%</item>
+		    	<item value="false" >70%</item>
+		    	<item value="true" >84%</item>
+		   </answer>
+		   <answer id="p15">
+		        <item value="false" >26%</item>
+				<item value="false" >41%</item>
+		    	<item value="true" >68%</item>
+		    	<item value="false" >96%</item>
+		   </answer>
+		   <answer id="d11">
+		        <item value="false" >49%</item>
+		    	<item value="false" >61%</item>
+		    	<item value="true" >79%</item>
+		    	<item value="false" >88%</item>
+		   </answer>
+		   <answer id="d13">
+		        <item value="false" >49%</item>
+		    	<item value="false" >58%</item>
+		    	<item value="true" >69%</item>
+		    	<item value="false" >78%</item>
+		   </answer>
+		   <answer id="d15">
+		        <item value="false" >39%</item>
+		    	<item value="false" >51%</item>
+		    	<item value="true" >63%</item>
+		    	<item value="false" >84%</item>
+		   </answer>
+		</answers>
+	</question>
+	<question id="6">
+		<storylinedreng><![CDATA[Gad vide hvor mange drenge på min alder, der drikker alkohol mindst en gang om ugen?]]></storylinedreng>
+		<storylinepige><![CDATA[Gad vide hvor mange piger på min alder, der drikker alkohol mindst en gang om ugen?]]></storylinepige>
+		<replyI>Der er </replyI>
+		<replyII> på min alder, der drikker alkohol mindst en gang om ugen.</replyII>
+		<answers>
+		   <answer id="p11">
+		        <item value="true" >0%</item>
+		    	<item value="false" >8%</item>
+		    	<item value="false" >15%</item>
+		    	<item value="false" >25%</item>
+		   </answer>
+		   <answer id="p13">
+		        <item value="true" >4%</item>
+		    	<item value="false" >8%</item>
+		    	<item value="false" >15%</item>
+		    	<item value="false" >24%</item>
+		   </answer>
+		   <answer id="p15">
+		        <item value="false" >18%</item>
+				<item value="true" >26%</item>
+		    	<item value="false" >35%</item>
+		    	<item value="false" >47%</item>
+		   </answer>
+		   <answer id="d11">
+		        <item value="false" >0%</item>
+		    	<item value="true" >2%</item>
+		    	<item value="false" >8%</item>
+		    	<item value="false" >20%</item>
+		   </answer>
+		   <answer id="d13">
+		        <item value="false" >4%</item>
+		    	<item value="true" >8%</item>
+		    	<item value="false" >18%</item>
+		    	<item value="false" >26%</item>
+		   </answer>
+		   <answer id="d15">
+		    	<item value="false" >27%</item>
+		    	<item value="true" >37%</item>
+		    	<item value="false" >44%</item>
+				<item value="false" >56%</item>
+		   </answer>
+		</answers>
+	</question>
+
+</quiz>
