@@ -1,0 +1,15 @@
+name = Cyberhus Clean
+description = A responsive theme for D7.
+core = 7.x
+
+stylesheets[all][] = css/styles.css
+
+regions[header] = Header
+regions[help] = Help
+regions[highlighted] = Highlighted
+regions[menu] = Menu
+regions[content] = Content
+regions[sidebar_first] = Sidebar first
+regions[sidebar_second] = Sidebar second
+regions[footer_first] = Footer first
+regions[footer_second] = Footer second

@@ -1,0 +1,26 @@
+#footer-wrapper {
+
+  // Temp
+  svg {
+    display: none;
+  }
+
+  #footer {
+    margin: auto;
+    text-align: center;
+    padding: 20px 10px;
+    box-sizing: border-box;
+
+    @include bp-narrow {
+      padding: 50px 75px;
+      width: 700px;
+    }
+    @include bp-normal {
+      padding: 50px 200px;
+      width: 960px;
+    }
+    @include bp-wide {
+      width: 1180px;
+    }
+  }
+}

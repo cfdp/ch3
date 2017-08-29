@@ -1,0 +1,40 @@
+.frontpage-stream {
+
+  .stream-item {
+
+    background: white;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 2em;
+
+    .stream-title {
+      a {
+        color: $text-color;
+      }
+    }
+
+    .stream-metadata {
+      color: $text-color-light;
+      padding: 0 0 1em 0;
+      margin-bottom: 1em;
+      border-bottom: 1px solid #d7d7d7;
+
+      .stream-metadata-item {
+        margin-right: 10px;
+        padding-right: 10px;
+        display: inline-block;
+        border-right: 1px solid #d7d7d7;
+      }
+    }
+
+    .stream-interaction {
+
+      .stream-like {
+
+      }
+      .stream-comments {
+
+      }
+    }
+  }
+}

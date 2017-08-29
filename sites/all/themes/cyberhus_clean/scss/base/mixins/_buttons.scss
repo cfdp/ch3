@@ -1,0 +1,35 @@
+@mixin button($color) {
+
+  display: inline-block;
+  background-color: $color;
+  padding: 0.75em 1.75em;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  opacity: 1;
+  @include transition-property(opacity);
+  @include transition-duration(250ms);
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+@mixin button-link($color) {
+
+  display: inline-block;
+  background-color: $color;
+  padding: 0.75em 1.75em;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  text-decoration: none;
+  @include transition-property(opacity);
+  @include transition-duration(250ms);
+
+  &:hover {
+    opacity: 0.85;
+  }
+}

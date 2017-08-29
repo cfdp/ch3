@@ -1,0 +1,22 @@
+/* Font Sizes */
+$font-size-base-px: 16;
+$font-size-base: 1em;
+
+$font-size-smallest: (10/$font-size-base-px)*1em;
+$font-size-smaller: (12/$font-size-base-px)*1em;
+$font-size-small: (14/$font-size-base-px)*1em;
+$font-size-medium: (22/$font-size-base-px)*1em;
+$font-size-large: (28/$font-size-base-px)*1em;
+$font-size-larger: (35/$font-size-base-px)*1em;
+$font-size-largest: (40/$font-size-base-px)*1em;
+
+/* Font Families */
+$font-fam-base: 'Open Sans', sans-serif;
+$font-fam-alt: 'Vollkorn', serif;
+$font-fam-head: 'Open Sans', sans-serif;
+
+/* Line Height */
+$line-height-base: 1.50em;
+$line-height-small: 1.25em;
+$line-height-medium: 1.35em;
+$line-height-large: 1.75em;

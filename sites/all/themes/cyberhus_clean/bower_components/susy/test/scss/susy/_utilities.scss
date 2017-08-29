@@ -1,0 +1,119 @@
+// Sass Utilities
+// ==============
+
+
+// Susy Error
+// ----------
+@include test-module('Susy Error [function]') {
+  @include test('Allow errors to return without blocking compilation') {
+    @include assert-equal(
+      _susy-error('This is a test error message', '_susy-error test'),
+      'ERROR [_susy-error test] This is a test error message');
+  }
+}
+
+
+// Su Is Comparable
+// -------------
+@include test-module('Su Is Comparable [function]') {
+  @include test('Fully fluid') {
+    @include assert-equal(
+      _su-is-comparable(0.5, 1, 2, 4, 2),
+      'fluid');
+  }
+
+  @include test('Comparable static') {
+    @include assert-equal(
+      _su-is-comparable(10px, 3px, 2in, 33cm),
+      'static');
+  }
+
+  @include test('Mixed fluid-static') {
+    @include assert-false(
+      _su-is-comparable(10px, 3, 2in, 33cm));
+  }
+
+  @include test('Non-comparable static') {
+    @include assert-false(
+      _su-is-comparable(10px, 3rem, 2in, 33cm));
+  }
+}
+
+
+// Susy Map Add Units
+// ------------------
+@include test-module('Susy Map Add Units [function]') {
+  $map: (
+    0cm: 300cm,
+    0em: 20em,
+  );
+
+  @include test('Matched units') {
+    $expect: (
+      0cm: 310cm,
+      0em: 20em,
+    );
+
+    @include assert-equal(
+      _su-map-add-units($map, 10cm),
+      $expect);
+  }
+
+  @include test('Comparable units') {
+    $expect: (
+      0cm: 310cm,
+      0em: 20em,
+    );
+
+    @include assert-equal(
+      _su-map-add-units($map, 100mm),
+      $expect);
+  }
+
+  @include test('New units') {
+    $expect: (
+      0cm: 300cm,
+      0em: 20em,
+      0fr: 1fr,
+    );
+
+    @include assert-equal(
+      _su-map-add-units($map, 1fr),
+      $expect);
+  }
+}
+
+
+// Susy Flatten
+// ------------
+@include test-module('Susy Flatten [function]') {
+  @include test('Flattens a multi-dimensional list') {
+    $list: 30px susy-repeat(3, 120px) (2 (4 6));
+    $expect: 30px 120px 120px 120px 2 4 6;
+
+    @include assert-unequal(
+      $list,
+      $expect,
+      'Confirm that the list is not flat before testing');
+
+    @include assert-equal(
+      _susy-flatten($list),
+      $expect);
+  }
+
+  @include test('Returns flat list un-changed') {
+    $expect: 30px 120px 120px 120px 2 4 6;
+
+    @include assert-equal(
+      _susy-flatten($expect),
+      $expect);
+  }
+
+  @include test('Do not flatten maps') {
+    $expect: 30px ('key': 120px) 2 4 6;
+
+    @include assert-equal(
+      _susy-flatten($expect),
+      $expect);
+  }
+}

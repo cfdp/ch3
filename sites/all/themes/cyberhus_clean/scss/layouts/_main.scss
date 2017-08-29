@@ -1,0 +1,32 @@
+#main-wrapper {
+  background-color: $color-gray-light;
+}
+
+/* General Layout */
+#main {
+  padding: 0 1em 0;
+  display: block;
+
+  @include bp-narrow {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-gap: 20px;
+    margin: auto;
+    width: 700px;
+
+    #content {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    #sidebar-first {
+      grid-column: 2;
+      grid-row: 1;
+    }
+  }
+  @include bp-normal {
+    width: 960px;
+  }
+  @include bp-wide {
+    width: 1180px;
+  }
+}

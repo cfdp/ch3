@@ -1,0 +1,23 @@
+.block-custom-search-blocks {
+
+  .search-form {
+    margin-bottom: 0;
+  }
+
+  input[type=text] {
+    background: #c7c7c7;
+    border: none;
+    padding: .5em 1em;
+    border-radius: $font-size-base;
+    font-size: $font-size-base;
+    color: white;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .form-item {
+    margin: 0;
+  }
+  .form-actions {
+    display: none;
+  }
+}
