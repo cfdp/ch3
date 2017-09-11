@@ -38,7 +38,7 @@ gulp.task('sass', function () {
 gulp.task('svg-sprites', function() {
 		return gulp.src("assets/svg/*.svg")
 				.pipe(svgSprite({
-					mode: "defs",
+					mode: "symbols",
 					preview: true
 				}))
 				.pipe(gulp.dest("assets/dist"));
@@ -81,7 +81,7 @@ gulp.task('reload', ['clearcache'], function () {
  */
 gulp.task('watch', function () {
   gulp.watch(['scss/*.scss', 'scss/**/*.scss'], ['sass']);
-  gulp.watch('**/*.{php,inc,info}',['reload']);
+  // gulp.watch('**/*.{php,inc,info}',['reload']);
   gulp.watch('assets/svg/*.svg', ['svg-sprites']);
 });
 

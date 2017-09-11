@@ -87,13 +87,27 @@
       </div></div> <!-- /.section, /#header -->
     </div> <!-- /#header-wrapper -->
 
-    <?php if ($page['highlighted']): ?>
-      <div id="highlighted-wrapper">
-        <div id="highlighted"><?php print render($page['highlighted']); ?></div>
-      </div> <!-- /#highlighted-wrapper -->
+    <div id="highlighted-wrapper">
+      <div id="highlighted"><?php print render($page['highlighted']); ?></div>
+    </div> <!-- /#highlighted-wrapper -->
+
+    <?php if ($breadcrumb): ?>
+      <div id="breadcrumb"><?php print $breadcrumb; ?></div>
+    <?php endif; ?>
+
+    <?php if ($page['postface']): ?>
+    <div id="postface-wrapper">
+      <div id="postface"><?php print render($page['postface']); ?></div>
+    </div> <!-- /#postface-wrapper -->
     <?php endif; ?>
 
     <div id="main-wrapper"><div id="main" class="clearfix">
+
+      <?php if ($page['content_top']): ?>
+        <div id="content-top" class="column"><div class="section">
+          <?php print render($page['content_top']); ?>
+        </div></div> <!-- /.section, /#content_top -->
+      <?php endif; ?>
 
       <div id="content" class="column"><div class="section">
         <a id="main-content"></a>
@@ -119,15 +133,7 @@
         <?php endif; ?>
       </div></div> <!-- /.section, /#sidebar-first -->
 
-      <?php if ($page['sidebar_second']): ?>
-        <div id="sidebar-second" class="column sidebar"><div class="section">
-          <?php print render($page['sidebar_second']); ?>
-        </div></div> <!-- /.section, /#sidebar-second -->
-      <?php endif; ?>
-
-    </div>
-
-  </div> <!-- /#main, /#main-wrapper -->
+    </div></div> <!-- /#main, /#main-wrapper -->
 
     <div id="footer-wrapper">
       <div id="footer"><div class="section clearfix">
@@ -140,5 +146,12 @@
       </div></div> <!-- /.section, /#footer -->
     </div> <!-- /#footer-wrapper -->
 
+    <div id="bottom-wrapper">
+      <div id="bottom"><div class="section clearfix">
+        <?php if ($page['bottom']): ?>
+          <?php print render($page['bottom']); ?>
+        <?php endif; ?>
+      </div></div> <!-- /.section, /#bottom -->
+    </div> <!-- /#bottom-wrapper -->
 
   </div></div> <!-- /#page, /#page-wrapper -->

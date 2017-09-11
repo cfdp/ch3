@@ -6,6 +6,7 @@
     margin: 0 auto;
     padding: 0;
     display: inline-block;
+
     li {
       display: inline-block;
       margin: 0;
@@ -27,12 +28,15 @@
         display: none;
       }
     }
+
     a {
       display: block;
       color: #606060;
       text-transform: uppercase;
       padding: 1em 2.5em;
-      font-weight: bold;
+      font-weight: 500;
+      @include transition-property(color);
+      @include transition-duration(250ms);
 
       &.active-trail,
       &:hover {
@@ -50,7 +54,51 @@
         max-width: 50px;
         max-height: 30px;
         fill: #a1a1a1;
-        margin-bottom: 5px;
+        margin-bottom: 6px;
+        @include transition-property(fill);
+        @include transition-duration(250ms);
+      }
+    }
+
+    // Specific styling
+    li#brevkasse {
+
+      a:hover,
+      a.active-trail {
+
+        svg {
+          fill: $color-green;
+        }
+      }
+    }
+    li#chat {
+
+      a:hover,
+      a.active-trail {
+
+        svg {
+          fill: $color-orange;
+        }
+      }
+    }
+    li#ung-til-ung {
+
+      a:hover,
+      a.active-trail {
+
+        svg {
+          fill: $color-red;
+        }
+      }
+    }
+    li#ung-i {
+
+      a:hover,
+      a.active-trail {
+
+        svg {
+          fill: $color-purple;
+        }
       }
     }
 

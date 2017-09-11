@@ -1,0 +1,5 @@
+a.button {
+
+  color: white;
+  @include button-link($color-gray-dark);
+}

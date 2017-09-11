@@ -1,0 +1,51 @@
+.vud-widget-cyberlike {
+
+  margin: 0 20px 0 0;
+  padding: 0;
+  width: auto;
+  height: auto;
+  position: relative;
+  @include clearfix();
+
+  svg {
+    width: 1.5625em;
+    height: 1.5625em;
+    fill: #a1a1a1;
+    margin: 0 .375em 0 0;
+    @include transition-property(fill);
+    @include transition-duration(250ms);
+  }
+
+  a {
+    float: left;
+
+    &.vud-link-up {
+      svg {
+
+        &:hover {
+          fill: $color-red;
+        }
+      }
+    }
+    &.vud-link-reset {
+      svg {
+        fill: $color-red;
+      }
+    }
+  }
+  .cyberlike-votes-display {
+    float: right;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: $font-fam-base;
+    line-height: 1.5625em;
+    font-size: $font-size-base;
+  }
+
+  .ajax-progress-throbber {
+    position: absolute;
+    left: -1.35em;
+    bottom: .45em;
+  }
+}

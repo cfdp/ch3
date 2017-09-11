@@ -1,0 +1,169 @@
+.page-node {
+
+  .region-content .node {
+    background: white;
+    padding: 3em 2em;
+
+    @include bp-narrow {
+      padding: 4em 5em 4em;
+    }
+  }
+
+  .node-type {
+    color: $text-color-light;
+    font-size: $font-size-medium;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: .5em;
+  }
+
+  .node-top-links {
+    text-align: center;
+    margin-bottom: 3em;
+
+    @include bp-narrow {
+      margin-bottom: 4em;
+    }
+
+    a {
+      opacity: 1;
+      @include transition-property(opacity);
+      @include transition-duration(250ms);
+
+      &:hover {
+        opacity: .75;
+        text-decoration: none;
+      }
+    }
+
+    svg {
+      width: .85em;
+      height: .85em;
+      fill: $color-red;
+      margin-left: .25em;
+      margin-bottom: -0.05em;
+    }
+  }
+
+  // OBS: Temporary
+  .view-author-timestamp-eva-field-nodes {
+  }
+
+  .field-name-field-billede {
+    margin-bottom: 1em;
+  }
+
+  .field-name-body,
+  .field-name-field-brevk-spoergsmaal  {
+    font-size: $font-size-medium;
+    font-weight: 500;
+    color: #989898;
+
+    p {
+      color: #989898;
+    }
+  }
+
+  .field-name-field-brevk-svar {
+    margin-top: 4em;
+
+    .field-label {
+      text-transform: uppercase;
+      margin-bottom: 1em;
+      font-weight: 800;
+      font-size: $font-size-medium;
+    }
+  }
+
+  .node-interaction,
+  .node-answer-author {
+    border-top: 1px solid $color-gray;
+    margin: 2em 0;
+    padding: 1em 0;
+  }
+
+  .node-answer-author {
+    font-size: $font-size-small;
+    color: $text-color-light;
+
+    span.name {
+      color: $text-color;
+      font-weight: 800;
+    }
+  }
+
+  /* Author box */
+  .author-box {
+    padding: 1.5em 1em;
+    border: 1px solid $color-gray;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 20px;
+    .author-avatar {
+      height: 8em;
+      width: 8em;
+      border-radius: 8em;
+      margin: 0 auto 15px;
+      background: $color-gray-light;
+    }
+    .author-type {
+      text-transform: uppercase;
+      font-size: $font-size-small;
+      color: $text-color-light;
+      margin-bottom: 5px;
+    }
+    .author-name {
+      font-size: $font-size-medium;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .author-gender ,
+    .author-age {
+      margin-bottom: 20px;
+      font-size: $font-size-small;
+      display: inline-block;
+    }
+    .author-created {
+      font-size: $font-size-small;
+      color: $text-color-light;
+    }
+  }
+
+  // Layout
+  .node-wrapper {
+
+    @include bp-narrow {
+      display: grid;
+      grid-template-columns: 160px 360px;
+      grid-gap: 20px;
+    }
+    @include bp-normal {
+      display: grid;
+      grid-template-columns: 190px 590px;
+      grid-gap: 40px;
+    }
+    @include bp-wide {
+      display: grid;
+      grid-template-columns: 240px 740px;
+    }
+
+    .node-content {
+      @include bp-narrow {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    }
+    .node-sidebar {
+      @include bp-narrow {
+        grid-column: 1;
+        grid-row: 1;
+      }
+    }
+  }
+
+}

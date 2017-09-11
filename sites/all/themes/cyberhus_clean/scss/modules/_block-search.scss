@@ -2,22 +2,39 @@
 
   .search-form {
     margin-bottom: 0;
-  }
-
-  input[type=text] {
-    background: #c7c7c7;
-    border: none;
-    padding: .5em 1em;
-    border-radius: $font-size-base;
-    font-size: $font-size-base;
-    color: white;
-    box-sizing: border-box;
-    max-width: 100%;
+    position: relative;
   }
   .form-item {
     margin: 0;
   }
   .form-actions {
     display: none;
+  }
+
+  input[type=text] {
+    background: #c7c7c7;
+    border: none;
+    padding: .6em 1em .6em 3em;
+    border-radius: 2em;
+    font-size: $font-size-base;
+    font-weight: 500;
+    color: white;
+    box-sizing: border-box;
+    max-width: 100%;
+
+    &::placeholder {
+      color: white;
+      text-transform: uppercase;
+    }
+  }
+
+  svg {
+    fill: white;
+    width: 1.25em;
+    height: 1.25em;
+    position: absolute;
+    z-index: 2;
+    left: 1.2em;
+    top: .6em;
   }
 }

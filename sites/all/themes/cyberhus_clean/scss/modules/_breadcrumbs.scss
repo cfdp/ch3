@@ -1,0 +1,23 @@
+#breadcrumb {
+  padding: 1em 0;
+
+  .breadcrumb {
+    padding-bottom: 0;
+    font-size: $font-size-small;
+
+    @include bp-narrow {
+      width: 700px;
+      margin: auto;
+    }
+    @include bp-normal {
+      width: 960px;
+    }
+    @include bp-wide {
+      width: 1180px;
+    }
+
+    a {
+      color: $text-color-light;
+    }
+  }
+}

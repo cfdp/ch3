@@ -1,0 +1,62 @@
+.node-nav {
+  background: white;
+  text-align: center;
+  padding: 1.5em;
+  border-bottom: 1px solid $color-gray;
+
+  a {
+    color: $text-color-light;
+    text-transform: uppercase;
+    font-size: $font-size-small;
+    font-weight: 500;
+    line-height: 1.42em;
+    @include transition-property(color);
+    @include transition-duration(250ms);
+
+    &:hover {
+      color: $text-color;
+      text-decoration: none;
+
+      svg {
+        fill: $text-color;
+      }
+    }
+  }
+
+  svg {
+    fill: $text-color-light;
+    width: 1.25em;
+    height: 1.25em;
+    @include transition-property(fill);
+    @include transition-duration(250ms);
+  }
+
+  .node-nav-prev {
+    float: left;
+    width: 25%;
+    text-align: left;
+
+    svg {
+      float: left;
+      padding-right: 0.5em;
+    }
+  }
+  .node-nav-next {
+    float: right;
+    width: 25%;
+    text-align: right;
+
+    svg {
+      float: right;
+      padding-left: 0.5em;
+    }
+  }
+  .node-nav-all {
+    display: inline-block;
+
+    svg {
+      float: left;
+      padding-right: 0.5em;
+    }
+  }
+}

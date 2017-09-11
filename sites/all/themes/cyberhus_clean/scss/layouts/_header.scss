@@ -61,3 +61,11 @@
   max-width: 100%;
   height: 50px;
 }
+
+// Highlighted
+#highlighted-wrapper {
+
+  @include bp-narrow {
+    height: 400px;
+  }
+}

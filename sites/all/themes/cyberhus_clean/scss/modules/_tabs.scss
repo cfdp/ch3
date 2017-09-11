@@ -1,0 +1,37 @@
+div.tabs {
+  margin: 0 0 1em;
+
+  ul.tabs {
+    margin: 0;
+    padding: 0;
+    border-bottom: 0; // 1px solid $color-gray;
+    @include clearfix();
+
+    li {
+      float: left;
+      margin: 0 0.25em 0 0;
+      padding: 0;
+      list-style: none;
+      border: 0;
+
+      a {
+        color: $text-color;
+        padding: 0.25em 1em;
+        display: block;
+        border: 1px solid $color-gray;
+        // border-bottom: 0;
+        background: $color-gray-light;
+      }
+      a:hover {
+        text-decoration: none;
+        background: white;
+      }
+    }
+    li.active {
+      a {
+        background-color: $text-color;
+        color: white;
+      }
+    }
+  }
+}

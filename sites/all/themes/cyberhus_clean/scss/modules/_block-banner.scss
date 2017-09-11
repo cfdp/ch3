@@ -1,0 +1,48 @@
+
+.page-frontpage {
+
+  #highlighted-wrapper {
+    background: $color-blue;
+  }
+}
+
+// Brevkasse
+.page-brevkasse-ny,
+.node-type-brevkasse {
+
+  #highlighted-wrapper {
+    background: $color-green;
+  }
+  #sidebar-first {
+    a.button {
+      background: $color-green;
+    }
+  }
+}
+
+// Ung til ung
+.page-ung-til-ung,
+.node-type-image,
+.node-type-forum {
+
+  #highlighted-wrapper {
+    background: $color-red;
+  }
+}
+
+
+// Chat
+.page-node-20738 {
+
+  #highlighted-wrapper {
+    background: $color-orange;
+  }
+}
+
+// Ungi
+.page-ung-i {
+
+  #highlighted-wrapper {
+    background: $color-purple;
+  }
+}

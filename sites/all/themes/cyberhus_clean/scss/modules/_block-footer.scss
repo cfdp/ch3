@@ -5,6 +5,16 @@
 
     p {
       color: $text-color-light;
+      font-size: $font-size-small;
     }
+  }
+}
+
+#bottom-wrapper {
+
+  border-top: 1px solid #e2e2e2;
+
+  .block {
+
   }
 }
