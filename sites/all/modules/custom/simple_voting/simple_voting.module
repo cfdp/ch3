@@ -1,0 +1,307 @@
+<?php
+
+/**
+ * @file
+ * Code for the Simple voting feature.
+ */
+
+include_once 'simple_voting.features.inc';
+
+/**
+ * @file
+ * Drupal needs this blank file.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function simple_voting_menu() {
+  $items = array();
+  $items['simple_voting/ajax/%/%'] = array(
+    'page callback' => 'simple_voting_block_view_ajax',
+    'page arguments' => array(2, 3),
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Theming poll pager links.
+ */
+function simple_voting_preprocess_links(&$vars) {
+  if (in_array($vars['theme_hook_original'], array('links__poll_results', 'links__poll_pager'))) {
+    $vars['attributes']['class'][] = 'pager';
+  }
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function simple_voting_menu_alter(&$items) {
+  $items['poll/ajax/vote/%node/%/%']['page callback'] = 'simple_voting_ajax_poll_callback';
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function simple_voting_block_info() {
+  $blocks['simple_voting']['info'] = t('Slideshow of all active polls');
+  $blocks['simple_voting']['cache'] = DRUPAL_NO_CACHE;
+
+  // Collect all active polls and create a block for each.
+  $select = db_select('node', 'n');
+  $select->join('poll', 'p', 'p.nid = n.nid');
+  $select->fields('n', array('nid', 'title'))
+    ->condition('n.status', 1)
+    ->condition('p.active', 1)
+    ->addTag('node_access');
+  $results = $select->execute();
+
+  foreach ($results as $result) {
+    $blocks['simple_voting_' . $result->nid]['info'] = t("Single poll: !title", array('!title' => $result->title));
+    $blocks['simple_voting_' . $result->nid]['cache'] = DRUPAL_NO_CACHE;
+  }
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * Generates a block containing a polls slideshow.
+ */
+function simple_voting_block_view($delta = '', $poll_nid = 0) {
+  if (user_access('access content') && strpos($delta, 'simple_voting') === 0) {
+
+    // We are going to use this to adjust the ajax-callbacks routes.
+    $poll->container_block_is_slideshow = FALSE;
+
+    // Case of a specific, single poll block.
+    // Attention to the underscore!
+    if (strpos($delta, 'simple_voting_') === 0) {
+      $poll_nid = str_replace('simple_voting_', '', $delta);
+      if ($poll_nid > 0) {
+        $block['subject'] = t('Poll');
+        $poll = node_load($poll_nid);
+        $poll = simple_voting_poll_slideshow_view($poll, FALSE);
+        $block['content'] = $poll->content;
+        return $block;
+      }
+      return '';
+    }
+
+    if ($poll_nid === 0) {
+      $poll_nid = _simple_voting_get_latest_poll_nid();
+    }
+    if ($poll_nid > 0) {
+      $block['subject'] = t('Poll');
+      $poll = node_load($poll_nid);
+      $poll->container_block_is_slideshow = TRUE;
+      $poll = simple_voting_poll_slideshow_view($poll);
+      $block['content'] = $poll->content;
+      return $block;
+    }
+  }
+}
+
+/**
+ * Return ajax content.
+ */
+function simple_voting_block_view_ajax($current_poll_nid = 0, $new_poll_nid = 0) {
+  $block = simple_voting_block_view('simple_voting', $new_poll_nid);
+  $commands = array(
+    ajax_command_replace('#poll-ajax-slideshow-block-wrapper', drupal_render($block['content'])),
+  );
+  $result = array(
+    '#type' => 'ajax',
+    '#commands' => $commands,
+  );
+  ajax_deliver($result);
+}
+
+/**
+ * Return content for poll slideshow block.
+ *
+ * This function has the same signature as poll_view() and
+ * poll_block_latest_poll_view().
+ *
+ * @param object $node
+ *   The node object to load.
+ */
+function simple_voting_poll_slideshow_view($node, $show_pager_links = TRUE) {
+  // This is necessary for shared objects because PHP doesn't copy objects, but
+  // passes them by reference.  So when the objects are cached it can result in
+  // the wrong output being displayed on subsequent calls.  The cloning and
+  // unsetting of $node->content prevents the block output from being the same
+  // as the node output.
+  $node = clone $node;
+  unset($node->content);
+
+  // No 'read more' link.
+  $node->readmore = FALSE;
+  $node->teaser = '';
+
+  // Retrieve the nids to the prev/next polls from the db.
+  $prev_poll_nid = _simple_voting_get_prev_poll_nid($node->nid);
+  $next_poll_nid = _simple_voting_get_next_poll_nid($node->nid);
+
+  // Make sure Drupal Ajax framework javascript is around.
+  drupal_add_library('system', 'drupal.ajax');
+
+  // Generate Ajax-enabled links for prev and next polls.
+  if ($show_pager_links) {
+    $links = array();
+    if ($prev_poll_nid) {
+      $links[$prev_poll_nid . " pager-item"] = array(
+        'title' => t('Previous'),
+        'href' => 'simple_voting/nojs/' . $node->nid . '/' . $prev_poll_nid,
+        'attributes' => array(
+          'title' => t('View the list of polls on this site.'),
+          'class' => array('use-ajax'),
+        ),
+      );
+    }
+    if ($next_poll_nid) {
+      $links[$next_poll_nid . " pager-item"] = array(
+        'title' => t('Next'),
+        'href' => 'simple_voting/nojs/' . $node->nid . '/' . $next_poll_nid,
+        'attributes' => array(
+          'title' => t('View the list of polls on this site.'),
+          'class' => array('use-ajax'),
+        ),
+      );
+    }
+    $node->links = $links;
+  }
+
+  // If the user cannot vote (already voted, not allowed),
+  // we present the poll results.
+  if (empty($node->allowvotes)) {
+    $content = array(
+      'content' => array('#markup' => poll_view_results($node, TRUE, TRUE)),
+    );
+  }
+  else {
+    $content = array(
+      // We are passing a flag to inform the form_alter hook we implement,
+      // that this form is being used in a slideshow (or not).
+      'form' => drupal_get_form('poll_view_voting', $node, TRUE, ($node->container_block_is_slideshow ?: FALSE)),
+      'links' => array(
+        '#theme' => 'links__poll_pager',
+        '#links' => $node->links,
+        '#weight' => 5,
+      ),
+    );
+  }
+
+  // This container is used for ajax-replacement, by our module or by ajax_poll.
+  $content['#theme_wrappers'] = array('container');
+  $content['#attributes'] = array(
+    'class' => array('content'),
+  );
+  // Add a specific id for poll-slideshow ajax replacement.
+  if ($node->container_block_is_slideshow) {
+    $content['#attributes']['id'] = 'poll-ajax-slideshow-block-wrapper';
+  }
+
+  $node->content = $content;
+  return $node;
+}
+
+/**
+ * Utility function for getting the latest poll nid.
+ */
+function _simple_voting_get_latest_poll_nid() {
+  $select = db_select('node', 'n');
+  $select->join('poll', 'p', 'p.nid = n.nid');
+  $select->fields('n', array('nid'))
+    ->condition('n.status', 1)
+    ->condition('p.active', 1)
+    ->orderBy('n.created', 'DESC')
+    ->range(0, 1)
+    ->addTag('node_access');
+  $record = $select->execute()->fetchObject();
+  if ($record) {
+    return $record->nid;
+  }
+  return 0;
+}
+
+/**
+ * Utility function for getting the previous poll given a specific poll nid.
+ */
+function _simple_voting_get_prev_poll_nid($poll_nid) {
+  $prev_select = db_select('node', 'n');
+  $prev_select->join('poll', 'p', 'p.nid = n.nid');
+  $prev_select->addExpression('MIN(n.nid)', 'prev_nid');
+  $prev_select->condition('n.status', 1)
+    ->condition('p.active', 1)
+    ->condition('p.nid', $poll_nid, '>')
+    ->orderBy('n.created', 'DESC')
+    ->range(0, 1)
+    ->addTag('node_access');
+  $prev_record = $prev_select->execute()->fetchObject();
+  if ($prev_record) {
+    return $prev_record->prev_nid;
+  }
+  return 0;
+}
+
+/**
+ * Utility function for getting the next poll given a specific poll nid.
+ */
+function _simple_voting_get_next_poll_nid($poll_nid) {
+  $next_select = db_select('node', 'n');
+  $next_select->join('poll', 'p', 'p.nid = n.nid');
+  $next_select->addExpression('MAX(n.nid)', 'next_nid');
+  $next_select->condition('n.status', 1)
+    ->condition('p.active', 1)
+    ->condition('p.nid', $poll_nid, '<')
+    ->orderBy('n.created', 'DESC')
+    ->range(0, 1)
+    ->addTag('node_access');
+  $next_record = $next_select->execute()->fetchObject();
+  if ($next_record) {
+    return $next_record->next_nid;
+  }
+  return 0;
+}
+
+/**
+ * Overriden menu callback for poll/ajax.
+ *
+ * @see ajax_poll::ajax_poll_callback()
+ */
+function simple_voting_ajax_poll_callback($type, $node, $teaser, $block, $block_delta = '') {
+  // Call poll_view to trigger the current submit handlers.
+  poll_view($node, 'full');
+
+  // Reset POST and the $node so that we get fresh copies.
+  unset($_POST);
+  $node = node_load($node->nid, NULL, TRUE);
+
+  $view_mode = $teaser ? 'teaser' : 'full';
+  $show_pager_links = $block_delta !== 'single_vote';
+  $poll = $block ? simple_voting_poll_slideshow_view($node, $show_pager_links) : poll_view($node, $view_mode);
+  $status = count(drupal_get_messages('error', FALSE)) == 0;
+  array_unshift($poll->content, array('messages' => array('#markup' => theme('status_messages'))));
+  $output = drupal_render($poll->content);
+
+  drupal_json_output(array('status' => $status, 'output' => $output));
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function simple_voting_form_alter(&$form, $form_state, $form_id) {
+  if (in_array($form_id, array('poll_view_voting', 'poll_cancel_form'))) {
+    // Check that ajax_poll has added an ajax_url.
+    if (!empty($form['ajax_url'])) {
+      // If we were told that this is a single vote ajax poll,
+      // adjust the ajax_url accordingly.
+      if (isset($form_state['build_info']['args'][2]) && $form_state['build_info']['args'][2] === FALSE) {
+        $form['ajax_url']['#value'] .= '/single_vote';
+      }
+    }
+  }
+}
