@@ -74,7 +74,7 @@ function simple_voting_block_view($delta = '', $poll_nid = 0) {
   if (user_access('access content') && strpos($delta, 'simple_voting') === 0) {
 
     // We are going to use this to adjust the ajax-callbacks routes.
-    $poll->container_block_is_slideshow = FALSE;
+    // $poll->container_block_is_slideshow = FALSE;
 
     // Case of a specific, single poll block.
     // Attention to the underscore!

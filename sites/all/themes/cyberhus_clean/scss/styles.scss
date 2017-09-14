@@ -26,8 +26,10 @@
 @import "modules/nav-footer-menu";
 
 @import "modules/view-stream";
+@import "modules/view-blogs";
 
-@import "modules/node";
+@import "modules/node-basic";
+@import "modules/node-adv";
 @import "modules/node-nav";
 
 @import "modules/comments";
@@ -40,3 +42,4 @@
 @import "modules/cyberlike";
 @import "modules/breadcrumbs";
 @import "modules/tabs";
+@import "modules/polls";

@@ -28,7 +28,8 @@
     'brevkasse' => 'brevkasse',
     'forum' => 'ung-til-ung',
     'body_secret' => 'ung-til-ung',
-    'image' => 'ung-til-ung'
+    'image' => 'ung-til-ung',
+    'blog' => 'brevkasse'
   );
 ?>
 <svg class="icon"><use xlink:href="/<?php print path_to_theme() . '/assets/dist/svg/symbols.svg#' . $type_map[$row->node_type]; ?>" /></svg>

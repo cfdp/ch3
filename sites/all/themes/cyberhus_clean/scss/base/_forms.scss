@@ -1,4 +1,5 @@
-a.button {
+a.button,
+a.btn {
 
   color: white;
   @include button-link($color-gray-dark);

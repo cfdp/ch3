@@ -1,0 +1,79 @@
+#block-simple-voting-simple-voting {
+
+  .poll {
+    line-height: $line-height-base;
+    padding-bottom: 2em;
+
+    .title {
+      margin-bottom: 1em;
+      font-weight: 500;
+    }
+    .vote-form {
+
+      .choices {
+
+        .title {
+          font-weight: 500;
+        }
+      }
+    }
+    .bar {
+
+      .foreground {
+        background-color: $color-blue;
+      }
+    }
+    .total {
+      margin-top: 1em;
+    }
+
+  }
+
+  .form-submit {
+    color: white;
+    width: 100%;
+    font-size: $font-size-base;
+    text-transform: uppercase;
+    @include button($color-blue);
+  }
+
+  ul.pager {
+    margin: 0 -2em -2em;
+    border-top: 1px solid #d7d7d7;
+    padding: 0;
+    position: relative;
+    @include clearfix();
+
+    li {
+      margin: 0;
+      padding: 0;
+      border-right: 1px solid #d7d7d7;
+      width: 50%;
+      box-sizing: border-box;
+      float: left;
+
+      a {
+        font-size: $font-size-small;
+        padding: 1em;
+        color: $text-color-light;
+        text-transform: uppercase;
+        display: block;
+        text-decoration: none;
+      }
+    }
+    li:only-child {
+      width: 100%;
+    }
+    li:last-child {
+      border-right: 0;
+    }
+
+    .ajax-progress-throbber {
+      position: absolute;
+      left: 50%;
+      margin-left: -10px;
+      bottom: -1.5em;
+    }
+  }
+
+}

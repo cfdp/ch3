@@ -1,7 +1,9 @@
-.node-nav {
+.node-nav,
+.view ul.entity_pager {
   background: white;
   text-align: center;
   padding: 1.5em;
+  margin: 0;
   border-bottom: 1px solid $color-gray;
 
   a {
@@ -9,7 +11,7 @@
     text-transform: uppercase;
     font-size: $font-size-small;
     font-weight: 500;
-    line-height: 1.42em;
+    line-height: 1.45em;
     @include transition-property(color);
     @include transition-duration(250ms);
 
@@ -31,32 +33,42 @@
     @include transition-duration(250ms);
   }
 
-  .node-nav-prev {
+  li {
+    margin: 0;
+    padding: 0;
+    display: block;
+    line-height: 1;
+  }
+
+  .node-nav-prev,
+  .entity_pager_prev {
     float: left;
     width: 25%;
     text-align: left;
 
     svg {
       float: left;
-      padding-right: 0.5em;
+      padding-right: 0.65em;
     }
   }
-  .node-nav-next {
+  .node-nav-next,
+  .entity_pager_next {
     float: right;
     width: 25%;
     text-align: right;
 
     svg {
       float: right;
-      padding-left: 0.5em;
+      padding-left: 0.65em;
     }
   }
-  .node-nav-all {
+  .node-nav-all,
+  .entity_pager_all_link {
     display: inline-block;
 
     svg {
       float: left;
-      padding-right: 0.5em;
+      padding-right: 0.65em;
     }
   }
 }

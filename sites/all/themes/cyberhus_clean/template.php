@@ -17,11 +17,8 @@ function cyberhus_clean_menu_link__menu_top_menu(array $variables) {
   $menu_id = (isset($element['#attributes']['id'])) ? $element['#attributes']['id'] : 'articles';
 
   $svg = '<svg class="icon"><use xlink:href="/' . path_to_theme() . '/assets/dist/svg/symbols.svg#' . $menu_id . '" /></svg>';
-
   $element['#localized_options']['html'] = TRUE;
-
   $output = l($svg . $element['#title'], $element['#href'], $element['#localized_options']);
-
   $element['#attributes']['class'][] = 'svg-menu';
 
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu .
@@ -49,6 +46,43 @@ function cyberhus_clean_form_alter(&$form, &$form_state) {
       $form['custom_search_blocks_form_1']['#prefix'] = '<svg class="icon"><use xlink:href="/' . path_to_theme() . '/assets/dist/svg/symbols.svg#search" /></svg>';
 
     break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function cyberhus_clean_preprocess_node(&$variables) {
+  if ($variables['node']) {
+
+    $node = $variables['node'];
+    
+    switch ($node->type) {
+      case 'brevkasse':
+      case 'image':
+      case 'forum':
+        $variables['theme_hook_suggestion'] = 'node__shared';
+      break;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function cyberhus_clean_preprocess_html(&$variables) {
+  if ($node = menu_get_object()) {
+
+    $node_types_adv = array(
+      'brevkasse', 'forum', 'image'
+    );
+
+    if(in_array($node->type, $node_types_adv)) {
+      $variables['classes_array'][] = 'page-node-adv';
+    }
+    else {
+      $variables['classes_array'][] = 'page-node-basic';
+    }
   }
 }
 
@@ -105,7 +139,7 @@ function cyberhus_clean_term_display($tid) {
 function cyberhus_clean_icon_display($id) {
   $markup = "";
   $markup .= "<svg class='icon'>";
-  $markup .= "<use xlink:href='/" . path_to_theme() . "/assets/dist/svg/symbols.svg#$id' />";
+  $markup .= "<use xlink:href='/" . drupal_get_path('theme', 'cyberhus_clean') . "/assets/dist/svg/symbols.svg#$id' />";
   $markup .= "</svg>";
 
   return $markup;

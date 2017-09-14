@@ -81,11 +81,32 @@
  */
 ?>
 
+<?php
+  $type_label = cyberhus_clean_type_label($node->type);
+?>
+
+<?php
+  print views_embed_view('pager_brevkasse', 'block', $node->type);
+?>
+
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
+  <div class="node-type"><?php print $type_label['singular']; ?></div>
+
+  <h1<?php print $title_attributes; ?>>Shared<?php print $title; ?></h1>
+
+  <div class="node-top-links">
+    <a href="#comments">
+      <?php print t("See other @type", array('@type' => $type_label['plural'])); ?>
+      <?php print cyberhus_clean_icon_display('arrow-down'); ?>
+    </a>
+  </div>
 
   <div class="node-wrapper">
+
+    <div class="node-sidebar">
+      <?php print theme('node_author', array('node' => $node)); ?>
+    </div>
 
     <div class="node-content">
 
@@ -94,9 +115,17 @@
           // We hide the comments and links now so that we can render them later.
           hide($content['comments']);
           hide($content['links']);
+          hide($content['field_cyberlike']);
           print render($content);
         ?>
       </div>
+
+      <?php if($node->type != 'brevkasse') : ?>
+      <div class="node-interaction">
+        <?php print render($content['field_cyberlike']); ?>
+        <?php print render($content['links']); ?>
+      </div>
+      <?php endif; ?>
 
       <?php print render($content['comments']); ?>
 

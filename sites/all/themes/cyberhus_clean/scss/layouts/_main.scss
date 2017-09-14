@@ -4,7 +4,7 @@
 
 /* General Layout */
 #main {
-  padding: 1em;
+  padding: 2em 1em;
   display: block;
   margin: auto;
 
@@ -20,10 +20,8 @@
   }
 }
 
-/* Stream layout */
-.page-frontpage,
-.page-brevkasse-ny,
-.page-ung-til-ung {
+/* Sidebar layout */
+body:not(.page-node) {
 
   #page-title {
     display: none;
@@ -66,7 +64,7 @@
 }
 
 /* Front page layout */
-.page-frontpage {
+body.page-frontpage {
 
   #breadcrumb {
     display: none;
@@ -76,12 +74,35 @@
   }
 }
 
-/* Node layout */
-.page-node {
+/* Node Advanced */
+body.page-node-adv {
 
   #page-title,
   #sidebar-first {
     display: none;
   }
+}
 
+/* Node Basic */
+body.page-node-basic {
+
+  #main {
+    padding: 1em 20px;
+    display: block;
+    margin: auto;
+
+    @include bp-narrow {
+      width: 700px;
+      padding: 3em 1em;
+    }
+  }
+}
+
+/* Blogs */
+body.page-blogs,
+body.page-blog {
+
+  #page-title {
+    display: block;
+  }
 }
