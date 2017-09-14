@@ -1,0 +1,21 @@
+name = Entity Pager
+description = Provides next and previous navigation on entities. It uses Views, Blocks, Tokens and has its own internal intelligent advice system which adds tips to Watchdog (optional) on how to improve your implementation. Example usage: navigate through a Brands products or go back to the Brand page itself.
+package = Navigation
+core = 7.x
+php = 5.2
+
+dependencies[] = views
+dependencies[] = token
+
+files[] = views/plugins/EntityPagerViewsPluginStyle.inc
+files[] = includes/EntityPager.inc
+files[] = includes/EntityPagerSetup.inc
+files[] = includes/EntityPagerAdvice.inc
+files[] = includes/EntityPagerOut.inc
+
+; Information added by Drupal.org packaging script on 2016-10-31
+version = "7.x-1.4"
+core = "7.x"
+project = "entity_pager"
+datestamp = "1477922889"
+
