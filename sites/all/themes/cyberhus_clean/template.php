@@ -56,7 +56,7 @@ function cyberhus_clean_preprocess_node(&$variables) {
   if ($variables['node']) {
 
     $node = $variables['node'];
-    
+
     switch ($node->type) {
       case 'brevkasse':
       case 'image':
@@ -83,6 +83,20 @@ function cyberhus_clean_preprocess_html(&$variables) {
     else {
       $variables['classes_array'][] = 'page-node-basic';
     }
+  }
+}
+
+function cyberhus_clean_breadcrumb(&$variables) {
+
+  $breadcrumb = $variables['breadcrumb'];
+
+  if (!empty($breadcrumb)) {
+    // Provide a navigational heading to give context for breadcrumb links to
+    // screen-reader users. Make the heading invisible with .element-invisible.
+    $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
+
+    $output .= '<div class="breadcrumb">' . implode(' » ', $breadcrumb) . '</div>';
+    return $output;
   }
 }
 

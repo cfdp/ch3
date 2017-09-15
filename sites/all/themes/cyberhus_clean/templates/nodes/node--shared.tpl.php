@@ -93,7 +93,7 @@
 
   <div class="node-type"><?php print $type_label['singular']; ?></div>
 
-  <h1<?php print $title_attributes; ?>>Shared<?php print $title; ?></h1>
+  <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
 
   <div class="node-top-links">
     <a href="#comments">

@@ -59,6 +59,12 @@
         text-transform: uppercase;
         display: block;
         text-decoration: none;
+        @include transition-property(color);
+        @include transition-duration(250ms);
+
+        &:hover {
+          color: $text-color;
+        }
       }
     }
     li:only-child {

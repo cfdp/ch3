@@ -2,7 +2,11 @@ name = Cyberhus Clean
 description = A responsive theme for D7.
 core = 7.x
 
+stylesheets[all][] = bower_components/flexslider/flexslider.css
 stylesheets[all][] = css/styles.css
+
+scripts[] = bower_components/flexslider/jquery.flexslider.js
+scripts[] = js/banner.js
 
 regions[menu] = Menu
 regions[header] = Header

@@ -4,3 +4,23 @@ a.btn {
   color: white;
   @include button-link($color-gray-dark);
 }
+
+form {
+
+  select {
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: .25em;
+    font-size: $font-size-small;
+    font-family: $font-fam-base;
+    font-weight: 500;
+    color: #a1a1a1;
+    text-transform: uppercase;
+    @include appearance(none);
+  }
+  .form-type-select {
+    padding: .35em 1em;
+    background: $color-gray-light;
+  }
+}

@@ -83,10 +83,7 @@
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
-
   <div class="node-wrapper">
-
     <div class="node-content">
 
       <div class="content"<?php print $content_attributes; ?>>
@@ -101,7 +98,6 @@
       <?php print render($content['comments']); ?>
 
     </div>
-
   </div>
 
 </div>
