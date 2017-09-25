@@ -41,10 +41,20 @@
   <div class="content"<?php print $content_attributes; ?>>
     <?php hide($content['field_pg_banner_color']); ?>
     <?php hide($content['field_pg_banner_image']); ?>
+    <?php hide($content['field_pg_banner_link']); ?>
     <?php print render($content['field_pg_banner_image']); ?>
     <div class="content-aligner">
       <div class="content-inner<?php print $bg_color; ?>">
-        <?php print render($content); ?>
+        <?php
+        if(isset($content['field_pg_banner_link']['#items'][0]['url'])) {
+          print '<a href="' . $content['field_pg_banner_link']['#items'][0]['url'] . '">';
+          print render($content);
+          print '</a>';
+        }
+        else {
+          print render($content);
+        }
+        ?>
       </div>
     </div>
   </div>

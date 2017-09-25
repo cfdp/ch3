@@ -7,7 +7,7 @@
   }
 }
 
-// Slideshow controls
+// Slideshow paging
 .flex-control-paging {
   position: absolute;
   bottom: 20px;
@@ -36,13 +36,17 @@
   }
 }
 
+// Slideshow navigation
 .flex-navigation {
+
+  display: none;
 
   @include bp-normal {
     width: 960px;
     height: 400px;
     position: relative;
     margin: auto;
+    display: block;
   }
   @include bp-wide {
     width: 1180px;
@@ -85,7 +89,8 @@
 }
 
 // Banner hover
-#block-bean-banner:hover {
+#highlighted .block-bean:hover,
+#highlighted .view-banner-ungi:hover {
   .flex-navigation a {
     opacity: 1;
   }
@@ -98,10 +103,15 @@
 }
 
 // Slides
-#block-bean-banner {
+#highlighted .block-bean,
+#highlighted .view-banner-ungi {
 
   overflow: hidden;
-  height: 400px;
+  height: 250px;
+
+  @include bp-narrow {
+    height: 400px;
+  }
 
   .paragraphs-item-banner-slide > .content {
     position: relative;
@@ -109,29 +119,60 @@
 
   .field-name-field-pg-banner-image {
 
-    @include bp-narrow {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      z-index: 1;
-      margin-left: -960px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 1;
+    margin-left: -600px;
+    display: block;
 
-      img {
+    @include bp-narrow {
+      margin-left: -960px;
+    }
+
+    img {
+      height: 250px;
+      width: auto;
+      max-width: none;
+
+      @include bp-narrow {
+        height: auto;
         max-width: inherit;
       }
     }
+
   }
 
   .content-aligner {
     margin: auto;
-    height: 400px;
+    height: 250px;
+
+    @include bp-narrow {
+      height: 400px;
+    }
   }
   .content-inner {
     z-index: 2;
+    backface-visibility: hidden;
+    padding: 2em;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    backface-visibility: hidden;
+
+    @include bp-narrow {
+      padding: 0;
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      opacity: 1;
+      @include transition(opacity 250ms);
+
+      &:hover {
+        opacity: .75;
+      }
+    }
   }
   .content-aligner,
   .content-inner {
@@ -167,14 +208,24 @@
 
     .field-item {
       display: inline;
-      font-size: 3.45em;
       line-height: 1.2em;
       font-weight: 800;
       color: white;
+      font-size: 2.25em;
+
+      @include bp-narrow {
+        font-size: 3.45em;
+      }
     }
   }
 
   .field-name-field-pg-banner-body {
+
+    display: none;
+
+    @include bp-narrow {
+      display: block;
+    }
 
     p {
       color: white;
@@ -224,29 +275,55 @@
 
 }
 
-// // Brevkasse
-// .page-brevkasse-ny,
-// .node-type-brevkasse {
-//
-//   #highlighted-wrapper {
-//     background: $color-green;
-//   }
-//   #sidebar-first {
-//     a.button {
-//       background: $color-green;
-//     }
-//   }
-// }
-//
-// // Ung til ung
-// .page-ung-til-ung,
-// .node-type-image,
-// .node-type-forum {
-//
-//   #highlighted-wrapper {
-//     background: $color-red;
-//   }
-// }
+// Brevkasse
+.page-brevkasse-ny,
+.node-type-brevkasse {
+
+  #highlighted-wrapper {
+    background: $color-green;
+  }
+  #sidebar-first {
+    a.button {
+      background: $color-green;
+    }
+  }
+}
+
+
+// Ung til ung
+.page-ung-til-ung,
+.node-type-image,
+.node-type-forum {
+
+  #highlighted-wrapper {
+    background: $color-red;
+  }
+  #sidebar-first,
+  #postface {
+    a.button,
+    input[type=submit] {
+      background: $color-red;
+    }
+  }
+}
+
+// Ungi
+.page-ung-i,
+.page-ung-i-ny {
+
+  #highlighted-wrapper {
+    background: $color-purple;
+  }
+
+  #sidebar-first {
+
+    a.button,
+    input[type=submit] {
+      background: $color-purple;
+    }
+  }
+}
+
 //
 // // Chat
 // .page-node-20738 {
@@ -256,10 +333,3 @@
 //   }
 // }
 //
-// // Ungi
-// .page-ung-i {
-//
-//   #highlighted-wrapper {
-//     background: $color-purple;
-//   }
-// }

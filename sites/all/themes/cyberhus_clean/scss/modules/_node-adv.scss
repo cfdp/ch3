@@ -80,16 +80,35 @@
   .node-answer-author {
     border-top: 1px solid $color-gray;
     margin: 2em 0;
-    padding: 1em 0;
+    padding: 1.5em 0;
   }
 
   .node-answer-author {
     font-size: $font-size-small;
+    line-height: $line-height-small;
     color: $text-color-light;
 
     span.name {
       color: $text-color;
       font-weight: 800;
+    }
+  }
+
+  ul.links {
+
+    a {
+      color: $text-color;
+    }
+    li.subscribe {
+      float: right;
+      margin-top: -.5em;
+
+      a {
+        @include button-link(transparent);
+        color: $color-red;
+        font-size: $font-size-small;
+        border: 1px solid $color-red;
+      }
     }
   }
 
@@ -123,6 +142,12 @@
       margin-bottom: 20px;
       font-size: $font-size-small;
       display: inline-block;
+
+      svg {
+        height: 1em;
+        width: 1em;
+        margin: 0 0.1em -0.05em;
+      }
     }
     .author-created {
       font-size: $font-size-small;
@@ -159,6 +184,59 @@
         grid-column: 1;
         grid-row: 1;
       }
+    }
+  }
+
+}
+
+h2#related-content {
+  font-size: 3em;
+}
+.node-related {
+
+  @include bp-normal {
+    display: grid;
+    grid-gap: 20px;
+    width: 960px;
+    grid-template-columns: 230px 710px;
+  }
+  @include bp-wide {
+    width: 1180px;
+    grid-template-columns: 285px 875px;
+  }
+
+  .node-related-content {
+    @include bp-narrow {
+      grid-column: 2;
+      grid-row: 1;
+    }
+  }
+
+  .node-related-sidebar {
+    @include bp-narrow {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .block {
+      background: white;
+      padding: 2em;
+      margin-bottom: 20px;
+    }
+    .field-label,
+    .block-title {
+      font-size: 1.5em;
+      font-weight: 800;
+      margin-bottom: 1em;
+    }
+    .field-content,
+    .block-content {
+
+    }
+    a.button {
+      margin-top: 2em;
+      width: 100%;
+      box-sizing: border-box;
     }
   }
 

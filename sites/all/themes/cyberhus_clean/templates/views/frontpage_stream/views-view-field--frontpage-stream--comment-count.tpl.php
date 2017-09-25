@@ -22,5 +22,5 @@
  * the view is modified.
  */
 ?>
-<svg class="icon"><use xlink:href="/<?php print path_to_theme(); ?>/assets/dist/svg/symbols.svg#comment" /></svg>
+<a href="/node/<?php print $row->nid; ?>/#comments"><svg class="icon"><use xlink:href="/<?php print path_to_theme(); ?>/assets/dist/svg/symbols.svg#comment" /></svg></a>
 <div class="count"><?php print $output; ?></div>

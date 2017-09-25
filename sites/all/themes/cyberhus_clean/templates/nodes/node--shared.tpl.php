@@ -96,8 +96,8 @@
   <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
 
   <div class="node-top-links">
-    <a href="#comments">
-      <?php print t("See other @type", array('@type' => $type_label['plural'])); ?>
+    <a href="#related">
+      <?php print t("See related content"); ?>
       <?php print cyberhus_clean_icon_display('arrow-down'); ?>
     </a>
   </div>
@@ -133,4 +133,17 @@
 
   </div>
 
+</div>
+
+<h2 id="related-content"><?php print t("Related content"); ?></h2>
+<a id="related"></a>
+<div class="node-related">
+<div clas="node-related-sidebar">
+
+</div>
+  <div class="node-related-content">
+    <?php
+    print views_embed_view('frontpage_stream', 'block_1');
+    ?>
+  </div>
 </div>

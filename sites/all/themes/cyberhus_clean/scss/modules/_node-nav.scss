@@ -3,6 +3,7 @@
   background: white;
   text-align: center;
   padding: 1.5em;
+  height: 1.25em;
   margin: 0;
   border-bottom: 1px solid $color-gray;
 
@@ -65,10 +66,14 @@
   .node-nav-all,
   .entity_pager_all_link {
     display: inline-block;
+    position: relative;
+    top: -.15em;
 
     svg {
       float: left;
       padding-right: 0.65em;
+      position: relative;
+      top: .1em;
     }
   }
 }

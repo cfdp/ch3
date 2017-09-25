@@ -1,5 +1,9 @@
 #breadcrumb {
-  padding: 1em 0;
+  padding: 1em;
+
+  @include bp-narrow {
+    padding: 1em 0;
+  }
 
   .breadcrumb {
     padding-bottom: 0;

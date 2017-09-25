@@ -77,7 +77,18 @@
 
     <?php //if ($page['mobile_header']): ?>
       <div id="mobile-header-wrapper">
-        <div id="mobile-header"><?php // print render($page['mobile_header']); ?></div>
+        <div id="mobile-header">
+          <?php // print render($page['mobile_header']); ?>
+          <div class="mobile-search">
+            <?php print cyberhus_clean_icon_display("search"); ?>
+          </div>
+          <div class="mobile-logo">
+            <object type="image/svg+xml" data="/sites/all/themes/cyberhus_clean/assets/svg/logo.svg" id="main-logo">Logo</object>
+          </div>
+          <div class="mobile-menu">
+            <?php print cyberhus_clean_icon_display("menu"); ?>
+          </div>
+        </div>
       </div> <!-- /#mobile-header-wrapper -->
     <?php // endif; ?>
 

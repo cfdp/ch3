@@ -13,8 +13,32 @@
 #bottom-wrapper {
 
   border-top: 1px solid #e2e2e2;
+}
+
+.region-bottom {
 
   .block {
+    color: $text-color-light;
+    font-size: $font-size-small;
 
+    p {
+      color: $text-color-light;
+
+      @include bp-narrow {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .first {
+    @include bp-narrow {
+      float: left;
+    }
+  }
+
+  .second {
+    @include bp-narrow {
+      float: right;
+    }
   }
 }

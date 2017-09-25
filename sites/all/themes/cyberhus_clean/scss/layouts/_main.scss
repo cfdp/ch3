@@ -19,19 +19,25 @@
     width: 1180px;
   }
 }
+#sidebar-first {
+  display: none;
+}
 
 /* Sidebar layout */
-body:not(.page-node) {
+body.page-frontpage_stream {
 
   #page-title {
     display: none;
   }
 
+  #sidebar-first {
+    display: block;
+  }
+
   #main {
 
-    padding-top: 20px;
-
     @include bp-narrow {
+      padding-top: 40px;
       margin: auto;
       width: 700px;
     }
@@ -69,25 +75,23 @@ body.page-frontpage {
     display: none;
   }
   #main {
-    padding-top: 0;
+
+    @include bp-narrow {
+      padding-top: 0;
+    }
   }
 }
 
 /* Node Advanced */
 body.page-node-adv {
 
-  #page-title,
-  #sidebar-first {
+  #page-title {
     display: none;
   }
 }
 
 /* Node Basic */
 body.page-node-basic {
-
-  #sidebar-first {
-    display: none;
-  }
 
   #main {
     padding: 1em 20px;
@@ -98,6 +102,17 @@ body.page-node-basic {
       width: 700px;
       padding: 3em 1em;
     }
+  }
+}
+
+/* Taxonony */
+body.page-taxonomy {
+
+  #page-title {
+    display: none;
+  }
+  #main {
+    display: block;
   }
 }
 

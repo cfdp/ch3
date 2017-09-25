@@ -44,15 +44,56 @@ function cyberhus_clean_form_alter(&$form, &$form_state) {
       $form['custom_search_blocks_form_1']['#attributes']['placeholder'] = t('Seach here');
       // Svg icon
       $form['custom_search_blocks_form_1']['#prefix'] = '<svg class="icon"><use xlink:href="/' . path_to_theme() . '/assets/dist/svg/symbols.svg#search" /></svg>';
-
     break;
   }
+}
+
+/**
+ * Implements theme_radio().
+ */
+function cyberhus_clean_radio($variables) {
+  $element = $variables['element'];
+  $element['#attributes']['type'] = 'radio';
+  element_set_attributes($element, array('id', 'name', '#return_value' => 'value'));
+
+  if (isset($element['#return_value']) && $element['#value'] !== FALSE && $element['#value'] == $element['#return_value']) {
+    $element['#attributes']['checked'] = 'checked';
+  }
+  _form_set_class($element, array('form-radio'));
+
+  $markup = '<input' . drupal_attributes($element['#attributes']) . ' />';
+
+  // Gender icons
+  if($variables['element']['#name'] == 'field_brevk_koen[und]') {
+    switch($variables['element']['#return_value']) {
+      case 2149:
+        $markup .= cyberhus_clean_icon_display('man');
+      break;
+      case 2150:
+        $markup .= cyberhus_clean_icon_display('woman');
+      break;
+      case 2350:
+        $markup .= cyberhus_clean_icon_display('binary');
+      break;
+    }
+  }
+
+  return $markup;
+}
+
+function cyberhus_clean_select($variables) {
+  $element = $variables['element'];
+  element_set_attributes($element, array('id', 'name', 'size'));
+  _form_set_class($element, array('form-select'));
+
+  return '<div class="select-wrapper"><select' . drupal_attributes($element['#attributes']) . '>' . form_select_options($element) . '</select>' . cyberhus_clean_icon_display('up-down') . "</div>";
 }
 
 /**
  * Implements hook_preprocess_node().
  */
 function cyberhus_clean_preprocess_node(&$variables) {
+
   if ($variables['node']) {
 
     $node = $variables['node'];
@@ -71,6 +112,7 @@ function cyberhus_clean_preprocess_node(&$variables) {
  * Implements hook_preprocess_html().
  */
 function cyberhus_clean_preprocess_html(&$variables) {
+
   if ($node = menu_get_object()) {
 
     $node_types_adv = array(
@@ -83,6 +125,11 @@ function cyberhus_clean_preprocess_html(&$variables) {
     else {
       $variables['classes_array'][] = 'page-node-basic';
     }
+  }
+
+  $view = views_get_page_view();
+  if ( isset($view) ) {
+    $variables['classes_array'][] = 'page-' . $view->name;
   }
 }
 
@@ -143,7 +190,25 @@ function cyberhus_clean_term_display($tid) {
   $term = taxonomy_term_load($tid);
 
   if($term) {
-    return $term->name;
+
+    // Gender
+    if($term->vocabulary_machine_name == 'k_n') {
+      switch($term->name) {
+        case "Pige":
+          $gender = 'woman';
+        break;
+        case "Dreng":
+          $gender = 'man';
+        break;
+        default:
+          $gender = 'binary';
+        break;
+      }
+      return cyberhus_clean_icon_display($gender);
+    }
+    else {
+      return $term->name;
+    }
   }
 }
 

@@ -1,0 +1,45 @@
+#mobile-header-wrapper {
+  display: block;
+  background: white;
+
+  @include bp-normal {
+    display: none;
+  }
+}
+
+#mobile-header {
+  padding: 1.15em 1.5em 1em;
+  text-align: center;
+
+  > div {
+    display: inline-block;
+  }
+
+  svg {
+    height: 1.5em;
+    width: 1.5em;
+  }
+
+  .mobile-search {
+    float: left;
+
+    svg {
+      fill: #606060;
+    }
+  }
+  .mobile-logo {
+
+    object {
+      width: 100px;
+      height: 25px;
+      margin-top: -4px;
+    }
+  }
+  .mobile-menu {
+    float: right;
+
+    svg {
+      fill: #606060;
+    }
+  }
+}

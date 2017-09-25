@@ -61,12 +61,19 @@
 ?>
 <div class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  <?php if ($new): ?>
-    <span class="new"><?php print $new ?></span>
-  <?php endif; ?>
-
   <div class="submitted">
-    <?php print $submitted; ?>
+    <?php print t('Comment by') . ' ' . $comment->name; ?>
+    <?php
+    if(isset($comment->field_brevk_koen[LANGUAGE_NONE])) {
+      print cyberhus_clean_term_display($comment->field_brevk_koen[LANGUAGE_NONE][0]['tid']);
+    }
+    ?>
+    <?php
+    if(isset($comment->field_brevk_alder[LANGUAGE_NONE])) {
+      print cyberhus_clean_term_display($comment->field_brevk_alder[LANGUAGE_NONE][0]['tid']);
+    }
+    ?>
+    &middot; <?php print t('!interval ago', array('!interval' => format_interval(time() - $comment->created))); ?>
   </div>
 
   <div class="content"<?php print $content_attributes; ?>>
