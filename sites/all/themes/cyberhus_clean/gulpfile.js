@@ -5,7 +5,9 @@ var gulp        = require('gulp'),
     shell       = require('gulp-shell'),
     plumber     = require('gulp-plumber'),
     rename      = require('gulp-rename'),
-    svgSprite   = require('gulp-svg-sprites');
+    svgSprite   = require('gulp-svg-sprites'),
+    imagemin    = require('gulp-imagemin');
+
 
 /**
  * Launch the Server
@@ -41,19 +43,18 @@ gulp.task('svg-sprites', function() {
 					mode: "symbols",
 					preview: true
 				}))
+				.pipe(gulp.dest("assets/dist"))
+				.pipe(imagemin({
+						svgoPlugins: [
+							{cleanupIDs: false},
+							{removeUselessDefs: false},
+              {removeTitle: true}
+						]
+				}))
+				.pipe( rename( {
+					suffix: '.min'
+				} ) )
 				.pipe(gulp.dest("assets/dist"));
-				// .pipe(imagemin({
-				// 		svgoPlugins: [
-				// 			// The following plugins need to be disabled for this to work:
-				// 			// https://github.com/svg/svgo/issues/553#issuecomment-223531153
-				// 			{cleanupIDs: false},
-				// 			{removeUselessDefs: false}
-				// 		]
-				// }))
-				// .pipe( rename( {
-				// 	suffix: '.min'
-				// } ) )
-				// .pipe(gulp.dest("assets/dist"));
 });
 
 /**

@@ -1,0 +1,44 @@
+.page-temaer {
+
+}
+
+/* View: Temaer */
+.view-Temaer {
+
+  > .view-content .views-row {
+    background: white;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 2em;
+    position: relative;
+    @include clearfix();
+
+    h2 {
+      box-sizing: border-box;
+      padding-right: 3em;
+
+      a {
+        color: $text-color;
+        opacity: 1;
+        @include transition-property(opacity);
+        @include transition-duration(250ms);
+
+        &:hover {
+          text-decoration: none;
+          opacity: .75;
+        }
+      }
+    }
+  }
+}
+
+.view-tema-visning {
+
+  .view-header {
+    margin-bottom: 40px;
+
+    .content-list-header {
+      margin-bottom: 20px;
+    }
+  }
+}

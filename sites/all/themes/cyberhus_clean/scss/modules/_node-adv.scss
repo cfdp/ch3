@@ -11,15 +11,22 @@
 
   .node-type {
     color: $text-color-light;
-    font-size: $font-size-medium;
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 0.5em;
+
+    @include bp-narrow {
+      font-size: $font-size-medium;
+    }
   }
 
   h1 {
     text-align: center;
     margin-bottom: .5em;
+
+    @include bp-mobile {
+      font-size: 2.5em;
+    }
   }
 
   .node-top-links {
@@ -56,9 +63,12 @@
 
   .field-name-body,
   .field-name-field-brevk-spoergsmaal  {
-    font-size: $font-size-medium;
     font-weight: 500;
     color: #989898;
+
+    @include bp-narrow {
+      font-size: $font-size-medium;
+    }
 
     p {
       color: #989898;
@@ -117,31 +127,89 @@
     padding: 1.5em 1em;
     border: 1px solid $color-gray;
     box-sizing: border-box;
-    text-align: center;
     margin-bottom: 20px;
+    @include clearfix();
+
+    @include bp-narrow {
+      text-align: center;
+    }
+
+    .author-first {
+      @include bp-mobile {
+        float: left;
+        width: 33%;
+        padding-right: 10px;
+        box-sizing: border-box;
+      }
+    }
+    .author-second {
+      @include bp-mobile {
+        float: left;
+        width: 64%;
+      }
+    }
+
     .author-avatar {
-      height: 8em;
-      width: 8em;
-      border-radius: 8em;
-      margin: 0 auto 15px;
+      height: 4.5em;
+      width: 4.5em;
+      border-radius: 4.5em;
       background: $color-gray-light;
+      float: right;
+
+      @include bp-narrow {
+        width: 6em;
+        height: 6em;
+        border-radius: 6em;
+        margin: 0 auto 15px;
+        float: none;
+      }
+      @include bp-normal {
+        width: 8em;
+        height: 8em;
+        border-radius: 8em;
+      }
+
+      img {
+        width: 4.5em;
+
+        @include bp-narrow {
+          width: 6em;
+        }
+        @include bp-normal {
+          width: 8em;
+        }
+      }
     }
     .author-type {
       text-transform: uppercase;
       font-size: $font-size-small;
+      line-height: $line-height-small;
       color: $text-color-light;
       margin-bottom: 5px;
     }
     .author-name {
-      font-size: $font-size-medium;
       font-weight: 800;
+      word-wrap: break-word;
+      float: left;
+      margin-right: 10px;
       margin-bottom: 10px;
+
+      @include bp-narrow {
+        font-size: $font-size-medium;
+        margin-bottom: 10px;
+        float: none;
+        margin-right: 0;
+      }
     }
-    .author-gender ,
+    .author-gender,
     .author-age {
-      margin-bottom: 20px;
+      margin-bottom: 5px;
       font-size: $font-size-small;
       display: inline-block;
+
+      @include bp-narrow {
+        margin-bottom: 20px;
+      }
 
       svg {
         height: 1em;
@@ -152,6 +220,8 @@
     .author-created {
       font-size: $font-size-small;
       color: $text-color-light;
+      float: left;
+      width: 100%;
     }
   }
 
@@ -190,7 +260,11 @@
 }
 
 h2#related-content {
-  font-size: 3em;
+  font-size: 2.5em;
+
+  @include bp-narrow {
+    font-size: 3em;
+  }
 }
 .node-related {
 

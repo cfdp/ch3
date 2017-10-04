@@ -81,6 +81,16 @@
         grid-row: 3;
       }
     }
+
+    &.chat-state-0 {
+
+      @include bp-normal {
+        .field-name-field-ungi-info {
+          grid-column: 1 / 3;
+          grid-row: 1 / 3;
+        }
+      }
+    }
   }
 
   .vocabulary-ung-i-byer > .content {

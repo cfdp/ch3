@@ -17,6 +17,12 @@
   }
 }
 
+@mixin bp-mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
 @mixin print {
   @media print {
     @content;

@@ -108,6 +108,7 @@
 
   overflow: hidden;
   height: 250px;
+  position: relative;
 
   @include bp-narrow {
     height: 400px;

@@ -32,4 +32,4 @@
     'blog' => 'brevkasse'
   );
 ?>
-<svg class="icon"><use xlink:href="/<?php print path_to_theme() . '/assets/dist/svg/symbols.svg#' . $type_map[$row->node_type]; ?>" /></svg>
+<?php print cyberhus_clean_icon_display($type_map[$row->node_type]); ?>

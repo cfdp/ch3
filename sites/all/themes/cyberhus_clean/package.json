@@ -11,7 +11,8 @@
     "gulp-sass": "^2.0.4",
     "gulp-shell": "^0.4.2",
     "gulp-svg-sprites": "4.1.1",
-    "gulp-rename": "1.2.2"
+    "gulp-rename": "1.2.2",
+    "gulp-imagemin": "2.2.1"
   },
   "scripts": {
     "postinstall": "find node_modules/ -name '*.info' -type f -delete"

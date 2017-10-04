@@ -22,5 +22,7 @@
  * the view is modified.
  */
 ?>
-<a href="/node/<?php print $row->nid; ?>/#comments"><svg class="icon"><use xlink:href="/<?php print path_to_theme(); ?>/assets/dist/svg/symbols.svg#comment" /></svg></a>
+<a href="/node/<?php print $row->nid; ?>/#comments">
+  <?php print cyberhus_clean_icon_display('comment'); ?>
+</a>
 <div class="count"><?php print $output; ?></div>

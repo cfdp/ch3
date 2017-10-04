@@ -26,12 +26,48 @@
       }
     }
 
-    .stream-image {
+    .stream-avatar {
 
+      float: left;
+      width: 20%;
+      box-sizing: border-box;
+      padding-right: 10px;
+
+      @include bp-narrow {
+        width: 15%;
+      }
+      @include bp-wide {
+        width: 15%;
+      }
+
+      div {
+        max-width: 100%;
+        width: 4em;
+        min-height: 1px;
+        border-radius: 4em;
+
+        @include bp-narrow {
+          width: 5.5em;
+          border-radius: 5.5em;
+        }
+        @include bp-wide {
+          width: 6em;
+          border-radius: 6em;
+        }
+      }
     }
 
-    .stream-body {
+    .stream-content {
       line-height: $line-height-base;
+      float: left;
+      width: 80%;
+
+      @include bp-narrow {
+        width: 85%;
+      }
+      @include bp-wide {
+        width: 85%;
+      }
     }
 
     .stream-type-icon {
@@ -49,14 +85,14 @@
     .stream-metadata {
       color: $text-color-light;
       padding: 0 0 1em 0;
-      margin-bottom: 1em;
+      margin-bottom: 20px;
       border-bottom: 1px solid #d7d7d7;
+      @include clearfix();
 
       .stream-metadata-item {
         margin-right: 5px;
         padding-right: 6px;
         position: relative;
-        display: inline-block;
         font-size: $font-size-small;
         line-height: $line-height-small;
 
@@ -84,6 +120,10 @@
             display: none;
           }
         }
+
+        &.meta-type {
+          float: left;
+        }
       }
 
       svg {
@@ -99,11 +139,15 @@
     }
 
 
+    .stream-like {
+      clear: left;
+    }
     .stream-like,
     .stream-comments {
       margin-top: 1.5em;
       float: left;
     }
+
     .stream-comments {
 
       a {
@@ -137,9 +181,23 @@
     padding-bottom: 4em;
     background: $color-turquoise;
 
+    &:nth-child(5n+2) {
+      background: $color-red;
+    }
+    &:nth-child(5n+3) {
+      background: $color-blue;
+    }
+    &:nth-child(5n+4) {
+      background: $color-orange;
+    }
+    &:nth-child(5n+5) {
+      background: $color-purple;
+    }
+
     .stream-title,
     .stream-comments,
-    .stream-like {
+    .stream-like,
+    .stream-avatar {
       display: none;
     }
     .stream-metadata {
@@ -149,12 +207,21 @@
 
       .stream-metadata-item {
         border-color: white;
+        display: inline-block;
+
+        &.meta-type {
+          float: none;
+
+          &:after {
+            background: white;
+          }
+        }
       }
       svg {
         fill: white;
       }
     }
-    .stream-body {
+    .stream-content {
       font-family: $font-fam-alt;
       font-size: $font-size-large;
       font-weight: bold;
@@ -176,15 +243,31 @@
       display: none;
     }
   }
+  .type-forum {
+    .stream-type-icon {
+      fill: $color-red;
+    }
+  }
   .type-blog {
     .stream-type-icon {
       fill: $color-blue;
     }
+    .stream-avatar {
+      display: none;
+    }
+    .stream-content {
+      width: 100%;
+    }
   }
-  .type-forum,
   .type-image {
     .stream-type-icon {
       fill: $color-red;
+    }
+    .stream-avatar {
+      display: none;
+    }
+    .stream-content {
+      width: 100%;
     }
   }
 }

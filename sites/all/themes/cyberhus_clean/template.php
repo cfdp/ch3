@@ -16,7 +16,7 @@ function cyberhus_clean_menu_link__menu_top_menu(array $variables) {
 
   $menu_id = (isset($element['#attributes']['id'])) ? $element['#attributes']['id'] : 'articles';
 
-  $svg = '<svg class="icon"><use xlink:href="/' . path_to_theme() . '/assets/dist/svg/symbols.svg#' . $menu_id . '" /></svg>';
+  $svg = '<svg class="icon"><use xlink:href="/' . path_to_theme() . '/assets/dist/svg/symbols.min.svg#' . $menu_id . '" /></svg>';
   $element['#localized_options']['html'] = TRUE;
   $output = l($svg . $element['#title'], $element['#href'], $element['#localized_options']);
   $element['#attributes']['class'][] = 'svg-menu';
@@ -43,7 +43,7 @@ function cyberhus_clean_form_alter(&$form, &$form_state) {
       // Placeholder
       $form['custom_search_blocks_form_1']['#attributes']['placeholder'] = t('Seach here');
       // Svg icon
-      $form['custom_search_blocks_form_1']['#prefix'] = '<svg class="icon"><use xlink:href="/' . path_to_theme() . '/assets/dist/svg/symbols.svg#search" /></svg>';
+      $form['custom_search_blocks_form_1']['#prefix'] = '<svg class="icon"><use xlink:href="/' . path_to_theme() . '/assets/dist/svg/symbols.min.svg#search" /></svg>';
     break;
   }
 }
@@ -81,6 +81,9 @@ function cyberhus_clean_radio($variables) {
   return $markup;
 }
 
+/**
+ * Implements theme_select().
+ */
 function cyberhus_clean_select($variables) {
   $element = $variables['element'];
   element_set_attributes($element, array('id', 'name', 'size'));
@@ -109,6 +112,32 @@ function cyberhus_clean_preprocess_node(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_node().
+ */
+function cyberhus_clean_preprocess_taxonomy_term(&$variables) {
+
+  $term = $variables['term'];
+
+  switch($term->vocabulary_machine_name) {
+    case "ung_i_byer":
+      // Settings for the letter box and chat
+      $variables['lb_state'] = 0;
+      $variables['lb_open'] = 0;
+      $variables['chat_state'] = 0;
+      if(isset($term->field_ungi_lb_state['und'][0]['value'])) {
+        $variables['lb_state'] = $term->field_ungi_lb_state['und'][0]['value'];
+      }
+      if(isset($term->field_ungi_lb_open['und'][0]['value'])) {
+        $variables['lb_open'] = $term->field_ungi_lb_open['und'][0]['value'];
+      }
+      if(isset($term->field_ungi_chat_state['und'][0]['value'])) {
+        $variables['chat_state'] = $term->field_ungi_chat_state['und'][0]['value'];
+      }
+    break;
+  }
+}
+
+/**
  * Implements hook_preprocess_html().
  */
 function cyberhus_clean_preprocess_html(&$variables) {
@@ -133,6 +162,9 @@ function cyberhus_clean_preprocess_html(&$variables) {
   }
 }
 
+/**
+ * Implements theme_breadcrumb().
+ */
 function cyberhus_clean_breadcrumb(&$variables) {
 
   $breadcrumb = $variables['breadcrumb'];
@@ -206,6 +238,11 @@ function cyberhus_clean_term_display($tid) {
       }
       return cyberhus_clean_icon_display($gender);
     }
+    elseif($term->vocabulary_machine_name == 'avatars') {
+      return theme('image_style',
+        array('path' => $term->field_avatar_image[LANGUAGE_NONE][0]['uri'], 'style_name' => 'avatar_large')
+      );
+    }
     else {
       return $term->name;
     }
@@ -218,7 +255,7 @@ function cyberhus_clean_term_display($tid) {
 function cyberhus_clean_icon_display($id) {
   $markup = "";
   $markup .= "<svg class='icon'>";
-  $markup .= "<use xlink:href='/" . drupal_get_path('theme', 'cyberhus_clean') . "/assets/dist/svg/symbols.svg#$id' />";
+  $markup .= "<use xlink:href='/" . drupal_get_path('theme', 'cyberhus_clean') . "/assets/dist/svg/symbols.min.svg#$id' />";
   $markup .= "</svg>";
 
   return $markup;
