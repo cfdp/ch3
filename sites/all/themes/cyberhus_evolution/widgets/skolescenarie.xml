@@ -1,0 +1,222 @@
+<quiz>
+	<question id="1">
+		<storylinedreng><![CDATA[Gad vide hvor mange drenge på min alder, der spiser grøntsager hver dag?]]></storylinedreng>
+		<storylinepige><![CDATA[Gad vide hvor mange piger på min alder, der spiser grøntsager hver dag?]]></storylinepige>
+		<replyI>Der er </replyI>
+		<replyII> på min alder, der spiser grøntsager hver dag.</replyII>
+		<answers>
+		   <answer id="p11">
+		        <item value="false" >21%</item>
+		    	<item value="false" >35%</item>
+		    	<item value="true" >64%</item>
+				<item value="false" >75%</item>
+		   </answer>
+		   <answer id="p13" correct="">
+		        <item value="false" >21%</item>
+		    	<item value="false" >35%</item>
+		    	<item value="true" >59%</item>
+		    	<item value="false" >64%</item>
+		   </answer>
+		   <answer id="p15" correct="">
+		        <item value="false" >21%</item>
+		    	<item value="false" >35%</item>	    	
+		    	<item value="true" >62%</item>
+				<item value="false" >77%</item>
+		   </answer>
+		   <answer id="d11" correct="">
+		        <item value="false" >21%</item>
+		    	<item value="false" >35%</item>
+		    	<item value="true" >53%</item>
+		    	<item value="false" >72%</item>
+		   </answer>
+		   <answer id="d13" correct="">
+		        <item value="false" >21%</item>
+		    	<item value="false" >35%</item>
+		    	<item value="true" >51%</item>
+		    	<item value="false" >73%</item>
+		   </answer>
+		   <answer id="d15" correct="">
+		        <item value="false" >21%</item>
+		    	<item value="false" >35%</item>
+		    	<item value="false" >43%</item>
+		    	<item value="true" >50%</item>
+		   </answer>
+		</answers>
+	</question>
+	<question id="2">
+		<storylinedreng><![CDATA[Gad vide hvor mange  drenge på min alder, der bliver mobbet et par gange om måneden?]]></storylinedreng>
+		<storylinepige><![CDATA[Gad vide hvor mange piger på min alder, der bliver mobbet et par gange om måneden?]]></storylinepige>
+		<replyI>Der er </replyI>
+		<replyII> på min alder, der bliver mobbet et par gange om måneden.</replyII>
+		<answers>
+		   <answer id="p11">
+		        <item value="false" >5%</item>
+		    	<item value="true" >10%</item>
+		    	<item value="false" >15%</item>
+		    	<item value="false" >25%</item>
+		   </answer>
+		   <answer id="p13" correct="">
+		        <item value="true" >2%</item>
+		    	<item value="false" >5%</item>
+		    	<item value="false" >9%</item>
+		    	<item value="false" >15%</item>
+		   </answer>
+		   <answer id="p15" correct="">
+		        <item value="true" >5%</item>
+		    	<item value="false" >8%</item>
+		    	<item value="false" >15%</item>
+		    	<item value="false" >20%</item>
+		   </answer>
+		   <answer id="d11" correct="">
+		        <item value="false" >5%</item>
+		    	<item value="false" >8%</item>
+		    	<item value="true" >11%</item>
+		    	<item value="false" >20%</item>
+		   </answer>
+		   <answer id="d13" correct="">
+		        <item value="false" >5%</item>
+		    	<item value="true" >9%</item>
+		    	<item value="false" >11%</item>
+		    	<item value="false" >20%</item>
+		   </answer>
+		   <answer id="d15" correct="">
+		        <item value="true" >6%</item>
+		    	<item value="false" >8%</item>
+		    	<item value="false" >11%</item>
+		    	<item value="false" >20%</item>
+		   </answer>
+		</answers>
+	</question>
+	<question id="3">
+		<storylinedreng><![CDATA[Gad vide hvor mange drenge på min alder, der har svært ved at tale fortroligt (om hemmelige ting) sammen med en ven?]]></storylinedreng>
+		<storylinepige><![CDATA[Gad vide hvor mange piger på min alder, der har svært ved at tale fortroligt (om hemmelige ting) sammen med en veninde?]]></storylinepige>
+		<replyI>Der er </replyI>
+		<replyII> på min alder, der har svært ved at tale fortroligt med en veninde/ven.</replyII>
+		<answers>
+		   <answer id="p11">
+		        <item value="false" >10%</item>
+		    	<item value="false" >18%</item>
+		    	<item value="true" >22%</item>
+		    	<item value="false" >30%</item>
+		   </answer>
+		   <answer id="p13" correct="">
+		        <item value="false" >10%</item>
+		    	<item value="true" >18%</item>
+		    	<item value="false" >22%</item>
+		    	<item value="false" >26%</item>
+		   </answer>
+		   <answer id="p15" correct="">
+		        <item value="false" >10%</item>
+		    	<item value="true" >17%</item>
+		    	<item value="false" >22%</item>
+		    	<item value="false" >26%</item>
+		   </answer>
+		   <answer id="d11" correct="">
+		        <item value="false" >7%</item>
+		    	<item value="false" >15%</item>
+		    	<item value="false" >22%</item>
+		    	<item value="true" >31%</item>
+		   </answer>
+		   <answer id="d13" correct="">
+		        <item value="false" >10%</item>
+		    	<item value="false" >21%</item>
+		    	<item value="true" >30%</item>
+		    	<item value="false" >38%</item>
+		   </answer>
+		   <answer id="d15" correct="">
+		        <item value="false" >10%</item>
+		    	<item value="false" >18%</item>
+		    	<item value="true" >27%</item>
+		    	<item value="false" >33%</item>
+		   </answer>
+		</answers>
+	</question>
+	<question id="4">
+		<storylinedreng><![CDATA[Gad vide hvor mange drenge på min alder, der ryger hver dag?]]></storylinedreng>
+		<storylinepige><![CDATA[Gad vide hvor mange piger på min alder, der ryger hver dag?]]></storylinepige>
+		<replyI>Der er </replyI>
+		<replyII> på min alder, der ryger hver dag.</replyII>
+		<answers>
+		   <answer id="p11">
+		        <item value="true" >0%</item>
+		    	<item value="false" >6%</item>
+		    	<item value="false" >10%</item>
+		    	<item value="false" >22%</item>
+		   </answer>
+		   <answer id="p13" correct="">
+		        <item value="true" >2%</item>
+		    	<item value="false" >8%</item>
+		    	<item value="false" >16%</item>
+		    	<item value="false" >20%</item>
+		   </answer>
+		   <answer id="p15" correct="">
+		        <item value="false" >2%</item>
+		    	<item value="true" >11%</item>
+		    	<item value="false" >22%</item>
+		    	<item value="false" >35%</item>
+		   </answer>
+		   <answer id="d11" correct="">
+		        <item value="true" >0%</item>
+		    	<item value="false" >5%</item>
+		    	<item value="false" >8%</item>
+		    	<item value="false" >15%</item>
+		   </answer>
+		   <answer id="d13" correct="">
+		        <item value="true" >3%</item>
+		    	<item value="false" >8%</item>
+		    	<item value="false" >16%</item>
+		    	<item value="false" >25%</item>
+		   </answer>
+		   <answer id="d15" correct="">
+		        <item value="false" >2%</item>
+		    	<item value="true" >11%</item>
+		    	<item value="false" >22%</item>
+		    	<item value="false" >35%</item>
+		   </answer>
+		</answers>
+	</question>
+	<question id="5">
+		<storylinedreng><![CDATA[Gad vide hvor mange drenge på min alder, der er fysisk aktive i deres fritid?]]></storylinedreng>
+		<storylinepige><![CDATA[Gad vide hvor mange piger på min alder, der er fysisk aktive i deres fritid?]]></storylinepige>
+		<replyI>Der er </replyI>
+		<replyII> på min alder, der er fysisk aktive i deres fritid.</replyII>
+		<answers>
+		   <answer id="p11">
+		        <item value="false" >50%</item>
+		    	<item value="false" >76%</item>
+		    	<item value="false" >86%</item>
+		    	<item value="true" >96%</item>
+		   </answer>
+		   <answer id="p13" correct="">
+		        <item value="false" >50%</item>
+		    	<item value="false" >76%</item>
+		    	<item value="false" >86%</item>
+		    	<item value="true" >96%</item>
+		   </answer>
+		   <answer id="p15" correct="">
+		        <item value="false" >50%</item>
+		    	<item value="false" >76%</item>
+		    	<item value="false" >86%</item>
+		    	<item value="true" >92%</item>
+		   </answer>
+		   <answer id="d11" correct="">
+		        <item value="false" >50%</item>
+		    	<item value="false" >76%</item>
+		    	<item value="false" >86%</item>
+		    	<item value="true" >96%</item>
+		   </answer>
+		   <answer id="d13" correct="">
+		        <item value="false" >50%</item>
+		    	<item value="false" >76%</item>
+		    	<item value="false" >86%</item>
+		    	<item value="true" >95%</item>
+		   </answer>
+		   <answer id="d15" correct="">
+		        <item value="false" >50%</item>
+		    	<item value="false" >76%</item>
+		    	<item value="false" >86%</item>
+		    	<item value="true" >93%</item>
+		   </answer>
+		</answers>
+	</question>
+</quiz>
