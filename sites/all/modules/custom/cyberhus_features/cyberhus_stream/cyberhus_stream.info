@@ -1,6 +1,6 @@
 name = Cyberhus Stream
 core = 7.x
-package = Features
+package = Cyberhus
 dependencies[] = better_exposed_filters
 dependencies[] = entity_pager
 dependencies[] = entityreference_prepopulate
