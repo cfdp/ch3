@@ -26,8 +26,10 @@
 
 @import "modules/nav-main-menu";
 @import "modules/nav-footer-menu";
+@import "modules/sticky-header";
 
 @import "modules/view-stream";
+@import "modules/view-stream-filter";
 
 @import "modules/node-basic";
 @import "modules/node-adv";
@@ -41,6 +43,7 @@
 @import "modules/chat";
 @import "modules/articles";
 @import "modules/blogs";
+@import "modules/search";
 
 @import "modules/block-banner";
 @import "modules/block-search";
@@ -51,3 +54,4 @@
 @import "modules/breadcrumbs";
 @import "modules/tabs";
 @import "modules/polls";
+@import "modules/back-to-top";

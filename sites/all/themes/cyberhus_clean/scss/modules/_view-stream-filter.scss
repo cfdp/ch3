@@ -1,0 +1,91 @@
+/* Filter form */
+#block-views-exp-frontpage-stream-page,
+#block-views-exp-frontpage-stream-page-1,
+#block-views-exp-frontpage-stream-page-2 {
+
+  background: white;
+  padding: 1em 2em 2em;
+  margin: 0 0 20px 0;
+  @include clearfix();
+
+  @include bp-narrow {
+    padding: 1em 2em;
+  }
+
+  @include bp-normal {
+    margin: 0;
+  }
+
+  > h2 {
+    font-size: $font-size-small;
+    margin: 0 0 10px 0;
+    padding: 0;
+    text-transform: uppercase;
+    line-height: 2.5em;
+    font-weight: 500;
+
+    @include bp-narrow {
+      float: left;
+      margin: 0 2em 0 0;
+    }
+  }
+
+  .views-exposed-widgets {
+    margin: 0;
+  }
+  .views-exposed-widget {
+    padding: 0;
+    margin: 0 0 10px 0;
+    width: 100%;
+
+    @include bp-narrow {
+      float: left;
+      width: auto;
+      margin: 0 1em 0 0;
+    }
+
+    label {
+      display: none;
+    }
+
+    svg {
+      right: .75em;
+    }
+
+    .select-wrapper {
+      @include bp-mobile {
+        width: 100%;
+      }
+    }
+    select {
+      font-size: .8125em;
+      text-transform: uppercase;
+      padding: .65em 2.5em .65em 1em;
+      font-weight: 500;
+
+      @include bp-mobile {
+        width: 100%;
+      }
+    }
+  }
+
+  .views-submit-button {
+    margin: 0;
+  }
+  .views-reset-button {
+
+    margin: 0;
+
+    @include bp-narrow {
+      float: right;
+      margin-top: .15em;
+    }
+
+    #edit-reset {
+      margin: 0;
+      color: white;
+      text-transform: uppercase;
+      @include button($color-gray-dark);
+    }
+  }
+}

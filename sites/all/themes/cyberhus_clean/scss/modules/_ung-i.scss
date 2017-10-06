@@ -33,12 +33,14 @@
     #ctools-jump-menu {
       .select-wrapper {
         background: $color-gray-light;
+        max-width: 100%;
       }
       select {
         font-size: 1.25em;
-        min-width: 20em;
         border: none;
         color: $text-color;
+        width: 30em;
+        max-width: 100%;
       }
       svg {
         height: .75em;
@@ -46,6 +48,7 @@
         margin-top: -.37em;
       }
       input[type=submit] {
+        display: none;
         font-size: 1.25em;
         background: $color-purple;
       }

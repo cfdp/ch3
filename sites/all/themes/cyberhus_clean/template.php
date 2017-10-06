@@ -45,6 +45,10 @@ function cyberhus_clean_form_alter(&$form, &$form_state) {
       // Svg icon
       $form['custom_search_blocks_form_1']['#prefix'] = '<svg class="icon"><use xlink:href="/' . path_to_theme() . '/assets/dist/svg/symbols.min.svg#search" /></svg>';
     break;
+    case "ctools-jump-menu":
+      // Ung i - Jump menu
+      $form['jump']['#options'][''] = t('I live in...');
+    break;
   }
 }
 

@@ -83,10 +83,10 @@
             <?php print cyberhus_clean_icon_display("search"); ?>
           </div>
           <div class="mobile-logo">
-            <object type="image/svg+xml" data="/sites/all/themes/cyberhus_clean/assets/svg/logo.svg" id="main-logo">Logo</object>
+            <a href="/"><object type="image/svg+xml" data="/sites/all/themes/cyberhus_clean/assets/svg/logo.svg" id="main-logo">Logo</object></a>
           </div>
           <div class="mobile-menu">
-            <?php print cyberhus_clean_icon_display("menu"); ?>
+            <?php // print cyberhus_clean_icon_display("menu"); ?>
           </div>
         </div>
       </div> <!-- /#mobile-header-wrapper -->
@@ -164,5 +164,9 @@
         <?php endif; ?>
       </div></div> <!-- /.section, /#bottom -->
     </div> <!-- /#bottom-wrapper -->
+
+    <a href="#" id="back-to-top" title="Back to top">
+      <?php print cyberhus_clean_icon_display('arrow-up'); ?>
+    </a>
 
   </div></div> <!-- /#page, /#page-wrapper -->

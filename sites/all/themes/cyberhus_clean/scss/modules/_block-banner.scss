@@ -7,6 +7,15 @@
   }
 }
 
+.flexslider-banner {
+  opacity: 0;
+  @include transition(opacity 250ms);
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
 // Slideshow paging
 .flex-control-paging {
   position: absolute;
@@ -284,7 +293,8 @@
     background: $color-green;
   }
   #sidebar-first {
-    a.button {
+    a.button,
+    input[type=submit] {
       background: $color-green;
     }
   }
@@ -325,12 +335,11 @@
   }
 }
 
-//
-// // Chat
-// .page-node-20738 {
-//
-//   #highlighted-wrapper {
-//     background: $color-orange;
-//   }
-// }
-//
+
+// Chat
+.page-node-20738 {
+
+  #highlighted-wrapper {
+    background: $color-orange;
+  }
+}

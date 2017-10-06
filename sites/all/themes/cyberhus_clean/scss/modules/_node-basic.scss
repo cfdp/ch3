@@ -4,3 +4,96 @@
     margin-bottom: .5em;
   }
 }
+
+.node-type-body-secret {
+
+  h1#page-title {
+    display: none;
+  }
+
+  .region-content .node {
+    background: white;
+    padding: 3em 2em;
+
+    @include bp-narrow {
+      padding: 4em 5em 4em;
+    }
+  }
+
+  .field-name-body {
+    font-family: $font-fam-alt;
+    font-size: $font-size-largest;
+    line-height: 1.2em;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color: $text-color-light;
+
+    @include bp-normal {
+      padding: 0 4em;
+    }
+  }
+
+  .node-bottom {
+    text-align: center;
+  }
+
+  /* Author box */
+  .author-box {
+    margin: 4em auto 0;
+    text-align: left;
+    display: inline-block;
+    @include clearfix();
+
+    .author-first {
+      float: left;
+      padding-right: 15px;
+      box-sizing: border-box;
+    }
+    .author-second {
+      float: left;
+    }
+
+    .author-avatar {
+      height: 7em;
+      width: 7em;
+      border-radius: 7em;
+      float: right;
+
+      img {
+        width: 7em;
+      }
+    }
+    .author-type {
+      text-transform: uppercase;
+      font-size: $font-size-small;
+      line-height: $line-height-small;
+      color: $text-color-light;
+      margin-bottom: 5px;
+    }
+    .author-name {
+      font-weight: 800;
+      word-wrap: break-word;
+      margin-bottom: 10px;
+      font-size: $font-size-medium;
+    }
+    .author-gender,
+    .author-age {
+      margin-bottom: 1.25em;
+      font-size: $font-size-small;
+      display: inline-block;
+
+      svg {
+        height: 1em;
+        width: 1em;
+        margin: 0 0.1em -0.05em;
+      }
+    }
+    .author-created {
+      font-size: $font-size-small;
+      color: $text-color-light;
+      float: left;
+      width: 100%;
+    }
+  }
+}

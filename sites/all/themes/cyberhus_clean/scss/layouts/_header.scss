@@ -1,6 +1,7 @@
 #header-wrapper {
   background-color: white;
   display: none;
+  @include transition(height 250ms);
 
   @include bp-normal {
     display: block;

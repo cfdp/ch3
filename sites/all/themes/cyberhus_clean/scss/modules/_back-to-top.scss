@@ -1,0 +1,36 @@
+#back-to-top {
+  position: fixed;
+  bottom: 2em;
+  right: 3em;
+  z-index: 9999;
+  padding: 1em;
+  text-align: center;
+  line-height: 1;
+  height: 1em;
+  border-radius: 2em;
+  background: white;
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0;
+  box-shadow: 0 0 10px $color-gray;
+  @include transition(bottom 250ms, opacity 250ms);
+
+  @include bp-mobile {
+    display: none;
+  }
+
+  svg {
+    fill: white;
+    width: 1em;
+    height: 1em;
+  }
+}
+
+#back-to-top.show {
+  opacity: 1;
+  bottom: 3em;
+
+  &:hover {
+    bottom: 3.5em;
+  }
+}

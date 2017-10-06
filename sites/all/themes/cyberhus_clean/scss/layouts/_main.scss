@@ -91,7 +91,7 @@ body.page-node-adv {
 }
 
 /* Node Basic */
-body.page-node-basic:not(.page-node-20738),
+body.page-node-basic:not(.page-node-20738):not(.node-type-body-secret),
 body.page-blog,
 body.page-blogs,
 body.page-temaer {
