@@ -23,21 +23,15 @@ function cyberhus_banner_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Felt: Felt: Slides */
+  /* Field: Field: Slides */
   $handler->display->display_options['fields']['field_banner_slides']['id'] = 'field_banner_slides';
   $handler->display->display_options['fields']['field_banner_slides']['table'] = 'field_data_field_banner_slides';
   $handler->display->display_options['fields']['field_banner_slides']['field'] = 'field_banner_slides';
@@ -49,7 +43,7 @@ function cyberhus_banner_views_default_views() {
   );
   $handler->display->display_options['fields']['field_banner_slides']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_banner_slides']['field_api_classes'] = TRUE;
-  /* Kontekstuelt filter: Ord i ordforråd: Term ID */
+  /* Contextual filter: Taxonomy term: Term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
@@ -64,7 +58,7 @@ function cyberhus_banner_views_default_views() {
   $handler->display->display_options['arguments']['tid']['validate_options']['vocabularies'] = array(
     'ung_i_byer' => 'ung_i_byer',
   );
-  /* Filterkriterie: Ordforråd: Internt navn */
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
@@ -76,12 +70,12 @@ function cyberhus_banner_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block');
   $translatables['banner_ungi'] = array(
     t('Master'),
-    t('mere'),
-    t('Udfør'),
-    t('Gendan'),
-    t('Sortér efter'),
-    t('Stigende'),
-    t('Faldende'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
     t('Alle'),
     t('Block'),
   );

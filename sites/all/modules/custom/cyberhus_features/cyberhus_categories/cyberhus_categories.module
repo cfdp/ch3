@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Cyberhus Categories feature.
+ */
+
+include_once 'cyberhus_categories.features.inc';

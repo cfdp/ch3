@@ -30,7 +30,7 @@ function cyberhus_avatars_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Taxonomy term: Billede */
+  /* Field: Ord i ordforråd: Billede */
   $handler->display->display_options['fields']['field_avatar_image']['id'] = 'field_avatar_image';
   $handler->display->display_options['fields']['field_avatar_image']['table'] = 'field_data_field_avatar_image';
   $handler->display->display_options['fields']['field_avatar_image']['field'] = 'field_avatar_image';
