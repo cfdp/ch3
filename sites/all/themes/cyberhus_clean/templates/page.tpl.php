@@ -75,22 +75,19 @@
 
   <div id="page-wrapper"><div id="page">
 
-    <?php //if ($page['mobile_header']): ?>
-      <div id="mobile-header-wrapper">
-        <div id="mobile-header">
-          <?php // print render($page['mobile_header']); ?>
-          <div class="mobile-search">
-            <?php print cyberhus_clean_icon_display("search"); ?>
-          </div>
-          <div class="mobile-logo">
-            <a href="/"><object type="image/svg+xml" data="/sites/all/themes/cyberhus_clean/assets/svg/logo.svg" id="main-logo">Logo</object></a>
-          </div>
-          <div class="mobile-menu">
-            <?php // print cyberhus_clean_icon_display("menu"); ?>
-          </div>
+    <div id="mobile-header-wrapper">
+      <div id="mobile-header">
+        <div class="mobile-logo">
+          <a href="/"><object type="image/svg+xml" data="/sites/all/themes/cyberhus_clean/assets/svg/logo.svg" id="main-logo">Logo</object></a>
         </div>
-      </div> <!-- /#mobile-header-wrapper -->
-    <?php // endif; ?>
+        <div class="mobile-search">
+          <?php
+            $block = module_invoke('custom_search_blocks', 'block_view', '1');
+            print render($block['content']);
+          ?>
+        </div>
+      </div>
+    </div> <!-- /#mobile-header-wrapper -->
 
     <div id="header-wrapper">
       <div id="header"><div class="section clearfix">
@@ -168,5 +165,13 @@
     <a href="#" id="back-to-top" title="Back to top">
       <?php print cyberhus_clean_icon_display('arrow-up'); ?>
     </a>
+
+    <?php if ($page['mobile_footer']): ?>
+    <div id="mobile-footer-wrapper">
+      <div id="mobile-footer">
+        <?php print render($page['mobile_footer']); ?>
+      </div>
+    </div> <!-- /#mobile-footer-wrapper -->
+  <?php endif; ?>
 
   </div></div> <!-- /#page, /#page-wrapper -->

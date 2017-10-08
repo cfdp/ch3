@@ -29,6 +29,12 @@
       padding: 2em;
       background: white;
       margin-bottom: 20px;
+      height: 9em;
+
+      iframe {
+        height: 9em;
+        font-size: $font-size-base !important;
+      }
     }
     .views-field-body {
       padding: 2em;

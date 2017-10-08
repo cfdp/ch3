@@ -1,0 +1,65 @@
+#page-wrapper {
+  padding-bottom: 5.05em;
+}
+#mobile-footer-wrapper {
+
+  position: fixed;
+  z-index: 9999;
+  bottom: 0;
+  background: white;
+  width: 100%;
+
+  @include bp-narrow {
+    display: none;
+  }
+
+  h2 {
+    display: none;
+  }
+
+  ul.menu {
+    margin: 0;
+    padding: 0;
+    @include clearfix();
+
+    li {
+      margin: 0;
+      padding: 0;
+      display: block;
+      float: left;
+      width: 25%;
+      box-sizing: border-box;
+      font-size: .8em;
+    }
+    a {
+      color: white;
+      text-transform: uppercase;
+      display: block;
+      padding: 1em 0;
+      text-align: center;
+      text-decoration: none;
+    }
+    svg {
+      display: block;
+      margin: auto;
+      width: 2.5em;
+      height: 2em;
+      fill: white;
+      margin-bottom: 3px;
+      @include transition-property(fill);
+      @include transition-duration(250ms);
+    }
+    li#brevkasse a {
+      background: $color-green;
+    }
+    li#chat a {
+      background: $color-orange;
+    }
+    li#ung-til-ung a {
+      background: $color-red;
+    }
+    li#ung-i a {
+      background: $color-purple;
+    }
+  }
+}

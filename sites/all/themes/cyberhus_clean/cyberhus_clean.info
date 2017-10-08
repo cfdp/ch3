@@ -22,5 +22,6 @@ regions[sidebar_first] = Sidebar first
 regions[footer_first] = Footer first
 regions[footer_second] = Footer second
 regions[bottom] = Bottom
+regions[mobile_footer] = Mobile footer
 
 plugins[vud][widgets] = widgets

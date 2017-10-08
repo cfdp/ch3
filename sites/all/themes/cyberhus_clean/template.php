@@ -1,14 +1,16 @@
-<?php
+ <?php
 
 /**
  * Overriding the menu_link hook to inject svg images
  *
  * NOTE: We use the menu_attributes id item to identify the svg file
  */
-function cyberhus_clean_menu_link__menu_top_menu(array $variables) {
+function cyberhus_clean_menu_link(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
   $menu_id = '';
+
+  if($element['#theme'] != 'menu_link__menu_top_menu' && $element['#theme'] != 'menu_link__menu_mobile_menu') return;
 
   if ($element['#below']) {
     $sub_menu = drupal_render($element['#below']);
@@ -41,7 +43,7 @@ function cyberhus_clean_form_alter(&$form, &$form_state) {
     break;
     case "custom-search-blocks-form-1":
       // Placeholder
-      $form['custom_search_blocks_form_1']['#attributes']['placeholder'] = t('Seach here');
+      $form['custom_search_blocks_form_1']['#attributes']['placeholder'] = t('Search here');
       // Svg icon
       $form['custom_search_blocks_form_1']['#prefix'] = '<svg class="icon"><use xlink:href="/' . path_to_theme() . '/assets/dist/svg/symbols.min.svg#search" /></svg>';
     break;

@@ -99,7 +99,8 @@ form {
   }
 
   input[type=text],
-  input[type=email] {
+  input[type=email],
+  input[type=password] {
     padding: .75em 1.25em;
     border: 1px solid #d7d7d7;
     font-size: $font-size-small;

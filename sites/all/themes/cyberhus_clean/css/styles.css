@@ -386,14 +386,16 @@ form input, form textarea, form select {
     outline: none; }
 
 form input[type=text],
-form input[type=email] {
+form input[type=email],
+form input[type=password] {
   padding: .75em 1.25em;
   border: 1px solid #d7d7d7;
   font-size: 0.875em;
   font-family: "Montserrat", sans-serif;
   transition: border-color 250ms; }
   form input[type=text]:focus,
-  form input[type=email]:focus {
+  form input[type=email]:focus,
+  form input[type=password]:focus {
     border-color: #1b1d1f; }
 
 form textarea {
@@ -634,25 +636,107 @@ body.page-blog #page-title {
       display: none; } }
 
 #mobile-header {
-  padding: 1.15em 1.5em 1em;
-  text-align: center; }
+  padding: 1.15em 1.5em 1em; }
+  #mobile-header:after {
+    content: "";
+    display: table;
+    clear: both; }
   #mobile-header > div {
     display: inline-block; }
-  #mobile-header svg {
-    height: 1.5em;
-    width: 1.5em; }
-  #mobile-header .mobile-search {
+  #mobile-header .mobile-logo {
     float: left; }
+    #mobile-header .mobile-logo object {
+      width: 104px;
+      height: 25px;
+      margin-top: -5px; }
+  #mobile-header .mobile-search {
+    float: right;
+    width: 50%;
+    position: relative;
+    background: red; }
     #mobile-header .mobile-search svg {
-      fill: #606060; }
-  #mobile-header .mobile-logo object {
-    width: 104px;
-    height: 25px;
-    margin-top: -5px; }
-  #mobile-header .mobile-menu {
-    float: right; }
-    #mobile-header .mobile-menu svg {
-      fill: #606060; }
+      height: 1.25em;
+      width: 1.25em;
+      fill: #1b1d1f;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 2; }
+    #mobile-header .mobile-search .search-form {
+      margin-bottom: 0; }
+    #mobile-header .mobile-search .form-type-textfield {
+      margin: 0; }
+      #mobile-header .mobile-search .form-type-textfield input {
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #1b1d1f;
+        border: 0;
+        padding: .2em 2.15em .6em 0;
+        text-align: right; }
+        #mobile-header .mobile-search .form-type-textfield input::-webkit-input-placeholder {
+          color: #1b1d1f; }
+        #mobile-header .mobile-search .form-type-textfield input::-moz-placeholder {
+          color: #1b1d1f; }
+        #mobile-header .mobile-search .form-type-textfield input:-ms-input-placeholder {
+          color: #1b1d1f; }
+        #mobile-header .mobile-search .form-type-textfield input::placeholder {
+          color: #1b1d1f; }
+    #mobile-header .mobile-search .form-actions {
+      display: none; }
+
+#page-wrapper {
+  padding-bottom: 5.05em; }
+
+#mobile-footer-wrapper {
+  position: fixed;
+  z-index: 9999;
+  bottom: 0;
+  background: white;
+  width: 100%; }
+  @media (min-width: 768px) {
+    #mobile-footer-wrapper {
+      display: none; } }
+  #mobile-footer-wrapper h2 {
+    display: none; }
+  #mobile-footer-wrapper ul.menu {
+    margin: 0;
+    padding: 0; }
+    #mobile-footer-wrapper ul.menu:after {
+      content: "";
+      display: table;
+      clear: both; }
+    #mobile-footer-wrapper ul.menu li {
+      margin: 0;
+      padding: 0;
+      display: block;
+      float: left;
+      width: 25%;
+      box-sizing: border-box;
+      font-size: .8em; }
+    #mobile-footer-wrapper ul.menu a {
+      color: white;
+      text-transform: uppercase;
+      display: block;
+      padding: 1em 0;
+      text-align: center;
+      text-decoration: none; }
+    #mobile-footer-wrapper ul.menu svg {
+      display: block;
+      margin: auto;
+      width: 2.5em;
+      height: 2em;
+      fill: white;
+      margin-bottom: 3px;
+      transition-property: fill;
+      transition-duration: 250ms; }
+    #mobile-footer-wrapper ul.menu li#brevkasse a {
+      background: #688e36; }
+    #mobile-footer-wrapper ul.menu li#chat a {
+      background: #e19214; }
+    #mobile-footer-wrapper ul.menu li#ung-til-ung a {
+      background: #c34b4b; }
+    #mobile-footer-wrapper ul.menu li#ung-i a {
+      background: #8d62a4; }
 
 #block-menu-menu-top-menu {
   text-align: center; }
@@ -1635,37 +1719,30 @@ h2#related-content {
 .node-type-chat .node-content .field-name-body {
   margin-bottom: 20px; }
 
-.node-type-simpel-side-med-view .field-type-viewreference .view,
 .node-type-chat .field-type-viewreference .view {
   margin-bottom: 40px; }
 
-.node-type-simpel-side-med-view .field-type-viewreference .view-header,
 .node-type-chat .field-type-viewreference .view-header {
   margin-bottom: 20px; }
 
-.node-type-simpel-side-med-view .field-type-viewreference .views-row,
 .node-type-chat .field-type-viewreference .views-row {
   background: white;
   box-sizing: border-box;
   margin-bottom: 20px;
   padding: 2em;
   position: relative; }
-  .node-type-simpel-side-med-view .field-type-viewreference .views-row:after,
   .node-type-chat .field-type-viewreference .views-row:after {
     content: "";
     display: table;
     clear: both; }
-  .node-type-simpel-side-med-view .field-type-viewreference .views-row h2,
   .node-type-chat .field-type-viewreference .views-row h2 {
     box-sizing: border-box;
     font-size: 1.5em; }
-    .node-type-simpel-side-med-view .field-type-viewreference .views-row h2 a,
     .node-type-chat .field-type-viewreference .views-row h2 a {
       color: #1b1d1f;
       opacity: 1;
       transition-property: opacity;
       transition-duration: 250ms; }
-      .node-type-simpel-side-med-view .field-type-viewreference .views-row h2 a:hover,
       .node-type-chat .field-type-viewreference .views-row h2 a:hover {
         text-decoration: none;
         opacity: .75; }
@@ -1867,7 +1944,11 @@ h2#related-content {
 .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php {
   padding: 2em;
   background: white;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  height: 9em; }
+  .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe {
+    height: 9em;
+    font-size: 1em !important; }
 
 .page-node-20738 .view-cyberhus-chat .views-field-body {
   padding: 2em;
