@@ -1,9 +1,15 @@
 
 #highlighted-wrapper {
-  background: $color-gray-dark;
-
-  @include bp-narrow {
-    height: 400px;
+  background: $color-gray-light;
+  min-height: 1px;
+}
+#banner-standard {
+  width: 100%;
+  text-align: center;
+  img {
+    margin: auto;
+    max-width: 100%;
+    height: auto;
   }
 }
 
@@ -289,9 +295,10 @@
 .page-brevkasse-ny,
 .node-type-brevkasse {
 
-  #highlighted-wrapper {
-    background: $color-green;
-  }
+  // #highlighted-wrapper {
+  //   background: $color-green url('../assets/img/banner-brevkasse.png') no-repeat top center;
+  // }
+
   #sidebar-first {
     a.button,
     input[type=submit] {
@@ -306,11 +313,13 @@
 .node-type-image,
 .node-type-forum {
 
-  #highlighted-wrapper {
-    background: $color-red;
-  }
+  // #highlighted-wrapper {
+  //   background: $color-red url('../assets/img/banner-ung-til-ung.png') no-repeat top center;
+  // }
+
   #sidebar-first,
-  #postface {
+  #postface,
+  .comment-form {
     a.button,
     input[type=submit] {
       background: $color-red;
@@ -322,9 +331,9 @@
 .page-ung-i,
 .page-ung-i-ny {
 
-  #highlighted-wrapper {
-    background: $color-purple;
-  }
+  // #highlighted-wrapper {
+  //   background: $color-purple url('../assets/img/banner-ung-i.png') no-repeat top center;
+  // }
 
   #sidebar-first {
 

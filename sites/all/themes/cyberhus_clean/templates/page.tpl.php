@@ -96,7 +96,25 @@
     </div> <!-- /#header-wrapper -->
 
     <div id="highlighted-wrapper">
+      <?php if($page['highlighted']) : ?>
       <div id="highlighted"><?php print render($page['highlighted']); ?></div>
+      <?php else : ?>
+      <div id="banner-standard">
+      <?php
+      switch($sub_section) {
+        case "brevkasse":
+          print "<img src='/" . path_to_theme() . "/assets/img/banner-brevkasse.png' />";
+        break;
+        case "ung_i";
+          print "<img src='/" . path_to_theme() . "/assets/img/banner-ung-i.png' />";
+        break;
+        case "ung_til_ung";
+          print "<img src='/" . path_to_theme() . "/assets/img/banner-ung-til-ung.png' />";
+        break;
+      }
+      ?>
+      </div>
+      <?php endif; ?>
     </div> <!-- /#highlighted-wrapper -->
 
     <?php if ($breadcrumb): ?>

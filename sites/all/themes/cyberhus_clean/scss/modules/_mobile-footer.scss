@@ -1,5 +1,8 @@
 #page-wrapper {
-  padding-bottom: 5.05em;
+
+  @include bp-mobile {
+    padding-bottom: 5.05em;
+  }
 }
 #mobile-footer-wrapper {
 

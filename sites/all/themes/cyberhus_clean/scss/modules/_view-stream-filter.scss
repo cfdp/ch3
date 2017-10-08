@@ -4,7 +4,7 @@
 #block-views-exp-frontpage-stream-page-2 {
 
   background: white;
-  padding: 1em 2em 2em;
+  padding: .75em 1.5em .75em;
   margin: 0 0 20px 0;
   @include clearfix();
 
@@ -16,9 +16,17 @@
     margin: 0;
   }
 
+  > .content {
+    display: none;
+
+    @include bp-narrow {
+      display: block;
+    }
+  }
+
   > h2 {
     font-size: $font-size-small;
-    margin: 0 0 10px 0;
+    margin: 0;
     padding: 0;
     text-transform: uppercase;
     line-height: 2.5em;
@@ -31,7 +39,11 @@
   }
 
   .views-exposed-widgets {
-    margin: 0;
+    margin: 1em 0;
+
+    @include bp-narrow {
+      margin: 0;
+    }
   }
   .views-exposed-widget {
     padding: 0;
