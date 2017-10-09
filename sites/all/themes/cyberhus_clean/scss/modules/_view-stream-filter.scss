@@ -8,7 +8,7 @@
   margin: 0 0 20px 0;
   @include clearfix();
 
-  @include bp-narrow {
+  @include bp-normal {
     padding: 1em 2em;
   }
 
@@ -19,7 +19,7 @@
   > .content {
     display: none;
 
-    @include bp-narrow {
+    @include bp-normal {
       display: block;
     }
   }
@@ -34,7 +34,7 @@
     cursor: pointer;
     position: relative;
 
-    @include bp-narrow {
+    @include bp-normal {
       float: left;
       margin: 0 2em 0 0;
     }
@@ -59,12 +59,14 @@
 
     &.open {
 
-      @include bp-mobile {
-        svg.icon-plus {
+      svg.icon-plus {
+        display: none;
+      }
+      svg.icon-minus {
+        display: block;
+
+        @include bp-normal {
           display: none;
-        }
-        svg.icon-minus {
-          display: block;
         }
       }
     }
@@ -73,7 +75,7 @@
   .views-exposed-widgets {
     margin: 1em 0;
 
-    @include bp-narrow {
+    @include bp-normal {
       margin: 0;
     }
   }
@@ -82,7 +84,7 @@
     margin: 0 0 10px 0;
     width: 100%;
 
-    @include bp-narrow {
+    @include bp-normal {
       float: left;
       width: auto;
       margin: 0 1em 0 0;
@@ -97,18 +99,22 @@
     }
 
     .select-wrapper {
-      @include bp-mobile {
-        width: 100%;
+      width: 100%;
+      box-sizing: border-box;
+
+      @include bp-normal {
+        width: auto;
       }
     }
     select {
       font-size: .8125em;
       text-transform: uppercase;
-      padding: .65em 2.5em .65em 1em;
+      padding: .75em 2.5em .75em 1em;
       font-weight: 500;
+      width: 100%;
 
-      @include bp-mobile {
-        width: 100%;
+      @include bp-normal {
+        width: auto;
       }
     }
   }

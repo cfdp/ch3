@@ -245,14 +245,14 @@
     background: $color-turquoise;
 
     .stream-content:after {
-      background-image: linear-gradient(transparent 0, $color-turquoise 90%);
+      background-image: linear-gradient(rgba(white, 0) 0, $color-turquoise 90%);
     }
 
     &:nth-child(5n+2) {
       background: $color-red;
 
       .stream-content:after {
-        background-image: linear-gradient(transparent 0, $color-red 90%);
+        background-image: linear-gradient(transparent, $color-red);
       }
     }
     &:nth-child(5n+3) {
