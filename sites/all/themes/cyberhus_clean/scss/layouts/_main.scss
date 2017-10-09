@@ -83,7 +83,8 @@ body.page-frontpage {
 }
 
 /* Node Advanced */
-body.page-node-adv {
+body.page-node-adv,
+body.node-type-blog {
 
   #page-title {
     display: none;
@@ -91,7 +92,7 @@ body.page-node-adv {
 }
 
 /* Node Basic */
-body.page-node-basic:not(.page-node-20738):not(.node-type-body-secret),
+body.page-node-basic:not(.page-node-20738):not(.node-type-body-secret):not(.node-type-blog),
 body.page-blog,
 body.page-blogs,
 body.page-temaer {

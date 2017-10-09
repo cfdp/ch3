@@ -7,7 +7,7 @@
   width: 100%;
   text-align: center;
   line-height: 0;
-  
+
   img {
     margin: auto;
     max-width: 100%;
@@ -297,10 +297,6 @@
 .page-brevkasse-ny,
 .node-type-brevkasse {
 
-  // #highlighted-wrapper {
-  //   background: $color-green url('../assets/img/banner-brevkasse.png') no-repeat top center;
-  // }
-
   #sidebar-first {
     a.button,
     input[type=submit] {
@@ -314,10 +310,6 @@
 .page-ung-til-ung,
 .node-type-image,
 .node-type-forum {
-
-  // #highlighted-wrapper {
-  //   background: $color-red url('../assets/img/banner-ung-til-ung.png') no-repeat top center;
-  // }
 
   #sidebar-first,
   #postface,
@@ -333,24 +325,11 @@
 .page-ung-i,
 .page-ung-i-ny {
 
-  // #highlighted-wrapper {
-  //   background: $color-purple url('../assets/img/banner-ung-i.png') no-repeat top center;
-  // }
-
   #sidebar-first {
 
     a.button,
     input[type=submit] {
       background: $color-purple;
     }
-  }
-}
-
-
-// Chat
-.page-node-20738 {
-
-  #highlighted-wrapper {
-    background: $color-orange;
   }
 }

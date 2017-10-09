@@ -111,6 +111,9 @@
         case "ung_til_ung";
           print "<img src='/" . path_to_theme() . "/assets/img/banner-ung-til-ung.png' />";
         break;
+        case "blog";
+          print "<img src='/" . path_to_theme() . "/assets/img/banner-blog.png' />";
+        break;
       }
       ?>
       </div>

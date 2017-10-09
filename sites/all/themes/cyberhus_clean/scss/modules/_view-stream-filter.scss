@@ -48,7 +48,7 @@
       right: 0;
       z-index: 2;
 
-      @include bp-narrow {
+      @include bp-normal {
         display: none;
       }
     }
@@ -58,11 +58,14 @@
     }
 
     &.open {
-      svg.icon-plus {
-        display: none;
-      }
-      svg.icon-minus {
-        display: block;
+
+      @include bp-mobile {
+        svg.icon-plus {
+          display: none;
+        }
+        svg.icon-minus {
+          display: block;
+        }
       }
     }
   }
@@ -112,6 +115,19 @@
 
   .views-submit-button {
     margin: 0;
+    position: relative;
+
+    .ajax-progress {
+
+      position: absolute;
+      right: 0;
+      top: 2px;
+
+      @include bp-normal {
+        top: .4em;
+        position: relative;
+      }
+    }
   }
   .views-reset-button {
 

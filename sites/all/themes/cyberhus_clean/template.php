@@ -153,8 +153,13 @@ function cyberhus_clean_preprocess_page(&$variables) {
   // Add necessary body classes and section variables.
   $variables['sub_section'] = 'default';
 
+  // URL parametres
+  if (arg(0) == 'blogs' || arg(0) == 'blog') {
+    $variables['sub_section'] = 'blog';
+  }
+
   // Nodes
-  if ($node = menu_get_object()) {
+  elseif ($node = menu_get_object()) {
 
     $ung_til_ung_types = array(
       'forum', 'image', 'body_secret'
@@ -165,10 +170,13 @@ function cyberhus_clean_preprocess_page(&$variables) {
     if($node->type == 'brevkasse') {
       $variables['sub_section'] = 'brevkasse';
     }
+    if($node->type == 'blog') {
+      $variables['sub_section'] = 'blog';
+    }
   }
 
   // Terms
-  if($term = menu_get_object('taxonomy_term', 2)) {
+  elseif ($term = menu_get_object('taxonomy_term', 2)) {
     if($term->vocabulary_machine_name == 'ung_i_byer') {
       $variables['sub_section'] = 'ung_i';
     }
@@ -281,6 +289,12 @@ function cyberhus_clean_type_label($type) {
       return array(
         'singular' => t('secret'),
         'plural' => t('secrets'),
+      );
+    break;
+    case "blog":
+      return array(
+        'singular' => t('blog post'),
+        'plural' => t('blog posts'),
       );
     break;
   }

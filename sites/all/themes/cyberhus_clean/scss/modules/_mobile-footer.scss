@@ -1,7 +1,8 @@
 #page-wrapper {
+  padding-bottom: 5.05em;
 
-  @include bp-mobile {
-    padding-bottom: 5.05em;
+  @include bp-narrow {
+    padding-bottom: 0;
   }
 }
 #mobile-footer-wrapper {
@@ -12,7 +13,7 @@
   background: white;
   width: 100%;
 
-  @include bp-narrow {
+  @include bp-normal {
     display: none;
   }
 

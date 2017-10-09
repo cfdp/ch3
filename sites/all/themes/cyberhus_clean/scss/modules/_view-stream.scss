@@ -83,6 +83,42 @@
       }
     }
 
+    .stream-counselor {
+      margin: 30px 0 10px;
+      padding-left: 3em;
+      font-size: $font-size-small;
+      float: left;
+      width: 100%;
+      box-sizing: border-box;
+      display: none;
+      line-height: 1.25em;
+      position: relative;
+
+      span.name-wrapper {
+        font-weight: bold;
+      }
+
+      em {
+        font-style: normal;
+      }
+
+      .img-wrapper {
+        width: 2.5em;
+        height: 2.5em;
+        border-radius: 2.5em;
+        margin: 0 10px 0 0;
+        position: absolute;
+        top: -.75em;
+        left: 0;
+        background: $color-gray-light;
+        display: inline-block;
+
+        img {
+          border-radius: 2.5em;
+        }
+      }
+    }
+
     .stream-type-icon {
       position: absolute;
       top: 1.35em;
@@ -315,8 +351,12 @@
     .stream-type-icon {
       fill: $color-green;
     }
-    .stream-comments {
+    .stream-comments,
+    .stream-like {
       display: none;
+    }
+    .stream-counselor {
+      display: block;
     }
   }
   .type-forum {

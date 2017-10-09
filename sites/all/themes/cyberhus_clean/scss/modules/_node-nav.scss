@@ -6,13 +6,14 @@
   height: 1.25em;
   margin: 0;
   border-bottom: 1px solid $color-gray;
+  text-transform: uppercase;
+  font-size: $font-size-small;
+  font-weight: 500;
+
 
   a {
-    color: $text-color-light;
-    text-transform: uppercase;
-    font-size: $font-size-small;
-    font-weight: 500;
     line-height: 1.45em;
+    color: $text-color-light;
     @include transition-property(color);
     @include transition-duration(250ms);
 
@@ -38,7 +39,6 @@
     margin: 0;
     padding: 0;
     display: block;
-    line-height: 1;
   }
 
   .node-nav-prev,
