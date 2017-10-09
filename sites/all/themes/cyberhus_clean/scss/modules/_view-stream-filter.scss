@@ -31,10 +31,38 @@
     text-transform: uppercase;
     line-height: 2.5em;
     font-weight: 500;
+    cursor: pointer;
 
     @include bp-narrow {
       float: left;
       margin: 0 2em 0 0;
+    }
+
+    svg {
+      height: 1.25em;
+      width: 1.25em;
+      fill: $text-color;
+      position: absolute;
+      top: 1.35em;
+      right: 1.75em;
+      z-index: 2;
+
+      @include bp-narrow {
+        display: none;
+      }
+    }
+
+    svg.icon-minus {
+      display: none;
+    }
+
+    &.open {
+      svg.icon-plus {
+        display: none;
+      }
+      svg.icon-minus {
+        display: block;
+      }
     }
   }
 

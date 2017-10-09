@@ -226,6 +226,20 @@ function cyberhus_clean_preprocess_taxonomy_term(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_block().
+ */
+function cyberhus_clean_preprocess_block(&$variables) {
+
+  switch($variables['block_html_id']) {
+    case "block-views-exp-frontpage-stream-page":
+    case "block-views-exp-frontpage-stream-page-1":
+    case "block-views-exp-frontpage-stream-page-2":
+      $variables['theme_hook_suggestions'][] = 'block__exposed_filter';
+    break;
+  }
+}
+
+/**
  * Implements theme_breadcrumb().
  */
 function cyberhus_clean_breadcrumb(&$variables) {
@@ -317,7 +331,7 @@ function cyberhus_clean_term_display($tid) {
  */
 function cyberhus_clean_icon_display($id) {
   $markup = "";
-  $markup .= "<svg class='icon'>";
+  $markup .= "<svg class='icon icon-$id'>";
   $markup .= "<use xlink:href='/" . drupal_get_path('theme', 'cyberhus_clean') . "/assets/dist/svg/symbols.min.svg#$id' />";
   $markup .= "</svg>";
 

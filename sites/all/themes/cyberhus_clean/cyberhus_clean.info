@@ -9,7 +9,8 @@ scripts[] = bower_components/imagesloaded/imagesloaded.pkgd.js
 scripts[] = bower_components/flexslider/jquery.flexslider.js
 scripts[] = js/banner.js
 scripts[] = js/back-to-top.js
-scripts[] = js/sticky-header.js
+scripts[] = js/jump-menu.js
+scripts[] = js/filter-toggle.js
 
 regions[menu] = Menu
 regions[header] = Header
