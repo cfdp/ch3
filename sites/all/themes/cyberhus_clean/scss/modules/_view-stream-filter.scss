@@ -32,6 +32,7 @@
     line-height: 2.5em;
     font-weight: 500;
     cursor: pointer;
+    position: relative;
 
     @include bp-narrow {
       float: left;
@@ -39,12 +40,12 @@
     }
 
     svg {
-      height: 1.25em;
-      width: 1.25em;
+      height: 1em;
+      width: 1em;
       fill: $text-color;
       position: absolute;
-      top: 1.35em;
-      right: 1.75em;
+      top: .65em;
+      right: 0;
       z-index: 2;
 
       @include bp-narrow {

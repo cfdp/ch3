@@ -29,6 +29,7 @@
     float: right;
     width: 50%;
     position: relative;
+    box-sizing: border-box;
 
     svg {
       height: 1.25em;
@@ -46,7 +47,6 @@
 
     .form-type-textfield {
       margin: 0;
-      float: right;
 
       input {
         text-transform: uppercase;
@@ -55,6 +55,8 @@
         border: 0;
         padding: .2em 2.15em .6em 0;
         text-align: right;
+        max-width: 100%;
+        box-sizing: border-box;
 
         &::placeholder {
           color: $text-color;

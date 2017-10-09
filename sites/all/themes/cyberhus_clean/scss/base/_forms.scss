@@ -6,6 +6,7 @@ a.btn {
 }
 input[type=submit] {
   color: white;
+  @include appearance(none);
   @include button($color-gray-dark);
 }
 
@@ -106,6 +107,7 @@ form {
     font-size: $font-size-small;
     font-family: $font-fam-base;
     @include transition(border-color 250ms);
+    @include appearance(none);
 
     &:focus {
       border-color: $text-color;
@@ -119,6 +121,7 @@ form {
     width: 100%;
     box-sizing: border-box;
     @include transition(border-color 250ms);
+    @include appearance(none);
 
     &:focus {
       border-color: $text-color;
