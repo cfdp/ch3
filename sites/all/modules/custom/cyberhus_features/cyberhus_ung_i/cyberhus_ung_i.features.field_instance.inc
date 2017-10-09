@@ -10,6 +10,63 @@
 function cyberhus_ung_i_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-brevkasse-field_brevk_ungi'.
+  $field_instances['node-brevkasse-field_brevk_ungi'] = array(
+    'bundle' => 'brevkasse',
+    'default_value' => NULL,
+    'default_value_function' => 'entityreference_prepopulate_field_default_value',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_brevk_ungi',
+    'label' => 'Ung i',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'action' => 'disable',
+          'action_on_edit' => 0,
+          'fallback' => 'hide',
+          'providers' => array(
+            'og_context' => FALSE,
+            'url' => 1,
+          ),
+          'skip_perm' => 0,
+          'status' => 1,
+        ),
+        'taxonomy-index' => array(
+          'status' => TRUE,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'options_select',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'taxonomy_term-ung_i_byer-field_chat_url'.
   $field_instances['taxonomy_term-ung_i_byer-field_chat_url'] = array(
     'bundle' => 'ung_i_byer',
@@ -787,6 +844,7 @@ function cyberhus_ung_i_field_default_field_instances() {
   t('Om chatten');
   t('Opret spørgsmål');
   t('Slå til hvis det skal være muligt at oprette spørgsmål i brevkassen.');
+  t('Ung i');
   t('Vis brevkassen');
   t('Vis chatten');
 
