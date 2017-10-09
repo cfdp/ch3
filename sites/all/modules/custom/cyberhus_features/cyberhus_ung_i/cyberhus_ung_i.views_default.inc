@@ -25,7 +25,6 @@ function cyberhus_ung_i_views_default_views() {
   $handler->display->display_options['title'] = 'Ung i';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -39,22 +38,20 @@ function cyberhus_ung_i_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'jump_menu';
   $handler->display->display_options['style_options']['path'] = 'tid';
-  $handler->display->display_options['style_options']['text'] = 'Skift';
-  $handler->display->display_options['style_options']['choose'] = '- Vælg -';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Overskrift: Global: Tekstområde */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = '<h2>Vælg din kommune</h2>';
   $handler->display->display_options['header']['area']['format'] = 'admin_html';
-  /* Sidefod: Global: Tekstområde */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = 'Cras ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus';
   $handler->display->display_options['footer']['area']['format'] = '1';
-  /* Felt: Ord i ordforråd: Navn */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -62,7 +59,7 @@ function cyberhus_ung_i_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Felt: Ord i ordforråd: Term ID */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
@@ -72,7 +69,7 @@ function cyberhus_ung_i_views_default_views() {
   $handler->display->display_options['fields']['tid']['alter']['text'] = 'taxonomy/term/[tid]';
   $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid']['separator'] = '';
-  /* Filterkriterie: Ordforråd: Internt navn */
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
@@ -86,7 +83,7 @@ function cyberhus_ung_i_views_default_views() {
   $translatables['ung_i_landing_page'] = array(
     t('Master'),
     t('Ung i'),
-    t('mere'),
+    t('more'),
     t('Udfør'),
     t('Gendan'),
     t('Sortér efter'),

@@ -267,15 +267,21 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['type']['exclude'] = TRUE;
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
   /* Field: Content: Navn */
+  $handler->display->display_options['fields']['field_forum_forf_navn']['id'] = 'field_forum_forf_navn';
+  $handler->display->display_options['fields']['field_forum_forf_navn']['table'] = 'field_data_field_forum_forf_navn';
+  $handler->display->display_options['fields']['field_forum_forf_navn']['field'] = 'field_forum_forf_navn';
+  $handler->display->display_options['fields']['field_forum_forf_navn']['label'] = '';
+  $handler->display->display_options['fields']['field_forum_forf_navn']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_forum_forf_navn']['element_label_colon'] = FALSE;
+  /* Field: Content: Navn */
   $handler->display->display_options['fields']['field_navn']['id'] = 'field_navn';
   $handler->display->display_options['fields']['field_navn']['table'] = 'field_data_field_navn';
   $handler->display->display_options['fields']['field_navn']['field'] = 'field_navn';
   $handler->display->display_options['fields']['field_navn']['label'] = '';
   $handler->display->display_options['fields']['field_navn']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_navn']['alter']['text'] = '[field_forum_forf_navn][field_navn]';
   $handler->display->display_options['fields']['field_navn']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_navn']['empty'] = 'Anonym';
-  $handler->display->display_options['fields']['field_navn']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_navn']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_navn']['hide_alter_empty'] = FALSE;
   /* Field: Field: Alder */
   $handler->display->display_options['fields']['field_brevk_alder']['id'] = 'field_brevk_alder';
   $handler->display->display_options['fields']['field_brevk_alder']['table'] = 'field_data_field_brevk_alder';
@@ -310,7 +316,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="stream-metadata-item meta-type">[type]</div>
-<div class="stream-metadata-item meta-author">Af [field_navn] [field_brevk_koen] [field_brevk_alder] &middot; [created]</div>';
+<div class="stream-metadata-item meta-author">Af [field_forum_forf_navn][field_navn] [field_brevk_koen] [field_brevk_alder] &middot; [created]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['element_wrapper_class'] = 'stream-metadata';
   $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
@@ -391,6 +397,44 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing_1']['element_wrapper_class'] = 'stream-content';
   $handler->display->display_options['fields']['nothing_1']['element_default_classes'] = FALSE;
+  /* Field: Content: Updated date */
+  $handler->display->display_options['fields']['changed']['id'] = 'changed';
+  $handler->display->display_options['fields']['changed']['table'] = 'node';
+  $handler->display->display_options['fields']['changed']['field'] = 'changed';
+  $handler->display->display_options['fields']['changed']['label'] = '';
+  $handler->display->display_options['fields']['changed']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['changed']['element_type'] = '0';
+  $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['changed']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['changed']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['changed']['date_format'] = 'time span';
+  $handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
+  /* Field: User: Picture */
+  $handler->display->display_options['fields']['picture']['id'] = 'picture';
+  $handler->display->display_options['fields']['picture']['table'] = 'users';
+  $handler->display->display_options['fields']['picture']['field'] = 'picture';
+  $handler->display->display_options['fields']['picture']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['picture']['label'] = '';
+  $handler->display->display_options['fields']['picture']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
+  $handler->display->display_options['fields']['picture']['image_style'] = 'avatar_thumbnail';
+  /* Field: Profile: Profil: Rådgivernavn */
+  $handler->display->display_options['fields']['value']['id'] = 'value';
+  $handler->display->display_options['fields']['value']['table'] = 'profile_value_profile_counselor_nickname';
+  $handler->display->display_options['fields']['value']['field'] = 'value';
+  $handler->display->display_options['fields']['value']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['value']['label'] = '';
+  $handler->display->display_options['fields']['value']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['value']['alter']['text'] = '<span class="img-wrapper">[picture]</span><span class="name-wrapper">[value]</span> har svaret på dette spørgsmål • [changed] siden
+';
+  $handler->display->display_options['fields']['value']['element_type'] = '0';
+  $handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['value']['element_wrapper_class'] = 'stream-counselor';
+  $handler->display->display_options['fields']['value']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['value']['empty'] = '<span class="img-wrapper">[picture]</span>Dette spørgsmål er blevet besvaret • [changed] siden
+';
+  $handler->display->display_options['fields']['value']['link_to_user'] = FALSE;
   /* Field: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
@@ -1085,6 +1129,13 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['field'] = 'field_brevk_ungi_target_id';
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['operator'] = 'empty';
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['group'] = 1;
+  /* Filter criterion: Content: Svar klar til udgivelse (field__brevk_ready_to_publish) */
+  $handler->display->display_options['filters']['field__brevk_ready_to_publish_value']['id'] = 'field__brevk_ready_to_publish_value';
+  $handler->display->display_options['filters']['field__brevk_ready_to_publish_value']['table'] = 'field_data_field__brevk_ready_to_publish';
+  $handler->display->display_options['filters']['field__brevk_ready_to_publish_value']['field'] = 'field__brevk_ready_to_publish_value';
+  $handler->display->display_options['filters']['field__brevk_ready_to_publish_value']['value'] = array(
+    1 => '1',
+  );
   $handler->display->display_options['path'] = 'brevkasse-ny';
 
   /* Display: Ung til ung */
@@ -1587,11 +1638,15 @@ function cyberhus_stream_views_default_views() {
     t('Vis mere'),
     t('forfatter'),
     t('Avatar'),
-    t('Anonym'),
+    t('[field_forum_forf_navn][field_navn]'),
     t('<div class="stream-metadata-item meta-type">[type]</div>
-<div class="stream-metadata-item meta-author">Af [field_navn] [field_brevk_koen] [field_brevk_alder] &middot; [created]</div>'),
+<div class="stream-metadata-item meta-author">Af [field_forum_forf_navn][field_navn] [field_brevk_koen] [field_brevk_alder] &middot; [created]</div>'),
     t('<a href="/node/[nid]"><img src="/sites/all/themes/cyberhus_clean/assets/img/default.png" /></a>'),
     t('[field_billede][body][field_brevk_spoergsmaal]'),
+    t('<span class="img-wrapper">[picture]</span><span class="name-wrapper">[value]</span> har svaret på dette spørgsmål • [changed] siden
+'),
+    t('<span class="img-wrapper">[picture]</span>Dette spørgsmål er blevet besvaret • [changed] siden
+'),
     t('Læs mere'),
     t('.'),
     t('Type'),

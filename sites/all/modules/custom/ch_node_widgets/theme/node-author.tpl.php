@@ -24,6 +24,9 @@
       if(isset($node->field_navn[LANGUAGE_NONE])) {
         print $node->field_navn[LANGUAGE_NONE][0]['value'];
       }
+      elseif(isset($node->field_forum_forf_navn[LANGUAGE_NONE])) {
+        print $node->field_forum_forf_navn[LANGUAGE_NONE][0]['value'];
+      }
       else {
         print t("Anonymous");
       }

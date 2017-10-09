@@ -65,6 +65,11 @@ function cyberhus_banner_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'ung_i_byer' => 'ung_i_byer',
   );
+  /* Filter criterion: Field: Slides (field_banner_slides) */
+  $handler->display->display_options['filters']['field_banner_slides_value']['id'] = 'field_banner_slides_value';
+  $handler->display->display_options['filters']['field_banner_slides_value']['table'] = 'field_data_field_banner_slides';
+  $handler->display->display_options['filters']['field_banner_slides_value']['field'] = 'field_banner_slides_value';
+  $handler->display->display_options['filters']['field_banner_slides_value']['operator'] = 'not empty';
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');

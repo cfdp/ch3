@@ -904,23 +904,23 @@ body.page-blog #page-title {
     padding-bottom: 4em;
     background: #3f9b91; }
     .content-stream .type-body-secret .stream-content:after {
-      background-image: linear-gradient(transparent, #3f9b91 90%); }
+      background-image: linear-gradient(transparent 0, #3f9b91 90%); }
     .content-stream .type-body-secret:nth-child(5n+2) {
       background: #c34b4b; }
       .content-stream .type-body-secret:nth-child(5n+2) .stream-content:after {
-        background-image: linear-gradient(transparent, #c34b4b); }
+        background-image: linear-gradient(transparent 0, #c34b4b 90%); }
     .content-stream .type-body-secret:nth-child(5n+3) {
       background: #1d9ed0; }
       .content-stream .type-body-secret:nth-child(5n+3) .stream-content:after {
-        background-image: linear-gradient(transparent, #1d9ed0); }
+        background-image: linear-gradient(transparent 0, #1d9ed0 90%); }
     .content-stream .type-body-secret:nth-child(5n+4) {
       background: #e19214; }
       .content-stream .type-body-secret:nth-child(5n+4) .stream-content:after {
-        background-image: linear-gradient(transparent, #e19214); }
+        background-image: linear-gradient(transparent 0, #e19214 90%); }
     .content-stream .type-body-secret:nth-child(5n+5) {
       background: #8d62a4; }
       .content-stream .type-body-secret:nth-child(5n+5) .stream-content:after {
-        background-image: linear-gradient(transparent, #8d62a4); }
+        background-image: linear-gradient(transparent 0, #8d62a4 90%); }
     .content-stream .type-body-secret .stream-title,
     .content-stream .type-body-secret .stream-comments,
     .content-stream .type-body-secret .stream-like,
