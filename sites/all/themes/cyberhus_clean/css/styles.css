@@ -494,7 +494,11 @@ body.page-blog #page-title {
 
 #main-logo-link {
   position: relative;
-  display: inline-block; }
+  display: block; }
+  #main-logo-link:after {
+    content: "";
+    display: table;
+    clear: both; }
   #main-logo-link:after {
     content: "";
     position: absolute;
@@ -2432,6 +2436,29 @@ h2#related-content {
   z-index: 2;
   left: 1.2em;
   top: .6em; }
+
+object {
+  pointer-events: none; }
+
+#bottom-logo-link,
+#fb-logo-link,
+#instagram-logo-link {
+  display: inline-block;
+  margin: 0 .25em; }
+
+#bottom-logo {
+  height: 3em;
+  width: 12em; }
+
+#fb-logo-link svg {
+  height: 3em;
+  width: 3em;
+  fill: #4e71a8; }
+
+#instagram-logo-link svg {
+  height: 3em;
+  width: 3em;
+  fill: #4f7ea5; }
 
 .region-footer-first .block {
   color: #a1a1a1; }

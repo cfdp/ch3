@@ -106,7 +106,8 @@
 // Logo
 #main-logo-link {
   position: relative;
-  display: inline-block;
+  display: block;
+  @include clearfix();
 
   &:after {
     content: "";

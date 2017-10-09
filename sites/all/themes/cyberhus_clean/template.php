@@ -55,25 +55,20 @@ function cyberhus_clean_menu_link__menu_mobile_menu(array $variables) {
  */
 function cyberhus_clean_form_alter(&$form, &$form_state) {
 
-  switch($form['#id']) {
-
-    case "views-exposed-form-frontpage-stream-page":
-    case "views-exposed-form-frontpage-stream-page-1":
-    case "views-exposed-form-frontpage-stream-page-2":
+  if(preg_match("/views-exposed-form-frontpage-stream-page/", $form['#id'])) {
       // Unset description
       unset($form['field_brevk_alder_tid']['#description']);
       unset($form['field_brevk_koen_tid']['#description']);
-    break;
-    case "custom-search-blocks-form-1":
+  }
+  if(preg_match('/custom-search-blocks-form-1*/', $form['#id'])) {
       // Placeholder
       $form['custom_search_blocks_form_1']['#attributes']['placeholder'] = t('Search here');
       // Svg icon
       $form['custom_search_blocks_form_1']['#prefix'] = '<svg class="icon"><use xlink:href="/' . path_to_theme() . '/assets/dist/svg/symbols.min.svg#search" /></svg>';
-    break;
-    case "ctools-jump-menu":
-      // Ung i - Jump menu
-      $form['jump']['#options'][''] = t('I live in...');
-    break;
+  }
+  if($form['#id'] == "ctools-jump-menu") {
+    // Ung i - Jump menu
+    $form['jump']['#options'][''] = t('I live in...');
   }
 }
 

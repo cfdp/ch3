@@ -1,3 +1,36 @@
+object {
+  pointer-events: none;
+}
+
+#bottom-logo-link,
+#fb-logo-link,
+#instagram-logo-link {
+  display: inline-block;
+  margin: 0 .25em;
+}
+#bottom-logo {
+  height: 3em;
+  width: 12em;
+}
+
+#fb-logo-link {
+
+  svg {
+    height: 3em;
+    width: 3em;
+    fill: #4e71a8;
+  }
+}
+
+#instagram-logo-link {
+
+  svg {
+    height: 3em;
+    width: 3em;
+    fill: #4f7ea5;
+  }
+}
+
 .region-footer-first {
 
   .block {
