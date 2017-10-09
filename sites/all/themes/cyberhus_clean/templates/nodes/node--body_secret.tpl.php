@@ -89,6 +89,11 @@
 
   <div class="node-wrapper">
 
+    <div class="node-bottom">
+      <?php print theme('node_author', array('node' => $node)); ?>
+    </div>
+
+
     <div class="node-content">
 
       <div class="content"<?php print $content_attributes; ?>>
@@ -103,19 +108,15 @@
 
     </div>
 
-    <div class="node-bottom">
-      <?php print theme('node_author', array('node' => $node)); ?>
-    </div>
-
   </div>
 </div>
 
 <h2 id="related-content"><?php print t("Related content"); ?></h2>
 <a id="related"></a>
 <div class="node-related">
-<div clas="node-related-sidebar">
+  <div clas="node-related-sidebar">
 
-</div>
+  </div>
   <div class="node-related-content">
     <?php
     print views_embed_view('frontpage_stream', 'block_1');

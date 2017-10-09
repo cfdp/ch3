@@ -34,34 +34,64 @@
     }
   }
 
-  .node-bottom {
-    text-align: center;
-  }
-
   /* Author box */
   .author-box {
-    margin: 4em auto 0;
-    text-align: left;
-    display: inline-block;
+    padding: 1.5em 1em;
+    border: 1px solid $color-gray;
+    box-sizing: border-box;
+    margin-bottom: 30px;
     @include clearfix();
 
+    @include bp-narrow {
+      text-align: center;
+      padding: 0;
+      border: none;
+      margin-bottom: 60px;
+    }
+
     .author-first {
-      float: left;
-      padding-right: 15px;
-      box-sizing: border-box;
+      @include bp-mobile {
+        float: left;
+        width: 33%;
+        padding-right: 10px;
+        box-sizing: border-box;
+      }
     }
     .author-second {
-      float: left;
+      @include bp-mobile {
+        float: left;
+        width: 64%;
+      }
     }
 
     .author-avatar {
-      height: 7em;
-      width: 7em;
-      border-radius: 7em;
+      height: 4.5em;
+      width: 4.5em;
+      border-radius: 4.5em;
       float: right;
 
+      @include bp-narrow {
+        width: 6em;
+        height: 6em;
+        border-radius: 6em;
+        margin: 0 auto 15px;
+        float: none;
+      }
+      @include bp-normal {
+        width: 8em;
+        height: 8em;
+        border-radius: 8em;
+      }
+
       img {
-        width: 7em;
+        width: 4.5em;
+
+        @include bp-narrow {
+          width: 6em;
+        }
+        @include bp-normal {
+          width: 8em;
+        }
       }
     }
     .author-type {
@@ -74,14 +104,25 @@
     .author-name {
       font-weight: 800;
       word-wrap: break-word;
+      margin-right: 10px;
       margin-bottom: 10px;
-      font-size: $font-size-medium;
+      display: inline-block;
+
+      @include bp-narrow {
+        font-size: $font-size-medium;
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
     }
     .author-gender,
     .author-age {
-      margin-bottom: 1.25em;
+      margin-bottom: 5px;
       font-size: $font-size-small;
       display: inline-block;
+
+      @include bp-narrow {
+        margin-bottom: 20px;
+      }
 
       svg {
         height: 1em;
