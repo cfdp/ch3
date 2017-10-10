@@ -2186,6 +2186,12 @@ h2#related-content {
 .node-type-blog .author-box .author-name {
   margin-bottom: 1em; }
 
+.node-type-blog .field-name-body {
+  font-size: 1em;
+  font-weight: normal; }
+  .node-type-blog .field-name-body p {
+    color: #1b1d1f; }
+
 .page-search h1#page-title {
   margin-bottom: .5em; }
 
