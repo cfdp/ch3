@@ -19,6 +19,7 @@ features[field_instance][] = node-forum-field_base_category
 features[field_instance][] = node-image-field_base_category
 features[field_instance][] = taxonomy_term-content_categories-field_category_ct
 features[taxonomy][] = content_categories
+features[views_view][] = categories_reference
 features[views_view][] = migrate_categories
 features_exclude[dependencies][ctools] = ctools
 features_exclude[dependencies][options] = options
