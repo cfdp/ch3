@@ -1,0 +1,82 @@
+object {
+  pointer-events: none;
+}
+
+#bottom-logo-link,
+#fb-logo-link,
+#instagram-logo-link {
+  display: inline-block;
+  margin: 0 .25em;
+  @include transition(opacity 250ms);
+
+  &:hover {
+    opacity: .75;
+  }
+}
+#bottom-logo {
+  height: 3em;
+  width: 12em;
+}
+
+#fb-logo-link {
+
+  svg {
+    height: 3em;
+    width: 3em;
+    fill: #4e71a8;
+  }
+}
+
+#instagram-logo-link {
+
+  svg {
+    height: 3em;
+    width: 3em;
+    fill: #4f7ea5;
+  }
+}
+
+.region-footer-first {
+
+  .block {
+    color: $text-color-light;
+
+    p {
+      color: $text-color-light;
+      font-size: $font-size-small;
+    }
+  }
+}
+
+#bottom-wrapper {
+
+  border-top: 1px solid #e2e2e2;
+}
+
+.region-bottom {
+
+  .block {
+    color: $text-color-light;
+    font-size: $font-size-small;
+
+    p {
+      color: $text-color-light;
+
+      @include bp-narrow {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .first {
+    @include bp-narrow {
+      float: left;
+    }
+  }
+
+  .second {
+    @include bp-narrow {
+      float: right;
+    }
+  }
+}

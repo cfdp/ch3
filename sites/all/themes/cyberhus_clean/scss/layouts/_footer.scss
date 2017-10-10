@@ -1,0 +1,43 @@
+#footer-wrapper {
+
+  #footer {
+    margin: auto;
+    text-align: center;
+    padding: 30px 20px 10px;
+    box-sizing: border-box;
+
+    @include bp-narrow {
+      padding: 50px 0 25px;
+      width: 700px;
+    }
+    @include bp-normal {
+      padding: 50px 100px 25px;
+      width: 960px;
+    }
+    @include bp-wide {
+      padding: 50px 100px 25px;
+      width: 1180px;
+    }
+  }
+}
+
+#bottom-wrapper {
+
+  #bottom {
+    margin: auto;
+    box-sizing: border-box;
+    padding: 20px 20px;
+    text-align: center;
+
+    @include bp-narrow {
+      padding: 20px 0;
+      width: 700px;
+    }
+    @include bp-normal {
+      width: 960px;
+    }
+    @include bp-wide {
+      width: 1180px;
+    }
+  }
+}

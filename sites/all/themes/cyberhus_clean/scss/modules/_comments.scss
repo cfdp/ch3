@@ -1,0 +1,74 @@
+#comments {
+
+  margin: 0;
+
+  h2.title {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    margin: 3em 0 0.5em;
+  }
+
+  h2.comment-form {
+    font-size: 1.3em;
+    text-transform: none;
+  }
+
+  form.comment-form {
+    .filter-wrapper {
+      display: none;
+    }
+  }
+
+  .comment {
+
+    padding: 2em 0;
+    border-bottom: 1px solid $color-gray;
+
+    .submitted {
+      color: $text-color-light;
+      font-size: $font-size-small;
+      margin-bottom: .5em;
+
+      svg {
+        height: 1em;
+        width: 1em;
+        margin: 0 0.1em -0.05em;
+        fill: $text-color-light;
+      }
+    }
+    .content {
+      margin-bottom: 1em;
+    }
+    .links {
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin: 0 1em 0 0;
+        padding: 0;
+      }
+      a {
+        color: $text-color-light;
+      }
+    }
+  }
+}
+
+#comment-form {
+
+  .group-more-author-info {
+    margin: 40px 0 20px;
+
+    legend {
+      a {
+        color: $text-color;
+        font-weight: 800;
+        font-size: 1.3em;
+      }
+    }
+  }
+
+  input[type=submit] {
+    font-size: $font-size-base;
+  }
+}

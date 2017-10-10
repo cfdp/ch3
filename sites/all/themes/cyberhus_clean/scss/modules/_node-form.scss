@@ -1,0 +1,106 @@
+.page-node-add,
+.page-comment-edit,
+.page-comment-reply {
+
+  #content {
+    background: white;
+    padding: 3em 2em;
+    box-sizing: border-box;
+
+    @include bp-narrow {
+      padding: 4em 5em 4em;
+    }
+  }
+
+  #messages {
+    margin: 1em 0;
+  }
+}
+
+.node-form,
+.comment-form {
+
+  .form-submit {
+    font-size: $font-size-base;
+    text-transform: uppercase;
+    background: $color-blue;
+  }
+
+  .field-name-field-avatar {
+
+    .form-type-radio {
+      display: inline-block;
+      margin: 0 0 1px 0;
+      text-align: center;
+      position: relative;
+
+      input[type=radio] {
+        opacity: 0;
+        left: 0;
+        top: 0;
+        position: absolute;
+      }
+      input[type=radio] ~ label {
+        display: block;
+        padding: .5em;
+        border: 1px solid white;
+        @include transition(border-color, background, 250ms);
+      }
+      input[type=radio]:checked ~ label {
+        background: rgba($color-blue, .15);
+        border: 1px solid $color-blue;
+      }
+    }
+  }
+
+  #edit-field-brevk-koen-und {
+
+    @include clearfix();
+
+    .form-type-radio {
+      float: left;
+      margin: 0 0.75em 0 0;
+      position: relative;
+
+      @include bp-mobile {
+        margin-bottom: .75em;
+      }
+
+      svg {
+        height: 1em;
+        width: 1em;
+        position: absolute;
+        fill: $text-color-light;
+        top: 50%;
+        left: 1.5em;
+        margin-top: -.5em;
+        z-index: 1;
+        @include transition(fill 250ms);
+      }
+
+      input[type=radio] {
+        opacity: 0;
+        left: 0;
+        top: 0;
+        position: absolute;
+      }
+      input[type=radio] ~ label {
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        border: 1px solid #d7d7d7;
+        padding: 1em 1.5em 1em 3.1em;
+        color: $text-color-light;
+        @include transition(color, border-color, background 250ms);
+      }
+      input[type=radio]:checked ~ label {
+        border: 1px solid $color-blue;
+        color: $color-blue;
+        background: rgba($color-blue, .15);
+      }
+      input[type=radio]:checked + svg {
+        fill: $color-blue;
+      }
+    }
+  }
+}

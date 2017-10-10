@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Cyberhus Avatars feature.
+ */
+
+include_once 'cyberhus_avatars.features.inc';

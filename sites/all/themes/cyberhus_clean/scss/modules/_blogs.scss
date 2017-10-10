@@ -1,0 +1,136 @@
+.page-blog,
+.page-blogs {
+
+  h1 {
+    margin-bottom: .5em;
+  }
+
+  .content-list-header {
+    margin-bottom: 1em;
+  }
+
+  .views-field-picture {
+
+  }
+}
+
+.cyberhus-intro-text {
+  margin-bottom: 1.5em;
+}
+
+/* View: Bloggere */
+.view-bloggere {
+
+  > .view-content .views-row {
+    background: white;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 2em;
+    position: relative;
+    @include clearfix();
+
+    h2 {
+      box-sizing: border-box;
+      padding-right: 3em;
+
+      a {
+        color: $text-color;
+        opacity: 1;
+        @include transition-property(opacity);
+        @include transition-duration(250ms);
+
+        &:hover {
+          text-decoration: none;
+          opacity: .75;
+        }
+      }
+    }
+
+    .views-field-value-1 {
+      margin-bottom: 1em;
+    }
+
+    .views-field-picture {
+
+    }
+
+  }
+
+  .view-footer {
+    a {
+      color: white;
+      @include button-link($color-gray-dark);
+    }
+  }
+}
+
+/* View: Blog */
+.view-blogs-oversigter:not(.view-display-id-attachment_1) {
+
+  > .view-content .views-row {
+    background: white;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 2em;
+    position: relative;
+    @include clearfix();
+
+    .views-field-title {
+      box-sizing: border-box;
+      padding-right: 3em;
+
+      a {
+        color: $text-color;
+        opacity: 1;
+        @include transition-property(opacity);
+        @include transition-duration(250ms);
+
+        &:hover {
+          text-decoration: none;
+          opacity: .75;
+        }
+      }
+    }
+
+    .views-field-nothing {
+      color: $text-color-light;
+      padding: 0 0 1em 0;
+      margin-bottom: 1em;
+      border-bottom: 1px solid #d7d7d7;
+      font-size: $font-size-small;
+      line-height: $line-height-small;
+    }
+
+    .views-field-field-billede {
+      margin-bottom: 1em;
+    }
+
+    .vud-widget-cyberlike {
+      margin-top: 1.5em;
+      float: left;
+    }
+
+    a.comment-count-link {
+      margin-top: 1.5em;
+      float: left;
+      line-height: 1.5625em;
+    }
+  }
+}
+
+.view-display-id-attachment_1 {
+  .views-row {
+    margin-bottom: 1em;
+  }
+}
+
+.node-type-blog {
+
+  h1 {
+    margin-bottom: 1em;
+  }
+
+  .author-box .author-name {
+    margin-bottom: 1em;
+  }
+}

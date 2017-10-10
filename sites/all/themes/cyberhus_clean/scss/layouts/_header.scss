@@ -1,0 +1,119 @@
+#header-wrapper {
+  background-color: white;
+  display: none;
+  @include transition(height 250ms);
+
+  @include bp-normal {
+    display: block;
+  }
+
+  #header {
+    color: $text-color;
+    width: 100%;
+    max-width: 1600px;
+    margin: auto;
+    padding: 1.5em 20px 1em;
+    box-sizing: border-box;
+
+    .region-header {
+      display: grid;
+      grid-template-columns: 20% 60% 20%;
+    }
+    .block-menu {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .block-custom-search-blocks {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    // Vertical aligning
+    .block {
+      line-height: 5em;
+      height: 6em;
+      box-sizing: border-box;
+
+      > .content {
+        vertical-align: middle;
+        display: inline-block;
+        max-width: 100%;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+#postface-wrapper {
+  background-color: #e2e2e2;
+
+  #postface {
+    margin: auto;
+    padding: 2.5em 1em;
+
+    @include bp-narrow {
+      width: 700px;
+      padding: 2.5em 1em;
+    }
+    @include bp-normal {
+      width: 960px;
+    }
+    @include bp-wide {
+      width: 1180px;
+    }
+
+    .region-postface {
+      display: grid;
+
+      @include bp-normal {
+        grid-column-gap: 40px;
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .block {
+
+      margin-bottom: 40px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include bp-normal {
+        margin-bottom: 0;
+      }
+
+      h2 {
+        font-size: 1.5em;
+        margin-bottom: .75em;
+      }
+      p {
+        margin-bottom: 1em;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      a.button {
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+      }
+    }
+  }
+
+}
+
+// Logo
+#main-logo-link {
+  display: inline-block;
+
+  @include transition(opacity 250ms);
+
+  &:hover {
+    opacity: .75;
+  }
+}
+#main-logo {
+  max-width: 100%;
+  height: 50px;
+}

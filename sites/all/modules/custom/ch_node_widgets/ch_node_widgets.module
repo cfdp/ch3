@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implement hook_theme().
+ */
+function ch_node_widgets_theme() {
+   return array(
+    'node_author' => array(
+      'variables' => array(
+        'node' => NULL,
+      ),
+      'template' => 'node-author',
+      'path' => drupal_get_path('module', 'ch_node_widgets') . '/theme'
+    ),
+    'node_author_blog' => array(
+      'variables' => array(
+        'node' => NULL,
+      ),
+      'template' => 'node-author-blog',
+      'path' => drupal_get_path('module', 'ch_node_widgets') . '/theme'
+    ),
+  );
+}

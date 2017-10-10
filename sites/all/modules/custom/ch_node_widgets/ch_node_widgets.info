@@ -1,0 +1,4 @@
+name = Cyberhus Node Widgets
+description = Provides specific widgets for the node template.
+package = CfDP Helper Modules
+core = 7.x
