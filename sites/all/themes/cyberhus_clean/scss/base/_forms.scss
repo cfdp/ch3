@@ -1,0 +1,132 @@
+/* Buttons */
+a.button,
+a.btn {
+  color: white;
+  @include button-link($color-gray-dark);
+}
+input[type=submit] {
+  color: white;
+  @include appearance(none);
+  @include button($color-gray-dark);
+}
+
+/* General form styling */
+form {
+
+  .form-item,
+  .text-format-wrapper {
+    margin: 1.5em 0 1.5em;
+
+    label {
+      font-weight: 700;
+      margin: 0 0 .5em;
+      cursor: pointer;
+    }
+    label.option {
+      font-weight: normal;
+      margin: 0;
+      font-size: $font-size-small;
+    }
+    .description,
+    .counter {
+      margin-top: .5em;
+      line-height: $line-height-base;
+      font-size: $font-size-small;
+      color: $text-color-light;
+    }
+    .filter-wrapper {
+      padding: 0;
+    }
+    .wysiwyg-toggle-wrapper {
+      font-size: $font-size-small;
+      margin: .5em 0;
+    }
+  }
+
+  .form-type-checkbox {
+
+    .description {
+      margin-left: 0;
+    }
+    label.option {
+      font-size: $font-size-base;
+    }
+  }
+
+  .select-wrapper {
+    background: none;
+    border: 1px solid #d7d7d7;
+    display: inline-block;
+    position: relative;
+    @include transition(border-color 250ms);
+
+    svg {
+      width: .6em;
+      height: .6em;
+      position: absolute;
+      z-index: 1;
+      right: 1.25em;
+      top: 50%;
+      margin-top: -.3em;
+      fill: $text-color-light;
+    }
+
+    select {
+      border-radius: 0;
+      font-size: $font-size-small;
+      font-family: $font-fam-base;
+      color: $text-color-light;
+      border: none;
+      background: none;
+      padding: .75em 2.75em .75em 1.25em;
+      position: relative;
+      z-index: 2;
+      cursor: pointer;
+      @include appearance(none);
+
+      &:focus {
+        border-color: $text-color;
+      }
+    }
+  }
+
+  input, textarea, select {
+    max-width: 100%;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  input[type=text],
+  input[type=email],
+  input[type=password] {
+    padding: .75em 1.25em;
+    border: 1px solid #d7d7d7;
+    font-size: $font-size-small;
+    font-family: $font-fam-base;
+    border-radius: 0;
+    @include transition(border-color 250ms);
+    @include appearance(none);
+
+    &:focus {
+      border-color: $text-color;
+    }
+  }
+
+  textarea {
+    padding: .75em 1em;
+    border: 1px solid #d7d7d7;
+    font-size: $font-size-small;
+    width: 100%;
+    box-sizing: border-box;
+    @include transition(border-color 250ms);
+    @include appearance(none);
+
+    &:focus {
+      border-color: $text-color;
+    }
+  }
+
+}

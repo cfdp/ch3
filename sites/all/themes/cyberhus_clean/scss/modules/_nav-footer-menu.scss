@@ -1,0 +1,21 @@
+#block-menu-menu-andet {
+
+  ul.menu {
+    margin: 40px 0 0;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #e2e2e2;
+    display: inline-block;
+
+    li {
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+    a {
+      padding: 0 0.75em;
+      color: $text-color-light;
+    }
+  }
+}

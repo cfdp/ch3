@@ -1,0 +1,202 @@
+// Ung i - Landing page
+.page-ung_i_landing_page {
+
+  #page-title {
+    display: none;
+  }
+
+  .view-ung-i-landing-page {
+
+    text-align: center;
+
+    .view-header {
+      background: white;
+      padding: 3em 2em 0;
+      @include clearfix();
+
+      h2 {
+        margin-bottom: 1em;
+      }
+    }
+    .view-content {
+      background: white;
+      padding: 0 2em 3em;
+    }
+    .view-footer {
+      margin: 2em 0 0;
+
+      @include bp-normal {
+        padding: 0 10em;
+      }
+    }
+
+    #ctools-jump-menu {
+      .select-wrapper {
+        background: $color-gray-light;
+        max-width: 100%;
+      }
+      select {
+        font-size: 1.25em;
+        border: none;
+        color: $text-color;
+        width: 30em;
+        max-width: 100%;
+      }
+      svg {
+        height: .75em;
+        width: .75em;
+        margin-top: -.37em;
+      }
+      input[type=submit] {
+        display: none;
+        font-size: 1.25em;
+        background: $color-purple;
+      }
+    }
+  }
+}
+
+// Ung i - Kommuneside
+.page-taxonomy-term {
+
+  // Layout
+  .vocabulary-ung-i-byer > .content {
+
+    @include bp-normal {
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: 50%;
+
+      .field-name-field-ungi-chat-embed {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      .field-name-field-ungi-chat-desc {
+        grid-column: 1;
+        grid-row: 2;
+      }
+      .field-name-field-ungi-info {
+        grid-column: 2;
+        grid-row: 1 / 3;
+      }
+      .local-offers {
+        grid-column: 1 / 3;
+        grid-row: 3;
+      }
+    }
+
+    &.chat-state-0 {
+
+      @include bp-normal {
+        .field-name-field-ungi-info {
+          grid-column: 1 / 3;
+          grid-row: 1 / 3;
+        }
+      }
+    }
+  }
+
+  .vocabulary-ung-i-byer > .content {
+
+    .field:not(.field-name-field-ungi-offer-desc),
+    .local-offers {
+      padding: 2em;
+      margin-bottom: 20px;
+
+      @include bp-normal {
+        margin-bottom: 0;
+      }
+    }
+    .field-label {
+      font-size: 1.5em;
+      font-weight: 800;
+      margin-bottom: 1em;
+    }
+    .field-name-field-ungi-chat-embed {
+      background: white;
+
+      iframe {
+        width: 100%;
+      }
+    }
+    .field-name-field-ungi-chat-desc {
+      background: white;
+    }
+    .field-name-field-ungi-info {
+      background: white;
+    }
+    .local-offers {
+      background: white;
+
+      .field-name-field-ungi-offer-desc {
+        @include bp-normal {
+          float: left;
+          width: 66%;
+        }
+      }
+
+      a.button {
+        background: $color-purple;
+        margin-top: 2em;
+
+        @include bp-normal {
+          float: right;
+          margin-top: 3em;
+        }
+      }
+    }
+  }
+
+  .node-related.ungi {
+
+    .node-related-sidebar a.button {
+      background: $color-purple;
+    }
+  }
+
+  .content-stream .type-brevkasse .stream-type-icon {
+    fill: $color-purple;
+  }
+}
+
+// Ung i - Lokale tilbude
+.view-ung-i-tilbud {
+
+  .view-header {
+    margin-top: 1em;
+    margin-bottom: 2em;
+  }
+  .ui-accordion {
+
+    .ui-accordion-header-active a {
+      color: $color-purple;
+    }
+  }
+}
+
+.ui-accordion {
+
+  font-family: $font-fam-base;
+
+  .views-row {
+    margin-bottom: 20px;
+  }
+
+  .ui-accordion-header {
+    background: white;
+    border-radius: 0;
+    border: none;
+    font-weight: 800;
+    font-size: $font-size-medium;
+    padding: 20px 20px 20px 40px;
+
+    a {
+      color: $text-color;
+    }
+  }
+  .ui-accordion-content {
+    border-radius: 0;
+    border: none;
+    padding: 0 40px 30px;
+  }
+}

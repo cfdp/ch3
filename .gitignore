@@ -19,6 +19,7 @@ sites/all/modules/stage_file_proxy
 sites/all/modules/reroute_email
 sites/all/modules/smtp
 sites/all/modules/module_builder
+sites/all/modules/browsersync
 robots.txt
 FirePHPCore
 sites/all/modules/xhprof
@@ -32,3 +33,8 @@ sites/all/modules/masquerade
 nbproject
 googlefdfe5933b9683929.html
 sites/all/themes/cyberhus_evolution/widgets/chat-multi-widget/dev-embed.html
+
+# Development configuration
+docker-compose.yml
+mariadb-init
+node_modules

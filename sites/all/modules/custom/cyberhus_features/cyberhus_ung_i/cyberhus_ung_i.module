@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Cyberhus Ung i feature.
+ */
+
+include_once 'cyberhus_ung_i.features.inc';

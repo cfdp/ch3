@@ -1,0 +1,154 @@
+/* Filter form */
+#block-views-exp-frontpage-stream-page,
+#block-views-exp-frontpage-stream-page-1,
+#block-views-exp-frontpage-stream-page-2 {
+
+  background: white;
+  padding: .75em 1.5em .75em;
+  margin: 0 0 20px 0;
+  @include clearfix();
+
+  @include bp-normal {
+    padding: 1em 2em;
+  }
+
+  @include bp-normal {
+    margin: 0;
+  }
+
+  > .content {
+    display: none;
+
+    @include bp-normal {
+      display: block;
+    }
+  }
+
+  > h2 {
+    font-size: $font-size-small;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    line-height: 2.5em;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+
+    @include bp-normal {
+      float: left;
+      margin: 0 2em 0 0;
+    }
+
+    svg {
+      height: 1em;
+      width: 1em;
+      fill: $text-color;
+      position: absolute;
+      top: .65em;
+      right: 0;
+      z-index: 2;
+
+      @include bp-normal {
+        display: none;
+      }
+    }
+
+    svg.icon-minus {
+      display: none;
+    }
+
+    &.open {
+
+      svg.icon-plus {
+        display: none;
+      }
+      svg.icon-minus {
+        display: block;
+
+        @include bp-normal {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .views-exposed-widgets {
+    margin: 1em 0;
+
+    @include bp-normal {
+      margin: 0;
+    }
+  }
+  .views-exposed-widget {
+    padding: 0;
+    margin: 0 0 10px 0;
+    width: 100%;
+
+    @include bp-normal {
+      float: left;
+      width: auto;
+      margin: 0 1em 0 0;
+    }
+
+    label {
+      display: none;
+    }
+
+    svg {
+      right: .75em;
+    }
+
+    .select-wrapper {
+      width: 100%;
+      box-sizing: border-box;
+
+      @include bp-normal {
+        width: auto;
+      }
+    }
+    select {
+      font-size: .8125em;
+      text-transform: uppercase;
+      padding: .75em 2.5em .75em 1em;
+      font-weight: 500;
+      width: 100%;
+
+      @include bp-normal {
+        width: auto;
+      }
+    }
+  }
+
+  .views-submit-button {
+    margin: 0;
+    position: relative;
+
+    .ajax-progress {
+
+      position: absolute;
+      right: 0;
+      top: 2px;
+
+      @include bp-normal {
+        top: .4em;
+        position: relative;
+      }
+    }
+  }
+  .views-reset-button {
+
+    margin: 0;
+
+    @include bp-narrow {
+      float: right;
+      margin-top: .15em;
+    }
+
+    #edit-reset {
+      margin: 0;
+      color: white;
+      text-transform: uppercase;
+      @include button($color-gray-dark);
+    }
+  }
+}

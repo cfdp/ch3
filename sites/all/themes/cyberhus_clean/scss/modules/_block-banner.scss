@@ -1,0 +1,335 @@
+
+#highlighted-wrapper {
+  background: $color-gray-light;
+  min-height: 1px;
+}
+#banner-standard {
+  width: 100%;
+  text-align: center;
+  line-height: 0;
+
+  img {
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.flexslider-banner {
+  opacity: 0;
+  @include transition(opacity 250ms);
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+// Slideshow paging
+.flex-control-paging {
+  position: absolute;
+  bottom: 20px;
+  z-index: 10;
+  line-height: 1;
+
+  li {
+    margin: 0 .25em;
+
+    a {
+      background: rgba(white, .5);
+      box-shadow: none;
+      height: $font-size-small;
+      width: $font-size-small;
+      @include transition-property(background);
+      @include transition-duration(250ms);
+
+      &.flex-active {
+        background: rgba(white, 1);
+      }
+
+      &:hover {
+        background: rgba(white, 1);
+      }
+    }
+  }
+}
+
+// Slideshow navigation
+.flex-navigation {
+
+  display: none;
+
+  @include bp-normal {
+    width: 960px;
+    height: 400px;
+    position: relative;
+    margin: auto;
+    display: block;
+  }
+  @include bp-wide {
+    width: 1180px;
+  }
+
+  svg {
+    fill: $color-gray-dark;
+    width: 1em;
+    height: 1em;
+  }
+  a {
+    display: inline-block;
+    background: white;
+    padding: 1em;
+    border-radius: 2em;
+    line-height: 1;
+    z-index: 10;
+    width: 1em;
+    height: 1em;
+    opacity: 0;
+    @include transition-property(background, opacity, left, right);
+    @include transition-duration(250ms);
+
+    &:hover {
+      background: $color-gray-light;
+    }
+  }
+  .flex-prev {
+    position: absolute;
+    left: -4.5em;
+    top: 50%;
+    margin-top: -1em;
+  }
+  .flex-next {
+    position: absolute;
+    right: -4.5em;
+    top: 50%;
+    margin-top: -1em;
+  }
+}
+
+// Banner hover
+#highlighted .block-bean:hover,
+#highlighted .view-banner-ungi:hover {
+  .flex-navigation a {
+    opacity: 1;
+  }
+  .flex-prev {
+    left: -5em;
+  }
+  .flex-next {
+    right: -5em;
+  }
+}
+
+// Slides
+#highlighted .block-bean,
+#highlighted .view-banner-ungi {
+
+  overflow: hidden;
+  height: 250px;
+  position: relative;
+
+  @include bp-narrow {
+    height: 400px;
+  }
+
+  .paragraphs-item-banner-slide > .content {
+    position: relative;
+  }
+
+  .field-name-field-pg-banner-image {
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 1;
+    margin-left: -600px;
+    display: block;
+
+    @include bp-narrow {
+      margin-left: -960px;
+    }
+
+    img {
+      height: 250px;
+      width: auto;
+      max-width: none;
+
+      @include bp-narrow {
+        height: auto;
+        max-width: inherit;
+      }
+    }
+
+  }
+
+  .content-aligner {
+    margin: auto;
+    height: 250px;
+
+    @include bp-narrow {
+      height: 400px;
+    }
+  }
+  .content-inner {
+    z-index: 2;
+    backface-visibility: hidden;
+    padding: 2em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include bp-narrow {
+      padding: 0;
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      opacity: 1;
+      @include transition(opacity 250ms);
+
+      &:hover {
+        opacity: .75;
+      }
+    }
+  }
+  .content-aligner,
+  .content-inner {
+    @include bp-narrow {
+        width: 700px;
+    }
+    @include bp-normal {
+        width: 940px;
+    }
+    @include bp-wide {
+        width: 1180px;
+    }
+  }
+
+  .field {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .field-type-text-long {
+    padding: 0 13px;
+    box-sizing: border-box;
+
+    @include bp-normal {
+      padding: 0 20em 0 13px;
+    }
+  }
+
+  .field-name-field-pg-banner-head {
+
+    .field-item {
+      display: inline;
+      line-height: 1.2em;
+      font-weight: 800;
+      color: white;
+      font-size: 2.25em;
+
+      @include bp-narrow {
+        font-size: 3.45em;
+      }
+    }
+  }
+
+  .field-name-field-pg-banner-body {
+
+    display: none;
+
+    @include bp-narrow {
+      display: block;
+    }
+
+    p {
+      color: white;
+      display: inline;
+      font-size: 1.25em;
+      line-height: 1.6em;
+      padding: 0.3em 0;
+    }
+  }
+
+  // Color themes
+  .content-inner.bg-color-blue {
+    .field-name-field-pg-banner-head .field-item,
+    .field-name-field-pg-banner-body p {
+      background: $color-blue;
+      box-shadow: 13px 0 0 0 $color-blue, -13px 0 0 0 $color-blue;
+    }
+  }
+  .content-inner.bg-color-green {
+    .field-name-field-pg-banner-head .field-item,
+    .field-name-field-pg-banner-body p {
+      background: $color-green;
+      box-shadow: 13px 0 0 0 $color-green, -13px 0 0 0 $color-green;
+    }
+  }
+  .content-inner.bg-color-red {
+    .field-name-field-pg-banner-head .field-item,
+    .field-name-field-pg-banner-body p {
+      background: $color-red;
+      box-shadow: 13px 0 0 0 $color-red, -13px 0 0 0 $color-red;
+    }
+  }
+  .content-inner.bg-color-orange {
+    .field-name-field-pg-banner-head .field-item,
+    .field-name-field-pg-banner-body p {
+      background: $color-orange;
+      box-shadow: 13px 0 0 0 $color-orange, -13px 0 0 0 $color-orange;
+    }
+  }
+  .content-inner.bg-color-purple {
+    .field-name-field-pg-banner-head .field-item,
+    .field-name-field-pg-banner-body p {
+      background: $color-purple;
+      box-shadow: 13px 0 0 0 $color-purple, -13px 0 0 0 $color-purple;
+    }
+  }
+
+}
+
+// Brevkasse
+.page-brevkasse-ny,
+.node-type-brevkasse {
+
+  #sidebar-first {
+    a.button,
+    input[type=submit] {
+      background: $color-green;
+    }
+  }
+}
+
+
+// Ung til ung
+.page-ung-til-ung,
+.node-type-image,
+.node-type-forum {
+
+  #sidebar-first,
+  #postface,
+  .comment-form {
+    a.button,
+    input[type=submit] {
+      background: $color-red;
+    }
+  }
+}
+
+// Ungi
+.page-ung-i,
+.page-ung-i-ny {
+
+  #sidebar-first {
+
+    a.button,
+    input[type=submit] {
+      background: $color-purple;
+    }
+  }
+}

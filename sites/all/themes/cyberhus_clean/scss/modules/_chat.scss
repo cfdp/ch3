@@ -1,0 +1,45 @@
+.page-node-20738 {
+
+  .field-name-body {
+    background: white;
+    padding: 2em;
+    margin-bottom: 20px;
+  }
+
+  .field-name-field-vedh-ft-view .view-content {
+    @include bp-normal {
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: 50%;
+
+      .views-row-odd {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      .views-row-even {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    }
+  }
+
+  .view-cyberhus-chat {
+
+    .views-field-field-admin-php {
+      padding: 2em;
+      background: white;
+      margin-bottom: 20px;
+      height: 9em;
+
+      iframe {
+        height: 9em;
+        font-size: $font-size-base !important;
+      }
+    }
+    .views-field-body {
+      padding: 2em;
+      background: white;
+      margin-bottom: 20px;
+    }
+  }
+}

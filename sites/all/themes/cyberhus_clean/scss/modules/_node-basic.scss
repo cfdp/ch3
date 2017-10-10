@@ -1,0 +1,140 @@
+.page-node-basic {
+
+  h1 {
+    margin-bottom: .5em;
+  }
+}
+
+.node-type-body-secret {
+
+  h1#page-title {
+    display: none;
+  }
+
+  .region-content .node {
+    background: white;
+    padding: 3em 2em;
+
+    @include bp-narrow {
+      padding: 4em 5em 4em;
+    }
+  }
+
+  .field-name-body {
+    font-family: $font-fam-alt;
+    font-size: $font-size-largest;
+    line-height: 1.2em;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color: $text-color-light;
+
+    @include bp-normal {
+      padding: 0 4em;
+    }
+  }
+
+  /* Author box */
+  .author-box {
+    padding: 1.5em 1em;
+    border: 1px solid $color-gray;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    @include clearfix();
+
+    @include bp-narrow {
+      text-align: center;
+      padding: 0;
+      border: none;
+      margin-bottom: 60px;
+    }
+
+    .author-first {
+      @include bp-mobile {
+        float: left;
+        width: 33%;
+        padding-right: 10px;
+        box-sizing: border-box;
+      }
+    }
+    .author-second {
+      @include bp-mobile {
+        float: left;
+        width: 64%;
+      }
+    }
+
+    .author-avatar {
+      height: 4.5em;
+      width: 4.5em;
+      border-radius: 4.5em;
+      float: right;
+
+      @include bp-narrow {
+        width: 6em;
+        height: 6em;
+        border-radius: 6em;
+        margin: 0 auto 15px;
+        float: none;
+      }
+      @include bp-normal {
+        width: 8em;
+        height: 8em;
+        border-radius: 8em;
+      }
+
+      img {
+        width: 4.5em;
+
+        @include bp-narrow {
+          width: 6em;
+        }
+        @include bp-normal {
+          width: 8em;
+        }
+      }
+    }
+    .author-type {
+      text-transform: uppercase;
+      font-size: $font-size-small;
+      line-height: $line-height-small;
+      color: $text-color-light;
+      margin-bottom: 5px;
+    }
+    .author-name {
+      font-weight: 800;
+      word-wrap: break-word;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      display: inline-block;
+
+      @include bp-narrow {
+        font-size: $font-size-medium;
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+    }
+    .author-gender,
+    .author-age {
+      margin-bottom: 5px;
+      font-size: $font-size-small;
+      display: inline-block;
+
+      @include bp-narrow {
+        margin-bottom: 20px;
+      }
+
+      svg {
+        height: 1em;
+        width: 1em;
+        margin: 0 0.1em -0.05em;
+      }
+    }
+    .author-created {
+      font-size: $font-size-small;
+      color: $text-color-light;
+      float: left;
+      width: 100%;
+    }
+  }
+}

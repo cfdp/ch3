@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Cyberhus Stream feature.
+ */
+
+include_once 'cyberhus_stream.features.inc';
