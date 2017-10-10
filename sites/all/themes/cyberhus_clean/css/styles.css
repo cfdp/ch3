@@ -495,7 +495,10 @@ body.page-blog #page-title {
         padding-right: 1.5em; }
 
 #main-logo-link {
-  display: inline-block; }
+  display: inline-block;
+  transition: opacity 250ms; }
+  #main-logo-link:hover {
+    opacity: .75; }
 
 #main-logo {
   max-width: 100%;
@@ -2539,7 +2542,12 @@ object {
 #fb-logo-link,
 #instagram-logo-link {
   display: inline-block;
-  margin: 0 .25em; }
+  margin: 0 .25em;
+  transition: opacity 250ms; }
+  #bottom-logo-link:hover,
+  #fb-logo-link:hover,
+  #instagram-logo-link:hover {
+    opacity: .75; }
 
 #bottom-logo {
   height: 3em;

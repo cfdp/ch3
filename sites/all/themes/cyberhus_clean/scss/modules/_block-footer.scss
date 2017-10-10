@@ -7,6 +7,11 @@ object {
 #instagram-logo-link {
   display: inline-block;
   margin: 0 .25em;
+  @include transition(opacity 250ms);
+
+  &:hover {
+    opacity: .75;
+  }
 }
 #bottom-logo {
   height: 3em;
