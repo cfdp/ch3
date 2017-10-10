@@ -106,6 +106,12 @@
 // Logo
 #main-logo-link {
   display: inline-block;
+
+  @include transition(opacity 250ms);
+
+  &:hover {
+    opacity: .75;
+  }
 }
 #main-logo {
   max-width: 100%;

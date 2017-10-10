@@ -78,7 +78,7 @@
     <div id="mobile-header-wrapper">
       <div id="mobile-header">
         <div class="mobile-logo">
-          <a href="/"><object type="image/svg+xml" data="/sites/all/themes/cyberhus_clean/assets/svg/logo.svg" id="main-logo">Logo</object></a>
+          <a href="/" id="mobile-logo-link"><object type="image/svg+xml" data="/sites/all/themes/cyberhus_clean/assets/svg/logo.svg" id="main-logo">Logo</object></a>
         </div>
         <div class="mobile-search">
           <?php
