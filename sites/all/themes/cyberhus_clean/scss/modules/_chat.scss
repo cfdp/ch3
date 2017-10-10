@@ -26,13 +26,18 @@
   .view-cyberhus-chat {
 
     .views-field-field-admin-php {
-      padding: 2em;
+      padding: 0;
+      line-height: 0;
       background: white;
       margin-bottom: 20px;
-      height: 9em;
+
+      .field-content, p {
+        height: 100%;
+        line-height: 0;
+      }
 
       iframe {
-        height: 9em;
+        height: 100%;
         font-size: $font-size-base !important;
       }
     }

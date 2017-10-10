@@ -1958,7 +1958,6 @@ h2#related-content {
 
 .page-taxonomy-term .vocabulary-ung-i-byer > .content .field:not(.field-name-field-ungi-offer-desc),
 .page-taxonomy-term .vocabulary-ung-i-byer > .content .local-offers {
-  padding: 2em;
   margin-bottom: 20px; }
   @media (min-width: 1024px) {
     .page-taxonomy-term .vocabulary-ung-i-byer > .content .field:not(.field-name-field-ungi-offer-desc),
@@ -1971,18 +1970,25 @@ h2#related-content {
   margin-bottom: 1em; }
 
 .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed {
-  background: white; }
+  background: white;
+  padding: 0; }
+  .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed .field-items, .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed .field-item {
+    height: 100%; }
   .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe {
-    width: 100%; }
+    width: 100%;
+    height: 100%; }
 
 .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-desc {
-  background: white; }
+  background: white;
+  padding: 2em; }
 
 .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-info {
-  background: white; }
+  background: white;
+  padding: 2em; }
 
 .page-taxonomy-term .vocabulary-ung-i-byer > .content .local-offers {
-  background: white; }
+  background: white;
+  padding: 2em; }
   @media (min-width: 1024px) {
     .page-taxonomy-term .vocabulary-ung-i-byer > .content .local-offers .field-name-field-ungi-offer-desc {
       float: left;
@@ -2044,12 +2050,15 @@ h2#related-content {
       grid-row: 1; } }
 
 .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php {
-  padding: 2em;
+  padding: 0;
+  line-height: 0;
   background: white;
-  margin-bottom: 20px;
-  height: 9em; }
+  margin-bottom: 20px; }
+  .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php .field-content, .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php p {
+    height: 100%;
+    line-height: 0; }
   .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe {
-    height: 9em;
+    height: 100%;
     font-size: 1em !important; }
 
 .page-node-20738 .view-cyberhus-chat .views-field-body {
