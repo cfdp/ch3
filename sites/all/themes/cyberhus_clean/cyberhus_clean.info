@@ -12,6 +12,7 @@ scripts[] = js/banner.js
 scripts[] = js/scroll-to.js
 scripts[] = js/jump-menu.js
 scripts[] = js/filter-toggle.js
+scripts[] = js/curachat.embed.js
 
 regions[menu] = Menu
 regions[header] = Header
