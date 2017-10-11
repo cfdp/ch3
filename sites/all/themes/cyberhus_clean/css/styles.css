@@ -86,7 +86,8 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 3em;
   line-height: 1.2em;
-  margin: 0; }
+  margin: 0;
+  word-wrap: break-word; }
 
 h2 {
   font-size: 2em; }
@@ -193,6 +194,7 @@ a.btn {
     opacity: 0.75; }
 
 input[type=submit] {
+  font-size: 1em;
   color: white;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -314,6 +316,7 @@ form textarea {
   font-size: 0.875em;
   width: 100%;
   box-sizing: border-box;
+  border-radius: 0;
   transition: border-color 250ms;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -557,15 +560,14 @@ body.page-blog #page-title {
   #mobile-header .mobile-logo {
     float: left; }
     #mobile-header .mobile-logo #mobile-logo-link {
-      display: inline-block;
+      display: block;
       transition: opacity 250ms; }
       #mobile-header .mobile-logo #mobile-logo-link:hover {
         opacity: .75; }
     #mobile-header .mobile-logo object {
       width: 104px;
       height: 25px;
-      margin-top: 0;
-      display: block; }
+      margin-top: 0; }
   #mobile-header .mobile-search {
     float: right;
     width: 50%;
@@ -914,23 +916,23 @@ body.page-blog #page-title {
     padding-bottom: 4em;
     background: #3f9b91; }
     .content-stream .type-body-secret .stream-content:after {
-      background-image: linear-gradient(rgba(255, 255, 255, 0) 0, #3f9b91 90%); }
+      background-image: linear-gradient(rgba(63, 155, 145, 0), #3f9b91 90%); }
     .content-stream .type-body-secret:nth-child(5n+2) {
       background: #c34b4b; }
       .content-stream .type-body-secret:nth-child(5n+2) .stream-content:after {
-        background-image: linear-gradient(transparent, #c34b4b); }
+        background-image: linear-gradient(rgba(195, 75, 75, 0), #c34b4b 90%); }
     .content-stream .type-body-secret:nth-child(5n+3) {
       background: #1d9ed0; }
       .content-stream .type-body-secret:nth-child(5n+3) .stream-content:after {
-        background-image: linear-gradient(transparent 0, #1d9ed0 90%); }
+        background-image: linear-gradient(rgba(29, 158, 208, 0), #1d9ed0 90%); }
     .content-stream .type-body-secret:nth-child(5n+4) {
       background: #e19214; }
       .content-stream .type-body-secret:nth-child(5n+4) .stream-content:after {
-        background-image: linear-gradient(transparent 0, #e19214 90%); }
+        background-image: linear-gradient(rgba(225, 146, 20, 0), #e19214 90%); }
     .content-stream .type-body-secret:nth-child(5n+5) {
       background: #8d62a4; }
       .content-stream .type-body-secret:nth-child(5n+5) .stream-content:after {
-        background-image: linear-gradient(transparent 0, #8d62a4 90%); }
+        background-image: linear-gradient(rgba(141, 98, 164, 0), #8d62a4 90%); }
     .content-stream .type-body-secret .stream-title,
     .content-stream .type-body-secret .stream-comments,
     .content-stream .type-body-secret .stream-like,
@@ -1085,7 +1087,7 @@ body.page-blog #page-title {
     margin: 0;
     padding: 0;
     text-transform: uppercase;
-    line-height: 2.5em;
+    line-height: 2.75em;
     font-weight: 500;
     cursor: pointer;
     position: relative; }
@@ -1102,7 +1104,7 @@ body.page-blog #page-title {
       width: 1em;
       fill: #1b1d1f;
       position: absolute;
-      top: .65em;
+      top: .75em;
       right: 0;
       z-index: 2; }
       @media (min-width: 1024px) {
@@ -1190,12 +1192,12 @@ body.page-blog #page-title {
     #block-views-exp-frontpage-stream-page-2 .views-submit-button .ajax-progress {
       position: absolute;
       right: 0;
-      top: 2px; }
+      top: 3px; }
       @media (min-width: 1024px) {
         #block-views-exp-frontpage-stream-page .views-submit-button .ajax-progress,
         #block-views-exp-frontpage-stream-page-1 .views-submit-button .ajax-progress,
         #block-views-exp-frontpage-stream-page-2 .views-submit-button .ajax-progress {
-          top: .4em;
+          top: .5em;
           position: relative; } }
   #block-views-exp-frontpage-stream-page .views-reset-button,
   #block-views-exp-frontpage-stream-page-1 .views-reset-button,
@@ -1213,6 +1215,7 @@ body.page-blog #page-title {
       margin: 0;
       color: white;
       text-transform: uppercase;
+      font-size: .8em;
       display: inline-block;
       background-color: #1b1d1f;
       padding: 0.85em 2.5em;
@@ -1700,16 +1703,19 @@ h2#related-content {
   .view ul.entity_pager .node-nav-all,
   .view ul.entity_pager .entity_pager_all_link {
     display: inline-block;
-    position: relative;
-    top: -.15em; }
+    position: relative; }
     .node-nav .node-nav-all svg,
     .node-nav .entity_pager_all_link svg,
     .view ul.entity_pager .node-nav-all svg,
     .view ul.entity_pager .entity_pager_all_link svg {
       float: left;
       padding-right: 0.65em;
-      position: relative;
-      top: .1em; }
+      position: relative; }
+
+.page-node-add #page-title,
+.page-comment-edit #page-title,
+.page-comment-reply #page-title {
+  font-size: 2em; }
 
 .page-node-add #content,
 .page-comment-edit #content,

@@ -245,35 +245,35 @@
     background: $color-turquoise;
 
     .stream-content:after {
-      background-image: linear-gradient(rgba(white, 0) 0, $color-turquoise 90%);
+      background-image: linear-gradient(rgba($color-turquoise, 0), $color-turquoise 90%);
     }
 
     &:nth-child(5n+2) {
       background: $color-red;
 
       .stream-content:after {
-        background-image: linear-gradient(transparent, $color-red);
+        background-image: linear-gradient(rgba($color-red, 0), $color-red 90%);
       }
     }
     &:nth-child(5n+3) {
       background: $color-blue;
 
       .stream-content:after {
-        background-image: linear-gradient(transparent 0, $color-blue 90%);
+        background-image: linear-gradient(rgba($color-blue, 0), $color-blue 90%);
       }
     }
     &:nth-child(5n+4) {
       background: $color-orange;
 
       .stream-content:after {
-        background-image: linear-gradient(transparent 0, $color-orange 90%);
+        background-image: linear-gradient(rgba($color-orange, 0), $color-orange 90%);
       }
     }
     &:nth-child(5n+5) {
       background: $color-purple;
 
       .stream-content:after {
-        background-image: linear-gradient(transparent 0, $color-purple 90%);
+        background-image: linear-gradient(rgba($color-purple, 0), $color-purple 90%);
       }
     }
 

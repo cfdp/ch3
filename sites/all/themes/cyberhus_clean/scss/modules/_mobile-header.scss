@@ -19,7 +19,7 @@
     float: left;
 
     #mobile-logo-link {
-      display: inline-block;
+      display: block;
 
       @include transition(opacity 250ms);
 
@@ -32,7 +32,6 @@
       width: 104px;
       height: 25px;
       margin-top: 0;
-      display: block;
     }
   }
 
