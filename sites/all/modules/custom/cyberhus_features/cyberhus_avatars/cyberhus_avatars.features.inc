@@ -65,8 +65,8 @@ function cyberhus_avatars_image_default_styles() {
       17 => array(
         'name' => 'image_scale',
         'data' => array(
-          'width' => 40,
-          'height' => 40,
+          'width' => 80,
+          'height' => 80,
           'upscale' => 0,
         ),
         'weight' => 1,

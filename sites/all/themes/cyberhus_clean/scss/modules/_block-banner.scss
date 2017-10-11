@@ -303,6 +303,12 @@
       background: $color-green;
     }
   }
+  .related-link {
+    color: $color-green;
+    svg {
+      fill: $color-green;
+    }
+  }
 }
 
 
@@ -317,6 +323,12 @@
     a.button,
     input[type=submit] {
       background: $color-red;
+    }
+  }
+  .related-link {
+    color: $color-red;
+    svg {
+      fill: $color-red;
     }
   }
 }

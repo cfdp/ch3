@@ -8,6 +8,8 @@ $(document).ready(function() {
     customDirectionNav: $(".flex-navigation a"),
     allowOneSlide: false,
     useCSS: true,
+    slideshowSpeed: 5000,
+    pauseOnHover: true,
     start: function() {
       $('.flexslider-banner').addClass("loaded");
     }

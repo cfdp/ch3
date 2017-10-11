@@ -9,5 +9,6 @@ dependencies[] = views_load_more
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[views_view][] = frontpage_stream
+features[views_view][] = pager_brevkasse
 features_exclude[dependencies][ctools] = ctools
 project path = sites/all/modules/custom/cyberhus_features
