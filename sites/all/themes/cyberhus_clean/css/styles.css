@@ -1691,22 +1691,6 @@ h2#related-content {
     grid-column: 1;
     grid-row: 1; } }
 
-.node-related .node-related-sidebar .block {
-  background: white;
-  padding: 2em;
-  margin-bottom: 20px; }
-
-.node-related .node-related-sidebar .field-label,
-.node-related .node-related-sidebar .block-title {
-  font-size: 1.5em;
-  font-weight: 800;
-  margin-bottom: 1em; }
-
-.node-related .node-related-sidebar a.button {
-  margin-top: 2em;
-  width: 100%;
-  box-sizing: border-box; }
-
 .node-nav,
 .view ul.entity_pager {
   background: white;
@@ -2720,15 +2704,16 @@ object {
   .region-bottom .second {
     float: right; } }
 
-.region-sidebar-first .block {
+.region-sidebar-first .block,
+.node-related-sidebar .block {
   background: white;
   padding: 2em;
   margin-bottom: 20px; }
-  .region-sidebar-first .block:last-child {
-    margin-bottom: 0; }
-  .region-sidebar-first .block > h2 {
+  .region-sidebar-first .block > h2,
+  .node-related-sidebar .block > h2 {
     font-size: 1.5em; }
-  .region-sidebar-first .block a.button {
+  .region-sidebar-first .block a.button,
+  .node-related-sidebar .block a.button {
     width: 100%;
     box-sizing: border-box;
     text-transform: uppercase;
