@@ -100,7 +100,6 @@
 
     .field:not(.field-name-field-ungi-offer-desc),
     .local-offers {
-      padding: 2em;
       margin-bottom: 20px;
 
       @include bp-normal {
@@ -114,19 +113,29 @@
     }
     .field-name-field-ungi-chat-embed {
       background: white;
+      padding: 0;
+
+      .field-items, .field-item {
+        height: 100%;
+      }
 
       iframe {
         width: 100%;
+        height: 100%;
       }
     }
     .field-name-field-ungi-chat-desc {
       background: white;
+      padding: 2em;
     }
     .field-name-field-ungi-info {
       background: white;
+      padding: 2em;
     }
     .local-offers {
       background: white;
+      padding: 2em;
+
 
       .field-name-field-ungi-offer-desc {
         @include bp-normal {

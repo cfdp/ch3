@@ -5,6 +5,7 @@ a.btn {
   @include button-link($color-gray-dark);
 }
 input[type=submit] {
+  font-size: $font-size-base;
   color: white;
   @include appearance(none);
   @include button($color-gray-dark);
@@ -121,6 +122,7 @@ form {
     font-size: $font-size-small;
     width: 100%;
     box-sizing: border-box;
+    border-radius: 0;
     @include transition(border-color 250ms);
     @include appearance(none);
 

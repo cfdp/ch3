@@ -8,6 +8,7 @@
   .breadcrumb {
     padding-bottom: 0;
     font-size: $font-size-small;
+    line-height: $line-height-base;
 
     @include bp-narrow {
       width: 700px;

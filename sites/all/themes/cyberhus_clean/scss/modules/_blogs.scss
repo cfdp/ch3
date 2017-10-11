@@ -133,4 +133,13 @@
   .author-box .author-name {
     margin-bottom: 1em;
   }
+
+  .field-name-body {
+    font-size: 1em;
+    font-weight: normal;
+
+    p {
+      color: $text-color;
+    }
+  }
 }

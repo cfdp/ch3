@@ -81,6 +81,10 @@
       @include bp-wide {
         width: 85%;
       }
+
+      img {
+        margin-bottom: 20px;
+      }
     }
 
     .stream-counselor {
@@ -150,16 +154,11 @@
       @include clearfix();
 
       .stream-metadata-item {
-        margin-right: 5px;
-        padding-right: 6px;
+        margin-right: 10px;
+        padding-right: 11px;
         position: relative;
         font-size: $font-size-small;
-        line-height: $line-height-small;
-
-        @include bp-narrow {
-          margin-right: 10px;
-          padding-right: 11px;
-        }
+        line-height: $line-height-medium;
 
         &:after {
           content: "";
@@ -172,7 +171,6 @@
         }
 
         &:last-child {
-          border-right: 0;
           padding-right: 0;
           margin-right: 0;
 
@@ -183,6 +181,37 @@
 
         &.meta-type {
           float: left;
+        }
+
+        &.meta-category {
+          float: left;
+
+          &:after {
+            display: none;
+          }
+        }
+
+        &.meta-author {
+          position: relative;
+          display: block;
+          clear: both;
+
+          @include bp-narrow {
+            margin-left: -11px;
+            padding-left: 11px;
+            float: left;
+            clear: none;
+
+            &:before {
+              content: "";
+              height: 1.1em;
+              width: 1px;
+              background: #d7d7d7;
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+          }
         }
       }
 
@@ -245,35 +274,35 @@
     background: $color-turquoise;
 
     .stream-content:after {
-      background-image: linear-gradient(rgba(white, 0) 0, $color-turquoise 90%);
+      background-image: linear-gradient(rgba($color-turquoise, 0), $color-turquoise 90%);
     }
 
     &:nth-child(5n+2) {
       background: $color-red;
 
       .stream-content:after {
-        background-image: linear-gradient(transparent, $color-red);
+        background-image: linear-gradient(rgba($color-red, 0), $color-red 90%);
       }
     }
     &:nth-child(5n+3) {
       background: $color-blue;
 
       .stream-content:after {
-        background-image: linear-gradient(transparent 0, $color-blue 90%);
+        background-image: linear-gradient(rgba($color-blue, 0), $color-blue 90%);
       }
     }
     &:nth-child(5n+4) {
       background: $color-orange;
 
       .stream-content:after {
-        background-image: linear-gradient(transparent 0, $color-orange 90%);
+        background-image: linear-gradient(rgba($color-orange, 0), $color-orange 90%);
       }
     }
     &:nth-child(5n+5) {
       background: $color-purple;
 
       .stream-content:after {
-        background-image: linear-gradient(transparent 0, $color-purple 90%);
+        background-image: linear-gradient(rgba($color-purple, 0), $color-purple 90%);
       }
     }
 
@@ -292,11 +321,25 @@
         border-color: white;
         display: inline-block;
 
-        &.meta-type {
+        &.meta-type,
+        &.meta-author {
           float: none;
+          display: inline-block;
 
           &:after {
             background: white;
+          }
+        }
+
+        &.meta-category {
+          display: none;
+        }
+
+        &.meta-author {
+          margin-left: 0;
+          padding-left: 0;
+          &:before {
+            display: none;
           }
         }
       }
@@ -351,6 +394,9 @@
     .stream-type-icon {
       fill: $color-green;
     }
+    .meta-category {
+      color: $color-green;
+    }
     .stream-comments,
     .stream-like {
       display: none;
@@ -363,10 +409,16 @@
     .stream-type-icon {
       fill: $color-red;
     }
+    .meta-category {
+      color: $color-red;
+    }
   }
   .type-blog {
     .stream-type-icon {
       fill: $color-blue;
+    }
+    .meta-category {
+      color: $color-blue;
     }
     .stream-avatar {
       display: none;
@@ -378,6 +430,9 @@
   .type-image {
     .stream-type-icon {
       fill: $color-red;
+    }
+    .meta-category {
+      color: $color-red;
     }
     .stream-avatar {
       display: none;

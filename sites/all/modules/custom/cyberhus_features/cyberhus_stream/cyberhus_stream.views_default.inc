@@ -266,6 +266,22 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['type']['label'] = '';
   $handler->display->display_options['fields']['type']['exclude'] = TRUE;
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
+  /* Field: Content: Kategori NY */
+  $handler->display->display_options['fields']['field_base_category']['id'] = 'field_base_category';
+  $handler->display->display_options['fields']['field_base_category']['table'] = 'field_data_field_base_category';
+  $handler->display->display_options['fields']['field_base_category']['field'] = 'field_base_category';
+  $handler->display->display_options['fields']['field_base_category']['label'] = '';
+  $handler->display->display_options['fields']['field_base_category']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_base_category']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_base_category']['alter']['text'] = '#[field_base_category]';
+  $handler->display->display_options['fields']['field_base_category']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_base_category']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_base_category']['element_wrapper_class'] = 'stream-category';
+  $handler->display->display_options['fields']['field_base_category']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_base_category']['settings'] = array(
+    'bypass_access' => 1,
+    'link' => 0,
+  );
   /* Field: Content: Navn */
   $handler->display->display_options['fields']['field_forum_forf_navn']['id'] = 'field_forum_forf_navn';
   $handler->display->display_options['fields']['field_forum_forf_navn']['table'] = 'field_data_field_forum_forf_navn';
@@ -316,6 +332,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="stream-metadata-item meta-type">[type]</div>
+<div class="stream-metadata-item meta-category">[field_base_category]</div>
 <div class="stream-metadata-item meta-author">Af [field_forum_forf_navn][field_navn] [field_brevk_koen] [field_brevk_alder] &middot; [created]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['element_wrapper_class'] = 'stream-metadata';
@@ -1638,8 +1655,10 @@ function cyberhus_stream_views_default_views() {
     t('Vis mere'),
     t('forfatter'),
     t('Avatar'),
+    t('#[field_base_category]'),
     t('[field_forum_forf_navn][field_navn]'),
     t('<div class="stream-metadata-item meta-type">[type]</div>
+<div class="stream-metadata-item meta-category">[field_base_category]</div>
 <div class="stream-metadata-item meta-author">Af [field_forum_forf_navn][field_navn] [field_brevk_koen] [field_brevk_alder] &middot; [created]</div>'),
     t('<a href="/node/[nid]"><img src="/sites/all/themes/cyberhus_clean/assets/img/default.png" /></a>'),
     t('[field_billede][body][field_brevk_spoergsmaal]'),
@@ -1666,6 +1685,122 @@ function cyberhus_stream_views_default_views() {
     t('Alle'),
   );
   $export['frontpage_stream'] = $view;
+
+  $view = new view();
+  $view->name = 'pager_brevkasse';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Pager Brevkasse';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['css_class'] = 'node-pager';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['style_plugin'] = 'entity_pager';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Sort criterion: Content: Updated date */
+  $handler->display->display_options['sorts']['changed']['id'] = 'changed';
+  $handler->display->display_options['sorts']['changed']['table'] = 'node';
+  $handler->display->display_options['sorts']['changed']['field'] = 'changed';
+  $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
+  /* Contextual filter: Content: Type */
+  $handler->display->display_options['arguments']['type']['id'] = 'type';
+  $handler->display->display_options['arguments']['type']['table'] = 'node';
+  $handler->display->display_options['arguments']['type']['field'] = 'type';
+  $handler->display->display_options['arguments']['type']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['type']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['type']['validate']['fail'] = 'ignore';
+  $handler->display->display_options['arguments']['type']['limit'] = '0';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'image' => 'image',
+    'blog' => 'blog',
+    'brevkasse' => 'brevkasse',
+    'forum' => 'forum',
+    'body_secret' => 'body_secret',
+  );
+
+  /* Display: ung-til-ung */
+  $handler = $view->new_display('block', 'ung-til-ung', 'block');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'entity_pager';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+
+  /* Display: blog */
+  $handler = $view->new_display('block', 'blog', 'block_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'entity_pager';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Author uid */
+  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['table'] = 'node';
+  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'blog' => 'blog',
+  );
+  $translatables['pager_brevkasse'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Alle'),
+    t('ung-til-ung'),
+    t('blog'),
+  );
+  $export['pager_brevkasse'] = $view;
 
   return $export;
 }

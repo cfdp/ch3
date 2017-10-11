@@ -83,6 +83,12 @@
 
 <?php
   $type_label = cyberhus_clean_type_label($node->type);
+
+  // We hide the comments and links now so that we can render them later.
+  hide($content['comments']);
+  hide($content['links']);
+  hide($content['field_cyberlike']);
+  hide($content['field_base_category']);
 ?>
 
 <?php
@@ -96,7 +102,10 @@
   <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
 
   <div class="node-top-links">
-    <a href="#related">
+    <?php if(isset($content['field_base_category']['#object'])) : ?>
+    <div class="cat-tag"><span>#</span><?php print render($content['field_base_category']); ?></div>
+    <?php endif; ?>
+    <a href="#related" class="related-link">
       <?php print t("See related content"); ?>
       <?php print cyberhus_clean_icon_display('arrow-down'); ?>
     </a>
@@ -112,10 +121,6 @@
 
       <div class="content"<?php print $content_attributes; ?>>
         <?php
-          // We hide the comments and links now so that we can render them later.
-          hide($content['comments']);
-          hide($content['links']);
-          hide($content['field_cyberlike']);
           print render($content);
         ?>
       </div>
