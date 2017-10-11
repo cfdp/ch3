@@ -114,8 +114,11 @@
 <h2 id="related-content"><?php print t("Related content"); ?></h2>
 <a id="related"></a>
 <div class="node-related">
-  <div clas="node-related-sidebar">
-
+  <div class="node-related-sidebar">
+    <?php
+    $region = block_get_blocks_by_region('sidebar_first');
+    print render($region);
+    ?>
   </div>
   <div class="node-related-content">
     <?php

@@ -37,6 +37,13 @@
     }
   }
 
+  input[name=captcha_response] {
+
+    @include bp-mobile {
+      width: 100%;
+    }
+  }
+
   .field-name-field-avatar {
 
     @include clearfix();

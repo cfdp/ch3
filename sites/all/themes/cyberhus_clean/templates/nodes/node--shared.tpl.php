@@ -92,7 +92,12 @@
 ?>
 
 <?php
-  print views_embed_view('pager_brevkasse', 'block', $node->type);
+  if($node->type == 'brevkasse') {
+    print views_embed_view('pager_brevkasse', 'block_2', $node->type);
+  }
+  else {
+    print views_embed_view('pager_brevkasse', 'block', $node->type);
+  }
 ?>
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
