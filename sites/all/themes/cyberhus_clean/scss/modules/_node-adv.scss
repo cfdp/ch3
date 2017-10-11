@@ -32,16 +32,55 @@
 
   .node-top-links {
     text-align: center;
-    margin-bottom: 3em;
+    margin-bottom: 2.5em;
 
     @include bp-narrow {
       margin-bottom: 4em;
     }
 
-    a {
+    .cat-tag {
+      display: inline-block;
+      background: $color-gray-light;
+      padding: .65em 1.25em;
+      margin: 0 .25em .5em;
+      border-radius: 1.5em;
+      position: relative;
+      font-size: $font-size-small;
+
+      @include bp-narrow {
+        margin: 0 2em 0 0;
+      }
+
+      div, > span {
+        display: inline-block;
+      }
+
+      @include bp-narrow {
+        &:after {
+          content: "";
+          height: 1em;
+          background: $color-gray;
+          width: 1px;
+          display: inline-block;
+          position: absolute;
+          right: -1.2em;
+          top: .6em;
+        }
+      }
+    }
+
+    a.related-link {
       opacity: 1;
+      margin: 0 .25em;
+      font-size: $font-size-small;
+      display: inline-block;
       @include transition-property(opacity);
       @include transition-duration(250ms);
+
+      @include bp-narrow {
+        margin: 0;
+        font-size: $font-size-base;
+      }
 
       &:hover {
         opacity: .75;
