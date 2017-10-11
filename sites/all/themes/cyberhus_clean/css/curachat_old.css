@@ -1,0 +1,38 @@
+/* The sticky CuraChat widgets in the right side of the window */
+.curachat-widgets .opeka-chat-foldout-wrapper {
+  /* Multi-site foldout widget styles */
+}
+.curachat-widgets .opeka-chat-foldout-wrapper.pair {
+  top: 63%;
+  z-index: 12;
+}
+.curachat-widgets .opeka-chat-foldout-wrapper.group {
+  top: 38%;
+  z-index: 11;
+}
+.curachat-widgets .opeka-chat-foldout-wrapper.multi {
+  top: 15%;
+  right: -390px;
+}
+
+.curachat-widgets-inline {
+  height: 50px;
+  width: 100%;
+}
+
+.curachat-widgets-header {
+  height: 180px;
+  width: 100%;
+}
+
+/* Responsive styles */
+/* Show sticky side widgets on tab and above */
+.curachat-widgets {
+  display: none;
+}
+
+@media (min-width: 36.625em) {
+  .curachat-widgets {
+    display: block;
+  }
+}
