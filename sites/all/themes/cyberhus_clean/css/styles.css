@@ -2560,16 +2560,16 @@ h2#related-content {
     background: #8d62a4;
     box-shadow: 13px 0 0 0 #8d62a4, -13px 0 0 0 #8d62a4; }
 
-.page-brevkasse-ny #sidebar-first a.button,
-.page-brevkasse-ny #sidebar-first input[type=submit],
+.page-brevkasse #sidebar-first a.button,
+.page-brevkasse #sidebar-first input[type=submit],
 .node-type-brevkasse #sidebar-first a.button,
 .node-type-brevkasse #sidebar-first input[type=submit] {
   background: #688e36; }
 
-.page-brevkasse-ny .related-link,
+.page-brevkasse .related-link,
 .node-type-brevkasse .related-link {
   color: #688e36; }
-  .page-brevkasse-ny .related-link svg,
+  .page-brevkasse .related-link svg,
   .node-type-brevkasse .related-link svg {
     fill: #688e36; }
 

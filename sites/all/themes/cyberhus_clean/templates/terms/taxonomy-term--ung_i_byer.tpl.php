@@ -56,7 +56,11 @@
     <?php print render($content); ?>
     <div class="local-offers">
       <?php print render($content['field_ungi_offer_desc']); ?>
-      <a href="<?php print url('ung-i/aarhus/lokale-tilbud'); ?>" class="button"><?php print t("See all offers"); ?></a>
+      <?php
+        $name = str_replace(' ','-', $term->name);
+        $name = strtolower($name);
+      ?>
+      <a href="<?php print url('ung-i/' . $name . '/lokale-tilbud'); ?>" class="button"><?php print t("See all offers"); ?></a>
     </div>
   </div>
 
