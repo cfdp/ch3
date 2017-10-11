@@ -217,31 +217,43 @@ input[type=submit] {
 
 /* General form styling */
 form .form-item,
-form .text-format-wrapper {
+form .text-format-wrapper,
+form .fieldset-wrapper {
   margin: 1.5em 0 1.5em; }
-  form .form-item label,
-  form .text-format-wrapper label {
+  form .form-item label, form .form-item legend,
+  form .text-format-wrapper label,
+  form .text-format-wrapper legend,
+  form .fieldset-wrapper label,
+  form .fieldset-wrapper legend {
     font-weight: 700;
     margin: 0 0 .5em;
     cursor: pointer; }
   form .form-item label.option,
-  form .text-format-wrapper label.option {
+  form .text-format-wrapper label.option,
+  form .fieldset-wrapper label.option {
     font-weight: normal;
     margin: 0;
     font-size: 0.875em; }
   form .form-item .description,
   form .form-item .counter,
+  form .form-item .fieldset-description,
   form .text-format-wrapper .description,
-  form .text-format-wrapper .counter {
+  form .text-format-wrapper .counter,
+  form .text-format-wrapper .fieldset-description,
+  form .fieldset-wrapper .description,
+  form .fieldset-wrapper .counter,
+  form .fieldset-wrapper .fieldset-description {
     margin-top: .5em;
     line-height: 1.5em;
     font-size: 0.875em;
     color: #a1a1a1; }
   form .form-item .filter-wrapper,
-  form .text-format-wrapper .filter-wrapper {
+  form .text-format-wrapper .filter-wrapper,
+  form .fieldset-wrapper .filter-wrapper {
     padding: 0; }
   form .form-item .wysiwyg-toggle-wrapper,
-  form .text-format-wrapper .wysiwyg-toggle-wrapper {
+  form .text-format-wrapper .wysiwyg-toggle-wrapper,
+  form .fieldset-wrapper .wysiwyg-toggle-wrapper {
     font-size: 0.875em;
     margin: .5em 0; }
 
@@ -1800,6 +1812,11 @@ h2#related-content {
   font-size: 0.875em;
   margin: 0.5em 0; }
 
+@media (max-width: 767px) {
+  .node-form input[name=captcha_response],
+  .comment-form input[name=captcha_response] {
+    width: 100%; } }
+
 .node-form .field-name-field-avatar:after,
 .comment-form .field-name-field-avatar:after {
   content: "";
@@ -2081,7 +2098,13 @@ h2#related-content {
         margin-top: 3em; } }
 
 .page-taxonomy-term .node-related.ungi .node-related-sidebar a.button {
-  background: #8d62a4; }
+  background: #8d62a4;
+  margin-top: 1.5em; }
+
+.page-taxonomy-term .node-related.ungi .node-related-sidebar .field-name-field-ungi-brevkasse-desc .field-label {
+  font-size: 1.5em;
+  font-weight: 800;
+  margin-bottom: 1em; }
 
 .page-taxonomy-term .content-stream .type-brevkasse .stream-type-icon {
   fill: #8d62a4; }
@@ -2260,10 +2283,24 @@ h2#related-content {
   .view-blogs-oversigter:not(.view-display-id-attachment_1) > .view-content .views-row .vud-widget-cyberlike {
     margin-top: 1.5em;
     float: left; }
-  .view-blogs-oversigter:not(.view-display-id-attachment_1) > .view-content .views-row a.comment-count-link {
+  .view-blogs-oversigter:not(.view-display-id-attachment_1) > .view-content .views-row .comments {
     margin-top: 1.5em;
-    float: left;
-    line-height: 1.5625em; }
+    float: left; }
+    .view-blogs-oversigter:not(.view-display-id-attachment_1) > .view-content .views-row .comments a {
+      color: #1b1d1f; }
+      .view-blogs-oversigter:not(.view-display-id-attachment_1) > .view-content .views-row .comments a:hover svg {
+        fill: #1b1d1f; }
+    .view-blogs-oversigter:not(.view-display-id-attachment_1) > .view-content .views-row .comments svg {
+      fill: #a1a1a1;
+      float: left;
+      width: 1.5625em;
+      height: 1.5625em;
+      margin-right: .375em;
+      transition-property: fill;
+      transition-duration: 250ms; }
+    .view-blogs-oversigter:not(.view-display-id-attachment_1) > .view-content .views-row .comments .count {
+      float: left;
+      line-height: 1.5625em; }
 
 .view-display-id-attachment_1 .views-row {
   margin-bottom: 1em; }

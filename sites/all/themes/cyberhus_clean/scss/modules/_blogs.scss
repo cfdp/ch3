@@ -110,10 +110,29 @@
       float: left;
     }
 
-    a.comment-count-link {
+    .comments {
       margin-top: 1.5em;
       float: left;
-      line-height: 1.5625em;
+      a {
+        color: $text-color;
+
+        &:hover svg {
+          fill: $text-color;
+        }
+      }
+      svg {
+        fill: #a1a1a1;
+        float: left;
+        width: 1.5625em;
+        height: 1.5625em;
+        margin-right: .375em;
+        @include transition-property(fill);
+        @include transition-duration(250ms);
+      }
+      .count {
+        float: left;
+        line-height: 1.5625em;
+      }
     }
   }
 }

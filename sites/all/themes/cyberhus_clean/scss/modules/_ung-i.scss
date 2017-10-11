@@ -136,7 +136,6 @@
       background: white;
       padding: 2em;
 
-
       .field-name-field-ungi-offer-desc {
         @include bp-normal {
           float: left;
@@ -158,8 +157,19 @@
 
   .node-related.ungi {
 
-    .node-related-sidebar a.button {
-      background: $color-purple;
+    .node-related-sidebar {
+      a.button {
+        background: $color-purple;
+        margin-top: 1.5em;
+      }
+
+      .field-name-field-ungi-brevkasse-desc {
+        .field-label {
+          font-size: 1.5em;
+          font-weight: 800;
+          margin-bottom: 1em;
+        }
+      }
     }
   }
 

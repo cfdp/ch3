@@ -15,10 +15,11 @@ input[type=submit] {
 form {
 
   .form-item,
-  .text-format-wrapper {
+  .text-format-wrapper,
+  .fieldset-wrapper {
     margin: 1.5em 0 1.5em;
 
-    label {
+    label, legend {
       font-weight: 700;
       margin: 0 0 .5em;
       cursor: pointer;
@@ -29,7 +30,8 @@ form {
       font-size: $font-size-small;
     }
     .description,
-    .counter {
+    .counter,
+    .fieldset-description {
       margin-top: .5em;
       line-height: $line-height-base;
       font-size: $font-size-small;

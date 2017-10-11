@@ -472,6 +472,17 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['field_cyberlike']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_cyberlike']['click_sort_column'] = 'vud_widget';
   $handler->display->display_options['fields']['field_cyberlike']['field_api_classes'] = TRUE;
+  /* Field: Content: Cyberlike */
+  $handler->display->display_options['fields']['field_blog_cyberlike']['id'] = 'field_blog_cyberlike';
+  $handler->display->display_options['fields']['field_blog_cyberlike']['table'] = 'field_data_field_blog_cyberlike';
+  $handler->display->display_options['fields']['field_blog_cyberlike']['field'] = 'field_blog_cyberlike';
+  $handler->display->display_options['fields']['field_blog_cyberlike']['label'] = '';
+  $handler->display->display_options['fields']['field_blog_cyberlike']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_blog_cyberlike']['element_wrapper_class'] = 'stream-like';
+  $handler->display->display_options['fields']['field_blog_cyberlike']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_blog_cyberlike']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_blog_cyberlike']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_blog_cyberlike']['click_sort_column'] = 'vud_widget';
   /* Field: Content: Comment count */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
@@ -1153,7 +1164,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['filters']['field__brevk_ready_to_publish_value']['value'] = array(
     1 => '1',
   );
-  $handler->display->display_options['path'] = 'brevkasse-ny';
+  $handler->display->display_options['path'] = 'brevkasse';
 
   /* Display: Ung til ung */
   $handler = $view->new_display('page', 'Ung til ung', 'page_2');
@@ -1788,6 +1799,14 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'blog' => 'blog',
   );
+
+  /* Display: brevkasse */
+  $handler = $view->new_display('block', 'brevkasse', 'block_2');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'entity_pager';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $translatables['pager_brevkasse'] = array(
     t('Master'),
     t('more'),
@@ -1799,6 +1818,7 @@ function cyberhus_stream_views_default_views() {
     t('Alle'),
     t('ung-til-ung'),
     t('blog'),
+    t('brevkasse'),
   );
   $export['pager_brevkasse'] = $view;
 
