@@ -56,7 +56,5 @@
     </footer>
     <?php print render($page['footer_second']); ?>
   </div>
-  <div class="curachat-widgets">
-  </div>
-
 </div>
+<div class="curachat-widgets"></div>
