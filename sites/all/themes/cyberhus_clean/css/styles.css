@@ -1515,10 +1515,19 @@ body.page-blog #page-title {
     border-top: 1px solid #c7c7c7;
     margin: 2em 0;
     padding: 1.5em 0; }
+  .page-node-adv .node-answer-avatar,
+  .node-type-blog .node-answer-avatar {
+    float: left;
+    margin-right: 10px; }
+    .page-node-adv .node-answer-avatar img,
+    .node-type-blog .node-answer-avatar img {
+      width: 40px;
+      height: 40px;
+      border-radius: 40px; }
   .page-node-adv .node-answer-author,
   .node-type-blog .node-answer-author {
     font-size: 0.875em;
-    line-height: 1.25em;
+    line-height: 40px;
     color: #a1a1a1; }
     .page-node-adv .node-answer-author span.name,
     .node-type-blog .node-answer-author span.name {
