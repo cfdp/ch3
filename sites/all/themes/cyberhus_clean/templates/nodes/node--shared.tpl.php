@@ -89,6 +89,13 @@
   hide($content['links']);
   hide($content['field_cyberlike']);
   hide($content['field_base_category']);
+
+  if(isset($node->field_base_category[LANGUAGE_NONE])) {
+    $cat_tid = $node->field_base_category['und'][0]['target_id'];
+  }
+  else {
+    $cat_tid = 'All';
+  }
 ?>
 
 <?php
@@ -156,7 +163,7 @@
   </div>
   <div class="node-related-content">
     <?php
-    print views_embed_view('frontpage_stream', 'block_1');
+    print views_embed_view('frontpage_stream', 'block_1', $cat_tid);
     ?>
   </div>
 </div>
