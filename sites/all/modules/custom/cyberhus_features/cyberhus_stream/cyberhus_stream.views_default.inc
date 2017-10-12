@@ -446,13 +446,13 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['value']['relationship'] = 'uid';
   $handler->display->display_options['fields']['value']['label'] = '';
   $handler->display->display_options['fields']['value']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['value']['alter']['text'] = '<span class="img-wrapper">[picture]</span><span class="name-wrapper">[value]</span> har svaret på dette spørgsmål • [changed] siden
+  $handler->display->display_options['fields']['value']['alter']['text'] = '<span class="img-wrapper">[picture]</span><span class="name-wrapper">[value]</span> har svaret på dette spørgsmål • [changed]
 ';
   $handler->display->display_options['fields']['value']['element_type'] = '0';
   $handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['value']['element_wrapper_class'] = 'stream-counselor';
   $handler->display->display_options['fields']['value']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['value']['empty'] = '<span class="img-wrapper">[picture]</span>Dette spørgsmål er blevet besvaret • [changed] siden
+  $handler->display->display_options['fields']['value']['empty'] = '<span class="img-wrapper">[picture]</span><span class="name-wrapper">Rådgiver fra Cyberhus</span> har svaret på dette spørgsmål • [changed]
 ';
   $handler->display->display_options['fields']['value']['link_to_user'] = FALSE;
   /* Field: Content: Link */
@@ -1712,9 +1712,9 @@ function cyberhus_stream_views_default_views() {
 <div class="stream-metadata-item meta-author">Af [field_forum_forf_navn][field_navn] [field_brevk_koen] [field_brevk_alder] &middot; [created]</div>'),
     t('<a href="/node/[nid]"><img src="/sites/all/themes/cyberhus_clean/assets/img/default.png" /></a>'),
     t('[field_billede][body][field_brevk_spoergsmaal]'),
-    t('<span class="img-wrapper">[picture]</span><span class="name-wrapper">[value]</span> har svaret på dette spørgsmål • [changed] siden
+    t('<span class="img-wrapper">[picture]</span><span class="name-wrapper">[value]</span> har svaret på dette spørgsmål • [changed]
 '),
-    t('<span class="img-wrapper">[picture]</span>Dette spørgsmål er blevet besvaret • [changed] siden
+    t('<span class="img-wrapper">[picture]</span><span class="name-wrapper">Rådgiver fra Cyberhus</span> har svaret på dette spørgsmål • [changed]
 '),
     t('Læs mere'),
     t('.'),
