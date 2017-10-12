@@ -9,7 +9,7 @@ $(document).ready(function() {
       $(this).toggleClass('open');
     });
   }
-  
+
 });
 
 Drupal.behaviors.streamFilterReset = {
@@ -24,6 +24,22 @@ Drupal.behaviors.streamFilterReset = {
 				  $(this).val('All');
         });
 
+        $('#edit-submit-frontpage-stream').click();
+			});
+		});
+	}
+}
+
+Drupal.behaviors.streamFilterCategory = {
+  attach: function (context, settings) {
+
+		// Filter form from category link
+		$('.meta-category a').not('.view-frontpage-stream.view-display-id-block_1 .meta-category a').once('metaCategory', function(e) {
+			$(this).click(function(e) {
+				e.preventDefault();
+
+        var tid = $(this).attr('href').split('kategori=')[1];
+        $('#edit-kategori').val(tid);
         $('#edit-submit-frontpage-stream').click();
 			});
 		});

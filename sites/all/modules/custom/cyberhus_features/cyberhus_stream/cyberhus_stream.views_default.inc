@@ -230,27 +230,28 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['style_options']['row_class'] = 'stream-item type-[type_1]';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Content: Author */
+  /* Forbindelse: Indhold: Forfatter */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Relationship: Entity Reference: Referenced Entity */
+  /* Forbindelse: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_avatar_target_id']['id'] = 'field_avatar_target_id';
   $handler->display->display_options['relationships']['field_avatar_target_id']['table'] = 'field_data_field_avatar';
   $handler->display->display_options['relationships']['field_avatar_target_id']['field'] = 'field_avatar_target_id';
   $handler->display->display_options['relationships']['field_avatar_target_id']['label'] = 'Avatar';
-  /* Relationship: Entity Reference: Referenced Entity */
+  /* Forbindelse: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_base_category_target_id']['id'] = 'field_base_category_target_id';
   $handler->display->display_options['relationships']['field_base_category_target_id']['table'] = 'field_data_field_base_category';
   $handler->display->display_options['relationships']['field_base_category_target_id']['field'] = 'field_base_category_target_id';
-  /* Field: Content: Nid */
+  $handler->display->display_options['relationships']['field_base_category_target_id']['label'] = 'Kategori';
+  /* Felt: Indhold: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -262,14 +263,23 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['title']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['title']['element_wrapper_class'] = 'stream-title';
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Field: Content: Type */
+  /* Felt: Indhold: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['label'] = '';
   $handler->display->display_options['fields']['type']['exclude'] = TRUE;
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
-  /* Field: Content: Kategori NY */
+  /* Felt: Ord i ordforråd: Term ID */
+  $handler->display->display_options['fields']['tid']['id'] = 'tid';
+  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['relationship'] = 'field_base_category_target_id';
+  $handler->display->display_options['fields']['tid']['label'] = '';
+  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['tid']['separator'] = '';
+  /* Felt: Indhold: Kategori NY */
   $handler->display->display_options['fields']['field_base_category']['id'] = 'field_base_category';
   $handler->display->display_options['fields']['field_base_category']['table'] = 'field_data_field_base_category';
   $handler->display->display_options['fields']['field_base_category']['field'] = 'field_base_category';
@@ -285,14 +295,14 @@ function cyberhus_stream_views_default_views() {
     'bypass_access' => 1,
     'link' => 0,
   );
-  /* Field: Content: Navn */
+  /* Felt: Indhold: Navn */
   $handler->display->display_options['fields']['field_forum_forf_navn']['id'] = 'field_forum_forf_navn';
   $handler->display->display_options['fields']['field_forum_forf_navn']['table'] = 'field_data_field_forum_forf_navn';
   $handler->display->display_options['fields']['field_forum_forf_navn']['field'] = 'field_forum_forf_navn';
   $handler->display->display_options['fields']['field_forum_forf_navn']['label'] = '';
   $handler->display->display_options['fields']['field_forum_forf_navn']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_forum_forf_navn']['element_label_colon'] = FALSE;
-  /* Field: Content: Navn */
+  /* Felt: Indhold: Navn */
   $handler->display->display_options['fields']['field_navn']['id'] = 'field_navn';
   $handler->display->display_options['fields']['field_navn']['table'] = 'field_data_field_navn';
   $handler->display->display_options['fields']['field_navn']['field'] = 'field_navn';
@@ -301,7 +311,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['field_navn']['alter']['text'] = '[field_forum_forf_navn][field_navn]';
   $handler->display->display_options['fields']['field_navn']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_navn']['hide_alter_empty'] = FALSE;
-  /* Field: Field: Alder */
+  /* Felt: Felt: Alder */
   $handler->display->display_options['fields']['field_brevk_alder']['id'] = 'field_brevk_alder';
   $handler->display->display_options['fields']['field_brevk_alder']['table'] = 'field_data_field_brevk_alder';
   $handler->display->display_options['fields']['field_brevk_alder']['field'] = 'field_brevk_alder';
@@ -309,7 +319,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['field_brevk_alder']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_brevk_alder']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_brevk_alder']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Field: Køn */
+  /* Felt: Felt: Køn */
   $handler->display->display_options['fields']['field_brevk_koen']['id'] = 'field_brevk_koen';
   $handler->display->display_options['fields']['field_brevk_koen']['table'] = 'field_data_field_brevk_koen';
   $handler->display->display_options['fields']['field_brevk_koen']['field'] = 'field_brevk_koen';
@@ -318,7 +328,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['field_brevk_koen']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_brevk_koen']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_brevk_koen']['field_api_classes'] = TRUE;
-  /* Field: Content: Post date */
+  /* Felt: Indhold: Oprettelsesdato */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -329,18 +339,18 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['created']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['created']['date_format'] = 'time span';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Field: Global: Custom text */
+  /* Felt: Global: Tilpasset tekst */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="stream-metadata-item meta-type">[type]</div>
-<div class="stream-metadata-item meta-category">[field_base_category]</div>
+<div class="stream-metadata-item meta-category"><a href="/?kategori=[tid]" data-tid="[tid]">[field_base_category]</a></div>
 <div class="stream-metadata-item meta-author">Af [field_forum_forf_navn][field_navn] [field_brevk_koen] [field_brevk_alder] &middot; [created]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['element_wrapper_class'] = 'stream-metadata';
   $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
-  /* Field: Taxonomy term: Billede */
+  /* Felt: Ord i ordforråd: Billede */
   $handler->display->display_options['fields']['field_avatar_image']['id'] = 'field_avatar_image';
   $handler->display->display_options['fields']['field_avatar_image']['table'] = 'field_data_field_avatar_image';
   $handler->display->display_options['fields']['field_avatar_image']['field'] = 'field_avatar_image';
@@ -357,7 +367,7 @@ function cyberhus_stream_views_default_views() {
     'image_style' => 'avatar_medium',
     'image_link' => '',
   );
-  /* Field: Field: Billede */
+  /* Felt: Felt: Billede */
   $handler->display->display_options['fields']['field_billede']['id'] = 'field_billede';
   $handler->display->display_options['fields']['field_billede']['table'] = 'field_data_field_billede';
   $handler->display->display_options['fields']['field_billede']['field'] = 'field_billede';
@@ -373,7 +383,7 @@ function cyberhus_stream_views_default_views() {
     'image_style' => 'large',
     'image_link' => 'content',
   );
-  /* Field: Content: Body */
+  /* Felt: Indhold: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -390,7 +400,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '300',
   );
-  /* Field: Content: Spørgsmål */
+  /* Felt: Indhold: Spørgsmål */
   $handler->display->display_options['fields']['field_brevk_spoergsmaal']['id'] = 'field_brevk_spoergsmaal';
   $handler->display->display_options['fields']['field_brevk_spoergsmaal']['table'] = 'field_data_field_brevk_spoergsmaal';
   $handler->display->display_options['fields']['field_brevk_spoergsmaal']['field'] = 'field_brevk_spoergsmaal';
@@ -407,7 +417,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['field_brevk_spoergsmaal']['settings'] = array(
     'trim_length' => '300',
   );
-  /* Field: Global: Custom text */
+  /* Felt: Global: Tilpasset tekst */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
   $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
@@ -417,7 +427,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing_1']['element_wrapper_class'] = 'stream-content';
   $handler->display->display_options['fields']['nothing_1']['element_default_classes'] = FALSE;
-  /* Field: Content: Updated date */
+  /* Felt: Indhold: Opdateringsdato */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
@@ -429,7 +439,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['changed']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['changed']['date_format'] = 'time span';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
-  /* Field: User: Picture */
+  /* Felt: Bruger: Billede */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
@@ -439,7 +449,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
   $handler->display->display_options['fields']['picture']['image_style'] = 'avatar_thumbnail';
-  /* Field: Profile: Profil: Rådgivernavn */
+  /* Felt: Profil: Profil: Rådgivernavn */
   $handler->display->display_options['fields']['value']['id'] = 'value';
   $handler->display->display_options['fields']['value']['table'] = 'profile_value_profile_counselor_nickname';
   $handler->display->display_options['fields']['value']['field'] = 'value';
@@ -455,7 +465,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['value']['empty'] = '<span class="img-wrapper">[picture]</span><span class="name-wrapper">Rådgiver fra Cyberhus</span> har svaret på dette spørgsmål • [changed]
 ';
   $handler->display->display_options['fields']['value']['link_to_user'] = FALSE;
-  /* Field: Content: Link */
+  /* Felt: Indhold: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
@@ -465,7 +475,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['view_node']['element_wrapper_class'] = 'stream-link';
   $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['view_node']['text'] = 'Læs mere';
-  /* Field: Content: Cyberlike */
+  /* Felt: Indhold: Cyberlike */
   $handler->display->display_options['fields']['field_cyberlike']['id'] = 'field_cyberlike';
   $handler->display->display_options['fields']['field_cyberlike']['table'] = 'field_data_field_cyberlike';
   $handler->display->display_options['fields']['field_cyberlike']['field'] = 'field_cyberlike';
@@ -475,7 +485,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['field_cyberlike']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_cyberlike']['click_sort_column'] = 'vud_widget';
   $handler->display->display_options['fields']['field_cyberlike']['field_api_classes'] = TRUE;
-  /* Field: Content: Cyberlike */
+  /* Felt: Indhold: Cyberlike */
   $handler->display->display_options['fields']['field_blog_cyberlike']['id'] = 'field_blog_cyberlike';
   $handler->display->display_options['fields']['field_blog_cyberlike']['table'] = 'field_data_field_blog_cyberlike';
   $handler->display->display_options['fields']['field_blog_cyberlike']['field'] = 'field_blog_cyberlike';
@@ -486,7 +496,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['field_blog_cyberlike']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_blog_cyberlike']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_blog_cyberlike']['click_sort_column'] = 'vud_widget';
-  /* Field: Content: Comment count */
+  /* Felt: Indhold: Kommentarantal */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -496,7 +506,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['element_wrapper_class'] = 'stream-comments';
   $handler->display->display_options['fields']['comment_count']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['separator'] = '';
-  /* Field: Content: Type */
+  /* Felt: Indhold: Type */
   $handler->display->display_options['fields']['type_1']['id'] = 'type_1';
   $handler->display->display_options['fields']['type_1']['table'] = 'node';
   $handler->display->display_options['fields']['type_1']['field'] = 'type';
@@ -507,19 +517,19 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['fields']['type_1']['element_wrapper_class'] = 'stream-type-icon';
   $handler->display->display_options['fields']['type_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['type_1']['machine_name'] = TRUE;
-  /* Sort criterion: Content: Post date */
+  /* Sorteringskriterie: Indhold: Oprettelsesdato */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -531,7 +541,7 @@ function cyberhus_stream_views_default_views() {
     'body_secret' => 'body_secret',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
   $handler->display->display_options['filters']['type_1']['table'] = 'node';
   $handler->display->display_options['filters']['type_1']['field'] = 'type';
@@ -547,7 +557,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['filters']['type_1']['expose']['operator_id'] = 'type_1_op';
   $handler->display->display_options['filters']['type_1']['expose']['label'] = 'Type';
   $handler->display->display_options['filters']['type_1']['expose']['operator'] = 'type_1_op';
-  $handler->display->display_options['filters']['type_1']['expose']['identifier'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['expose']['identifier'] = 'type';
   $handler->display->display_options['filters']['type_1']['expose']['remember_roles'] = array(
     2 => '2',
     8 => 0,
@@ -560,7 +570,7 @@ function cyberhus_stream_views_default_views() {
     11 => 0,
   );
   $handler->display->display_options['filters']['type_1']['expose']['reduce'] = TRUE;
-  /* Filter criterion: Content: Kategori NY (field_base_category) */
+  /* Filterkriterie: Indhold: Kategori NY (field_base_category) */
   $handler->display->display_options['filters']['field_base_category_target_id']['id'] = 'field_base_category_target_id';
   $handler->display->display_options['filters']['field_base_category_target_id']['table'] = 'field_data_field_base_category';
   $handler->display->display_options['filters']['field_base_category_target_id']['field'] = 'field_base_category_target_id';
@@ -569,7 +579,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['filters']['field_base_category_target_id']['expose']['operator_id'] = 'field_base_category_target_id_op';
   $handler->display->display_options['filters']['field_base_category_target_id']['expose']['label'] = 'Kategori';
   $handler->display->display_options['filters']['field_base_category_target_id']['expose']['operator'] = 'field_base_category_target_id_op';
-  $handler->display->display_options['filters']['field_base_category_target_id']['expose']['identifier'] = 'field_base_category_target_id';
+  $handler->display->display_options['filters']['field_base_category_target_id']['expose']['identifier'] = 'kategori';
   $handler->display->display_options['filters']['field_base_category_target_id']['expose']['remember_roles'] = array(
     2 => '2',
     8 => 0,
@@ -581,7 +591,7 @@ function cyberhus_stream_views_default_views() {
     4 => 0,
     11 => 0,
   );
-  /* Filter criterion: Field: Køn (field_brevk_koen) */
+  /* Filterkriterie: Felt: Køn (field_brevk_koen) */
   $handler->display->display_options['filters']['field_brevk_koen_tid']['id'] = 'field_brevk_koen_tid';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['table'] = 'field_data_field_brevk_koen';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['field'] = 'field_brevk_koen_tid';
@@ -590,7 +600,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['operator_id'] = 'field_brevk_koen_tid_op';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['label'] = 'Køn';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['operator'] = 'field_brevk_koen_tid_op';
-  $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['identifier'] = 'field_brevk_koen_tid';
+  $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['identifier'] = 'koen';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['remember_roles'] = array(
     2 => '2',
     8 => 0,
@@ -604,7 +614,7 @@ function cyberhus_stream_views_default_views() {
   );
   $handler->display->display_options['filters']['field_brevk_koen_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['vocabulary'] = 'k_n';
-  /* Filter criterion: Field: Alder (field_brevk_alder) */
+  /* Filterkriterie: Felt: Alder (field_brevk_alder) */
   $handler->display->display_options['filters']['field_brevk_alder_tid']['id'] = 'field_brevk_alder_tid';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['table'] = 'field_data_field_brevk_alder';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['field'] = 'field_brevk_alder_tid';
@@ -613,7 +623,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['operator_id'] = 'field_brevk_alder_tid_op';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['label'] = 'Alder';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['operator'] = 'field_brevk_alder_tid_op';
-  $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['identifier'] = 'field_brevk_alder_tid';
+  $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['identifier'] = 'alder';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['remember_roles'] = array(
     2 => '2',
     8 => 0,
@@ -627,7 +637,7 @@ function cyberhus_stream_views_default_views() {
   );
   $handler->display->display_options['filters']['field_brevk_alder_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['vocabulary'] = 'alder';
-  /* Filter criterion: Content: Ung i (field_brevk_ungi) */
+  /* Filterkriterie: Indhold: Ung i (field_brevk_ungi) */
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['id'] = 'field_brevk_ungi_target_id';
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['table'] = 'field_data_field_brevk_ungi';
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['field'] = 'field_brevk_ungi_target_id';
@@ -1063,26 +1073,26 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = '1';
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sorteringskriterie: Indhold: Oprettelsesdato */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Sort criterion: Content: Updated date */
+  /* Sorteringskriterie: Indhold: Opdateringsdato */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1090,7 +1100,7 @@ function cyberhus_stream_views_default_views() {
     'brevkasse' => 'brevkasse',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Kategori NY (field_base_category) */
+  /* Filterkriterie: Indhold: Kategori NY (field_base_category) */
   $handler->display->display_options['filters']['field_base_category_target_id_1']['id'] = 'field_base_category_target_id_1';
   $handler->display->display_options['filters']['field_base_category_target_id_1']['table'] = 'field_data_field_base_category';
   $handler->display->display_options['filters']['field_base_category_target_id_1']['field'] = 'field_base_category_target_id';
@@ -1099,7 +1109,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['filters']['field_base_category_target_id_1']['expose']['operator_id'] = 'field_base_category_target_id_1_op';
   $handler->display->display_options['filters']['field_base_category_target_id_1']['expose']['label'] = 'Kategori';
   $handler->display->display_options['filters']['field_base_category_target_id_1']['expose']['operator'] = 'field_base_category_target_id_1_op';
-  $handler->display->display_options['filters']['field_base_category_target_id_1']['expose']['identifier'] = 'field_base_category_target_id_1';
+  $handler->display->display_options['filters']['field_base_category_target_id_1']['expose']['identifier'] = 'kategori';
   $handler->display->display_options['filters']['field_base_category_target_id_1']['expose']['remember_roles'] = array(
     2 => '2',
     8 => 0,
@@ -1111,7 +1121,7 @@ function cyberhus_stream_views_default_views() {
     4 => 0,
     11 => 0,
   );
-  /* Filter criterion: Field: Køn (field_brevk_koen) */
+  /* Filterkriterie: Felt: Køn (field_brevk_koen) */
   $handler->display->display_options['filters']['field_brevk_koen_tid']['id'] = 'field_brevk_koen_tid';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['table'] = 'field_data_field_brevk_koen';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['field'] = 'field_brevk_koen_tid';
@@ -1120,7 +1130,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['operator_id'] = 'field_brevk_koen_tid_op';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['label'] = 'Køn';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['operator'] = 'field_brevk_koen_tid_op';
-  $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['identifier'] = 'field_brevk_koen_tid';
+  $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['identifier'] = 'koen';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['remember_roles'] = array(
     2 => '2',
     8 => 0,
@@ -1134,7 +1144,7 @@ function cyberhus_stream_views_default_views() {
   );
   $handler->display->display_options['filters']['field_brevk_koen_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['vocabulary'] = 'k_n';
-  /* Filter criterion: Field: Alder (field_brevk_alder) */
+  /* Filterkriterie: Felt: Alder (field_brevk_alder) */
   $handler->display->display_options['filters']['field_brevk_alder_tid']['id'] = 'field_brevk_alder_tid';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['table'] = 'field_data_field_brevk_alder';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['field'] = 'field_brevk_alder_tid';
@@ -1143,7 +1153,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['operator_id'] = 'field_brevk_alder_tid_op';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['label'] = 'Alder';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['operator'] = 'field_brevk_alder_tid_op';
-  $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['identifier'] = 'field_brevk_alder_tid';
+  $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['identifier'] = 'alder';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['remember_roles'] = array(
     2 => '2',
     8 => 0,
@@ -1157,13 +1167,13 @@ function cyberhus_stream_views_default_views() {
   );
   $handler->display->display_options['filters']['field_brevk_alder_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['vocabulary'] = 'alder';
-  /* Filter criterion: Content: Ung i (field_brevk_ungi) */
+  /* Filterkriterie: Indhold: Ung i (field_brevk_ungi) */
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['id'] = 'field_brevk_ungi_target_id';
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['table'] = 'field_data_field_brevk_ungi';
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['field'] = 'field_brevk_ungi_target_id';
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['operator'] = 'empty';
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['group'] = 1;
-  /* Filter criterion: Content: Svar klar til udgivelse (field__brevk_ready_to_publish) */
+  /* Filterkriterie: Indhold: Svar klar til udgivelse (field__brevk_ready_to_publish) */
   $handler->display->display_options['filters']['field__brevk_ready_to_publish_value']['id'] = 'field__brevk_ready_to_publish_value';
   $handler->display->display_options['filters']['field__brevk_ready_to_publish_value']['table'] = 'field_data_field__brevk_ready_to_publish';
   $handler->display->display_options['filters']['field__brevk_ready_to_publish_value']['field'] = 'field__brevk_ready_to_publish_value';
@@ -1414,14 +1424,14 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1431,7 +1441,7 @@ function cyberhus_stream_views_default_views() {
     'body_secret' => 'body_secret',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
   $handler->display->display_options['filters']['type_1']['table'] = 'node';
   $handler->display->display_options['filters']['type_1']['field'] = 'type';
@@ -1445,7 +1455,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['filters']['type_1']['expose']['operator_id'] = 'type_1_op';
   $handler->display->display_options['filters']['type_1']['expose']['label'] = 'Type';
   $handler->display->display_options['filters']['type_1']['expose']['operator'] = 'type_1_op';
-  $handler->display->display_options['filters']['type_1']['expose']['identifier'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['expose']['identifier'] = 'type';
   $handler->display->display_options['filters']['type_1']['expose']['remember_roles'] = array(
     2 => '2',
     8 => 0,
@@ -1458,7 +1468,7 @@ function cyberhus_stream_views_default_views() {
     11 => 0,
   );
   $handler->display->display_options['filters']['type_1']['expose']['reduce'] = TRUE;
-  /* Filter criterion: Content: Kategori NY (field_base_category) */
+  /* Filterkriterie: Indhold: Kategori NY (field_base_category) */
   $handler->display->display_options['filters']['field_base_category_target_id']['id'] = 'field_base_category_target_id';
   $handler->display->display_options['filters']['field_base_category_target_id']['table'] = 'field_data_field_base_category';
   $handler->display->display_options['filters']['field_base_category_target_id']['field'] = 'field_base_category_target_id';
@@ -1467,7 +1477,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['filters']['field_base_category_target_id']['expose']['operator_id'] = 'field_base_category_target_id_op';
   $handler->display->display_options['filters']['field_base_category_target_id']['expose']['label'] = 'Kategori';
   $handler->display->display_options['filters']['field_base_category_target_id']['expose']['operator'] = 'field_base_category_target_id_op';
-  $handler->display->display_options['filters']['field_base_category_target_id']['expose']['identifier'] = 'field_base_category_target_id';
+  $handler->display->display_options['filters']['field_base_category_target_id']['expose']['identifier'] = 'kategori';
   $handler->display->display_options['filters']['field_base_category_target_id']['expose']['remember_roles'] = array(
     2 => '2',
     8 => 0,
@@ -1479,7 +1489,7 @@ function cyberhus_stream_views_default_views() {
     4 => 0,
     11 => 0,
   );
-  /* Filter criterion: Field: Køn (field_brevk_koen) */
+  /* Filterkriterie: Felt: Køn (field_brevk_koen) */
   $handler->display->display_options['filters']['field_brevk_koen_tid']['id'] = 'field_brevk_koen_tid';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['table'] = 'field_data_field_brevk_koen';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['field'] = 'field_brevk_koen_tid';
@@ -1488,7 +1498,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['operator_id'] = 'field_brevk_koen_tid_op';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['label'] = 'Køn';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['operator'] = 'field_brevk_koen_tid_op';
-  $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['identifier'] = 'field_brevk_koen_tid';
+  $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['identifier'] = 'koen';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['expose']['remember_roles'] = array(
     2 => '2',
     8 => 0,
@@ -1502,7 +1512,7 @@ function cyberhus_stream_views_default_views() {
   );
   $handler->display->display_options['filters']['field_brevk_koen_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_brevk_koen_tid']['vocabulary'] = 'k_n';
-  /* Filter criterion: Field: Alder (field_brevk_alder) */
+  /* Filterkriterie: Felt: Alder (field_brevk_alder) */
   $handler->display->display_options['filters']['field_brevk_alder_tid']['id'] = 'field_brevk_alder_tid';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['table'] = 'field_data_field_brevk_alder';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['field'] = 'field_brevk_alder_tid';
@@ -1511,7 +1521,7 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['operator_id'] = 'field_brevk_alder_tid_op';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['label'] = 'Alder';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['operator'] = 'field_brevk_alder_tid_op';
-  $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['identifier'] = 'field_brevk_alder_tid';
+  $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['identifier'] = 'alder';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['expose']['remember_roles'] = array(
     2 => '2',
     8 => 0,
@@ -1525,7 +1535,7 @@ function cyberhus_stream_views_default_views() {
   );
   $handler->display->display_options['filters']['field_brevk_alder_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_brevk_alder_tid']['vocabulary'] = 'alder';
-  /* Filter criterion: Content: Ung i (field_brevk_ungi) */
+  /* Filterkriterie: Indhold: Ung i (field_brevk_ungi) */
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['id'] = 'field_brevk_ungi_target_id';
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['table'] = 'field_data_field_brevk_ungi';
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['field'] = 'field_brevk_ungi_target_id';
@@ -1553,27 +1563,27 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['pager']['options']['more_button_text'] = 'Vis mere';
   $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Content: Author */
+  /* Forbindelse: Indhold: Forfatter */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Relationship: Entity Reference: Referenced Entity */
+  /* Forbindelse: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_avatar_target_id']['id'] = 'field_avatar_target_id';
   $handler->display->display_options['relationships']['field_avatar_target_id']['table'] = 'field_data_field_avatar';
   $handler->display->display_options['relationships']['field_avatar_target_id']['field'] = 'field_avatar_target_id';
   $handler->display->display_options['relationships']['field_avatar_target_id']['label'] = 'Avatar';
-  /* Relationship: Entity Reference: Referenced Entity */
+  /* Forbindelse: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_base_category_target_id']['id'] = 'field_base_category_target_id';
   $handler->display->display_options['relationships']['field_base_category_target_id']['table'] = 'field_data_field_base_category';
   $handler->display->display_options['relationships']['field_base_category_target_id']['field'] = 'field_base_category_target_id';
   $handler->display->display_options['relationships']['field_base_category_target_id']['label'] = 'Kategori';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Global: Random */
+  /* Sorteringskriterie: Global: Tilfældig */
   $handler->display->display_options['sorts']['random']['id'] = 'random';
   $handler->display->display_options['sorts']['random']['table'] = 'views';
   $handler->display->display_options['sorts']['random']['field'] = 'random';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Taxonomy term: Term ID */
+  /* Kontekstuelt filter: Ord i ordforråd: Term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
@@ -1591,14 +1601,14 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['arguments']['tid']['validate']['fail'] = 'ignore';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1609,7 +1619,7 @@ function cyberhus_stream_views_default_views() {
     'body_secret' => 'body_secret',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Ung i (field_brevk_ungi) */
+  /* Filterkriterie: Indhold: Ung i (field_brevk_ungi) */
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['id'] = 'field_brevk_ungi_target_id';
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['table'] = 'field_data_field_brevk_ungi';
   $handler->display->display_options['filters']['field_brevk_ungi_target_id']['field'] = 'field_brevk_ungi_target_id';
@@ -1634,20 +1644,20 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['pager']['options']['more_button_text'] = 'Vis mere';
   $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* No results behavior: Global: Unfiltered text */
+  /* Opførsel ved ingen resultater: Global: Ufiltreret tekst */
   $handler->display->display_options['empty']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['empty']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['empty']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['empty']['area_text_custom']['empty'] = TRUE;
   $handler->display->display_options['empty']['area_text_custom']['content'] = '<p><em>Der er endnu ingen spørgsmål i brevkassen.</em></p>';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Updated date */
+  /* Sorteringskriterie: Indhold: Opdateringsdato */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Ung i (field_brevk_ungi) */
+  /* Kontekstuelt filter: Indhold: Ung i (field_brevk_ungi) */
   $handler->display->display_options['arguments']['field_brevk_ungi_target_id']['id'] = 'field_brevk_ungi_target_id';
   $handler->display->display_options['arguments']['field_brevk_ungi_target_id']['table'] = 'field_data_field_brevk_ungi';
   $handler->display->display_options['arguments']['field_brevk_ungi_target_id']['field'] = 'field_brevk_ungi_target_id';
@@ -1665,14 +1675,14 @@ function cyberhus_stream_views_default_views() {
   $handler->display->display_options['arguments']['field_brevk_ungi_target_id']['validate']['fail'] = 'empty';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1693,7 +1703,7 @@ function cyberhus_stream_views_default_views() {
     t('Avancerede indstillinger'),
     t('- Køn -'),
     t('- Alder -'),
-    t('Select any filter and click on Apply to see results'),
+    t('Vælg et filter og klik på Anvend for at se resultater'),
     t('Antal elementer'),
     t('- Alle -'),
     t('Forskydning'),
@@ -1702,13 +1712,14 @@ function cyberhus_stream_views_default_views() {
     t('næste ›'),
     t('sidste »'),
     t('Vis mere'),
-    t('author'),
+    t('forfatter'),
     t('Avatar'),
-    t('Taxonomy term entity referenced from field_base_category'),
+    t('Kategori'),
+    t('.'),
     t('#[field_base_category]'),
     t('[field_forum_forf_navn][field_navn]'),
     t('<div class="stream-metadata-item meta-type">[type]</div>
-<div class="stream-metadata-item meta-category">[field_base_category]</div>
+<div class="stream-metadata-item meta-category"><a href="/?kategori=[tid]" data-tid="[tid]">[field_base_category]</a></div>
 <div class="stream-metadata-item meta-author">Af [field_forum_forf_navn][field_navn] [field_brevk_koen] [field_brevk_alder] &middot; [created]</div>'),
     t('<a href="/node/[nid]"><img src="/sites/all/themes/cyberhus_clean/assets/img/default.png" /></a>'),
     t('[field_billede][body][field_brevk_spoergsmaal]'),
@@ -1717,13 +1728,10 @@ function cyberhus_stream_views_default_views() {
     t('<span class="img-wrapper">[picture]</span><span class="name-wrapper">Rådgiver fra Cyberhus</span> har svaret på dette spørgsmål • [changed]
 '),
     t('Læs mere'),
-    t('.'),
     t('Type'),
-    t('Kategori'),
     t('Køn'),
     t('Alder'),
     t('Front page'),
-    t('more'),
     t('- Indholdstype -'),
     t('- Kategori -'),
     t('Brevkasse'),
@@ -1736,131 +1744,6 @@ function cyberhus_stream_views_default_views() {
     t('<p><em>Der er endnu ingen spørgsmål i brevkassen.</em></p>'),
   );
   $export['frontpage_stream'] = $view;
-
-  $view = new view();
-  $view->name = 'pager_brevkasse';
-  $view->description = '';
-  $view->tag = 'default';
-  $view->base_table = 'node';
-  $view->human_name = 'Pager Brevkasse';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['css_class'] = 'node-pager';
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['style_plugin'] = 'entity_pager';
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['label'] = '';
-  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Updated date */
-  $handler->display->display_options['sorts']['changed']['id'] = 'changed';
-  $handler->display->display_options['sorts']['changed']['table'] = 'node';
-  $handler->display->display_options['sorts']['changed']['field'] = 'changed';
-  $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
-  /* Contextual filter: Content: Type */
-  $handler->display->display_options['arguments']['type']['id'] = 'type';
-  $handler->display->display_options['arguments']['type']['table'] = 'node';
-  $handler->display->display_options['arguments']['type']['field'] = 'type';
-  $handler->display->display_options['arguments']['type']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['type']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['type']['validate']['fail'] = 'ignore';
-  $handler->display->display_options['arguments']['type']['limit'] = '0';
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'image' => 'image',
-    'blog' => 'blog',
-    'brevkasse' => 'brevkasse',
-    'forum' => 'forum',
-    'body_secret' => 'body_secret',
-  );
-
-  /* Display: ung-til-ung */
-  $handler = $view->new_display('block', 'ung-til-ung', 'block');
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'entity_pager';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-
-  /* Display: blog */
-  $handler = $view->new_display('block', 'blog', 'block_1');
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'entity_pager';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Author uid */
-  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
-  $handler->display->display_options['arguments']['uid']['table'] = 'node';
-  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
-  $handler->display->display_options['arguments']['uid']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'blog' => 'blog',
-  );
-
-  /* Display: brevkasse */
-  $handler = $view->new_display('block', 'brevkasse', 'block_2');
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'entity_pager';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $translatables['pager_brevkasse'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Alle'),
-    t('ung-til-ung'),
-    t('blog'),
-    t('brevkasse'),
-  );
-  $export['pager_brevkasse'] = $view;
 
   return $export;
 }
