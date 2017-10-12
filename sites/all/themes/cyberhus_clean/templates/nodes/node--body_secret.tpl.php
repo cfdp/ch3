@@ -83,6 +83,14 @@
 
 <?php
   $type_label = cyberhus_clean_type_label($node->type);
+
+  // Category
+  if(isset($node->field_base_category[LANGUAGE_NONE])) {
+    $cat_tid = $node->field_base_category['und'][0]['target_id'];
+  }
+  else {
+    $cat_tid = 'All';
+  }
 ?>
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
@@ -122,7 +130,7 @@
   </div>
   <div class="node-related-content">
     <?php
-    print views_embed_view('frontpage_stream', 'block_1');
+    print views_embed_view('frontpage_stream', 'block_1', $cat_tid);
     ?>
   </div>
 </div>
