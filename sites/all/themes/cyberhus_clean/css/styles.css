@@ -890,6 +890,12 @@ body.page-blog #page-title {
           float: left; }
         .content-stream .stream-item .stream-metadata .stream-metadata-item.meta-category {
           float: left; }
+          .content-stream .stream-item .stream-metadata .stream-metadata-item.meta-category a {
+            opacity: 1;
+            text-decoration: none;
+            transition: opacity 250ms; }
+            .content-stream .stream-item .stream-metadata .stream-metadata-item.meta-category a:hover {
+              opacity: .75; }
           .content-stream .stream-item .stream-metadata .stream-metadata-item.meta-category:after {
             display: none; }
         .content-stream .stream-item .stream-metadata .stream-metadata-item.meta-author {
@@ -1042,6 +1048,8 @@ body.page-blog #page-title {
     fill: #688e36; }
   .content-stream .type-brevkasse .meta-category {
     color: #688e36; }
+    .content-stream .type-brevkasse .meta-category a {
+      color: #688e36; }
   .content-stream .type-brevkasse .stream-comments,
   .content-stream .type-brevkasse .stream-like {
     display: none; }
@@ -1051,6 +1059,8 @@ body.page-blog #page-title {
     fill: #c34b4b; }
   .content-stream .type-forum .meta-category {
     color: #c34b4b; }
+    .content-stream .type-forum .meta-category a {
+      color: #c34b4b; }
   .content-stream .type-blog .stream-type-icon {
     fill: #1d9ed0; }
   .content-stream .type-blog .meta-category {
