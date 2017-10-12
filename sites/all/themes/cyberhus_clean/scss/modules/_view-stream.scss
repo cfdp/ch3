@@ -186,6 +186,16 @@
         &.meta-category {
           float: left;
 
+          a {
+            opacity: 1;
+            text-decoration: none;
+            @include transition(opacity 250ms);
+
+            &:hover {
+              opacity: .75;
+            }
+          }
+
           &:after {
             display: none;
           }
@@ -396,6 +406,10 @@
     }
     .meta-category {
       color: $color-green;
+
+      a {
+        color: $color-green;
+      }
     }
     .stream-comments,
     .stream-like {
@@ -411,6 +425,10 @@
     }
     .meta-category {
       color: $color-red;
+
+      a {
+        color: $color-red;
+      }
     }
   }
   .type-blog {
