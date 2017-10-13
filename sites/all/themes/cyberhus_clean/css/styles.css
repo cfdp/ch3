@@ -501,11 +501,13 @@ body.page-blog #page-title {
       #postface-wrapper #postface {
         width: 1180px; } }
     #postface-wrapper #postface .region-postface {
-      display: grid; }
+      display: grid;
+      display: -ms-grid; }
       @media (min-width: 1024px) {
         #postface-wrapper #postface .region-postface {
           grid-column-gap: 40px;
-          grid-template-columns: repeat(3, 1fr); } }
+          grid-template-columns: repeat(3, 1fr);
+          -ms-grid-columns: repeat(3, 1fr); } }
     #postface-wrapper #postface .block {
       margin-bottom: 40px; }
       #postface-wrapper #postface .block:last-child {
