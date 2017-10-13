@@ -70,10 +70,12 @@
 
     .region-postface {
       display: grid;
+      display: -ms-grid;
 
       @include bp-normal {
         grid-column-gap: 40px;
         grid-template-columns: repeat(3, 1fr);
+        -ms-grid-columns: repeat(3, 1fr);
       }
     }
 
