@@ -89,6 +89,19 @@
 
       @include bp-normal {
         margin-bottom: 0;
+
+        &:nth-child(1) {
+          -ms-grid-column: 1;
+          -ms-grid-row: 1;
+        }
+        &:nth-child(2) {
+          -ms-grid-column: 2;
+          -ms-grid-row: 1;
+        }
+        &:nth-child(3) {
+          -ms-grid-column: 3;
+          -ms-grid-row: 1;
+        }
       }
 
       h2 {
