@@ -514,7 +514,16 @@ body.page-blog #page-title {
         margin-bottom: 0; }
       @media (min-width: 1024px) {
         #postface-wrapper #postface .block {
-          margin-bottom: 0; } }
+          margin-bottom: 0; }
+          #postface-wrapper #postface .block:nth-child(1) {
+            -ms-grid-column: 1;
+            -ms-grid-row: 1; }
+          #postface-wrapper #postface .block:nth-child(2) {
+            -ms-grid-column: 2;
+            -ms-grid-row: 1; }
+          #postface-wrapper #postface .block:nth-child(3) {
+            -ms-grid-column: 3;
+            -ms-grid-row: 1; } }
       #postface-wrapper #postface .block h2 {
         font-size: 1.5em;
         margin-bottom: .75em; }
