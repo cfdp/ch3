@@ -43,27 +43,36 @@ body.page-frontpage_stream {
     }
     @include bp-normal {
       display: grid;
+      display: -ms-grid;
       grid-gap: 20px;
       width: 960px;
       grid-template-columns: 710px 230px;
+      -ms-grid-columns: 710px 20px 230px;
 
       #content-top {
         grid-column-start: 1;
         grid-column-end: 3;
         grid-row: 1;
+        -ms-grid-row: 1;
+        -ms-grid-column-span: 3;
       }
       #content {
         grid-column: 1;
         grid-row: 2;
+        -ms-grid-row: 2;
+        -ms-grid-column: 1;
       }
       #sidebar-first {
         grid-column: 2;
         grid-row: 2;
+        -ms-grid-row: 2;
+        -ms-grid-column: 3;
       }
     }
     @include bp-wide {
       width: 1180px;
       grid-template-columns: 875px 285px;
+      -ms-grid-columns: 875px 20px 285px;
     }
   }
 }
