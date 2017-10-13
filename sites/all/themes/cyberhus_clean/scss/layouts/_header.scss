@@ -17,15 +17,21 @@
 
     .region-header {
       display: grid;
+      display: -ms-grid;
       grid-template-columns: 20% 60% 20%;
+      -ms-grid-columns: 20% 60% 20%;
     }
     .block-menu {
       grid-column: 2;
+      -ms-grid-column: 2;
       grid-row: 1;
+      -ms-grid-row: 1;
     }
     .block-custom-search-blocks {
       grid-column: 3;
+      -ms-grid-column: 3;
       grid-row: 1;
+      -ms-grid-row: 1;
     }
 
     // Vertical aligning
