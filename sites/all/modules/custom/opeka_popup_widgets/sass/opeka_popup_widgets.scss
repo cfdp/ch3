@@ -1,0 +1,27 @@
+.curachat-widgets {
+  bottom: 64px;
+  display: block;
+  margin: 0;
+  padding: 0px;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 20;
+  @media (min-width: 1024px) {
+      bottom: 0;
+  }
+  iframe {
+    border-bottom: 1px solid #ffffff;
+    display: block;
+    width: 100%;
+  }
+}
+
+.opeka-chat-popup-wrapper {
+  display: none;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  top: 400px;
+}
