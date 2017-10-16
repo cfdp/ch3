@@ -1,0 +1,70 @@
+.curachat-widgets {
+  bottom: 69px;
+  display: block;
+  margin: 0;
+  padding: 0px;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 20;
+}
+@media (min-width: 1024px) {
+  .curachat-widgets {
+    bottom: 0;
+  }
+}
+
+.curachat-widgets iframe {
+  border-bottom: 1px solid #ffffff;
+  display: block;
+  width: 100%;
+}
+
+.opeka-chat-popup-wrapper {
+  display: none;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  top: 400px;
+}
+
+/* Related to popup */
+.button-wrapper {
+  height: 100%;
+  position: absolute;
+  right: 1em;
+}
+button.close {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 13px;
+
+  padding: 0;
+  background: #ffffff;
+  border: none;
+  color: #80B45A;
+  font-size: 14px;
+  text-decoration: none;
+
+  &:hover {
+    background: #3cb0fd;
+    text-decoration: none;
+  }
+}
+
+button.close .close {
+  fill: #333;
+}
+
+@media (min-width: 1024px) {
+  .button-wrapper {
+    right: 7em;
+  }
+}

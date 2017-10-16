@@ -4,7 +4,6 @@ core = 7.x
 
 stylesheets[all][] = bower_components/flexslider/flexslider.css
 stylesheets[all][] = css/styles.css
-stylesheets[all][] = css/curachat_old.css
 
 scripts[] = bower_components/svgxuse/svgxuse.js
 scripts[] = bower_components/imagesloaded/imagesloaded.pkgd.js
@@ -13,7 +12,6 @@ scripts[] = js/banner.js
 scripts[] = js/scroll-to.js
 scripts[] = js/jump-menu.js
 scripts[] = js/filter-toggle.js
-scripts[] = js/curachat.embed.js
 
 regions[menu] = Menu
 regions[header] = Header
