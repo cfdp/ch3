@@ -14,15 +14,15 @@ Popups will stack on top of each other if multiple are active at the same time.
 
 -- HOW IT WORKS --
 
-When the module is activated, the script opeka_popup_widgets.js and opeka_popup_controller.js is loaded on all pages.
+When the module is activated, the script opeka_widgets.js is loaded on all front end pages.
 
-The popups defined in opeka_popup_widgets.js is then instantiated with calls to the popupController constructor in opeka_popup_controller.js.
+The popups defined in opeka_widgets.js is then instantiated with calls to the popupController constructor.
 
-Currently the chat URLs are hardcoded in the module. This will be fixed in a later version.
+Currently the chat URLs are hardcoded in the module. This might be fixed in a later version.
 
 The chats widgets are loaded sequentially to avoid stalling the server.
 
-A CSS file with custom client styling can be sent along
+A link to a CSS file with custom client styling can be sent along to the chat server.
 
 -- REQUIREMENTS --
 

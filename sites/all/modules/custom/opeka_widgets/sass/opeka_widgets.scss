@@ -18,6 +18,14 @@
   }
 }
 
+.page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header {
+  height: 270px;
+  display: block;
+  @media (min-width: 505px) {
+    height: 200px;
+  }
+}
+
 .opeka-chat-popup-wrapper {
   display: none;
   position: relative;
