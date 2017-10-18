@@ -55,10 +55,10 @@ function cyberhus_clean_menu_link__menu_mobile_menu(array $variables) {
  */
 function cyberhus_clean_form_alter(&$form, &$form_state) {
 
-  if(preg_match("/views-exposed-form-frontpage-stream-page/", $form['#id'])) {
+  if(preg_match("/views-exposed-form-frontpage-stream/", $form['#id'])) {
       // Unset description
-      unset($form['field_brevk_alder_tid']['#description']);
-      unset($form['field_brevk_koen_tid']['#description']);
+      unset($form['alder']['#description']);
+      unset($form['koen']['#description']);
   }
   if(preg_match('/custom-search-blocks-form-1*/', $form['#id'])) {
       // Placeholder

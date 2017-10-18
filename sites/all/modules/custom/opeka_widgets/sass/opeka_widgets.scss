@@ -1,0 +1,35 @@
+.curachat-widgets {
+  bottom: 64px;
+  display: block;
+  margin: 0;
+  padding: 0px;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 20;
+  @media (min-width: 1024px) {
+      bottom: 0;
+  }
+  iframe {
+    border-bottom: 1px solid #ffffff;
+    display: block;
+    width: 100%;
+  }
+}
+
+.page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header {
+  height: 270px;
+  display: block;
+  @media (min-width: 505px) {
+    height: 200px;
+  }
+}
+
+.opeka-chat-popup-wrapper {
+  display: none;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  top: 400px;
+}

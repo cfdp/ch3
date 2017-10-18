@@ -1,0 +1,8 @@
+name = Opeka Widgets
+description = Adds a number of Opeka chat widgets to the Drupal site.
+core = 7.x
+
+files[] = opeka_widgets.module
+files[] = opeka_widgets.admin.inc
+
+# configure = admin/config/services/opeka_widgets

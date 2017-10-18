@@ -4,6 +4,7 @@ sites/*/settings*.php
 .htaccess
 .ruby-version
 .bundle/
+sites/all/modules/custom/opeka_widgets/js/data.js
 
 # Ignore paths that contain user-generated content.
 sites/*/files
