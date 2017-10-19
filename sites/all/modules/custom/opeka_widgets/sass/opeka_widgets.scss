@@ -18,11 +18,23 @@
   }
 }
 
-.page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header {
-  height: 270px;
-  display: block;
-  @media (min-width: 505px) {
-    height: 200px;
+.page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe,
+.page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe {
+
+  &.opeka-widgets-header {
+    height: 270px;
+    display: block;
+    @media (min-width: 505px) {
+      height: 200px;
+    }
+    &.cyberhus {
+      height: 270px;
+      display: block;
+      width: 100%;      
+      @media (min-width: 505px) {
+        height: 200px;
+      }     
+    }
   }
 }
 
