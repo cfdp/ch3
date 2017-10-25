@@ -145,7 +145,6 @@
           $(popupWrapper).show();
         });
         // Animate to big size
-        console.log('yes were open');
         $(popupWrapper+" iframe").animate({
           height: largeHeight
         }, 300);
@@ -191,12 +190,10 @@
 
   Drupal.behaviors.opeka_widgets.OpekaPopupController.prototype.receiveMessage = function(event) {
     if (event.origin !== this.baseURL) {
-      console.log("Iframe origin not allowed."+ "baseurl: "+this.baseURL+", event.origin "+event.origin);
       return;
     } else if (event.data === this.chatType + "-CloseIframe") {
       this.closePopup();
     } else {
-      console.log("this is event data "+event.data);
       this.popupAnimation(event.data);
     }
   };
