@@ -145,7 +145,6 @@
           $(popupWrapper).show();
         });
         // Animate to big size
-        console.log('yes were open');
         $(popupWrapper+" iframe").animate({
           height: largeHeight
         }, 300);
