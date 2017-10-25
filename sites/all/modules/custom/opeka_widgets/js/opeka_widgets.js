@@ -118,35 +118,53 @@
 
   // Add the popup HTML to the page
   Drupal.behaviors.opeka_widgets.OpekaPopupController.prototype.addEmbedHTML = function() {
-      var iframeHeight = "70";
-      if (this.widgetSize === "small") {
-        iframeHeight = "35";
-      }
-      $(this.embedLocation).append('<div class="opeka-chat-popup-wrapper ' + this.chatName + '"><div id="opeka-chat-iframe-' + this.chatName + '"><iframe src="' + this.chatURL + '" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" height="' + iframeHeight + '"></iframe></div></div>');
+
+    $(this.embedLocation).append('<div class="opeka-chat-popup-wrapper ' + this.chatName + '"><div id="opeka-chat-iframe-' + this.chatName + '"><iframe src="' + this.chatURL + '" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></div></div>');
     };
     
   //Popup animation
   Drupal.behaviors.opeka_widgets.OpekaPopupController.prototype.popupAnimation = function(popupAction) {
       var popupWrapper = ".opeka-chat-popup-wrapper." + this.chatName,
         height = $(popupWrapper).height(),
+        smallHeight = 35,
+        largeHeight = 70,
         totalHeight = 0,
         isVisible = $(popupWrapper).css('display') == 'none' ? false : true,
         declineWidgetCookie = Drupal.behaviors.opeka_widgets.getCookie === "yes" ? true : false;
+
 
       // Get height of all widgets
       $('.opeka-chat-popup-wrapper').each(function () {
         totalHeight += $(this).height()
       });
-      if (!isVisible && !declineWidgetCookie && ((popupAction === (this.chatType + "-Open")) || popupAction === (this.chatType + "-Occupied"))) {
+      // Make widget popup if open or occupied
+      if (!declineWidgetCookie && (popupAction === (this.chatType + "-Open"))) {
         $(popupWrapper).animate({
           top: 0
-        }, 1000, function () {
+        }, 300, function () {
           $(popupWrapper).show();
         });
-      } else if (popupAction === (this.chatType + "-Closed")) {
+        // Animate to big size
+        console.log('yes were open');
+        $(popupWrapper+" iframe").animate({
+          height: largeHeight
+        }, 300);
+      }
+      else if (popupAction === (this.chatType + "-Occupied")){
+        $(popupWrapper).animate({
+          top: 0
+        }, 300, function () {
+          $(popupWrapper).show();
+        });
+        // Animate to small size
+        $(popupWrapper+" iframe").animate({
+          height: smallHeight
+        }, 300);
+      }
+      else if (popupAction === (this.chatType + "-Closed")) {
         $(popupWrapper).animate({
           top: totalHeight
-        }, 1000, function () {
+        }, 300, function () {
           $(popupWrapper).hide()
         });
       }
@@ -173,10 +191,12 @@
 
   Drupal.behaviors.opeka_widgets.OpekaPopupController.prototype.receiveMessage = function(event) {
     if (event.origin !== this.baseURL) {
+      console.log("Iframe origin not allowed."+ "baseurl: "+this.baseURL+", event.origin "+event.origin);
       return;
     } else if (event.data === this.chatType + "-CloseIframe") {
       this.closePopup();
     } else {
+      console.log("this is event data "+event.data);
       this.popupAnimation(event.data);
     }
   };
