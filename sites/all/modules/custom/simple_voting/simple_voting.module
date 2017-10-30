@@ -91,7 +91,7 @@ function simple_voting_block_view($delta = '', $poll_nid = 0) {
     }
 
     if ($poll_nid === 0) {
-      $poll_nid = _simple_voting_get_latest_poll_nid();
+      $poll_nid = _simple_voting_get_requested_poll_nid();
     }
     if ($poll_nid > 0) {
       $block['subject'] = t('Poll');
@@ -209,17 +209,26 @@ function simple_voting_poll_slideshow_view($node, $show_pager_links = TRUE) {
 }
 
 /**
- * Utility function for getting the latest poll nid.
+ * Utility function for getting the requested poll nid.
+ *
+ * Default is random, set to false to return the latest
  */
-function _simple_voting_get_latest_poll_nid() {
+function _simple_voting_get_requested_poll_nid($rand = TRUE) {
   $select = db_select('node', 'n');
   $select->join('poll', 'p', 'p.nid = n.nid');
   $select->fields('n', array('nid'))
     ->condition('n.status', 1)
     ->condition('p.active', 1)
-    ->orderBy('n.created', 'DESC')
     ->range(0, 1)
     ->addTag('node_access');
+  if (!$rand) {
+    $select->fields('n', array('nid'))
+      ->orderBy('n.created', 'DESC');
+  }
+  else {
+    $select->fields('n', array('nid'))
+      ->orderRandom();
+  }
   $record = $select->execute()->fetchObject();
   if ($record) {
     return $record->nid;
