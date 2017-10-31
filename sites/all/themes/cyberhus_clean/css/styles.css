@@ -1428,6 +1428,7 @@ body.page-blog #page-title {
 
 .page-node-adv,
 .node-type-blog {
+  /* Target div for "subscribe to node" ajax content */
   /* Author box */ }
   .page-node-adv .region-content .node,
   .node-type-blog .region-content .node {
@@ -1596,6 +1597,9 @@ body.page-blog #page-title {
       .page-node-adv ul.links li.subscribe a:hover,
       .node-type-blog ul.links li.subscribe a:hover {
         opacity: 0.75; }
+  .page-node-adv #jquery_ajax_load_target,
+  .node-type-blog #jquery_ajax_load_target {
+    clear: both; }
   .page-node-adv .author-box,
   .node-type-blog .author-box {
     padding: 1.5em 1em;
