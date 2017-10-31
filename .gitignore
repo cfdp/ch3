@@ -26,6 +26,7 @@ FirePHPCore
 sites/all/modules/xhprof
 sites/all/modules/masquerade
 !sites/default/files/logo-beta*
+sites/all/themes/cyberhus_clean/custom-gulpfile.js
 
 .DS_Store
 

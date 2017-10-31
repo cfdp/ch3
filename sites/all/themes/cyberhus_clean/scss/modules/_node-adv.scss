@@ -171,6 +171,10 @@
       }
     }
   }
+  /* Target div for "subscribe to node" ajax content */
+  #jquery_ajax_load_target {
+    clear: both;
+  }
 
   /* Author box */
   .author-box {
