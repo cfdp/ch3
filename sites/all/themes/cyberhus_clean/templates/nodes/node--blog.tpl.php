@@ -118,6 +118,8 @@
       <div class="node-interaction">
         <?php print render($content['field_blog_cyberlike']); ?>
         <?php print render($content['links']); ?>
+        <div id="jquery_ajax_load_target"></div>
+
       </div>
       <?php endif; ?>
 
