@@ -1,0 +1,9 @@
+name = Cyberhus FAQ Extensions
+description = Adds extra functionality to the FAQ
+package = CfDP Helper Modules
+
+files[] = cyberhus_faq_extensions.module
+
+version = "7.x-1.0"
+core = "7.x"
+project = "cyberhus_faq_extensions"
