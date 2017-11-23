@@ -1,0 +1,12 @@
+name = Cyberhus Letterbox Extensions
+description = Adds extra functionality to the letterbox
+package = CfDP Helper Modules
+
+files[] = cyberhus_letterbox_extensions.module
+
+dependencies[] = entity
+dependencies[] = entityreference
+
+version = "7.x-1.0"
+core = "7.x"
+project = "cyberhus_letterbox_extensions"

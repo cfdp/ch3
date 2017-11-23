@@ -45,45 +45,6 @@ function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
         $form['field_account_brevkasse']['#access'] = 0;
       }
     break;
-    case 'brevkasse_node_form':
-      // Brevkasse-status: Iterate over the terms and unset any closed or archived terms from the select list
-      $brevk_terms = taxonomy_term_load_multiple(array(), array('vid' => '3'));
-      foreach ($brevk_terms as $key => $value) {
-          if (count($value->field_taxonomy_brevk_status) > 0){
-            $status = $value->field_taxonomy_brevk_status['und']['0']['value'];
-            if ($status === "archived" || $status === "temp_closed") {
-              $tid = $value ->tid;
-              unset($form['field_brevk_kategori']['und']['#options'][$tid]);
-            }
-          }
-      }
-
-      // Brevkasse title validation, alowed charaters (a to z, 0 to 9, ?, !, ., ,, -,)
-      $form['#validate'][] = 'cfdp_uf_brevkasse_title_form_validate';
-
-      // @todo: deactivated until the right condition sorting out the archived terms
-      // has been implemented
-      // Populate select list with the long version of the category names
-      //Select the taxonomy vocabulary holding the values for the brevkasse categories
-
-/*      $taxonomy = "vocabulary_3";
-      $closed_states = array(
-        "temp_closed",
-        "archived"
-      );
-
-      //Query the DB for the extra added field holding the labels (long version names of the brevkasse categories)
-      $results = db_select('field_data_field_brev_tax_label', 't')
-        ->fields('t', array('entity_id', 'field_brev_tax_label_value'))
-        ->condition("t.bundle", $taxonomy)
-        ->execute();
-
-      // Populate the selectlist with the new values
-      $options = array();
-      foreach ($results as $term)  {
-        $form['field_brevk_kategori']['und']['#options'][$term->entity_id] = $term->field_brev_tax_label_value;
-      }*/
-    break;
   }
   // Change submit text to "Send" on all node forms
   if ((isset($form['#node_edit_form']) && $form['#node_edit_form'])) {
@@ -94,55 +55,6 @@ function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
 function cfdp_uf_form_comment_form_alter(&$form, &$form_state) {
   if (isset($form['actions']['submit'])) {
     $form['actions']['submit']['#value'] = t('Send');
-  }
-}
-
-/*
-*  Set custom status message
-*
-*/
-/*function cfdp_uf_custom_status_message(&$form, $form_state) {
-  // To hide message
-  drupal_get_messages('status');
-  //To override message
-  drupal_set_message(t('Tak fordi du delte din hemmelighed med cyberhus.dk!'), 'status');
- }*/
-
-
-  /* 
-  *  If all the chars in the string are chars that the URL cleaner will remove, title is invalid. 
-  *  The title needs to have AT LEAST ONE char that is allowed by the cleaner.
-  */
-function cfdp_uf_brevkasse_title_form_validate($form, &$form_state) {
-  $title = $form_state['values']['title'];
-  $title_length = strlen($form_state['values']['title']);
-  $title_characters = str_split($form_state['values']['title']);
-  $title_valid = FALSE;
-
-  if($title_length >= 3){
-    foreach($title_characters as $char){
-      if(preg_match('/[a-zåæø0-9]/i', $char)){
-      
-        $title_valid = TRUE;
-      }
-    }
-
-      if(!$title_valid){
-        form_set_error('title', t('You have invalid charaters in your title.'));
-      }
-    
-  }else{
-    form_set_error('title', t('Your title is too short.'));
-  }
-}
-
-function cfdp_uf_node_update($node) {
-  global $user;
-  //if it is the first time the brevkasse node is edited by a counselor (=the author is anonymous), change the author to the current user
-  if (($node->uid == 0) && ($node->type == "brevkasse") && cfdp_uf_user_has_role('Brevkasserådgiver')) {
-    $node->uid = $user->uid;
-    node_save($node);
-    drupal_set_message(t('Author of Brevkasse node changed from anonymous to ').$user->name);
   }
 }
 
