@@ -1,0 +1,255 @@
+<?php
+
+/**
+ * @file
+ * This module provides extra functionality to the Cyberhus Letterbox
+ */
+
+/**
+* Implements hook_menu().
+*
+* This menu item is for admins / coordinators to approve a question for the counselors
+* just by clicking the link e.g. in an email
+*/
+function cyberhus_letterbox_extensions_menu() {
+  $items = array();
+  $items['cyberhus-letterbox-extensions/%/approve-question'] = array(
+      'title' => 'Approve question',
+      'description' => 'Change the requested brevkasse node status to approved',
+      'page callback' => 'cyberhus_letterbox_extensions_approve_question_page',
+      'page arguments' => array(1),
+      'access arguments' => array('administer nodes'),
+      'type' => MENU_CALLBACK,
+    );
+  return $items;
+}
+
+/**
+*  Helper function for approving a question for the counselors
+*/
+function cyberhus_letterbox_extensions_approve_question_page($nid) {
+  // A message to display on screen when the function has finished
+  $finished_message = t('The question has now been approved for the counselors.');
+
+  $node = node_load($nid);
+  if (isset($node) && ($node->type==='brevkasse')) {
+    $node_wrapper = entity_metadata_wrapper('node', $node);
+    $approved = $node_wrapper->field_approved_by_coordinator->value();
+    if ($approved) {
+      $finished_message = t('Hmm, it seems the question has already been approved.');
+      return $finished_message;
+    }
+    $node_wrapper->field_approved_by_coordinator->set(1);
+    $node_wrapper->save();
+  }
+  // Display the message on the page
+  return $finished_message;
+}
+
+/**
+ * Implements hook_node_access().
+ *
+ * Makes sure that counselors are restricted to edit brevkasse nodes that are tagged
+ * with terms matching one of the terms on the counselor profile
+ */
+function cyberhus_letterbox_extensions_node_access($node, $op, $account) {
+  if (!($node->type==='brevkasse')) {
+    return NODE_ACCESS_IGNORE;
+  }
+  $node_terms = array();
+  $node_term_base = field_get_items('node', $node, 'field_base_category');
+  $node_terms['base'] = $node_term_base[0]['target_id'];
+  $node_term_ung_i = field_get_items('node', $node, 'field_brevk_ungi');
+  $node_terms['ung_i'] = $node_term_ung_i[0]['target_id'];
+
+  $term_match = cyberhus_letterbox_extensions_counselor_content_term_match($node_terms);
+  // Brevkasserådgivere (role id=5) are denied access if node vs. profile terms aren't
+  // matching. Koordinators and admins have "bypass access restrictions" permission so we don't need to // take them into account.
+  if ($account->roles[5] && !$term_match && $node->type == 'brevkasse') {
+    if ($op == 'update') {
+      return NODE_ACCESS_DENY;
+    }
+  }
+  return NODE_ACCESS_IGNORE;
+}
+
+/**
+ * Check if the currently logged in user is tagged with one of the given terms
+ *
+ * @param array $node_terms
+ *   An array of relevant term ids
+ *
+ * @return bool
+ *   A boolean indicating if the user is tagged with one of the terms on his user profile
+ */
+function cyberhus_letterbox_extensions_counselor_content_term_match($node_terms) {
+  global $user;
+  $term_match = false;
+  $full_account = user_load($user->uid);
+  $profile_terms = field_get_items('user', $full_account, 'field_account_letterbox');
+  foreach($profile_terms as $item) {
+    $term_match = ($item['target_id'] === $node_terms['base'] || $item['target_id'] === $node_terms['ung_i']);
+    if ($term_match) {
+      break;
+    }
+  }
+  return $term_match;
+}
+
+/**
+ * Compose the notification mail to the counselors
+ */
+function cyberhus_letterbox_extensions_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'letterbox_notification_counselors':
+      // Set headers etc
+      $message['to'] = $params['to'];
+      $message['subject'] = t('A new question has been added to @term_name', array('@term_name' => $params['term_name']));
+      $message['body'][] = t('Hello counselor!');
+      $message['body'][] .= t('A new question has been added on @date', array('@date' => $params['date']));
+      $message['body'][] .= t('Title: @title', array('@title' => $params['title']));
+      $message['body'][] .= t('Name: @name', array('@name' => $params['name']));
+      $message['body'][] .= t('Age: @age', array('@age' => $params['age']));
+      $message['body'][] .= t('Gender: @gender', array('@gender' => $params['gender']));
+      $message['body'][] .= t('Question: ') . "\n" . $params['spoergsmaal'];
+      $message['body'][] .= t('Respond to the question here: @edit_link', array('@edit_link' => $params['edit_link']));
+      break;
+  }
+}
+
+/**
+ * Find the counselors to be notified and lookup their email addresses
+ */
+function cyberhus_letterbox_extensions_send_mail ($params, $key) {
+  $term_id=$params['term_id'];
+  $term_name=$params['term_name'];
+  // Load counselors with the given term
+  $query = new EntityFieldQuery;
+  $query
+    ->entityCondition('entity_type', 'user')
+    ->fieldCondition('field_account_letterbox', 'target_id', $term_id,'=');
+  $results = $query->execute();
+
+  if (empty($results)) {
+    watchdog('Cyberhus Letterbox Extensions', 'Trying to send notification mail, but no counselors exists with the term @term', array('@term' => $term), WATCHDOG_WARNING);
+    return;
+  }
+  $users = user_load_multiple(array_keys($results['user']));
+  $emails = array();
+  foreach($users as $user) {
+    if (!user_has_role(5,$user)) {
+      watchdog('Cyberhus Letterbox Extensions', 'Trying to send notification mail, but no user had the counselor role.', WATCHDOG_WARNING);
+      return;
+    }
+    $wrapper = entity_metadata_wrapper('user',$user);
+    $emails[] = $wrapper->mail->value();
+  }
+  $to = implode(", ", $emails);
+  $params['to'] = $to;
+  drupal_mail('cyberhus_letterbox_extensions', $key, $to, $language, $params, $from = NULL, $send = TRUE);
+}
+
+/**
+ * Implements hook_node_update()
+ *
+ *
+ */
+function cyberhus_letterbox_extensions_node_update($node) {
+  if ($node->type==='brevkasse') {
+    global $base_url;
+    global $user;
+
+    // if it is the first time the brevkasse node is edited by a counselor (=the author is anonymous),
+    // change the author to that counselor
+    if (($node->uid == 0) && ($node->type === "brevkasse") && user_has_role(5, $user)) {
+      $node->uid = $user->uid;
+      node_save($node);
+      drupal_set_message(t('Author of Brevkasse node changed from anonymous to ').$user->name);
+    }
+    // Initiate notifications if a brevkasse node is being approved by a coordinator/admin
+    // and notifications are activated for the term on the node.
+    $old_node=$node->original;
+    $node_wrapper = entity_metadata_wrapper('node', $node);
+    $old_node_wrapper = entity_metadata_wrapper('node', $old_node);
+    $term_id_base = $node_wrapper->field_base_category->value()->tid;
+    $term_id_ung_i = $node_wrapper->field_brevk_ungi->value()->tid;
+    $approved_before=$old_node_wrapper->field_approved_by_coordinator->value();
+    $approved_after=$node_wrapper->field_approved_by_coordinator->value();
+    // If a municipality question is being edited, the notification setting is overridden
+    $term_id = $term_id_ung_i ? $term_id_ung_i : $term_id_base;
+    $term_wrapper = entity_metadata_wrapper('taxonomy_term', $term_id, array('langcode' => 'da'));
+    if (isset($term_wrapper->field_letterbox_notifications)) {
+      $term_notify = $term_wrapper->field_letterbox_notifications->value();
+    }
+    $approved = (!$approved_before && $approved_after) ? true : false;
+
+    if ($term_notify && $approved) {
+      $term_name = $node_wrapper->field_base_category->value()->name;
+      $node_body = $node_wrapper->body;
+      $params = array('term_id' => $term_id,
+                      'term_name' => $term_name,
+                      'title'=>$node_wrapper->title->value(),
+                      'name'=>$node_wrapper->field_navn->value(),
+                      'spoergsmaal'=>$node_wrapper->field_brevk_spoergsmaal->value()['value'],
+                      'date'=>format_date($node_wrapper->created->value(), 45),
+                      'gender'=>$node_wrapper->field_brevk_koen->name->value(),
+                      'age'=>$node_wrapper->field_brevk_alder->name->value(),
+                      'edit_link'=>$base_url . '/node/' . $node->nid . '/edit'
+                     );
+      cyberhus_letterbox_extensions_send_mail($params, 'letterbox_notification_counselors');
+    }
+  }
+}
+
+/**
+ * Implements hook_node_form_alter()
+ *
+ * Customize the node form: make sure that the disclaimer field is shown for municipality questions
+ */
+function cyberhus_letterbox_extensions_form_brevkasse_node_form_alter(&$form, &$form_state, $form_id) {
+  // If an anonymous user is adding a municipality question, add disclaimer
+  global $user;
+  $url_params = drupal_get_query_parameters();
+  $term_populated = isset($url_params['field_brevk_ungi']);
+  if ($term_populated && ($user->uid===0)) {
+    $term_id = $url_params['field_brevk_ungi'];
+    $term_wrapper = entity_metadata_wrapper('taxonomy_term', $term_id);
+    if ($term_wrapper->getBundle()==="ung_i_byer") {
+      // Customize label and description of disclaimer field
+      $term_name = $term_wrapper->name->value();
+      $lang = $form['field_brevk_user_confirmation']['#language'];
+      $form['field_brevk_user_confirmation'][$lang]['#title'] = t('I confirm that I live in @term_name', array('@term_name' => $term_name));
+      $form['field_brevk_user_confirmation'][lang]['#description'] = t('The counselors in this municipality answers questions about support and help in the @term_name municipality. They know a lot about finding help locally, but not so much about other municipalities. Because of this it is important that you live in @term_name municipality, if you use this QnA.', array('@term_name' => $term_name));
+    }
+  }
+  else {
+    // In all other cases, the disclaimer field should not be shown
+    $form['field_brevk_user_confirmation']['#required'] = FALSE;
+    unset($form['field_brevk_user_confirmation']);
+  }
+  // Brevkasse title validation, allowed charaters (a to z, 0 to 9, ?, !, ., ,, -,)
+  $form['#validate'][] = 'cyberhus_letterbox_extensions_title_form_validate';
+}
+
+/*
+*  If all the chars in the string are chars that the URL cleaner will remove, title is invalid.
+*  The title needs to have AT LEAST ONE char that is allowed by the cleaner.
+*/
+function cyberhus_letterbox_extensions_title_form_validate($form, &$form_state) {
+  $title = $form_state['values']['title'];
+  $title_length = strlen($form_state['values']['title']);
+  $title_characters = str_split($form_state['values']['title']);
+  $title_valid = FALSE;
+  if($title_length >= 3){
+    foreach($title_characters as $char){
+      if(preg_match('/[a-zåæø0-9]/i', $char)){
+        $title_valid = TRUE;
+      }
+    }
+    if(!$title_valid){
+      form_set_error('title', t('You have invalid charaters in your title.'));
+    }
+  }else{
+    form_set_error('title', t('Your title is too short.'));
+  }
+}
