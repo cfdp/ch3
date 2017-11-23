@@ -31,5 +31,9 @@
     'image' => 'ung-til-ung',
     'blog' => 'brevkasse'
   );
+  // Use Ung-i icon for municipality questions
+  if (!empty($row->field_field_brevk_ungi)) {
+    $type_map['brevkasse'] = 'ung-i';
+  }
 ?>
 <?php print cyberhus_clean_icon_display($type_map[$row->node_type]); ?>

@@ -118,6 +118,9 @@
     <?php if(isset($content['field_base_category']['#object'])) : ?>
     <div class="cat-tag"><span>#</span><?php print render($content['field_base_category']); ?></div>
     <?php endif; ?>
+    <?php if(isset($content['field_brevk_ungi']['#object'])) : ?>
+      <div class="cat-tag"><span>#</span><?php print render($content['field_brevk_ungi']); ?><span>-brevkassen</span></div>
+    <?php endif; ?>
     <a href="#related" class="related-link">
       <?php print t("See related content"); ?>
       <?php print cyberhus_clean_icon_display('arrow-down'); ?>
