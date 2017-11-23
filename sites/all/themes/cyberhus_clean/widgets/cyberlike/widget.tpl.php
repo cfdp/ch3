@@ -7,7 +7,7 @@
  */
 ?>
 <div class="vud-widget vud-widget-cyberlike" id="<?php print $id; ?>">
-  <?php if ($class_up) : ?>
+  <?php if ($class_up && !path_is_admin(current_path())) : ?>
 
     <?php if ($show_links): ?>
 
