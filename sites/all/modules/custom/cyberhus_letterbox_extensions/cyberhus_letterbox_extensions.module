@@ -76,21 +76,33 @@ function cyberhus_letterbox_extensions_node_access($node, $op, $account) {
 }
 
 /**
- * Check if the currently logged in user is tagged with one of the given terms
+ * Check if the current user has the given terms attached to his account
+ *
+ * The logic is as follows: If a node is tagged with a 'ung_i' term the user must be
+ * tagged with the same term on his account. The same rule applies to the case where
+ * there is no 'ung_i' term on the node - then the 'base' term must be matched.
  *
  * @param array $node_terms
  *   An array of relevant term ids
  *
  * @return bool
- *   A boolean indicating if the user is tagged with one of the terms on his user profile
+ *   A boolean indicating if the there is a term match
  */
 function cyberhus_letterbox_extensions_counselor_content_term_match($node_terms) {
   global $user;
   $term_match = false;
   $full_account = user_load($user->uid);
-  $profile_terms = field_get_items('user', $full_account, 'field_account_letterbox');
-  foreach($profile_terms as $item) {
-    $term_match = ($item['target_id'] === $node_terms['base'] || $item['target_id'] === $node_terms['ung_i']);
+  $account_terms = field_get_items('user', $full_account, 'field_account_letterbox');
+  if (empty($account_terms) || !$account_terms) {
+    return $term_match;
+  }
+  foreach($account_terms as $item) {
+    if ($node_terms['ung_i']) {
+      $term_match = ($item['target_id'] === $node_terms['ung_i']);
+    }
+    else {
+      $term_match = ($item['target_id'] === $node_terms['base']);
+    }
     if ($term_match) {
       break;
     }
@@ -149,6 +161,9 @@ function cyberhus_letterbox_extensions_send_mail($params, $key) {
   }
   $to = implode(", ", $emails);
   $params['to'] = $to;
+  drupal_set_message(t('Sent notification to @users', array('@users'=>$to)), 'status');
+  watchdog('Cyberhus Letterbox Extensions', 'Sent notifications to @users', array('@users' => $to), WATCHDOG_NOTICE);
+
   drupal_mail('cyberhus_letterbox_extensions', $key, $to, $language, $params, $from = NULL, $send = TRUE);
 }
 
