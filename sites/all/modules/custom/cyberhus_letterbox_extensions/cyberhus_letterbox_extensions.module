@@ -122,7 +122,7 @@ function cyberhus_letterbox_extensions_mail($key, &$message, $params) {
 /**
  * Find the counselors to be notified and lookup their email addresses
  */
-function cyberhus_letterbox_extensions_send_mail ($params, $key) {
+function cyberhus_letterbox_extensions_send_mail($params, $key) {
   global $language;
   $term_id=$params['term_id'];
   $term_name=$params['term_name'];
@@ -162,9 +162,9 @@ function cyberhus_letterbox_extensions_node_update($node) {
     global $base_url;
     global $user;
 
-    // if it is the first time the brevkasse node is edited by a counselor (=the author is anonymous),
+    // if a brevkasse node with the anonymous user as author is edited by a counselor,
     // change the author to that counselor
-    if (($node->uid == 0) && ($node->type === "brevkasse") && user_has_role(5, $user)) {
+    if (($node->uid == 0) && user_has_role(5, $user)) {
       $node->uid = $user->uid;
       node_save($node);
       drupal_set_message(t('Author of Brevkasse node changed from anonymous to ').$user->name);
@@ -220,20 +220,20 @@ function cyberhus_letterbox_extensions_form_brevkasse_node_form_alter(&$form, &$
   global $user;
   $url_params = drupal_get_query_parameters();
   $term_populated = isset($url_params['field_brevk_ungi']);
+  $lang = $form['field_brevk_user_confirmation']['#language'];
   if ($term_populated && ($user->uid===0)) {
     $term_id = $url_params['field_brevk_ungi'];
     $term_wrapper = entity_metadata_wrapper('taxonomy_term', $term_id);
     if ($term_wrapper->getBundle()==="ung_i_byer") {
       // Customize label and description of disclaimer field
       $term_name = $term_wrapper->name->value();
-      $lang = $form['field_brevk_user_confirmation']['#language'];
       $form['field_brevk_user_confirmation'][$lang]['#title'] = t('I confirm that I live in @term_name', array('@term_name' => $term_name));
       $form['field_brevk_user_confirmation'][$lang]['#description'] = t('The counselors in this municipality answers questions about support and help in the @term_name municipality. They know a lot about finding help locally, but not so much about other municipalities. Because of this it is important that you live in @term_name municipality, if you use this QnA.', array('@term_name' => $term_name));
     }
   }
   else {
     // In all other cases, the disclaimer field should not be shown
-    $form['field_brevk_user_confirmation']['#required'] = FALSE;
+    $form['field_brevk_user_confirmation'][$lang]['#required'] = FALSE;
     $form['field_brevk_user_confirmation']['#access'] = FALSE;
   }
   // Brevkasse title validation, allowed charaters (a to z, 0 to 9, ?, !, ., ,, -,)
