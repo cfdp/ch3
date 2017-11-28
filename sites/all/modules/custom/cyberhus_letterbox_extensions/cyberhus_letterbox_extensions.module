@@ -241,9 +241,16 @@ function cyberhus_letterbox_extensions_form_brevkasse_node_form_alter(&$form, &$
     $term_wrapper = entity_metadata_wrapper('taxonomy_term', $term_id);
     if ($term_wrapper->getBundle()==="ung_i_byer") {
       // Customize label and description of disclaimer field
-      $term_name = $term_wrapper->name->value();
-      $form['field_brevk_user_confirmation'][$lang]['#title'] = t('I confirm that I live in @term_name', array('@term_name' => $term_name));
-      $form['field_brevk_user_confirmation'][$lang]['#description'] = t('The counselors in this municipality answers questions about support and help in the @term_name municipality. They know a lot about finding help locally, but not so much about other municipalities. Because of this it is important that you live in @term_name municipality, if you use this QnA.', array('@term_name' => $term_name));
+      // If we have a user-defined disclaimer text, show that
+      if ($term_wrapper->field_ungi_lb_discl_bool->value()) {
+        $form['field_brevk_user_confirmation'][$lang]['#title'] = $term_wrapper->field_ungi_lb_discl_label->value();
+        $form['field_brevk_user_confirmation'][$lang]['#description'] = $term_wrapper->field_ungi_lb_disclaimer->value();
+      }
+      else {
+        $term_name = $term_wrapper->name->value();
+        $form['field_brevk_user_confirmation'][$lang]['#title'] = t('I confirm that I live in @term_name', array('@term_name' => $term_name));
+        $form['field_brevk_user_confirmation'][$lang]['#description'] = t('The counselors in this municipality answers questions about support and help in the @term_name municipality. They know a lot about finding help locally, but not so much about other municipalities. Because of this it is important that you live in @term_name municipality, if you use this QnA.', array('@term_name' => $term_name));
+      }
     }
   }
   else {
