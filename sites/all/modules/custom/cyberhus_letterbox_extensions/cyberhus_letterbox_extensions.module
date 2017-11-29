@@ -67,7 +67,7 @@ function cyberhus_letterbox_extensions_node_access($node, $op, $account) {
   $term_match = cyberhus_letterbox_extensions_counselor_content_term_match($node_terms);
   // Brevkasserådgivere and Ung-i rådgivere (role id=5 and 13) are denied access if node vs. profile terms aren't
   // matching. Koordinators and admins have "bypass access restrictions" permission so we don't need to // take them into account.
-  if (($account->roles[5] || $account->roles[13])&& !$term_match && $node->type == 'brevkasse') {
+  if ((isset($account->roles[5]) || isset($account->roles[13])) && !$term_match && $node->type == 'brevkasse') {
     if ($op == 'update') {
       return NODE_ACCESS_DENY;
     }
