@@ -6,6 +6,7 @@ files[] = cyberhus_letterbox_extensions.module
 
 dependencies[] = entity
 dependencies[] = entityreference
+dependencies[] = save_draft
 
 version = "7.x-1.0"
 core = "7.x"

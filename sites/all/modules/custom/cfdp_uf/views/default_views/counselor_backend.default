@@ -1,0 +1,603 @@
+<?php
+function counselor_backend() {
+
+  $view = new view();
+  $view->name = 'counselor_backend';
+  $view->description = 'Displays relating to the questions and answers functionality';
+  $view->tag = 'Brevkasse, counselor, backend';
+  $view->base_table = 'node';
+  $view->human_name = 'Brevkasserådgiver oversigt';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Brevkasse';
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    5 => '5',
+    12 => '12',
+  );
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '30';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'nid' => 'nid',
+    'field_brevk_kategori' => 'field_brevk_kategori',
+    'created' => 'created',
+    'title' => 'title',
+    'view_node' => 'view_node',
+    'edit_node' => 'edit_node',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'nid' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_brevk_kategori' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'created' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'desc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'view_node' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'edit_node' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Overskrift: Global: Tekstområde */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = 'Her ses listen over de ikke offentliggjorte spørgsmål på cyberhus.dk. Hvis der i kolonnen "Besvarende redaktør" står "Anonym", betyder det, at spørgsmålet endnu ikke er blevet "taget". For at besvare spørgsmålet og dermed figurere som besvarende rådgiver, gør følgende:
+    <ul>
+    <li>Vælg "Redigér" og skriv et svar i svar-feltet.</li>
+    <li>Hvis du ikke færdiggør svaret med det samme, kan du sagtens gemme spørgsmålet og det foreløbige svar, undlad da blot at udgive indlægget. Du vil nu figurere som besvarende redaktør. Så kan du altid vende tilbage til det senere.</li>
+    <li>Når svaret er færdigt, markér feltet "Klar til udgivelse". Når du har trykket "Gem" kan koordinatoren udgive dit svar. </li>
+    </ul>
+    ';
+  $handler->display->display_options['header']['area']['format'] = '2';
+  $handler->display->display_options['header']['area']['tokenize'] = TRUE;
+  /* Forbindelse: Indhold: Taksonomitermer på node */
+  $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+  $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['label'] = 'brevkasse-termer';
+  $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
+    'content_categories' => 'content_categories',
+    'vocabulary_3' => 0,
+    'forumss' => 0,
+    'vocabulary_2' => 0,
+    'vocabulary_23' => 0,
+    'alder' => 0,
+    'avatars' => 0,
+    'frie_tags' => 0,
+    'hemmeligheder' => 0,
+    'municipalities' => 0,
+    'k_n' => 0,
+    'temaer' => 0,
+    'ung_i_byer' => 0,
+    'vocabulary_24' => 0,
+    'vocabulary_10' => 0,
+    'vocabulary_11' => 0,
+  );
+  /* Forbindelse: Indhold: Forfatter */
+  $handler->display->display_options['relationships']['uid']['id'] = 'uid';
+  $handler->display->display_options['relationships']['uid']['table'] = 'node';
+  $handler->display->display_options['relationships']['uid']['field'] = 'uid';
+  /* Felt: Indhold: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Kategori */
+  $handler->display->display_options['fields']['field_base_category']['id'] = 'field_base_category';
+  $handler->display->display_options['fields']['field_base_category']['table'] = 'field_data_field_base_category';
+  $handler->display->display_options['fields']['field_base_category']['field'] = 'field_base_category';
+  $handler->display->display_options['fields']['field_base_category']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Felt: Bruger: Navn */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['name']['label'] = 'Besvarende redaktør';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Oprettelsesdato */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = 'Oprettet d.';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'field_deadline_default';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'd.m.Y';
+  /* Felt: Indhold: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['alter']['max_length'] = '20';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Redigér-link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  /* Sorteringskriterie: Indhold: Oprettelsesdato */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filterkriterie: Indhold: Udgivet */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'brevkasse' => 'brevkasse',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+
+  /* Display: Koordinator */
+  $handler = $view->new_display('page', 'Koordinator', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Alle ikke-udgivne spørgsmål';
+  $handler->display->display_options['display_description'] = 'All unpublished questions';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+  );
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field__brevk_ready_to_publish',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['columns'] = array(
+    'nid' => 'nid',
+    'field_brevk_kategori' => 'field_brevk_kategori',
+    'created' => 'created',
+    'title' => 'title',
+    'name' => 'name',
+    'nothing' => 'nothing',
+    'field__brevk_ready_to_publish' => 'field__brevk_ready_to_publish',
+  );
+  $handler->display->display_options['style_options']['default'] = 'created';
+  $handler->display->display_options['style_options']['info'] = array(
+    'nid' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_brevk_kategori' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'created' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'desc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'nothing' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field__brevk_ready_to_publish' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Overskrift: Global: Tekstområde */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = 'Her ses listen over de ikke offentliggjorte spørgsmål på netstof.dk. Hvis der i kolonnen "Besvarende redaktør" står "Anonym", betyder det, at spørgsmålet endnu ikke er blevet "taget". For at besvare spørgsmålet og dermed figurere som besvarende rådgiver, gør følgende:
+    <ul>
+    <li>Vælg "Besvar spørgsmålet" og skriv et svar i svar-feltet.</li>
+    <li>Hvis du ikke færdiggør svaret med det samme, kan du sagtens gemme spørgsmålet og det foreløbige svar, undlad da blot at udgive indlægget. Så kan du altid vende tilbage til det senere. Men husk at gemme!</li>
+    <li>Når svaret er færdigt, gå da til "Udgivelse"-tabben nederst på siden og vælg "Udgivet". Herefter vil spørgsmål og svar være offentliggjort. </li>
+    <li>Notifikationer til rådgiverne: For at aktivere notifikationer for en kategori eller en Ung-i by, find den rette term på listerne her <a href="/admin/structure/taxonomy/ung_i_byer">Ung-i byer</a> eller <a href="/admin/structure/taxonomy/content_categories">Kategorier</a>, vælg "Redigér" og sæt flueben i "Send notifikationer". Der vil da udsendes notifikationer til de Brevkasserådgivere, som er tagget med den pågældende term.</li>
+    </ul>
+    ';
+  $handler->display->display_options['header']['area']['format'] = '2';
+  $handler->display->display_options['header']['area']['tokenize'] = TRUE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* Opførsel ved ingen resultater: Global: Tekstområde */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['content'] = '<p>Der er ingen upublicerede spørgsmål</p>';
+  $handler->display->display_options['empty']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Forbindelse: Indhold: Forfatter */
+  $handler->display->display_options['relationships']['uid']['id'] = 'uid';
+  $handler->display->display_options['relationships']['uid']['table'] = 'node';
+  $handler->display->display_options['relationships']['uid']['field'] = 'uid';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Indhold: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Kategori */
+  $handler->display->display_options['fields']['field_base_category']['id'] = 'field_base_category';
+  $handler->display->display_options['fields']['field_base_category']['table'] = 'field_data_field_base_category';
+  $handler->display->display_options['fields']['field_base_category']['field'] = 'field_base_category';
+  $handler->display->display_options['fields']['field_base_category']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Felt: Indhold: Ung i */
+  $handler->display->display_options['fields']['field_brevk_ungi']['id'] = 'field_brevk_ungi';
+  $handler->display->display_options['fields']['field_brevk_ungi']['table'] = 'field_data_field_brevk_ungi';
+  $handler->display->display_options['fields']['field_brevk_ungi']['field'] = 'field_brevk_ungi';
+  $handler->display->display_options['fields']['field_brevk_ungi']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Felt: Indhold: Oprettelsesdato */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = 'Spørgsmål oprettet';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'd.m.Y';
+  /* Felt: Indhold: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Felt: Bruger: Navn */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['name']['label'] = 'Besvarende redaktør';
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Link';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="/node/[nid]">Læs spørgsmålet</a> | <a href="/node/[nid]/edit">Besvar spørgsmålet</a>';
+  /* Felt: Indhold: Svar klar til udgivelse */
+  $handler->display->display_options['fields']['field__brevk_ready_to_publish']['id'] = 'field__brevk_ready_to_publish';
+  $handler->display->display_options['fields']['field__brevk_ready_to_publish']['table'] = 'field_data_field__brevk_ready_to_publish';
+  $handler->display->display_options['fields']['field__brevk_ready_to_publish']['field'] = 'field__brevk_ready_to_publish';
+  $handler->display->display_options['fields']['field__brevk_ready_to_publish']['label'] = 'Klar til udgivelse?';
+  $handler->display->display_options['fields']['field__brevk_ready_to_publish']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field__brevk_ready_to_publish']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field__brevk_ready_to_publish']['empty'] = 'Ikke angivet';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sorteringskriterie: Indhold: Oprettelsesdato */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'brevkasse' => 'brevkasse',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filterkriterie: Indhold: Udgivet */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '0';
+  $handler->display->display_options['path'] = 'user/%/koordinator';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Koordinator';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'user-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $handler->display->display_options['tab_options']['weight'] = '0';
+
+  /* Display: Brevkasserådgiver */
+  $handler = $view->new_display('page', 'Brevkasserådgiver', 'page_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Ikke-udgivne spørgsmål';
+  $handler->display->display_options['display_description'] = 'Unpublished questions filtered for the specific user';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Forbindelse: Indhold: Forfatter */
+  $handler->display->display_options['relationships']['uid']['id'] = 'uid';
+  $handler->display->display_options['relationships']['uid']['table'] = 'node';
+  $handler->display->display_options['relationships']['uid']['field'] = 'uid';
+  /* Forbindelse: Entity Reference: Refereret entity */
+  $handler->display->display_options['relationships']['field_base_category_target_id']['id'] = 'field_base_category_target_id';
+  $handler->display->display_options['relationships']['field_base_category_target_id']['table'] = 'field_data_field_base_category';
+  $handler->display->display_options['relationships']['field_base_category_target_id']['field'] = 'field_base_category_target_id';
+  $handler->display->display_options['relationships']['field_base_category_target_id']['required'] = TRUE;
+  /* Forbindelse: Entity Reference: Refereret entity */
+  $handler->display->display_options['relationships']['field_brevk_ungi_target_id']['id'] = 'field_brevk_ungi_target_id';
+  $handler->display->display_options['relationships']['field_brevk_ungi_target_id']['table'] = 'field_data_field_brevk_ungi';
+  $handler->display->display_options['relationships']['field_brevk_ungi_target_id']['field'] = 'field_brevk_ungi_target_id';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Indhold: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Kategori */
+  $handler->display->display_options['fields']['field_base_category']['id'] = 'field_base_category';
+  $handler->display->display_options['fields']['field_base_category']['table'] = 'field_data_field_base_category';
+  $handler->display->display_options['fields']['field_base_category']['field'] = 'field_base_category';
+  $handler->display->display_options['fields']['field_base_category']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Felt: Bruger: Navn */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['name']['label'] = 'Besvarende redaktør';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Oprettelsesdato */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = 'Oprettet d.';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'field_deadline_default';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'd.m.Y';
+  /* Felt: Indhold: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['alter']['max_length'] = '20';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Redigér-link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Kategori */
+  $handler->display->display_options['fields']['field_base_category_1']['id'] = 'field_base_category_1';
+  $handler->display->display_options['fields']['field_base_category_1']['table'] = 'field_data_field_base_category';
+  $handler->display->display_options['fields']['field_base_category_1']['field'] = 'field_base_category';
+  $handler->display->display_options['fields']['field_base_category_1']['label'] = '';
+  $handler->display->display_options['fields']['field_base_category_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_base_category_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_base_category_1']['alter']['text'] = '[field_base_category_1-target_id]';
+  $handler->display->display_options['fields']['field_base_category_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_base_category_1']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+  );
+  /* Felt: Ord i ordforråd: Term ID */
+  $handler->display->display_options['fields']['tid']['id'] = 'tid';
+  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['relationship'] = 'field_base_category_target_id';
+  $handler->display->display_options['fields']['tid']['label'] = '';
+  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['tid']['separator'] = '';
+  /* Felt: Ord i ordforråd: Term ID */
+  $handler->display->display_options['fields']['tid_1']['id'] = 'tid_1';
+  $handler->display->display_options['fields']['tid_1']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid_1']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid_1']['relationship'] = 'field_brevk_ungi_target_id';
+  $handler->display->display_options['fields']['tid_1']['label'] = '';
+  $handler->display->display_options['fields']['tid_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['tid_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['tid_1']['separator'] = '';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filterkriterie: Indhold: Udgivet */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '0';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'brevkasse' => 'brevkasse',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filterkriterie: Indhold: Forhåndsgodkendt af koordinator (field_approved_by_coordinator) */
+  $handler->display->display_options['filters']['field_approved_by_coordinator_value']['id'] = 'field_approved_by_coordinator_value';
+  $handler->display->display_options['filters']['field_approved_by_coordinator_value']['table'] = 'field_data_field_approved_by_coordinator';
+  $handler->display->display_options['filters']['field_approved_by_coordinator_value']['field'] = 'field_approved_by_coordinator_value';
+  $handler->display->display_options['filters']['field_approved_by_coordinator_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_approved_by_coordinator_value']['group'] = 1;
+  /* Filterkriterie: Global: PHP */
+  $handler->display->display_options['filters']['php']['id'] = 'php';
+  $handler->display->display_options['filters']['php']['table'] = 'views';
+  $handler->display->display_options['filters']['php']['field'] = 'php';
+  $handler->display->display_options['filters']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['filters']['php']['php_filter'] = '$node_terms=array(\'base\' =>$row->tid,\'ung_i\'=>$row->tid_1);
+    $result=!(cyberhus_letterbox_extensions_counselor_content_term_match($node_terms));
+    return $result;';
+  $handler->display->display_options['path'] = 'user/%/brevkasseraadgiver';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Brevkasserådgiver';
+  $handler->display->display_options['menu']['description'] = 'Ikke-udgivne spørgsmål i dine brevkasser';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'user-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $translatables['counselor_backend'] = array(
+    t('Master'),
+    t('Brevkasse'),
+    t('mere'),
+    t('Udfør'),
+    t('Gendan'),
+    t('Sortér efter'),
+    t('Stigende'),
+    t('Faldende'),
+    t('Antal elementer'),
+    t('- Alle -'),
+    t('Forskydning'),
+    t('« første'),
+    t('‹ forrige'),
+    t('næste ›'),
+    t('sidste »'),
+    t('Her ses listen over de ikke offentliggjorte spørgsmål på cyberhus.dk. Hvis der i kolonnen "Besvarende redaktør" står "Anonym", betyder det, at spørgsmålet endnu ikke er blevet "taget". For at besvare spørgsmålet og dermed figurere som besvarende rådgiver, gør følgende:
+    <ul>
+    <li>Vælg "Redigér" og skriv et svar i svar-feltet.</li>
+    <li>Hvis du ikke færdiggør svaret med det samme, kan du sagtens gemme spørgsmålet og det foreløbige svar, undlad da blot at udgive indlægget. Du vil nu figurere som besvarende redaktør. Så kan du altid vende tilbage til det senere.</li>
+    <li>Når svaret er færdigt, markér feltet "Klar til udgivelse". Når du har trykket "Gem" kan koordinatoren udgive dit svar. </li>
+    </ul>
+    '),
+    t('brevkasse-termer'),
+    t('forfatter'),
+    t('Kategori'),
+    t('Besvarende redaktør'),
+    t('Oprettet d.'),
+    t('Titel'),
+    t('Redigér-link'),
+    t('Koordinator'),
+    t('Alle ikke-udgivne spørgsmål'),
+    t('All unpublished questions'),
+    t('Her ses listen over de ikke offentliggjorte spørgsmål på netstof.dk. Hvis der i kolonnen "Besvarende redaktør" står "Anonym", betyder det, at spørgsmålet endnu ikke er blevet "taget". For at besvare spørgsmålet og dermed figurere som besvarende rådgiver, gør følgende:
+    <ul>
+    <li>Vælg "Besvar spørgsmålet" og skriv et svar i svar-feltet.</li>
+    <li>Hvis du ikke færdiggør svaret med det samme, kan du sagtens gemme spørgsmålet og det foreløbige svar, undlad da blot at udgive indlægget. Så kan du altid vende tilbage til det senere. Men husk at gemme!</li>
+    <li>Når svaret er færdigt, gå da til "Udgivelse"-tabben nederst på siden og vælg "Udgivet". Herefter vil spørgsmål og svar være offentliggjort. </li>
+    <li>Notifikationer til rådgiverne: For at aktivere notifikationer for en kategori eller en Ung-i by, find den rette term på listerne her <a href="/admin/structure/taxonomy/ung_i_byer">Ung-i byer</a> eller <a href="/admin/structure/taxonomy/content_categories">Kategorier</a>, vælg "Redigér" og sæt flueben i "Send notifikationer". Der vil da udsendes notifikationer til de Brevkasserådgivere, som er tagget med den pågældende term.</li>
+    </ul>
+    '),
+    t('<p>Der er ingen upublicerede spørgsmål</p>'),
+    t('Ung i'),
+    t('Spørgsmål oprettet'),
+    t('Link'),
+    t('<a href="/node/[nid]">Læs spørgsmålet</a> | <a href="/node/[nid]/edit">Besvar spørgsmålet</a>'),
+    t('Klar til udgivelse?'),
+    t('Ikke angivet'),
+    t('Brevkasserådgiver'),
+    t('Ikke-udgivne spørgsmål'),
+    t('Unpublished questions filtered for the specific user'),
+    t('Ord i ordforråd entity refereret fra field_base_category'),
+    t('Ord i ordforråd entity refereret fra field_brevk_ungi'),
+    t('[field_base_category_1-target_id]'),
+    t('.'),
+  );
+
+  return $view;
+
+}
