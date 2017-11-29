@@ -20,7 +20,7 @@ function counselor_backend() {
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
     5 => '5',
-    12 => '12',
+    13 => '13',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -98,12 +98,12 @@ function counselor_backend() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = 'Her ses listen over de ikke offentliggjorte spørgsmål på cyberhus.dk. Hvis der i kolonnen "Besvarende redaktør" står "Anonym", betyder det, at spørgsmålet endnu ikke er blevet "taget". For at besvare spørgsmålet og dermed figurere som besvarende rådgiver, gør følgende:
-    <ul>
-    <li>Vælg "Redigér" og skriv et svar i svar-feltet.</li>
-    <li>Hvis du ikke færdiggør svaret med det samme, kan du sagtens gemme spørgsmålet og det foreløbige svar, undlad da blot at udgive indlægget. Du vil nu figurere som besvarende redaktør. Så kan du altid vende tilbage til det senere.</li>
-    <li>Når svaret er færdigt, markér feltet "Klar til udgivelse". Når du har trykket "Gem" kan koordinatoren udgive dit svar. </li>
-    </ul>
-    ';
+      <ul>
+      <li>Vælg "Redigér" og skriv et svar i svar-feltet.</li>
+      <li>Hvis du ikke færdiggør svaret med det samme, kan du sagtens gemme spørgsmålet og det foreløbige svar, undlad da blot at udgive indlægget. Du vil nu figurere som besvarende redaktør. Så kan du altid vende tilbage til det senere.</li>
+      <li>Når svaret er færdigt, markér feltet "Klar til udgivelse". Når du har trykket "Gem" kan koordinatoren udgive dit svar. </li>
+      </ul>
+      ';
   $handler->display->display_options['header']['area']['format'] = '2';
   $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   /* Forbindelse: Indhold: Taksonomitermer på node */
@@ -297,13 +297,13 @@ function counselor_backend() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = 'Her ses listen over de ikke offentliggjorte spørgsmål på netstof.dk. Hvis der i kolonnen "Besvarende redaktør" står "Anonym", betyder det, at spørgsmålet endnu ikke er blevet "taget". For at besvare spørgsmålet og dermed figurere som besvarende rådgiver, gør følgende:
-    <ul>
-    <li>Vælg "Besvar spørgsmålet" og skriv et svar i svar-feltet.</li>
-    <li>Hvis du ikke færdiggør svaret med det samme, kan du sagtens gemme spørgsmålet og det foreløbige svar, undlad da blot at udgive indlægget. Så kan du altid vende tilbage til det senere. Men husk at gemme!</li>
-    <li>Når svaret er færdigt, gå da til "Udgivelse"-tabben nederst på siden og vælg "Udgivet". Herefter vil spørgsmål og svar være offentliggjort. </li>
-    <li>Notifikationer til rådgiverne: For at aktivere notifikationer for en kategori eller en Ung-i by, find den rette term på listerne her <a href="/admin/structure/taxonomy/ung_i_byer">Ung-i byer</a> eller <a href="/admin/structure/taxonomy/content_categories">Kategorier</a>, vælg "Redigér" og sæt flueben i "Send notifikationer". Der vil da udsendes notifikationer til de Brevkasserådgivere, som er tagget med den pågældende term.</li>
-    </ul>
-    ';
+      <ul>
+      <li>Vælg "Besvar spørgsmålet" og skriv et svar i svar-feltet.</li>
+      <li>Hvis du ikke færdiggør svaret med det samme, kan du sagtens gemme spørgsmålet og det foreløbige svar, undlad da blot at udgive indlægget. Så kan du altid vende tilbage til det senere. Men husk at gemme!</li>
+      <li>Når svaret er færdigt, gå da til "Udgivelse"-tabben nederst på siden og vælg "Udgivet". Herefter vil spørgsmål og svar være offentliggjort. </li>
+      <li>Notifikationer til rådgiverne: For at aktivere notifikationer for en kategori eller en Ung-i by, find den rette term på listerne her <a href="/admin/structure/taxonomy/ung_i_byer">Ung-i byer</a> eller <a href="/admin/structure/taxonomy/content_categories">Kategorier</a>, vælg "Redigér" og sæt flueben i "Send notifikationer". Der vil da udsendes notifikationer til de Brevkasserådgivere, som er tagget med den pågældende term.</li>
+      </ul>
+      ';
   $handler->display->display_options['header']['area']['format'] = '2';
   $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
@@ -532,15 +532,16 @@ function counselor_backend() {
   $handler->display->display_options['filters']['php']['field'] = 'php';
   $handler->display->display_options['filters']['php']['use_php_setup'] = 0;
   $handler->display->display_options['filters']['php']['php_filter'] = '$node_terms=array(\'base\' =>$row->tid,\'ung_i\'=>$row->tid_1);
-    $result=!(cyberhus_letterbox_extensions_counselor_content_term_match($node_terms));
-    return $result;';
+      $result=!(cyberhus_letterbox_extensions_counselor_content_term_match($node_terms));
+      return $result;';
   $handler->display->display_options['path'] = 'user/%/brevkasseraadgiver';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Brevkasserådgiver';
   $handler->display->display_options['menu']['description'] = 'Ikke-udgivne spørgsmål i dine brevkasser';
-  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['weight'] = '1';
   $handler->display->display_options['menu']['name'] = 'user-menu';
   $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $translatables['counselor_backend'] = array(
     t('Master'),
     t('Brevkasse'),
@@ -558,12 +559,12 @@ function counselor_backend() {
     t('næste ›'),
     t('sidste »'),
     t('Her ses listen over de ikke offentliggjorte spørgsmål på cyberhus.dk. Hvis der i kolonnen "Besvarende redaktør" står "Anonym", betyder det, at spørgsmålet endnu ikke er blevet "taget". For at besvare spørgsmålet og dermed figurere som besvarende rådgiver, gør følgende:
-    <ul>
-    <li>Vælg "Redigér" og skriv et svar i svar-feltet.</li>
-    <li>Hvis du ikke færdiggør svaret med det samme, kan du sagtens gemme spørgsmålet og det foreløbige svar, undlad da blot at udgive indlægget. Du vil nu figurere som besvarende redaktør. Så kan du altid vende tilbage til det senere.</li>
-    <li>Når svaret er færdigt, markér feltet "Klar til udgivelse". Når du har trykket "Gem" kan koordinatoren udgive dit svar. </li>
-    </ul>
-    '),
+      <ul>
+      <li>Vælg "Redigér" og skriv et svar i svar-feltet.</li>
+      <li>Hvis du ikke færdiggør svaret med det samme, kan du sagtens gemme spørgsmålet og det foreløbige svar, undlad da blot at udgive indlægget. Du vil nu figurere som besvarende redaktør. Så kan du altid vende tilbage til det senere.</li>
+      <li>Når svaret er færdigt, markér feltet "Klar til udgivelse". Når du har trykket "Gem" kan koordinatoren udgive dit svar. </li>
+      </ul>
+      '),
     t('brevkasse-termer'),
     t('forfatter'),
     t('Kategori'),
@@ -575,13 +576,13 @@ function counselor_backend() {
     t('Alle ikke-udgivne spørgsmål'),
     t('All unpublished questions'),
     t('Her ses listen over de ikke offentliggjorte spørgsmål på netstof.dk. Hvis der i kolonnen "Besvarende redaktør" står "Anonym", betyder det, at spørgsmålet endnu ikke er blevet "taget". For at besvare spørgsmålet og dermed figurere som besvarende rådgiver, gør følgende:
-    <ul>
-    <li>Vælg "Besvar spørgsmålet" og skriv et svar i svar-feltet.</li>
-    <li>Hvis du ikke færdiggør svaret med det samme, kan du sagtens gemme spørgsmålet og det foreløbige svar, undlad da blot at udgive indlægget. Så kan du altid vende tilbage til det senere. Men husk at gemme!</li>
-    <li>Når svaret er færdigt, gå da til "Udgivelse"-tabben nederst på siden og vælg "Udgivet". Herefter vil spørgsmål og svar være offentliggjort. </li>
-    <li>Notifikationer til rådgiverne: For at aktivere notifikationer for en kategori eller en Ung-i by, find den rette term på listerne her <a href="/admin/structure/taxonomy/ung_i_byer">Ung-i byer</a> eller <a href="/admin/structure/taxonomy/content_categories">Kategorier</a>, vælg "Redigér" og sæt flueben i "Send notifikationer". Der vil da udsendes notifikationer til de Brevkasserådgivere, som er tagget med den pågældende term.</li>
-    </ul>
-    '),
+      <ul>
+      <li>Vælg "Besvar spørgsmålet" og skriv et svar i svar-feltet.</li>
+      <li>Hvis du ikke færdiggør svaret med det samme, kan du sagtens gemme spørgsmålet og det foreløbige svar, undlad da blot at udgive indlægget. Så kan du altid vende tilbage til det senere. Men husk at gemme!</li>
+      <li>Når svaret er færdigt, gå da til "Udgivelse"-tabben nederst på siden og vælg "Udgivet". Herefter vil spørgsmål og svar være offentliggjort. </li>
+      <li>Notifikationer til rådgiverne: For at aktivere notifikationer for en kategori eller en Ung-i by, find den rette term på listerne her <a href="/admin/structure/taxonomy/ung_i_byer">Ung-i byer</a> eller <a href="/admin/structure/taxonomy/content_categories">Kategorier</a>, vælg "Redigér" og sæt flueben i "Send notifikationer". Der vil da udsendes notifikationer til de Brevkasserådgivere, som er tagget med den pågældende term.</li>
+      </ul>
+      '),
     t('<p>Der er ingen upublicerede spørgsmål</p>'),
     t('Ung i'),
     t('Spørgsmål oprettet'),
@@ -597,6 +598,7 @@ function counselor_backend() {
     t('[field_base_category_1-target_id]'),
     t('.'),
   );
+
 
   return $view;
 
