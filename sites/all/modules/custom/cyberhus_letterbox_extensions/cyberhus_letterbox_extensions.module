@@ -152,18 +152,19 @@ function cyberhus_letterbox_extensions_send_mail($params, $key) {
   $users = user_load_multiple(array_keys($results['user']));
   $emails = array();
   foreach($users as $user) {
-    if (!(user_has_role(5,$user) || user_has_role(13,$user))) {
-      watchdog('Cyberhus Letterbox Extensions', 'Trying to send notification mail, but no user had the counselor role.', WATCHDOG_WARNING);
-      return;
+    if (user_has_role(5,$user) || user_has_role(13,$user)) {
+      $wrapper = entity_metadata_wrapper('user',$user);
+      $emails[] = $wrapper->mail->value();
     }
-    $wrapper = entity_metadata_wrapper('user',$user);
-    $emails[] = $wrapper->mail->value();
+  }
+  if (empty($emails)) {
+    watchdog('Cyberhus Letterbox Extensions', 'Trying to send notification mail, but no users had the counselor role.', WATCHDOG_WARNING);
+    return;
   }
   $to = implode(", ", $emails);
   $params['to'] = $to;
   drupal_set_message(t('Sent notification to @users', array('@users'=>$to)), 'status');
   watchdog('Cyberhus Letterbox Extensions', 'Sent notifications to @users', array('@users' => $to), WATCHDOG_NOTICE);
-
   drupal_mail('cyberhus_letterbox_extensions', $key, $to, $language, $params, $from = NULL, $send = TRUE);
 }
 
