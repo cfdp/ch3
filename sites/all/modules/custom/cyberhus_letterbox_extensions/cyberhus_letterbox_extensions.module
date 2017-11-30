@@ -171,7 +171,8 @@ function cyberhus_letterbox_extensions_send_mail($params, $key) {
 /**
  * Implements hook_node_presave()
  *
- *
+ * Changes author to the counselor the first time it is saved.
+ * Initiates mail notifications to counselors
  */
 function cyberhus_letterbox_extensions_node_presave($node) {
   if ($node->type==='brevkasse') {
@@ -229,18 +230,33 @@ function cyberhus_letterbox_extensions_node_presave($node) {
 /**
  * Implements hook_node_form_alter()
  *
- * Customize the node form: make sure that the disclaimer field is shown for Ung-i questions
+ * Customize the node form for Ung-i: make sure that the disclaimer field is shown for Ung-i questions
+ * and remove some categories from the select list.
  */
 function cyberhus_letterbox_extensions_form_brevkasse_node_form_alter(&$form, &$form_state, $form_id) {
-  // If an anonymous user is adding a Ung-i question, add disclaimer
   global $user;
   $url_params = drupal_get_query_parameters();
   $term_populated = isset($url_params['field_brevk_ungi']);
   $lang = $form['field_brevk_user_confirmation']['#language'];
-  if ($term_populated && ($user->uid===0)) {
+  $tids_to_filter = array(2391,2393,2394);
+  $form['#attached']['css'][] = array(
+    'data' => '.form-item-field-avatar-und { display: inline; } .form-item-field-avatar-und img { height: 50px; width: 50px; }',
+    'type' => 'inline',
+  );
+  if (isset($user->roles[13])) {
+    // If an Ung-i counselor is editing the question, the irrelevant categories should be filtered out
+    cyberhus_letterbox_extensions_remove_select_options($form, $lang, $tids_to_filter);
+    // Don't show the Ung-i select list
+    $form['field_brevk_ungi']['#access'] = FALSE;
+  }
+  if ($term_populated && ($user->uid == 0)) {
     $term_id = $url_params['field_brevk_ungi'];
     $term_wrapper = entity_metadata_wrapper('taxonomy_term', $term_id);
-    if ($term_wrapper->getBundle()==="ung_i_byer") {
+    if ($term_wrapper->getBundle() == "ung_i_byer") {
+      // Don't show the Ung-i select list
+      $form['field_brevk_ungi']['#access'] = FALSE;
+      // Filter out categories from select list
+      cyberhus_letterbox_extensions_remove_select_options($form, $lang, $tids_to_filter);
       // Customize label and description of disclaimer field
       // If we have a user-defined disclaimer text, show that
       if ($term_wrapper->field_ungi_lb_discl_bool->value()) {
@@ -368,5 +384,16 @@ function cyberhus_letterbox_extensions_module_implements_alter(&$implementations
     $group = $implementations['cyberhus_letterbox_extensions'];
     unset($implementations['cyberhus_letterbox_extensions']);
     $implementations['cyberhus_letterbox_extensions'] = $group;
+  }
+}
+
+/**
+ * Custom function that removes select options from the brevkasse form
+ */
+function cyberhus_letterbox_extensions_remove_select_options(&$form, $lang, $tids) {
+  foreach($tids as $item) {
+    if (array_key_exists($item, $form['field_base_category'][$lang]['#options'])) {
+      unset($form['field_base_category'][$lang]['#options'][$item]);
+    }
   }
 }
