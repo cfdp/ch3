@@ -17,5 +17,13 @@ function cyberhus_ung_i_taxonomy_default_vocabularies() {
       'module' => 'taxonomy',
       'weight' => 0,
     ),
+    'ungi_size' => array(
+      'name' => 'Størrelse',
+      'machine_name' => 'ungi_size',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
   );
 }
