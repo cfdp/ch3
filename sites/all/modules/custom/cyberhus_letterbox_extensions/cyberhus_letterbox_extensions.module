@@ -118,14 +118,12 @@ function cyberhus_letterbox_extensions_mail($key, &$message, $params) {
     case 'letterbox_notification_counselors':
       // Set headers etc
       $message['to'] = $params['to'];
-      $message['subject'] = t('A new question has been added to @term_name', array('@term_name' => $params['term_name']));
-      $message['body'][] = t('Hello counselor!');
+      $message['subject'] = t('A new question in your municipality letterbox, on Cyberhus');
+      $message['body'][] = t('Dear municipality counselor, a new question has been added to your letterbox');
       $message['body'][] .= t('A new question has been added on @date', array('@date' => $params['date']));
-      $message['body'][] .= t('Title: @title', array('@title' => $params['title']));
       $message['body'][] .= t('Name: @name', array('@name' => $params['name']));
-      $message['body'][] .= t('Age: @age', array('@age' => $params['age']));
       $message['body'][] .= t('Gender: @gender', array('@gender' => $params['gender']));
-      $message['body'][] .= t('Question: ') . "\n" . $params['spoergsmaal'];
+      $message['body'][] .= t('Age: @age', array('@age' => $params['age']));
       $message['body'][] .= t('Respond to the question here: @edit_link', array('@edit_link' => $params['edit_link']));
       break;
   }
