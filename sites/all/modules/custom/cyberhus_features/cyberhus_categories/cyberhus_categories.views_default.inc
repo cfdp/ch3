@@ -76,6 +76,16 @@ function cyberhus_categories_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'content_categories' => 'content_categories',
   );
+  /* Filterkriterie: Ord i ordforråd: Status (field_letterbox_status) */
+  $handler->display->display_options['filters']['field_letterbox_status_tid']['id'] = 'field_letterbox_status_tid';
+  $handler->display->display_options['filters']['field_letterbox_status_tid']['table'] = 'field_data_field_letterbox_status';
+  $handler->display->display_options['filters']['field_letterbox_status_tid']['field'] = 'field_letterbox_status_tid';
+  $handler->display->display_options['filters']['field_letterbox_status_tid']['value'] = array(
+    2403 => '2403',
+  );
+  $handler->display->display_options['filters']['field_letterbox_status_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_letterbox_status_tid']['vocabulary'] = 'letterbox_status';
+  $handler->display->display_options['filters']['field_letterbox_status_tid']['hierarchy'] = 1;
 
   /* Display: Entity Reference - general */
   $handler = $view->new_display('entityreference', 'Entity Reference - general', 'entityreference_1');
@@ -108,6 +118,7 @@ function cyberhus_categories_views_default_views() {
     t('Alle'),
     t('Entity Reference - general'),
   );
+
   $export['categories_reference'] = $view;
 
   $view = new view();
