@@ -5,7 +5,8 @@ Adds a number of popup widgets to the Drupal site.
 
 The widgets can be styled following the guidelines of the customer site.
 
-The behaviour of the popup widget is simple: if the chat is open, the popup slides up from the bottom of the screen. From here the user can enter the chat directly. The popup can be closed by clicking the X. This choice will be remembered throughout the current session of the user.
+The behaviour of the popup widget is simple: if the chat is open, the popup slides up from the bottom of the screen. From here the user can enter the chat directly. 
+The popup can be closed by clicking the X. This choice will be saved in a cookie that persists throughout the current session of the user.
 
 When a chat is occupied it changes color and the chat can no longer be entered.
 
