@@ -71,7 +71,7 @@
    * See embed.html for example values
    */
   Drupal.behaviors.opeka_widgets.OpekaPopupController = function(opekaPopup) {
-    this.chatType = opekaPopup.chatType || "pair";
+    this.chatType = opekaPopup.chatType || "default"; // "default" accommodates both pair and group chats
     this.baseURL = opekaPopup.baseURL;
     this.chatURL = opekaPopup.baseURL + '/opeka-widgets/popup/' + this.chatType + '?client_url=' + opekaPopup.clientURL;
     this.chatName = opekaPopup.chatName;
