@@ -14,6 +14,17 @@ function cfdp_anonymizer_form_comment_form_alter(&$form, &$form_state) {
   }
 }
 /*
+ * Implementation of hook_form_node_form_alter()
+ *
+ * Hide the email field if the node is being edited.
+ * Should not be hidden when adding the node.
+ */
+function cfdp_anonymizer_form_node_form_alter(&$form, &$form_state) {
+  if ($form['nid']['#value'] != NULL) {
+    $form["field_brevk_email"]["#access"] = FALSE;
+  }
+}
+/*
  * Implementation of hook_menu_alter()
  *
  * http://drupal.stackexchange.com/questions/30483/how-do-i-override-menu-items-with-my-own-implementation
