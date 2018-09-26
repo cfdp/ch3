@@ -1,0 +1,6 @@
+name = GDPR log cleaner
+description = Remove user data from the Drupal core dblog (watchdog) module
+
+version = "7.x-1.0"
+core = "7.x"
+project = "gdpr_log_cleaner"
