@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the gdpr_log_cleaner module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function gdpr_log_cleaner_uninstall() {
+  variable_del('gdpr_log_cleaner_timelimit');
+}
