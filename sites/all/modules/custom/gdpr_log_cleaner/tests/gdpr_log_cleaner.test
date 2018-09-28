@@ -1,0 +1,183 @@
+<?php
+
+/**
+ * @file
+ * Tests for gdpr_log_cleaner module. @todo finish the tests
+ */
+
+/**
+ * Tests logging messages to the database.
+ */
+class GDPRLogCleanerTestCase extends DrupalWebTestCase {
+
+  /**
+   * A user with some relevant administrative permissions.
+   *
+   * @var object
+   */
+  protected $big_user;
+
+  /**
+   * A user without any permissions.
+   *
+   * @var object
+   */
+  protected $any_user;
+
+  public static function getInfo() {
+    return array(
+      'name' => 'GDPR Log Cleaner functionality',
+      'description' => 'Generate events and verify log cleaning.',
+      'group' => 'GDPR',
+    );
+  }
+
+  /**
+   * Enable modules and create users with specific permissions.
+   */
+  function setUp() {
+    parent::setUp('dblog', 'gdpr_log_cleaner', 'login_history');
+    // Create users.
+    $this->big_user = $this->drupalCreateUser(array('administer site configuration', 'access administration pages', 'access site reports', 'administer users'));
+    $this->any_user = $this->drupalCreateUser(array());
+  }
+
+  /**
+   * Tests Database Logging module functionality through interfaces.
+   *
+   * First logs in users, then 
+   */
+  function testGDPRLogCleaner() {
+    // Login the admin user.
+    $this->drupalLogin($this->big_user);
+
+    $time_limit = 180;
+    $this->verifyTimeLimit($time_limit);
+/*     $this->verifyCron($time_limit);
+    $this->verifyEvents();
+    $this->verifyReports(); */
+
+    // Login the regular user.
+    $this->drupalLogin($this->any_user);
+/*     $this->verifyReports(403); */
+  }
+
+  /**
+   * Verifies setting of the database log time limit.
+   *
+   * @param int $date_limit
+   *   The date limit.
+   */
+  private function verifyTimeLimit($time_limit) {
+    // Change the database log time limit.
+    $edit = array();
+    $edit['gdpr_log_cleaner_timelimit'] = $time_limit;
+    $this->drupalPost('admin/config/system/gdpr_log_cleaner', $edit, t('Save configuration'));
+    $this->assertResponse(200);
+
+    // Check row limit variable.
+    $current_limit = variable_get('dblog_row_limit', 1000);
+    $this->assertTrue($current_limit == $row_limit, format_string('[Cache] Row limit variable of @count equals row limit of @limit', array('@count' => $current_limit, '@limit' => $row_limit)));
+    // Verify dblog row limit equals specified row limit.
+    $current_limit = unserialize(db_query("SELECT value FROM {variable} WHERE name = :dblog_limit", array(':dblog_limit' => 'dblog_row_limit'))->fetchField());
+    $this->assertTrue($current_limit == $row_limit, format_string('[Variable table] Row limit variable of @count equals row limit of @limit', array('@count' => $current_limit, '@limit' => $row_limit)));
+  }
+
+  /**
+   * Verifies that cron correctly applies the database log row limit.
+   *
+   * @param int $time_limit
+   *   The time limit.
+   */
+  private function verifyCron($time_limit) {
+    // Generate additional log entries.
+    $this->generateLogEntries($row_limit + 10);
+    // Verify that the database log row count exceeds the row limit.
+    $count = db_query('SELECT COUNT(wid) FROM {watchdog}')->fetchField();
+    $this->assertTrue($count > $row_limit, format_string('Dblog row count of @count exceeds row limit of @limit', array('@count' => $count, '@limit' => $row_limit)));
+
+    // Run a cron job.
+    $this->cronRun();
+    // Verify that the database log row count equals the row limit plus one
+    // because cron adds a record after it runs.
+    $count = db_query('SELECT COUNT(wid) FROM {watchdog}')->fetchField();
+    $this->assertTrue($count == $row_limit + 1, format_string('Dblog row count of @count equals row limit of @limit plus one', array('@count' => $count, '@limit' => $row_limit)));
+  }
+
+  /**
+   * Generates a number of random database log events.
+   *
+   * @param int $count
+   *   Number of watchdog entries to generate.
+   * @param string $type
+   *   (optional) The type of watchdog entry. Defaults to 'custom'.
+   * @param int $severity
+   *   (optional) The severity of the watchdog entry. Defaults to WATCHDOG_NOTICE.
+   * @param int $timestamp
+   *   (optional) The timestamp of the watchdog entry. Defaults to 100 - that is a very long time ago.
+   */
+  private function generateLogEntries($count, $type = 'custom', $severity = WATCHDOG_NOTICE, $timestamp = 100) {
+    global $base_root;
+
+    // This long URL makes it just a little bit harder to pass the link part of
+    // the test with a mix of English words and a repeating series of random
+    // percent-encoded Chinese characters.
+    $link = urldecode('/content/xo%E9%85%B1%E5%87%89%E6%8B%8C%E7%B4%A0%E9%B8%A1%E7%85%A7%E7%83%A7%E9%B8%A1%E9%BB%84%E7%8E%AB%E7%91%B0-%E7%A7%91%E5%B7%9E%E7%9A%84%E5%B0%8F%E4%B9%9D%E5%AF%A8%E6%B2%9F%E7%BB%9D%E7%BE%8E%E9%AB%98%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%85%B1%E5%87%89%E6%8B%8C%E7%B4%A0%E9%B8%A1%E7%85%A7%E7%83%A7%E9%B8%A1%E9%BB%84%E7%8E%AB%E7%91%B0-%E7%A7%91%E5%B7%9E%E7%9A%84%E5%B0%8F%E4%B9%9D%E5%AF%A8%E6%B2%9F%E7%BB%9D%E7%BE%8E%E9%AB%98%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%85%B1%E5%87%89%E6%8B%8C%E7%B4%A0%E9%B8%A1%E7%85%A7%E7%83%A7%E9%B8%A1%E9%BB%84%E7%8E%AB%E7%91%B0-%E7%A7%91%E5%B7%9E%E7%9A%84%E5%B0%8F%E4%B9%9D%E5%AF%A8%E6%B2%9F%E7%BB%9D%E7%BE%8E%E9%AB%98%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%85%B1%E5%87%89%E6%8B%8C%E7%B4%A0%E9%B8%A1%E7%85%A7%E7%83%A7%E9%B8%A1%E9%BB%84%E7%8E%AB%E7%91%B0-%E7%A7%91%E5%B7%9E%E7%9A%84%E5%B0%8F%E4%B9%9D%E5%AF%A8%E6%B2%9F%E7%BB%9D%E7%BE%8E%E9%AB%98%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%85%B1%E5%87%89%E6%8B%8C%E7%B4%A0%E9%B8%A1%E7%85%A7%E7%83%A7%E9%B8%A1%E9%BB%84%E7%8E%AB%E7%91%B0-%E7%A7%91%E5%B7%9E%E7%9A%84%E5%B0%8F%E4%B9%9D%E5%AF%A8%E6%B2%9F%E7%BB%9D%E7%BE%8E%E9%AB%98%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%85%B1%E5%87%89%E6%8B%8C%E7%B4%A0%E9%B8%A1%E7%85%A7%E7%83%A7%E9%B8%A1%E9%BB%84%E7%8E%AB%E7%91%B0-%E7%A7%91%E5%B7%9E%E7%9A%84%E5%B0%8F%E4%B9%9D%E5%AF%A8%E6%B2%9F%E7%BB%9D%E7%BE%8E%E9%AB%98%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%85%B1%E5%87%89%E6%8B%8C%E7%B4%A0%E9%B8%A1%E7%85%A7%E7%83%A7%E9%B8%A1%E9%BB%84%E7%8E%AB%E7%91%B0-%E7%A7%91%E5%B7%9E%E7%9A%84%E5%B0%8F%E4%B9%9D%E5%AF%A8%E6%B2%9F%E7%BB%9D%E7%BE%8E%E9%AB%98%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%85%B1%E5%87%89%E6%8B%8C%E7%B4%A0%E9%B8%A1%E7%85%A7%E7%83%A7%E9%B8%A1%E9%BB%84%E7%8E%AB%E7%91%B0-%E7%A7%91%E5%B7%9E%E7%9A%84%E5%B0%8F%E4%B9%9D%E5%AF%A8%E6%B2%9F%E7%BB%9D%E7%BE%8E%E9%AB%98%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%85%B1%E5%87%89%E6%8B%8C%E7%B4%A0%E9%B8%A1%E7%85%A7%E7%83%A7%E9%B8%A1%E9%BB%84%E7%8E%AB%E7%91%B0-%E7%A7%91%E5%B7%9E%E7%9A%84%E5%B0%8F%E4%B9%9D%E5%AF%A8%E6%B2%9F%E7%BB%9D%E7%BE%8E%E9%AB%98%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%85%B1%E5%87%89%E6%8B%8C%E7%B4%A0%E9%B8%A1%E7%85%A7%E7%83%A7%E9%B8%A1%E9%BB%84%E7%8E%AB%E7%91%B0-%E7%A7%91%E5%B7%9E%E7%9A%84%E5%B0%8F%E4%B9%9D%E5%AF%A8%E6%B2%9F%E7%BB%9D%E7%BE%8E%E9%AB%98%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%85%B1%E5%87%89%E6%8B%8C%E7%B4%A0%E9%B8%A1%E7%85%A7%E7%83%A7%E9%B8%A1%E9%BB%84%E7%8E%AB%E7%91%B0-%E7%A7%91%E5%B7%9E%E7%9A%84%E5%B0%8F%E4%B9%9D%E5%AF%A8%E6%B2%9F%E7%BB%9D%E7%BE%8E%E9%AB%98%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%85%B1%E5%87%89%E6%8B%8C%E7%B4%A0%E9%B8%A1%E7%85%A7%E7%83%A7%E9%B8%A1%E9%BB%84%E7%8E%AB%E7%91%B0-%E7%A7%91%E5%B7%9E%E7%9A%84%E5%B0%8F%E4%B9%9D%E5%AF%A8%E6%B2%9F%E7%BB%9D%E7%BE%8E%E9%AB%98%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%85%B1%E5%87%89%E6%8B%8C%E7%B4%A0%E9%B8%A1%E7%85%A7%E7%83%A7%E9%B8%A1%E9%BB%84%E7%8E%AB%E7%91%B0-%E7%A7%91%E5%B7%9E%E7%9A%84%E5%B0%8F%E4%B9%9D%E5%AF%A8%E6%B2%9F%E7%BB%9D%E7%BE%8E%E9%AB%98%E5%B1%B1%E6%B9%96%E6%B3%8A-lake-isabelle');
+
+    // Prepare the fields to be logged
+    $log = array(
+      'type'        => $type,
+      'message'     => 'Log entry added to test the gdpr log cleaner to,e limit.',
+      'variables'   => array(),
+      'severity'    => $severity,
+      'link'        => $link,
+      'user'        => $this->big_user,
+      'uid'         => isset($this->big_user->uid) ? $this->big_user->uid : 0,
+      'request_uri' => $base_root . request_uri(),
+      'referer'     => $_SERVER['HTTP_REFERER'],
+      'ip'          => ip_address(),
+      'timestamp'   => $timestamp,
+      );
+    $message = 'Log entry added to test the gdpr log cleaner time limit. Entry #';
+    for ($i = 0; $i < $count; $i++) {
+      $log['message'] = $message . $i;
+      dblog_watchdog($log);
+    }
+  }
+
+  /**
+   * Tests the addition and clearing of log events through the admin interface.
+   *
+   * Logs in the admin user, creates a database log event, and tests the
+   * functionality of clearing the database log through the admin interface.
+   */
+  protected function testDBLogAddAndClear() {
+    global $base_root;
+    // Get a count of how many watchdog entries already exist.
+    $count = db_query('SELECT COUNT(*) FROM {watchdog}')->fetchField();
+    $log = array(
+      'type'        => 'custom',
+      'message'     => 'Log entry added to test the doClearTest clear down.',
+      'variables'   => array(),
+      'severity'    => WATCHDOG_NOTICE,
+      'link'        => NULL,
+      'user'        => $this->big_user,
+      'uid'         => isset($this->big_user->uid) ? $this->big_user->uid : 0,
+      'request_uri' => $base_root . request_uri(),
+      'referer'     => $_SERVER['HTTP_REFERER'],
+      'ip'          => ip_address(),
+      'timestamp'   => REQUEST_TIME,
+    );
+    // Add a watchdog entry.
+    dblog_watchdog($log);
+    // Make sure the table count has actually been incremented.
+    $this->assertEqual($count + 1, db_query('SELECT COUNT(*) FROM {watchdog}')->fetchField(), format_string('dblog_watchdog() added an entry to the dblog :count', array(':count' => $count)));
+    // Login the admin user.
+    $this->drupalLogin($this->big_user);
+    // Post in order to clear the database table.
+    $this->drupalPost('admin/reports/dblog', array(), t('Clear log messages'));
+    // Count the rows in watchdog that previously related to the deleted user.
+    $count = db_query('SELECT COUNT(*) FROM {watchdog}')->fetchField();
+    $this->assertEqual($count, 0, format_string('DBLog contains :count records after a clear.', array(':count' => $count)));
+  }
+}
