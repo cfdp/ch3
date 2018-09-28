@@ -23,8 +23,8 @@ function gdpr_log_cleaner_permission() {
 function gdpr_log_cleaner_menu() {
   $items = array();
 
-  $items['admin/config/development/gdpr_log_cleaner'] = array(
-    'title' => 'GDPR log cleaner administration',
+  $items['admin/config/system/gdpr_log_cleaner'] = array(
+    'title' => 'GDPR log cleaner',
     'description' => 'Administration pages for GDPR log cleaner.',
     'type' => MENU_NORMAL_ITEM,
     'weight' => 1,
@@ -46,6 +46,7 @@ function gdpr_log_cleaner_admin() {
     '#size' => 3,
     '#default_value' => variable_get('gdpr_log_cleaner_timelimit', 180),
     '#maxlength' => 10,
+    '#element_validate' => array('element_validate_integer_positive')
   );
 
   return system_settings_form($form);
@@ -57,40 +58,45 @@ function gdpr_log_cleaner_admin() {
  */
 function gdpr_log_cleaner_cron() {
 
-  // Make sure that the dblog module is enabled and it is configured to keep all messages
-  if (!module_exists('dblog')) {
-    drupal_set_message(t('The dblog module is not enabled. The GDPR log cleaner depends on it! Please enable.'));
-    return;
-  }
+  // Which logging modules are enabled?
+  $dblog_enabled = module_exists('dblog');
+  $login_history_enabled = module_exists('login_history');
 
-  // Make sure that the dblog module is configured to keep all messages
-  $row_limit = variable_get('dblog_row_limit', 0);
-  if ($row_limit !== 0) {
-    variable_set('dblog_row_limit', 0);
-    watchdog('gdpr_log_cleaner','The dblog module row limit has been adjusted to "Keep all". This is needed to enforce time based pruning.');
-  }
+  // Get the number of days to keep log entries.
+  $clean_timelimit = check_plain(variable_get('gdpr_log_cleaner_timelimit', 180));
 
-  // Cleanup the dblog table after a given number of days.
-  $clean_timelimit = variable_get('gdpr_log_cleaner_timelimit', 180);
+  if ($dblog_enabled) {
+    // Get the first row that is older than timelimit and delete all rows older than that
+    if ($clean_timelimit > 0) {
+      // Make sure that the dblog module is configured to keep all messages
+      $row_limit = variable_get('dblog_row_limit', 1000);
+      if ($row_limit !== 0) {
+        variable_set('dblog_row_limit', 0);
+        watchdog('gdpr_log_cleaner','The dblog module row limit has been adjusted to "Keep all". This is needed to enforce time based pruning.');
+      }
+      // convert time limit in days into unix timestamp
+      $date_now = strtotime(date("Y-m-d", strtotime("now")));
+      $limit = "-" . $clean_timelimit . " day";
+      $date_limit = strtotime(date("Y-m-d", strtotime($limit)));
+      $max_age = db_select('watchdog', 't')
+        ->fields('t', array('timestamp'))
+        ->orderBy('t.timestamp', 'DESC')
+        ->condition('t.timestamp', $date_limit, '<')
+        ->execute()->fetchObject();
 
-  // Get the first row that is older than timelimit and delete all rows older than that
-  if ($clean_timelimit > 0) {
-    // convert time limit in days into unix timestamp
-    $date_now = strtotime(date("Y-m-d", strtotime("now")));
-    $limit = "-" . $clean_timelimit . " day";
-    $date_limit = strtotime(date("Y-m-d", strtotime($limit)));
-    $max_age = db_select('watchdog', 't')
-      ->fields('t', array('timestamp'))
-      ->orderBy('t.timestamp', 'DESC')
-      ->condition('t.timestamp', $date_limit, '<')
-      ->execute()->fetchObject();
-
-      // Delete all table entries older than max_age, if the row was found.
-    if ($max_age) {
-      db_delete('watchdog')
+        // Delete all table entries older than max_age, if the row was found.
+      if ($max_age) {
+        db_delete('watchdog')
         ->condition('timestamp', $max_age->timestamp, '<')
         ->execute();
+      }
     }
+  }
+  if ($login_history_enabled && $clean_timelimit > 0) {
+    // Delete all table entries from the Login history module older than the date limit
+    db_delete('login_history')
+    ->condition('login', $date_limit, '<')
+    ->execute();
   }
   return;
 }
@@ -100,11 +106,9 @@ function gdpr_log_cleaner_cron() {
  */
 function gdpr_log_cleaner_delete_user_data($user_id) {
 
-  // Make sure that the dblog module is enabled and it is configured to keep all messages
-  if (!module_exists('dblog')) {
-    drupal_set_message(t('The dblog module is not enabled. The GDPR log cleaner depends on it! Please enable.'));
-    return;
-  }
+  // Which logging modules are enabled?
+  $dblog_enabled = module_exists('dblog');
+  $login_history_enabled = module_exists('login_history');
 
   // Make sure the user exists
   $user_exists = db_select('users', 'u')
@@ -120,22 +124,47 @@ function gdpr_log_cleaner_delete_user_data($user_id) {
     return;
   }
 
-  // Delete all table entries relating to the user
-  $num_rows = db_select('watchdog')
-  ->condition('uid', $user_id, '=')
-  ->countQuery()
-  ->execute()->fetchField();
+  if ($dblog_enabled) {
+    // Delete all dblog table entries relating to the user
+    $num_rows = db_select('watchdog')
+    ->condition('uid', $user_id, '=')
+    ->countQuery()
+    ->execute()->fetchField();
 
-  if (!$num_rows) {
-    drupal_set_message(t('There was no data to remove for the user with id %user_id.', array('%user_id'=>$user_id)));
-    watchdog('gdpr_log_cleaner','There was no data to remove for the user with id %user_id.', array('%user_id'=>$user_id));
+    if (!$num_rows) {
+      drupal_set_message(t('There was no DBlog data to remove for the user with id %user_id.', array('%user_id'=>$user_id)));
+      watchdog('gdpr_log_cleaner','There was no DBlog data to remove for the user with id %user_id.', array('%user_id'=>$user_id));
+      return;
+    }
 
-    return;
+    db_delete('watchdog')
+      ->condition('uid', $user_id, '=')
+      ->execute();
+    watchdog('gdpr_log_cleaner','%num_rows data rows relating to the user with id %user_id was deleted from the DBlog table', 
+      array('%num_rows'=>$num_rows,'%user_id'=>$user_id));
+    drupal_set_message(t('%num_rows data rows relating to the user with id %user_id was deleted from the DBlog table.', 
+      array('%num_rows'=>$num_rows,'%user_id'=>$user_id)));
   }
 
-  db_delete('watchdog')
+  if ($login_history_enabled) {
+    // Delete all login history table entries relating to the user
+    $num_rows = db_select('login_history')
     ->condition('uid', $user_id, '=')
-    ->execute();
-    watchdog('gdpr_log_cleaner','%num_rows data rows relating to the user with id %user_id was deleted from the watchdog table', array('%num_rows'=>$num_rows,'%user_id'=>$user_id));
-    drupal_set_message(t('%num_rows data rows relating to the user with id %user_id was deleted from the watchdog table.', array('%num_rows'=>$num_rows,'%user_id'=>$user_id)));
+    ->countQuery()
+    ->execute()->fetchField();
+
+    if (!$num_rows) {
+      drupal_set_message(t('There was no Login History data to remove for the user with id %user_id.', array('%user_id'=>$user_id)));
+      watchdog('gdpr_log_cleaner','There was no Login History data to remove for the user with id %user_id.', array('%user_id'=>$user_id));
+      return;
+    }
+
+    db_delete('login_history')
+      ->condition('uid', $user_id, '=')
+      ->execute();
+    watchdog('gdpr_log_cleaner','%num_rows data rows relating to the user with id %user_id was deleted from the Login History table', 
+      array('%num_rows'=>$num_rows,'%user_id'=>$user_id));
+    drupal_set_message(t('%num_rows data rows relating to the user with id %user_id was deleted from the Login History table.', 
+      array('%num_rows'=>$num_rows,'%user_id'=>$user_id)));
+  }
 }
