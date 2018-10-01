@@ -42,4 +42,43 @@
  */
 ?>
 
-<?php print render($content); ?>
+<div id="taxonomy-term-<?php print $term->tid; ?>" class="<?php print $classes; ?>">
+
+  <div class="content<?php print ' chat-state-' . $chat_state?>">
+    <?php hide($content['field_ungi_offer_desc']); ?>
+    <?php hide($content['field_ungi_brevkasse_desc']); ?>
+    <?php
+     if(!$chat_state) {
+       hide($content['field_ungi_chat_embed']);
+       hide($content['field_ungi_chat_desc']);
+     }
+     ?>
+    <?php print render($content); ?>
+    <div class="local-offers">
+      <?php print render($content['field_ungi_offer_desc']); ?>
+      <?php
+        $name = str_replace(' ','-', $term->name);
+        $name = strtolower($name);
+      ?>
+      <a href="<?php print url('ung-i/' . $name . '/lokale-tilbud'); ?>" class="button"><?php print t("See all offers"); ?></a>
+    </div>
+  </div>
+
+</div>
+
+<?php if($lb_state) : ?>
+  <h2 id="related-content"><?php print t("Letter box"); ?></h2>
+  <div class="node-related ungi">
+  <div class="node-related-sidebar">
+    <div class="block">
+    <?php print render($content['field_ungi_brevkasse_desc']); ?>
+    <?php if($lb_open) : ?>
+    <a href="<?php print url('node/add/brevkasse', array('query' => array('field_brevk_ungi' => $term->tid))); ?>" class="button"><?php print t("Create question"); ?></a>
+    <?php endif; ?>
+    </div>
+  </div>
+    <div class="node-related-content">
+      <?php print views_embed_view('frontpage_stream', 'block_2'); ?>
+    </div>
+  </div>
+<?php endif; ?>
