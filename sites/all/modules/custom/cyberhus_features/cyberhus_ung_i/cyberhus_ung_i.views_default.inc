@@ -52,8 +52,7 @@ function cyberhus_ung_i_views_default_views() {
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = 'Nogle kommuner har en lokal chat på Cyberhus, hvor du kan chatte helt anonymt med din kommune. Under de enkelte kommuner kan du se åbningstider for chatten.
-Har din kommune endnu ikke oprettet en chat, er du selvfølgelig stadig mere end velkommen til at benytte Cyberhus’ chat, hvor du kan komme i kontakt med Cyberhus’ rådgivere og andre unge.';
+  $handler->display->display_options['footer']['area']['content'] = 'Cras ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus';
   $handler->display->display_options['footer']['area']['format'] = '1';
   /* Felt: Ord i ordforråd: Navn */
   $handler->display->display_options['fields']['name']['id'] = 'name';
@@ -83,7 +82,7 @@ Har din kommune endnu ikke oprettet en chat, er du selvfølgelig stadig mere end
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'ung-i';
+  $handler->display->display_options['path'] = 'ung-i-ny';
   $translatables['ung_i_landing_page'] = array(
     t('Master'),
     t('Ung i'),
@@ -94,8 +93,7 @@ Har din kommune endnu ikke oprettet en chat, er du selvfølgelig stadig mere end
     t('Stigende'),
     t('Faldende'),
     t('<h2>Vælg din kommune</h2>'),
-    t('Nogle kommuner har en lokal chat på Cyberhus, hvor du kan chatte helt anonymt med din kommune. Under de enkelte kommuner kan du se åbningstider for chatten.
-Har din kommune endnu ikke oprettet en chat, er du selvfølgelig stadig mere end velkommen til at benytte Cyberhus’ chat, hvor du kan komme i kontakt med Cyberhus’ rådgivere og andre unge.'),
+    t('Cras ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus'),
     t('taxonomy/term/[tid]'),
     t('.'),
     t('Page'),

@@ -21,7 +21,7 @@ function cyberhus_ung_i_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Chat opsætning',
-    'weight' => '7',
+    'weight' => '5',
     'children' => array(
       0 => 'field_chatnavn',
       1 => 'field_chatbeskrivelse',
@@ -85,35 +85,31 @@ function cyberhus_ung_i_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Brevkasse indstillinger',
-    'weight' => '3',
+    'label' => 'Indstillinger',
+    'weight' => '2',
     'children' => array(
-      0 => 'field_ungi_lb_open',
-      1 => 'field_ungi_lb_state',
-      2 => 'field_letterbox_notifications',
-      3 => 'field_ungi_lb_discl_bool',
-      4 => 'field_ungi_lb_discl_label',
-      5 => 'field_ungi_lb_disclaimer',
+      0 => 'field_ungi_lb_state',
+      1 => 'field_ungi_lb_open',
+      2 => 'field_ungi_chat_state',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Brevkasse indstillinger',
+      'formatter' => 'collapsible',
       'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-ungi-settings field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
-        'classes' => 'group-ungi-settings field-group-fieldset',
-        'description' => '',
       ),
-      'formatter' => 'collapsed',
     ),
   );
   $field_groups['group_ungi_settings|taxonomy_term|ung_i_byer|form'] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Brevkasse indstillinger');
   t('Chat opsætning');
   t('Indhold');
+  t('Indstillinger');
 
   return $field_groups;
 }
