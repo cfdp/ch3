@@ -41,10 +41,9 @@ if($content['field_ungi_size'][0]['#title'] == "100%"){
 <div class="<?php print $classes; ?> <?php print $custom_class; ?>"<?php print $attributes; ?>>
             
     <?php if($lb_state) : ?>
-    <h2><?php print t("Letter box"); ?></h2>
+    <h2 id="ung-i-brevkasse"><?php print t("Letter box"); ?></h2>
         <div class="sidebar">
             <div class="sidebar-wrapper">
-            <h3><?php print render($content['field_ungi_lb_title'][0]['#markup']); ?></h3>
             <?php print render($content['field_ungi_lb_description'][0]['#markup']); ?>
             <?php if($lb_open) : ?>
                 <a href="<?php print url('node/add/brevkasse', array('query' => array('field_brevk_ungi' => $term->tid))); ?>" class="button"><?php print t("Create question"); ?></a>

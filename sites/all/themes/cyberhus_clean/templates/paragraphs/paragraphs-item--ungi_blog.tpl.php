@@ -45,10 +45,9 @@
 
 <div class="<?php print $classes; ?> <?php print $custom_class; ?>"<?php print $attributes; ?>>
             
-    <h2><?php print t("Latest blog posts"); ?></h2>
+    <h2 id="ung-i-blog"><?php print t("Latest blog posts"); ?></h2>
         <div class="sidebar">
             <div class="sidebar-wrapper">
-            <h3><?php print render($content['field_ungi_blog_title'][0]['#markup']); ?></h3>
             <?php print render($content['field_ungi_blog_about'][0]['#markup']); ?>
             </div>
         </div>

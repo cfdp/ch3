@@ -6,5 +6,6 @@ $(document).ready(function() {
     $(".narrow").parents('.field-item').addClass("narrow-element");
     $(".paragraphs-item-ungi-alm-tekst").parents('.field-item').addClass("add-bg");
     $(".paragraphs-item-ungi-lokale-tilbud").parents('.field-item').addClass("add-bg");
+    $(".paragraphs-item-ungi-iframe-embed").parents('.field-item').addClass("add-bg grey");
 
 });

@@ -6,6 +6,10 @@
     background: #fff;
 }
 
+.paragraphs-items-field-ungi-content .field-item.add-bg.grey{
+    background: #c7c7c7;
+}
+
 .field-name-field-ungi-content > .field-items .paragraphs-item-ungi-alm-tekst h2,
 .field-name-field-ungi-content > .field-items .paragraphs-item-ungi-lokale-tilbud h2{
     font-weight: 700;
@@ -20,6 +24,9 @@
 
 .paragraphs-items-field-ungi-content .field-item.add-bg > div{
     padding: 2em;
+}
+.paragraphs-items-field-ungi-content .field-item.add-bg > div.paragraphs-item-ungi-iframe-embed{
+    padding: 0;
 }
 
 .field-name-field-ungi-content > .field-items iframe{
@@ -42,8 +49,9 @@
 }
 
 .paragraphs-items-field-ungi-content .field-item > div > h2{
-    font-size: 1.75em;
+    font-size: 2.5em;
     margin-bottom: 0.5em;
+    margin-top: 0.75em;
 }
 
 .field-name-field-ungi-content > .field-items h3{
@@ -91,6 +99,10 @@
 .paragraphs-items-field-ungi-content .paragraphs-item-ungi-blog .ungi-blogs-content-wrapper{
     display:table-cell;
     vertical-align: top;
+}
+
+.paragraphs-items-field-ungi-content .paragraphs-item-ungi-blog .ungi-blogs-content-wrapper .ungi_blogs_body{
+    line-height: 1.5em;
 }
 
 .paragraphs-items-field-ungi-content .view .view-content .views-row{
