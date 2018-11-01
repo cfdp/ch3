@@ -229,6 +229,30 @@ function cyberhus_clean_preprocess_taxonomy_term(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_entity().
+ */
+function cyberhus_clean_preprocess_entity(&$variables) {
+  if ($variables['entity_type'] == 'paragraphs_item') {
+    $term = menu_get_object('taxonomy_term', 2);
+    $variables['term'] = $term;
+
+    // Settings for the letter box and chat
+    $variables['lb_state'] = 0;
+    $variables['lb_open'] = 0;
+    $variables['chat_state'] = 0;
+    if (isset($term->field_ungi_lb_state['und'][0]['value'])) {
+      $variables['lb_state'] = $term->field_ungi_lb_state['und'][0]['value'];
+    }
+    if (isset($term->field_ungi_lb_open['und'][0]['value'])) {
+      $variables['lb_open'] = $term->field_ungi_lb_open['und'][0]['value'];
+    }
+    if (isset($term->field_ungi_chat_state['und'][0]['value'])) {
+      $variables['chat_state'] = $term->field_ungi_chat_state['und'][0]['value'];
+    }
+  }
+}
+
+/**
  * Implements hook_preprocess_block().
  */
 function cyberhus_clean_preprocess_block(&$variables) {
