@@ -38,6 +38,6 @@
 ?>
 
 <div class="<?php print $classes; ?> <?php print $custom_class; ?>">
-<h2><?php print render($content['field_ungi_at_titel'][0]['#markup']); ?></h2>
-<p><?php print render($content['field_ungi_at_indhold'][0]['#markup']); ?></p>
+<h2><?php print render($content['field_ungi_a_t_titel'][0]['#markup']); ?></h2>
+<p><?php print render($content['field_ungi_a_t_indhold'][0]['#markup']); ?></p>
 </div>

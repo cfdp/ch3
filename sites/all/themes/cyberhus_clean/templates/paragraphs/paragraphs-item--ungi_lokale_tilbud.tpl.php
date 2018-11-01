@@ -39,8 +39,8 @@
 
 <div class="<?php print $classes; ?> <?php print $custom_class; ?>">
     <div class="lt-content">
-        <h2><?php print render($content['field_ungi_lt_titel'][0]['#markup']); ?></h2>
-        <?php print render($content['field_ungi_lt_indhold'][0]['#markup']); ?>
+        <h2><?php print render($content['field_ung_i_lt_titel'][0]['#markup']); ?></h2>
+        <?php print render($content['field_ung_i_lt_indhold'][0]['#markup']); ?>
     </div>
     <div class="lt-btn">
       <?php

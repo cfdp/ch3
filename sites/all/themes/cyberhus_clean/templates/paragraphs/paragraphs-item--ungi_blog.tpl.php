@@ -31,7 +31,7 @@
     
     $blog_authors = array();
 
-    foreach($content['field_ungi_blog_user']['#items'] as $item) {
+    foreach($content['field_ung_i_blog_user']['#items'] as $item) {
         $blog_authors[] = $item['entity']->name;
     }
 
@@ -48,7 +48,7 @@
     <h2 id="ung-i-blog"><?php print t("Latest blog posts"); ?></h2>
         <div class="sidebar">
             <div class="sidebar-wrapper">
-            <?php print render($content['field_ungi_blog_about'][0]['#markup']); ?>
+            <?php print render($content['field_ung_i_blog_about'][0]['#markup']); ?>
             </div>
         </div>
     <div class="main-content">
