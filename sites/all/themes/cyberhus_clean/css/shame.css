@@ -1,89 +1,89 @@
-.paragraphs-items-field-ungi-content .field-items > .field-item{
+.paragraphs-items-field-ung-i-content .field-items > .field-item{
     margin-bottom: 1em;
 }
 
-.paragraphs-items-field-ungi-content .field-item.add-bg{
+.paragraphs-items-field-ung-i-content .field-item.add-bg{
     background: #fff;
 }
 
-.paragraphs-items-field-ungi-content .field-item.add-bg.grey{
+.paragraphs-items-field-ung-i-content .field-item.add-bg.grey{
     background: #c7c7c7;
 }
 
-.field-name-field-ungi-content > .field-items .paragraphs-item-ungi-alm-tekst h2,
-.field-name-field-ungi-content > .field-items .paragraphs-item-ungi-lokale-tilbud h2{
+.field-name-field-ung-i-content > .field-items .paragraphs-item-ungi-alm-tekst h2,
+.field-name-field-ung-i-content > .field-items .paragraphs-item-ungi-lokale-tilbud h2{
     font-weight: 700;
     font-size: 1.25em;
     margin-bottom: 1em;
 }
 
-.field-name-field-ungi-content > .field-items .paragraphs-item-ungi-alm-tekst a,
-.field-name-field-ungi-content > .field-items .paragraphs-item-ungi-lokale-tilbud a{
+.field-name-field-ung-i-content > .field-items .paragraphs-item-ungi-alm-tekst a,
+.field-name-field-ung-i-content > .field-items .paragraphs-item-ungi-lokale-tilbud a{
     color: #8d62a4;
 }
 
-.paragraphs-items-field-ungi-content .field-item.add-bg > div{
+.paragraphs-items-field-ung-i-content .field-item.add-bg > div{
     padding: 2em;
 }
-.paragraphs-items-field-ungi-content .field-item.add-bg > div.paragraphs-item-ungi-iframe-embed{
+.paragraphs-items-field-ung-i-content .field-item.add-bg > div.paragraphs-item-ungi-iframe-embed{
     padding: 0;
 }
 
-.field-name-field-ungi-content > .field-items iframe{
+.field-name-field-ung-i-content > .field-items iframe{
     width: 100%;
     height: 200px;
 }
 
-.field-name-field-ungi-content .button{
+.field-name-field-ung-i-content .button{
     background: #8d62a4;
     color: #ffffff!important;
 }
 
-.field-name-field-ungi-content > .field-items .sidebar-wrapper{
+.field-name-field-ung-i-content > .field-items .sidebar-wrapper{
     background: #fff;
     padding: 2em;   
 }
 
-.field-name-field-ungi-content > .field-items .sidebar-wrapper a{
+.field-name-field-ung-i-content > .field-items .sidebar-wrapper a{
     color: #8d62a4;   
 }
 
-.paragraphs-items-field-ungi-content .field-item > div > h2{
+.paragraphs-items-field-ung-i-content .field-item > div > h2{
     font-size: 2.5em;
     margin-bottom: 0.5em;
     margin-top: 0.75em;
 }
 
-.field-name-field-ungi-content > .field-items h3{
+.field-name-field-ung-i-content > .field-items h3{
     font-weight: 700;
     font-size: 1.25em;
     margin-bottom: 1em;
 }
 
-.field-name-field-ungi-content > .field-items h4{
+.field-name-field-ung-i-content > .field-items h4{
     font-weight: 700;
     font-size: 1.15em;
     margin-bottom: 1em;
 }
 
-.field-name-field-ungi-content > .field-items h4 a{
+.field-name-field-ung-i-content > .field-items h4 a{
     color: #1b1d1f;
     opacity: 1;
     transition-property: opacity;
     transition-duration: 250ms;
 }
 
-.field-name-field-ungi-content > .field-items h4 a:hover{
+.field-name-field-ung-i-content > .field-items h4 a:hover{
     text-decoration: none;
     opacity: .75;
 }
 
-.paragraphs-items-field-ungi-content .paragraphs-item-ungi-blog span.field-content{
+.paragraphs-items-field-ung-i-content .paragraphs-item-ungi-blog span.field-content{
     display: table;
     width: 100%;
 }
 
-.paragraphs-items-field-ungi-content .paragraphs-item-ungi-blog .ungi_blogs_image{
+.paragraphs-items-field-ung-i-content .paragraphs-item-ungi-blog .ungi_blogs_image{
     display:table-cell;
     padding-right: 1em;
     vertical-align: top;
@@ -91,26 +91,26 @@
     max-width: 200px;
 }
 
-.paragraphs-items-field-ungi-content .paragraphs-item-ungi-blog .ungi_blogs_image:empty{
+.paragraphs-items-field-ung-i-content .paragraphs-item-ungi-blog .ungi_blogs_image:empty{
     width: 0;
     padding: 0;
 }
 
-.paragraphs-items-field-ungi-content .paragraphs-item-ungi-blog .ungi-blogs-content-wrapper{
+.paragraphs-items-field-ung-i-content .paragraphs-item-ungi-blog .ungi-blogs-content-wrapper{
     display:table-cell;
     vertical-align: top;
 }
 
-.paragraphs-items-field-ungi-content .paragraphs-item-ungi-blog .ungi-blogs-content-wrapper .ungi_blogs_body{
+.paragraphs-items-field-ung-i-content .paragraphs-item-ungi-blog .ungi-blogs-content-wrapper .ungi_blogs_body{
     line-height: 1.5em;
 }
 
-.paragraphs-items-field-ungi-content .view .view-content .views-row{
+.paragraphs-items-field-ung-i-content .view .view-content .views-row{
     margin-bottom: 10px;
 }
 
-.paragraphs-items-field-ungi-content .view .view-content .views-row .views-field-value,
-.paragraphs-items-field-ungi-content .view .view-content .views-row .views-field-nothing {
+.paragraphs-items-field-ung-i-content .view .view-content .views-row .views-field-value,
+.paragraphs-items-field-ung-i-content .view .view-content .views-row .views-field-nothing {
     margin: 5px 0 5px 0;
     border-bottom: 0;
     float: left;    
@@ -120,7 +120,7 @@
     line-height: 1.25em;
 }
 
-.paragraphs-items-field-ungi-content .view .view-content .views-row .views-field-value {
+.paragraphs-items-field-ung-i-content .view .view-content .views-row .views-field-value {
     margin: 5px 0 0 0;
     border-bottom: 0;
     float: left;    
@@ -128,40 +128,40 @@
     padding: 0;
 }
 
-.paragraphs-items-field-ungi-content .view .view-content .views-row .views-field-value a {  
+.paragraphs-items-field-ung-i-content .view .view-content .views-row .views-field-value a {  
     color: #8d62a4;
 }
 
-.paragraphs-items-field-ungi-content .view .view-content .views-field-nothing-1 {
+.paragraphs-items-field-ung-i-content .view .view-content .views-field-nothing-1 {
     padding: 0 0 1em 0;
     border-bottom: 1px solid #d7d7d7;
 }
 
-.paragraphs-items-field-ungi-content .paragraphs-item-ungi-blog .view-blogs-oversigter > .view-content .views-row .vud-widget-cyberlike,
-.paragraphs-items-field-ungi-content .paragraphs-item-ungi-blog .view-blogs-oversigter > .view-content .views-row .views-field-comment-count .comments{
+.paragraphs-items-field-ung-i-content .paragraphs-item-ungi-blog .view-blogs-oversigter > .view-content .views-row .vud-widget-cyberlike,
+.paragraphs-items-field-ung-i-content .paragraphs-item-ungi-blog .view-blogs-oversigter > .view-content .views-row .views-field-comment-count .comments{
     margin-top: 1em;
 }
 
-.paragraphs-items-field-ungi-content .view .item-list ul.pager{
+.paragraphs-items-field-ung-i-content .view .item-list ul.pager{
     margin: .5em 0 .5em 0;
 }
 
-.paragraphs-items-field-ungi-content .view .item-list ul.pager li a{
+.paragraphs-items-field-ung-i-content .view .item-list ul.pager li a{
     color: #1b1d1f;
 }
 
 
-.field-name-field-ungi-content > .field-items .paragraphs-item-ungi-brevkasse .view-empty{
+.field-name-field-ung-i-content > .field-items .paragraphs-item-ungi-brevkasse .view-empty{
     background: #fff;
     padding: 2em;
 }
 
-.field-name-field-ungi-content > .field-items .paragraphs-item-ungi-brevkasse .sidebar,
-.field-name-field-ungi-content > .field-items .paragraphs-item-ungi-blog .sidebar{
+.field-name-field-ung-i-content > .field-items .paragraphs-item-ungi-brevkasse .sidebar,
+.field-name-field-ung-i-content > .field-items .paragraphs-item-ungi-blog .sidebar{
     margin-bottom: 10px;
 }
 
-.field-name-field-ungi-content > .field-items .paragraphs-item-ungi-brevkasse .stream-metadata-item.meta-author:before{
+.field-name-field-ung-i-content > .field-items .paragraphs-item-ungi-brevkasse .stream-metadata-item.meta-author:before{
     content: none;
 }
 
@@ -171,31 +171,31 @@
 
 
 
-.field-name-field-ungi-content > .field-items .paragraphs-item-ungi-brevkasse .main-content .stream-item h4{
+.field-name-field-ung-i-content > .field-items .paragraphs-item-ungi-brevkasse .main-content .stream-item h4{
     margin-bottom: 0.5em;
 }
-.field-name-field-ungi-content > .field-items .paragraphs-item-ungi-brevkasse .main-content .stream-item .stream-metadata{
+.field-name-field-ung-i-content > .field-items .paragraphs-item-ungi-brevkasse .main-content .stream-item .stream-metadata{
     margin-bottom: 15px;
 }
-.field-name-field-ungi-content > .field-items .paragraphs-item-ungi-brevkasse .main-content .stream-item .stream-avatar{
+.field-name-field-ung-i-content > .field-items .paragraphs-item-ungi-brevkasse .main-content .stream-item .stream-avatar{
     width: 6em;
     padding-right: 1em;
 }
-.field-name-field-ungi-content > .field-items .paragraphs-item-ungi-brevkasse .main-content .stream-item .stream-avatar img{
+.field-name-field-ung-i-content > .field-items .paragraphs-item-ungi-brevkasse .main-content .stream-item .stream-avatar img{
     min-width: 66px;
 }
-.field-name-field-ungi-content > .field-items .paragraphs-item-ungi-brevkasse .main-content .stream-item .stream-content{
+.field-name-field-ung-i-content > .field-items .paragraphs-item-ungi-brevkasse .main-content .stream-item .stream-content{
     width: calc(100% - 6em);
 }
 
-.field-name-field-ungi-content > .field-items .paragraphs-item-ungi-brevkasse .main-content .stream-item .stream-counselor{
+.field-name-field-ung-i-content > .field-items .paragraphs-item-ungi-brevkasse .main-content .stream-item .stream-counselor{
     margin: 15px 0 0 0;
 }
 
 @media (min-width: 1024px) {
 
     /* MAIN GRID */
-    .field-name-field-ungi-content > .field-items{
+    .field-name-field-ung-i-content > .field-items{
         display: -webkit-box;
         display: -moz-box;
         display: -ms-flexbox;
@@ -207,24 +207,24 @@
         justify-content: space-between;
         -ms-flex-pack: justify;
     }
-    .field-name-field-ungi-content > .field-items > .field-item{
+    .field-name-field-ung-i-content > .field-items > .field-item{
         width: calc(50% - 0.5em);
     }
 
 
 
-    .field-name-field-ungi-content > .field-items > .field-item.wide-element{
+    .field-name-field-ung-i-content > .field-items > .field-item.wide-element{
         width: 100%;
     }
 
-    .field-name-field-ungi-content > .field-items .field-item .paragraphs-item-ungi-iframe-embed{
+    .field-name-field-ung-i-content > .field-items .field-item .paragraphs-item-ungi-iframe-embed{
         width: 100%;
         height: 200px;
     } 
 
 
-    .field-name-field-ungi-content .wide-element .paragraphs-item-ungi-blog,
-    .field-name-field-ungi-content .wide-element .paragraphs-item-ungi-brevkasse{
+    .field-name-field-ung-i-content .wide-element .paragraphs-item-ungi-blog,
+    .field-name-field-ung-i-content .wide-element .paragraphs-item-ungi-brevkasse{
         display: -webkit-box;
         display: -moz-box;
         display: -ms-flexbox;
@@ -236,19 +236,19 @@
         -ms-flex-pack: end;
     }
 
-    .field-name-field-ungi-content .field-items .wide-element .paragraphs-item-ungi-blog .sidebar,
-    .field-name-field-ungi-content .field-items .wide-element .paragraphs-item-ungi-brevkasse .sidebar{
+    .field-name-field-ung-i-content .field-items .wide-element .paragraphs-item-ungi-blog .sidebar,
+    .field-name-field-ung-i-content .field-items .wide-element .paragraphs-item-ungi-brevkasse .sidebar{
         width: 24%;
         margin-right: 1em;   
     }        
 
-    .field-name-field-ungi-content .field-items .wide-element .paragraphs-item-ungi-blog .main-content,
-    .field-name-field-ungi-content .field-items .wide-element .paragraphs-item-ungi-brevkasse .main-content{
+    .field-name-field-ung-i-content .field-items .wide-element .paragraphs-item-ungi-blog .main-content,
+    .field-name-field-ung-i-content .field-items .wide-element .paragraphs-item-ungi-brevkasse .main-content{
         width: calc(76% - 1em);
     }
 
-    .field-name-field-ungi-content .field-items .wide-element .paragraphs-item-ungi-blog h2,
-    .field-name-field-ungi-content .field-items .wide-element .paragraphs-item-ungi-brevkasse h2{
+    .field-name-field-ung-i-content .field-items .wide-element .paragraphs-item-ungi-blog h2,
+    .field-name-field-ung-i-content .field-items .wide-element .paragraphs-item-ungi-brevkasse h2{
         width: 100%;
     }
 
