@@ -149,28 +149,31 @@ function cyberhus_clean_preprocess_html(&$variables) {
  * Implements hook_preprocess_page().
  */
 function cyberhus_clean_preprocess_page(&$variables) {
-
   // Add necessary body classes and section variables.
   $variables['sub_section'] = 'default';
 
-  // URL parametres
+  // URL parametres.
   if (arg(0) == 'blogs' || arg(0) == 'blog') {
     $variables['sub_section'] = 'blog';
   }
 
   // Nodes
   elseif ($node = menu_get_object()) {
-
     $ung_til_ung_types = array(
       'forum', 'image', 'body_secret'
     );
-    if(in_array($node->type, $ung_til_ung_types)) {
+    if (in_array($node->type, $ung_til_ung_types)) {
       $variables['sub_section'] = 'ung_til_ung';
     }
-    if($node->type == 'brevkasse') {
-      $variables['sub_section'] = 'brevkasse';
+    if ($node->type == 'brevkasse') {
+      if (!empty($node->field_brevk_ungi['und'][0]['target_id'])) {
+        $variables['sub_section'] = 'ungibrevkasse';
+      }
+      else {
+        $variables['sub_section'] = 'brevkasse';
+      }
     }
-    if($node->type == 'blog') {
+    if ($node->type == 'blog') {
       $variables['sub_section'] = 'blog';
     }
   }
