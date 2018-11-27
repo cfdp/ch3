@@ -101,7 +101,13 @@
 
 <?php
   if($node->type == 'brevkasse') {
-    print views_embed_view('pager_brevkasse', 'block_2', $node->type);
+    if (!empty($node->field_brevk_ungi['und'][0]['target_id'])) {
+      print views_embed_view('pager_brevkasse', 'block_3', $node->field_brevk_ungi['und'][0]['target_id']);
+      $ung_i_brevkasse = 1;
+    }
+    else {
+      print views_embed_view('pager_brevkasse', 'block_2', $node->type);
+    }
   }
   else {
     print views_embed_view('pager_brevkasse', 'block', $node->type);
@@ -169,7 +175,12 @@
   </div>
   <div class="node-related-content">
     <?php
-    print views_embed_view('frontpage_stream', 'block_1', $cat_tid);
+    if (!empty($ung_i_brevkasse) && $ung_i_brevkasse == 1) {
+      print views_embed_view('frontpage_stream', 'block_2', $node->field_brevk_ungi['und'][0]['target_id']);
+    }
+    else {
+      print views_embed_view('frontpage_stream', 'block_1', $cat_tid);
+    }
     ?>
   </div>
 </div>

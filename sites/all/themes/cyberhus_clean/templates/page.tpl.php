@@ -102,6 +102,9 @@
       <div id="banner-standard">
       <?php
       switch($sub_section) {
+        case 'ungibrevkasse':
+          print "<img src='/" . path_to_theme() . "/assets/img/ung-i-brevkasse.jpg' />";
+        break;
         case "brevkasse":
           print "<img src='/" . path_to_theme() . "/assets/img/banner-brevkasse.png' />";
         break;
