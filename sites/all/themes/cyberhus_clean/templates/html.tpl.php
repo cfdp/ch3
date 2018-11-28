@@ -52,6 +52,7 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4701a8cf-157e-4aa1-899c-83cff9f01318" type="text/javascript" async></script>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">
