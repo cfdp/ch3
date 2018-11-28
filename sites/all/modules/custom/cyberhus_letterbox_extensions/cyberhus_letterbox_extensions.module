@@ -400,12 +400,12 @@ function cyberhus_letterbox_extensions_remove_select_options(&$form, $lang, $tid
  * Custom function that alters the alias of node brevkasse if its tagged with ungi and change nordic chars in ung i byer term url.
  */
 function cyberhus_letterbox_extensions_pathauto_alias_alter(&$alias, array &$context) {
-  if ($context['module'] == 'taxonomy_term'){
-    if ($context['type'] == 'ung_i_byer') {
-      $alias = transliterateString($alias);
+    if (!empty($context['module']) && $context['module'] == 'taxonomy_term'){
+      if ($context['type'] == 'ung_i_byer') {
+        $alias = transliterateString($alias);
+      }
     }
-  }
-  if ($context['data']['node']->type == 'brevkasse') {
+  if (!empty($context['data']['node']->type) && $context['data']['node']->type == 'brevkasse') {
     if (!empty($context['data']['node']->field_brevk_ungi['und'][0]['target_id'])) {
       $tid = $context['data']['node']->field_brevk_ungi['und'][0]['target_id'];
       $city = taxonomy_term_load($tid);
@@ -421,7 +421,7 @@ function cyberhus_letterbox_extensions_pathauto_alias_alter(&$alias, array &$con
  */
 function cyberhus_letterbox_extensions_menu_breadcrumb_alter(&$active_trail, $item) {
   // Check if node is viewed.
-  if ($item['page_callback'] == 'node_page_view') {
+  if (!empty($item['page_callback']) && $item['page_callback'] == 'node_page_view') {
     if (!empty($item['original_map'][1])) {
       $node_id = $item['original_map'][1];
       $node = node_load($item['original_map'][1]);
