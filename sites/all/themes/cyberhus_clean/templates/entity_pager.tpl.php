@@ -27,7 +27,7 @@ if($node->type == 'brevkasse') {
   if (!empty($node->field_brevk_ungi['und'][0]['target_id'])) {
     $path = drupal_get_path_alias('node/' . $arg[1]);
     $path_exploded = explode('/', $path);
-    $city_path = '/ung-i/' . $path_exploded[1];
+    $city_path = '/ung-i/' . $path_exploded[1] . '#ung-i-brevkasse';
     $links['all_link'] = str_replace('/ung-i', $city_path, $links['all_link']);
   }
 }
