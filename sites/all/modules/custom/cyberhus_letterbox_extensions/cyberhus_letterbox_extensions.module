@@ -400,11 +400,11 @@ function cyberhus_letterbox_extensions_remove_select_options(&$form, $lang, $tid
  * Custom function that alters the alias of node brevkasse if its tagged with ungi and change nordic chars in ung i byer term url.
  */
 function cyberhus_letterbox_extensions_pathauto_alias_alter(&$alias, array &$context) {
-    if (!empty($context['module']) && $context['module'] == 'taxonomy_term'){
-      if ($context['type'] == 'ung_i_byer') {
-        $alias = transliterateString($alias);
-      }
+  if (!empty($context['module']) && $context['module'] == 'taxonomy_term') {
+    if ($context['type'] == 'ung_i_byer') {
+      $alias = transliterateString($alias);
     }
+  }
   if (!empty($context['data']['node']->type) && $context['data']['node']->type == 'brevkasse') {
     if (!empty($context['data']['node']->field_brevk_ungi['und'][0]['target_id'])) {
       $tid = $context['data']['node']->field_brevk_ungi['und'][0]['target_id'];
