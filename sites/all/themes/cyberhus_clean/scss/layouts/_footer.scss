@@ -1,5 +1,4 @@
 #footer-wrapper {
-
   #footer {
     margin: auto;
     text-align: center;
@@ -38,6 +37,56 @@
     }
     @include bp-wide {
       width: 1180px;
+    }
+  }
+}
+
+#cfdp-website-links{
+  text-align: center;
+  margin-top:30px;
+  padding-top:30px;
+  padding-bottom:30px;
+  background-color: #f1f1f1;
+  width:100%;
+  h3{
+    font-size:1.3em;
+    padding-bottom:20px;
+    color:#1b1d1f;
+  }
+  .cfdp-website-link-items{
+    width:700px;
+    margin:auto;
+    text-align: center;
+    .cfdp-website-link-item{
+      width:32%;
+      height:42px;
+      display:inline-block;
+      img{
+        width:150px;
+      }
+
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  #cfdp-website-links{
+    .cfdp-website-link-items{
+      width:100%;
+      h3{
+        color:#1b1d1f;
+        //font-size:1.5em;
+        padding-bottom:30px;
+      }
+      .cfdp-website-link-item{
+        text-align: center;
+        clear:both;
+        width:100%;
+        padding-bottom:30px;
+      }
+      .cfdp-website-link-item.last{
+        padding-bottom:0px;
+      }
     }
   }
 }
