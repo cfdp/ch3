@@ -178,7 +178,7 @@
       </div></div> <!-- /.section, /#footer -->
       <div id="cfdp-website-links">
         <div class="cfdp-website-link-items">
-          <h3>CfDP drifter og udvikler følgende ungerådgivninger</h3>
+          <h3>Kender du vores andre rådgivninger?</h3>
           <div class="cfdp-website-link-item first"><a href="https://cyberhus.dk"><img src="/sites/all/themes/cyberhus_clean/assets/img/cyberhus-dark.png" alt="cyberhus" /></a></div>
           <div class="cfdp-website-link-item middle"><a href="https://netstof.dk"><img src="/sites/all/themes/cyberhus_clean/assets/img/netstof-dark.png" alt="netstof" /></a></div>
           <div class="cfdp-website-link-item last"><a href="https://gruppechat.dk"><img src="/sites/all/themes/cyberhus_clean/assets/img/gruppechat-dark.png" alt="gruppechat" /></a></div>
