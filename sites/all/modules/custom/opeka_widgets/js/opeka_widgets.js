@@ -3,7 +3,6 @@
   Drupal.behaviors.opeka_widgetsPopupData = {
     attach: function(context, settings) {
       var breakpointTab = 586;
-      // opekaPopup.cssFiles = [["opeka.widget.popup.css", opekaPopup.baseURL+"/sites/all/modules/custom/opeka/css/"],["opeka.widgets.css", opekaPopup2.clientURL+"/sites/all/themes/cyberhus/css/"]];
       
       // Add wrapper for widgets to DOM and load widgets once the chat server is ready
       $('body', context).once('add-opeka-widgets', function () {
@@ -34,24 +33,6 @@
         }, 1000);     
       }
     });
-    
-//    if (i >= 1000) {
-//      console.log("Opeka chat could not be loaded");
-//      return;
-//    } else if (typeof Drupal.behaviors.opeka_widgets.OpekaPopupController == "undefined") {
-//      console.log("i = ");
-//      i++;
-//      window.setTimeout(function() {
-//        Drupal.behaviors.opeka_widgets.waitForOpekaServer(allPopups);
-//      }, 100);
-//    } else {
-//      // Add the widgets with a timer delay to prevent browser from stalling
-//      $.each(allPopups, function(k,v) {
-//        setTimeout(function () {
-//          Drupal.behaviors.opeka_widgets.addWidget(v);
-//        }, 1000);
-//      });
-//    }
   };
 
   /**
