@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Metatag controller for Google+.
@@ -16,10 +17,14 @@
  */
 class DrupalSchemaMetaTag extends DrupalTextMetaTag {
 
+  /**
+   * {@inheritdoc}
+   */
   public function getElement(array $options = array()) {
     $element = array();
     $value = $this->getValue($options);
     $element['#attached']['metatag_set_preprocess_variable'][] = array('html', 'itemtype', $value);
     return $element;
   }
+
 }

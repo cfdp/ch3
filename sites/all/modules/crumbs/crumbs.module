@@ -56,6 +56,15 @@ function crumbs_preprocess_page(&$vars) {
   $vars['breadcrumb'] = crumbs()->page->breadcrumbHtml;
 }
 
+/**
+ * Implements hook_html_head_alter().
+ *
+ * @param array $head_elements
+ */
+function crumbs_html_head_alter(array &$head_elements) {
+  $head_elements['crumbs_json_ld']['#markup'] = crumbs()->page->jsonLdScriptTag;
+}
+
 
 // Public API functions
 // -----------------------------------------------------------------------------

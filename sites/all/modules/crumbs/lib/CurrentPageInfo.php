@@ -23,6 +23,9 @@
  * @property int $minVisibleItems
  * @property array $breadcrumbItems
  * @property string $breadcrumbHtml
+ * @property array[] $metaBreadcrumbItems
+ * @property array $jsonLdData
+ * @property string $jsonLdScriptTag
  * @property string $path
  *
  * @see crumbs_Container_AbstractLazyData::__get()
@@ -292,6 +295,111 @@ class crumbs_CurrentPageInfo extends crumbs_Container_AbstractLazyData {
       'crumbs_separator_span' => $this->separatorSpan,
       'crumbs_trailing_separator' => $this->trailingSeparator,
     ));
+  }
+
+  /**
+   * List of breadcrumb items to show in search engine results.
+   *
+   * This can be slightly different from the items shown on the page:
+   * - The home page is never part of the SEO breadcrumb.
+   * - The current page is never part of the SEO breadcrumb.
+   *
+   * @return array[]
+   *
+   * @see $metaBreadcrumbItems
+   */
+  protected function metaBreadcrumbItems() {
+    if ($this->breadcrumbSuppressed) {
+      return array();
+    }
+    $trail = $this->trail;
+    // Never show the front page link in search engine results.
+    array_shift($trail);
+    // Never show the front page link in search engine results.
+    array_pop($trail);
+    if (array() === $trail) {
+      // Hide search engine breadcrumb if it is empty.
+      return array();
+    }
+    $items = $this->breadcrumbBuilder->buildBreadcrumb($trail);
+    if (array() === $trail) {
+      // Some items might get lost due to having an empty title.
+      return array();
+    }
+    $router_item = $this->router->getRouterItem($this->path);
+    // Allow modules to alter the breadcrumb, if possible, as that is much
+    // faster than rebuilding an entirely new active trail.
+    drupal_alter('menu_breadcrumb', $items, $router_item);
+    if (array() === $trail) {
+      // Some items might get lost during the altering.
+      return array();
+    }
+    return $items;
+  }
+
+  /**
+   * @return array
+   *
+   * @see $jsonLdData
+   * @link http://schema.org/BreadcrumbList
+   */
+  protected function jsonLdData() {
+
+    $i = 0;
+    $dataListItems = array();
+    foreach ($this->metaBreadcrumbItems as $item) {
+
+      $dataListItem = array(
+        '@type' => 'ListItem',
+        'position' => ++$i,
+        'item' => array(
+          'name' => check_plain($item['title']),
+        ),
+      );
+
+      if ('<nolink>' === $item['href']) {
+        // Nothing.
+      }
+      else {
+        $link_options = isset($item['localized_options']) ? $item['localized_options'] : array();
+        $link_options['absolute'] = TRUE;
+        $dataListItem['item']['@id'] = url($item['link_path'], $link_options);
+      }
+      $dataListItems[] = $dataListItem;
+    }
+
+    if (empty($dataListItems)) {
+      return array();
+    }
+
+    return array(
+      '@context' => 'http://schema.org',
+      '@type' => 'BreadcrumbList',
+      'itemListElement' => $dataListItems,
+    );
+  }
+
+  /**
+   * @return string
+   *
+   * @see $jsonLdScriptTag
+   * @link http://schema.org/BreadcrumbList
+   */
+  protected function jsonLdScriptTag() {
+
+    $data = $this->jsonLdData;
+
+    if (empty($data)) {
+      return '';
+    }
+
+    $json = json_encode($data);
+
+    return <<<EOT
+<script type="application/ld+json">
+$json
+</script>
+EOT;
   }
 
   /**

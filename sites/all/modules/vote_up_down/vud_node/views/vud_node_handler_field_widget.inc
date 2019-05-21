@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Provide a handler for Vote Up/down widget field for nodes.
@@ -41,7 +40,7 @@ class vud_node_handler_field_widget extends views_handler_field {
           'entity_id' => $nid,
           'type' => 'node',
           'tag' => $tag,
-          'widget_type' => $widget_type,
+          'widget_theme' => $widget_type,
           'readonly' => !$can_edit,
           'widget_message_code' => $widget_message_code,
         );

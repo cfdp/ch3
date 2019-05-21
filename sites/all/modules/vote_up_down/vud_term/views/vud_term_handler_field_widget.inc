@@ -28,6 +28,6 @@ class vud_term_handler_field_widget extends views_handler_field {
   function render($values) {
     $node = node_load($values->nid);
     _vud_term_generate_table($node);
-    return $node->content['vud_term_show_table']['#value'];
+    return $node->content['vud_term_show_table']['#markup'];
   }
 }

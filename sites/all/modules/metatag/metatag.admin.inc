@@ -5,29 +5,6 @@
  * Administration page callbacks for the metatag module.
  */
 
-function _metatag_config_sort($a, $b) {
-  $return = NULL;
-  $a_contexts = explode(':', $a->instance);
-  $b_contexts = explode(':', $b->instance);
-  for ($i = 0; $i < max(count($a_contexts), count($b_contexts)); $i++) {
-    $a_context = isset($a_contexts[$i]) ? $a_contexts[$i] : '';
-    $b_context = isset($b_contexts[$i]) ? $b_contexts[$i] : '';
-    if ($a_context == $b_context) {
-      continue;
-    }
-    elseif ($a_context == 'global') {
-      $return = -1;
-    }
-    elseif ($a_context == '') {
-      $return = -1;
-    }
-    else {
-      $return = strcmp($a_context, $b_context);
-    }
-  }
-  return $return;
-}
-
 function _metatag_config_overview_indent($text, $instance) {
   $parents = metatag_config_get_parent_instances($instance);
   array_shift($parents);
@@ -48,8 +25,7 @@ function metatag_config_overview() {
   $metatags = metatag_get_info('tags');
 
   $configs = ctools_export_crud_load_all('metatag_config');
-  ksort($configs);
-  //uasort($configs, '_metatag_config_sort');
+  uksort($configs, '_metatag_config_instance_sort');
 
   $rows = array();
   foreach ($configs as $config) {
@@ -109,7 +85,7 @@ function metatag_config_overview() {
       $row['class'][] = 'warning';
     }
 
-    // Close the details div
+    // Close the details div.
     $details .= '</div>';
 
     // Add indentation to the leading cell based on how many parents the config has.
@@ -158,6 +134,12 @@ function metatag_config_overview() {
       'title' => t('Export'),
       'href' => 'admin/config/search/metatags/config/' . $config->instance . '/export',
     );
+    if (module_exists('i18n_string') && !variable_get('metatag_i18n_disabled', FALSE)) {
+      $operations['translate'] = array(
+        'title' => t('Translate'),
+        'href' => 'admin/config/search/metatags/config/' . $config->instance . '/translate',
+      );
+    }
     $row['data']['operations'] = array(
       'data' => array(
         '#theme' => 'links',
@@ -282,7 +264,8 @@ function metatag_config_edit_form($form, &$form_state, $config) {
     else {
       $options['token types'] = array($contexts[0]);
     }
-    // Allow hook_metatag_token_types_alter() to modify the defined tokens.
+    // Trigger hook_metatag_token_types_alter().
+    // Allow the defined tokens to be modified.
     drupal_alter('metatag_token_types', $options);
   }
 
@@ -309,10 +292,6 @@ function metatag_config_edit_form($form, &$form_state, $config) {
   metatag_metatags_form($form, $config->instance, $config->config, $options);
   $form['metatags']['#type'] = 'container';
 
-  // Make the token browser available.
-  $form['metatags']['#prefix'] = $form['metatags']['#description'];
-  unset($form['metatags']['#description']);
-
   $form['actions']['#type'] = 'actions';
   $form['actions']['save'] = array(
     '#type' => 'submit',
@@ -334,7 +313,7 @@ function metatag_config_edit_form_submit($form, &$form_state) {
   $config = (object) $form_state['values'];
   // @todo Consider renaming the config field from 'config' to 'metatags'
   $config->config = $config->metatags[LANGUAGE_NONE];
-  unset($config->metatags[LANGUAGE_NONE]);
+  unset($config->metatags);
   metatag_config_save($config);
 
   $label = metatag_config_instance_label($config->instance);
@@ -363,7 +342,7 @@ function metatag_config_disable($config) {
   ctools_export_crud_disable('metatag_config', $config);
 
   $label = metatag_config_instance_label($config->instance);
-  drupal_set_message(t('The meta tag defaults for @label have been disabed.', array('@label' => $label)));
+  drupal_set_message(t('The meta tag defaults for @label have been disabled.', array('@label' => $label)));
   drupal_goto();
 }
 
@@ -385,7 +364,7 @@ function metatag_config_delete_form($form, &$form_state, $config) {
 
 function metatag_config_delete_form_submit($form, &$form_state) {
   $config = metatag_config_load($form_state['values']['instance']);
-  metatag_config_delete($config->instance);
+  metatag_config_delete($config);
 
   $label = metatag_config_instance_label($config->instance);
   $delete = metatag_config_access('delete', $config);
@@ -404,16 +383,16 @@ function metatag_config_export_form($config) {
  * Form constructor to revert nodes to their default metatags.
  *
  * @see metatag_bulk_revert_form_submit()
+ *
  * @ingroup forms
  */
 function metatag_bulk_revert_form() {
-  // Get the list of entity:bundle options
+  // Get the list of entity:bundle options.
   $options = array();
   foreach (entity_get_info() as $entity_type => $entity_info) {
     foreach (array_keys($entity_info['bundles']) as $bundle) {
       if (metatag_entity_supports_metatags($entity_type, $bundle)) {
-        $options[$entity_type . ':' . $bundle] =
-          $entity_info['label'] . ': ' . $entity_info['bundles'][$bundle]['label'];
+        $options[$entity_type . ':' . $bundle] = $entity_info['label'] . ': ' . $entity_info['bundles'][$bundle]['label'];
       }
     }
   }
@@ -425,6 +404,41 @@ function metatag_bulk_revert_form() {
     '#options' => $options,
     '#default_value' => array(),
     '#description' => t('All meta tags will be removed for all content of the selected entities.'),
+  );
+
+  $metatags = metatag_get_info();
+  $options = array();
+  foreach ($metatags['tags'] as $tag_name => $tag) {
+    $options[$tag_name] = t('@group_label: @tag_label', array(
+      '@group_label' => $metatags['groups'][$tag['group']]['label'],
+      '@tag_label' => $tag['label'],
+    ));
+  }
+
+  if (count($options) > 0) {
+    $form['tags'] = array(
+      '#type' => 'checkboxes',
+      '#required' => FALSE,
+      '#title' => t('Select the tags to revert'),
+      '#description' => t('If you select any tags, only those tags will be reverted.'),
+      '#options' => $options,
+    );
+  }
+
+  $languages = language_list();
+  $options = array(
+    LANGUAGE_NONE => t('Language neutral'),
+  );
+  foreach ($languages as $language) {
+    $options[$language->language] = $language->name;
+  }
+
+  $form['languages'] = array(
+    '#type' => 'checkboxes',
+    '#required' => FALSE,
+    '#title' => t('Select the languages to revert'),
+    '#description' => t('If you select any languages, only tags for those languages will be reverted.'),
+    '#options' => $options,
   );
 
   $form['submit'] = array(
@@ -449,10 +463,13 @@ function metatag_bulk_revert_form_submit($form, &$form_state) {
     'file' => drupal_get_path('module', 'metatag') . '/metatag.admin.inc',
   );
 
+  $tags = isset($form_state['values']['tags']) ? array_filter($form_state['values']['tags']) : array();
+  $languages = isset($form_state['values']['languages']) ? array_filter($form_state['values']['languages']) : array();
+
   // Set a batch operation per entity:bundle.
   foreach (array_filter($form_state['values']['update']) as $option) {
     list($entity_type, $bundle) = explode(':', $option);
-    $batch['operations'][] = array('metatag_bulk_revert_batch_operation', array($entity_type, $bundle));
+    $batch['operations'][] = array('metatag_bulk_revert_batch_operation', array($entity_type, $bundle, $tags, $languages));
   }
 
   batch_set($batch);
@@ -461,7 +478,7 @@ function metatag_bulk_revert_form_submit($form, &$form_state) {
 /**
  * Batch callback: delete custom metatags for selected bundles.
  */
-function metatag_bulk_revert_batch_operation($entity_type, $bundle, &$context) {
+function metatag_bulk_revert_batch_operation($entity_type, $bundle, $tags, $languages, &$context) {
   if (!isset($context['sandbox']['current'])) {
     $context['sandbox']['count'] = 0;
     $context['sandbox']['current'] = 0;
@@ -499,14 +516,53 @@ function metatag_bulk_revert_batch_operation($entity_type, $bundle, &$context) {
   foreach ($entity_ids as $entity_id) {
     $metatags = metatag_metatags_load($entity_type, $entity_id);
     if (!empty($metatags)) {
-      db_delete('metatag')->condition('entity_type', $entity_type)
-        ->condition('entity_id', $entity_id)
-        ->execute();
-      metatag_metatags_cache_clear($entity_type, $entity_id);
-      $context['results'][] = t('Reverted metatags for @bundle with id @id.', array(
-        '@bundle' => $entity_type . ': ' . $bundle,
-        '@id' => $entity_id,
-      ));
+      $reset = FALSE;
+      if (empty($tags)) {
+        // All tags should be reset, so we just delete any records from the db.
+        $query = db_delete('metatag')
+          ->condition('entity_type', $entity_type)
+          ->condition('entity_id', $entity_id);
+        if (!empty($languages)) {
+          $query->condition('language', $languages, 'IN');
+        }
+        $query->execute();
+        metatag_metatags_cache_clear($entity_type, $entity_id);
+        $reset = TRUE;
+      }
+      else {
+        // Iterate over tags and unset those, that we want to reset.
+        $needs_reset = FALSE;
+        foreach ($metatags as $metatags_language => $metatags_tags) {
+          if (empty($languages) || in_array($metatags_language, $languages)) {
+            foreach ($metatags_tags as $metatags_tag => $metatags_value) {
+              if (in_array($metatags_tag, $tags)) {
+                unset($metatags[$metatags_language][$metatags_tag]);
+                $needs_reset = TRUE;
+              }
+            }
+          }
+        }
+        // Save modified metatags.
+        if ($needs_reset) {
+          // We don't have a revision id, so we'll get the active one.
+          // Unfortunately, the only way of getting the active revision ID is to
+          // first load the entity, and then extract the ID. This is a bit
+          // performance intensive, but it seems to be the only way of doing it.
+          $entities = entity_load($entity_type, array($entity_id));
+          if (!empty($entities[$entity_id])) {
+            // We only care about the revision_id.
+            list(, $revision_id,) = entity_extract_ids($entity_type, $entities[$entity_id]);
+          }
+          metatag_metatags_save($entity_type, $entity_id, $revision_id, $metatags, $bundle);
+          $reset = TRUE;
+        }
+      }
+      if ($reset) {
+        $context['results'][] = t('Reverted metatags for @bundle with id @id.', array(
+          '@bundle' => $entity_type . ': ' . $bundle,
+          '@id' => $entity_id,
+        ));
+      }
     }
   }
 
@@ -604,6 +660,52 @@ function metatag_admin_settings_form() {
     }
   }
 
+  $form['additional'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Additional settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+
+  $form['additional']['metatag_pager_string'] = array(
+    '#title' => t('Custom pager string'),
+    '#type' => 'textfield',
+    '#description' => t('When the current page includes a pager, e.g. the URL contains "?page=42", the [current-page:pager] token may be added to a meta tag to differentiate between two pages that would otherwise have the same meta tags. The value "PAGER" (must be in uppercase) will be replaced by the actual page count. Note: the pager will only output if the page number is 2 or above and the string "page=NUMBER" is in the URL.<br />For best use, it may be worthwhile to add the [current-page:pager] to the page title to the left of the site name, to the start of description tags, etc.'),
+    '#default_value' => variable_get('metatag_pager_string', 'Page PAGER | '),
+  );
+
+  $form['i18n'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Internationalization options'),
+    '#description' => t('Additional options are available when using the <a href="@url">Internationalization module</a>.', array('@url' => 'https://www.drupal.org/project/i18n')),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+
+  $form['i18n']['metatag_i18n_disabled'] = array(
+    '#title' => t('Disable i18n integration'),
+    '#type' => 'checkbox',
+    '#description' => t('If the i18n_string module is enabled but the site does not need to translate Metatag strings, the integration may be disabled to avoid a large volume of records being added to the translation system.'),
+    '#default_value' => variable_get('metatag_i18n_disabled', FALSE),
+    '#disabled' => !module_exists('i18n_string'),
+  );
+
+  $form['i18n']['metatag_i18n_translate_output'] = array(
+    '#title' => t('Translate output'),
+    '#type' => 'checkbox',
+    '#description' => t('Optionally translate the final page output.'),
+    '#default_value' => variable_get('metatag_i18n_translate_output', FALSE),
+    '#disabled' => !module_exists('i18n_string'),
+  );
+
+  $form['i18n']['metatag_i18n_enable_watchdog'] = array(
+    '#title' => t('Enable logging of translations to Watchdog'),
+    '#type' => 'checkbox',
+    '#description' => t('Optionally log to Watchdog any changes that happen.'),
+    '#default_value' => variable_get('metatag_i18n_enable_watchdog', FALSE),
+    '#disabled' => !module_exists('i18n_string'),
+  );
+
   $form['advanced'] = array(
     '#type' => 'fieldset',
     '#title' => t('Advanced settings'),
@@ -649,8 +751,15 @@ function metatag_admin_settings_form() {
   $form['advanced']['metatag_cache_output'] = array(
     '#type' => 'checkbox',
     '#title' => t('Cache meta tag output'),
-    '#description' => t('Disabling this will cause all meta tag output to be generated uniquely for each page load. Currently only affects entities. Note: the entity configuration and output for other types of pages will still be cached, but this can stop the {cache_metatag} table from growing out of control in some scenarios.'),
-    '#default_value' => variable_get('metatag_cache_output', TRUE),
+    '#description' => t('Enabling this will cause all meta tag output to be cached for each page, which may aid with site performance in some circumstances. Should not be used if there are paths which include user-specific meta tags for the <em>current user</em>, they may lead to information about the user being accidentally leaked; this problem does not affect the "user/[uid]" pages. It may also cause the {cache_metatag} cache table to grow to be extremely large in certain circumstances.'),
+    '#default_value' => variable_get('metatag_cache_output', FALSE),
+  );
+
+  $form['advanced']['metatag_leave_core_tags'] = array(
+    '#type' => 'checkbox',
+    '#title' => t("Leave core's meta tags as-is"),
+    '#description' => t("Drupal core outputs a number of meta tags itself: canonical, shortlink, and generator. Metatag can be used to replace these with custom values. Should Metatag not have values for these meta tags, core's tags will normally be removed. Enabling this option will leave those meta tags on the page, even if Metatag is not replacing them."),
+    '#default_value' => variable_get('metatag_leave_core_tags', FALSE),
   );
 
   $form['advanced']['metatag_page_region'] = array(
@@ -661,6 +770,39 @@ function metatag_admin_settings_form() {
     '#default_value' => variable_get('metatag_page_region', 'content'),
   );
 
+  $form['advanced']['metatag_token_sanitize'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Sanitize content during token replacement'),
+    '#description' => t('If checked, will ensure that metatag value output is encoded and text filters are processed.'),
+    '#default_value' => variable_get('metatag_token_sanitize', FALSE),
+  );
+
+  $form['lengths'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Maximum meta tag lengths'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#description' => t('Many meta tags may be shortened to a certain length. To reset to the default, leave the field blank. To keep the entire meta tag, regardless of length, set the value to zero (0). Note: the meta tag will be shortened <em>after</em> the tokens have been replaced, not before.'),
+  );
+  $info = metatag_get_info();
+  $groups = $info['groups'];
+  $tags = $info['tags'];
+  foreach ($tags as $tag => $info) {
+    if (isset($info['maxlength'])) {
+      $default = $info['maxlength'];
+      $var_name = 'metatag_maxlength_' . $tag;
+      $title = $info['label'];
+      if (!empty($info['group']) && isset($groups[$info['group']])) {
+        $title = $groups[$info['group']]['label'] . ': ' . $title;
+      }
+      $form['lengths'][$var_name] = array(
+        '#type' => 'textfield',
+        '#title' => $title,
+        '#default_value' => intval(variable_get($var_name, $default)),
+      );
+    }
+  }
+
   // Extra submission logic.
   $form['#submit'][] = 'metatag_admin_settings_form_submit';
 
@@ -670,8 +812,21 @@ function metatag_admin_settings_form() {
 /**
  * Form API submission callback for metatag_admin_settings_form().
  */
-function metatag_admin_settings_form_submit() {
-  cache_clear_all('entity_info:', 'cache', TRUE);
+function metatag_admin_settings_form_submit($form, &$form_state) {
+  // Only keep maxlength values that are numeric. Any empty, non-zero values
+  // will be removed.
+  foreach ($form_state['values'] as $name => $value) {
+    if (strpos($name, 'metatag_maxlength_') !== FALSE) {
+      if ((empty($value) && $value !== 0 && $value !== '0') || !is_numeric($value)) {
+        unset($form_state['values'][$name]);
+        variable_del($name);
+      }
+      else {
+        $form_state['values'][$name] = intval($value);
+      }
+    }
+  }
+
   cache_clear_all('*', 'cache_metatag', TRUE);
-  drupal_set_message(t('The Metatag cache has been cleared, so all meta tags can be reloaded.'));
+  drupal_set_message(t('The Metatag cache has been cleared so all meta tags can be reloaded.'));
 }

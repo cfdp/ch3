@@ -845,7 +845,7 @@ function node_notify_log($subscription, $notification, $comment, $message = NULL
 
   $log_message = FALSE;
   $variables = array(
-    '!comment' => l(check_plain($comment->subject), 'comment/' . $comment->cid, array('fragment' => 'comment-' . $comment->cid)),
+    '!comment' => l($comment->subject, 'comment/' . $comment->cid, array('fragment' => 'comment-' . $comment->cid)),
     '!node_uri' => url('node/' . $comment->nid),
     '!subscriber' => $subscription->uid > 0 ? l(t('user'), 'user/' . $subscription->uid) : check_plain($subscription->email),
   );
@@ -880,7 +880,7 @@ function node_notify_log($subscription, $notification, $comment, $message = NULL
     watchdog('node_notify', 'Unknown notification state @state. Comment !comment. Subscription @sid.', array(
       '@state' => $notification->notified,
       '@sid' => $subscription->sid,
-      '!comment' => l(check_plain($comment->subject), comment_uri($comment)),
+      '!comment' => l($comment->subject, comment_uri($comment)),
     ), WATCHDOG_ERROR);
   }
 }

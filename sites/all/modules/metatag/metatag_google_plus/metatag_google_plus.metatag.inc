@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Metatag integration for the Metatag Google+ module.
@@ -111,20 +112,43 @@ function metatag_google_plus_metatag_info() {
   $info['tags']['itemprop:name'] = array(
     'label' => t('Title'),
     'description' => t('A Google+ title for the page being shared. Keep keywords towards the front.'),
+    'maxlength' => 0,
     'weight' => ++$weight,
   ) + $defaults;
   $info['tags']['itemprop:description'] = array(
     'label' => t('Description'),
     'description' => t('Longer form description, you’ve 200 words here that can specifically reference your presence on Google+'),
+    'maxlength' => 0,
     'weight' => ++$weight,
   ) + $defaults;
   $info['tags']['itemprop:image'] = array(
     'label' => t('Image URL'),
-    'description' => t('The URL to a unique image representing the content of the page. Do not use a generic image such as your website logo, author photo, or other image that spans multiple pages. '),
+    'description' => t('The URL to a unique image representing the content of the page. Do not use a generic image such as your website logo, author photo, or other image that spans multiple pages.'),
     'weight' => ++$weight,
     'image' => TRUE,
     'devel_generate' => array(
       'type' => 'image',
+    ),
+  ) + $defaults;
+
+  $info['tags']['author'] = array(
+    'label' => t('Author URL'),
+    'description' => t("Used by some search engines to confirm authorship of the content on a page. Should be either the full URL for the author's Google+ profile page or a local page with information about the author."),
+    'class' => 'DrupalLinkMetaTag',
+    'weight' => ++$weight,
+    'element' => array(),
+    'devel_generate' => array(
+      'type' => 'url',
+    ),
+  ) + $defaults;
+  $info['tags']['publisher'] = array(
+    'label' => t('Publisher URL'),
+    'description' => t("Used by some search engines to confirm publication of the content on a page. Should be the full URL for the publication's Google+ profile page."),
+    'class' => 'DrupalLinkMetaTag',
+    'weight' => ++$weight,
+    'element' => array(),
+    'devel_generate' => array(
+      'type' => 'url',
     ),
   ) + $defaults;
 

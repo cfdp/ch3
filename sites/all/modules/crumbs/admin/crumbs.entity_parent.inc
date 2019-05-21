@@ -96,15 +96,10 @@ EOT;
 
   if (module_exists('token')) {
     $form['token_help'] = array(
-      '#title' => t('Replacement patterns'),
-      '#type' => 'fieldset',
-      '#collapsible' => TRUE,
-      '#collapsed' => TRUE,
-    );
-
-    $form['token_help']['help'] = array(
+      /* @see theme_token_tree() */
       '#theme' => 'token_tree',
       '#token_types' => array($info['token type']),
+      '#dialog' => TRUE,
     );
   }
 

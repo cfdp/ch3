@@ -130,6 +130,7 @@ class crumbs_PluginSystem_PluginMethodIterator implements Iterator {
    * @link http://php.net/manual/en/iterator.rewind.php
    */
   public function rewind() {
-    $this->pluginKey = reset($this->pluginKeys);
+    $pluginKey = reset($this->pluginKeys);
+    $this->setFirstValidIteratorPosition($pluginKey);
   }
 }

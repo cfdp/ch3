@@ -152,9 +152,10 @@ function vud_permission() {
       'title' => t('Access Vote Up/Down Statistics'),
       'description' => t('Permission to see who is voting on what'),
     ),
+    // @todo Maybe change the name adding 'own votes'.
     'reset vote up/down votes' => array(
       'title' => t('Reset Votes'),
-      'description' => t('Reset all of the Up/Down votes on the site'),
+      'description' => t('Grant the ability to undo own votes.'),
     ),
   );
 }

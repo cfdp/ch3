@@ -8,9 +8,9 @@ files[] = emfield.install
 files[] = emfield.module
 
 
-; Information added by drupal.org packaging script on 2013-09-30
-version = "7.x-1.0-alpha2+0-dev"
+; Information added by Drupal.org packaging script on 2016-06-05
+version = "7.x-1.0-alpha2+1-dev"
 core = "7.x"
 project = "emfield"
-datestamp = "1380576739"
+datestamp = "1465101545"
 
