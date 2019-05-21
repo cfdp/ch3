@@ -579,6 +579,42 @@ body.page-blog #page-title {
     #bottom-wrapper #bottom {
       width: 1180px; } }
 
+#cfdp-website-links {
+  text-align: center;
+  margin-top: -20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #f1f1f1;
+  width: 100%; }
+  #cfdp-website-links h3 {
+    font-size: 1.3em;
+    padding-bottom: 20px;
+    color: #1b1d1f; }
+  #cfdp-website-links .cfdp-website-link-items {
+    width: 700px;
+    margin: auto;
+    text-align: center; }
+    #cfdp-website-links .cfdp-website-link-items .cfdp-website-link-item {
+      width: 32%;
+      height: 42px;
+      display: inline-block; }
+      #cfdp-website-links .cfdp-website-link-items .cfdp-website-link-item img {
+        width: 150px; }
+
+@media (max-width: 700px) {
+  #cfdp-website-links .cfdp-website-link-items {
+    width: 100%; }
+    #cfdp-website-links .cfdp-website-link-items h3 {
+      color: #1b1d1f;
+      padding-bottom: 30px; }
+    #cfdp-website-links .cfdp-website-link-items .cfdp-website-link-item {
+      text-align: center;
+      clear: both;
+      width: 100%;
+      padding-bottom: 30px; }
+    #cfdp-website-links .cfdp-website-link-items .cfdp-website-link-item.last {
+      padding-bottom: 0px; } }
+
 /* Components */
 #mobile-header-wrapper {
   display: block;
@@ -633,8 +669,6 @@ body.page-blog #page-title {
         width: 100%;
         box-sizing: border-box;
         float: right; }
-        #mobile-header .mobile-search .form-type-textfield input::-webkit-input-placeholder {
-          color: #1b1d1f; }
         #mobile-header .mobile-search .form-type-textfield input::-moz-placeholder {
           color: #1b1d1f; }
         #mobile-header .mobile-search .form-type-textfield input:-ms-input-placeholder {
@@ -2577,13 +2611,11 @@ h2#related-content {
   #highlighted .block-bean .content-inner,
   #highlighted .view-banner-ungi .content-inner {
     z-index: 2;
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
+    backface-visibility: hidden;
     padding: 2em;
     position: absolute;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%); }
+    transform: translateY(-50%); }
     @media (min-width: 768px) {
       #highlighted .block-bean .content-inner,
       #highlighted .view-banner-ungi .content-inner {
@@ -2753,9 +2785,6 @@ h2#related-content {
   color: white;
   box-sizing: border-box;
   max-width: 100%; }
-  .block-custom-search-blocks input[type=text]::-webkit-input-placeholder {
-    color: white;
-    text-transform: uppercase; }
   .block-custom-search-blocks input[type=text]::-moz-placeholder {
     color: white;
     text-transform: uppercase; }
