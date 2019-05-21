@@ -18,19 +18,3 @@ function vud_node_views_data_alter(&$data) {
     ),
   );
 }
-
-/**
- * Implementation of hook_views_handlers().
- */
-function vud_node_views_handlers() {
-  return array(
-    'info' => array(
-      'path' => drupal_get_path('module', 'vud_node') . '/views'
-    ),
-    'handlers' => array(
-      'vud_node_handler_field_widget' => array(
-        'parent' => 'views_handler_field',
-      ),
-    ),
-  );
-}

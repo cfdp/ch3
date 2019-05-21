@@ -53,7 +53,7 @@ function theme_crumbs_breadcrumb_link(array $item) {
   }
   else {
     $options = isset($item['localized_options']) ? $item['localized_options'] : array();
-    return l($item['title'], $item['href'], $options);
+    return l($item['title'], $item['link_path'], $options);
   }
 }
 
@@ -71,7 +71,7 @@ function theme_crumbs_breadcrumb_current_page(array $variables) {
       return '<span class="crumbs-current-page">' . check_plain($item['title']) . '</span>';
     case CRUMBS_SHOW_CURRENT_PAGE_LINK:
       $options = isset($item['localized_options']) ? $item['localized_options'] : array();
-      return l($item['title'], $item['href'], $options);
+      return l($item['title'], $item['link_path'], $options);
     default:
       return check_plain($item['title']);
   }

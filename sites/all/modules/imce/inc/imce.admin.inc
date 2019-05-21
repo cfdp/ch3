@@ -109,6 +109,12 @@ function imce_admin_form($form, &$form_state) {
     '#default_value' => variable_get('imce_settings_disable_private', 1),
     '#description' => t('IMCE serves all files under private files directory without applying any access restrictions. This allows anonymous access to any file(/system/files/filename) unless there is a module restricting access to the files. Here you can disable this feature.'),
   );
+  $form['common']['admin_theme'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Use admin theme for IMCE paths'),
+    '#default_value' => variable_get('imce_settings_admin_theme', FALSE),
+    '#description' => t('If you have user interface issues with the active theme you may consider switching to admin theme.'),
+  );
 
   $form['submit'] = array('#type' => 'submit', '#value' => t('Save configuration'));
   $form['#theme'] = 'imce_admin';
@@ -183,6 +189,7 @@ function imce_admin_submit($form, &$form_state) {
   variable_set('imce_settings_replace', $form_state['values']['replace']);
   variable_set('imce_settings_thumb_method', $form_state['values']['thumb_method']);
   variable_set('imce_settings_disable_private', $form_state['values']['disable_private']);
+  variable_set('imce_settings_admin_theme', $form_state['values']['admin_theme']);
   drupal_set_message(t('Changes have been saved.'));
 }
 
@@ -247,14 +254,14 @@ function imce_profile_form($form, &$form_state, $pid = 0) {
     '#type' => 'textfield',
     '#title' => t('Maximum file size per upload'),
     '#default_value' => $profile['filesize'],
-    '#description' => t('Set to 0 to use the maximum value avaliable.') . ' ' . t('Your PHP settings limit the maximum file size per upload to %size.', array('%size' => format_size(file_upload_max_size()))),
+    '#description' => t('Set to 0 to use the maximum value available.') . ' ' . t('Your PHP settings limit the maximum file size per upload to %size.', array('%size' => format_size(file_upload_max_size()))),
     '#field_suffix' => t('MB'),
   );
   $form['quota'] = array(
     '#type' => 'textfield',
     '#title' => t('Directory quota'),
     '#default_value' => $profile['quota'],
-    '#description' => t('Define the upload quota per directory.') . ' ' . t('Set to 0 to use the maximum value avaliable.'),
+    '#description' => t('Define the upload quota per directory.') . ' ' . t('Set to 0 to use the maximum value available.'),
     '#field_suffix' => t('MB'),
   );
   $form['tuquota'] = array(

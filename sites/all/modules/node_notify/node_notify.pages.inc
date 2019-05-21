@@ -35,7 +35,7 @@ function node_notify_subscribe_page($node) {
     return drupal_get_form('node_notify_subscribe_form', $node);
   }
   elseif (!node_notify_check_token('subscribe', $node->nid)) {
-    drupal_access_denied();
+    return MENU_ACCESS_DENIED;
   }
   else {
     node_notify_subscribe($node->nid, $GLOBALS['user']->uid);
@@ -89,7 +89,7 @@ function node_notify_unsubscribe_page($node) {
     drupal_goto('node/' . $node->nid);
   }
   else {
-    drupal_access_denied();
+    return MENU_ACCESS_DENIED;
   }
 }
 

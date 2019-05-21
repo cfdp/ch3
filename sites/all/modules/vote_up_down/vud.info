@@ -4,10 +4,11 @@ dependencies[] = votingapi
 dependencies[] = ctools
 package = Voting
 core = 7.x
+configure = admin/config/search/voteupdown
 
-; Information added by drupal.org packaging script on 2012-12-06
-version = "7.x-1.0-alpha1"
+; Information added by Drupal.org packaging script on 2017-10-26
+version = "7.x-1.0-beta2"
 core = "7.x"
 project = "vote_up_down"
-datestamp = "1354824274"
+datestamp = "1508990648"
 

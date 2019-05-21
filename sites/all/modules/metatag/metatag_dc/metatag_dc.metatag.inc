@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Metatag integration for the metatag_dc module.
@@ -107,11 +108,13 @@ function metatag_dc_metatag_info() {
   $info['tags']['dcterms.subject'] = array(
     'label' => t('Subject'),
     'description' => t('The topic of the resource. Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary. To describe the spatial or temporal topic of the resource, use the Coverage element.'),
+    'maxlength' => 0,
     'weight' => ++$weight,
   ) + $defaults;
   $info['tags']['dcterms.description'] = array(
     'label' => t('Description'),
     'description' => t('An account of the resource. Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.'),
+    'maxlength' => 0,
     'weight' => ++$weight,
   ) + $defaults;
   $info['tags']['dcterms.publisher'] = array(
@@ -163,6 +166,7 @@ function metatag_dc_metatag_info() {
   $info['tags']['dcterms.language'] = array(
     'label' => t('Language'),
     'description' => t('A language of the resource. Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646].'),
+    'is_language' => TRUE,
     'devel_generate' => array(
       'maxlength' => 1,
     ),

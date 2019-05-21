@@ -461,8 +461,7 @@ function vud_vote($type, $entity_id, $value, $tag, $widget, $token, $ajax = 'aja
       }
     }
 
-    print ajax_render($commands);
-    exit;
+    return ajax_deliver(array('#type' => 'ajax', '#commands' => $commands));
   }
   else {
     drupal_goto($_SERVER['HTTP_REFERER']);
@@ -513,8 +512,7 @@ function vud_reset($type, $entity_id, $tag, $widget, $token, $ajax = 'ajax') {
         }
       }
 
-      print ajax_render($commands);
-      exit;
+      return ajax_deliver(array('#type' => 'ajax', '#commands' => $commands));
     }
   }
   else {

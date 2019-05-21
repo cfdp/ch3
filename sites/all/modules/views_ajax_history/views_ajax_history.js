@@ -2,7 +2,7 @@
 
   // Need to keep this to check if there are extra parameters in the original URL.
   var original = {
-    path: window.location.href,
+    path: window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '') + window.location.pathname,
     // @TODO integrate #1359798 without breaking history.js
     query: window.location.search || ''
   };
@@ -22,18 +22,8 @@
       // Init the current page too, because the first loaded pager element do
       // not have loadable history and will not work the back button.
       var $body = $('body').once('views-ajax-history-first-page-load');
-      if ($body.length && settings.views && settings.views.ajaxViews) {
-        for (var viewsAjaxSettingsKey in settings.views.ajaxViews) {
-          if (settings.views.ajaxViews.hasOwnProperty(viewsAjaxSettingsKey)) {
-            var viewsAjaxSettings = settings.views.ajaxViews[viewsAjaxSettingsKey];
-            viewsAjaxSettings.page = settings.viewsAjaxHistory.onloadPageItem;
-            var options = {
-              data: viewsAjaxSettings,
-              url: settings.views.ajax_path
-            };
-            addState(options, window.location.pathname + window.location.search);
-          }
-        }
+      if ($body.length) {
+        settings.viewsAjaxHistory.onloadPageItem = settings.viewsAjaxHistory.renderPageItem;
       }
     }
   };
@@ -128,6 +118,8 @@
    *   String with the current URL to be cleaned up.
    */
   var addState = function (options, url) {
+    // Store the actual view's dom id.
+    Drupal.settings.viewsAjaxHistory.lastViewDomID = options.data.view_dom_id;
     $(window).unbind('statechange', loadView);
     History.pushState(options, document.title, cleanURL(url, options.data));
     $(window).bind('statechange', loadView);
@@ -139,6 +131,19 @@
   var loadView = function () {
     var state = History.getState();
     var options = state.data;
+
+    // This should be the first loaded page, so init the options object.
+    if (typeof options.data == 'undefined') {
+      var viewsAjaxSettingsKey = 'views_dom_id:' + Drupal.settings.viewsAjaxHistory.lastViewDomID;
+      if (Drupal.settings.views.ajaxViews.hasOwnProperty(viewsAjaxSettingsKey)) {
+        var viewsAjaxSettings = Drupal.settings.views.ajaxViews[viewsAjaxSettingsKey];
+        viewsAjaxSettings.page = Drupal.settings.viewsAjaxHistory.onloadPageItem;
+        options = {
+          data: viewsAjaxSettings,
+          url: Drupal.settings.views.ajax_path
+        };
+      }
+    }
 
     // need a dummy element to trigger Drupal's AJAX call.
     var $dummy = $('<div class="ajaxHistoryDummy"/>');
@@ -212,6 +217,13 @@
 
       addState(options, url);
     }
+
+    for (var i = 0; i < arguments[0].length; i++) {
+      if (arguments[0][i].name == 'page') {
+        arguments[0][i].value = 0;
+      }
+    }
+
     // Call the original Drupal method with the right context.
     beforeSubmit.apply(this, arguments);
   };

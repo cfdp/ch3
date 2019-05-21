@@ -52,7 +52,8 @@
    * @param i
    *   the index from the maps array we are working on
    */
-  Drupal.geolocation.codeAddress = function(i) {
+  Drupal.geolocation.codeAddress = function(i, suggest_flag) {
+    suggest_flag = suggest_flag || false;
     var address = $('#geolocation-address-' + i + ' input').val();
 
     // If it's a URL, try to get the coords from a Google Maps URL.
@@ -67,6 +68,20 @@
     }
 
     geocoder.geocode( { 'address': address }, function(results, status) {
+      if (suggest_flag == 1) {
+        var sug_str = '<div class="suggestion-options">';
+        if (results == '') {
+          sug_str += '<div class="suggessions">Not found</div>';
+        }
+        else {
+          $.each(results, function(index, value){
+            sug_str += '<div class="suggessions">' + value.formatted_address + '</div>';
+          })
+        }
+        sug_str += '</div>';
+        $('#geolocation-address-geocode-suggestions-' + i + ' .suggestion-options').replaceWith(Drupal.t(sug_str)).fadeIn(1500);
+        return;
+      }
       if (status == google.maps.GeocoderStatus.OK) {
         Drupal.geolocation.maps[i].setCenter(results[0].geometry.location);
         Drupal.geolocation.setMapMarker(results[0].geometry.location, i);
@@ -209,6 +224,10 @@
           });
           $('#geolocation-address-geocode-' + i).click(function(e) {
             Drupal.geolocation.codeAddress(i);
+          });
+
+          $('#geolocation-address-geocode-' + i).parent().find('input').keyup(function(e) {
+            Drupal.geolocation.codeAddress(i, 1);
           });
 
           $('#geolocation-remove-' + i).click(function(e) {

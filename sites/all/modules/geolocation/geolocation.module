@@ -24,7 +24,7 @@ function geolocation_field_info() {
 /**
  * Callback to alter the property info of geolocation fields.
  *
- * @see geolocation_field_info().
+ * @see geolocation_field_info()
  */
 function geolocation_property_info_callback(&$info, $entity_type, $field, $instance, $field_type) {
   $name = $field['field_name'];
@@ -33,7 +33,6 @@ function geolocation_property_info_callback(&$info, $entity_type, $field, $insta
   $property['type'] = ($field['cardinality'] != 1) ? 'list<geolocation>' : 'geolocation';
   $property['getter callback'] = 'entity_metadata_field_verbatim_get';
   $property['setter callback'] = 'entity_metadata_field_verbatim_set';
-  //  $property['auto creation'] = 'geolocation_default_values';
   $property['property info'] = geolocation_data_property_info();
 
   unset($property['query callback']);
@@ -52,7 +51,7 @@ function geolocation_data_property_info() {
       'description' => '',
       'getter callback' => 'entity_property_verbatim_get',
     ),
-    'lng'=> array(
+    'lng' => array(
       'label' => 'Longitude',
       'type' => 'decimal',
       'description' => '',
@@ -111,6 +110,7 @@ function geolocation_field_validate($entity_type, $entity, $field, $instance, $l
             'message' => t('Invalid Latitude. Value must be numeric.'),
           );
           break;
+
         case $item['lat'] > 90:
         case $item['lat'] < -90:
           $errors[$field['field_name']][$langcode][$delta][] = array(
@@ -144,10 +144,7 @@ function geolocation_field_validate($entity_type, $entity, $field, $instance, $l
 function geolocation_field_presave($entity_type, $entity, $field, $instance, $langcode, &$items) {
   foreach ($items as $delta => $item) {
     // Precalculate some goodness.
-    $item['lat_sin'] = sin(deg2rad($item['lat']));
-    $item['lat_cos'] = cos(deg2rad($item['lat']));
-    $item['lng_rad'] = deg2rad($item['lng']);
-    $items[$delta] = $item;
+    $items[$delta] = _geolocation_field_precalculate_values($item);
   }
 }
 
@@ -168,6 +165,10 @@ function geolocation_field_formatter_info() {
   return array(
     'geolocation_text' => array(
       'label' => t('Simple text-based formatter'),
+      'field types' => array('geolocation_latlng'),
+    ),
+    'geolocation_latlng' => array(
+      'label' => t('Simple microdata formatter'),
       'field types' => array('geolocation_latlng'),
     ),
     'geolocation_latitude' => array(
@@ -194,11 +195,23 @@ function geolocation_field_formatter_view($entity_type, $entity, $field, $instan
         $element[$delta]['#markup'] = '<p>' . t('Geolocation is @lat, @lng', array('@lat' => $item['lat'], '@lng' => $item['lng'])) . '</p>';
       }
       break;
+
+    case 'geolocation_latlng':
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          '#theme' => 'geolocation_latlng',
+          '#lat' => $item['lat'],
+          '#lng' => $item['lng'],
+        );
+      }
+      break;
+
     case 'geolocation_latitude':
       foreach ($items as $delta => $item) {
         $element[$delta]['#markup'] = $item['lat'];
       }
       break;
+
     case 'geolocation_longitude':
       foreach ($items as $delta => $item) {
         $element[$delta]['#markup'] = $item['lng'];
@@ -206,6 +219,21 @@ function geolocation_field_formatter_view($entity_type, $entity, $field, $instan
       break;
   }
   return $element;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function geolocation_theme() {
+  return array(
+    'geolocation_latlng' => array(
+      'template' => 'geolocation_latlng',
+      'variables' => array(
+        'lat' => NULL,
+        'lng' => NULL,
+      ),
+    ),
+  );
 }
 
 /**
@@ -230,7 +258,7 @@ function geolocation_field_widget_form(&$form, &$form_state, $field, $instance, 
     '#delta' => $delta,
   );
 
-  // Wrap in a fieldset for single fields
+  // Wrap in a fieldset for single fields.
   if ($field['cardinality'] == 1) {
     $element['#type'] = 'fieldset';
   }
@@ -272,8 +300,31 @@ function geolocation_field_widget_error($element, $error, $form, &$form_state) {
     case 'geolocation_invalid_lat':
       form_error($element['lat'], $error['message']);
       break;
+
     case 'geolocation_invalid_lng':
       form_error($element['lng'], $error['message']);
       break;
   }
+}
+
+/**
+ * Helper function. Precalculates values for geolocation field item.
+ *
+ * @param array $item
+ *   Geolocation field item with the following keys:
+ *     - lat: (required) Latitude
+ *     - lng: (required) Longitude
+ *
+ * @return array
+ *   Geolocation field item with added precalculated values:
+ *     - lat_sin: Latitude sine
+ *     - lat_cos: Latitude cosine
+ *     - lng_rad: Radian longitude
+ */
+function _geolocation_field_precalculate_values(array $item) {
+  $item['lat_sin'] = sin(deg2rad($item['lat']));
+  $item['lat_cos'] = cos(deg2rad($item['lat']));
+  $item['lng_rad'] = deg2rad($item['lng']);
+
+  return $item;
 }

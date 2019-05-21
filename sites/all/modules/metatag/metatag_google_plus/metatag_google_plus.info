@@ -1,15 +1,18 @@
 name = Metatag: Google+
-description = "Provides support for Google+ 'itemscope' meta tags."
+description = "Provides support for Google+ 'itemscope', 'author' and 'publisher' meta tags."
 package = SEO
 core = 7.x
 
-dependencies[] = metatag
+dependencies[] = metatag:metatag
 
 files[] = metatag_google_plus.inc
 
-; Information added by Drupal.org packaging script on 2015-07-24
-version = "7.x-1.7"
+; Tests.
+files[] = tests/metatag_google_plus.test
+files[] = tests/metatag_google_plus.tags.test
+
+; Information added by Drupal.org packaging script on 2018-04-04
+version = "7.x-1.25"
 core = "7.x"
 project = "metatag"
-datestamp = "1437763741"
-
+datestamp = "1522849089"

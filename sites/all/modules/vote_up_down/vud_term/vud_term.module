@@ -79,7 +79,10 @@ function vud_term_node_view($node, $view_mode, $langcode) {
   if (user_access('use vote up/down on terms')) {
     $node_type = in_array($node->type, variable_get('vud_term_types', array()), TRUE);
     $showmode  = variable_get('vud_term_votetable_show', 1);
-    $teaser = 1;
+    $teaser = 0;
+    if ($view_mode == 'teaser') {
+      $teaser = 1;
+    }
     if ($node_type) {
       switch ($showmode) {
         case 0:
@@ -122,7 +125,12 @@ function _vud_term_generate_table(&$node) {
       $rows[] = array(
         check_plain($tdetails->name),
         check_plain($tdetails->description),
-        theme('vud_widget', $entity_id, "term", $tag, $widget),
+        theme('vud_widget', array(
+                'entity_id' => $entity_id,
+                'type' => 'term',
+                'tag' => $tag,
+                'widget_theme' => $widget,
+              )),
         "<span id=\"total-votes-term-$entity_id\">". _vud_term_get_row_votes($entity_id, $tag) .'</span>',
         l('Reset your vote', "votereset/term/$entity_id/$tag/$reset_token"),
       );
@@ -137,13 +145,25 @@ function _vud_term_generate_table(&$node) {
       $rows[] = array(
         check_plain($tdetails->name),
         check_plain($tdetails->description),
-        theme('vud_widget', $entity_id, "term", $tag, $widget),
+        theme('vud_widget', array(
+                'entity_id' => $entity_id,
+                'type' => 'term',
+                'tag' => $tag,
+                'widget_theme' => $widget,
+              )),
         "<span id=\"total-votes-term-$entity_id\">". _vud_term_get_row_votes($entity_id, $tag) .'</span>',
       );
     }
   }
   $node->content['vud_term_show_table'] = array(
-    '#value' => theme('table', $header, $rows, $attributes = array('class' => 'vud-term-table', 'id' => "term-table-$node->nid")),
+    '#markup' => theme('table', array(
+        'header' => $header,
+        'rows' => $rows,
+        'attributes' => array(
+            'class' => 'vud-term-table',
+            'id' => "term-table-$node->nid"
+          )
+        )),
     '#weight' => 0,
   );
 }
