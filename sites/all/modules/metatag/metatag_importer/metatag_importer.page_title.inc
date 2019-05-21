@@ -1,8 +1,21 @@
 <?php
+
 /**
  * @file
  * Functionality for migrating data from the Page Title module.
- */  
+ */
+
+/**
+ * FormAPI callback for the Page Title importer.
+ */
+function metatag_importer_page_title_form($form, &$form_state) {
+  $form['help'] = array(
+    '#markup' => t('To migrate data from Page Title it is necessary to use Drush. See "drush metatag-convert-page-title" for details.'),
+    '#prefix' => '<p>',
+    '#suffix' => '</p>',
+  );
+  return $form;
+}
 
 /**
  * Migrate data from the page_title table, if available.
@@ -26,12 +39,20 @@ function metatag_importer_for_page_title() {
   $skipped = array();
 
   // Loop over each of the page_title records.
+  $entity_info = entity_get_info();
   while ($pt_data = $page_titles->fetchObject()) {
     $entity_type = $pt_data->type;
     $entity_id = $pt_data->id;
 
-    // Load the entity.
-    $entity = entity_load($entity_type, array($entity_id));
+    if ($entity_type == 'term') {
+      // Use the proper class name instead of what's in the page_title table.
+      $entity_type = 'taxonomy_term';
+    }
+
+    $entity = array();
+    if (array_key_exists($entity_type, $entity_info)) {
+      $entity = entity_load($entity_type, array($entity_id));
+    }
     if (empty($entity)) {
       $skipped[] = $entity_type . ':' . $entity_id;
       continue;
@@ -58,7 +79,7 @@ function metatag_importer_for_page_title() {
         if (!empty($metatag_config_node_type) && isset($metatag_config_node_type->config['title'])) {
           $title_setting = $metatag_config_node_type->config['title']['value'];
         }
-        else if (isset($metatag_config_node->config['title'])) {
+        elseif (isset($metatag_config_node->config['title'])) {
           $title_setting = $metatag_config_node->config['title']['value'];
         }
         else {
@@ -103,7 +124,7 @@ function metatag_importer_for_page_title() {
     }
     $data[$langcode]['title']['value'] = $metatag_title;
 
-    metatag_metatags_save($entity_type, $entity_id, $revision_id, $data, $langcode);
+    metatag_metatags_save($entity_type, $entity_id, $revision_id, $data);
     $converted += db_delete('page_title')
       ->condition('type', $entity_type)
       ->condition('id', $entity_id)

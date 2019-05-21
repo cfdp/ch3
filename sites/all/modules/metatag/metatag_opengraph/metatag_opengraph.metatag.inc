@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Metatag integration for the metatag_opengraph module.
@@ -132,6 +133,7 @@ function metatag_opengraph_metatag_info() {
   $info['tags']['og:title'] = array(
     'label' => t('Content title'),
     'description' => t('The title of the content, e.g., <em>The Rock</em>.'),
+    'maxlength' => 0,
     'weight' => ++$weight,
   ) + $og_defaults;
 
@@ -157,6 +159,7 @@ function metatag_opengraph_metatag_info() {
   $info['tags']['og:description'] = array(
     'label' => t('Content description'),
     'description' => t('A one to two sentence description of the content.'),
+    'maxlength' => 0,
     'weight' => ++$weight,
   ) + $og_defaults;
 
@@ -176,7 +179,7 @@ function metatag_opengraph_metatag_info() {
 
   $info['tags']['og:image'] = array(
     'label' => t('Image'),
-    'description' => t('The URL of an image which should represent the content. For best results use an image that is at least 1200 x 630 pixels in size, but at least 600 x 316 pixels is a recommended minimum. Supports PNG, JPEG and GIF formats. Should not be used if og:image:url is used.'),
+    'description' => t('The URL of an image which should represent the content. The image must be at least 200 x 200 pixels in size; 600 x 316 pixels is a recommended minimum size, and for best results use an image least 1200 x 630 pixels in size. Supports PNG, JPEG and GIF formats. Should not be used if og:image:url is used. Note: if multiple images are added many services (e.g. Facebook) will default to the largest image, not specifically the first one.'),
     'multiple' => TRUE,
     'image' => TRUE,
     'weight' => ++$weight,
@@ -186,7 +189,7 @@ function metatag_opengraph_metatag_info() {
   ) + $og_defaults;
   $info['tags']['og:image:url'] = array(
     'label' => t('Image URL'),
-    'description' => t('A alternative version of og:image and has exactly the same requirements; only one needs to be used.'),
+    'description' => t('A alternative version of og:image and has exactly the same requirements; only one needs to be used. Note: some services do not accept this tag and will only accept the "image" tag above.'),
     'multiple' => TRUE,
     'image' => TRUE,
     'weight' => ++$weight,
@@ -196,7 +199,7 @@ function metatag_opengraph_metatag_info() {
   ) + $og_defaults;
   $info['tags']['og:image:secure_url'] = array(
     'label' => t('Secure image URL'),
-    'description' => t('The secure URL (HTTPS) of an image which should represent the content. The image must be at least 50px by 50px and have a maximum aspect ratio of 3:1. Supports PNG, JPEG and GIF formats. All "http://" URLs will automatically be converted to "https://".'),
+    'description' => t('The secure URL (HTTPS) of an image which should represent the content. The image must be at least 50px by 50px and have a maximum aspect ratio of 3:1. Supports PNG, JPEG and GIF formats. All "http://" URLs will automatically be converted to "https://". Note: if multiple images are added many services (e.g. Facebook) will default to the largest image, not the first one.'),
     'multiple' => TRUE,
     'secure' => TRUE,
     'image' => TRUE,
@@ -301,6 +304,7 @@ function metatag_opengraph_metatag_info() {
     'label' => t('Locale'),
     'description' => 'The locale these tags are marked up in, must be in the format language_TERRITORY. Default is en_US.',
     'weight' => ++$weight,
+    'is_language' => TRUE,
     'devel_generate' => array(
       'maxlength' => 1,
     ),
@@ -310,6 +314,7 @@ function metatag_opengraph_metatag_info() {
     'description' => 'Other locales this content is available in, must be in the format language_TERRITORY, e.g. "fr_FR".',
     'weight' => ++$weight,
     'multiple' => TRUE,
+    'is_language' => TRUE,
     'devel_generate' => array(
       'maxlength' => 1,
     ),
@@ -408,6 +413,7 @@ function metatag_opengraph_metatag_info() {
   $info['tags']['og:audio:secure_url'] = array(
     'label' => t('Audio secure URL'),
     'description' => t('The secure URL to an audio file that complements this object. All "http://" URLs will automatically be converted to "https://".'),
+    'secure' => TRUE,
     'weight' => ++$weight,
     'devel_generate' => array(
       'type' => 'url',
@@ -464,10 +470,13 @@ function metatag_opengraph_metatag_info() {
   //     ),
   //   ),
   // );
-  $info['tags']['og:video'] = array(
+  $info['tags']['og:video:url'] = array(
     'label' => t('Video URL'),
     'description' => t('The URL to a video file that complements this object.'),
     'weight' => ++$weight,
+    'replaces' => array(
+      'og:video',
+    ),
     'devel_generate' => array(
       'type' => 'url',
     ),
@@ -597,6 +606,7 @@ function _metatag_opengraph_type_options() {
       'city' => t('City'),
       'country' => t('Country'),
       'landmark' => t('Landmark'),
+      'place' => t('Place'),
       'state_province' => t('State or province'),
     ),
     t('Products and Entertainment') => array(
@@ -606,6 +616,7 @@ function _metatag_opengraph_type_options() {
       'food' => t('Food'),
       'game' => t('Game'),
       'product' => t('Product'),
+      'product.group' => t('Product group'),
       'song' => t('Song'),
       'video.movie' => t('Movie'),
       'video.tv_show' => t('TV show'),
@@ -613,9 +624,8 @@ function _metatag_opengraph_type_options() {
       'video.other' => t('Miscellaneous video'),
     ),
     t('Websites') => array(
-      'blog' => t('Blog'),
       'website' => t('Website'),
-      'article' => t('Article'),
+      'article' => t('Article (inc blog)'),
     ),
   );
 

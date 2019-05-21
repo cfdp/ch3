@@ -176,6 +176,14 @@
           <?php print render($page['footer_second']); ?>
         <?php endif; ?>
       </div></div> <!-- /.section, /#footer -->
+      <div id="cfdp-website-links">
+        <div class="cfdp-website-link-items">
+          <h3>Kender du vores andre rådgivninger?</h3>
+          <div class="cfdp-website-link-item first"><a href="https://cyberhus.dk"><img src="/sites/all/themes/cyberhus_clean/assets/img/cyberhus-dark.png" alt="cyberhus" /></a></div>
+          <div class="cfdp-website-link-item middle"><a href="https://netstof.dk"><img src="/sites/all/themes/cyberhus_clean/assets/img/netstof-dark.png" alt="netstof" /></a></div>
+          <div class="cfdp-website-link-item last"><a href="https://gruppechat.dk"><img src="/sites/all/themes/cyberhus_clean/assets/img/gruppechat-dark.png" alt="gruppechat" /></a></div>
+        </div>
+      </div>
     </div> <!-- /#footer-wrapper -->
 
     <div id="bottom-wrapper">

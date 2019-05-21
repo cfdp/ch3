@@ -13,6 +13,6 @@ function views_ajax_history_views_pre_render(&$view) {
     $history_js = libraries_get_path('history.js') . '/scripts/bundled/html4+html5/jquery.history.js';
     drupal_add_js($history_js, array('group' => JS_LIBRARY));
     drupal_add_js(drupal_get_path('module', 'views_ajax_history') . '/views_ajax_history.js', array('weight' => 10));
-    drupal_add_js(array('viewsAjaxHistory' => array('onloadPageItem' => isset($_GET['page']) ? $_GET['page'] : 0)), 'setting');
+    drupal_add_js(array('viewsAjaxHistory' => array('renderPageItem' => isset($_GET['page']) ? $_GET['page'] : 0)), 'setting');
   }
 }

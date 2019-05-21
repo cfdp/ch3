@@ -17,7 +17,7 @@ function crumbs_permission() {
 function crumbs_menu() {
   $base = 'admin/structure/crumbs';
   $items = array();
-  $items["$base"] = array(
+  $items[$base] = array(
     'title' => 'Crumbs',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('crumbs_admin_weights_form'),

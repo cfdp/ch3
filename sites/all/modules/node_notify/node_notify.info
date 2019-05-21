@@ -10,9 +10,9 @@ dependencies[] = token
 
 files[] = node_notify.test
 
-; Information added by drupal.org packaging script on 2013-10-01
-version = "7.x-1.1+0-dev"
+; Information added by Drupal.org packaging script on 2017-02-01
+version = "7.x-1.2"
 core = "7.x"
 project = "node_notify"
-datestamp = "1380594288"
+datestamp = "1485958386"
 

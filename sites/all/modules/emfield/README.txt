@@ -36,4 +36,4 @@ further be limited when configuring the field.
 
 Read the README.txt files in the individual contrib folders for more information.
 
-Questions can be directed to winborn at advomatic dot com
+Questions can be directed to winborn@advomatic.com.

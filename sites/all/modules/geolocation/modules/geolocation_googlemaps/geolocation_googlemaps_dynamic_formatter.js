@@ -15,7 +15,7 @@
 
     attach : function(context, settings) {
 
-      var fields = settings.geolocationGooglemaps.formatters;
+      var fields = Drupal.settings.geolocationGooglemaps.formatters;
 
       // Work on each map
       $.each(fields, function(instance, data) {
