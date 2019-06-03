@@ -22,10 +22,10 @@
     <div class="author-name">
       <?php
       if(isset($node->field_navn[LANGUAGE_NONE])) {
-        print $node->field_navn[LANGUAGE_NONE][0]['value'];
+        print $node->field_navn[LANGUAGE_NONE][0]['safe_value'];
       }
       elseif(isset($node->field_forum_forf_navn[LANGUAGE_NONE])) {
-        print $node->field_forum_forf_navn[LANGUAGE_NONE][0]['value'];
+        print $node->field_forum_forf_navn[LANGUAGE_NONE][0]['safe_value'];
       }
       else {
         print t("Anonymous");

@@ -22,7 +22,7 @@
     <div class="author-name">
       <?php
       if(isset($user->profile_fulde_navn[LANGUAGE_NONE])) {
-        print $user->profile_fulde_navn[LANGUAGE_NONE][0]['value'];
+        print $user->profile_fulde_navn[LANGUAGE_NONE][0]['safe_value'];
       }
       else {
         print $user->name;
