@@ -18,7 +18,6 @@ sites/all/modules/simplehtmldom
 sites/all/modules/search_krumo
 sites/all/modules/stage_file_proxy
 sites/all/modules/reroute_email
-sites/all/modules/smtp
 sites/all/modules/module_builder
 sites/all/modules/browsersync
 robots.txt
