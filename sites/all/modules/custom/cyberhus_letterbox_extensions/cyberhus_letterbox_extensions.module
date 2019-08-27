@@ -130,7 +130,8 @@ function cyberhus_letterbox_extensions_mail($key, &$message, $params) {
 }
 
 /**
- * Find the counselors to be notified and lookup their email addresses
+ * Find the counselors to be notified, lookup their email addresses
+ * and initiate notification sending.
  */
 function cyberhus_letterbox_extensions_send_mail($params, $key) {
   global $language;
@@ -159,11 +160,15 @@ function cyberhus_letterbox_extensions_send_mail($params, $key) {
     watchdog('Cyberhus Letterbox Extensions', 'Trying to send notification mail, but no users had the counselor role.', WATCHDOG_WARNING);
     return;
   }
-  $to = implode(", ", $emails);
-  $params['to'] = $to;
-  drupal_set_message(t('Sent notification to @users', array('@users'=>$to)), 'status');
-  watchdog('Cyberhus Letterbox Extensions', 'Sent notifications to @users', array('@users' => $to), WATCHDOG_NOTICE);
-  drupal_mail('cyberhus_letterbox_extensions', $key, $to, $language, $params, $from = NULL, $send = TRUE);
+
+  foreach ($emails as $email) {
+    $params['to'] = $email;
+    $result = drupal_mail('cyberhus_letterbox_extensions', $key, $email, $language, $params, $from = NULL, $send = TRUE);
+    if ($result['result']) {
+      watchdog('Cyberhus Letterbox Extensions', 'Sent notification to @user', array('@user' => $email), WATCHDOG_NOTICE);
+      drupal_set_message(t('Sent notification to @user', array('@user'=>$email)), 'status');
+    }
+  }
 }
 
 /**
