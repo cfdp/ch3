@@ -1,14 +1,43 @@
 (function($, Drupal, opekaPopupWidgets){
   var i = 0;
+
+  Drupal.behaviors.cimWidget = {
+    attach: function(context, settings) {
+      
+      // Add wrapper for widget to DOM and load widget if the chat server is ready
+      $('body', context).once('add-cim-widget', function () {
+        if (typeof cm_InitiateChatClient != "undefined"){
+          console.log("cim widget added.");
+          $('body').append('<iframe class="cm-Chat-container" src=""></iframe>');
+          cm_InitiateChatClient('o3gaPVChkdyfiDgwGYvnNxj1Qwrtrp6i', 'https://chattest.ecmr.biz/ChatClient/Index');
+          setTimeout(function () {
+            if (cm_IsChatReady) {
+              console.log('Det virker!');
+              cm_StartChat('Hello woooorld');
+            }
+            else {
+              console.log('Det virker.... ikke');
+            }
+          }, 10000);
+        }
+        else {
+          console.log("Error:CIM script not defined.");
+        }
+      });
+    }
+  }
+
   Drupal.behaviors.opeka_widgetsPopupData = {
     attach: function(context, settings) {
       var breakpointTab = 586;
+
       
       // Add wrapper for widgets to DOM and load widgets once the chat server is ready
       $('body', context).once('add-opeka-widgets', function () {
         $('body').append('<div class="curachat-widgets"><div class="municipality-chats"></div><div class="cyberhus-chats"></div></div>');
         if (typeof opekaPopupWidgets != "undefined"){
-          Drupal.behaviors.opeka_widgets.waitForOpekaServer(opekaPopupWidgets);
+          // deactivate temporarily
+          //Drupal.behaviors.opeka_widgets.waitForOpekaServer(opekaPopupWidgets);
         }
         else {
           console.log("Error: Opeka popup widgets not defined...");
