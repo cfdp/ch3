@@ -1,12 +1,11 @@
 /* line 1, ../sass/opeka_widgets.scss */
 .curachat-widgets {
+  background-color: #7492b4;
   bottom: 64px;
   display: block;
   margin: 0;
-  padding: 0px;
+  padding: 10px;
   position: fixed;
-  right: 0;
-  text-align: center;
   width: 100%;
   z-index: 20;
 }
@@ -16,28 +15,27 @@
     bottom: 0;
   }
 }
-/* line 14, ../sass/opeka_widgets.scss */
+/* line 13, ../sass/opeka_widgets.scss */
 .curachat-widgets iframe {
-  border-bottom: 1px solid #ffffff;
   display: block;
   height: 35px;
-  width: 100%;
+  max-width: 100px;
 }
 
-/* line 25, ../sass/opeka_widgets.scss */
+/* line 23, ../sass/opeka_widgets.scss */
 .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header,
 .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe.opeka-widgets-header {
   height: 270px;
   display: block;
 }
 @media (min-width: 505px) {
-  /* line 25, ../sass/opeka_widgets.scss */
+  /* line 23, ../sass/opeka_widgets.scss */
   .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header,
   .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe.opeka-widgets-header {
     height: 200px;
   }
 }
-/* line 31, ../sass/opeka_widgets.scss */
+/* line 29, ../sass/opeka_widgets.scss */
 .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header.cyberhus,
 .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe.opeka-widgets-header.cyberhus {
   height: 270px;
@@ -45,18 +43,16 @@
   width: 100%;
 }
 @media (min-width: 505px) {
-  /* line 31, ../sass/opeka_widgets.scss */
+  /* line 29, ../sass/opeka_widgets.scss */
   .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header.cyberhus,
   .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe.opeka-widgets-header.cyberhus {
     height: 200px;
   }
 }
 
-/* line 42, ../sass/opeka_widgets.scss */
+/* line 40, ../sass/opeka_widgets.scss */
 .opeka-chat-popup-wrapper {
-  display: none;
+  display: inline-block;
   position: relative;
-  width: 100%;
   z-index: 10;
-  top: 400px;
 }

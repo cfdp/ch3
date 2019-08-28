@@ -2,16 +2,18 @@
   var i = 0;
   Drupal.behaviors.opeka_widgetsPopupData = {
     attach: function(context, settings) {
-      var breakpointTab = 586;
-      
+      cyberChatText = Drupal.t('Active chats right now');
       // Add wrapper for widgets to DOM and load widgets once the chat server is ready
       $('body', context).once('add-opeka-widgets', function () {
-        $('body').append('<div class="curachat-widgets"><div class="municipality-chats"></div><div class="cyberhus-chats"></div></div>');
+
+        $('body').append('<div class="curachat-widgets"><div class="cyberhus-chats">' +
+        '<div class="global-chat-widget-text">' + cyberChatText + '</div>' +
+        '</div><div class="municipality-chats"></div></div>');
         if (typeof opekaPopupWidgets != "undefined"){
           Drupal.behaviors.opeka_widgets.waitForOpekaServer(opekaPopupWidgets);
         }
         else {
-          console.log("Error: Opeka popup widgets not defined...");
+          console.warn("Error: Opeka popup widgets not defined. Probably the data file is missing.");
         }
       });
     }
