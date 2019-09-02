@@ -45,13 +45,18 @@ None.
 
 -- CUSTOMIZATION --
 
-
-
 * 
 
 -- TROUBLESHOOTING --
 
 * 
+
+-- CREDITS --
+
+Icons
+
+* question mark by Hare Krishna from the Noun Project
+
 
 -- CONTACT --
 
