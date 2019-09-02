@@ -1,9 +1,9 @@
 .curachat-widgets {
-  background-color: #7492b4;
+  background-color: #e19214;
   bottom: 64px;
   display: block;
   margin: 0;
-  padding: 10px;
+  padding: 4px 0;
   position: fixed;
   width: 100%;
   z-index: 20;
@@ -12,8 +12,84 @@
   }
   iframe {
     display: block;
-    height: 35px;
-    max-width: 100px;
+    height: 24px;
+    max-width: 130px;
+  }
+
+
+  .global-widget-toggle {
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    float: right;
+    padding-right: 10px;
+  }
+
+  .global-chat-widget-header {
+    margin-bottom: 10px;
+  }
+
+  .global-widget-read-more {
+    background-image: image-url('question_mark.svg'), none;
+    background-size: 17px 17px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-left: 10px;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    vertical-align: middle;
+  }
+
+  .global-widget-expanded {
+    background-color: #7492b4;
+    display: none;
+    padding: 10px 15px;
+    .global-widget-toggle {
+      background-image: image-url('arrow_down.svg'), none;
+      cursor: pointer;
+    }
+  }
+
+  .global-chat-widget-text {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    margin: .5em 0;
+  }
+
+  .global-widget-minimized {
+    display: none;
+    background-color: #e19214;
+    color: #6B4509;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 2;
+    cursor: pointer;
+    text-align: center;
+    .global-widget-toggle {
+      background-size: 20px 20px;
+      background-image: image-url('arrow_up.svg'), none;
+      background-position-y: 3px;
+      height: 24px;
+      width: 24px;
+    }
+
+    .minimizedStatus {
+      color: white;
+    }
+  }
+
+  .cyberhus-chats {
+    iframe {
+      height: 30px;
+      max-width: 215px;
+    }
+
+    .global-chat-widget-text {
+      font-size: 20px;
+    }
   }
 }
 
@@ -42,3 +118,5 @@
   position: relative;
   z-index: 10;
 }
+
+
