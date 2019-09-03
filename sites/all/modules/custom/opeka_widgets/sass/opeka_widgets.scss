@@ -1,7 +1,7 @@
 .curachat-widgets {
   background-color: #e19214;
   bottom: 64px;
-  display: block;
+  display: none;
   margin: 0;
   padding: 4px 0;
   position: fixed;
@@ -13,7 +13,7 @@
   iframe {
     display: block;
     height: 24px;
-    max-width: 130px;
+    max-width: 300px;
   }
 
 
@@ -84,13 +84,20 @@
   .cyberhus-chats {
     iframe {
       height: 30px;
-      max-width: 215px;
+      max-width: 300px;
     }
 
     .global-chat-widget-text {
       font-size: 20px;
     }
   }
+}
+
+.opeka-chat-popup-wrapper {
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  padding-right: 5px;
 }
 
 .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe,
@@ -113,10 +120,5 @@
   }
 }
 
-.opeka-chat-popup-wrapper {
-  display: inline-block;
-  position: relative;
-  z-index: 10;
-}
 
 

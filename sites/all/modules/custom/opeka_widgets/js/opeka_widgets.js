@@ -211,15 +211,26 @@
   };
 
   Drupal.behaviors.opeka_widgets.OpekaPopupController.prototype.receiveMessage = function(event) {
+    var popupWrapper = $(".opeka-chat-popup-wrapper." + this.chatName),
+      data = event.data;
     if (event.origin !== this.baseURL) {
       return;
     }
-    if (event.data === this.chatType + "-CloseIframe") {
+    if (data === this.chatType + "-CloseIframe") {
       this.closePopup();
-    } else {
-      chatStates[event.origin] = event.data;
-      this.popupAnimation(event.data);
+      return;
+    } 
+    // when the iframe is shown/hidden it sends it's width
+    // so we can render the correct size
+    if (data.substring(0,6) === 'width-'){
+      if (data.slice(6) != '0') {
+        popupWrapper.width(data.slice(6));
+      }
+      return;
     }
+    // We have a chat state change
+    chatStates[event.origin] = event.data;
+    this.popupAnimation(event.data);
   };
 
   /**
