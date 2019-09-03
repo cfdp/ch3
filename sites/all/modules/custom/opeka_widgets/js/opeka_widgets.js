@@ -271,6 +271,45 @@
     // The key wasn't found
     return false;
   };
+
+  /**
+  * Calculates the state of the global widget and applies a CSS class accordingly
+  */
+  Drupal.behaviors.opeka_widgets.updateGlobalWidgetState = function() {
+    if (Drupal.behaviors.opeka_widgets.searchObject('Open')) {
+      // We have an active chat
+      opekaGlobalWidgetState = 'chat-open';
+      Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
+
+    } else if (Drupal.behaviors.opeka_widgets.searchObject('Occupied')) {
+      // We have occupied chats...
+      opekaGlobalWidgetState = 'chat-busy';
+      Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
+
+    } else {
+      // All chats are closed
+      opekaGlobalWidgetState = 'chat-closed';
+      Drupal.behaviors.opeka_widgets.toggleGlobalWidget('hide');
+    }
+    //$('body').removeClass('chat-closed chat-busy chat-open').addClass(opekaMultiWidgetState);
+  };
+
+  /**
+  * Search the chatStates object for a certain value
+  * @param {String} needle. The value to search for
+  * @returns {Boolean} Returns true if the value was found, else false
+  */
+  Drupal.behaviors.opeka_widgets.searchObject = function(needle) {
+    for (var key in chatStates) {
+      if (chatStates.hasOwnProperty(key)) {
+        if (chatStates[key] == ('pair-'+needle) || chatStates[key] == ('group-'+needle) || chatStates[key] == ('default-'+needle) ) {
+          return true;
+        }
+      }
+    }
+    // The key wasn't found
+    return false;
+  };
   
   Drupal.behaviors.opeka_widgets.toggleGlobalWidget = function(action) {
     if ((widgetWrapper.css('display') == 'none') && (action === 'show')) {

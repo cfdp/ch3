@@ -19,7 +19,11 @@
 .curachat-widgets iframe {
   display: block;
   height: 24px;
+<<<<<<< HEAD
   max-width: 300px;
+=======
+  max-width: 130px;
+>>>>>>> 01dafeabebdefc0fb25b1b598cd87ce4362e5f4e
 }
 /* line 20, ../sass/opeka_widgets.scss */
 .curachat-widgets .global-widget-toggle {
@@ -90,11 +94,16 @@
 /* line 85, ../sass/opeka_widgets.scss */
 .curachat-widgets .cyberhus-chats iframe {
   height: 30px;
+<<<<<<< HEAD
   max-width: 300px;
+=======
+  max-width: 215px;
+>>>>>>> 01dafeabebdefc0fb25b1b598cd87ce4362e5f4e
 }
 /* line 90, ../sass/opeka_widgets.scss */
 .curachat-widgets .cyberhus-chats .global-chat-widget-text {
   font-size: 20px;
+<<<<<<< HEAD
 }
 
 /* line 96, ../sass/opeka_widgets.scss */
@@ -106,19 +115,32 @@
 }
 
 /* line 106, ../sass/opeka_widgets.scss */
+=======
+}
+
+/* line 99, ../sass/opeka_widgets.scss */
+>>>>>>> 01dafeabebdefc0fb25b1b598cd87ce4362e5f4e
 .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header,
 .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe.opeka-widgets-header {
   height: 270px;
   display: block;
 }
 @media (min-width: 505px) {
+<<<<<<< HEAD
   /* line 106, ../sass/opeka_widgets.scss */
+=======
+  /* line 99, ../sass/opeka_widgets.scss */
+>>>>>>> 01dafeabebdefc0fb25b1b598cd87ce4362e5f4e
   .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header,
   .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe.opeka-widgets-header {
     height: 200px;
   }
 }
+<<<<<<< HEAD
 /* line 112, ../sass/opeka_widgets.scss */
+=======
+/* line 105, ../sass/opeka_widgets.scss */
+>>>>>>> 01dafeabebdefc0fb25b1b598cd87ce4362e5f4e
 .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header.cyberhus,
 .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe.opeka-widgets-header.cyberhus {
   height: 270px;
@@ -126,9 +148,23 @@
   width: 100%;
 }
 @media (min-width: 505px) {
+<<<<<<< HEAD
   /* line 112, ../sass/opeka_widgets.scss */
+=======
+  /* line 105, ../sass/opeka_widgets.scss */
+>>>>>>> 01dafeabebdefc0fb25b1b598cd87ce4362e5f4e
   .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header.cyberhus,
   .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe.opeka-widgets-header.cyberhus {
     height: 200px;
   }
 }
+<<<<<<< HEAD
+=======
+
+/* line 116, ../sass/opeka_widgets.scss */
+.opeka-chat-popup-wrapper {
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+}
+>>>>>>> 01dafeabebdefc0fb25b1b598cd87ce4362e5f4e
