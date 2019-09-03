@@ -38,7 +38,7 @@
 function opeka_widgets_preprocess_html(&$variables) {
   if (!path_is_admin(current_path())) {
     drupal_add_css(drupal_get_path('module', 'opeka_widgets') . '/css/opeka_widgets.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
-    drupal_add_js(drupal_get_path('module', 'opeka_widgets') . '/js/data_dev.js', array('weight' => 9));
+    drupal_add_js(drupal_get_path('module', 'opeka_widgets') . '/js/data.js', array('weight' => 9));
     drupal_add_js(drupal_get_path('module', 'opeka_widgets') . '/js/opeka_widgets.js', array('weight' => 10));
   }
 }

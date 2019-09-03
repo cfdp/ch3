@@ -4,10 +4,16 @@
   bottom: 64px;
   display: none;
   margin: 0;
-  padding: 4px 0;
+  padding: 3px 0 6px 0;
   position: fixed;
   width: 100%;
   z-index: 20;
+}
+@media (min-width: 768px) {
+  /* line 1, ../sass/opeka_widgets.scss */
+  .curachat-widgets {
+    bottom: 69px;
+  }
 }
 @media (min-width: 1024px) {
   /* line 1, ../sass/opeka_widgets.scss */
@@ -15,17 +21,13 @@
     bottom: 0;
   }
 }
-/* line 13, ../sass/opeka_widgets.scss */
+/* line 16, ../sass/opeka_widgets.scss */
 .curachat-widgets iframe {
   display: block;
   height: 24px;
-<<<<<<< HEAD
   max-width: 300px;
-=======
-  max-width: 130px;
->>>>>>> 01dafeabebdefc0fb25b1b598cd87ce4362e5f4e
 }
-/* line 20, ../sass/opeka_widgets.scss */
+/* line 23, ../sass/opeka_widgets.scss */
 .curachat-widgets .global-widget-toggle {
   background-size: 25px 25px;
   background-repeat: no-repeat;
@@ -34,11 +36,11 @@
   float: right;
   padding-right: 10px;
 }
-/* line 29, ../sass/opeka_widgets.scss */
+/* line 32, ../sass/opeka_widgets.scss */
 .curachat-widgets .global-chat-widget-header {
   margin-bottom: 10px;
 }
-/* line 33, ../sass/opeka_widgets.scss */
+/* line 36, ../sass/opeka_widgets.scss */
 .curachat-widgets .global-widget-read-more {
   background-image: url('../img/question_mark.svg?1567452746'), none;
   background-size: 17px 17px;
@@ -50,25 +52,25 @@
   cursor: pointer;
   vertical-align: middle;
 }
-/* line 45, ../sass/opeka_widgets.scss */
+/* line 48, ../sass/opeka_widgets.scss */
 .curachat-widgets .global-widget-expanded {
   background-color: #7492b4;
   display: none;
   padding: 10px 15px;
 }
-/* line 49, ../sass/opeka_widgets.scss */
+/* line 52, ../sass/opeka_widgets.scss */
 .curachat-widgets .global-widget-expanded .global-widget-toggle {
   background-image: url('../img/arrow_down.svg?1567424040'), none;
   cursor: pointer;
 }
-/* line 55, ../sass/opeka_widgets.scss */
+/* line 58, ../sass/opeka_widgets.scss */
 .curachat-widgets .global-chat-widget-text {
   font-size: 16px;
   font-weight: 700;
   color: white;
   margin: .5em 0;
 }
-/* line 62, ../sass/opeka_widgets.scss */
+/* line 65, ../sass/opeka_widgets.scss */
 .curachat-widgets .global-widget-minimized {
   display: none;
   background-color: #e19214;
@@ -76,10 +78,11 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 2;
+  margin: 5px 0;
   cursor: pointer;
   text-align: center;
 }
-/* line 71, ../sass/opeka_widgets.scss */
+/* line 75, ../sass/opeka_widgets.scss */
 .curachat-widgets .global-widget-minimized .global-widget-toggle {
   background-size: 20px 20px;
   background-image: url('../img/arrow_up.svg?1567422611'), none;
@@ -87,26 +90,21 @@
   height: 24px;
   width: 24px;
 }
-/* line 79, ../sass/opeka_widgets.scss */
+/* line 83, ../sass/opeka_widgets.scss */
 .curachat-widgets .global-widget-minimized .minimizedStatus {
   color: white;
 }
-/* line 85, ../sass/opeka_widgets.scss */
+/* line 89, ../sass/opeka_widgets.scss */
 .curachat-widgets .cyberhus-chats iframe {
   height: 30px;
-<<<<<<< HEAD
   max-width: 300px;
-=======
-  max-width: 215px;
->>>>>>> 01dafeabebdefc0fb25b1b598cd87ce4362e5f4e
 }
-/* line 90, ../sass/opeka_widgets.scss */
+/* line 94, ../sass/opeka_widgets.scss */
 .curachat-widgets .cyberhus-chats .global-chat-widget-text {
   font-size: 20px;
-<<<<<<< HEAD
 }
 
-/* line 96, ../sass/opeka_widgets.scss */
+/* line 100, ../sass/opeka_widgets.scss */
 .opeka-chat-popup-wrapper {
   display: inline-block;
   position: relative;
@@ -114,33 +112,20 @@
   padding-right: 5px;
 }
 
-/* line 106, ../sass/opeka_widgets.scss */
-=======
-}
-
-/* line 99, ../sass/opeka_widgets.scss */
->>>>>>> 01dafeabebdefc0fb25b1b598cd87ce4362e5f4e
+/* line 110, ../sass/opeka_widgets.scss */
 .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header,
 .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe.opeka-widgets-header {
   height: 270px;
   display: block;
 }
 @media (min-width: 505px) {
-<<<<<<< HEAD
-  /* line 106, ../sass/opeka_widgets.scss */
-=======
-  /* line 99, ../sass/opeka_widgets.scss */
->>>>>>> 01dafeabebdefc0fb25b1b598cd87ce4362e5f4e
+  /* line 110, ../sass/opeka_widgets.scss */
   .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header,
   .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe.opeka-widgets-header {
     height: 200px;
   }
 }
-<<<<<<< HEAD
-/* line 112, ../sass/opeka_widgets.scss */
-=======
-/* line 105, ../sass/opeka_widgets.scss */
->>>>>>> 01dafeabebdefc0fb25b1b598cd87ce4362e5f4e
+/* line 116, ../sass/opeka_widgets.scss */
 .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header.cyberhus,
 .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe.opeka-widgets-header.cyberhus {
   height: 270px;
@@ -148,23 +133,9 @@
   width: 100%;
 }
 @media (min-width: 505px) {
-<<<<<<< HEAD
-  /* line 112, ../sass/opeka_widgets.scss */
-=======
-  /* line 105, ../sass/opeka_widgets.scss */
->>>>>>> 01dafeabebdefc0fb25b1b598cd87ce4362e5f4e
+  /* line 116, ../sass/opeka_widgets.scss */
   .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe.opeka-widgets-header.cyberhus,
   .page-node-20738 .view-cyberhus-chat .views-field-field-admin-php iframe.opeka-widgets-header.cyberhus {
     height: 200px;
   }
 }
-<<<<<<< HEAD
-=======
-
-/* line 116, ../sass/opeka_widgets.scss */
-.opeka-chat-popup-wrapper {
-  display: inline-block;
-  position: relative;
-  z-index: 10;
-}
->>>>>>> 01dafeabebdefc0fb25b1b598cd87ce4362e5f4e
