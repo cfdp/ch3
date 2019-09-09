@@ -40,7 +40,7 @@
         widgetWrapper = $('.curachat-widgets');
         widgetMinized = $('.global-widget-minimized');
         widgetExpanded = $('.global-widget-expanded');
-        // Add event handler for maximizing widget
+        // Add event handler for maximizing global widget
         $('body').on('click', '.global-widget-minimized', function() {
           widgetMinized.hide();
           widgetExpanded.show();
@@ -151,7 +151,6 @@
       declineWidgetCookie = Drupal.behaviors.opeka_widgets.getCookie === "yes" ? true : false;
 
       Drupal.behaviors.opeka_widgets.updateGlobalWidgetState();
-
     // Get height of all widgets
     $('.opeka-chat-popup-wrapper').each(function () {
       totalHeight += $(this).height()
@@ -220,7 +219,7 @@
       this.closePopup();
       return;
     } 
-    // when the iframe is shown/hidden it sends it's width
+    // when the iframe is shown/hidden it sends it's width to us (the parent window)
     // so we can render the correct size
     if (data.substring(0,6) === 'width-'){
       if (data.slice(6) != '0') {
@@ -228,9 +227,16 @@
       }
       return;
     }
-    // We have a chat state change
-    chatStates[event.origin] = event.data;
-    this.popupAnimation(event.data);
+    if (
+      (data.slice(-6) === 'Closed') ||
+      (data.slice(-4) === 'Open') ||
+      (data.slice(-8) === 'Occupied')) {
+        // We have a chat state change
+        chatStates[event.origin] = data;
+        this.popupAnimation(data);
+        return;
+    }
+    return;
   };
 
   /**
@@ -273,7 +279,7 @@
   };
 
   /**
-  * Calculates the state of the global widget and applies a CSS class accordingly
+  * Calculates the state of the global widget and shows / hides it accordingly
   */
   Drupal.behaviors.opeka_widgets.updateGlobalWidgetState = function() {
     if (Drupal.behaviors.opeka_widgets.searchObject('Open')) {
@@ -291,7 +297,6 @@
       opekaGlobalWidgetState = 'chat-closed';
       Drupal.behaviors.opeka_widgets.toggleGlobalWidget('hide');
     }
-    //$('body').removeClass('chat-closed chat-busy chat-open').addClass(opekaMultiWidgetState);
   };
 
   /**
@@ -302,20 +307,27 @@
   Drupal.behaviors.opeka_widgets.searchObject = function(needle) {
     for (var key in chatStates) {
       if (chatStates.hasOwnProperty(key)) {
-        if (chatStates[key] == ('pair-'+needle) || chatStates[key] == ('group-'+needle) || chatStates[key] == ('default-'+needle) ) {
-          return true;
+        if (
+          chatStates[key] == ('pair-'+needle) ||
+          chatStates[key] == ('group-'+needle) ||
+          chatStates[key] == ('default-'+needle) ) {
+            return true;
         }
       }
     }
     // The key wasn't found
     return false;
   };
-  
+  /**
+  * Shows or hides the global widget
+  * @param {String} action. The value indicating what action should be taken
+  * @returns null
+  */
   Drupal.behaviors.opeka_widgets.toggleGlobalWidget = function(action) {
     if ((widgetWrapper.css('display') == 'none') && (action === 'show')) {
       widgetWrapper.fadeIn();
-      widgetExpanded.hide();
-      widgetMinized.show();
+      widgetExpanded.show();
+      widgetMinized.hide();
       return;
     }
     if ((widgetWrapper.css('display') != 'none') && (action === 'hide')) {

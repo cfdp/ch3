@@ -1,7 +1,7 @@
 /* line 1, ../sass/opeka_widgets.scss */
 .curachat-widgets {
   background-color: #e19214;
-  bottom: 64px;
+  bottom: 63px;
   display: none;
   margin: 0;
   padding: 3px 0 6px 0;
@@ -54,7 +54,7 @@
 }
 /* line 48, ../sass/opeka_widgets.scss */
 .curachat-widgets .global-widget-expanded {
-  background-color: #7492b4;
+  background-color: #268fb3;
   display: none;
   padding: 10px 15px;
 }
