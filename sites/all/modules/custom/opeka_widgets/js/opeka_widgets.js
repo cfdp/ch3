@@ -1,21 +1,59 @@
 (function($, Drupal, opekaPopupWidgets){
-  var i = 0;
+  var chatStates = {},
+      opekaGlobalWidgetState = "not-set",
+      widgetWrapper,
+      widgetMinized,
+      widgetExpanded;
+
+
   Drupal.behaviors.opeka_widgetsPopupData = {
     attach: function(context, settings) {
-      var breakpointTab = 586;
-      
+      var cyberChatText = Drupal.t('Active chats right now'),
+      municipalityChatText = Drupal.t('Chat with local counselors near you'),
+      minimizedStatus = Drupal.t('The chat is open!'),
+      minimizedExplainer = Drupal.t('Who can you chat with?');
+
       // Add wrapper for widgets to DOM and load widgets once the chat server is ready
       $('body', context).once('add-opeka-widgets', function () {
-        $('body').append('<div class="curachat-widgets"><div class="municipality-chats"></div><div class="cyberhus-chats"></div></div>');
+
+        $('body').append('<div class="curachat-widgets">' + 
+          '<div class="global-widget-expanded">' +
+            '<div class="cyberhus-chats">' +
+              '<div class="global-chat-widget-header">' +
+                '<span class="global-chat-widget-text">' + cyberChatText + '</span>' +
+                '<a class="global-widget-read-more" href="/chat"></a>' +
+                '<span class="global-widget-toggle"></span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="global-chat-widget-text">' + municipalityChatText + '</div>' +
+            '<div class="municipality-chats"></div>' +
+          '</div>' +
+          '<div class="global-widget-minimized"><span class="minimizedStatus">' + minimizedStatus + '</span><span class="minimizedExplainer">' + ' ' + minimizedExplainer + '</span><span class="global-widget-toggle"></span></div>' +
+        '</div>');
         if (typeof opekaPopupWidgets != "undefined"){
           Drupal.behaviors.opeka_widgets.waitForOpekaServer(opekaPopupWidgets);
         }
         else {
-          console.log("Error: Opeka popup widgets not defined...");
+          console.warn("Error: Opeka popup widgets not defined. Probably the data file is missing.");
         }
+        // Cache some elements
+        widgetWrapper = $('.curachat-widgets');
+        widgetMinized = $('.global-widget-minimized');
+        widgetExpanded = $('.global-widget-expanded');
+        // Add event handler for maximizing global widget
+        $('body').on('click', '.global-widget-minimized', function() {
+          widgetMinized.hide();
+          widgetExpanded.show();
+        });
+
+        // Add event handler for minimizing global widget
+        $('body').on('click', '.global-widget-expanded .global-widget-toggle', function() {
+          widgetExpanded.hide();
+          widgetMinized.show();
+        });
       });
     }
-  }
+  };
   
   Drupal.behaviors.opeka_widgets ={};
   
@@ -58,7 +96,6 @@
     this.chatName = opekaPopup.chatName;
     this.cssFiles = opekaPopup.cssFiles;
     this.embedLocation = opekaPopup.embedLocation;
-    this.widgetSize = opekaPopup.widgetSize;
   };
   
   /**
@@ -100,58 +137,61 @@
   // Add the popup HTML to the page
   Drupal.behaviors.opeka_widgets.OpekaPopupController.prototype.addEmbedHTML = function() {
 
-    $(this.embedLocation).append('<div class="opeka-chat-popup-wrapper ' + this.chatName + '"><div id="opeka-chat-iframe-' + this.chatName + '"><iframe src="' + this.chatURL + '" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></div></div>');
+    $(this.embedLocation).append('<div class="opeka-chat-popup-wrapper ' + this.chatName + '"><div id="opeka-chat-iframe-' + 
+      this.chatName + '"><iframe src="' + this.chatURL + '" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></div></div>');
     };
     
   //Popup animation
   Drupal.behaviors.opeka_widgets.OpekaPopupController.prototype.popupAnimation = function(popupAction) {
-      var popupWrapper = ".opeka-chat-popup-wrapper." + this.chatName,
-        height = $(popupWrapper).height(),
-        smallHeight = 35,
-        largeHeight = 70,
-        totalHeight = 0,
-        isVisible = $(popupWrapper).css('display') == 'none' ? false : true,
-        declineWidgetCookie = Drupal.behaviors.opeka_widgets.getCookie === "yes" ? true : false;
+    var popupWrapper = ".opeka-chat-popup-wrapper." + this.chatName,
+      height = $(popupWrapper).height(),
+      smallHeight = 35,
+      largeHeight = 70,
+      totalHeight = 0,
+      declineWidgetCookie = Drupal.behaviors.opeka_widgets.getCookie === "yes" ? true : false;
 
+      Drupal.behaviors.opeka_widgets.updateGlobalWidgetState();
+    // Get height of all widgets
+    $('.opeka-chat-popup-wrapper').each(function () {
+      totalHeight += $(this).height()
+    });
+    // Make widget pop up if open or occupied
+    if (!declineWidgetCookie && (popupAction === (this.chatType + "-Open"))) {
+      $(popupWrapper).show();
 
-      // Get height of all widgets
-      $('.opeka-chat-popup-wrapper').each(function () {
-        totalHeight += $(this).height()
-      });
-      // Make widget popup if open or occupied
-      if (!declineWidgetCookie && (popupAction === (this.chatType + "-Open"))) {
-        $(popupWrapper).animate({
-          top: 0
-        }, 300, function () {
-          $(popupWrapper).show();
-        });
-        // Animate to big size
-        $(popupWrapper+" iframe").animate({
-          height: largeHeight
-        }, 300);
-      }
-      else if (popupAction === (this.chatType + "-Occupied")){
-        $(popupWrapper).animate({
-          top: 0
-        }, 300, function () {
-          $(popupWrapper).show();
-        });
-        // Animate to small size
-        $(popupWrapper+" iframe").animate({
-          height: smallHeight
-        }, 300);
-      }
-      else if (popupAction === (this.chatType + "-Closed")) {
-        $(popupWrapper).animate({
-          top: totalHeight
-        }, 300, function () {
-          $(popupWrapper).hide()
-        });
-      }
-      if (!($(popupWrapper).css('display') == 'none')) {
-        isVisible = true;
-      }
-    };
+      // $(popupWrapper).animate({
+      //   top: 0
+      // }, 300, function () {
+      //   $(popupWrapper).show();
+      // });
+      // Animate to big size
+      // $(popupWrapper+" iframe").animate({
+      //   height: largeHeight
+      // }, 300);
+    }
+    else if (popupAction === (this.chatType + "-Occupied")){
+      $(popupWrapper).show();
+
+      // $(popupWrapper).animate({
+      //   top: 0
+      // }, 300, function () {
+      //   $(popupWrapper).show();
+      // });
+      // Animate to small size
+      // $(popupWrapper+" iframe").animate({
+      //   height: smallHeight
+      // }, 300);
+    }
+    else if (popupAction === (this.chatType + "-Closed")) {
+      $(popupWrapper).hide();
+
+      // $(popupWrapper).animate({
+      //   top: totalHeight
+      // }, 300, function () {
+      //   $(popupWrapper).hide();
+      // });
+    }
+  };
 
   // Close popup when the close iframe message is received
   Drupal.behaviors.opeka_widgets.OpekaPopupController.prototype.closePopup = function() {
@@ -170,15 +210,133 @@
   };
 
   Drupal.behaviors.opeka_widgets.OpekaPopupController.prototype.receiveMessage = function(event) {
+    var popupWrapper = $(".opeka-chat-popup-wrapper." + this.chatName),
+      data = event.data;
     if (event.origin !== this.baseURL) {
       return;
-    } else if (event.data === this.chatType + "-CloseIframe") {
+    }
+    if (data === this.chatType + "-CloseIframe") {
       this.closePopup();
+      return;
+    } 
+    // when the iframe is shown/hidden it sends it's width to us (the parent window)
+    // so we can render the correct size
+    if (data.substring(0,6) === 'width-'){
+      if (data.slice(6) != '0') {
+        popupWrapper.width(data.slice(6));
+      }
+      return;
+    }
+    if (
+      (data.slice(-6) === 'Closed') ||
+      (data.slice(-4) === 'Open') ||
+      (data.slice(-8) === 'Occupied')) {
+        // We have a chat state change
+        chatStates[event.origin] = data;
+        this.popupAnimation(data);
+        return;
+    }
+    return;
+  };
+
+  /**
+  * Calculates the state of the global widget and applies a CSS class accordingly
+  */
+  Drupal.behaviors.opeka_widgets.updateGlobalWidgetState = function() {
+    if (Drupal.behaviors.opeka_widgets.searchObject('Open')) {
+      // We have an active chat
+      opekaGlobalWidgetState = 'chat-open';
+      Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
+
+    } else if (Drupal.behaviors.opeka_widgets.searchObject('Occupied')) {
+      // We have occupied chats...
+      opekaGlobalWidgetState = 'chat-busy';
+      Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
+
     } else {
-      this.popupAnimation(event.data);
+      // All chats are closed
+      opekaGlobalWidgetState = 'chat-closed';
+      Drupal.behaviors.opeka_widgets.toggleGlobalWidget('hide');
+    }
+    //$('body').removeClass('chat-closed chat-busy chat-open').addClass(opekaMultiWidgetState);
+  };
+
+  /**
+  * Search the chatStates object for a certain value
+  * @param {String} needle. The value to search for
+  * @returns {Boolean} Returns true if the value was found, else false
+  */
+  Drupal.behaviors.opeka_widgets.searchObject = function(needle) {
+    for (var key in chatStates) {
+      if (chatStates.hasOwnProperty(key)) {
+        if (chatStates[key] == ('pair-'+needle) || chatStates[key] == ('group-'+needle) || chatStates[key] == ('default-'+needle) ) {
+          return true;
+        }
+      }
+    }
+    // The key wasn't found
+    return false;
+  };
+
+  /**
+  * Calculates the state of the global widget and shows / hides it accordingly
+  */
+  Drupal.behaviors.opeka_widgets.updateGlobalWidgetState = function() {
+    if (Drupal.behaviors.opeka_widgets.searchObject('Open')) {
+      // We have an active chat
+      opekaGlobalWidgetState = 'chat-open';
+      Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
+
+    } else if (Drupal.behaviors.opeka_widgets.searchObject('Occupied')) {
+      // We have occupied chats...
+      opekaGlobalWidgetState = 'chat-busy';
+      Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
+
+    } else {
+      // All chats are closed
+      opekaGlobalWidgetState = 'chat-closed';
+      Drupal.behaviors.opeka_widgets.toggleGlobalWidget('hide');
     }
   };
-  
+
+  /**
+  * Search the chatStates object for a certain value
+  * @param {String} needle. The value to search for
+  * @returns {Boolean} Returns true if the value was found, else false
+  */
+  Drupal.behaviors.opeka_widgets.searchObject = function(needle) {
+    for (var key in chatStates) {
+      if (chatStates.hasOwnProperty(key)) {
+        if (
+          chatStates[key] == ('pair-'+needle) ||
+          chatStates[key] == ('group-'+needle) ||
+          chatStates[key] == ('default-'+needle) ) {
+            return true;
+        }
+      }
+    }
+    // The key wasn't found
+    return false;
+  };
+  /**
+  * Shows or hides the global widget
+  * @param {String} action. The value indicating what action should be taken
+  * @returns null
+  */
+  Drupal.behaviors.opeka_widgets.toggleGlobalWidget = function(action) {
+    if ((widgetWrapper.css('display') == 'none') && (action === 'show')) {
+      widgetWrapper.fadeIn();
+      widgetExpanded.show();
+      widgetMinized.hide();
+      return;
+    }
+    if ((widgetWrapper.css('display') != 'none') && (action === 'hide')) {
+      widgetMinized.hide();
+      widgetExpanded.hide();
+      widgetWrapper.fadeOut();
+    }
+  };
+
   Drupal.behaviors.opeka_widgets.setStatus = function(chatName) {
     // var date = new Date();
     // date.setDate(date.getDate() + 1); 
