@@ -1,22 +1,107 @@
 .curachat-widgets {
-  bottom: 64px;
-  display: block;
+  background-color: #e19214;
+  bottom: 63px;
+  display: none;
   margin: 0;
-  padding: 0px;
+  padding: 3px 0 6px 0;
   position: fixed;
-  right: 0;
-  text-align: center;
   width: 100%;
   z-index: 20;
+  @media (min-width: 768px) {
+    bottom: 69px;
+  }
   @media (min-width: 1024px) {
-      bottom: 0;
+    bottom: 0;
   }
   iframe {
-    border-bottom: 1px solid #ffffff;
     display: block;
-    height: 35px;
-    width: 100%;
+    height: 24px;
+    max-width: 300px;
   }
+
+
+  .global-widget-toggle {
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    float: right;
+    padding-right: 10px;
+  }
+
+  .global-chat-widget-header {
+    margin-bottom: 10px;
+  }
+
+  .global-widget-read-more {
+    background-image: image-url('question_mark.svg'), none;
+    background-size: 17px 17px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-left: 10px;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    vertical-align: middle;
+  }
+
+  .global-widget-expanded {
+    background-color: #268fb3;
+    display: none;
+    padding: 10px 15px;
+    .global-widget-toggle {
+      background-image: image-url('arrow_down.svg'), none;
+      cursor: pointer;
+    }
+  }
+
+  .global-chat-widget-text {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    margin: .5em 0;
+  }
+
+  .global-widget-minimized {
+    display: none;
+    background-color: #e19214;
+    color: #6B4509;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 2;
+    margin: 5px 0;
+    cursor: pointer;
+    text-align: center;
+    .global-widget-toggle {
+      background-size: 20px 20px;
+      background-image: image-url('arrow_up.svg'), none;
+      background-position-y: 3px;
+      height: 24px;
+      width: 24px;
+    }
+
+    .minimizedStatus {
+      color: white;
+    }
+  }
+
+  .cyberhus-chats {
+    iframe {
+      height: 30px;
+      max-width: 300px;
+    }
+
+    .global-chat-widget-text {
+      font-size: 20px;
+    }
+  }
+}
+
+.opeka-chat-popup-wrapper {
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  padding-right: 5px;
 }
 
 .page-taxonomy-term .vocabulary-ung-i-byer > .content .field-name-field-ungi-chat-embed iframe,
@@ -39,10 +124,5 @@
   }
 }
 
-.opeka-chat-popup-wrapper {
-  display: none;
-  position: relative;
-  width: 100%;
-  z-index: 10;
-  top: 400px;
-}
+
+
