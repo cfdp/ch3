@@ -1,0 +1,83 @@
+<div class="cm-Chat-Start-Button" style="position: absolute; right: 15px; bottom: 15px; z-index: 998; cursor: pointer;"
+    onclick="cm_ToggleChat();">
+    <svg xmlns="http://www.w3.org/2000/svg" height="64" width="64" viewBox="0 0 64 64">
+        <g>
+            <path id="path1" transform="rotate(0,32,32) translate(1.6,5.59000072479248) scale(1.9,1.9) " fill="#008FFF"
+                d="M22.900024,11.400001C21.600037,11.400001 20.600037,12.400001 20.600037,13.700004 20.600037,14.99999 21.600037,15.999989 22.900024,15.999989 24.200012,15.999989 25.200012,14.99999 25.200012,13.700004 25.100037,12.499992 24.100037,11.400001 22.900024,11.400001z M16,11.400001C14.700012,11.400001 13.700012,12.400001 13.700012,13.700004 13.700012,14.99999 14.700012,15.999989 16,15.999989 17.299988,15.999989 18.299988,14.99999 18.299988,13.700004 18.299988,12.499992 17.299988,11.400001 16,11.400001z M9.1000366,11.400001C7.7999878,11.400001 6.7999878,12.400001 6.7999878,13.700004 6.7999878,14.99999 7.7999878,15.999989 9.1000366,15.999989 10.400024,15.999989 11.400024,14.99999 11.400024,13.700004 11.400024,12.499992 10.400024,11.400001 9.1000366,11.400001z M16,0C24.799988,7.0681381E-08 32,5.6000027 32,12.599997 32,19.499988 24.799988,25.199996 16,25.199996 13.900024,25.199996 11.900024,24.899978 10.100037,24.300002 8.2000122,25.699996 5.1000366,27.8 2.1000366,27.8 3.7000122,26.300002 4.2000122,23.39998 4.2999878,21.199998 1.6000366,18.899981 0,15.899999 0,12.599997 0,5.6000027 7.2000122,7.0681381E-08 16,0z" />
+        </g>
+    </svg>
+</div>
+<div class="cm-Chat-client">
+    <form>
+        <div class="cm-Chat-header">
+            <div class="cm-Chat-header-menu">
+                <div class="cm-Chat-header-menu-left">
+                    <div onclick="cm_HideChat();">
+                        <svg width="10px" height="10px" viewBox="0 0 14 14">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g transform="translate(-419.000000, -413.000000)">
+                                    <g transform="translate(164.000000, 396.000000)">
+                                        <g>
+                                            <g transform="translate(250.000000, 12.000000)">
+                                                <g>
+                                                    <g>
+                                                        <rect opacity="0.200000003" x="0" y="0" width="24" height="24">
+                                                        </rect>
+                                                        <g transform="translate(4.000000, 4.000000)" fill="#000000">
+                                                            <rect
+                                                                transform="translate(8.000000, 8.000000) rotate(45.000000) translate(-8.000000, -8.000000) "
+                                                                x="7" y="-1" width="2" height="18" rx="1"></rect>
+                                                            <rect
+                                                                transform="translate(8.000000, 8.000000) rotate(135.000000) translate(-8.000000, -8.000000) "
+                                                                x="7" y="-1" width="2" height="18" rx="1"></rect>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="cm-Chat-header-menu-middle">
+                    <div style="-webkit-line-clamp: 1;">CIM Mobility - CHAT</div>
+                </div>
+                <div class="cm-Chat-header-menu-right" onclick="cm_MenuToggle();">
+                    <div>
+                        <svg width="24px" height="24px" viewBox="0 0 24 24">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g transform="translate(-413.000000, -56.000000)">
+                                    <g transform="translate(90.000000, 44.000000)">
+                                        <g>
+                                            <g>
+                                                <g transform="translate(324.000000, 13.000000)">
+                                                    <circle fill="#008fff" stroke="#008fff" cx="11" cy="11" r="11">
+                                                    </circle>
+                                                    <path
+                                                        d="M11,9 L12,9 L12,17 L13,17 L13,17.5 L9,17.5 L9,17 L10,17 L10,9.5 L9,9.5 L9,9 L11,9 Z M11,4.5 C11.8284271,4.5 12.5,5.17157288 12.5,6 C12.5,6.82842712 11.8284271,7.5 11,7.5 C10.1715729,7.5 9.5,6.82842712 9.5,6 C9.5,5.17157288 10.1715729,4.5 11,4.5 Z"
+                                                        fill="#FFFFFF"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="cm-Chat-header-submenu">
+                <div class="cm-Chat-header-submenuItem">
+                    <a class="" onclick="cm_RefreshChat();" href="#">Opdater Chat</a> </div>
+                <div class="cm-Chat-header-submenuItem close">
+                    <a class="" onclick="cm_CloseConversation();" href="#">Afslut Chat</a>
+                </div>
+                <div class="cm-Chat-header-submenuItem">
+                    <a class="" target="_blank" href="https://cim-mobility.dk">Gå til vores hjemmeside</a> </div>
+            </div>
+        </div>
+        <iframe class="cm-Chat-container" src=""></iframe>
+    </form>
+</div>
