@@ -23,18 +23,17 @@ var cimChatIds = cimChatIds || null;
         $('body').append('<div class="cm-Chat-test"></div>');
         $.get("/sites/all/modules/custom/cim_chat/panel.html", function(data){
           $(".cm-Chat-test").html(data);
-        });
+          cm_InitiateChatClient('o3gaPVChkdyfiDgwGYvnNxj1Qwrtrp6i', 'https://chattest.ecmr.biz/ChatClient/Index');
+          console.log("CIM chat assets added.");
+        })
 
-        console.log("cim widget added.");
-
-        cm_InitiateChatClient('o3gaPVChkdyfiDgwGYvnNxj1Qwrtrp6i', 'https://chattest.ecmr.biz/ChatClient/Index');
         setTimeout(function () {
           if (cm_IsChatReady) {
-            console.log('Det virker!');
+            console.log('CIM chat loaded!');
             //cm_StartChat('Hello woooorld');
           }
           else {
-            console.log('Det virker.... ikke');
+            console.warn('CIM chat could not be loaded.');
           }
         }, 5000);
 

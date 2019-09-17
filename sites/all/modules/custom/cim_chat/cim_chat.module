@@ -5,7 +5,7 @@
   */
 function cim_chat_preprocess_html(&$variables) {
   if (!path_is_admin(current_path())) {
-    drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/cim_chat.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
+    drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/cim-chat.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
     drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/data.js', array('weight' => 9));
     drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat.js', array('weight' => 10));
   }
