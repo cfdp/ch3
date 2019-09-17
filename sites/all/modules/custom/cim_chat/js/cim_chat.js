@@ -13,7 +13,7 @@ var cimChatIds = cimChatIds || null;
       $('body', context).once('add-cim-widget', function () {
 
         if (typeof cm_InitiateChatStatus === "undefined") {
-          console.err('External CIM script could not be loaded.');
+          console.error('External CIM script could not be loaded.');
           return;
         }
         //$('body').append('<div class="cm-Chat-client"><iframe class="cm-Chat-container" src=""></iframe></div>');
