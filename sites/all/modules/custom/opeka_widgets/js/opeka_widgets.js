@@ -32,8 +32,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
           '<div class="global-widget-minimized"><span class="minimizedStatus">' + minimizedStatus + '</span><span class="minimizedExplainer">' + ' ' + minimizedExplainer + '</span><span class="global-widget-toggle"></span></div>' +
         '</div>');
         if (typeof opekaPopupWidgets != "undefined"){
-          // deactivate temporarily
-          //Drupal.behaviors.opeka_widgets.waitForOpekaServer(opekaPopupWidgets);
+          Drupal.behaviors.opeka_widgets.waitForOpekaServer(opekaPopupWidgets);
         }
         else {
           console.warn("Error: Opeka popup widgets not defined. Probably the data file is missing.");

@@ -1,7 +1,41 @@
-.cm-Chat-container {
+.main {
+  margin: 2em;
+}
+.status-buttons-title {
+  margin: 2em 0;
+}
+
+.cm-Chat-client {
+  bottom: 600px;
+  right: 400px;
+}
+
+/* Chat iframe */
+iframe.cm-Chat-container {
+  position: absolute;
+  top:0;
+  width: 100%;
   height: 570px;
 }
 
-.cm-Chat-Start-Button {
-  z-index: 10000 !important;
+@media screen and (min-width: 601px) {
+  iframe.cm-Chat-container {
+    width: 350px;
+    height: 549px
+  }
 }
+
+[data-chat-status="Ready"] {
+  cursor: pointer;
+}
+/* Wrapper for status iframe */
+.iframeWrapper {
+  display: none;
+}
+.chat-status {
+  background-color: white;
+  padding: 1em;
+  margin-right: 1em;
+  border: 2px solid black;
+}
+
