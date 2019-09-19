@@ -6,7 +6,7 @@ var cimChatIds = cimChatIds || null;
     widgetMinized,
     widgetExpanded;
 
-  Drupal.behaviors.cimWidget = {
+  Drupal.behaviors.cim_chat = {
     attach: function (context, settings) {
 
       // Add wrapper for widget to DOM and load widget if the chat server is ready
@@ -17,7 +17,11 @@ var cimChatIds = cimChatIds || null;
           return;
         }
         // Add iframe for the cim chat
-        $('body').append('<div class="cm-Chat-client"><iframe class="cm-Chat-container" src=""></iframe></div>');
+        $.get("/sites/all/modules/custom/cim_chat/panel.html", function(data){
+          $('body').append('<div id="cim-mobility-chat"></div>');
+          $("#cim-mobility-chat").html(data);
+          console.log("CIM chat assets added.");
+        })
 
         // Standard chat panel
         // $('body').append('<div class="cm-Chat-test"></div>');
@@ -29,7 +33,7 @@ var cimChatIds = cimChatIds || null;
 
         setTimeout(function () {
           cm_InitiateChatStatus(cimChatIds, 'https://chattest.ecmr.biz/ChatClient/StatusIndex');
-        }, 1000);
+        }, 2000);
 
         // CIM Status Widget
         if (!cimChatIds) {
@@ -40,34 +44,34 @@ var cimChatIds = cimChatIds || null;
         // Add the CIM status iframe and setup event listener
         $('body').append('<div class="iframeWrapper cim-status"><iframe src="" style="vertical-align:top;"></iframe></div>');
 
-
         document.addEventListener("cmStatusByChatIdsUpdated", function (event) {
-          Drupal.behaviors.cimWidgetsStatusByChatIdsUpdated(event);
+          Drupal.behaviors.cim_chatStatusByChatIdsUpdated(event);
         });
         
+        // Event listener for chat status updates
         document[addEventListener ? 'addEventListener' : 'attachEvent']('cmChatStatus', 
           function (event) { 
-            Drupal.behaviors.chatStatusUpdate(event); 
+            Drupal.behaviors.cim_chatChatStatusUpdate(event); 
           }
         );
       });
     }
   };
 
-  Drupal.behaviors.cimWidgetsStatusByChatIdsUpdated = function (event) {
+  Drupal.behaviors.cim_chatStatusByChatIdsUpdated = function (event) {
     object = event.detail;
     if (object) {
-      object.forEach(Drupal.behaviors.cimWidgetsChatStatusHandler);
+      object.forEach(Drupal.behaviors.cim_chatChatStatusHandler);
     }
   };
 
-  Drupal.behaviors.cimWidgetsChatStatusHandler = function (item, index, arr) {
+  Drupal.behaviors.cim_chatChatStatusHandler = function (item, index, arr) {
     var object = arr[index];
     var id = object.id;
     var status = object.status;
     var statusText = object.statusText;
     var btnId = '.'+id;
-    console.log(btnId, status);
+    console.log('ChatStatusHandler: ', btnId, status);
     // Set status text. If status is closed, remove button
     if ($(btnId)[0]) {
       if (status === 'Closed') {
@@ -82,35 +86,43 @@ var cimChatIds = cimChatIds || null;
       return;
     }
     // Create status button
-    $('.cyberhus-chats').append('<span class="chat-status ' + id + '" data-chat-status="' + status + '">' + status + '</span');
+    $('.cyberhus-chats').append('<span class="chat-status ' + id + '" data-chat-status="' + status + '">' + cimChatIds.shortNames[id] + '</span');
     // Add click handler
-    $( btnId ).on('click', {id: id}, Drupal.behaviors.handleChatBtnClick);
+    $( btnId ).on('click', {id: id}, Drupal.behaviors.cim_chatHandleChatBtnClick);
   };
   
-  Drupal.behaviors.handleChatBtnClick = function(event) {
+  Drupal.behaviors.cim_chatHandleChatBtnClick = function(event) {
     var id = event.data.id,
         btnId = '.'+id,
-        status = $(btnId).attr('data-chat-status');
-    console.log('User clicked start chat button, status is ',status)
+        status = $(btnId).attr('data-chat-status'),
+        queueText = Drupal.t(' - in queue');
     if (status === 'Ready') {
       cm_InitiateChatClient(id, 'https://chattest.ecmr.biz/ChatClient/Index');
+      console.log('cm_status is', cm_status);
+      console.log('cm_QueueStatus: ', cm_QueueStatus);
       setTimeout(function () {
         if (cm_IsChatReady) {
-          cm_StartChat('[systembesked: bruger logger på.]');
-          console.log('CIM chat loaded!');
+          cm_StartChat('[systembesked: bruger stillet i kø.]');
+          console.log('CIM chat initiated by user!');
+          $(btnId).attr('data-chat-status', status);
+          $(btnId).append(queueText);
+          return;
         }
-        else {
-          console.warn('CIM chat is not ready after 3 seconds...');
-        }
-      }, 2000);
+        console.warn('CIM chat could not be initiated in 2 seconds.');
+    }, 2000);
+
     }
   };
 
-  Drupal.behaviors.chatStatusUpdate = function (event) {
+  Drupal.behaviors.cim_chatChatStatusUpdate = function (event) {
     var status = event.detail.status;
-    console.log('chatStatusUpdate: ', status);
+    console.log('chatStatusUpdate, status is : ', status);
+    console.log('cm_status is', cm_status);
+    console.log('cm_QueueStatus: ', cm_QueueStatus);
+    // We assume that the 'Activ' state means that the counselor has taken the conversation
+    // and we can show the chat window
     if (status === 'Activ'){
-      console.log('Counselor took conversation')
+      cm_OpenChat();
       //@todo: change global widget state
     }
     // if (status === 'Ready')

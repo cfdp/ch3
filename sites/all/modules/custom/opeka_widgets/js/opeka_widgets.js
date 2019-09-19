@@ -157,41 +157,13 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
       totalHeight += $(this).height()
     });
     // Make widget pop up if open or occupied
-    if (!declineWidgetCookie && (popupAction === (this.chatType + "-Open"))) {
+    if ((!declineWidgetCookie && (popupAction === (this.chatType + "-Open"))) || 
+        (popupAction === (this.chatType + "-Occupied"))) {
       $(popupWrapper).show();
-
-      // $(popupWrapper).animate({
-      //   top: 0
-      // }, 300, function () {
-      //   $(popupWrapper).show();
-      // });
-      // Animate to big size
-      // $(popupWrapper+" iframe").animate({
-      //   height: largeHeight
-      // }, 300);
+      return;
     }
-    else if (popupAction === (this.chatType + "-Occupied")){
-      $(popupWrapper).show();
-
-      // $(popupWrapper).animate({
-      //   top: 0
-      // }, 300, function () {
-      //   $(popupWrapper).show();
-      // });
-      // Animate to small size
-      // $(popupWrapper+" iframe").animate({
-      //   height: smallHeight
-      // }, 300);
-    }
-    else if (popupAction === (this.chatType + "-Closed")) {
-      $(popupWrapper).hide();
-
-      // $(popupWrapper).animate({
-      //   top: totalHeight
-      // }, 300, function () {
-      //   $(popupWrapper).hide();
-      // });
-    }
+    // in all other cases - hide it
+    $(popupWrapper).hide();
   };
 
   // Close popup when the close iframe message is received
@@ -211,7 +183,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
   };
 
   Drupal.behaviors.opeka_widgets.OpekaPopupController.prototype.receiveMessage = function(event) {
-    var popupWrapper = $(".opeka-chat-popup-wrapper." + this.chatName),
+    var chatIframe = $(".opeka-chat-popup-wrapper." + this.chatName + " iframe"),
       data = event.data;
     if (event.origin !== this.baseURL) {
       return;
@@ -224,7 +196,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
     // so we can render the correct size
     if (data.substring(0,6) === 'width-'){
       if (data.slice(6) != '0') {
-        popupWrapper.width(data.slice(6));
+        chatIframe.width(data.slice(6));
       }
       return;
     }
