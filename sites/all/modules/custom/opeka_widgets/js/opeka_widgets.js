@@ -52,6 +52,14 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
           widgetExpanded.hide();
           widgetMinized.show();
         });
+
+        // Add event handler for listening to updates from the CIM chat (cmStatusByChatIdsUpdated)
+        $( document ).on( "cimChatUpdate", function( event, cimActive ) {
+            console.log( 'cimChatUpdate: cimchatactive ', cimChatActive );
+            if (cimActive) {
+              Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
+            }
+          });
       });
     }
   };
@@ -297,13 +305,21 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
   * @returns null
   */
   Drupal.behaviors.opeka_widgets.toggleGlobalWidget = function(action) {
+    // console.log('cm_QueueStatus', cm_QueueStatus)
+    // console.log('cm_status', cm_status)
+    // console.log('cimChatActive', cimChatActive)
+
     if ((widgetWrapper.css('display') == 'none') && (action === 'show')) {
       widgetWrapper.fadeIn();
       widgetExpanded.show();
       widgetMinized.hide();
       return;
     }
-    if ((widgetWrapper.css('display') != 'none') && (action === 'hide')) {
+    // Hide unless a cim chat is active/ready
+    if ((widgetWrapper.css('display') != 'none') &&
+       (action === 'hide') && (!cimChatActive) &&
+       ((cm_QueueStatus && cm_QueueStatus != 'Ready') ||
+       (cm_status != 'Ready' && cm_status != 'Activ'))) {
       widgetMinized.hide();
       widgetExpanded.hide();
       widgetWrapper.fadeOut();

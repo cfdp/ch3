@@ -14,4 +14,3 @@ function cim_chat_preprocess_html(&$variables) {
     drupal_add_css('https://chattest.ecmr.biz/Content/chatclient/cm.chatclient.css', array('type' => 'external'));
   }
 }
-
