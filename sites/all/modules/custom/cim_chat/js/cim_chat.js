@@ -1,10 +1,15 @@
 var cimChatIds = cimChatIds || null, // Chat ids and names are fetched from a separate file (data.js)
-    cimChatActive; // This status is used in the cimChatUpdate event and 
-                   // in the Opeka Widgets module and indicates if any chats are busy, ready or active.
+    cimChatStatus; /* This status is used in the cimChatUpdate event and 
+                    * in the Opeka Widgets module and can have the following values:
+                    * - 'closed': all cim chats are closed
+                    * - 'by-id-active': at least one chat is "Ready", "Activ" or "Busy"
+                    * - 'single-chat-queue': the user is queuing for chat
+                    * - 'single-chat-active': a conversation is ongoing
+                    */ 
 
 (function ($, Drupal, cimChatIds) {
   var cmStatusByIdListener,
-      cmChatStatusListener,
+      cmSingleChatStatusListener,
       cmUpdatePositionInQueueListener; // Listeners for event from the CIM chat server
   
   Drupal.behaviors.cim_chat = {
@@ -49,16 +54,16 @@ var cimChatIds = cimChatIds || null, // Chat ids and names are fetched from a se
   };
 
   Drupal.behaviors.cim_chatAddListenerCmChatStatus = function() {
-    cmChatStatusListener = function (event) {
-      Drupal.behaviors.cim_chatChatStatusUpdate(event);
+    cmSingleChatStatusListener = function (event) {
+      Drupal.behaviors.cim_chatSingleChatStatusUpdate(event);
     };
     // Event listener for ongoing single chat queue status updates
-    document.addEventListener("cmChatStatus", cmChatStatusListener, true);  
+    document.addEventListener("cmChatStatus", cmSingleChatStatusListener, true);  
   };
 
   Drupal.behaviors.cim_chatAddListenerCmUpdatePositionInQueue = function() {
     cmUpdatePositionInQueueListener = function (event) {
-      Drupal.behaviors.cim_chatChatStatusUpdate(event);
+      Drupal.behaviors.cim_chatSingleChatStatusUpdate(event);
     };
     // Event listener for ongoing single chat queue status updates
     document.addEventListener("cmUpdatePositionInQueueEvent", cmUpdatePositionInQueueListener, true);  
@@ -111,12 +116,12 @@ var cimChatIds = cimChatIds || null, // Chat ids and names are fetched from a se
   
   Drupal.behaviors.cim_chatStatusByChatIdsUpdated = function (event) {
     object = event.detail;
-    cimChatActive = false;
+    cimChatStatus = 'closed';
     if (object) { 
-      console.log('trigger cimchatupdate, cimChatActive: ', cimChatActive);
+      console.log('trigger cimchatupdate, cimChatStatus: ', cimChatStatus);
       object.forEach(Drupal.behaviors.cim_chatChatStatusHandler);
       // The Opeka Widgets module is listening to this event
-      $( document ).trigger( "cimChatUpdate", [ cimChatActive ] );
+      $( document ).trigger( "cimChatUpdate", [ cimChatStatus ] );
     }
   };
 
@@ -127,9 +132,9 @@ var cimChatIds = cimChatIds || null, // Chat ids and names are fetched from a se
     var statusText = object.statusText;
     var btnId = '.'+id;
     console.log('ChatStatusHandler: ', btnId, status);
-    // We set the cimChatStatus to 'active' if any of the chats are ready / busy / active.
+    // We set the cimChatStatus to 'by-id-active' if any of the chats are ready / busy / active.
     if (status === 'Ready' || status === 'Activ' || status === 'Busy') {
-      cimChatActive = true;
+      cimChatStatus = 'by-id-active';
     }
 
     // Set status text. If status is closed, remove button
@@ -248,7 +253,7 @@ var cimChatIds = cimChatIds || null, // Chat ids and names are fetched from a se
     cm_QueueStatus = null;
     // Remove event listeners
     document.removeEventListener('cmUpdatePositionInQueueEvent', cmUpdatePositionInQueueListener);
-    document.removeEventListener('cmChatStatus', cmChatStatusListener);
+    document.removeEventListener('cmChatStatus', cmSingleChatStatusListener);
     // Re-render chat, update button state and setup statusById updates
     Drupal.behaviors.cim_chatButtonUpdate(cm_ChatId);
     cm_ChatId = null;
@@ -282,17 +287,23 @@ var cimChatIds = cimChatIds || null, // Chat ids and names are fetched from a se
     $(btnId + ' .queue-number').text(queueNumber);
   } 
 
-  Drupal.behaviors.cim_chatChatStatusUpdate = function (event) {
+  Drupal.behaviors.cim_chatSingleChatStatusUpdate = function (event) {
     var status = event.detail.status,
-      btnId = cm_ChatId ? '.' + cm_ChatId : null;
-    console.log('chatStatusUpdate, status', status)
-    cimChatActive = true;
-    $( document ).trigger( "cimChatUpdate", [ cimChatActive ] );
-    if (btnId) {
-      $(btnId + ' .cim-dot').hide();
+      btnId = cm_ChatId ? '.' + cm_ChatId : null,
+      shortName = cm_ChatId ? cimChatIds.shortNames[cm_ChatId] : '';
+    console.log('SingleChatStatusUpdate, status', status, 'cm_QueueNumber', cm_QueueNumber);
+    if (cm_QueueNumber === 0) {
+      console.log('setting cimChatStatus to active');
+      cimChatStatus =  'single-chat-active';
     }
-    else {
-      console.warn('No btnId defined!');
+    if (cm_QueueNumber > 0 ) {
+      console.log('setting cimChatStatus to queue');
+      cimChatStatus = 'single-chat-queue';
+    }
+    $( document ).trigger( "cimChatUpdate", [ cimChatStatus, shortName, cm_QueueNumber ] );
+    if (btnId) {
+      // Hide the three dots fetching status animation once we get the status
+      $(btnId + ' .cim-dot').hide();
     }
     Drupal.behaviors.cim_chatButtonUpdate(cm_ChatId);
   };
@@ -308,7 +319,6 @@ var cimChatIds = cimChatIds || null, // Chat ids and names are fetched from a se
     date.setDate(date.getDate() + 1); 
     // Remember for one day
     var cookie = "cim-chat=" + id + ";expires=" + date.toUTCString() + ";path=" + Drupal.settings.basePath;
-    //var cookie = "opeka-widgets-declined-" + chatName + "=yes;path=" + Drupal.settings.basePath;
 
     document.cookie = cookie;
   };

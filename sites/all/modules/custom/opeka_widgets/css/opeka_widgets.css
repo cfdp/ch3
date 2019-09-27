@@ -42,7 +42,7 @@
 }
 /* line 36, ../sass/opeka_widgets.scss */
 .curachat-widgets .global-widget-read-more {
-  background-image: url('../img/question_mark.svg?1567452746'), none;
+  background-image: url('../img/question_mark.svg?1568229464'), none;
   background-size: 17px 17px;
   background-repeat: no-repeat;
   display: inline-block;
@@ -60,7 +60,7 @@
 }
 /* line 52, ../sass/opeka_widgets.scss */
 .curachat-widgets .global-widget-expanded .global-widget-toggle {
-  background-image: url('../img/arrow_down.svg?1567424040'), none;
+  background-image: url('../img/arrow_down.svg?1568229464'), none;
   cursor: pointer;
 }
 /* line 58, ../sass/opeka_widgets.scss */
@@ -85,13 +85,13 @@
 /* line 75, ../sass/opeka_widgets.scss */
 .curachat-widgets .global-widget-minimized .global-widget-toggle {
   background-size: 20px 20px;
-  background-image: url('../img/arrow_up.svg?1567422611'), none;
+  background-image: url('../img/arrow_up.svg?1568229464'), none;
   background-position-y: 3px;
   height: 24px;
   width: 24px;
 }
 /* line 83, ../sass/opeka_widgets.scss */
-.curachat-widgets .global-widget-minimized .minimizedStatus {
+.curachat-widgets .global-widget-minimized .minimized-status {
   color: white;
 }
 /* line 89, ../sass/opeka_widgets.scss */

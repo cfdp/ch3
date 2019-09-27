@@ -32,13 +32,20 @@
   line-height: 1.8;
 }
 /* line 34, ../sass/cim-chat.scss */
+.cm-Chat-client .cm-Chat-header-menu-right {
+  background-color: white;
+  color: #268fb3;
+  margin-bottom: 10px;
+  padding: 0 7px;
+}
+/* line 40, ../sass/cim-chat.scss */
 .cm-Chat-client .cm-Chat-header {
   background: #268fb3;
   border-radius: 0;
 }
 
 /* Chat iframe */
-/* line 41, ../sass/cim-chat.scss */
+/* line 47, ../sass/cim-chat.scss */
 iframe.cm-Chat-container {
   position: absolute;
   top: 50px;
@@ -47,20 +54,20 @@ iframe.cm-Chat-container {
 }
 
 @media screen and (min-width: 601px) {
-  /* line 52, ../sass/cim-chat.scss */
+  /* line 58, ../sass/cim-chat.scss */
   .cm-Chat-client {
     bottom: 600px;
     right: 40px;
     min-width: 350px;
   }
 
-  /* line 57, ../sass/cim-chat.scss */
+  /* line 63, ../sass/cim-chat.scss */
   iframe.cm-Chat-container {
     width: 350px;
     height: 585px;
   }
 }
-/* line 63, ../sass/cim-chat.scss */
+/* line 69, ../sass/cim-chat.scss */
 .chat-status {
   color: white;
   font-weight: 700;
@@ -70,28 +77,28 @@ iframe.cm-Chat-container {
   border: 1px solid #ccc;
   text-transform: uppercase;
 }
-/* line 71, ../sass/cim-chat.scss */
+/* line 77, ../sass/cim-chat.scss */
 .chat-status[data-chat-status="Ready"] {
   cursor: pointer;
   background-color: #80B45A;
 }
-/* line 76, ../sass/cim-chat.scss */
+/* line 82, ../sass/cim-chat.scss */
 .chat-status[data-chat-status="Activ"] {
   background-color: #80B45A;
 }
-/* line 80, ../sass/cim-chat.scss */
+/* line 86, ../sass/cim-chat.scss */
 .chat-status[data-chat-status="Busy"], .chat-status[data-chat-status="Queue"], .chat-status[data-chat-status="Chatting"] {
   background-color: #EBB560;
 }
 
 /* Wrapper for status iframe */
-/* line 88, ../sass/cim-chat.scss */
+/* line 94, ../sass/cim-chat.scss */
 .iframeWrapper {
   display: none;
 }
 
 /* Throbber dot shown when waiting for status */
-/* line 94, ../sass/cim-chat.scss */
+/* line 100, ../sass/cim-chat.scss */
 .cim-dot {
   display: none;
   margin: 0 10px 0 20px;
@@ -110,7 +117,7 @@ iframe.cm-Chat-container {
 * Dot Flashing
 * ==============================================
 */
-/* line 143, ../sass/cim-chat.scss */
+/* line 149, ../sass/cim-chat.scss */
 .dot-flashing {
   position: relative;
   width: 8px;
@@ -121,14 +128,14 @@ iframe.cm-Chat-container {
   animation: dotFlashing 1s infinite linear alternate;
   animation-delay: .5s;
 }
-/* line 151, ../sass/cim-chat.scss */
+/* line 157, ../sass/cim-chat.scss */
 .dot-flashing::before, .dot-flashing::after {
   content: '';
   display: inline-block;
   position: absolute;
   top: 0;
 }
-/* line 159, ../sass/cim-chat.scss */
+/* line 165, ../sass/cim-chat.scss */
 .dot-flashing::before {
   left: -12px;
   width: 8px;
@@ -139,7 +146,7 @@ iframe.cm-Chat-container {
   animation: dotFlashing 1s infinite alternate;
   animation-delay: 0s;
 }
-/* line 168, ../sass/cim-chat.scss */
+/* line 174, ../sass/cim-chat.scss */
 .dot-flashing::after {
   left: 12px;
   width: 8px;
