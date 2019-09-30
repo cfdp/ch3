@@ -80,9 +80,15 @@
       width: 24px;
     }
 
-    .minimized-status {
+    .minimized-status,
+    .minimized-explainer {
+      font-size: 10px;
       color: white;
+      @media (min-width: 768px) {
+        font-size: 14px;
+      }
     }
+    
   }
 
   .cyberhus-chats {

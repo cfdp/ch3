@@ -17,7 +17,7 @@ $blue: #268fb3;
     background-image: image-url('arrow_down.svg'), none;
     background-size: 25px 25px;
     background-repeat: no-repeat;
-    display: inline;
+    display: none;
     line-height: 1.8;
     margin-left: 10px;
     height: 30px;
@@ -70,10 +70,12 @@ iframe.cm-Chat-container {
   color: white;
   font-weight: 700;
   font-size: 12px;
-  padding: .3em .6em;
+  display: inline-block;
+  padding: 8px 6px;
   margin-right: 5px;
   border: 1px solid #ccc;
   text-transform: uppercase;
+  vertical-align: top;
   &[data-chat-status="Ready"] {
     cursor: pointer;
     background-color: $green;
@@ -87,6 +89,12 @@ iframe.cm-Chat-container {
   &[data-chat-status="Queue"],
   &[data-chat-status="Chatting"] {
     background-color: $orange;
+  }
+}
+
+.municipality-chats {
+  .chat-status {
+    padding: 5px 6px;
   }
 }
 

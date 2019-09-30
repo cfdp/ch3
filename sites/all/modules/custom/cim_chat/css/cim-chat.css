@@ -18,7 +18,7 @@
   background-image: url('../img/arrow_down.svg?1568620968'), none;
   background-size: 25px 25px;
   background-repeat: no-repeat;
-  display: inline;
+  display: none;
   line-height: 1.8;
   margin-left: 10px;
   height: 30px;
@@ -72,33 +72,40 @@ iframe.cm-Chat-container {
   color: white;
   font-weight: 700;
   font-size: 12px;
-  padding: .3em .6em;
+  display: inline-block;
+  padding: 8px 6px;
   margin-right: 5px;
   border: 1px solid #ccc;
   text-transform: uppercase;
+  vertical-align: top;
 }
-/* line 77, ../sass/cim-chat.scss */
+/* line 79, ../sass/cim-chat.scss */
 .chat-status[data-chat-status="Ready"] {
   cursor: pointer;
   background-color: #80B45A;
 }
-/* line 82, ../sass/cim-chat.scss */
+/* line 84, ../sass/cim-chat.scss */
 .chat-status[data-chat-status="Activ"] {
   background-color: #80B45A;
 }
-/* line 86, ../sass/cim-chat.scss */
+/* line 88, ../sass/cim-chat.scss */
 .chat-status[data-chat-status="Busy"], .chat-status[data-chat-status="Queue"], .chat-status[data-chat-status="Chatting"] {
   background-color: #EBB560;
 }
 
+/* line 96, ../sass/cim-chat.scss */
+.municipality-chats .chat-status {
+  padding: 5px 6px;
+}
+
 /* Wrapper for status iframe */
-/* line 94, ../sass/cim-chat.scss */
+/* line 102, ../sass/cim-chat.scss */
 .iframeWrapper {
   display: none;
 }
 
 /* Throbber dot shown when waiting for status */
-/* line 100, ../sass/cim-chat.scss */
+/* line 108, ../sass/cim-chat.scss */
 .cim-dot {
   display: none;
   margin: 0 10px 0 20px;
@@ -117,7 +124,7 @@ iframe.cm-Chat-container {
 * Dot Flashing
 * ==============================================
 */
-/* line 149, ../sass/cim-chat.scss */
+/* line 157, ../sass/cim-chat.scss */
 .dot-flashing {
   position: relative;
   width: 8px;
@@ -128,14 +135,14 @@ iframe.cm-Chat-container {
   animation: dotFlashing 1s infinite linear alternate;
   animation-delay: .5s;
 }
-/* line 157, ../sass/cim-chat.scss */
+/* line 165, ../sass/cim-chat.scss */
 .dot-flashing::before, .dot-flashing::after {
   content: '';
   display: inline-block;
   position: absolute;
   top: 0;
 }
-/* line 165, ../sass/cim-chat.scss */
+/* line 173, ../sass/cim-chat.scss */
 .dot-flashing::before {
   left: -12px;
   width: 8px;
@@ -146,7 +153,7 @@ iframe.cm-Chat-container {
   animation: dotFlashing 1s infinite alternate;
   animation-delay: 0s;
 }
-/* line 174, ../sass/cim-chat.scss */
+/* line 182, ../sass/cim-chat.scss */
 .dot-flashing::after {
   left: 12px;
   width: 8px;

@@ -5,6 +5,7 @@ sites/*/settings*.php
 .ruby-version
 .bundle/
 sites/all/modules/custom/opeka_widgets/js/data*.js
+sites/all/modules/custom/cim_chat/js/data_dev.js
 
 # Ignore paths that contain user-generated content.
 sites/*/files

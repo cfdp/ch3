@@ -30,7 +30,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
             '<div class="municipality-chats"></div>' +
           '</div>' +
           '<div class="global-widget-minimized opeka-mini"><span class="minimized-status">' + 
-            '</span><span class="minimized-explainer"></span><span class="global-widget-toggle"></span></div>' + 
+            '</span> <span class="minimized-explainer"></span><span class="global-widget-toggle"></span></div>' + 
           '</div>'
           );
         if (typeof opekaPopupWidgets != "undefined"){
@@ -76,10 +76,9 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
         // Add event handler for listening to updates from the CIM chat (cmStatusByChatIdsUpdated)
         $( document ).on( "cimChatUpdate", function( event, cimActive, chatName, queueNumber ) {
             var cimMiniStatus = (cimActive === 'single-chat-queue') ? chatName + ' - ' + Drupal.t('You are in queue as number: ') :
-              chatName + Drupal.t('Chatting'),
+              chatName + ' - ' + Drupal.t('Chatting'),
                 cimMiniExplainer = (cimActive === 'single-chat-queue') ? queueNumber : '';
 
-            console.log( 'cimChatUpdate: cimChatStatus ', cimChatStatus, 'cimActive', cimActive );
             if (cimActive === 'by-id-active') {
               renderMinimizedWidget('opeka', opekaMiniStatus, opekaMiniExplainer);
               Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
@@ -330,16 +329,13 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
     // The key wasn't found
     return false;
   };
+
   /**
   * Shows or hides the global widget
   * @param {String} action. The value indicating what action should be taken
   * @returns null
   */
   Drupal.behaviors.opeka_widgets.toggleGlobalWidget = function(action) {
-    console.log('cm_QueueStatus', cm_QueueStatus)
-    console.log('cm_status', cm_status)
-    console.log('cimChatStatus', cimChatStatus)
-
     if ((widgetWrapper.css('display') == 'none') && (action === 'show')) {
       widgetWrapper.fadeIn();
       widgetExpanded.show();
@@ -348,7 +344,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
     }
     // Hide unless a cim chat is active/ready
     if ((widgetWrapper.css('display') != 'none') &&
-       (action === 'hide') && (!cimChatStatus != 'by-id-active')) {
+       (action === 'hide') && (cimChatStatus != 'by-id-active')) {
       widgetMinimized.hide();
       widgetExpanded.hide();
       widgetWrapper.fadeOut();
