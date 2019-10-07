@@ -76,7 +76,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
         // Add event handler for listening to updates from the CIM chat (cmStatusByChatIdsUpdated)
         $( document ).on( "cimChatUpdate", function( event, cimActive, chatName, queueNumber ) {
             var cimMiniStatus = (cimActive === 'single-chat-queue') ? chatName + ' - ' + Drupal.t('You are in queue as number: ') :
-              chatName + ' - ' + Drupal.t('Chatting'),
+              chatName + ': ' + Drupal.t('Click to show chat'),
                 cimMiniExplainer = (cimActive === 'single-chat-queue') ? queueNumber : '';
 
             if (cimActive === 'by-id-active') {

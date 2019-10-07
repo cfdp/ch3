@@ -1,9 +1,10 @@
+$orange: #e19214;
+$brown: #6B4509;
+
 .curachat-widgets {
-  background-color: #e19214;
   bottom: 63px;
   display: none;
   margin: 0;
-  padding: 3px 0 6px 0;
   position: fixed;
   width: 100%;
   z-index: 20;
@@ -47,6 +48,8 @@
 
   .global-widget-expanded {
     background-color: #268fb3;
+    border-top: 3px solid $orange;
+    border-bottom: 6px solid $orange;
     display: none;
     padding: 10px 15px;
     .global-widget-toggle {
@@ -64,12 +67,12 @@
 
   .global-widget-minimized {
     display: none;
-    background-color: #e19214;
-    color: #6B4509;
+    background-color: $orange;
+    color: $brown;
     font-size: 14px;
     font-weight: 700;
     line-height: 2;
-    margin: 5px 0;
+    padding: 6px 0 6px 0;
     cursor: pointer;
     text-align: center;
     .global-widget-toggle {

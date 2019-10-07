@@ -46,13 +46,11 @@ $blue: #268fb3;
 /* Chat iframe */
 iframe.cm-Chat-container {
   position: absolute;
-  top:50px;
+  top: 50px;
   width: 100%;
   height: calc(100vh - 55px);
   //height: 585px;
 }
-
-
 
 @media screen and (min-width: 601px) {
   .cm-Chat-client {
@@ -61,8 +59,11 @@ iframe.cm-Chat-container {
     min-width: 350px;
   }
   iframe.cm-Chat-container {
-    width: 350px;
-    height: 585px
+    border-left: 2px solid $blue;
+    border-right: 2px solid $blue;
+    border-bottom: 2px solid $blue;
+    width: 346px;
+    height: 583px
   }
 }
 
@@ -91,12 +92,18 @@ iframe.cm-Chat-container {
     background-color: $orange;
   }
 }
+.curachat-widgets {
+  .municipality-chats {
+    .chat-status {
+      padding: 5px 6px;
+    }
+  }
 
-.municipality-chats {
-  .chat-status {
-    padding: 5px 6px;
+  .global-widget-minimized.cim-mini {
+    background-color: $blue;
   }
 }
+
 
 /* Wrapper for status iframe */
 .iframeWrapper {
