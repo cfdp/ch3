@@ -84,7 +84,9 @@ $brown: #6B4509;
     }
 
     .minimized-status,
-    .minimized-explainer {
+    .minimized-explainer,
+    .minimized-chat-name,
+    .minimized-queue-number {
       font-size: 10px;
       color: white;
       @media (min-width: 768px) {

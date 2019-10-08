@@ -19,7 +19,7 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
       $('body', context).once('add-cim-widget', function () {
 
         // If our cim chat cookie and the cm_UniqueUserId cookie is set, 
-        // the page has been reloaded during an ongoing chat
+        // user has navigated (reloaded / changed page) during an ongoing chat
         // and we attempt to reestablish the conversation.
         var cimChatId = Drupal.behaviors.cim_chatGetCookie(),
             userIdCookie = cm_GetCookie('cm_UniqueUserId');
@@ -27,7 +27,6 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
         if ((cimChatId && cimChatId != '') && userIdCookie) {
           Drupal.behaviors.cim_chatButtonUpdate(cimChatId);
           Drupal.behaviors.cim_chatSetupSingleChatAssets();
-          Drupal.behaviors.cim_chatSetupSingleChatListeners();
           setTimeout(function () {
             // @todo: If we don't have a min 2 sec. delay for the assets and listeners to be added,
             // before starting the chat, the queueStatu will take a long time to update
@@ -52,6 +51,18 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
 
     // Event listener for ongoing single chat queue status updates
     Drupal.behaviors.cim_chatAddListenerCmUpdatePositionInQueue();
+
+    // Add event handlers for hiding and closing chat
+    if (!$('.cm-Chat-header-menu-left')[0]) {
+      alert('Error: Event listeners could not be added.');
+    }
+    $( '.cm-Chat-header-menu-left' ).on('click', function() {
+      cm_HideChat();
+      // We trigger an update to make sure the status is propagated
+      // to the ribbon via the cimChatUpdate event
+      Drupal.behaviors.cim_chatSingleChatStatusUpdate();
+    });
+    $( '.cm-Chat-header-menu-right' ).on('click', Drupal.behaviors.cim_chatCloseConversation);
   };
 
   Drupal.behaviors.cim_chatAddListenerCmChatStatus = function() {
@@ -118,11 +129,13 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
     // Add iframe for the cim chat
     $.get("/sites/all/modules/custom/cim_chat/panel.html", function(data){
       if ($('#cim-mobility-chat')[0]) {
-        console.warn('no assets added...');
+        // Assets already present
         return;
       }
       $('body').append('<div id="cim-mobility-chat"></div>');
       $("#cim-mobility-chat").html(data);
+      // Add event listeners once the dom elements are in place
+      Drupal.behaviors.cim_chatSetupSingleChatListeners();
     });
   };
   
@@ -209,9 +222,6 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
           cm_OpenChat();
         }
         $('.cim-chat-title').text(chatTitle);
-        // Add event handlers for hiding and closing chat
-        $( '.cm-Chat-header-menu-left' ).on('click', cm_HideChat);
-        $( '.cm-Chat-header-menu-right' ).on('click', Drupal.behaviors.cim_chatCloseConversation);
         return;
       }
       console.warn('CIM chat could not be initiated in 2 seconds.');
@@ -223,7 +233,8 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
    * chat conversation can't be re-rendered.
    */
   Drupal.behaviors.cim_chatCloseConversation = function() {
-    var closeBtn = '.cm-Chat-header-menu-right';
+    var closeBtn = '.cm-Chat-header-menu-right',
+        shortName = cm_ChatId ? cimChats[cm_ChatId].shortName : '';
     
     if (cm_status === 'Ready') {
       // No conversation has taken place yet. 
@@ -253,6 +264,9 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
     // Remove event listeners
     document.removeEventListener('cmUpdatePositionInQueueEvent', cmUpdatePositionInQueueListener);
     document.removeEventListener('cmChatStatus', cmSingleChatStatusListener);
+    // Update ribbon widget immediately
+    cimChatStatus = 'by-id-active';
+    $( document ).trigger( "cimChatUpdate", [ cimChatStatus, shortName, cm_QueueNumber ] );
     // Re-render chat, update button state and setup statusById updates
     Drupal.behaviors.cim_chatButtonUpdate(cm_ChatId);
     cm_ChatId = null;
