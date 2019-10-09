@@ -25,6 +25,7 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
             userIdCookie = cm_GetCookie('cm_UniqueUserId');
 
         if ((cimChatId && cimChatId != '') && userIdCookie) {
+          console.log('we have a cookie cimchatId', cimChatId);
           Drupal.behaviors.cim_chatButtonUpdate(cimChatId);
           Drupal.behaviors.cim_chatSetupSingleChatAssets();
           setTimeout(function () {
@@ -38,7 +39,8 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
           return;
         }
 
-        // Add status by id iframe, listener etc.
+        // We don't have an ongoing chat session.
+        // Listen to all chats defined in cimChats by adding StatusById iframe, listener etc.
         Drupal.behaviors.cim_chatSetupStatusByIdAssets();
 
       });
@@ -46,6 +48,7 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
   };
 
   Drupal.behaviors.cim_chatSetupSingleChatListeners = function () {
+    console.log('setupSingleChatListeners called');
     // Event listener for ongoing single chat status updates
     Drupal.behaviors.cim_chatAddListenerCmChatStatus();
 
@@ -54,7 +57,7 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
 
     // Add event handlers for hiding and closing chat
     if (!$('.cm-Chat-header-menu-left')[0]) {
-      alert('Error: Event listeners could not be added.');
+      console.warn('Error: Event listeners for chat panel items could not be added.');
     }
     $( '.cm-Chat-header-menu-left' ).on('click', function() {
       cm_HideChat();
@@ -210,10 +213,9 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
   };
 
   Drupal.behaviors.cim_chatStartChat  = function(id,hideChat) {
+    console.log('startChat called');
     var chatTitle = cimChats[id].shortName;
     cm_InitiateChatClient(id, cimChats[id].chatServerURL + 'Index');
-    // Add single chat status listeners
-    Drupal.behaviors.cim_chatSetupSingleChatListeners();
 
     // Start chat if we are ready
     setTimeout(function () {
@@ -222,9 +224,10 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
           cm_OpenChat();
         }
         $('.cim-chat-title').text(chatTitle);
+        Drupal.behaviors.cim_chatSingleChatStatusUpdate();
         return;
       }
-      console.warn('CIM chat could not be initiated in 2 seconds.');
+      console.warn('CIM chat could not be initiated in 2000 milliseconds.');
     }, 2000);
   };
 
@@ -302,9 +305,9 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
   Drupal.behaviors.cim_chatSingleChatStatusUpdate = function (event) {
     var btnId = cm_ChatId ? '.' + cm_ChatId : null,
       shortName = cm_ChatId ? cimChats[cm_ChatId].shortName : '';
-
     if (!cm_QueueStatus && cimChatStatus != 'single-chat-queue-signup' && cm_status === 'Activ' ) {
       // Start monitoring the queue position
+      console.log('start monitoring queue');
       cimChatStatus = 'single-chat-queue-signup';
       cm_StartQueuTimer();
     }
@@ -312,7 +315,7 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
       // show the minimize chat panel icon
       $('.cm-Chat-header-menu-left').css('display', 'inline');
     }
-    if (cm_QueueNumber === 0) {
+    if (cm_QueueNumber === 0 || cm_status === 'Ready') {
       cimChatStatus =  'single-chat-active';
     }
     if (cm_QueueNumber > 0 ) {
@@ -320,12 +323,18 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
       // - set the cimChatCookie
       // - hide the three dots fetching status animation 
       if (cimChatStatus === 'single-chat-queue-signup') {
+        console.log('we set the cookie!');
         Drupal.behaviors.cim_chatSetCookie(cm_ChatId);
         cimChatStatus = 'single-chat-queue';
         $(btnId + ' .cim-dot').hide();
         
       }
     }
+    console.log('singleChatStatusUpdate called, cm_QueueStatus: ', cm_QueueStatus);
+    console.log('singleChatStatusUpdate called, cimChatStatus: ', cimChatStatus);
+    console.log('singleChatStatusUpdate called, cm_status: ', cm_status);
+
+
     $( document ).trigger( "cimChatUpdate", [ cimChatStatus, shortName, cm_QueueNumber ] );
     Drupal.behaviors.cim_chatButtonUpdate(cm_ChatId);
   };
