@@ -89,7 +89,6 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
 
         // Add event handler for listening to updates from the CIM chat
         $( document ).on( "cimChatUpdate", function( event, cimActive, chatName, queueNumber ) {
-          console.log('cimchatupdate triggered, cimActive ', cimActive);
             var cimMiniStatus = '',
               queueNumber = (cimActive === 'single-chat-queue') ? queueNumber : '';
 
@@ -102,7 +101,6 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
             }
             if (cimActive === 'single-chat-active' && (!$('.cm-Chat-client').is(':hidden'))) {
               cimMiniStatus = ': ' + Drupal.t('Chatting...');
-              queueNumber = '';
             }
 
             if (cimActive === 'by-id-active') {
@@ -340,23 +338,27 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
   * @returns null
   */
   Drupal.behaviors.opeka_widgets.toggleGlobalWidget = function(action) {
-    console.log('cimChatStatus', cimChatStatus);
 
     if ((widgetWrapper.css('display') == 'none') && (action === 'show')) {
-      // Don't show the widget before all chats are loaded and we have a status from
-      // the CIM chat
-      if ((Object.keys(opekaPopupWidgets).length > $('.opeka-chat-popup-wrapper').length) || 
-        !cimChatStatus) {
+      // Don't show the widget before we have a status from the CIM chat
+      // @todo: Don't show the widget before all chats are loaded ie.
+      // integrate (Object.keys(opekaPopupWidgets).length > $('.opeka-chat-popup-wrapper').length) ||
+      if ( !cimChatStatus) {
         return;
       }
+
       widgetWrapper.fadeIn();
-      widgetExpanded.show();
-      widgetMinimized.hide();
+      widgetExpanded.hide();
+      widgetMinimized.show();
       return;
     }
     // Hide unless a cim chat is active/ready
     if ((widgetWrapper.css('display') != 'none') &&
-       (action === 'hide') && (cimChatStatus != 'by-id-active')) {
+        (action === 'hide') && 
+        (cimChatStatus != 'by-id-active') &&
+        (cimChatStatus != 'single-chat-queue') &&
+        (cimChatStatus != 'single-chat-active')
+       ) {
       widgetMinimized.hide();
       widgetExpanded.hide();
       widgetWrapper.fadeOut();

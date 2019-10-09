@@ -4,7 +4,8 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
                     * - 'closed': all cim chats are closed
                     * - 'by-id-active': at least one chat is "Ready", "Activ" or "Busy"
                     * - 'single-chat-queue': the user is queuing for chat
-                    * - 'single-chat-active': a conversation is ongoing
+                    * - 'single-chat-queue-signup': the user is in the process of queuing for chat
+                    * - 'single-chat-active': the counselor has "taken" the conversation
                     */ 
 
 (function ($, Drupal, cimChats) {
@@ -25,15 +26,15 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
             userIdCookie = cm_GetCookie('cm_UniqueUserId');
 
         if ((cimChatId && cimChatId != '') && userIdCookie) {
-          console.log('we have a cookie cimchatId', cimChatId);
           Drupal.behaviors.cim_chatButtonUpdate(cimChatId);
-          Drupal.behaviors.cim_chatSetupSingleChatAssets();
-          setTimeout(function () {
-            // @todo: If we don't have a min 2 sec. delay for the assets and listeners to be added,
-            // before starting the chat, the queueStatu will take a long time to update
+          // We start the chat once the assets are in place
+          Drupal.behaviors.cim_chatSetupSingleChatAssets(function(err) {
+            if (err) {
+              console.error(err);
+            }
             Drupal.behaviors.cim_chatCreateStatusButton(cimChatId, 'Queue');
             Drupal.behaviors.cim_chatStartChat(cimChatId, true);
-          }, 2000);
+          });
 
           // We don't need to setup event listeners in this case
           return;
@@ -48,7 +49,6 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
   };
 
   Drupal.behaviors.cim_chatSetupSingleChatListeners = function () {
-    console.log('setupSingleChatListeners called');
     // Event listener for ongoing single chat status updates
     Drupal.behaviors.cim_chatAddListenerCmChatStatus();
 
@@ -104,16 +104,15 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
     cimChatIds = keys.join(", ");
     cimChatIds = { chatIds: cimChatIds };
 
-    // Get the status of the chats we are monitoring
-    // Note: we don't support monitoring multiple serverURLs simultaneously (eg. test and production)
-    setTimeout(function () {
-      cm_InitiateChatStatus(cimChatIds, cimChats[key].chatServerURL + 'StatusIndex');
-    }, 3000);
     // Add the CIM status iframe and setup event listener
     $('body').append('<div class="iframeWrapper cim-status">' +
       '<iframe class="cm-Chat-container" src="" style="vertical-align:top;"></iframe></div>');
 
     Drupal.behaviors.cim_chatAddListenerStatusById();
+    
+    // Get the status of the chats we are monitoring
+    // Note: we don't support monitoring multiple serverURLs simultaneously (eg. test and production)
+    cm_InitiateChatStatus(cimChatIds, cimChats[key].chatServerURL + 'StatusIndex');
   };
   
   Drupal.behaviors.cim_chatAddListenerStatusById = function() {
@@ -124,7 +123,7 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
     document.addEventListener("cmStatusByChatIdsUpdated", cmStatusByIdListener, true);  
   };
 
-  Drupal.behaviors.cim_chatSetupSingleChatAssets = function() {
+  Drupal.behaviors.cim_chatSetupSingleChatAssets = function(callback) {
     if (typeof cm_InitiateChatStatus === "undefined") {
       console.error('External CIM script could not be loaded.');
       return;
@@ -133,13 +132,19 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
     $.get("/sites/all/modules/custom/cim_chat/panel.html", function(data){
       if ($('#cim-mobility-chat')[0]) {
         // Assets already present
+        callback(null);
         return;
       }
       $('body').append('<div id="cim-mobility-chat"></div>');
       $("#cim-mobility-chat").html(data);
       // Add event listeners once the dom elements are in place
       Drupal.behaviors.cim_chatSetupSingleChatListeners();
-    });
+      callback(null);
+      return;
+    })
+      .fail(function() {
+        callback('CIM chat panel html file could not be loaded.');
+      });
   };
   
   Drupal.behaviors.cim_chatStatusByChatIdsUpdated = function (event) {
@@ -203,22 +208,29 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
       // Remove the listener for StatusById as it interferes with single chat mode
       document.removeEventListener('cmStatusByChatIdsUpdated', cmStatusByIdListener);
       $('.iframeWrapper.cim-status').remove();
-      // Initiate chat (puts user in queue)
-      Drupal.behaviors.cim_chatSetupSingleChatAssets();
       Drupal.behaviors.cim_chatButtonUpdate(id);
-      setTimeout(function () {
+      // Initiate chat (puts user in queue)
+      Drupal.behaviors.cim_chatSetupSingleChatAssets(function(err) {
+        if (err) {
+          console.error(err);
+          return;
+        }
         Drupal.behaviors.cim_chatStartChat(id);
-      }, 1000);
+        return;
+      });
     }
   };
 
   Drupal.behaviors.cim_chatStartChat  = function(id,hideChat) {
-    console.log('startChat called');
     var chatTitle = cimChats[id].shortName;
     cm_InitiateChatClient(id, cimChats[id].chatServerURL + 'Index');
 
     // Start chat if we are ready
-    setTimeout(function () {
+    var i = 0;
+
+    setTimeout(initiateChat, 500);
+
+    function initiateChat() {
       if (cm_IsChatReady) {
         if (!hideChat) {
           cm_OpenChat();
@@ -227,8 +239,14 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
         Drupal.behaviors.cim_chatSingleChatStatusUpdate();
         return;
       }
-      console.warn('CIM chat could not be initiated in 2000 milliseconds.');
-    }, 2000);
+      i++;
+      if (i > 19 && !cm_IsChatReady) {
+        console.warn('CIM chat could not be initiated in 20 attempts with increasing time intervals.');
+        return;
+      }
+      setTimeout(initiateChat, 500*i);
+      return;
+    };
   };
 
   /**
@@ -307,7 +325,6 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
       shortName = cm_ChatId ? cimChats[cm_ChatId].shortName : '';
     if (!cm_QueueStatus && cimChatStatus != 'single-chat-queue-signup' && cm_status === 'Activ' ) {
       // Start monitoring the queue position
-      console.log('start monitoring queue');
       cimChatStatus = 'single-chat-queue-signup';
       cm_StartQueuTimer();
     }
@@ -323,17 +340,12 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
       // - set the cimChatCookie
       // - hide the three dots fetching status animation 
       if (cimChatStatus === 'single-chat-queue-signup') {
-        console.log('we set the cookie!');
         Drupal.behaviors.cim_chatSetCookie(cm_ChatId);
         cimChatStatus = 'single-chat-queue';
         $(btnId + ' .cim-dot').hide();
         
       }
     }
-    console.log('singleChatStatusUpdate called, cm_QueueStatus: ', cm_QueueStatus);
-    console.log('singleChatStatusUpdate called, cimChatStatus: ', cimChatStatus);
-    console.log('singleChatStatusUpdate called, cm_status: ', cm_status);
-
 
     $( document ).trigger( "cimChatUpdate", [ cimChatStatus, shortName, cm_QueueNumber ] );
     Drupal.behaviors.cim_chatButtonUpdate(cm_ChatId);
