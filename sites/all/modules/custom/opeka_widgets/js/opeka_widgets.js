@@ -93,14 +93,14 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
               queueNumber = (cimActive === 'single-chat-queue') ? queueNumber : '';
 
             if (cimActive === 'single-chat-queue') {
-              cimMiniStatus = ': ' + Drupal.t('You are in queue as number: ');
+              cimMiniStatus = Drupal.t('You are in queue as number: ');
             }
             if (cimActive === 'single-chat-active' && ($('.cm-Chat-client').is(':hidden'))) {
-              cimMiniStatus = ': ' + Drupal.t('Click to show chat');
+              cimMiniStatus = Drupal.t('Click to show chat');
               queueNumber = '';
             }
             if (cimActive === 'single-chat-active' && (!$('.cm-Chat-client').is(':hidden'))) {
-              cimMiniStatus = ': ' + Drupal.t('Chatting...');
+              cimMiniStatus = Drupal.t('Chatting...');
             }
 
             if (cimActive === 'by-id-active') {

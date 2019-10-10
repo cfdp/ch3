@@ -299,7 +299,7 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
       statusText = '',
       dataChatStatus = 'Ready',
       queueNumber = '';
-    if (!cm_QueueStatus && cm_status === 'Activ') {
+    if (!cm_QueueStatus && (cm_status === 'Activ' || cm_status === '' )) {
       // Show the fetching state animation until we get the queue status
       $(btnId + ' .cim-dot').css('display', 'inline-block');
     }
