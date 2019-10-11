@@ -27,7 +27,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
                 '<span class="global-widget-toggle"></span>' +
               '</div>' +
             '</div>' +
-            '<div class="global-chat-widget-text">' + municipalityChatText + '</div>' +
+            '<div class="global-chat-widget-text municipality">' + municipalityChatText + '</div>' +
             '<div class="municipality-chats"></div>' +
           '</div>' +
           '<div class="global-widget-minimized opeka-mini">' +
@@ -58,6 +58,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
           }
           widgetMinimized.hide();
           widgetExpanded.show();
+          Drupal.behaviors.opeka_widgets.updateSubtitle();
         });
 
         // Add event handler for minimizing global widget
@@ -71,14 +72,14 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
           $('.minimized-explainer').text(miniExplainer);
           if (chatType === 'opeka') {
             $('.minimized-chat-name').text(miniChatName);
-            $('.minimized-queue-number').text(miniQueueNumber);
+            $('.minimized-queue-number').text('');
             widgetMinimized.addClass('opeka-mini').removeClass('cim-mini');
           }
           if (chatType === 'cim') {
             if (miniChatName != '') {
               $('.minimized-chat-name').text(miniChatName + ': ');
             }
-            if (miniQueueNumber) {
+            if (miniQueueNumber > 0) {
               $('.minimized-queue-number').text(miniQueueNumber);
             }
             widgetMinimized.addClass('cim-mini').removeClass('opeka-mini');
@@ -89,31 +90,35 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
 
         // Add event handler for listening to updates from the CIM chat
         $( document ).on( "cimChatUpdate", function( event, cimActive, chatName, queueNumber ) {
-            var cimMiniStatus = '',
-              queueNumber = (cimActive === 'single-chat-queue') ? queueNumber : '';
+          var cimMiniStatus = '',
+            queueNumber = (cimActive === 'single-chat-queue') ? queueNumber : '';
 
-            if (cimActive === 'single-chat-queue') {
-              cimMiniStatus = Drupal.t('You are in queue as number: ');
-            }
-            if (cimActive === 'single-chat-active' && ($('.cm-Chat-client').is(':hidden'))) {
-              cimMiniStatus = Drupal.t('Click to show chat');
-              queueNumber = '';
-            }
-            if (cimActive === 'single-chat-active' && (!$('.cm-Chat-client').is(':hidden'))) {
-              cimMiniStatus = Drupal.t('Chatting...');
-            }
+          if (cimActive === 'single-chat-queue') {
+            cimMiniStatus = Drupal.t('You are in queue as number: ');
+            $('.minimized-queue-number').show();
 
-            if (cimActive === 'by-id-active') {
-              renderMinimizedWidget('opeka', opekaMiniStatus, opekaMiniExplainer);
-              Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
-            }
-            if (cimActive === 'single-chat-queue' || cimActive === 'single-chat-active') {
-              renderMinimizedWidget('cim', cimMiniStatus, '', chatName, queueNumber);
-              widgetExpanded.hide();
-              widgetMinimized.show();
-              Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
-            }
-          });
+          }
+          if (cimActive === 'single-chat-active' && ($('.cm-Chat-client').is(':hidden'))) {
+            cimMiniStatus = Drupal.t('Click to show chat');
+            $('.minimized-queue-number').hide();
+          }
+          if (cimActive === 'single-chat-active' && (!$('.cm-Chat-client').is(':hidden'))) {
+            cimMiniStatus = '';
+            $('.minimized-queue-number').hide();
+          }
+
+          if (cimActive === 'by-id-active') {
+            renderMinimizedWidget('opeka', opekaMiniStatus, opekaMiniExplainer);
+            Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
+          }
+          if (cimActive === 'single-chat-queue' || cimActive === 'single-chat-active') {
+            renderMinimizedWidget('cim', cimMiniStatus, '', chatName, queueNumber);
+            widgetExpanded.hide();
+            widgetMinimized.show();
+            Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
+          }
+          Drupal.behaviors.opeka_widgets.updateSubtitle();
+        });
       });
     }
   };
@@ -228,6 +233,20 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
     $(popupWrapper).hide();
   };
 
+  /**
+   *  Update subtitle - should be hidden if no chats are visible in the
+   *  municipality section  
+   */ 
+
+  Drupal.behaviors.opeka_widgets.updateSubtitle = function() {
+    if ($('.municipality-chats').children(':visible').length == 0) {
+      // action when all are hidden
+      $('.global-chat-widget-text.municipality').hide();
+      return;
+    }
+    $('.global-chat-widget-text.municipality').show();
+  };
+
   // Close popup when the close iframe message is received
   Drupal.behaviors.opeka_widgets.OpekaPopupController.prototype.closePopup = function() {
     var popupWrapper = "." + this.chatName;
@@ -269,6 +288,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
         // We have a chat state change
         chatStates[event.origin] = data;
         this.popupAnimation(data);
+        Drupal.behaviors.opeka_widgets.updateSubtitle();
         return;
     }
     return;
@@ -348,6 +368,12 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
       }
 
       widgetWrapper.fadeIn();
+      if (cimChatStatus === 'by-id-active') {
+        widgetExpanded.show();
+        widgetMinimized.hide();
+        Drupal.behaviors.opeka_widgets.updateSubtitle();
+        return;
+      }
       widgetExpanded.hide();
       widgetMinimized.show();
       return;
