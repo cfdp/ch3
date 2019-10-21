@@ -3,7 +3,7 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
                     * in the Opeka Widgets module and can have the following values:
                     * - 'no-chats-defined': no cim chats defined in data.js
                     * - 'closed': all cim chats are closed
-                    * - 'by-id-active': at least one chat is "Ready", "Activ" or "Busy"
+                    * - 'by-id-active': at least one chat is "Ready" or "Activ"
                     * - 'single-chat-queue': the user is queuing for chat
                     * - 'single-chat-queue-signup': the user is in the process of queuing for chat
                     * - 'single-chat-active': the counselor has "taken" the conversation
@@ -165,14 +165,14 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
     var status = object.status;
     var statusText = object.statusText;
     var btnId = '.'+id;
-    // We set the cimChatStatus to 'by-id-active' if any of the chats are ready / busy / active.
-    if (status === 'Ready' || status === 'Activ' || status === 'Busy') {
+    // We set the cimChatStatus to 'by-id-active' if any of the chats are ready / active.
+    if (status === 'Ready' || status === 'Activ') {
       cimChatStatus = 'by-id-active';
     }
 
-    // Set status text. If status is closed, remove button
+    // Set status text. If status is closed or busy, remove button
     if ($(btnId)[0]) { 
-      if (status === 'Closed') {
+      if (status === 'Closed' || status === 'Busy') {
         $(btnId).remove();
       }
       // 
@@ -181,8 +181,8 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
       $(btnId).attr('data-chat-status', status);
       return;
     }
-    // Don't setup buttons in the closed state
-    if (status === 'Closed') {
+    // Don't setup buttons in the closed or busy state
+    if (status === 'Closed' || status === 'Busy') {
       return;
     }
     // Create status button
