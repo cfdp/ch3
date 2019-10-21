@@ -1,7 +1,7 @@
 var cimChats = { 
-  Duwo6cJXnJ1KIbqm6l66xzK05WAw3Our: {
-    shortName: 'CIM - Cyberhus',
-    domLocation: '.cyberhus-chats',
+  ng9Nhlvt5HpKIbqm6l66xzK05WAw3Our: {
+    shortName: 'Middelfart',
+    domLocation: '.municipality-chats',
     chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
   }
 }
