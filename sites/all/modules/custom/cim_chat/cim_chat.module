@@ -1,0 +1,16 @@
+<?php
+
+/**
+  * Add assets to show the chat - javascript, stylesheets etc., but not on admin pages
+  */
+function cim_chat_preprocess_html(&$variables) {
+  if (!path_is_admin(current_path())) {
+    drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/cim-chat.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
+    drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/data.js', array('weight' => 9));
+    drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat.js', array('weight' => 10));
+
+    // Add CIM assets
+    drupal_add_js('https://chat.ecmr.biz/Scripts/chatclient/cm.chatclient.js', 'external');
+    drupal_add_css('https://chat.ecmr.biz/Content/chatclient/cm.chatclient.css', array('type' => 'external'));
+  }
+}

@@ -1,0 +1,184 @@
+/* line 5, ../sass/cim-chat.scss */
+.main {
+  margin: 2em;
+}
+
+/* line 8, ../sass/cim-chat.scss */
+.status-buttons-title {
+  margin: 2em 0;
+}
+
+/* line 12, ../sass/cim-chat.scss */
+.cm-Chat-client {
+  right: 0px;
+  z-index: 10000;
+}
+/* line 16, ../sass/cim-chat.scss */
+.cm-Chat-client .cm-Chat-header-menu-left {
+  background-image: url('../img/arrow_down.svg?1568620968'), none;
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  display: none;
+  line-height: 1.8;
+  margin-left: 10px;
+  height: 30px;
+  width: 35px;
+  cursor: pointer;
+}
+/* line 28, ../sass/cim-chat.scss */
+.cm-Chat-client .cm-Chat-header-menu-middle,
+.cm-Chat-client .cm-Chat-header-menu-right {
+  display: inline;
+  line-height: 1.8;
+}
+/* line 34, ../sass/cim-chat.scss */
+.cm-Chat-client .cm-Chat-header-menu-right {
+  background-color: white;
+  color: #268fb3;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 0 7px;
+}
+/* line 41, ../sass/cim-chat.scss */
+.cm-Chat-client .cm-Chat-header {
+  background: #268fb3;
+  border-radius: 0;
+}
+
+/* Chat iframe */
+/* line 48, ../sass/cim-chat.scss */
+iframe.cm-Chat-container {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  height: calc(100vh - 55px);
+}
+
+@media screen and (min-width: 601px) {
+  /* line 57, ../sass/cim-chat.scss */
+  .cm-Chat-client {
+    bottom: 600px;
+    right: 40px;
+    min-width: 350px;
+  }
+
+  /* line 62, ../sass/cim-chat.scss */
+  iframe.cm-Chat-container {
+    border-left: 2px solid #268fb3;
+    border-right: 2px solid #268fb3;
+    border-bottom: 2px solid #268fb3;
+    width: 346px;
+    height: 583px;
+  }
+}
+/* line 71, ../sass/cim-chat.scss */
+.chat-status {
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  display: inline-block;
+  padding: 8px 6px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+/* line 81, ../sass/cim-chat.scss */
+.chat-status[data-chat-status="Ready"] {
+  cursor: pointer;
+  background-color: #80B45A;
+}
+/* line 86, ../sass/cim-chat.scss */
+.chat-status[data-chat-status="Activ"] {
+  background-color: #80B45A;
+}
+/* line 90, ../sass/cim-chat.scss */
+.chat-status[data-chat-status="Busy"], .chat-status[data-chat-status="Queue"], .chat-status[data-chat-status="Chatting"] {
+  background-color: #EBB560;
+}
+
+/* line 98, ../sass/cim-chat.scss */
+.curachat-widgets .municipality-chats .chat-status {
+  padding: 5px 6px;
+}
+/* line 103, ../sass/cim-chat.scss */
+.curachat-widgets .global-widget-minimized.cim-mini {
+  background-color: #268fb3;
+}
+
+/* Wrapper for status iframe */
+/* line 110, ../sass/cim-chat.scss */
+.iframeWrapper {
+  display: none;
+}
+
+/* Throbber dot shown when waiting for status */
+/* line 116, ../sass/cim-chat.scss */
+.cim-dot {
+  display: none;
+  margin: 0 10px 0 20px;
+}
+
+/*!
+ * three-dots - v0.1.2
+ * CSS loading animation made by single element.
+ * https://github.com/nzbin/three-dots#readme
+ *
+ * Copyright (c) 2018 nzbin
+ * Released under MIT License
+ */
+/**
+* ==============================================
+* Dot Flashing
+* ==============================================
+*/
+/* line 165, ../sass/cim-chat.scss */
+.dot-flashing {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #ccc;
+  color: #ccc;
+  animation: dotFlashing 1s infinite linear alternate;
+  animation-delay: .5s;
+}
+/* line 173, ../sass/cim-chat.scss */
+.dot-flashing::before, .dot-flashing::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+/* line 181, ../sass/cim-chat.scss */
+.dot-flashing::before {
+  left: -12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #ccc;
+  color: #ccc;
+  animation: dotFlashing 1s infinite alternate;
+  animation-delay: 0s;
+}
+/* line 190, ../sass/cim-chat.scss */
+.dot-flashing::after {
+  left: 12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #ccc;
+  color: #ccc;
+  animation: dotFlashing 1s infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes dotFlashing {
+  0% {
+    background-color: #ccc;
+  }
+  50%,
+  100% {
+    background-color: white;
+  }
+}
