@@ -363,7 +363,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
       // Don't show the widget before we have a status from the CIM chat
       // @todo: Don't show the widget before all chats are loaded ie.
       // integrate (Object.keys(opekaPopupWidgets).length > $('.opeka-chat-popup-wrapper').length) ||
-      if ( !cimChatStatus) {
+      if (!cimChatStatus) {
         return;
       }
 
