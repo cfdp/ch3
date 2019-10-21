@@ -1,6 +1,7 @@
 var cimChats = cimChats || null, // Chat ids and names are fetched from a separate file (data.js)
     cimChatStatus; /* This status is used in the cimChatUpdate event and 
                     * in the Opeka Widgets module and can have the following values:
+                    * - 'no-chats-defined': no cim chats defined in data.js
                     * - 'closed': all cim chats are closed
                     * - 'by-id-active': at least one chat is "Ready", "Activ" or "Busy"
                     * - 'single-chat-queue': the user is queuing for chat
@@ -89,6 +90,7 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
         cimChatIds;
     if (!cimChats) {
       console.warn('Local CIM chat id data could not be loaded. Eventlistener not added.');
+      cimChatStatus = 'no-chats-defined';
       return;
     }
     if ($('.iframeWrapper.cim-status')[0]) {
