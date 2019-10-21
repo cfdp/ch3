@@ -1,6 +1,7 @@
 name = Opeka Widgets
 description = Adds a number of Opeka chat widgets to the Drupal site.
 core = 7.x
+package = CfDP Helper Modules
 
 files[] = opeka_widgets.module
 files[] = opeka_widgets.admin.inc

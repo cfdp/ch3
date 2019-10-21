@@ -57,6 +57,9 @@ Icons
 
 * question mark by Hare Krishna from the Noun Project
 
+* Exclamaition sign icon
+
+* up by Eliricon from the Noun Project
 
 -- CONTACT --
 
