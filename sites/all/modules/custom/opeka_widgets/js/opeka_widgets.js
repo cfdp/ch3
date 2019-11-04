@@ -117,6 +117,10 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
             widgetMinimized.show();
             Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
           }
+
+          if (cimActive === 'closed') {
+            Drupal.behaviors.opeka_widgets.toggleGlobalWidget('hide');
+          }
           Drupal.behaviors.opeka_widgets.updateSubtitle();
         });
       });
@@ -234,12 +238,12 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
   };
 
   /**
-   *  Update subtitle - should be hidden if no chats are visible in the
+   *  Update subtitle visibility: should be hidden if no chats are visible in the
    *  municipality section  
    */ 
 
   Drupal.behaviors.opeka_widgets.updateSubtitle = function() {
-    if ($('.municipality-chats').children(':visible').length == 0) {
+    if ($('.municipality-chats').children().filter(':visible').length == 0) {
       // action when all are hidden
       $('.global-chat-widget-text.municipality').hide();
       return;
@@ -374,16 +378,17 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
         Drupal.behaviors.opeka_widgets.updateSubtitle();
         return;
       }
-      widgetExpanded.hide();
-      widgetMinimized.show();
+      widgetExpanded.show();
+      widgetMinimized.hide();
       return;
     }
-    // Hide unless a cim chat is active/ready
+    // Hide unless a cim chat is active/ready OR there are active opeka chats
     if ((widgetWrapper.css('display') != 'none') &&
         (action === 'hide') && 
         (cimChatStatus != 'by-id-active') &&
         (cimChatStatus != 'single-chat-queue') &&
-        (cimChatStatus != 'single-chat-active')
+        (cimChatStatus != 'single-chat-active') &&
+        (opekaGlobalWidgetState === 'chat-closed')
        ) {
       widgetMinimized.hide();
       widgetExpanded.hide();
