@@ -1,4 +1,5 @@
-var cimChats = cimChats || null, // Chat ids and names are fetched from a separate file (data.js)
+var cm_ChatId,
+    cimChats = cimChats || null, // Chat ids and names are fetched from a separate file (data.js)
     cimChatStatus; /* This status is used in the cimChatUpdate event and 
                     * in the Opeka Widgets module and can have the following values:
                     * - 'no-chats-defined': no cim chats defined in data.js
@@ -323,8 +324,10 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
   } 
 
   Drupal.behaviors.cim_chatSingleChatStatusUpdate = function (event) {
-    var btnId = cm_ChatId ? '.' + cm_ChatId : null,
-      shortName = cm_ChatId ? cimChats[cm_ChatId].shortName : '';
+
+    var btnId = (undefined === cm_ChatId) ? null : '.' + cm_ChatId,
+      shortName = (cm_ChatId != undefined)? cimChats[cm_ChatId].shortName : '';
+
     if (!cm_QueueStatus && cimChatStatus != 'single-chat-queue-signup' && cm_status === 'Activ' ) {
       // Start monitoring the queue position
       cimChatStatus = 'single-chat-queue-signup';
