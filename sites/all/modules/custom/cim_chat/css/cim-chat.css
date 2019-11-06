@@ -15,7 +15,7 @@
 }
 /* line 16, ../sass/cim-chat.scss */
 .cm-Chat-client .cm-Chat-header-menu-left {
-  background-image: url('../img/arrow_down.svg?1568620968'), none;
+  background-image: url('../img/arrow_down.svg?1571642579'), none;
   background-size: 25px 25px;
   background-repeat: no-repeat;
   display: none;
@@ -51,7 +51,7 @@ iframe.cm-Chat-container {
   position: absolute;
   top: 50px;
   width: 100%;
-  height: calc(100vh - 55px);
+  height: calc(100vh - 155px);
 }
 
 @media screen and (min-width: 601px) {
