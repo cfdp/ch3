@@ -54,7 +54,7 @@ iframe.cm-Chat-container {
   height: calc(100vh - 155px);
 }
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 720px) {
   /* line 57, ../sass/cim-chat.scss */
   .cm-Chat-client {
     bottom: 600px;
