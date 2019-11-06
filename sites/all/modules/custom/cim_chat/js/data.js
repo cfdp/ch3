@@ -3,5 +3,15 @@ var cimChats = {
     shortName: 'Middelfart',
     domLocation: '.municipality-chats',
     chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  G3jlsM1ldCxKIbqm6l66xzK05WAw3Our: {
+    shortName: 'Fredensborg',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  MwBzImS0nr9KIbqm6l66xzK05WAw3Our: {
+    shortName: 'Stevns',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
   }
 }

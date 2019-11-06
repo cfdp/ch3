@@ -1,5 +1,4 @@
-var cm_ChatId,
-    cimChats = cimChats || null, // Chat ids and names are fetched from a separate file (data.js)
+var cimChats = cimChats || null, // Chat ids and names are fetched from a separate file (data.js)
     cimChatStatus; /* This status is used in the cimChatUpdate event and 
                     * in the Opeka Widgets module and can have the following values:
                     * - 'no-chats-defined': no cim chats defined in data.js
@@ -226,6 +225,7 @@ var cm_ChatId,
 
   Drupal.behaviors.cim_chatStartChat  = function(id,hideChat) {
     var chatTitle = cimChats[id].shortName;
+
     cm_InitiateChatClient(id, cimChats[id].chatServerURL + 'Index');
 
     // Start chat if we are ready
@@ -258,7 +258,7 @@ var cm_ChatId,
    */
   Drupal.behaviors.cim_chatCloseConversation = function() {
     var closeBtn = '.cm-Chat-header-menu-right',
-        shortName = cm_ChatId ? cimChats[cm_ChatId].shortName : '';
+        shortName = cm_chatId ? cimChats[cm_chatId].shortName : '';
     
     if (cm_status === 'Ready') {
       // No conversation has taken place yet. 
@@ -292,8 +292,8 @@ var cm_ChatId,
     cimChatStatus = 'by-id-active';
     $( document ).trigger( "cimChatUpdate", [ cimChatStatus, shortName, cm_QueueNumber ] );
     // Re-render chat, update button state and setup statusById updates
-    Drupal.behaviors.cim_chatButtonUpdate(cm_ChatId);
-    cm_ChatId = null;
+    Drupal.behaviors.cim_chatButtonUpdate(cm_chatId);
+    cm_chatId = null;
     Drupal.behaviors.cim_chatSetupStatusByIdAssets();
   };
 
@@ -324,9 +324,9 @@ var cm_ChatId,
   } 
 
   Drupal.behaviors.cim_chatSingleChatStatusUpdate = function (event) {
-
-    var btnId = (undefined === cm_ChatId) ? null : '.' + cm_ChatId,
-      shortName = (cm_ChatId != undefined)? cimChats[cm_ChatId].shortName : '';
+    var id = ((undefined === cm_chatId) || (cm_chatId === 0)) ? null : cm_chatId,
+        btnId = id ? '.' + id : '',
+        shortName = id ? cimChats[cm_chatId].shortName : '';
 
     if (!cm_QueueStatus && cimChatStatus != 'single-chat-queue-signup' && cm_status === 'Activ' ) {
       // Start monitoring the queue position
@@ -345,15 +345,14 @@ var cm_ChatId,
       // - set the cimChatCookie
       // - hide the three dots fetching status animation 
       if (cimChatStatus === 'single-chat-queue-signup') {
-        Drupal.behaviors.cim_chatSetCookie(cm_ChatId);
+        Drupal.behaviors.cim_chatSetCookie(cm_chatId);
         cimChatStatus = 'single-chat-queue';
         $(btnId + ' .cim-dot').hide();
         
       }
     }
-
     $( document ).trigger( "cimChatUpdate", [ cimChatStatus, shortName, cm_QueueNumber ] );
-    Drupal.behaviors.cim_chatButtonUpdate(cm_ChatId);
+    Drupal.behaviors.cim_chatButtonUpdate(cm_chatId);
   };
 
   /**
