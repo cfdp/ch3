@@ -13,5 +13,10 @@ var cimChats = {
     shortName: 'Stevns',
     domLocation: '.municipality-chats',
     chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
-  }
+  },
+  // Duwo6cJXnJ1KIbqm6l66xzK05WAw3Our: {
+  //   shortName: 'cyber',
+  //   domLocation: '.cyberhus-chats',
+  //   chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  // }
 }
