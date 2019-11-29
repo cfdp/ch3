@@ -14,6 +14,16 @@ var cimChats = {
     domLocation: '.municipality-chats',
     chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
   },
+  L3FaKitRcLpKIbqm6l66xzK05WAw3Our: {
+    shortName: 'Slagelse',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  '68tZgzarWkdKIbqm6l66xzK05WAw3Our': {
+    shortName: 'Aabenraa',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },  
   // Duwo6cJXnJ1KIbqm6l66xzK05WAw3Our: {
   //   shortName: 'cyber',
   //   domLocation: '.cyberhus-chats',
