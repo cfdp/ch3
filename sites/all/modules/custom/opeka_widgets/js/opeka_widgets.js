@@ -136,12 +136,9 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
    */
   Drupal.behaviors.opeka_widgets.waitForOpekaServer = function(allPopups) {
     $.each(allPopups, function(k,v) {
-      // Check if the popup has been closed by the client earlier
-      if (!(Drupal.behaviors.opeka_widgets.getCookie(v.chatName) === "yes")) {
-        setTimeout(function () {
-          Drupal.behaviors.opeka_widgets.addWidget(v);
-        }, 1000);     
-      }
+      setTimeout(function () {
+        Drupal.behaviors.opeka_widgets.addWidget(v);
+      }, 100);
     });
   };
 
