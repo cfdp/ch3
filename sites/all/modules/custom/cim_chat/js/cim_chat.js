@@ -27,18 +27,20 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
             userIdCookie = cm_GetCookie('cm_UniqueUserId');
 
         if ((cimChatId && cimChatId != '') && userIdCookie) {
-          Drupal.behaviors.cim_chatButtonUpdate(cimChatId);
-          // We start the chat once the assets are in place
-          Drupal.behaviors.cim_chatSetupSingleChatAssets(function(err) {
-            if (err) {
-              console.error(err);
-            }
-            Drupal.behaviors.cim_chatCreateStatusButton(cimChatId, 'Queue');
-            Drupal.behaviors.cim_chatStartChat(cimChatId, true);
-          });
+          console.log('cimChatId and userIdCookie registered');
+          // @todo: we deactivate the auto start feature for now
+          //Drupal.behaviors.cim_chatButtonUpdate(cimChatId);
+          //We start the chat once the assets are in place
+          // Drupal.behaviors.cim_chatSetupSingleChatAssets(function(err) {
+          //   if (err) {
+          //     console.error(err);
+          //   }
+          //   Drupal.behaviors.cim_chatCreateStatusButton(cimChatId, 'Queue');
+          //   Drupal.behaviors.cim_chatStartChat(cimChatId, true);
+          // });
 
           // We don't need to setup event listeners in this case
-          return;
+          //return;
         }
 
         // We don't have an ongoing chat session.
