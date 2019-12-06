@@ -23,7 +23,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
             '<div class="cyberhus-chats">' +
               '<div class="global-chat-widget-header">' +
                 '<span class="global-chat-widget-text">' + cyberChatText + '</span>' +
-                '<a class="global-widget-read-more" href="/chat"></a>' +
+                '<a class="global-widget-read-more" href="/temaer/Chatten-p%C3%A5-Cyberhus"></a>' +
                 '<span class="global-widget-toggle"></span>' +
               '</div>' +
             '</div>' +
