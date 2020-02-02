@@ -23,10 +23,35 @@ var cimChats = {
     shortName: 'Aabenraa',
     domLocation: '.municipality-chats',
     chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
-  },  
-  // Duwo6cJXnJ1KIbqm6l66xzK05WAw3Our: {
-  //   shortName: 'cyber',
-  //   domLocation: '.cyberhus-chats',
-  //   chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
-  // }
+  },
+  'pRhGYvy2K4tKIbqm6l66xzK05WAw3Our': {
+    shortName: 'Skanderborg',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  'J3zZCN8hejFKIbqm6l66xzK05WAw3Our': {
+    shortName: 'Odder',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  '7qU6QkLyKrxKIbqm6l66xzK05WAw3Our': {
+    shortName: 'Odense',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  'vD2iSGhX+phKIbqm6l66xzK05WAw3Our': {
+    shortName: 'Silkeborg',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  'ELyzJV0fvhZKIbqm6l66xzK05WAw3Our': {
+    shortName: 'Cyberhus',
+    domLocation: '.cyberhus-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  'H6bj65Uxut1KIbqm6l66xzK05WAw3Our': {
+    shortName: 'Aarhus',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  }
 }
