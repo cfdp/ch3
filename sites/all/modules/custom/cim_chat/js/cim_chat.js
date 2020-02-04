@@ -27,7 +27,6 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
             userIdCookie = cm_GetCookie('cm_UniqueUserId');
 
         if ((cimChatId && cimChatId != '') && userIdCookie) {
-          console.log('cimChatId and userIdCookie registered');
           // @todo: we deactivate the auto start feature for now
           //Drupal.behaviors.cim_chatButtonUpdate(cimChatId);
           //We start the chat once the assets are in place
@@ -163,10 +162,11 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
 
   Drupal.behaviors.cim_chatChatStatusHandler = function (item, index, arr) {
     var object = arr[index];
-    var id = object.id;
-    var status = object.status;
+    var status = object.status; 
     var statusText = object.statusText;
-    var btnId = '.'+id;
+    var id = object.id;
+    var className = cimChats[id].cssClassName;
+    var btnId = '.' + className;
     // We set the cimChatStatus to 'by-id-active' if any of the chats are ready / active.
     if (status === 'Ready' || status === 'Activ') {
       cimChatStatus = 'by-id-active';
@@ -192,20 +192,21 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
   };
 
   Drupal.behaviors.cim_chatCreateStatusButton = function(id, status) {
-    var btnId = '.'+id;
-    $(cimChats[id].domLocation).append('<div class="chat-status ' + id + '" data-chat-status="' + status + '">' + 
+    var className = cimChats[id].cssClassName,
+        btnId = '.'+className;
+    $(cimChats[id].domLocation).append('<div class="chat-status ' + className + '" data-chat-status="' + status + '">' + 
       '<span class="chat-status-title">' + cimChats[id].shortName + '</span><span class="queue-status"></span><span class="queue-number"></span>' +
       '<div class="cim-dot"><div class="dot-flashing"></div></div></div>');
     // Add click handler
     $( btnId ).on('click', {id: id}, Drupal.behaviors.cim_chatHandleChatBtnClick);
   };
-  
+
   /* 
    * Initiate chat client and put user in queue
    */
   Drupal.behaviors.cim_chatHandleChatBtnClick = function (event) {
     var id = event.data.id,
-      btnId = '.' + id,
+      btnId = '.' + cimChats[id].cssClassName,
       status = $(btnId).attr('data-chat-status');
 
     if (status === 'Ready') {
@@ -300,7 +301,7 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
   };
 
   Drupal.behaviors.cim_chatButtonUpdate = function(id) {
-    var btnId = '.'+id,
+    var btnId = '.' + cimChats[id].cssClassName,
       statusText = '',
       dataChatStatus = 'Ready',
       queueNumber = '';
@@ -327,7 +328,7 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
 
   Drupal.behaviors.cim_chatSingleChatStatusUpdate = function (event) {
     var id = ((undefined === cm_chatId) || (cm_chatId === 0)) ? null : cm_chatId,
-        btnId = id ? '.' + id : '',
+        btnId = id ? '.' + cimChats[id].cssClassName : '',
         shortName = id ? cimChats[cm_chatId].shortName : '';
 
     if (!cm_QueueStatus && cimChatStatus != 'single-chat-queue-signup' && cm_status === 'Activ' ) {
