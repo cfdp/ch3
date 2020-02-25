@@ -1,16 +1,46 @@
 <?php
 
 /**
-  * Add assets to show the chat - javascript, stylesheets etc., but not on admin pages
+  * Add assets to show the chat - javascript, stylesheets etc., but not on admin pages or ung-i pages
   */
 function cim_chat_preprocess_html(&$variables) {
-  if (!path_is_admin(current_path())) {
-    drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/cim-chat.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
-    drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/data.js', array('weight' => 9));
-    drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat.js', array('weight' => 10));
-
-    // Add CIM assets
-    drupal_add_js('https://chat.ecmr.biz/Scripts/chatclient/cm.chatclient.js', 'external');
+  if (!((path_is_admin(current_path()) 
+       || (substr(drupal_get_path_alias(current_path()), 0, 5) === "ung-i")
+       || (substr(current_path(), 0, 20) === "cim-chat-integration") ))) {
+    // Add remote CIM assets
     drupal_add_css('https://chat.ecmr.biz/Content/chatclient/cm.chatclient.css', array('type' => 'external'));
+
+    drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/dot-flashing.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
+    drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/cim-chat.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
+    //drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/data.js', array('weight' => 9));
+    drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat_global.js', array('weight' => 10));
+  }
+  // Add assets for single page widget
+  if ((substr(current_path(), 0, 20) === "cim-chat-integration")
+       || (substr(drupal_get_path_alias(current_path()), 0, 5) === "ung-i")) {
+    drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/jquery.loadTemplate.js', array('weight' => 10));
+    drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat_page_widget.js', array('weight' => 10));
+    // Add remote CIM assets
+    drupal_add_css('https://chat.ecmr.biz/Content/chatclient/cm.chatclient.css', array('type' => 'external'));
+    drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/cim-chat.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
+  }
+}
+
+function cim_chat_get_opening_hours($paragraph_id) {
+  $entities = entity_load('paragraphs_item', array($paragraph_id));
+  $paragraphs_render = entity_view('paragraphs_item', $entities, 'full');
+  $opening_hours_paragraphs = $paragraphs_render['paragraphs_item'][$paragraph_id]['field_cim_chat_opening_hours_all']['#items'];
+  if (isset($opening_hours_paragraphs)) {
+    $opening_hours = [];
+    foreach ($opening_hours_paragraphs as $value) {
+      $p_id = $value['value'];
+      $entities = entity_load('paragraphs_item', array($p_id));
+      $entity = $entities[$p_id];
+      $par_wrapper = entity_metadata_wrapper('paragraphs_item', $entity);
+      $weekday = $par_wrapper->field_cim_chat_oh_weekday->value()->name;
+      $time = $par_wrapper->field_cim_chat_oh_time->value();
+      $opening_hours[] = $weekday . ': ' . $time;
+    }
+    return theme('item_list', array('items' => $opening_hours));
   }
 }

@@ -1,0 +1,127 @@
+$view = new view();
+$view->name = 'chat_widget';
+$view->description = '';
+$view->tag = 'default';
+$view->base_table = 'paragraphs_item';
+$view->human_name = 'Chat widget';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['title'] = 'Chat widget';
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['use_more_text'] = 'mere';
+$handler->display->display_options['access']['type'] = 'none';
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+$handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+$handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+$handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+$handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+$handler->display->display_options['pager']['type'] = 'none';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['row_plugin'] = 'fields';
+/* Felt: Paragraphs item: Paragraphs item ID */
+$handler->display->display_options['fields']['item_id']['id'] = 'item_id';
+$handler->display->display_options['fields']['item_id']['table'] = 'paragraphs_item';
+$handler->display->display_options['fields']['item_id']['field'] = 'item_id';
+/* Felt: Paragraphs item: Chattens navn */
+$handler->display->display_options['fields']['field_chat_name']['id'] = 'field_chat_name';
+$handler->display->display_options['fields']['field_chat_name']['table'] = 'field_data_field_chat_name';
+$handler->display->display_options['fields']['field_chat_name']['field'] = 'field_chat_name';
+$handler->display->display_options['fields']['field_chat_name']['label'] = '';
+$handler->display->display_options['fields']['field_chat_name']['element_label_colon'] = FALSE;
+/* Felt: Paragraphs item: Åbningstider */
+$handler->display->display_options['fields']['field_opening_hours']['id'] = 'field_opening_hours';
+$handler->display->display_options['fields']['field_opening_hours']['table'] = 'field_data_field_opening_hours';
+$handler->display->display_options['fields']['field_opening_hours']['field'] = 'field_opening_hours';
+$handler->display->display_options['fields']['field_opening_hours']['settings'] = array(
+  'view_mode' => 'token',
+);
+$handler->display->display_options['fields']['field_opening_hours']['delta_offset'] = '0';
+/* Kontekstuelt filter: Paragraphs item: Chattens navn (field_chat_name) */
+$handler->display->display_options['arguments']['field_chat_name_value']['id'] = 'field_chat_name_value';
+$handler->display->display_options['arguments']['field_chat_name_value']['table'] = 'field_data_field_chat_name';
+$handler->display->display_options['arguments']['field_chat_name_value']['field'] = 'field_chat_name_value';
+$handler->display->display_options['arguments']['field_chat_name_value']['default_action'] = 'not found';
+$handler->display->display_options['arguments']['field_chat_name_value']['exception']['title'] = 'Alle';
+$handler->display->display_options['arguments']['field_chat_name_value']['default_argument_type'] = 'fixed';
+$handler->display->display_options['arguments']['field_chat_name_value']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['field_chat_name_value']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['field_chat_name_value']['summary_options']['items_per_page'] = '25';
+$handler->display->display_options['arguments']['field_chat_name_value']['limit'] = '0';
+/* Filterkriterie: Paragraphs item: Bundle */
+$handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+$handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+$handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+$handler->display->display_options['filters']['bundle']['value'] = array(
+  'chat_name' => 'chat_name',
+);
+
+/* Display: Page */
+$handler = $view->new_display('page', 'Page', 'page');
+$handler->display->display_options['path'] = 'chatwidget/%';
+
+/* Display: Side */
+$handler = $view->new_display('page', 'Side', 'page_1');
+$handler->display->display_options['defaults']['style_plugin'] = FALSE;
+$handler->display->display_options['style_plugin'] = 'views_json';
+$handler->display->display_options['style_options']['grouping'] = array(
+  0 => array(
+    'field' => 'field_cim_chat_id',
+  ),
+);
+$handler->display->display_options['style_options']['root_object'] = 'cimChats';
+$handler->display->display_options['style_options']['plaintext_output'] = 1;
+$handler->display->display_options['style_options']['remove_newlines'] = 0;
+$handler->display->display_options['style_options']['jsonp_prefix'] = '';
+$handler->display->display_options['style_options']['using_views_api_mode'] = 0;
+$handler->display->display_options['style_options']['translate_labels'] = 0;
+$handler->display->display_options['style_options']['object_arrays'] = 0;
+$handler->display->display_options['style_options']['numeric_strings'] = 0;
+$handler->display->display_options['style_options']['bigint_string'] = 0;
+$handler->display->display_options['style_options']['pretty_print'] = 0;
+$handler->display->display_options['style_options']['unescaped_slashes'] = 0;
+$handler->display->display_options['style_options']['unescaped_unicode'] = 0;
+$handler->display->display_options['style_options']['char_encoding'] = array();
+$handler->display->display_options['defaults']['style_options'] = FALSE;
+$handler->display->display_options['defaults']['row_plugin'] = FALSE;
+$handler->display->display_options['defaults']['row_options'] = FALSE;
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Felt: Paragraphs item: Chattens navn */
+$handler->display->display_options['fields']['field_chat_name']['id'] = 'field_chat_name';
+$handler->display->display_options['fields']['field_chat_name']['table'] = 'field_data_field_chat_name';
+$handler->display->display_options['fields']['field_chat_name']['field'] = 'field_chat_name';
+$handler->display->display_options['fields']['field_chat_name']['label'] = '';
+$handler->display->display_options['fields']['field_chat_name']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_chat_name']['type'] = 'text_plain';
+/* Felt: Paragraphs item: Chat ID */
+$handler->display->display_options['fields']['field_cim_chat_id']['id'] = 'field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['table'] = 'field_data_field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['field'] = 'field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_id']['element_label_colon'] = FALSE;
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+$handler->display->display_options['path'] = 'chatwidget-json';
+$translatables['chat_widget'] = array(
+  t('Master'),
+  t('Chat widget'),
+  t('mere'),
+  t('Udfør'),
+  t('Gendan'),
+  t('Sortér efter'),
+  t('Stigende'),
+  t('Faldende'),
+  t('Paragraphs item ID'),
+  t('.'),
+  t(','),
+  t('Åbningstider'),
+  t('Alle'),
+  t('Page'),
+  t('Side'),
+);

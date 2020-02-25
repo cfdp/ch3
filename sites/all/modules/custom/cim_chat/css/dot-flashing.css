@@ -1,0 +1,63 @@
+/*!
+ * three-dots - v0.1.2
+ * CSS loading animation made by single element.
+ * https://github.com/nzbin/three-dots#readme
+ *
+ * Copyright (c) 2018 nzbin
+ * Released under MIT License
+ */
+/**
+* ==============================================
+* Dot Flashing
+* ==============================================
+*/
+/* line 46, ../sass/dot-flashing.scss */
+.dot-flashing {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #ccc;
+  color: #ccc;
+  animation: dotFlashing 1s infinite linear alternate;
+  animation-delay: .5s;
+}
+/* line 54, ../sass/dot-flashing.scss */
+.dot-flashing::before, .dot-flashing::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+/* line 62, ../sass/dot-flashing.scss */
+.dot-flashing::before {
+  left: -12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #ccc;
+  color: #ccc;
+  animation: dotFlashing 1s infinite alternate;
+  animation-delay: 0s;
+}
+/* line 71, ../sass/dot-flashing.scss */
+.dot-flashing::after {
+  left: 12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #ccc;
+  color: #ccc;
+  animation: dotFlashing 1s infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes dotFlashing {
+  0% {
+    background-color: #ccc;
+  }
+  50%,
+  100% {
+    background-color: white;
+  }
+}
