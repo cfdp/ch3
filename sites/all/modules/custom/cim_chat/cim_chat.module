@@ -18,14 +18,19 @@ function cim_chat_preprocess_html(&$variables) {
   // Add assets for single page widget
   if ((substr(current_path(), 0, 20) === "cim-chat-integration")
        || (substr(drupal_get_path_alias(current_path()), 0, 5) === "ung-i")) {
-    drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/jquery.loadTemplate.js', array('weight' => 10));
-    drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat_page_widget.js', array('weight' => 10));
+    //drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/jquery.loadTemplate.js', array('weight' => 10));
+    //drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat_page_widget.js', array('weight' => 10));
     // Add remote CIM assets
-    drupal_add_css('https://chat.ecmr.biz/Content/chatclient/cm.chatclient.css', array('type' => 'external'));
-    drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/cim-chat.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
+    //drupal_add_css('https://chat.ecmr.biz/Content/chatclient/cm.chatclient.css', array('type' => 'external'));
+    //drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/cim-chat.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
   }
 }
 
+/**
+ * Helper function for the View that generates the JSONP
+ * 
+ * Takes a paragraph item ID and returns the opening hours in a themed item list
+ */
 function cim_chat_get_opening_hours($paragraph_id) {
   $entities = entity_load('paragraphs_item', array($paragraph_id));
   $paragraphs_render = entity_view('paragraphs_item', $entities, 'full');

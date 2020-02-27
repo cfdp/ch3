@@ -10,10 +10,12 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
 
 (function ($, Drupal) {
   var cimChats = {},
+      jsonData,
       chatServerURL = "https://chat.ecmr.biz/ChatClient/",
+      chatWidgetDataHost = $('#cim-widget-data').data('test-url') || "https://cyberhus.dk",
       cmSingleChatStatusListener,
       cmUpdatePositionInQueueListener; // Listeners for event from the CIM chat server
-  
+
   Drupal.behaviors.cim_chat = {
     attach: function (context, settings) {
 
@@ -67,67 +69,44 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
   };
   
   Drupal.behaviors.cim_chatSetupSingleChatAssets = function() {
-    var btnId = $('.button').data('chat-id');
-    console.log('woo btn id ' + btnId); 
+    var btnId,
+        shortName = $('#cim-widget-data').data('shortname');
     if (typeof cm_InitiateChatStatus === "undefined") {
       console.error('External CIM script could not be loaded.');
       return;
     }
-    // Add click handler on start chat button
-    Drupal.behaviors.cim_chatAddTemplates();
-
-    $("#cim-static-data").loadTemplate($("#static_data_template"),
-	    {
-        field_chat_name: 'Joe Bloggs',
-        date: '25th May 2013',
-        authorPicture: 'Authors/JoeBloggs.jpg',
-        post: 'This is the contents of my post'
-      }, { overwriteCache: true });
-
-    $( btnId ).on('click', {id: btnId}, Drupal.behaviors.cim_chatHandleChatBtnClick);
-    // Add iframe for the cim chat
-    $.get("/sites/all/modules/custom/cim_chat/templates/panel.html", function(data){
-      if ($('#cim-mobility-chat')[0]) {
-        // Assets already present
-        callback(null);
-        return;
-      }
-      $('body').append('<div id="cim-mobility-chat"></div>');
-      $("#cim-mobility-chat").html(data);
-      // Add event listeners once the dom elements are in place
-      Drupal.behaviors.cim_chatSetupSingleChatListeners();
+    if (typeof shortName === "undefined") {
+      console.error('Client shortname not defined!');
       return;
-    })
-      .fail(function() {
-        console.err('CIM chat panel html file could not be loaded.');
-      });
+    }
+    Drupal.behaviors.cim_chatAddTemplates();
+    Drupal.behaviors.cim_chatFetchJSONP(chatWidgetDataHost + "/cim-chat-jsonp/" + shortName + "?callback=Drupal.behaviors.cim_chatPopulateWidget"
+    );
   };
-
 
   /* 
    * Initiate chat client and put user in queue
    */
   Drupal.behaviors.cim_chatHandleChatBtnClick = function (event) {
     var id = event.data.id;
+    console.log('startin chat');
+    event.preventDefault();
+
     Drupal.behaviors.cim_chatStartChat(id);
+    return false;
   };
 
   Drupal.behaviors.cim_chatStartChat  = function(id,hideChat) {
-    var chatTitle = cimChats[id].shortName;
-
-    cm_InitiateChatClient(id, chatServerURL + 'Index');
-
     // Start chat if we are ready
     var i = 0;
 
-    setTimeout(initiateChat, 500);
+    setTimeout(initiateChat, 10);
 
     function initiateChat() {
       if (cm_IsChatReady) {
         if (!hideChat) {
           cm_OpenChat();
         }
-        $('.cim-chat-title').text(chatTitle);
         Drupal.behaviors.cim_chatSingleChatStatusUpdate();
         return;
       }
@@ -184,60 +163,87 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
   };
 
   Drupal.behaviors.cim_chatButtonUpdate = function(id) {
-    var btnId = '.' + cimChats[id].cssClassName,
-      statusText = '',
-      dataChatStatus = 'Ready',
-      queueNumber = '';
-    if (!cm_QueueStatus && (cm_status === 'Activ' || cm_status === '' )) {
-      // Show the fetching state animation until we get the queue status
-      $(btnId + ' .cim-dot').css('display', 'inline-block');
-    }
-    if (cm_QueueStatus === 'Waiting') {
-      statusText = Drupal.t(': queue #');
-      queueNumber = cm_QueueNumber;
-      dataChatStatus = 'Queue';
-      $(btnId + ' .cim-dot').hide();
-    }
-    else if (cm_QueueStatus === 'Ready') {
-      statusText = Drupal.t(': chatting');
-      queueNumber = '';
-      dataChatStatus = 'Chatting';
-      $(btnId + ' .cim-dot').hide();
-    }
-    $(btnId).attr('data-chat-status', dataChatStatus);
-    $(btnId + ' .queue-status').text(statusText);
-    $(btnId + ' .queue-number').text(queueNumber);
-  } 
+    // var btnId = '.' + cimChats[id].cssClassName,
+    //   statusText = '',
+    //   dataChatStatus = 'Ready',
+    //   queueNumber = '';
+    // if (!cm_QueueStatus && (cm_status === 'Activ' || cm_status === '' )) {
+    //   // Show the fetching state animation until we get the queue status
+    //   $(btnId + ' .cim-dot').css('display', 'inline-block');
+    // }
+    // if (cm_QueueStatus === 'Waiting') {
+    //   statusText = Drupal.t(': queue #');
+    //   queueNumber = cm_QueueNumber;
+    //   dataChatStatus = 'Queue';
+    //   $(btnId + ' .cim-dot').hide();
+    // }
+    // else if (cm_QueueStatus === 'Ready') {
+    //   statusText = Drupal.t(': chatting');
+    //   queueNumber = '';
+    //   dataChatStatus = 'Chatting';
+    //   $(btnId + ' .cim-dot').hide();
+    // }
+    // $(btnId).attr('data-chat-status', dataChatStatus);
+    // $(btnId + ' .queue-status').text(statusText);
+    // $(btnId + ' .queue-number').text(queueNumber);
+  };
 
   Drupal.behaviors.cim_chatSingleChatStatusUpdate = function (event) {
-    var id = ((undefined === cm_chatId) || (cm_chatId === 0)) ? null : cm_chatId,
-        btnId = id ? '.' + cimChats[id].cssClassName : '',
-        shortName = id ? cimChats[cm_chatId].shortName : '';
+    var values = {
 
-    if (!cm_QueueStatus && cimChatStatus != 'single-chat-queue-signup' && cm_status === 'Activ' ) {
-      // Start monitoring the queue position
-      cimChatStatus = 'single-chat-queue-signup';
-      cm_StartQueuTimer();
+      button_text: "lukket",
+      triangle_text: "lukket",
+      wrapper_class: "cim-widget-wrapper closed",
+    };
+
+    if (event.detail.isChatReady) {
+      //Drupal.behaviors.cim_chatButtonUpdate("ready");
+      values = {
+        wrapper_class: "cim-widget-wrapper ready",
+        button_text: "åben",
+        triangle_text: "åben"
+      };
     }
-    if (cm_status === 'Activ') {
-      // show the minimize chat panel icon
-      $('.cm-Chat-header-menu-left').css('display', 'inline');
+    if (event.detail.status === "Busy") {
+      //Drupal.behaviors.cim_chatButtonUpdate("ready");
+      values = {
+        wrapper_class: "cim-widget-wrapper busy",
+        button_text: "optaget",
+        triangle_text: "optaget"
+      };
     }
-    if (cm_QueueNumber === 0 || cm_status === 'Ready') {
-      cimChatStatus =  'single-chat-active';
-    }
-    if (cm_QueueNumber > 0 ) {
-      // The moment the user enters the queue we 
-      // - set the cimChatCookie
-      // - hide the three dots fetching status animation 
-      if (cimChatStatus === 'single-chat-queue-signup') {
-        Drupal.behaviors.cim_chatSetCookie(cm_chatId);
-        cimChatStatus = 'single-chat-queue';
-        $(btnId + ' .cim-dot').hide();
+    Drupal.behaviors.cim_chatUpdateTemplate(values);
+
+    console.log('updating cim, event detail is ');
+    console.dir(event.detail);
+    // var id = ((undefined === cm_chatId) || (cm_chatId === 0)) ? null : cm_chatId,
+    //     btnId = id ? '.' + cimChats[id].cssClassName : '',
+    //     shortName = id ? cimChats[cm_chatId].shortName : '';
+
+    // if (!cm_QueueStatus && cimChatStatus != 'single-chat-queue-signup' && cm_status === 'Activ' ) {
+    //   // Start monitoring the queue position
+    //   cimChatStatus = 'single-chat-queue-signup';
+    //   cm_StartQueuTimer();
+    // }
+    // if (cm_status === 'Activ') {
+    //   // show the minimize chat panel icon
+    //   $('.cm-Chat-header-menu-left').css('display', 'inline');
+    // }
+    // if (cm_QueueNumber === 0 || cm_status === 'Ready') {
+    //   cimChatStatus =  'single-chat-active';
+    // }
+    // if (cm_QueueNumber > 0 ) {
+    //   // The moment the user enters the queue we 
+    //   // - set the cimChatCookie
+    //   // - hide the three dots fetching status animation 
+    //   if (cimChatStatus === 'single-chat-queue-signup') {
+    //     Drupal.behaviors.cim_chatSetCookie(cm_chatId);
+    //     cimChatStatus = 'single-chat-queue';
+    //     $(btnId + ' .cim-dot').hide();
         
-      }
-    }
-    Drupal.behaviors.cim_chatButtonUpdate(cm_chatId);
+    //   }
+    // }
+    // Drupal.behaviors.cim_chatButtonUpdate(cm_chatId);
   };
 
   /**
@@ -279,43 +285,144 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
     return returnValue;
   };
 
-  Drupal.behaviors.cim_chatAddTemplates = function() {
-    var staticData = '<script type="text/html" id="static_data_template">' +
-    '<div class="status-triangle"><span class="status-text">Loading...</span></div>' +
-    '<h2 class="title" data-content="date">Silkeborg</h2>' +
-    '<div class="field-cim-chat-description" data-content="field_cim_chat_description">' +
-      '<p>Beskrivelse Beskrivelse Beskrivelse</p>' +
-    '</div>' +
-    '<div class="opening-hours-wrapper">' +
-      '<p class="opening-hours-header">Vi er online hver</p>' +
-      '<div class="opening-hours-content"data-content="cim_chat_opening_hours" >' +
-      '</div>' +
-    '</div>' +
-    '<div class="button-and-subtext">' +
-      '<div class="button-wrapper">' +
-        '<div class="button-speech-icon"></div>' +
-        '<a data-chat-id="vD2iSGhX+phKIbqm6l66xzK05WAw3Our" class="button" href="#">...</a>' +
-      '</div>' +
-      '<p class="button-subtext">Anonym og professionel rådgivning</p>' +
-    '</div>' +
-  '</script>',
-  chatWindow = '<script type="text/html" id="chat_window_template">' +
-    '<div class="cm-Chat-client">' +
-      '<div class="cm-Chat-header">' +
-          '<div class="cm-Chat-header-menu">' +
-              '<div class="cm-Chat-header-menu-left">' +
-              '</div>' +
-              '<div class="cm-Chat-header-menu-middle">' +
-                  '<div class="cim-chat-title"></div>' +
-              '</div>' +
-              '<div class="cm-Chat-header-menu-right" data-close-state="first">Afslut</div>' +
-          '</div>' +
-      '</div>' +
-      '<iframe class="cm-Chat-container" src=""></iframe>' +
-    '</div> '+
-  '</script>';
-  $( "body" ).append( staticData, chatWindow );
+  /**
+   * Callback function for the JSONP resource call
+   *
+   * Makes sure the widget is populated with the newly fetched data
+   */
+  Drupal.behaviors.cim_chatPopulateWidget = function(fields) {
+    console.dir(fields);
+    var chatNode = fields[0].node,
+        values = {
+          field_cim_chat_name: chatNode.field_cim_chat_name,
+          field_cim_chat_description: chatNode.field_cim_chat_description,
+          cim_chat_opening_hours: chatNode.php,
+          field_cim_chat_id: chatNode.field_cim_chat_id,
+          wrapper_class: "cim-widget-wrapper",
+          button_text: "...",
+          triangle_text: "...",
+        };
+    // Cache for later use
+    jsonData = values;
+    console.dir(values)
+    Drupal.behaviors.cim_chatUpdateTemplate(values);
+  };
 
+  /**
+   * Update the widget
+   */
+  Drupal.behaviors.cim_chatUpdateTemplate = function (newValues) {
+    var id = newValues.field_cim_chat_id || null,
+        values = {
+          field_cim_chat_name: newValues.field_cim_chat_name || jsonData.field_cim_chat_name,
+          field_cim_chat_description: newValues.field_cim_chat_description || jsonData.field_cim_chat_description,
+          cim_chat_opening_hours: newValues.php || jsonData.cim_chat_opening_hours,
+          field_cim_chat_id: newValues.field_cim_chat_id || jsonData.field_cim_chat_id,
+          wrapper_class: newValues.wrapper_class || "cim-widget-wrapper",
+          button_text: newValues.button_text || "...",
+          triangle_text: newValues.triangle_text || "...",
+        };
+
+    $("#cim-widget-data").loadTemplate($("#cim_widget_data_template"),values, { complete: Drupal.behaviors.cim_chatSetupCim(id) });
+  };
+
+  /**
+   * Setup the cim chat window wrapper elements
+   */
+  Drupal.behaviors.cim_chatSetupCim = function (id) {
+    if(!$('#cim-mobility-chat').length){
+      $('body').append('<div id="cim-mobility-chat"></div>');
+      $("#cim-mobility-chat").loadTemplate($("#chat_window_template"),{}, { complete: Drupal.behaviors.testie(id) });
+    }   
+    //var chatTitle = cimChats[id].shortName;
+    //        $('.cim-chat-title').text(chatTitle);
+  };
+
+  Drupal.behaviors.testie = function(id) {
+    // We need to wait a bit before continuing to let the template changes propagate.
+    function helper(id) {
+      console.log('id is '+ id);
+      if(!$('#cim-widget-data .button').length){
+        console.error("CIM widget template elements not initialized, aborting!");
+        return;
+      }
+      // Add click handler on start chat button
+      // Add event listeners if id is set 
+      // Initiate chat client 
+      // (when initializing template the first time)
+      if (id) {
+        console.log('initiating chat client');
+        $( '#cim-widget-data .button' ).on('click', {"id": id}, Drupal.behaviors.cim_chatHandleChatBtnClick);
+        if(!$('#cim-mobility-chat').length){
+          console.error("CIM chat window template elements not initialized, aborting!");
+          return;
+        }
+        cm_InitiateChatClient(id, chatServerURL + 'Index');
+        Drupal.behaviors.cim_chatSetupSingleChatListeners();
+      }
+    };
+    setTimeout(helper, 10, id);
+  };
+
+  Drupal.behaviors.cim_chatFetchJSONP = function(wrapperScriptURL) {
+    addScript(wrapperScriptURL, function() {});
+
+    function addScript(src, callback) {
+      var s,
+        r,
+        t;
+      r = false;
+      s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.src = src;
+      s.onload = s.onreadystatechange = function() {
+        //console.log(this.readyState); //uncomment this line to see which ready states are called.
+        if (!r && (!this.readyState || this.readyState == 'complete')) {
+          r = true;
+          callback(this.readyState);
+        }
+      };
+      t = document.getElementsByTagName('script')[0];
+      t.parentNode.insertBefore(s, t);
+    }
+  };
+
+  Drupal.behaviors.cim_chatAddTemplates = function() {
+    var staticData = '<script type="text/html" id="cim_widget_data_template">' +
+      '<div data-class="wrapper_class">' +
+        '<div class="status-triangle"><span class="status-text" data-content="triangle_text">...</span></div>' +
+        '<h2 class="title" data-content="field_cim_chat_name"></h2>' +
+        '<div class="field-cim-chat-description" data-content="field_cim_chat_description"></div>' +
+        '<div class="opening-hours-wrapper">' +
+          '<p class="opening-hours-header">Vi er online hver</p>' +
+          '<div class="opening-hours-content" data-content="cim_chat_opening_hours" >' +
+          '</div>' +
+        '</div>' +
+        '<div class="button-and-text">' +
+          '<div class="button-wrapper">' +
+            '<div class="button-speech-icon"></div>' +
+            '<a data-id="field_cim_chat_id" class="button" href="#" data-content="button_text"></a>' +
+          '</div>' +
+          '<p class="button-subtext">Anonym og professionel rådgivning</p>' +
+        '</div>' +
+      '</div>' +
+    '</script>',
+    chatWindow = '<script type="text/html" id="chat_window_template">' +
+      '<div class="cm-Chat-client">' +
+        '<div class="cm-Chat-header">' +
+            '<div class="cm-Chat-header-menu">' +
+                '<div class="cm-Chat-header-menu-left">' +
+                '</div>' +
+                '<div class="cm-Chat-header-menu-middle">' +
+                    '<div class="cim-chat-title"></div>' +
+                '</div>' +
+                '<div class="cm-Chat-header-menu-right" data-close-state="first">Afslut</div>' +
+            '</div>' +
+        '</div>' +
+        '<iframe class="cm-Chat-container" src=""></iframe>' +
+      '</div> '+
+    '</script>';
+    $( "body" ).append( staticData, chatWindow );
   }
 
 })(jQuery, Drupal);

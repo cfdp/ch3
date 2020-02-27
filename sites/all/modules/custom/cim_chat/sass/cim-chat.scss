@@ -2,7 +2,9 @@ $green: #80B45A;
 $dark-green: #688e37;
 $orange: #EBB560;
 $blue: #268fb3;
-$gray: #f1f1f1;
+$light-gray: #f1f1f1;
+$gray: #e6e6e6;
+$medium-gray: #b3b3b3;
 $dark-gray: #4d4d4d;
 
 
@@ -122,10 +124,21 @@ iframe.cm-Chat-container {
 }
 
 /* PAGE WIDGET */
-body.page-cim-chat-integration {
-  padding: 0 0 1em 2em;
+.add-cim-widget-page-widget-processed {
+  .field-name-field-ung-i-content > .field-items .field-item .paragraphs-item-ungi-iframe-embed {
+    height: 100%;
+  }
+  .paragraphs-items-field-ung-i-content .field-item.add-bg.grey {
+    background: $light-gray;
+  }
+}
+body.page-cim-chat-integration,
+#cim-widget-data {
+  padding: 0 2em 1em 2em;
   background-color: $gray;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 
   #main {
     padding: 0;
@@ -135,18 +148,12 @@ body.page-cim-chat-integration {
     text-align: left;
   }
 
-  .views-row-1 {
-    padding-top: 100px;
-    @media screen and (min-width: 580px) {
-      padding-top: 30px;
-    }
-  }
   .view-cim-chat-integration {
     position: relative;
     overflow: hidden;
   }
   .status-triangle {
-    background-color: $dark-green;
+    background-color: $medium-gray;
     outline: 2px solid white;
     color: white;
     font-weight: 600;
@@ -168,14 +175,14 @@ body.page-cim-chat-integration {
   h2.title {
     font-size: 2.5em;
     font-weight: 600;
+    margin-top: 0;
   }
-  .views-field-field-cim-chat-description {
-    margin: 1em 3em 1em 0;
-    .field-content {
-      font-size: 1.5em;
-    }
+  .field-cim-chat-description {
+    margin: 1em 1em 1em 0;
+    font-size: 1.5em;
   }
-  .views-field-nothing-3 {
+  .views-field-nothing-3,
+  .opening-hours-wrapper {
     display: inline-block;
   }
   .opening-hours-header {
@@ -202,24 +209,17 @@ body.page-cim-chat-integration {
       margin: 0;
     }
   }
-  .views-field-nothing-1 {
-    @media screen and (min-width: 580px) {
-      float: right;
-    }
-  }
-  .button-and-subtext {
+
+  .button-and-text {
     @media screen and (min-width: 580px) {
       max-width: 200px;
       text-align: center;
+      float: right;
     }
   }
-  .button-wrapper {
-    display: inline-block;
-    position: relative;
-  }
+
   .button-speech-icon {
-    background: image-url('cim_chat_speech_gray.svg'), none;
-    border: 1px solid red;
+    background-image: image-url('cim_chat_speech_gray.svg');
     position: absolute;
     right: -10px;
     top: -10px;
@@ -229,6 +229,36 @@ body.page-cim-chat-integration {
     height: 35px;
     background-size: 35px 35px;
   }
+
+  .cim-widget-wrapper,
+  .views-row-1 {
+    padding-top: 100px;
+    @media screen and (min-width: 580px) {
+      padding-top: 30px;
+    }
+    &.ready {
+      .status-triangle {
+        background-color: $green;
+      }
+      .button-speech-icon {
+        background-image: image-url('cim_chat_speech_green.svg');
+      }
+    }
+    &.busy {
+      .status-triangle {
+        background-color: $orange;
+      }
+      .button-speech-icon {
+        background-image: image-url('cim_chat_speech_orange.svg');
+      }
+    }
+  }
+
+  .button-wrapper {
+    display: inline-block;
+    position: relative;
+  }
+
   .button {
     background-color: $dark-gray;
     border: 2px solid white;
