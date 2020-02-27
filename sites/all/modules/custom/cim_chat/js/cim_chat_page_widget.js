@@ -401,7 +401,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
         '<div class="button-and-text">' +
           '<div class="button-wrapper">' +
             '<div class="button-speech-icon"></div>' +
-            '<a data-id="field_cim_chat_id" class="button" href="#" data-content="button_text"></a>' +
+            '<div data-id="field_cim_chat_id" class="button" data-content="button_text"></div>' +
           '</div>' +
           '<p class="button-subtext">Anonym og professionel rådgivning</p>' +
         '</div>' +
