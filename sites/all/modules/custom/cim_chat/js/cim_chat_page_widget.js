@@ -196,7 +196,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
       wrapper_class: "cim-widget-wrapper closed",
     };
 
-    if (event.detail.isChatReady) {
+    if (event.detail.isChatReady && event.detail.status === "Ready") {
       //Drupal.behaviors.cim_chatButtonUpdate("ready");
       values = {
         wrapper_class: "cim-widget-wrapper ready",
@@ -204,7 +204,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
         triangle_text: "åben"
       };
     }
-    if (event.detail.status === "Busy") {
+    if (event.detail.isChatReady && event.detail.status === "Busy") {
       //Drupal.behaviors.cim_chatButtonUpdate("ready");
       values = {
         wrapper_class: "cim-widget-wrapper busy",
