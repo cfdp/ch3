@@ -316,7 +316,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
         values = {
           field_cim_chat_name: newValues.field_cim_chat_name || jsonData.field_cim_chat_name,
           field_cim_chat_description: newValues.field_cim_chat_description || jsonData.field_cim_chat_description,
-          cim_chat_opening_hours: newValues.php || jsonData.cim_chat_opening_hours,
+          cim_chat_opening_hours: newValues.cim_chat_opening_hours || jsonData.cim_chat_opening_hours,
           field_cim_chat_id: newValues.field_cim_chat_id || jsonData.field_cim_chat_id,
           wrapper_class: newValues.wrapper_class || "cim-widget-wrapper",
           button_text: newValues.button_text || "...",

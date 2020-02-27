@@ -265,6 +265,17 @@ body.page-cim-chat-integration,
     font-weight: 500;
     font-size: 1.3em;
     text-transform: uppercase;
+    color: white;
+    padding: 0.85em 2.5em;
+    border-radius: 2em;
+    line-height: 1;
+    text-decoration: none;
+    text-align: center;
+    transition-duration: 250ms;
+
+    &:hover {
+      background-color: $medium-gray;
+    }
   }
   .button-subtext {
     font-size: 1em;

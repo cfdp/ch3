@@ -314,8 +314,20 @@ body.page-cim-chat-integration .button,
   font-weight: 500;
   font-size: 1.3em;
   text-transform: uppercase;
+  color: white;
+  padding: 0.85em 2.5em;
+  border-radius: 2em;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  transition-duration: 250ms;
 }
-/* line 269, ../sass/cim-chat.scss */
+/* line 276, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .button:hover,
+#cim-widget-data .button:hover {
+  background-color: #b3b3b3;
+}
+/* line 280, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .button-subtext,
 #cim-widget-data .button-subtext {
   font-size: 1em;
