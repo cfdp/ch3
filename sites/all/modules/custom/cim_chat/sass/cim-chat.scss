@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800');
+
 $green: #80B45A;
 $dark-green: #688e37;
 $orange: #EBB560;
@@ -7,6 +9,22 @@ $gray: #e6e6e6;
 $medium-gray: #b3b3b3;
 $dark-gray: #4d4d4d;
 
+body {
+  background-color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+  color: #1b1d1f;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  @media (min-width: 768px) {
+    body {
+      font-size: 14px; } }
+  @media (min-width: 1024px) {
+    body {
+      font-size: 14px; } }
+  @media (min-width: 1200px) {
+    body {
+      font-size: 16px; } }
 
 .main {
   margin: 2em;
@@ -15,121 +33,137 @@ $dark-gray: #4d4d4d;
   margin: 2em 0;
 }
 
-.cm-Chat-client {
-  right: 0px;
-  z-index: 10000;
-
-  .cm-Chat-header-menu-left {
-    background-image: image-url('arrow_down.svg'), none;
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
-    display: none;
-    line-height: 1.8;
-    margin-left: 10px;
-    height: 30px;
-    width: 35px;
-    cursor: pointer;
-  }
-
-  .cm-Chat-header-menu-middle,
-  .cm-Chat-header-menu-right {
-    display: inline;
-    line-height: 1.8;
-  }
-
-  .cm-Chat-header-menu-right {
-    background-color: white;
-    color: $blue;
-    font-weight: bold;
-    margin-bottom: 10px;
-    padding: 0 7px;
-  }
-  .cm-Chat-header {
-    background: $blue;
-    border-radius: 0;
-  }
-}
-
-/* Chat iframe */
-iframe.cm-Chat-container {
-  position: absolute;
-  top: 50px;
-  width: 100%;
-  //height: calc(100vh - 155px);
-  //height: 585px;
-}
-
-@media screen and (min-width: 720px) {
+body.add-cim-widget-page-widget-processed,
+body.add-opeka-widgets-processed {
   .cm-Chat-client {
-    bottom: 600px;
-    right: 40px;
-    min-width: 350px;
-  }
-  iframe.cm-Chat-container {
-    border-left: 2px solid $blue;
-    border-right: 2px solid $blue;
-    border-bottom: 2px solid $blue;
-    height: 543px;
-    width: 346px;
-  }
-}
+    right: 0px;
+    z-index: 10000;
 
-.chat-status {
-  color: white;
-  font-weight: 700;
-  font-size: 12px;
-  display: inline-block;
-  padding: 8px 6px;
-  margin-right: 5px;
-  border: 1px solid #ccc;
-  text-transform: uppercase;
-  vertical-align: top;
-  &[data-chat-status="Ready"] {
-    cursor: pointer;
-    background-color: $green;
-  }
-  
-  &[data-chat-status="Activ"] {
-    background-color: $green;
-  }
-  
-  &[data-chat-status="Busy"],
-  &[data-chat-status="Queue"],
-  &[data-chat-status="Chatting"] {
-    background-color: $orange;
-  }
-}
-.curachat-widgets {
-  .municipality-chats {
-    .chat-status {
-      padding: 5px 6px;
+    .cm-Chat-header-menu-left {
+      background-image: image-url('arrow_down.svg'), none;
+      background-size: 25px 25px;
+      background-repeat: no-repeat;
+      line-height: 1.8;
+      margin-left: 10px;
+      height: 30px;
+      width: 35px;
+      cursor: pointer;
+      &.minimized {
+        background-image: image-url('arrow_up.svg'), none;
+      }
+    }
+
+    &.minimized {
+      height: 50px;
+      top: unset;
+      .cm-Chat-header-menu-left {
+        background-image: image-url('arrow_up.svg'), none;
+      }
+      @media screen and (min-width: 720px) {
+        bottom: 0px;
+      }
+    } 
+
+    .cm-Chat-header-menu-middle,
+    .cm-Chat-header-menu-right {
+      display: inline;
+      line-height: 1.8;
+    }
+
+    .cm-Chat-header-menu-right {
+      background-color: white;
+      color: $blue;
+      font-weight: bold;
+      margin-bottom: 10px;
+      padding: 0 7px;
+    }
+    .cm-Chat-header {
+      background: $blue;
+      border-radius: 0;
     }
   }
 
-  .global-widget-minimized.cim-mini {
-    background-color: $blue;
+  /* Chat iframe */
+  iframe.cm-Chat-container {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    //height: calc(100vh - 155px);
+    //height: 585px;
   }
-}
 
-
-/* Wrapper for status iframe */
-.iframeWrapper {
-  display: none;
-}
-
-/* Throbber dot shown when waiting for status */
-.cim-dot {
-  display: none;
-  margin: 0 10px 0 20px;
-}
-
-/* PAGE WIDGET */
-.add-cim-widget-page-widget-processed {
-  .field-name-field-ung-i-content > .field-items .field-item .paragraphs-item-ungi-iframe-embed {
-    height: 100%;
+  @media screen and (min-width: 720px) {
+    .cm-Chat-client {
+      bottom: 600px;
+      right: 40px;
+      min-width: 350px;
+    }
+    iframe.cm-Chat-container {
+      border-left: 2px solid $blue;
+      border-right: 2px solid $blue;
+      border-bottom: 2px solid $blue;
+      height: 543px;
+      width: 346px;
+    }
   }
-  .paragraphs-items-field-ung-i-content .field-item.add-bg.grey {
-    background: $light-gray;
+
+  .chat-status {
+    color: white;
+    font-weight: 700;
+    font-size: 12px;
+    display: inline-block;
+    padding: 8px 6px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    text-transform: uppercase;
+    vertical-align: top;
+    &[data-chat-status="Ready"] {
+      cursor: pointer;
+      background-color: $green;
+    }
+    
+    &[data-chat-status="Activ"] {
+      background-color: $green;
+    }
+    
+    &[data-chat-status="Busy"],
+    &[data-chat-status="Queue"],
+    &[data-chat-status="Chatting"] {
+      background-color: $orange;
+    }
+  }
+  .curachat-widgets {
+    .municipality-chats {
+      .chat-status {
+        padding: 5px 6px;
+      }
+    }
+
+    .global-widget-minimized.cim-mini {
+      background-color: $blue;
+    }
+  }
+
+
+  /* Wrapper for status iframe */
+  .iframeWrapper {
+    display: none;
+  }
+
+  /* Throbber dot shown when waiting for status */
+  .cim-dot {
+    display: none;
+    margin: 0 10px 0 20px;
+  }
+
+  /* PAGE WIDGET */
+  .add-cim-widget-page-widget-processed {
+    .field-name-field-ung-i-content > .field-items .field-item .paragraphs-item-ungi-iframe-embed {
+      height: 100%;
+    }
+    .paragraphs-items-field-ung-i-content .field-item.add-bg.grey {
+      background: $light-gray;
+    }
   }
 }
 body.page-cim-chat-integration,

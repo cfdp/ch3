@@ -58,6 +58,5 @@ else {
 
 loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/cim_chat_page_widget.js", true);
 loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/jquery.loadTemplate.js", true, function() {
-  // Load css once the js is ready
-  console.log('all done');
+  console.log('allryghty');
 })
