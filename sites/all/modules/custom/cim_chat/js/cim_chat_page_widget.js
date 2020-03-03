@@ -100,27 +100,9 @@ var cimWidgetIntegrator = {},
   };
 
   cimWidgetIntegrator.cim_chatStartChat  = function(id,hideChat) {
-    // Start chat if we are ready
-    var i = 0;
-
-    setTimeout(initiateChat, 10);
-
-    function initiateChat() {
-      if (cm_IsChatReady) {
-        if (!hideChat) {
-          cm_OpenChat();
-        }
-        //cimWidgetIntegrator.cim_chatSingleChatStatusUpdate();
-        return;
-      }
-      i++;
-      if (i > 19 && !cm_IsChatReady) {
-        console.warn('CIM chat could not be initiated in 20 attempts with increasing time intervals.');
-        return;
-      }
-      setTimeout(initiateChat, 500*i);
-      return;
-    };
+    if (!hideChat) {
+      cm_OpenChat();
+    }
   };
 
   /**
@@ -128,13 +110,15 @@ var cimWidgetIntegrator = {},
    * chat conversation can't be re-rendered.
    */
   cimWidgetIntegrator.cim_chatCloseConversation = function() {
+    console.log('closing, cm_status is' + cm_status);
     var closeBtn = '.cm-Chat-header-menu-right',
         chatLongName = cm_chatId ? cimChat.chatLongName : '';
     
-    if (cm_status === 'Ready') {
+    if (cm_status === 'Ready' || cm_status === 'Busy') {
       // No conversation has taken place yet. 
       cm_CloseConversation();
       cm_HideChat();
+      return;
     }
     if (cm_status === 'Activ') {
       if ($(closeBtn).attr('data-close-state') === 'first') {
@@ -145,22 +129,25 @@ var cimWidgetIntegrator = {},
         return;
       }
     }
-    // Close chat completely and delete cookies
+    // Close chat completely
     if ($(closeBtn).attr('data-close-state') === 'second') {
       cm_CloseConversation();
       cm_RefreshChat();
+      $(closeBtn).attr('data-close-state', 'first');
+      $(closeBtn).text('Afslut');
+      cm_HideChat();
     }
-    $.cookie('cim-chat', null, { path: '/' });
-    $('#cim-mobility-chat').remove();
+    //$.cookie('cim-chat', null, { path: '/' });
+    //$('#cim-mobility-chat').remove();
     // Clear CIM data @todo: find out if we should clear out localStorage items
-    cm_QueueNumber = null;
-    cm_QueueStatus = null;
+    //cm_QueueNumber = null;
+    //cm_QueueStatus = null;
     // Remove event listeners
-    document.removeEventListener('cmUpdatePositionInQueueEvent', cmUpdatePositionInQueueListener);
-    document.removeEventListener('cmChatStatus', cmSingleChatStatusListener);
+    //document.removeEventListener('cmUpdatePositionInQueueEvent', cmUpdatePositionInQueueListener);
+    //document.removeEventListener('cmChatStatus', cmSingleChatStatusListener);
 
     //cimWidgetIntegrator.cim_chatButtonUpdate(cm_chatId);
-    cm_chatId = null;
+    // cm_chatId = null;
 
   };
 
@@ -196,9 +183,6 @@ var cimWidgetIntegrator = {},
       cimWidgetIntegrator.cim_chatBuildTemplateValues(event.detail.isChatReady, event.detail.status);
       return;
     }
-
-    cimWidgetIntegrator.cim_chatBuildTemplateValues(null,null);
-
     // var id = ((undefined === cm_chatId) || (cm_chatId === 0)) ? null : cm_chatId,
     //     btnId = id ? '.' + cimChat.cssClassName : '',
     //     shortName = id ? cimChat.shortName : '';
@@ -377,6 +361,7 @@ var cimWidgetIntegrator = {},
  
       if (id) {
         //console.dir($._data($("#cim-mobility-chat .cm-Chat-header-menu-left")[0], "events"));
+        console.log('initiating chat client and setting up chat listeners...');
         cm_InitiateChatClient(id, chatServerURL + 'Index');
         cimWidgetIntegrator.cim_chatSetupSingleChatListeners(id);
       }
