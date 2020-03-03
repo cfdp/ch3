@@ -11,7 +11,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
 (function ($, Drupal) {
   var cimChats = {},
       chatServerURL = "https://chat.ecmr.biz/ChatClient/",
-      globalWidgetDataHost = "http://dev.cyberhus",
+      globalWidgetDataHost = "https://st.cyberhus.dk",
       cmStatusByIdListener,
       cmSingleChatStatusListener,
       cmUpdatePositionInQueueListener; // Listeners for event from the CIM chat server
