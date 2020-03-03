@@ -110,7 +110,7 @@ var cimWidgetIntegrator = {},
         if (!hideChat) {
           cm_OpenChat();
         }
-        cimWidgetIntegrator.cim_chatSingleChatStatusUpdate();
+        //cimWidgetIntegrator.cim_chatSingleChatStatusUpdate();
         return;
       }
       i++;
@@ -152,15 +152,14 @@ var cimWidgetIntegrator = {},
     }
     $.cookie('cim-chat', null, { path: '/' });
     $('#cim-mobility-chat').remove();
-    // Clear CIM data
-    $.cookie('cm_UniqueUserId', null, { path: '/' });
+    // Clear CIM data @todo: find out if we should clear out localStorage items
     cm_QueueNumber = null;
     cm_QueueStatus = null;
     // Remove event listeners
     document.removeEventListener('cmUpdatePositionInQueueEvent', cmUpdatePositionInQueueListener);
     document.removeEventListener('cmChatStatus', cmSingleChatStatusListener);
 
-    cimWidgetIntegrator.cim_chatButtonUpdate(cm_chatId);
+    //cimWidgetIntegrator.cim_chatButtonUpdate(cm_chatId);
     cm_chatId = null;
 
   };
@@ -192,39 +191,13 @@ var cimWidgetIntegrator = {},
   };
 
   cimWidgetIntegrator.cim_chatSingleChatStatusUpdate = function (event) {
-    var values = {
-          wrapperClass: "cim-widget-wrapper busy",
-          buttonText: "optaget",
-          triangleText: "optaget"
-        };
-    if (event && event.detail.isChatReady) {
-      switch (event.detail.status) {
-        case "Busy":
-        case "Activ":
-          values = {
-            wrapperClass: "cim-widget-wrapper busy",
-            buttonText: "optaget",
-            triangleText: "optaget"
-          };
-          break;
-        case "Ready":
-          values = {
-            wrapperClass: "cim-widget-wrapper ready",
-            buttonText: "åben",
-            triangleText: "åben"
-          };
-          break;
-        default:
-          values = {
-            buttonText: "lukket",
-            triangleText: "lukket",
-            wrapperClass: "cim-widget-wrapper closed",
-          };
-          break;
-      }
+    console.dir(event)
+    if (event) {
+      cimWidgetIntegrator.cim_chatBuildTemplateValues(event.detail.isChatReady, event.detail.status);
+      return;
     }
 
-    cimWidgetIntegrator.cim_chatUpdateTemplate(values);
+    cimWidgetIntegrator.cim_chatBuildTemplateValues(null,null);
 
     // var id = ((undefined === cm_chatId) || (cm_chatId === 0)) ? null : cm_chatId,
     //     btnId = id ? '.' + cimChat.cssClassName : '',
@@ -315,6 +288,56 @@ var cimWidgetIntegrator = {},
     cimChat = values;
     cimWidgetIntegrator.cim_chatUpdateTemplate(values);
   };
+
+  cimWidgetIntegrator.cim_chatBuildTemplateValues = function(readyState, status) {
+    var values = {
+        wrapperClass: "cim-widget-wrapper",
+        buttonText: "...",
+        triangleText: "..."
+      };
+    if (!readyState) {
+      values = {
+        buttonText: "lukket",
+        triangleText: "lukket",
+        wrapperClass: "cim-widget-wrapper closed",
+      };
+      cimWidgetIntegrator.cim_chatUpdateTemplate(values);
+      return;
+    }
+    switch (status) {
+      case "Busy":
+        values = {
+          wrapperClass: "cim-widget-wrapper busy",
+          buttonText: "optaget",
+          triangleText: "optaget"
+        };
+        break;
+      case "Activ":
+        values = {
+          wrapperClass: "cim-widget-wrapper busy",
+          buttonText: "optaget",
+          triangleText: "optaget"
+        };
+        // A chat has been started, so open the window
+        cm_OpenChat();
+        break;
+      case "Ready":
+        values = {
+          wrapperClass: "cim-widget-wrapper ready",
+          buttonText: "åben",
+          triangleText: "åben"
+        };
+        break;
+      default:
+        // values = {
+        //   buttonText: "lukket",
+        //   triangleText: "lukket",
+        //   wrapperClass: "cim-widget-wrapper closed",
+        // };
+        break;
+    }
+    cimWidgetIntegrator.cim_chatUpdateTemplate(values);
+  }
 
   /**
    * Update the widget

@@ -157,13 +157,11 @@ body.add-opeka-widgets-processed {
   }
 
   /* PAGE WIDGET */
-  .add-cim-widget-page-widget-processed {
-    .field-name-field-ung-i-content > .field-items .field-item .paragraphs-item-ungi-iframe-embed {
-      height: 100%;
-    }
-    .paragraphs-items-field-ung-i-content .field-item.add-bg.grey {
-      background: $light-gray;
-    }
+  .field-name-field-ung-i-content > .field-items .field-item .paragraphs-item-ungi-iframe-embed {
+    height: 100%;
+  }
+  .paragraphs-items-field-ung-i-content .field-item.add-bg.grey {
+    background: $gray;
   }
 }
 body.page-cim-chat-integration,

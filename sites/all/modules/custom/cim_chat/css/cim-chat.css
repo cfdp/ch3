@@ -186,18 +186,18 @@ body.add-opeka-widgets-processed .cim-dot {
   display: none;
   margin: 0 10px 0 20px;
 }
-/* line 161, ../sass/cim-chat.scss */
-body.add-cim-widget-page-widget-processed .add-cim-widget-page-widget-processed .field-name-field-ung-i-content > .field-items .field-item .paragraphs-item-ungi-iframe-embed,
-body.add-opeka-widgets-processed .add-cim-widget-page-widget-processed .field-name-field-ung-i-content > .field-items .field-item .paragraphs-item-ungi-iframe-embed {
+/* line 160, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .field-name-field-ung-i-content > .field-items .field-item .paragraphs-item-ungi-iframe-embed,
+body.add-opeka-widgets-processed .field-name-field-ung-i-content > .field-items .field-item .paragraphs-item-ungi-iframe-embed {
   height: 100%;
 }
-/* line 164, ../sass/cim-chat.scss */
-body.add-cim-widget-page-widget-processed .add-cim-widget-page-widget-processed .paragraphs-items-field-ung-i-content .field-item.add-bg.grey,
-body.add-opeka-widgets-processed .add-cim-widget-page-widget-processed .paragraphs-items-field-ung-i-content .field-item.add-bg.grey {
-  background: #f1f1f1;
+/* line 163, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .paragraphs-items-field-ung-i-content .field-item.add-bg.grey,
+body.add-opeka-widgets-processed .paragraphs-items-field-ung-i-content .field-item.add-bg.grey {
+  background: #e6e6e6;
 }
 
-/* line 169, ../sass/cim-chat.scss */
+/* line 167, ../sass/cim-chat.scss */
 body.page-cim-chat-integration,
 #cim-widget-data {
   padding: 0 2em 1em 2em;
@@ -206,26 +206,26 @@ body.page-cim-chat-integration,
   position: relative;
   overflow: hidden;
 }
-/* line 177, ../sass/cim-chat.scss */
+/* line 175, ../sass/cim-chat.scss */
 body.page-cim-chat-integration #main,
 #cim-widget-data #main {
   padding: 0;
   width: 100%;
 }
 @media screen and (min-width: 580px) {
-  /* line 169, ../sass/cim-chat.scss */
+  /* line 167, ../sass/cim-chat.scss */
   body.page-cim-chat-integration,
   #cim-widget-data {
     text-align: left;
   }
 }
-/* line 185, ../sass/cim-chat.scss */
+/* line 183, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .view-cim-chat-integration,
 #cim-widget-data .view-cim-chat-integration {
   position: relative;
   overflow: hidden;
 }
-/* line 189, ../sass/cim-chat.scss */
+/* line 187, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .status-triangle,
 #cim-widget-data .status-triangle {
   background-color: #b3b3b3;
@@ -240,7 +240,7 @@ body.page-cim-chat-integration .status-triangle,
   width: 150px;
   transform: rotate(45deg);
 }
-/* line 201, ../sass/cim-chat.scss */
+/* line 199, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .status-triangle .status-text,
 #cim-widget-data .status-triangle .status-text {
   right: 35px;
@@ -249,54 +249,54 @@ body.page-cim-chat-integration .status-triangle .status-text,
   text-align: center;
   width: 80px;
 }
-/* line 209, ../sass/cim-chat.scss */
+/* line 207, ../sass/cim-chat.scss */
 body.page-cim-chat-integration h2.title,
 #cim-widget-data h2.title {
   font-size: 2.5em;
   font-weight: 600;
   margin-top: 0;
 }
-/* line 214, ../sass/cim-chat.scss */
+/* line 212, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .field-cim-chat-description,
 #cim-widget-data .field-cim-chat-description {
   margin: 1em 1em 1em 0;
   font-size: 1.5em;
 }
-/* line 218, ../sass/cim-chat.scss */
+/* line 216, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .views-field-nothing-3,
 body.page-cim-chat-integration .opening-hours-wrapper,
 #cim-widget-data .views-field-nothing-3,
 #cim-widget-data .opening-hours-wrapper {
   display: inline-block;
 }
-/* line 222, ../sass/cim-chat.scss */
+/* line 220, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .opening-hours-header,
 #cim-widget-data .opening-hours-header {
   text-transform: uppercase;
   margin-bottom: .2em;
 }
-/* line 227, ../sass/cim-chat.scss */
+/* line 225, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .entity-paragraphs-item .field,
 #cim-widget-data .entity-paragraphs-item .field {
   display: inline-block;
 }
-/* line 230, ../sass/cim-chat.scss */
+/* line 228, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .entity-paragraphs-item .field-name-field-cim-chat-oh-weekday,
 #cim-widget-data .entity-paragraphs-item .field-name-field-cim-chat-oh-weekday {
   margin-right: 5px;
 }
-/* line 232, ../sass/cim-chat.scss */
+/* line 230, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .entity-paragraphs-item .field-name-field-cim-chat-oh-weekday .field-item::after,
 #cim-widget-data .entity-paragraphs-item .field-name-field-cim-chat-oh-weekday .field-item::after {
   content: ":";
 }
-/* line 237, ../sass/cim-chat.scss */
+/* line 235, ../sass/cim-chat.scss */
 body.page-cim-chat-integration ul,
 #cim-widget-data ul {
   list-style-type: none;
   margin: 0 0 1rem 0;
 }
-/* line 240, ../sass/cim-chat.scss */
+/* line 238, ../sass/cim-chat.scss */
 body.page-cim-chat-integration ul li,
 #cim-widget-data ul li {
   list-style: none;
@@ -304,7 +304,7 @@ body.page-cim-chat-integration ul li,
   margin: 0;
 }
 @media screen and (min-width: 580px) {
-  /* line 247, ../sass/cim-chat.scss */
+  /* line 245, ../sass/cim-chat.scss */
   body.page-cim-chat-integration .button-and-text,
   #cim-widget-data .button-and-text {
     max-width: 200px;
@@ -312,7 +312,7 @@ body.page-cim-chat-integration ul li,
     float: right;
   }
 }
-/* line 255, ../sass/cim-chat.scss */
+/* line 253, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .button-speech-icon,
 #cim-widget-data .button-speech-icon {
   background-image: url('../img/cim_chat_speech_gray.svg?1582549085');
@@ -325,7 +325,7 @@ body.page-cim-chat-integration .button-speech-icon,
   height: 35px;
   background-size: 35px 35px;
 }
-/* line 267, ../sass/cim-chat.scss */
+/* line 265, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .cim-widget-wrapper,
 body.page-cim-chat-integration .views-row-1,
 #cim-widget-data .cim-widget-wrapper,
@@ -333,7 +333,7 @@ body.page-cim-chat-integration .views-row-1,
   padding-top: 100px;
 }
 @media screen and (min-width: 580px) {
-  /* line 267, ../sass/cim-chat.scss */
+  /* line 265, ../sass/cim-chat.scss */
   body.page-cim-chat-integration .cim-widget-wrapper,
   body.page-cim-chat-integration .views-row-1,
   #cim-widget-data .cim-widget-wrapper,
@@ -341,41 +341,41 @@ body.page-cim-chat-integration .views-row-1,
     padding-top: 30px;
   }
 }
-/* line 274, ../sass/cim-chat.scss */
+/* line 272, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .cim-widget-wrapper.ready .status-triangle,
 body.page-cim-chat-integration .views-row-1.ready .status-triangle,
 #cim-widget-data .cim-widget-wrapper.ready .status-triangle,
 #cim-widget-data .views-row-1.ready .status-triangle {
   background-color: #80B45A;
 }
-/* line 277, ../sass/cim-chat.scss */
+/* line 275, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .cim-widget-wrapper.ready .button-speech-icon,
 body.page-cim-chat-integration .views-row-1.ready .button-speech-icon,
 #cim-widget-data .cim-widget-wrapper.ready .button-speech-icon,
 #cim-widget-data .views-row-1.ready .button-speech-icon {
   background-image: url('../img/cim_chat_speech_green.svg?1582548888');
 }
-/* line 282, ../sass/cim-chat.scss */
+/* line 280, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .cim-widget-wrapper.busy .status-triangle,
 body.page-cim-chat-integration .views-row-1.busy .status-triangle,
 #cim-widget-data .cim-widget-wrapper.busy .status-triangle,
 #cim-widget-data .views-row-1.busy .status-triangle {
   background-color: #EBB560;
 }
-/* line 285, ../sass/cim-chat.scss */
+/* line 283, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .cim-widget-wrapper.busy .button-speech-icon,
 body.page-cim-chat-integration .views-row-1.busy .button-speech-icon,
 #cim-widget-data .cim-widget-wrapper.busy .button-speech-icon,
 #cim-widget-data .views-row-1.busy .button-speech-icon {
   background-image: url('../img/cim_chat_speech_orange.svg?1582548956');
 }
-/* line 291, ../sass/cim-chat.scss */
+/* line 289, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .button-wrapper,
 #cim-widget-data .button-wrapper {
   display: inline-block;
   position: relative;
 }
-/* line 296, ../sass/cim-chat.scss */
+/* line 294, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .button,
 #cim-widget-data .button {
   background-color: #4d4d4d;
@@ -391,12 +391,12 @@ body.page-cim-chat-integration .button,
   text-align: center;
   transition-duration: 250ms;
 }
-/* line 310, ../sass/cim-chat.scss */
+/* line 308, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .button:hover,
 #cim-widget-data .button:hover {
   background-color: #b3b3b3;
 }
-/* line 314, ../sass/cim-chat.scss */
+/* line 312, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .button-subtext,
 #cim-widget-data .button-subtext {
   font-size: 1em;
