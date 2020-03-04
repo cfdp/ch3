@@ -50,8 +50,6 @@ var cimWidgetIntegrator = {},
       $( '.cm-Chat-container' ).slideDown();
     });
 
-    //cimWidgetIntegrator.cim_chatSingleChatStatusUpdate();
-
     $( '.cm-Chat-header-menu-right' ).on('click', cimWidgetIntegrator.cim_chatCloseConversation);
   };
 
@@ -92,7 +90,6 @@ var cimWidgetIntegrator = {},
    */
   cimWidgetIntegrator.cim_chatHandleChatBtnClick = function (event) {
     var id = event.data.id;
-    console.log('startin chat');
     event.preventDefault();
 
     cimWidgetIntegrator.cim_chatStartChat(id);
@@ -106,11 +103,9 @@ var cimWidgetIntegrator = {},
   };
 
   /**
-   * Called when user closes chat. Deletes cookies to make sure
-   * chat conversation can't be re-rendered.
+   * Called when user closes chat.
    */
   cimWidgetIntegrator.cim_chatCloseConversation = function() {
-    console.log('closing, cm_status is' + cm_status);
     var closeBtn = '.cm-Chat-header-menu-right',
         chatLongName = cm_chatId ? cimChat.chatLongName : '';
     
@@ -137,18 +132,6 @@ var cimWidgetIntegrator = {},
       $(closeBtn).text('Afslut');
       cm_HideChat();
     }
-    //$.cookie('cim-chat', null, { path: '/' });
-    //$('#cim-mobility-chat').remove();
-    // Clear CIM data @todo: find out if we should clear out localStorage items
-    //cm_QueueNumber = null;
-    //cm_QueueStatus = null;
-    // Remove event listeners
-    //document.removeEventListener('cmUpdatePositionInQueueEvent', cmUpdatePositionInQueueListener);
-    //document.removeEventListener('cmChatStatus', cmSingleChatStatusListener);
-
-    //cimWidgetIntegrator.cim_chatButtonUpdate(cm_chatId);
-    // cm_chatId = null;
-
   };
 
   cimWidgetIntegrator.cim_chatButtonUpdate = function(id) {
@@ -178,7 +161,6 @@ var cimWidgetIntegrator = {},
   };
 
   cimWidgetIntegrator.cim_chatSingleChatStatusUpdate = function (event) {
-    console.dir(event)
     if (event) {
       cimWidgetIntegrator.cim_chatBuildTemplateValues(event.detail.isChatReady, event.detail.status);
       return;
@@ -213,45 +195,7 @@ var cimWidgetIntegrator = {},
     // cimWidgetIntegrator.cim_chatButtonUpdate(cm_chatId);
   };
 
-  /**
-   * Set a cookie with id of the current chat. Used to reestablish chat when
-   * reloading window.
-   *
-   * Inspired by Drupal.comment.getCookie().
-   */
-  cimWidgetIntegrator.cim_chatSetCookie = function(id) {
-    var date = new Date();
-    date.setDate(date.getDate() + 1); 
-    // Remember for one day
-    var cookie = "cim-chat=" + id + ";expires=" + date.toUTCString() + ";path=" + Drupal.settings.basePath;
-
-    document.cookie = cookie;
-  };
-
-  /**
-   * Check if a cookie has been set for the client
-   *
-   * Verbatim copy of Drupal.comment.getCookie().
-   */
-  cimWidgetIntegrator.cim_chatGetCookie = function(id) {
-    var search = "cim-chat=";
-    var returnValue = '';
-
-    if (document.cookie.length > 0) {
-      offset = document.cookie.indexOf(search);
-      if (offset != -1) {
-        offset += search.length;
-        var end = document.cookie.indexOf(';', offset);
-        if (end == -1) {
-          end = document.cookie.length;
-        }
-        returnValue = decodeURIComponent(document.cookie.substring(offset, end).replace(/\+/g, '%20'));
-      }
-    }
-
-    return returnValue;
-  };
-
+  
   /**
    * Callback function for the JSONP resource call
    *
@@ -261,6 +205,7 @@ var cimWidgetIntegrator = {},
     var chatNode = fields[0].node,
         values = {
           chatLongName: chatNode.field_cim_chat_name,
+          closeWindowText: "Afslut",
           chatDescription: chatNode.field_cim_chat_description,
           chatOpeningHours: chatNode.php,
           chatId: chatNode.field_cim_chat_id,
@@ -270,7 +215,7 @@ var cimWidgetIntegrator = {},
         };
     // Cache for later use
     cimChat = values;
-    cimWidgetIntegrator.cim_chatUpdateTemplate(values);
+    cimWidgetIntegrator.cim_chatUpdateTemplate(values, true);
   };
 
   cimWidgetIntegrator.cim_chatBuildTemplateValues = function(readyState, status) {
@@ -326,10 +271,12 @@ var cimWidgetIntegrator = {},
   /**
    * Update the widget
    */
-  cimWidgetIntegrator.cim_chatUpdateTemplate = function (newValues) {
+  cimWidgetIntegrator.cim_chatUpdateTemplate = function (newValues, attachWidgetlisteners) {
     var id = newValues.chatId || null,
         values = {
           chatLongName: newValues.chatLongName || cimChat.chatLongName,
+          closeWindowText: newValues.closeWindowText || cimChat.closeWindowText,
+          closeState: newValues.closeState || cimChat.closeWindowText,
           chatDescription: newValues.chatDescription || cimChat.chatDescription,
           chatOpeningHours: newValues.chatOpeningHours || cimChat.chatOpeningHours,
           chatId: newValues.chatId || cimChat.chatId,
@@ -342,15 +289,14 @@ var cimWidgetIntegrator = {},
       $('body').append('<div id="cim-mobility-chat"></div>');
       $("#cim-mobility-chat").loadTemplate($("#chat_window_template"),values);
     }
-    $("#cim-widget-data").loadTemplate($("#cim_widget_data_template"),values, { complete: cimWidgetIntegrator.cim_chatSetupInteraction(id) });
+    $("#cim-widget-data").loadTemplate($("#cim_widget_data_template"),values, { complete: cimWidgetIntegrator.cim_chatSetupInteraction(id, attachWidgetlisteners) });
   };
 
   /**
-   * When initializing template
-   * Add single chat cim event listeners
-   * Initiate chat client
+   * After initializing or updating template:
+   * Add single chat cim event listeners and initiate chat client if needed
    */
-  cimWidgetIntegrator.cim_chatSetupInteraction = function(id) {
+  cimWidgetIntegrator.cim_chatSetupInteraction = function(id, attachWidgetlisteners) {
     // We need to wait a bit before initiating the chat client
     // to let the template changes propagate.
     function setupCimHelper(id) {
@@ -359,9 +305,7 @@ var cimWidgetIntegrator = {},
         return;
       }
  
-      if (id) {
-        //console.dir($._data($("#cim-mobility-chat .cm-Chat-header-menu-left")[0], "events"));
-        console.log('initiating chat client and setting up chat listeners...');
+      if (id && attachWidgetlisteners) {
         cm_InitiateChatClient(id, chatServerURL + 'Index');
         cimWidgetIntegrator.cim_chatSetupSingleChatListeners(id);
       }
@@ -369,6 +313,9 @@ var cimWidgetIntegrator = {},
     setTimeout(setupCimHelper, 1, id);
   };
 
+  /**
+   * Fetch the widget data from a jsonp source
+   */
   cimWidgetIntegrator.cim_chatFetchJSONP = function(wrapperScriptURL) {
     addScript(wrapperScriptURL, function() {});
 
@@ -421,7 +368,7 @@ var cimWidgetIntegrator = {},
                 '<div class="cm-Chat-header-menu-middle">' +
                     '<div class="cim-chat-title" data-content="chatLongName">...</div>' +
                 '</div>' +
-                '<div class="cm-Chat-header-menu-right" data-close-state="first">Afslut</div>' +
+                '<div class="cm-Chat-header-menu-right" data-close-state="first" data-content="closeWindowText"></div>' +
             '</div>' +
         '</div>' +
         '<iframe class="cm-Chat-container" src=""></iframe>' +
