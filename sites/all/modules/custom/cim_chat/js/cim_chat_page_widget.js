@@ -19,7 +19,6 @@ var cimWidgetIntegrator = {},
   // Add wrapper for widget to DOM and load widget once the external CIM chat script is loaded
   if (!$('body').hasClass('add-cim-widget-page-widget-processed')) {
     $('body').addClass('add-cim-widget-page-widget-processed');
-    console.log('getting the cim script');
     $.getScript( "https://chat.ecmr.biz/Scripts/chatclient/cm.chatclient.js" )
       .done(function( script, textStatus ) {
           cimWidgetIntegrator.cim_chatSetupSingleChatAssets();

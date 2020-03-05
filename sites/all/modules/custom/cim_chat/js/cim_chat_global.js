@@ -11,7 +11,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
 (function ($, Drupal) {
   var cimChats = {},
       chatServerURL = "https://chat.ecmr.biz/ChatClient/",
-      globalWidgetDataHost = "https://st.cyberhus.dk",
+      globalWidgetDataHost = location.protocol + '//' + location.hostname,
       cmStatusByIdListener,
       cmSingleChatStatusListener,
       cmUpdatePositionInQueueListener; // Listeners for event from the CIM chat server
@@ -163,7 +163,6 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
   
   Drupal.behaviors.cim_chatStatusByChatIdsUpdated = function (event) {
     object = event.detail;
-    console.dir(object);
     cimChatStatus = 'closed';
     if (object) { 
       object.forEach(Drupal.behaviors.cim_chatChatStatusHandler);
@@ -206,8 +205,6 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
   Drupal.behaviors.cim_chatCreateStatusButton = function(id, status) {
     var className = cimChats[id].cssClassName,
         btnId = '.'+className;
-        console.log('domLocation ' + cimChats[id].domLocation);
-        console.log('existe? ' + $(cimChats[id].domLocation).length)
     $(cimChats[id].domLocation).append('<div class="chat-status ' + className + '" data-chat-status="' + status + '">' + 
       '<span class="chat-status-title">' + cimChats[id].longName + '</span><span class="queue-status"></span><span class="queue-number"></span>' +
       '<div class="cim-dot"><div class="dot-flashing"></div></div></div>');
