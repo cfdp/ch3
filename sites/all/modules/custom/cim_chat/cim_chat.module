@@ -8,7 +8,7 @@ function cim_chat_preprocess_html(&$variables) {
   $single_page_widget = null;
   if ($node = menu_get_object()) {
     $single_page_widget = field_get_items('node', $node, 'field_cim_chat_integration');
-    $single_page_widget2 = field_get_items('node', $node, 'field_cim_integration');
+    $single_page_widget2 = field_get_items('node', $node, 'field_chat_integration');
     if ($single_page_widget || $single_page_widget2) {
       return;
     }
