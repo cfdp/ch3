@@ -25,10 +25,15 @@
 .paragraphs-items-field-ung-i-content .field-item.add-bg > div{
     padding: 2em;
 }
-.paragraphs-items-field-ung-i-content .field-item.add-bg > div.paragraphs-item-ungi-iframe-embed{
+.paragraphs-items-field-ung-i-content .field-item.add-bg > div.paragraphs-item-ungi-iframe-embed,
+.paragraphs-items-field-ung-i-content .field-item > div.paragraphs-item-ungi-alm-tekst.cim-chat-embedded{
     padding: 0;
 }
 
+.paragraphs-items-field-ung-i-content .field-item > div.paragraphs-item-ungi-alm-tekst.cim-chat-embedded > h2,
+.paragraphs-items-field-ung-i-content .field-item > div.paragraphs-item-ungi-alm-tekst.cim-chat-embedded > p{
+    display: none;
+}
 .field-name-field-ung-i-content > .field-items iframe{
     width: 100%;
     height: 200px;

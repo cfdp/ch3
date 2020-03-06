@@ -8,8 +8,11 @@ function cim_chat_preprocess_html(&$variables) {
   $single_page_widget = null;
   if ($node = menu_get_object()) {
     $single_page_widget = field_get_items('node', $node, 'field_cim_chat_page_widget');
+    if ($single_page_widget) {
+      return;
+    }
   }
-  if ($single_page_widget || path_is_admin(current_path())) {
+  if (path_is_admin(current_path())) {
     return;
   }
   // Add remote CIM assets
