@@ -64,5 +64,35 @@ var cimChats = {
     cssClassName: 'cim-btn-aarhus',
     domLocation: '.municipality-chats',
     chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+   },
+  'YeMHJ5/0iBtKIbqm6l66xzK05WAw3Our': {
+    shortName: 'Halsnæs',
+    cssClassName: 'cim-btn-halsnaes',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  'YgjeAsC4iYpKIbqm6l66xzK05WAw3Our': {
+    shortName: 'Helsingør',
+    cssClassName: 'cim-btn-helsingoer',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  'kPSarY9y7ilKIbqm6l66xzK05WAw3Our': {
+    shortName: 'Roskilde',
+    cssClassName: 'cim-btn-roskilde',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  'OV2snhxmaxJKIbqm6l66xzK05WAw3Our': {
+    shortName: 'Næstved',
+    cssClassName: 'cim-btn-naestved',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  'uwYAKvkKPLtKIbqm6l66xzK05WAw3Our': {
+    shortName: 'Tønder',
+    cssClassName: 'cim-btn-toender',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
   }
 }
