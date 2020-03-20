@@ -174,7 +174,7 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
 
     // Set status text. If status is closed or busy, remove button
     if ($(btnId)[0]) { 
-      if (status === 'Closed' || status === 'Busy') {
+      if (status === 'Closed' || status === 'Busy' || status === 'BusyOffline') {
         $(btnId).remove();
       }
       // 
@@ -183,8 +183,8 @@ var cimChats = cimChats || null, // Chat ids and names are fetched from a separa
       $(btnId).attr('data-chat-status', status);
       return;
     }
-    // Don't setup buttons in the closed or busy state
-    if (status === 'Closed' || status === 'Busy') {
+    // Don't setup buttons in the closed or busy states
+    if (status === 'Closed' || status === 'Busy' || status === 'BusyOffline') {
       return;
     }
     // Create status button
