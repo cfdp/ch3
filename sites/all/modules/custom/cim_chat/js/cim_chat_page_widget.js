@@ -56,7 +56,7 @@ var cimWidgetIntegrator = {},
     cmSingleChatStatusListener = function (event) {
       cimWidgetIntegrator.cim_chatSingleChatStatusUpdate(event);
     };
-    // Event listener for ongoing single chat queue status updates
+    // Event listener for ongoing single chat status updates
     document.addEventListener("cmChatStatus", cmSingleChatStatusListener, true);  
   };
 
@@ -161,6 +161,7 @@ var cimWidgetIntegrator = {},
 
   cimWidgetIntegrator.cim_chatSingleChatStatusUpdate = function (event) {
     if (event) {
+      console.dir(event.detail)
       cimWidgetIntegrator.cim_chatBuildTemplateValues(event.detail.isChatReady, event.detail.status);
       return;
     }
@@ -223,30 +224,14 @@ var cimWidgetIntegrator = {},
         buttonText: "...",
         triangleText: "..."
       };
-    if (!readyState) {
-      values = {
-        buttonText: "lukket",
-        triangleText: "lukket",
-        wrapperClass: "cim-widget-wrapper closed",
-      };
-      cimWidgetIntegrator.cim_chatUpdateTemplate(values);
-      return;
-    }
     switch (status) {
-      case "Busy":
-        values = {
-          wrapperClass: "cim-widget-wrapper busy",
-          buttonText: "optaget",
-          triangleText: "optaget"
-        };
-        break;
       case "Activ":
         values = {
           wrapperClass: "cim-widget-wrapper busy",
           buttonText: "optaget",
           triangleText: "optaget"
         };
-        // A chat has been started, so open the window
+        // A chat is ongoing so open the window
         cm_OpenChat();
         break;
       case "Ready":
@@ -256,13 +241,19 @@ var cimWidgetIntegrator = {},
           triangleText: "åben"
         };
         break;
-      default:
-        // values = {
-        //   buttonText: "lukket",
-        //   triangleText: "lukket",
-        //   wrapperClass: "cim-widget-wrapper closed",
-        // };
+      case "Busy":
+        values = {
+          wrapperClass: "cim-widget-wrapper busy",
+          buttonText: "optaget",
+          triangleText: "optaget"
+        };
         break;
+      default: // Closed and BusyOffline states
+        values = {
+          buttonText: "lukket",
+          triangleText: "lukket",
+          wrapperClass: "cim-widget-wrapper closed",
+        };
     }
     cimWidgetIntegrator.cim_chatUpdateTemplate(values);
   }
