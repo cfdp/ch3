@@ -28,28 +28,16 @@ var cimWidgetIntegrator = {},
       });
   }
 
+  /*
+   * Once a chat has been initiated, we initiate the listener for updates
+   * and set up listeners for the chat window.
+   */
   cimWidgetIntegrator.cim_chatSetupSingleChatListeners = function (id) {
     // Event listener for ongoing single chat status updates
     cimWidgetIntegrator.cim_chatAddListenerCmChatStatus();
 
     // Event listener for ongoing single chat queue status updates
     cimWidgetIntegrator.cim_chatAddListenerCmUpdatePositionInQueue();
-
-    // Add event handlers for starting, minimizing, maximising and closing chat
-    $( '#cim-widget-data' ).on('click', '#'+id, {id: id}, cimWidgetIntegrator.cim_chatHandleChatBtnClick);
-
-    // minimize
-    $( '#cim-mobility-chat' ).on('click', '.cm-Chat-header-menu-left', function() {
-      $( '.cm-Chat-container' ).slideUp();
-      $('.cm-Chat-client').addClass('minimized');
-    });
-    // maximize
-    $( '#cim-mobility-chat' ).on('click', '.minimized .cm-Chat-header-menu-left', function() {
-      $('.cm-Chat-client').removeClass('minimized');
-      $( '.cm-Chat-container' ).slideDown();
-    });
-
-    $( '.cm-Chat-header-menu-right' ).on('click', cimWidgetIntegrator.cim_chatCloseConversation);
   };
 
   cimWidgetIntegrator.cim_chatAddListenerCmChatStatus = function() {
@@ -57,7 +45,37 @@ var cimWidgetIntegrator = {},
       cimWidgetIntegrator.cim_chatSingleChatStatusUpdate(event);
     };
     // Event listener for ongoing single chat status updates
-    document.addEventListener("cmChatStatus", cmSingleChatStatusListener, true);  
+    document.addEventListener("cmChatStatus", cmSingleChatStatusListener, true);
+  };
+
+  /*
+   * Listen for status updates from the chat we are embedding
+   */
+  cimWidgetIntegrator.cim_chatAddListenerStatusById = function() {
+    cimWidgetIntegrator.cmStatusByIdListener = function (event) {
+      cimWidgetIntegrator.cim_chatStatusByChatIdsUpdated(event);
+    };
+    document.addEventListener("cmStatusByChatIdsUpdated", cimWidgetIntegrator.cmStatusByIdListener, true);
+  };
+
+  /*
+   * Called when the chat status (by id) is updated
+   */
+  cimWidgetIntegrator.cim_chatStatusByChatIdsUpdated = function (event) {
+    var object = event.detail;
+    if (object) {
+      object.forEach(cimWidgetIntegrator.cim_chatChatStatusHandler);
+    }
+  };
+
+  /*
+   * Helper function that initiates the updating of the template values
+   * when the chat status (by id) has been changed.
+   */
+  cimWidgetIntegrator.cim_chatChatStatusHandler = function (item, index, arr) {
+    var object = arr[index],
+        status = object.status;
+    cimWidgetIntegrator.cim_chatBuildTemplateValues(status);
   };
 
   cimWidgetIntegrator.cim_chatAddListenerCmUpdatePositionInQueue = function() {
@@ -67,7 +85,7 @@ var cimWidgetIntegrator = {},
     // Event listener for ongoing single chat queue status updates
     document.addEventListener("cmUpdatePositionInQueueEvent", cmUpdatePositionInQueueListener, true);  
   };
-  
+
   cimWidgetIntegrator.cim_chatSetupSingleChatAssets = function() {
     var btnId,
         shortName = $('#cim-widget-data').data('shortname');
@@ -80,17 +98,23 @@ var cimWidgetIntegrator = {},
       return;
     }
     cimWidgetIntegrator.cim_chatAddTemplates();
-    cimWidgetIntegrator.cim_chatFetchJSONP(chatWidgetDataHost + "/cim-chat-jsonp/" + shortName + "?callback=cimWidgetIntegrator.cim_chatPopulateWidget"
-    );
+    cimWidgetIntegrator.cim_chatFetchJSONP(chatWidgetDataHost + "/cim-chat-jsonp/" + shortName + "?callback=cimWidgetIntegrator.cim_chatPopulateWidget");
+
   };
 
-  /* 
+  /*
    * Initiate chat client and put user in queue
    */
   cimWidgetIntegrator.cim_chatHandleChatBtnClick = function (event) {
     var id = event.data.id;
     event.preventDefault();
 
+    // Remove the status by id listener as it interferes with single chat mode
+    document.removeEventListener('cmStatusByChatIdsUpdated', cimWidgetIntegrator.cmStatusByIdListener);
+
+    // Initiate chat client, add listeners and start chat
+    cm_InitiateChatClient(id, chatServerURL + 'Index');
+    cimWidgetIntegrator.cim_chatSetupSingleChatListeners(id);
     cimWidgetIntegrator.cim_chatStartChat(id);
     return false;
   };
@@ -130,39 +154,24 @@ var cimWidgetIntegrator = {},
       $(closeBtn).attr('data-close-state', 'first');
       $(closeBtn).text('Afslut');
       cm_HideChat();
+
+      // Remove event listeners for ongoing chat mode
+      document.removeEventListener('cmUpdatePositionInQueueEvent', cmUpdatePositionInQueueListener);
+      document.removeEventListener('cmChatStatus', cmSingleChatStatusListener);
     }
   };
 
-  cimWidgetIntegrator.cim_chatButtonUpdate = function(id) {
-    // var btnId = '.' + cimChat.cssClassName,
-    //   statusText = '',
-    //   dataChatStatus = 'Ready',
-    //   queueNumber = '';
-    // if (!cm_QueueStatus && (cm_status === 'Activ' || cm_status === '' )) {
-    //   // Show the fetching state animation until we get the queue status
-    //   $(btnId + ' .cim-dot').css('display', 'inline-block');
-    // }
-    // if (cm_QueueStatus === 'Waiting') {
-    //   statusText = Drupal.t(': queue #');
-    //   queueNumber = cm_QueueNumber;
-    //   dataChatStatus = 'Queue';
-    //   $(btnId + ' .cim-dot').hide();
-    // }
-    // else if (cm_QueueStatus === 'Ready') {
-    //   statusText = Drupal.t(': chatting');
-    //   queueNumber = '';
-    //   dataChatStatus = 'Chatting';
-    //   $(btnId + ' .cim-dot').hide();
-    // }
-    // $(btnId).attr('data-chat-status', dataChatStatus);
-    // $(btnId + ' .queue-status').text(statusText);
-    // $(btnId + ' .queue-number').text(queueNumber);
-  };
 
   cimWidgetIntegrator.cim_chatSingleChatStatusUpdate = function (event) {
+    var status;
     if (event) {
-      console.dir(event.detail)
-      cimWidgetIntegrator.cim_chatBuildTemplateValues(event.detail.isChatReady, event.detail.status);
+      if (event.detail.status) {
+        status = event.detail.status;
+      }
+      else if (event.detail.queueStatus && (event.detail.queueStatus === 'Ready')) {
+        status = 'Busy';
+      }
+      cimWidgetIntegrator.cim_chatBuildTemplateValues(status);
       return;
     }
     // var id = ((undefined === cm_chatId) || (cm_chatId === 0)) ? null : cm_chatId,
@@ -213,12 +222,26 @@ var cimWidgetIntegrator = {},
           buttonText: "...",
           triangleText: "...",
         };
-    // Cache for later use
+    // Cache values for later use
     cimChat = values;
     cimWidgetIntegrator.cim_chatUpdateTemplate(values, true);
+    // Add event handlers for starting, minimizing, maximising and closing chat
+    $( '#cim-widget-data' ).on('click', '#'+cimChat.chatId, {id: cimChat.chatId}, cimWidgetIntegrator.cim_chatHandleChatBtnClick);
+    // minimize
+    $( '#cim-mobility-chat' ).on('click', '.cm-Chat-header-menu-left', function() {
+      $( '.cm-Chat-container' ).slideUp();
+      $('.cm-Chat-client').addClass('minimized');
+    });
+    // maximize
+    $( '#cim-mobility-chat' ).on('click', '.minimized .cm-Chat-header-menu-left', function() {
+      $('.cm-Chat-client').removeClass('minimized');
+      $( '.cm-Chat-container' ).slideDown();
+    });
+
+    $( '.cm-Chat-header-menu-right' ).on('click', cimWidgetIntegrator.cim_chatCloseConversation);
   };
 
-  cimWidgetIntegrator.cim_chatBuildTemplateValues = function(readyState, status) {
+  cimWidgetIntegrator.cim_chatBuildTemplateValues = function(status) {
     var values = {
         wrapperClass: "cim-widget-wrapper",
         buttonText: "...",
@@ -284,7 +307,7 @@ var cimWidgetIntegrator = {},
 
   /**
    * After initializing or updating template:
-   * Add single chat cim event listeners and initiate chat client if needed
+   * Initiate chat status and add status by id event listener
    */
   cimWidgetIntegrator.cim_chatSetupInteraction = function(id, attachWidgetlisteners) {
     // We need to wait a bit before initiating the chat client
@@ -296,8 +319,10 @@ var cimWidgetIntegrator = {},
       }
  
       if (id && attachWidgetlisteners) {
-        cm_InitiateChatClient(id, chatServerURL + 'Index');
-        cimWidgetIntegrator.cim_chatSetupSingleChatListeners(id);
+        var chatIds = { 'chatIds': id };
+
+        cm_InitiateChatStatus(chatIds,  chatServerURL + 'StatusIndex');
+        cimWidgetIntegrator.cim_chatAddListenerStatusById();
       }
     };
     setTimeout(setupCimHelper, 1, id);
@@ -318,7 +343,6 @@ var cimWidgetIntegrator = {},
       s.type = 'text/javascript';
       s.src = src;
       s.onload = s.onreadystatechange = function() {
-        //console.log(this.readyState); //uncomment this line to see which ready states are called.
         if (!r && (!this.readyState || this.readyState == 'complete')) {
           r = true;
           callback(this.readyState);

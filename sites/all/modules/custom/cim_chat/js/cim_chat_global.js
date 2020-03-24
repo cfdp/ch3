@@ -162,7 +162,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
   };
   
   Drupal.behaviors.cim_chatStatusByChatIdsUpdated = function (event) {
-    object = event.detail;
+    var object = event.detail;
     cimChatStatus = 'closed';
     if (object) { 
       object.forEach(Drupal.behaviors.cim_chatChatStatusHandler);
