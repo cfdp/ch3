@@ -111,7 +111,6 @@ var cimWidgetIntegrator = {},
 
     // Remove the status by id listener as it interferes with single chat mode
     document.removeEventListener('cmStatusByChatIdsUpdated', cimWidgetIntegrator.cmStatusByIdListener);
-
     // Initiate chat client, add listeners and start chat
     cm_InitiateChatClient(id, chatServerURL + 'Index');
     cimWidgetIntegrator.cim_chatSetupSingleChatListeners(id);
@@ -320,7 +319,6 @@ var cimWidgetIntegrator = {},
  
       if (id && attachWidgetlisteners) {
         var chatIds = { 'chatIds': id };
-
         cm_InitiateChatStatus(chatIds,  chatServerURL + 'StatusIndex');
         cimWidgetIntegrator.cim_chatAddListenerStatusById();
       }

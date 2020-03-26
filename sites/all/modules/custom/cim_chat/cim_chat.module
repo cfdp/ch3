@@ -4,16 +4,18 @@
   * Add assets to show the chat - javascript, stylesheets etc.
   */
 function cim_chat_preprocess_html(&$variables) {
-  // Don't add global chat widget on admin pages or pages where the single chat widget is implemented
+  // Don't add global chat widget on admin pages or other pages where the single chat widget is implemented
   $single_page_widget = null;
+
   if ($node = menu_get_object()) {
     $single_page_widget = field_get_items('node', $node, 'field_cim_chat_integration');
     $single_page_widget2 = field_get_items('node', $node, 'field_chat_integration');
-    if ($single_page_widget || $single_page_widget2) {
-      return;
-    }
   }
-  if (path_is_admin(current_path())) {
+  if ($term = menu_get_object('taxonomy_term', 2)) {
+    $single_page_widget = field_get_items('taxonomy_term', $term, 'field_cim_chat_integration');
+    $single_page_widget2 = field_get_items('taxonomy_term', $term, 'field_chat_integration');
+  }
+  if ($single_page_widget || $single_page_widget2 || path_is_admin(current_path())) {
     return;
   }
   // Add remote CIM assets
