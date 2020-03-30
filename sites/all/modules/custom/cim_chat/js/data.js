@@ -94,5 +94,29 @@ var cimChats = {
     cssClassName: 'cim-btn-toender',
     domLocation: '.municipality-chats',
     chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  'epx0PUHb6ARKIbqm6l66xzK05WAw3Our': {
+    shortName: 'Holbæk',
+    cssClassName: 'cim-btn-holbaek',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  'Vf8AJxPYH9RKIbqm6l66xzK05WAw3Our': {
+    shortName: 'Jammerbugt',
+    cssClassName: 'cim-btn-jammerbugt',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  'j0PYi+XFqk9KIbqm6l66xzK05WAw3Our': {
+    shortName: 'Frederikshavn',
+    cssClassName: 'cim-btn-frederikshavn',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
+  },
+  '6WAKvhIGbj1KIbqm6l66xzK05WAw3Our ': {
+    shortName: 'Samsø',
+    cssClassName: 'cim-btn-samsoe',
+    domLocation: '.municipality-chats',
+    chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
   }
 }
