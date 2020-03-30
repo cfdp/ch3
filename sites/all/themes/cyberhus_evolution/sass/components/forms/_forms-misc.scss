@@ -1,9 +1,0 @@
-form.node-form {
-  margin: $margin-std;
-  padding-bottom: $padding-std;
-}
-
-/* Hemmeligheder / Ordet er dit / Lifehacks / Body Secrets */
-.page-node-add-body-secret.not-logged-in .field-name-field-secrets-category {
-    display: none; /* Hide the category - it is set automatically */
-}

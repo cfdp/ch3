@@ -1,16 +1,51 @@
 <?php
 
 /**
-  * Add assets to show the chat - javascript, stylesheets etc., but not on admin pages
+  * Add assets to show the chat - javascript, stylesheets etc.
   */
 function cim_chat_preprocess_html(&$variables) {
-  if (!path_is_admin(current_path())) {
-    drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/cim-chat.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
-    drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/data.js', array('weight' => 9));
-    drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat.js', array('weight' => 10));
+  // Don't add global chat widget on admin pages or other pages where the single chat widget is implemented
+  $single_page_widget = null;
 
-    // Add CIM assets
-    drupal_add_js('https://chat.ecmr.biz/Scripts/chatclient/cm.chatclient.js', 'external');
-    drupal_add_css('https://chat.ecmr.biz/Content/chatclient/cm.chatclient.css', array('type' => 'external'));
+  if ($node = menu_get_object()) {
+    $single_page_widget = field_get_items('node', $node, 'field_cim_chat_integration');
+    $single_page_widget2 = field_get_items('node', $node, 'field_chat_integration');
+  }
+  if ($term = menu_get_object('taxonomy_term', 2)) {
+    $single_page_widget = field_get_items('taxonomy_term', $term, 'field_cim_chat_integration');
+    $single_page_widget2 = field_get_items('taxonomy_term', $term, 'field_chat_integration');
+  }
+  if ($single_page_widget || $single_page_widget2 || path_is_admin(current_path())) {
+    return;
+  }
+  // Add remote CIM assets
+  drupal_add_css('https://chat.ecmr.biz/Content/chatclient/cm.chatclient.css', array('type' => 'external'));
+  // Add local assets
+  drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/dot-flashing.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
+  drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/cim-chat.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
+  drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat_global.js', array('weight' => 10));
+}
+
+/**
+ * Helper function for the View that generates the JSONP
+ * 
+ * Takes a paragraph item ID and returns the opening hours in a themed item list
+ */
+function cim_chat_get_opening_hours($paragraph_id) {
+  $entities = entity_load('paragraphs_item', array($paragraph_id));
+  $paragraphs_render = entity_view('paragraphs_item', $entities, 'full');
+  $opening_hours_paragraphs = $paragraphs_render['paragraphs_item'][$paragraph_id]['field_cim_chat_opening_hours_all']['#items'];
+  if (isset($opening_hours_paragraphs)) {
+    $opening_hours = [];
+    foreach ($opening_hours_paragraphs as $value) {
+      $p_id = $value['value'];
+      $entities = entity_load('paragraphs_item', array($p_id));
+      $entity = $entities[$p_id];
+      $par_wrapper = entity_metadata_wrapper('paragraphs_item', $entity);
+      $weekday = $par_wrapper->field_cim_chat_oh_weekday->value()->name;
+      $time = $par_wrapper->field_cim_chat_oh_time->value();
+      $opening_hours[] = $weekday . ': ' . $time;
+    }
+    return theme('item_list', array('items' => $opening_hours));
   }
 }

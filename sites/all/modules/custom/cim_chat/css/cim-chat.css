@@ -1,68 +1,132 @@
-/* line 5, ../sass/cim-chat.scss */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800");
+/* line 12, ../sass/cim-chat.scss */
+body {
+  background-color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+  color: #1b1d1f;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 768px) {
+  /* line 20, ../sass/cim-chat.scss */
+  body {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  /* line 23, ../sass/cim-chat.scss */
+  body {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 26, ../sass/cim-chat.scss */
+  body {
+    font-size: 16px;
+  }
+}
+/* line 29, ../sass/cim-chat.scss */
 .main {
   margin: 2em;
 }
 
-/* line 8, ../sass/cim-chat.scss */
+/* line 32, ../sass/cim-chat.scss */
 .status-buttons-title {
   margin: 2em 0;
 }
 
-/* line 12, ../sass/cim-chat.scss */
-.cm-Chat-client {
+/* line 36, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed,
+body.add-opeka-widgets-processed {
+  /* Chat iframe */
+  /* Wrapper for status iframe */
+  /* Throbber dot shown when waiting for status */
+  /* PAGE WIDGET */
+}
+/* line 38, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .cm-Chat-client,
+body.add-opeka-widgets-processed .cm-Chat-client {
   right: 0px;
   z-index: 10000;
 }
-/* line 16, ../sass/cim-chat.scss */
-.cm-Chat-client .cm-Chat-header-menu-left {
+/* line 42, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .cm-Chat-client .cm-Chat-header-menu-left,
+body.add-opeka-widgets-processed .cm-Chat-client .cm-Chat-header-menu-left {
   background-image: url('../img/arrow_down.svg?1571642579'), none;
   background-size: 25px 25px;
   background-repeat: no-repeat;
-  display: none;
   line-height: 1.8;
   margin-left: 10px;
   height: 30px;
   width: 35px;
   cursor: pointer;
 }
-/* line 28, ../sass/cim-chat.scss */
-.cm-Chat-client .cm-Chat-header-menu-middle,
-.cm-Chat-client .cm-Chat-header-menu-right {
+/* line 51, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .cm-Chat-client .cm-Chat-header-menu-left.minimized,
+body.add-opeka-widgets-processed .cm-Chat-client .cm-Chat-header-menu-left.minimized {
+  background-image: url('../img/arrow_up.svg?1571642579'), none;
+}
+/* line 56, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .cm-Chat-client.minimized,
+body.add-opeka-widgets-processed .cm-Chat-client.minimized {
+  height: 50px;
+  top: unset;
+}
+/* line 59, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .cm-Chat-client.minimized .cm-Chat-header-menu-left,
+body.add-opeka-widgets-processed .cm-Chat-client.minimized .cm-Chat-header-menu-left {
+  background-image: url('../img/arrow_up.svg?1571642579'), none;
+}
+@media screen and (min-width: 720px) {
+  /* line 56, ../sass/cim-chat.scss */
+  body.add-cim-widget-page-widget-processed .cm-Chat-client.minimized,
+  body.add-opeka-widgets-processed .cm-Chat-client.minimized {
+    bottom: 0px;
+  }
+}
+/* line 67, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .cm-Chat-client .cm-Chat-header-menu-middle,
+body.add-cim-widget-page-widget-processed .cm-Chat-client .cm-Chat-header-menu-right,
+body.add-opeka-widgets-processed .cm-Chat-client .cm-Chat-header-menu-middle,
+body.add-opeka-widgets-processed .cm-Chat-client .cm-Chat-header-menu-right {
   display: inline;
   line-height: 1.8;
 }
-/* line 34, ../sass/cim-chat.scss */
-.cm-Chat-client .cm-Chat-header-menu-right {
+/* line 73, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .cm-Chat-client .cm-Chat-header-menu-right,
+body.add-opeka-widgets-processed .cm-Chat-client .cm-Chat-header-menu-right {
   background-color: white;
   color: #268fb3;
   font-weight: bold;
   margin-bottom: 10px;
   padding: 0 7px;
 }
-/* line 41, ../sass/cim-chat.scss */
-.cm-Chat-client .cm-Chat-header {
+/* line 80, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .cm-Chat-client .cm-Chat-header,
+body.add-opeka-widgets-processed .cm-Chat-client .cm-Chat-header {
   background: #268fb3;
   border-radius: 0;
 }
-
-/* Chat iframe */
-/* line 48, ../sass/cim-chat.scss */
-iframe.cm-Chat-container {
+/* line 87, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed iframe.cm-Chat-container,
+body.add-opeka-widgets-processed iframe.cm-Chat-container {
   position: absolute;
   top: 50px;
   width: 100%;
 }
-
 @media screen and (min-width: 720px) {
-  /* line 57, ../sass/cim-chat.scss */
-  .cm-Chat-client {
+  /* line 96, ../sass/cim-chat.scss */
+  body.add-cim-widget-page-widget-processed .cm-Chat-client,
+  body.add-opeka-widgets-processed .cm-Chat-client {
     bottom: 600px;
     right: 40px;
     min-width: 350px;
   }
-
-  /* line 62, ../sass/cim-chat.scss */
-  iframe.cm-Chat-container {
+  /* line 101, ../sass/cim-chat.scss */
+  body.add-cim-widget-page-widget-processed iframe.cm-Chat-container,
+  body.add-opeka-widgets-processed iframe.cm-Chat-container {
     border-left: 2px solid #268fb3;
     border-right: 2px solid #268fb3;
     border-bottom: 2px solid #268fb3;
@@ -70,8 +134,9 @@ iframe.cm-Chat-container {
     width: 346px;
   }
 }
-/* line 71, ../sass/cim-chat.scss */
-.chat-status {
+/* line 110, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .chat-status,
+body.add-opeka-widgets-processed .chat-status {
   color: white;
   font-weight: 700;
   font-size: 12px;
@@ -82,102 +147,258 @@ iframe.cm-Chat-container {
   text-transform: uppercase;
   vertical-align: top;
 }
-/* line 81, ../sass/cim-chat.scss */
-.chat-status[data-chat-status="Ready"] {
+/* line 120, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .chat-status[data-chat-status="Ready"],
+body.add-opeka-widgets-processed .chat-status[data-chat-status="Ready"] {
   cursor: pointer;
   background-color: #80B45A;
 }
-/* line 86, ../sass/cim-chat.scss */
-.chat-status[data-chat-status="Activ"] {
+/* line 125, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .chat-status[data-chat-status="Activ"],
+body.add-opeka-widgets-processed .chat-status[data-chat-status="Activ"] {
   background-color: #80B45A;
 }
-/* line 90, ../sass/cim-chat.scss */
-.chat-status[data-chat-status="Busy"], .chat-status[data-chat-status="Queue"], .chat-status[data-chat-status="Chatting"] {
+/* line 129, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .chat-status[data-chat-status="Busy"], body.add-cim-widget-page-widget-processed .chat-status[data-chat-status="Queue"], body.add-cim-widget-page-widget-processed .chat-status[data-chat-status="Chatting"],
+body.add-opeka-widgets-processed .chat-status[data-chat-status="Busy"],
+body.add-opeka-widgets-processed .chat-status[data-chat-status="Queue"],
+body.add-opeka-widgets-processed .chat-status[data-chat-status="Chatting"] {
   background-color: #EBB560;
 }
-
-/* line 98, ../sass/cim-chat.scss */
-.curachat-widgets .municipality-chats .chat-status {
+/* line 137, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .curachat-widgets .municipality-chats .chat-status,
+body.add-opeka-widgets-processed .curachat-widgets .municipality-chats .chat-status {
   padding: 5px 6px;
 }
-/* line 103, ../sass/cim-chat.scss */
-.curachat-widgets .global-widget-minimized.cim-mini {
+/* line 142, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .curachat-widgets .global-widget-minimized.cim-mini,
+body.add-opeka-widgets-processed .curachat-widgets .global-widget-minimized.cim-mini {
   background-color: #268fb3;
 }
-
-/* Wrapper for status iframe */
-/* line 110, ../sass/cim-chat.scss */
-.iframeWrapper {
+/* line 149, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .iframeWrapper,
+body.add-opeka-widgets-processed .iframeWrapper {
   display: none;
 }
-
-/* Throbber dot shown when waiting for status */
-/* line 116, ../sass/cim-chat.scss */
-.cim-dot {
+/* line 154, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .cim-dot,
+body.add-opeka-widgets-processed .cim-dot {
   display: none;
   margin: 0 10px 0 20px;
 }
+/* line 160, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .field-name-field-ung-i-content > .field-items .field-item .paragraphs-item-ungi-iframe-embed,
+body.add-opeka-widgets-processed .field-name-field-ung-i-content > .field-items .field-item .paragraphs-item-ungi-iframe-embed {
+  height: 100%;
+}
+/* line 163, ../sass/cim-chat.scss */
+body.add-cim-widget-page-widget-processed .paragraphs-items-field-ung-i-content .field-item.add-bg.grey,
+body.add-opeka-widgets-processed .paragraphs-items-field-ung-i-content .field-item.add-bg.grey {
+  background: #e6e6e6;
+}
 
-/*!
- * three-dots - v0.1.2
- * CSS loading animation made by single element.
- * https://github.com/nzbin/three-dots#readme
- *
- * Copyright (c) 2018 nzbin
- * Released under MIT License
- */
-/**
-* ==============================================
-* Dot Flashing
-* ==============================================
-*/
-/* line 165, ../sass/cim-chat.scss */
-.dot-flashing {
+/* line 167, ../sass/cim-chat.scss */
+body.page-cim-chat-integration,
+#cim-widget-data {
+  padding: 0 2em 1em 2em;
+  background-color: #e6e6e6;
+  text-align: center;
   position: relative;
-  width: 8px;
-  height: 8px;
-  border-radius: 4px;
-  background-color: #ccc;
-  color: #ccc;
-  animation: dotFlashing 1s infinite linear alternate;
-  animation-delay: .5s;
+  overflow: hidden;
 }
-/* line 173, ../sass/cim-chat.scss */
-.dot-flashing::before, .dot-flashing::after {
-  content: '';
-  display: inline-block;
+/* line 175, ../sass/cim-chat.scss */
+body.page-cim-chat-integration #main,
+#cim-widget-data #main {
+  padding: 0;
+  width: 100%;
+}
+@media screen and (min-width: 580px) {
+  /* line 167, ../sass/cim-chat.scss */
+  body.page-cim-chat-integration,
+  #cim-widget-data {
+    text-align: left;
+  }
+}
+/* line 183, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .view-cim-chat-integration,
+#cim-widget-data .view-cim-chat-integration {
+  position: relative;
+  overflow: hidden;
+}
+/* line 187, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .status-triangle,
+#cim-widget-data .status-triangle {
+  background-color: #b3b3b3;
+  outline: 2px solid white;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  height: 150px;
+  right: -75px;
+  top: -75px;
   position: absolute;
-  top: 0;
+  width: 150px;
+  transform: rotate(45deg);
 }
-/* line 181, ../sass/cim-chat.scss */
-.dot-flashing::before {
-  left: -12px;
-  width: 8px;
-  height: 8px;
-  border-radius: 4px;
-  background-color: #ccc;
-  color: #ccc;
-  animation: dotFlashing 1s infinite alternate;
-  animation-delay: 0s;
+/* line 199, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .status-triangle .status-text,
+#cim-widget-data .status-triangle .status-text {
+  right: 35px;
+  top: 122px;
+  position: absolute;
+  text-align: center;
+  width: 80px;
 }
-/* line 190, ../sass/cim-chat.scss */
-.dot-flashing::after {
-  left: 12px;
-  width: 8px;
-  height: 8px;
-  border-radius: 4px;
-  background-color: #ccc;
-  color: #ccc;
-  animation: dotFlashing 1s infinite alternate;
-  animation-delay: 1s;
+/* line 207, ../sass/cim-chat.scss */
+body.page-cim-chat-integration h2.title,
+#cim-widget-data h2.title {
+  font-size: 2.5em;
+  font-weight: 600;
+  margin-top: 0;
 }
-
-@keyframes dotFlashing {
-  0% {
-    background-color: #ccc;
+/* line 212, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .field-cim-chat-description,
+#cim-widget-data .field-cim-chat-description {
+  margin: 1em 1em 1em 0;
+  font-size: 1.5em;
+}
+/* line 216, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .views-field-nothing-3,
+body.page-cim-chat-integration .opening-hours-wrapper,
+#cim-widget-data .views-field-nothing-3,
+#cim-widget-data .opening-hours-wrapper {
+  display: inline-block;
+}
+/* line 220, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .opening-hours-header,
+#cim-widget-data .opening-hours-header {
+  text-transform: uppercase;
+  margin-bottom: .2em;
+}
+/* line 225, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .entity-paragraphs-item .field,
+#cim-widget-data .entity-paragraphs-item .field {
+  display: inline-block;
+}
+/* line 228, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .entity-paragraphs-item .field-name-field-cim-chat-oh-weekday,
+#cim-widget-data .entity-paragraphs-item .field-name-field-cim-chat-oh-weekday {
+  margin-right: 5px;
+}
+/* line 230, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .entity-paragraphs-item .field-name-field-cim-chat-oh-weekday .field-item::after,
+#cim-widget-data .entity-paragraphs-item .field-name-field-cim-chat-oh-weekday .field-item::after {
+  content: ":";
+}
+/* line 235, ../sass/cim-chat.scss */
+body.page-cim-chat-integration ul,
+#cim-widget-data ul {
+  list-style-type: none;
+  margin: 0 0 1rem 0;
+}
+/* line 238, ../sass/cim-chat.scss */
+body.page-cim-chat-integration ul li,
+#cim-widget-data ul li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+@media screen and (min-width: 580px) {
+  /* line 245, ../sass/cim-chat.scss */
+  body.page-cim-chat-integration .button-and-text,
+  #cim-widget-data .button-and-text {
+    max-width: 200px;
+    text-align: center;
+    float: right;
   }
-  50%,
-  100% {
-    background-color: white;
+}
+/* line 253, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .button-speech-icon,
+#cim-widget-data .button-speech-icon {
+  background-image: url('../img/cim_chat_speech_gray.svg?1582549085');
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  display: block;
+  text-indent: -9999px;
+  width: 35px;
+  height: 35px;
+  background-size: 35px 35px;
+}
+/* line 265, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .cim-widget-wrapper,
+body.page-cim-chat-integration .views-row-1,
+#cim-widget-data .cim-widget-wrapper,
+#cim-widget-data .views-row-1 {
+  padding-top: 100px;
+}
+@media screen and (min-width: 580px) {
+  /* line 265, ../sass/cim-chat.scss */
+  body.page-cim-chat-integration .cim-widget-wrapper,
+  body.page-cim-chat-integration .views-row-1,
+  #cim-widget-data .cim-widget-wrapper,
+  #cim-widget-data .views-row-1 {
+    padding-top: 30px;
   }
+}
+/* line 272, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .cim-widget-wrapper.ready .status-triangle,
+body.page-cim-chat-integration .views-row-1.ready .status-triangle,
+#cim-widget-data .cim-widget-wrapper.ready .status-triangle,
+#cim-widget-data .views-row-1.ready .status-triangle {
+  background-color: #80B45A;
+}
+/* line 275, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .cim-widget-wrapper.ready .button-speech-icon,
+body.page-cim-chat-integration .views-row-1.ready .button-speech-icon,
+#cim-widget-data .cim-widget-wrapper.ready .button-speech-icon,
+#cim-widget-data .views-row-1.ready .button-speech-icon {
+  background-image: url('../img/cim_chat_speech_green.svg?1582548888');
+}
+/* line 280, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .cim-widget-wrapper.busy .status-triangle,
+body.page-cim-chat-integration .views-row-1.busy .status-triangle,
+#cim-widget-data .cim-widget-wrapper.busy .status-triangle,
+#cim-widget-data .views-row-1.busy .status-triangle {
+  background-color: #EBB560;
+}
+/* line 283, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .cim-widget-wrapper.busy .button-speech-icon,
+body.page-cim-chat-integration .views-row-1.busy .button-speech-icon,
+#cim-widget-data .cim-widget-wrapper.busy .button-speech-icon,
+#cim-widget-data .views-row-1.busy .button-speech-icon {
+  background-image: url('../img/cim_chat_speech_orange.svg?1582548956');
+}
+/* line 289, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .button-wrapper,
+#cim-widget-data .button-wrapper {
+  display: inline-block;
+  position: relative;
+}
+/* line 294, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .button,
+#cim-widget-data .button {
+  background-color: #4d4d4d;
+  border: 2px solid white;
+  font-weight: 500;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  color: white;
+  padding: 0.85em 2.5em;
+  border-radius: 2em;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  transition-duration: 250ms;
+}
+/* line 308, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .button:hover,
+#cim-widget-data .button:hover {
+  background-color: #b3b3b3;
+}
+/* line 312, ../sass/cim-chat.scss */
+body.page-cim-chat-integration .button-subtext,
+#cim-widget-data .button-subtext {
+  font-size: 1em;
+  margin: 5px;
 }

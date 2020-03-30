@@ -28,12 +28,14 @@
 ?>
 
 <?php
-        
     if($content['field_ungi_size'][0]['#title'] == "100%"){
       $custom_class = "wide";
     }
     else{
       $custom_class = "narrow";
+    }
+    if (isset($content['field_ungi_a_t_embed']) && $content['field_ungi_a_t_embed']['#items'][0]['value'] === '1') {
+      $custom_class .= " cim-chat-embedded";
     }
 ?>
 

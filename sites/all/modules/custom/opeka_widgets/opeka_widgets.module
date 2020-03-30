@@ -36,10 +36,20 @@
   * Add assets - javascript, stylesheets etc., but not on admin pages
   */
 function opeka_widgets_preprocess_html(&$variables) {
-  if (!path_is_admin(current_path())) {
-    drupal_add_css(drupal_get_path('module', 'opeka_widgets') . '/css/opeka_widgets.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
-    drupal_add_js(drupal_get_path('module', 'opeka_widgets') . '/js/data.js', array('weight' => 9));
-    drupal_add_js(drupal_get_path('module', 'opeka_widgets') . '/js/opeka_widgets.js', array('weight' => 10));
+  // Don't add widgets on admin sections or pages where the single chat widget is implemented
+  $single_page_widget = null;
+  if ($node = menu_get_object()) {
+    $single_page_widget = field_get_items('node', $node, 'field_cim_chat_integration');
+    $single_page_widget2 = field_get_items('node', $node, 'field_chat_integration');
   }
+  if ($term = menu_get_object('taxonomy_term', 2)) {
+    $single_page_widget = field_get_items('taxonomy_term', $term, 'field_cim_chat_integration');
+    $single_page_widget2 = field_get_items('taxonomy_term', $term, 'field_chat_integration');
+  }
+  if ($single_page_widget || $single_page_widget2 || path_is_admin(current_path())) {
+    return;
+  }
+  drupal_add_css(drupal_get_path('module', 'opeka_widgets') . '/css/opeka_widgets.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
+  drupal_add_js(drupal_get_path('module', 'opeka_widgets') . '/js/data.js', array('weight' => 9));
+  drupal_add_js(drupal_get_path('module', 'opeka_widgets') . '/js/opeka_widgets.js', array('weight' => 10));
 }
-
