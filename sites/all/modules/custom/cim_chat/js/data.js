@@ -113,7 +113,7 @@ var cimChats = {
     domLocation: '.municipality-chats',
     chatServerURL: 'https://chat.ecmr.biz/ChatClient/'
   },
-  '6WAKvhIGbj1KIbqm6l66xzK05WAw3Our ': {
+  '6WAKvhIGbj1KIbqm6l66xzK05WAw3Our': {
     shortName: 'Samsø',
     cssClassName: 'cim-btn-samsoe',
     domLocation: '.municipality-chats',
