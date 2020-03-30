@@ -1,0 +1,90 @@
+/*!
+ * three-dots - v0.1.2
+ * CSS loading animation made by single element.
+ * https://github.com/nzbin/three-dots#readme
+ *
+ * Copyright (c) 2018 nzbin
+ * Released under MIT License
+ */
+
+ /**
+ * ==============================================
+ * Dot Flashing
+ * ==============================================
+ */
+
+// ==============================================
+// Variables
+// ==============================================
+
+$dotWidth: 8px;
+$dotHeight: 8px;
+$dotRadius: $dotWidth/2;
+
+$dotColor:#ccc;
+$dotBgColor: $dotColor;
+$dotBeforeColor: $dotColor;
+$dotAfterColor: $dotColor;
+
+$dotSpacing: $dotWidth + $dotWidth/2;
+
+// ==============================================
+// Mixins
+// ==============================================
+
+@mixin dot($width: $dotWidth, $height: $dotHeight, $radius: $dotRadius,$bgColor: $dotBgColor, $color: $dotColor ) {
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+  background-color: $bgColor;
+  color: $color;
+  // Added by gv
+  //display: inline-block;
+  //margin-left: 25px;
+}
+
+ .dot-flashing {
+  position: relative;
+
+  @include dot;
+
+  animation: dotFlashing 1s infinite linear alternate;
+  animation-delay: .5s;
+
+  &::before,
+  &::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+
+  &::before {
+    left: - $dotSpacing;
+
+    @include dot($bgColor: $dotBeforeColor);
+
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 0s;
+  }
+
+  &::after {
+    left: $dotSpacing;
+
+    @include dot($bgColor: $dotAfterColor);
+
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 1s;
+  }
+}
+
+@keyframes dotFlashing {
+  0% {
+    background-color: $dotColor;
+  }
+
+  50%,
+  100% {
+    background-color: lighten($dotColor, 20%);
+  }
+}

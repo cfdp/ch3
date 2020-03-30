@@ -1,4 +1,0 @@
-<items>
-	<quiz x="550" y="200" rotation="-10" src="" navn="Hvad tænker du?" source="skolescenariet.swf" thumb="assets/quiz1.jpg" /> 
-	<quiz x="500" y="400" rotation="0" src="" navn="Hvad tror du?" source="fritidsscenariet.swf" thumb="assets/quiz1.jpg" /> 
-</items>

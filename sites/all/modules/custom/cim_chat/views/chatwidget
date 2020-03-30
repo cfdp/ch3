@@ -1,0 +1,414 @@
+$view = new view();
+$view->name = 'cim_chat_integration';
+$view->description = '';
+$view->tag = 'default';
+$view->base_table = 'paragraphs_item';
+$view->human_name = 'CIM chat integration';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['title'] = 'CIM chat widget';
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['use_more_text'] = 'mere';
+$handler->display->display_options['access']['type'] = 'none';
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+$handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+$handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+$handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+$handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+$handler->display->display_options['pager']['type'] = 'none';
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['row_plugin'] = 'fields';
+/* Felt: Status */
+$handler->display->display_options['fields']['nothing_2']['id'] = 'nothing_2';
+$handler->display->display_options['fields']['nothing_2']['table'] = 'views';
+$handler->display->display_options['fields']['nothing_2']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing_2']['ui_name'] = 'Status';
+$handler->display->display_options['fields']['nothing_2']['label'] = '';
+$handler->display->display_options['fields']['nothing_2']['alter']['text'] = '<div class="status-triangle"><span class="status-text">...</span></div>';
+$handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;
+/* Felt: Paragraphs item: Chatnavn */
+$handler->display->display_options['fields']['field_cim_chat_name']['id'] = 'field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['table'] = 'field_data_field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['field'] = 'field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_name']['element_type'] = 'h1';
+$handler->display->display_options['fields']['field_cim_chat_name']['element_class'] = 'title';
+$handler->display->display_options['fields']['field_cim_chat_name']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_cim_chat_name']['element_default_classes'] = FALSE;
+/* Felt: Paragraphs item: Beskrivelse */
+$handler->display->display_options['fields']['field_cim_chat_description']['id'] = 'field_cim_chat_description';
+$handler->display->display_options['fields']['field_cim_chat_description']['table'] = 'field_data_field_cim_chat_description';
+$handler->display->display_options['fields']['field_cim_chat_description']['field'] = 'field_cim_chat_description';
+$handler->display->display_options['fields']['field_cim_chat_description']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_description']['element_label_colon'] = FALSE;
+/* Felt: Paragraphs item: Chat ID */
+$handler->display->display_options['fields']['field_cim_chat_id']['id'] = 'field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['table'] = 'field_data_field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['field'] = 'field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_id']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_cim_chat_id']['element_label_colon'] = FALSE;
+/* Felt: Åbningstider, overskrift */
+$handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['table'] = 'views';
+$handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['ui_name'] = 'Åbningstider, overskrift';
+$handler->display->display_options['fields']['nothing']['label'] = '';
+$handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
+$handler->display->display_options['fields']['nothing']['alter']['text'] = '<p class="opening-hours-header">Vi er online hver</p>';
+$handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+/* Felt: Paragraphs item: Åbningstider */
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['id'] = 'field_cim_chat_opening_hours_all';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['table'] = 'field_data_field_cim_chat_opening_hours_all';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['field'] = 'field_cim_chat_opening_hours_all';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['settings'] = array(
+  'view_mode' => 'full',
+);
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['delta_offset'] = '0';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['multi_type'] = 'ul';
+/* Felt: Åbningstider, rewritten */
+$handler->display->display_options['fields']['nothing_3']['id'] = 'nothing_3';
+$handler->display->display_options['fields']['nothing_3']['table'] = 'views';
+$handler->display->display_options['fields']['nothing_3']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing_3']['ui_name'] = 'Åbningstider, rewritten';
+$handler->display->display_options['fields']['nothing_3']['label'] = '';
+$handler->display->display_options['fields']['nothing_3']['alter']['text'] = '<div class="opening-hours-wrapper">
+  [nothing]
+  [field_cim_chat_opening_hours_all]
+</div>';
+$handler->display->display_options['fields']['nothing_3']['element_label_colon'] = FALSE;
+/* Felt: Start chat knap */
+$handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+$handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+$handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing_1']['ui_name'] = 'Start chat knap';
+$handler->display->display_options['fields']['nothing_1']['label'] = '';
+$handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<div class="button-and-subtext">
+  <div class="button-wrapper">
+    <div class="button-speech-icon"></div>
+    <a data-chat-id="[field_cim_chat_id]" class="button" href="#">...</a>
+  </div>    
+  <p class="button-subtext">Anonym og professionel rådgivning</p>
+</div>';
+$handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
+/* Kontekstuelt filter: Paragraphs item: URL navn (field_cim_chat_url_name) */
+$handler->display->display_options['arguments']['field_cim_chat_url_name_value']['id'] = 'field_cim_chat_url_name_value';
+$handler->display->display_options['arguments']['field_cim_chat_url_name_value']['table'] = 'field_data_field_cim_chat_url_name';
+$handler->display->display_options['arguments']['field_cim_chat_url_name_value']['field'] = 'field_cim_chat_url_name_value';
+$handler->display->display_options['arguments']['field_cim_chat_url_name_value']['default_action'] = 'empty';
+$handler->display->display_options['arguments']['field_cim_chat_url_name_value']['exception']['title'] = 'Alle';
+$handler->display->display_options['arguments']['field_cim_chat_url_name_value']['default_argument_type'] = 'fixed';
+$handler->display->display_options['arguments']['field_cim_chat_url_name_value']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['field_cim_chat_url_name_value']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['field_cim_chat_url_name_value']['summary_options']['items_per_page'] = '25';
+$handler->display->display_options['arguments']['field_cim_chat_url_name_value']['limit'] = '0';
+/* Filterkriterie: Paragraphs item: Bundle */
+$handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+$handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+$handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+$handler->display->display_options['filters']['bundle']['value'] = array(
+  'cim_chat_integration' => 'cim_chat_integration',
+);
+
+/* Display: Page */
+$handler = $view->new_display('page', 'Page', 'page');
+$handler->display->display_options['path'] = 'cim-chat-integration/%';
+
+/* Display: JSON feed */
+$handler = $view->new_display('page', 'JSON feed', 'page_1');
+$handler->display->display_options['defaults']['style_plugin'] = FALSE;
+$handler->display->display_options['style_plugin'] = 'views_json';
+$handler->display->display_options['style_options']['grouping'] = array(
+  0 => array(
+    'field' => 'field_cim_chat_id',
+  ),
+);
+$handler->display->display_options['style_options']['root_object'] = 'cimChats';
+$handler->display->display_options['style_options']['plaintext_output'] = 1;
+$handler->display->display_options['style_options']['remove_newlines'] = 0;
+$handler->display->display_options['style_options']['jsonp_prefix'] = '';
+$handler->display->display_options['style_options']['using_views_api_mode'] = 0;
+$handler->display->display_options['style_options']['translate_labels'] = 0;
+$handler->display->display_options['style_options']['object_arrays'] = 0;
+$handler->display->display_options['style_options']['numeric_strings'] = 0;
+$handler->display->display_options['style_options']['bigint_string'] = 0;
+$handler->display->display_options['style_options']['pretty_print'] = 0;
+$handler->display->display_options['style_options']['unescaped_slashes'] = 0;
+$handler->display->display_options['style_options']['unescaped_unicode'] = 0;
+$handler->display->display_options['style_options']['char_encoding'] = array();
+$handler->display->display_options['defaults']['style_options'] = FALSE;
+$handler->display->display_options['defaults']['row_plugin'] = FALSE;
+$handler->display->display_options['defaults']['row_options'] = FALSE;
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Felt: Paragraphs item: Chat ID */
+$handler->display->display_options['fields']['field_cim_chat_id']['id'] = 'field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['table'] = 'field_data_field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['field'] = 'field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_id']['element_label_colon'] = FALSE;
+/* Felt: Paragraphs item: Chatnavn */
+$handler->display->display_options['fields']['field_cim_chat_name']['id'] = 'field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['table'] = 'field_data_field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['field'] = 'field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_name']['element_label_colon'] = FALSE;
+/* Felt: Paragraphs item: Global chatwidget placering */
+$handler->display->display_options['fields']['field_global_widget_location']['id'] = 'field_global_widget_location';
+$handler->display->display_options['fields']['field_global_widget_location']['table'] = 'field_data_field_global_widget_location';
+$handler->display->display_options['fields']['field_global_widget_location']['field'] = 'field_global_widget_location';
+$handler->display->display_options['fields']['field_global_widget_location']['label'] = '';
+$handler->display->display_options['fields']['field_global_widget_location']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_global_widget_location']['type'] = 'taxonomy_term_reference_plain';
+/* Felt: Paragraphs item: URL navn */
+$handler->display->display_options['fields']['field_cim_chat_url_name']['id'] = 'field_cim_chat_url_name';
+$handler->display->display_options['fields']['field_cim_chat_url_name']['table'] = 'field_data_field_cim_chat_url_name';
+$handler->display->display_options['fields']['field_cim_chat_url_name']['field'] = 'field_cim_chat_url_name';
+$handler->display->display_options['fields']['field_cim_chat_url_name']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_url_name']['element_label_colon'] = FALSE;
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+$handler->display->display_options['path'] = 'cim-chat-json';
+
+/* Display: JSONP feed */
+$handler = $view->new_display('page', 'JSONP feed', 'page_2');
+$handler->display->display_options['defaults']['style_plugin'] = FALSE;
+$handler->display->display_options['style_plugin'] = 'views_json';
+$handler->display->display_options['style_options']['plaintext_output'] = 0;
+$handler->display->display_options['style_options']['remove_newlines'] = 0;
+$handler->display->display_options['style_options']['jsonp_prefix'] = 'static_chat_data';
+$handler->display->display_options['style_options']['using_views_api_mode'] = 0;
+$handler->display->display_options['style_options']['translate_labels'] = 0;
+$handler->display->display_options['style_options']['object_arrays'] = 0;
+$handler->display->display_options['style_options']['numeric_strings'] = 0;
+$handler->display->display_options['style_options']['bigint_string'] = 0;
+$handler->display->display_options['style_options']['pretty_print'] = 0;
+$handler->display->display_options['style_options']['unescaped_slashes'] = 0;
+$handler->display->display_options['style_options']['unescaped_unicode'] = 0;
+$handler->display->display_options['style_options']['char_encoding'] = array();
+$handler->display->display_options['defaults']['style_options'] = FALSE;
+$handler->display->display_options['defaults']['row_plugin'] = FALSE;
+$handler->display->display_options['defaults']['row_options'] = FALSE;
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Felt: Paragraphs item: Chatnavn */
+$handler->display->display_options['fields']['field_cim_chat_name']['id'] = 'field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['table'] = 'field_data_field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['field'] = 'field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_name']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['field_cim_chat_name']['alter']['text'] = '<h2 class="title">[field_cim_chat_name]</h2>';
+$handler->display->display_options['fields']['field_cim_chat_name']['element_type'] = 'h1';
+$handler->display->display_options['fields']['field_cim_chat_name']['element_class'] = 'title';
+$handler->display->display_options['fields']['field_cim_chat_name']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_cim_chat_name']['element_default_classes'] = FALSE;
+/* Felt: Paragraphs item: Beskrivelse */
+$handler->display->display_options['fields']['field_cim_chat_description']['id'] = 'field_cim_chat_description';
+$handler->display->display_options['fields']['field_cim_chat_description']['table'] = 'field_data_field_cim_chat_description';
+$handler->display->display_options['fields']['field_cim_chat_description']['field'] = 'field_cim_chat_description';
+$handler->display->display_options['fields']['field_cim_chat_description']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_description']['element_label_colon'] = FALSE;
+/* Felt: Paragraphs item: Chat ID */
+$handler->display->display_options['fields']['field_cim_chat_id']['id'] = 'field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['table'] = 'field_data_field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['field'] = 'field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_id']['element_label_colon'] = FALSE;
+/* Felt: Åbningstider, overskrift */
+$handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['table'] = 'views';
+$handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['ui_name'] = 'Åbningstider, overskrift';
+$handler->display->display_options['fields']['nothing']['label'] = '';
+$handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
+$handler->display->display_options['fields']['nothing']['alter']['text'] = '<p class="opening-hours-header">Vi er online hver</p>';
+$handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+/* Felt: Paragraphs item: Åbningstider */
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['id'] = 'field_cim_chat_opening_hours_all';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['table'] = 'field_data_field_cim_chat_opening_hours_all';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['field'] = 'field_cim_chat_opening_hours_all';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['settings'] = array(
+  'view_mode' => 'token',
+);
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['delta_offset'] = '0';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['multi_type'] = 'ol';
+/* Felt: Åbningstider, rewritten */
+$handler->display->display_options['fields']['nothing_3']['id'] = 'nothing_3';
+$handler->display->display_options['fields']['nothing_3']['table'] = 'views';
+$handler->display->display_options['fields']['nothing_3']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing_3']['ui_name'] = 'Åbningstider, rewritten';
+$handler->display->display_options['fields']['nothing_3']['label'] = '';
+$handler->display->display_options['fields']['nothing_3']['exclude'] = TRUE;
+$handler->display->display_options['fields']['nothing_3']['alter']['text'] = '<div class="opening-hours-wrapper">
+  [nothing]
+  [field_cim_chat_opening_hours_all]
+</div>';
+$handler->display->display_options['fields']['nothing_3']['element_label_colon'] = FALSE;
+/* Felt: Åbningstider */
+$handler->display->display_options['fields']['php']['id'] = 'php';
+$handler->display->display_options['fields']['php']['table'] = 'views';
+$handler->display->display_options['fields']['php']['field'] = 'php';
+$handler->display->display_options['fields']['php']['ui_name'] = 'Åbningstider';
+$handler->display->display_options['fields']['php']['label'] = '';
+$handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+$handler->display->display_options['fields']['php']['php_output'] = '<?php
+  print cim_chat_get_opening_hours($row->item_id);
+?>';
+$handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+$handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+/* Felt: Paragraphs item: Paragraphs item ID */
+$handler->display->display_options['fields']['item_id']['id'] = 'item_id';
+$handler->display->display_options['fields']['item_id']['table'] = 'paragraphs_item';
+$handler->display->display_options['fields']['item_id']['field'] = 'item_id';
+$handler->display->display_options['fields']['item_id']['label'] = '';
+$handler->display->display_options['fields']['item_id']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['item_id']['separator'] = '';
+$handler->display->display_options['path'] = 'cim-chat-jsonp/%';
+
+/* Display: JSONP feed 2 */
+$handler = $view->new_display('page', 'JSONP feed 2', 'page_3');
+$handler->display->display_options['defaults']['style_plugin'] = FALSE;
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['defaults']['style_options'] = FALSE;
+$handler->display->display_options['defaults']['row_plugin'] = FALSE;
+$handler->display->display_options['row_plugin'] = 'fields';
+$handler->display->display_options['defaults']['row_options'] = FALSE;
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Felt: Status */
+$handler->display->display_options['fields']['nothing_2']['id'] = 'nothing_2';
+$handler->display->display_options['fields']['nothing_2']['table'] = 'views';
+$handler->display->display_options['fields']['nothing_2']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing_2']['ui_name'] = 'Status';
+$handler->display->display_options['fields']['nothing_2']['label'] = '';
+$handler->display->display_options['fields']['nothing_2']['alter']['text'] = '<div class="status-triangle"><span class="status-text">...</span></div>';
+$handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;
+/* Felt: Paragraphs item: Chatnavn */
+$handler->display->display_options['fields']['field_cim_chat_name']['id'] = 'field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['table'] = 'field_data_field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['field'] = 'field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_name']['element_type'] = 'h1';
+$handler->display->display_options['fields']['field_cim_chat_name']['element_class'] = 'title';
+$handler->display->display_options['fields']['field_cim_chat_name']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_cim_chat_name']['element_default_classes'] = FALSE;
+/* Felt: Paragraphs item: Beskrivelse */
+$handler->display->display_options['fields']['field_cim_chat_description']['id'] = 'field_cim_chat_description';
+$handler->display->display_options['fields']['field_cim_chat_description']['table'] = 'field_data_field_cim_chat_description';
+$handler->display->display_options['fields']['field_cim_chat_description']['field'] = 'field_cim_chat_description';
+$handler->display->display_options['fields']['field_cim_chat_description']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_description']['element_label_colon'] = FALSE;
+/* Felt: Paragraphs item: Chat ID */
+$handler->display->display_options['fields']['field_cim_chat_id']['id'] = 'field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['table'] = 'field_data_field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['field'] = 'field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_id']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_cim_chat_id']['element_label_colon'] = FALSE;
+/* Felt: Åbningstider, overskrift */
+$handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['table'] = 'views';
+$handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing']['ui_name'] = 'Åbningstider, overskrift';
+$handler->display->display_options['fields']['nothing']['label'] = '';
+$handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
+$handler->display->display_options['fields']['nothing']['alter']['text'] = '<p class="opening-hours-header">Vi er online hver</p>';
+$handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+/* Felt: Paragraphs item: Åbningstider */
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['id'] = 'field_cim_chat_opening_hours_all';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['table'] = 'field_data_field_cim_chat_opening_hours_all';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['field'] = 'field_cim_chat_opening_hours_all';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['settings'] = array(
+  'view_mode' => 'token',
+);
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['delta_offset'] = '0';
+$handler->display->display_options['fields']['field_cim_chat_opening_hours_all']['multi_type'] = 'ol';
+/* Felt: Åbningstider, rewritten */
+$handler->display->display_options['fields']['nothing_3']['id'] = 'nothing_3';
+$handler->display->display_options['fields']['nothing_3']['table'] = 'views';
+$handler->display->display_options['fields']['nothing_3']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing_3']['ui_name'] = 'Åbningstider, rewritten';
+$handler->display->display_options['fields']['nothing_3']['label'] = '';
+$handler->display->display_options['fields']['nothing_3']['alter']['text'] = '<div class="opening-hours-wrapper">
+  [nothing]
+  [field_cim_chat_opening_hours_all]
+</div>';
+$handler->display->display_options['fields']['nothing_3']['element_label_colon'] = FALSE;
+/* Felt: Start chat knap */
+$handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+$handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+$handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing_1']['ui_name'] = 'Start chat knap';
+$handler->display->display_options['fields']['nothing_1']['label'] = '';
+$handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<div class="button-and-subtext">
+  <div class="button-wrapper">
+    <div class="button-speech-icon"></div>
+    <a data-chat-id="[field_cim_chat_id]" class="button" href="#">...</a>
+  </div>    
+  <p class="button-subtext">Anonym og professionel rådgivning</p>
+</div>';
+$handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
+/* Felt: Global: PHP */
+$handler->display->display_options['fields']['php']['id'] = 'php';
+$handler->display->display_options['fields']['php']['table'] = 'views';
+$handler->display->display_options['fields']['php']['field'] = 'php';
+$handler->display->display_options['fields']['php']['label'] = '';
+$handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+$handler->display->display_options['fields']['php']['php_output'] = '<?php
+  cim_chat_get_opening_hours(\'170\');
+//print drupal_render($paragraphs_render);
+
+?>';
+$handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+$handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+/* Felt: Paragraphs item: Paragraphs item ID */
+$handler->display->display_options['fields']['item_id']['id'] = 'item_id';
+$handler->display->display_options['fields']['item_id']['table'] = 'paragraphs_item';
+$handler->display->display_options['fields']['item_id']['field'] = 'item_id';
+$handler->display->display_options['fields']['item_id']['label'] = '';
+$handler->display->display_options['fields']['item_id']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['item_id']['separator'] = '';
+$handler->display->display_options['path'] = 'cim-chat-jsonp2/%';
+$translatables['cim_chat_integration'] = array(
+  t('Master'),
+  t('CIM chat widget'),
+  t('mere'),
+  t('Udfør'),
+  t('Gendan'),
+  t('Sortér efter'),
+  t('Stigende'),
+  t('Faldende'),
+  t('<div class="status-triangle"><span class="status-text">...</span></div>'),
+  t('<p class="opening-hours-header">Vi er online hver</p>'),
+  t('<div class="opening-hours-wrapper">
+  [nothing]
+  [field_cim_chat_opening_hours_all]
+</div>'),
+  t('<div class="button-and-subtext">
+  <div class="button-wrapper">
+    <div class="button-speech-icon"></div>
+    <a data-chat-id="[field_cim_chat_id]" class="button" href="#">...</a>
+  </div>    
+  <p class="button-subtext">Anonym og professionel rådgivning</p>
+</div>'),
+  t('Alle'),
+  t('Page'),
+  t('JSON feed'),
+  t('JSONP feed'),
+  t('<h2 class="title">[field_cim_chat_name]</h2>'),
+  t('.'),
+  t('JSONP feed 2'),
+);
