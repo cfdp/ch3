@@ -8,11 +8,12 @@ $light-gray: #f1f1f1;
 $gray: #e6e6e6;
 $medium-gray: #b3b3b3;
 $dark-gray: #4d4d4d;
+$darkest-gray: #1b1d1f;
 
 body {
   background-color: #FFFFFF;
   font-family: "Montserrat", sans-serif;
-  color: #1b1d1f;
+  color: $darkest-gray;
   font-size: 13px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
@@ -166,11 +167,13 @@ body.add-opeka-widgets-processed {
 }
 body.page-cim-chat-integration,
 #cim-widget-data {
+  color: $darkest-gray;
   padding: 0 2em 1em 2em;
   background-color: $gray;
   text-align: center;
   position: relative;
   overflow: hidden;
+  font-family: "Montserrat", sans-serif;
 
   #main {
     padding: 0;
@@ -205,9 +208,13 @@ body.page-cim-chat-integration,
     }
   }
   h2.title {
+    color: $darkest-gray;
     font-size: 2.5em;
     font-weight: 600;
-    margin-top: 0;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -0.04em;
+    line-height: 40px;
+    margin: 0 0 1em 0;
   }
   .field-cim-chat-description {
     margin: 1em 1em 1em 0;
@@ -216,6 +223,7 @@ body.page-cim-chat-integration,
   .views-field-nothing-3,
   .opening-hours-wrapper {
     display: inline-block;
+    line-height: 16px;
   }
   .opening-hours-header {
     text-transform: uppercase;
@@ -235,7 +243,9 @@ body.page-cim-chat-integration,
   ul {
     list-style-type: none;
     margin: 0 0 1rem 0;
+    padding: 0;
     li {
+      color: $darkest-gray;
       list-style: none;
       padding: 0;
       margin: 0;
@@ -291,13 +301,14 @@ body.page-cim-chat-integration,
     position: relative;
   }
 
-  .button {
+  .start-chat-button {
     background-color: $dark-gray;
     border: 2px solid white;
     font-weight: 500;
     font-size: 1.3em;
     text-transform: uppercase;
     color: white;
+    cursor: pointer;
     padding: 0.85em 2.5em;
     border-radius: 2em;
     line-height: 1;
