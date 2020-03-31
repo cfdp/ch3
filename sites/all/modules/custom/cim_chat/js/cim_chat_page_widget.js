@@ -131,7 +131,7 @@ var cimWidgetIntegrator = {},
     var closeBtn = '.cm-Chat-header-menu-right',
         chatLongName = cm_chatId ? cimChat.chatLongName : '';
     
-    if (cm_status === 'Ready' || cm_status === 'Busy') {
+    if (cm_status === 'Ready' || cm_status === 'Busy' || cm_status === '' || cm_status === 'Closed') {
       // No conversation has taken place yet. 
       cm_CloseConversation();
       cm_HideChat();
