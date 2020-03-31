@@ -312,7 +312,7 @@ var cimWidgetIntegrator = {},
     // We need to wait a bit before initiating the chat client
     // to let the template changes propagate.
     function setupCimHelper(id) {
-      if(!$('#cim-widget-data .button').length || !$('.cm-Chat-client').length){
+      if(!$('#cim-widget-data .start-chat-button').length || !$('.cm-Chat-client').length){
         console.error("CIM widget template elements not initialized, aborting!");
         return;
       }
@@ -365,7 +365,7 @@ var cimWidgetIntegrator = {},
         '<div class="button-and-text">' +
           '<div class="button-wrapper">' +
             '<div class="button-speech-icon"></div>' +
-            '<div data-id="chatId" class="button" data-content="buttonText"></div>' +
+            '<div data-id="chatId" class="start-chat-button" data-content="buttonText"></div>' +
           '</div>' +
           '<p class="button-subtext">Anonym og professionel rådgivning</p>' +
         '</div>' +
