@@ -10,32 +10,23 @@ $medium-gray: #b3b3b3;
 $dark-gray: #4d4d4d;
 $darkest-gray: #1b1d1f;
 
-body {
+
+
+body.add-cim-widget-page-widget-processed,
+body.add-opeka-widgets-processed {
+
+  .main {
+    margin: 2em;
+  }
+  .status-buttons-title {
+    margin: 2em 0;
+  }
   background-color: #FFFFFF;
   font-family: "Montserrat", sans-serif;
   color: $darkest-gray;
   font-size: 13px;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-  @media (min-width: 768px) {
-    body {
-      font-size: 14px; } }
-  @media (min-width: 1024px) {
-    body {
-      font-size: 14px; } }
-  @media (min-width: 1200px) {
-    body {
-      font-size: 16px; } }
-
-.main {
-  margin: 2em;
-}
-.status-buttons-title {
-  margin: 2em 0;
-}
-
-body.add-cim-widget-page-widget-processed,
-body.add-opeka-widgets-processed {
+  -moz-osx-font-smoothing: grayscale;
   .cm-Chat-client {
     right: 0px;
     z-index: 10000;
@@ -174,6 +165,16 @@ body.page-cim-chat-integration,
   position: relative;
   overflow: hidden;
   font-family: "Montserrat", sans-serif;
+
+  @media (min-width: 768px) {
+    & {
+      font-size: 14px; } }
+  @media (min-width: 1024px) {
+    & {
+      font-size: 14px; } }
+  @media (min-width: 1200px) {
+    & {
+      font-size: 16px; } }
 
   #main {
     padding: 0;
