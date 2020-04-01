@@ -21,12 +21,7 @@ body.add-opeka-widgets-processed {
   .status-buttons-title {
     margin: 2em 0;
   }
-  background-color: #FFFFFF;
-  font-family: "Montserrat", sans-serif;
-  color: $darkest-gray;
-  font-size: 13px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
   .cm-Chat-client {
     right: 0px;
     z-index: 10000;
@@ -165,7 +160,9 @@ body.page-cim-chat-integration,
   position: relative;
   overflow: hidden;
   font-family: "Montserrat", sans-serif;
-
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   @media (min-width: 768px) {
     & {
       font-size: 14px; } }
