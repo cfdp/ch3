@@ -263,8 +263,9 @@ body.page-cim-chat-integration .field-cim-chat-description,
 #cim-widget-data .field-cim-chat-description {
   margin: 1em 1em 1em 0;
   font-size: 1.5em;
+  line-height: 24px;
 }
-/* line 221, ../sass/cim-chat.scss */
+/* line 222, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .views-field-nothing-3,
 body.page-cim-chat-integration .opening-hours-wrapper,
 #cim-widget-data .views-field-nothing-3,
@@ -272,44 +273,45 @@ body.page-cim-chat-integration .opening-hours-wrapper,
   display: inline-block;
   line-height: 16px;
 }
-/* line 226, ../sass/cim-chat.scss */
+/* line 227, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .opening-hours-header,
 #cim-widget-data .opening-hours-header {
   text-transform: uppercase;
   margin-bottom: .2em;
 }
-/* line 231, ../sass/cim-chat.scss */
+/* line 232, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .entity-paragraphs-item .field,
 #cim-widget-data .entity-paragraphs-item .field {
   display: inline-block;
 }
-/* line 234, ../sass/cim-chat.scss */
+/* line 235, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .entity-paragraphs-item .field-name-field-cim-chat-oh-weekday,
 #cim-widget-data .entity-paragraphs-item .field-name-field-cim-chat-oh-weekday {
   margin-right: 5px;
 }
-/* line 236, ../sass/cim-chat.scss */
+/* line 237, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .entity-paragraphs-item .field-name-field-cim-chat-oh-weekday .field-item::after,
 #cim-widget-data .entity-paragraphs-item .field-name-field-cim-chat-oh-weekday .field-item::after {
   content: ":";
 }
-/* line 241, ../sass/cim-chat.scss */
+/* line 242, ../sass/cim-chat.scss */
 body.page-cim-chat-integration ul,
 #cim-widget-data ul {
   list-style-type: none;
   margin: 0 0 1rem 0;
   padding: 0;
 }
-/* line 245, ../sass/cim-chat.scss */
+/* line 246, ../sass/cim-chat.scss */
 body.page-cim-chat-integration ul li,
 #cim-widget-data ul li {
   color: #1b1d1f;
   list-style: none;
   padding: 0;
   margin: 0;
+  line-height: 22px;
 }
 @media screen and (min-width: 580px) {
-  /* line 253, ../sass/cim-chat.scss */
+  /* line 255, ../sass/cim-chat.scss */
   body.page-cim-chat-integration .button-and-text,
   #cim-widget-data .button-and-text {
     max-width: 200px;
@@ -317,7 +319,7 @@ body.page-cim-chat-integration ul li,
     float: right;
   }
 }
-/* line 261, ../sass/cim-chat.scss */
+/* line 263, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .button-speech-icon,
 #cim-widget-data .button-speech-icon {
   background-image: url('../img/cim_chat_speech_gray.svg?1585567644');
@@ -330,7 +332,7 @@ body.page-cim-chat-integration .button-speech-icon,
   height: 35px;
   background-size: 35px 35px;
 }
-/* line 273, ../sass/cim-chat.scss */
+/* line 275, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .cim-widget-wrapper,
 body.page-cim-chat-integration .views-row-1,
 #cim-widget-data .cim-widget-wrapper,
@@ -338,7 +340,7 @@ body.page-cim-chat-integration .views-row-1,
   padding-top: 100px;
 }
 @media screen and (min-width: 580px) {
-  /* line 273, ../sass/cim-chat.scss */
+  /* line 275, ../sass/cim-chat.scss */
   body.page-cim-chat-integration .cim-widget-wrapper,
   body.page-cim-chat-integration .views-row-1,
   #cim-widget-data .cim-widget-wrapper,
@@ -346,41 +348,41 @@ body.page-cim-chat-integration .views-row-1,
     padding-top: 30px;
   }
 }
-/* line 280, ../sass/cim-chat.scss */
+/* line 282, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .cim-widget-wrapper.ready .status-triangle,
 body.page-cim-chat-integration .views-row-1.ready .status-triangle,
 #cim-widget-data .cim-widget-wrapper.ready .status-triangle,
 #cim-widget-data .views-row-1.ready .status-triangle {
   background-color: #80B45A;
 }
-/* line 283, ../sass/cim-chat.scss */
+/* line 285, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .cim-widget-wrapper.ready .button-speech-icon,
 body.page-cim-chat-integration .views-row-1.ready .button-speech-icon,
 #cim-widget-data .cim-widget-wrapper.ready .button-speech-icon,
 #cim-widget-data .views-row-1.ready .button-speech-icon {
   background-image: url('../img/cim_chat_speech_green.svg?1585567644');
 }
-/* line 288, ../sass/cim-chat.scss */
+/* line 290, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .cim-widget-wrapper.busy .status-triangle,
 body.page-cim-chat-integration .views-row-1.busy .status-triangle,
 #cim-widget-data .cim-widget-wrapper.busy .status-triangle,
 #cim-widget-data .views-row-1.busy .status-triangle {
   background-color: #EBB560;
 }
-/* line 291, ../sass/cim-chat.scss */
+/* line 293, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .cim-widget-wrapper.busy .button-speech-icon,
 body.page-cim-chat-integration .views-row-1.busy .button-speech-icon,
 #cim-widget-data .cim-widget-wrapper.busy .button-speech-icon,
 #cim-widget-data .views-row-1.busy .button-speech-icon {
   background-image: url('../img/cim_chat_speech_orange.svg?1585567644');
 }
-/* line 297, ../sass/cim-chat.scss */
+/* line 299, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .button-wrapper,
 #cim-widget-data .button-wrapper {
   display: inline-block;
   position: relative;
 }
-/* line 302, ../sass/cim-chat.scss */
+/* line 304, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .start-chat-button,
 #cim-widget-data .start-chat-button {
   background-color: #4d4d4d;
@@ -397,12 +399,12 @@ body.page-cim-chat-integration .start-chat-button,
   text-align: center;
   transition-duration: 250ms;
 }
-/* line 317, ../sass/cim-chat.scss */
+/* line 319, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .start-chat-button:hover,
 #cim-widget-data .start-chat-button:hover {
   background-color: #b3b3b3;
 }
-/* line 321, ../sass/cim-chat.scss */
+/* line 323, ../sass/cim-chat.scss */
 body.page-cim-chat-integration .button-subtext,
 #cim-widget-data .button-subtext {
   font-size: 1em;
