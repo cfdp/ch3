@@ -160,47 +160,28 @@ var cimWidgetIntegrator = {},
     }
   };
 
-
+  /**
+   * Handles updates to initiated chat sessions
+   *
+   * Calculates the proper closed/busy/ready states for the widget
+   */
   cimWidgetIntegrator.cim_chatSingleChatStatusUpdate = function (event) {
     var status;
     if (event) {
-      if (event.detail.status) {
-        status = event.detail.status;
-      }
-      else if (event.detail.queueStatus && (event.detail.queueStatus === 'Ready')) {
+      if (event.detail.queueStatus && (event.detail.queueStatus === 'Ready')) {
         status = 'Busy';
+      }
+      // This is needed to prevent the widget from displaying "Busy" after initiating
+      // a chat in the closed state. cm_status is set to "Busy" in that case...
+      else if (event.detail.status && event.detail.status === 'Busy' && !event.detail.isChatReady) {
+        status = 'Closed';
+      }
+      else if (event.detail.status) {
+        status = event.detail.status;
       }
       cimWidgetIntegrator.cim_chatBuildTemplateValues(status);
       return;
     }
-    // var id = ((undefined === cm_chatId) || (cm_chatId === 0)) ? null : cm_chatId,
-    //     btnId = id ? '.' + cimChat.cssClassName : '',
-    //     shortName = id ? cimChat.shortName : '';
-
-    // if (!cm_QueueStatus && cimChatStatus != 'single-chat-queue-signup' && cm_status === 'Activ' ) {
-    //   // Start monitoring the queue position
-    //   cimChatStatus = 'single-chat-queue-signup';
-    //   cm_StartQueuTimer();
-    // }
-    // if (cm_status === 'Activ') {
-    //   // show the minimize chat panel icon
-    //   $('.cm-Chat-header-menu-left').css('display', 'inline');
-    // }
-    // if (cm_QueueNumber === 0 || cm_status === 'Ready') {
-    //   cimChatStatus =  'single-chat-active';
-    // }
-    // if (cm_QueueNumber > 0 ) {
-    //   // The moment the user enters the queue we 
-    //   // - set the cimChatCookie
-    //   // - hide the three dots fetching status animation 
-    //   if (cimChatStatus === 'single-chat-queue-signup') {
-    //     cimWidgetIntegrator.cim_chatSetCookie(cm_chatId);
-    //     cimChatStatus = 'single-chat-queue';
-    //     $(btnId + ' .cim-dot').hide();
-        
-    //   }
-    // }
-    // cimWidgetIntegrator.cim_chatButtonUpdate(cm_chatId);
   };
 
   
