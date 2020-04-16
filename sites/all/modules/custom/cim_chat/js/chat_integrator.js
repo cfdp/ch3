@@ -1,9 +1,9 @@
-var chatWidgetServerURL,
-    el = document.querySelector('#cim-widget-data');
-chatWidgetServerURL = el.getAttribute('data-test-url') || "https://cyberhus.dk";
+var el = document.querySelector('#cim-widget-data'),
+	chatWidgetServerURL = el.getAttribute('data-test-url') || "https://cyberhus.dk",
+	chatServerUrl = 'https://chattest.ecmr.biz';
   
 function loadCssFiles(){
-  var cssFiles = [chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/css/cim-chat.css","https://chat.ecmr.biz/Content/chatclient/cm.chatclient.css"];
+  var cssFiles = [chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/css/cim-chat.css", chatServerUrl + "/Content/chatclient/cm.chatclient.css"];
   cssFiles.forEach(element => {
     $("<link/>", {
       rel: "stylesheet",
@@ -46,8 +46,8 @@ function loadCssFiles(){
 }( typeof global !== "undefined" ? global : this ));
 
 
-// Load CSS once jQuery is ready
-if (typeof jQuery == 'undefined') {
+// Load CSS once jQuery is ready and make sure the parseHTML function is available
+if ((typeof jQuery == 'undefined')) {
   loadJS("https://code.jquery.com/jquery-1.8.3.min.js", true, function() {
     loadCssFiles();
   });

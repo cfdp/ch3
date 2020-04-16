@@ -1,17 +1,8 @@
-var cimWidgetIntegrator = {},
-    cimChatStatus; /* This status is used in the cimChatUpdate event and 
-                    * in the Opeka Widgets module and can have the following values:
-                    * - 'no-chats-defined': no cim chats defined in data.js
-                    * - 'closed': all cim chats are closed
-                    * - 'by-id-active': at least one chat is "Ready" or "Activ"
-                    * - 'single-chat-queue': the user is queuing for chat
-                    * - 'single-chat-queue-signup': the user is in the process of queuing for chat
-                    * - 'single-chat-active': the counselor has "taken" the conversation
-                    */ 
+var cimWidgetIntegrator = {};
 
 (function ($) {
   var cimChat = {},
-      chatServerURL = "https://chat.ecmr.biz/ChatClient/",
+      chatServerURL = "https://chattest.ecmr.biz",
       chatWidgetDataHost = $('#cim-widget-data').data('test-url') || "https://cyberhus.dk",
       cmSingleChatStatusListener,
       cmUpdatePositionInQueueListener; // Listeners for event from the CIM chat server
@@ -19,7 +10,7 @@ var cimWidgetIntegrator = {},
   // Add wrapper for widget to DOM and load widget once the external CIM chat script is loaded
   if (!$('body').hasClass('add-cim-widget-page-widget-processed')) {
     $('body').addClass('add-cim-widget-page-widget-processed');
-    $.getScript( "https://chat.ecmr.biz/Scripts/chatclient/cm.chatclient.js" )
+    $.getScript( chatServerURL + "/Scripts/chatclient/cm.chatclient.js" )
       .done(function( script, textStatus ) {
           cimWidgetIntegrator.cim_chatSetupSingleChatAssets();
         })
@@ -112,7 +103,7 @@ var cimWidgetIntegrator = {},
     // Remove the status by id listener as it interferes with single chat mode
     document.removeEventListener('cmStatusByChatIdsUpdated', cimWidgetIntegrator.cmStatusByIdListener);
     // Initiate chat client, add listeners and start chat
-    cm_InitiateChatClient(id, chatServerURL + 'Index');
+    cm_InitiateChatClient(id, chatServerURL + '/ChatClient/Index');
     cimWidgetIntegrator.cim_chatSetupSingleChatListeners(id);
     cimWidgetIntegrator.cim_chatStartChat(id);
     return false;
@@ -300,8 +291,9 @@ var cimWidgetIntegrator = {},
  
       if (id && attachWidgetlisteners) {
         var chatIds = { 'chatIds': id };
-        cm_InitiateChatStatus(chatIds,  chatServerURL + 'StatusIndex');
+        cm_InitiateChatStatus(chatIds,  chatServerURL + '/ChatClient/StatusIndex');
         cimWidgetIntegrator.cim_chatAddListenerStatusById();
+        cm_StatusByChatIds(chatIds);
       }
     };
     setTimeout(setupCimHelper, 1, id);

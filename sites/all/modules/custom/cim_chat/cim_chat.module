@@ -6,6 +6,7 @@
 function cim_chat_preprocess_html(&$variables) {
   // Don't add global chat widget on admin pages or other pages where the single chat widget is implemented
   $single_page_widget = null;
+  $chat_server_url = 'https://chattest.ecmr.biz';
 
   if ($node = menu_get_object()) {
     $single_page_widget = field_get_items('node', $node, 'field_cim_chat_integration');
@@ -19,7 +20,7 @@ function cim_chat_preprocess_html(&$variables) {
     return;
   }
   // Add remote CIM assets
-  drupal_add_css('https://chat.ecmr.biz/Content/chatclient/cm.chatclient.css', array('type' => 'external'));
+  drupal_add_css($chat_server_url . '/Content/chatclient/cm.chatclient.css', array('type' => 'external'));
   // Add local assets
   drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/dot-flashing.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
   drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/cim-chat.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));

@@ -10,7 +10,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
 
 (function ($, Drupal) {
   var cimChats = {},
-      chatServerURL = "https://chat.ecmr.biz/ChatClient/",
+      chatServerURL = "https://chattest.ecmr.biz",
       globalWidgetDataHost = location.protocol + '//' + location.hostname,
       cmStatusByIdListener,
       cmSingleChatStatusListener,
@@ -21,7 +21,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
 
       // Add wrapper for widget to DOM and load widget once the external CIM chat script is loaded
       $('body', context).once('add-cim-widget', function () {
-        $.getScript( "https://chat.ecmr.biz/Scripts/chatclient/cm.chatclient.js" )
+        $.getScript( chatServerURL + "/Scripts/chatclient/cm.chatclient.js" )
           .done(function( script, textStatus ) {
               Drupal.behaviors.cim_chatSetupStatusByIdAssets();
             })
@@ -125,7 +125,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
       
       // Get the status of the chats we are monitoring
       // Note: CIM chat does not support monitoring multiple serverURLs simultaneously (eg. test and production)
-      cm_InitiateChatStatus(cimChatIdsObj, chatServerURL + 'StatusIndex');
+      cm_InitiateChatStatus(cimChatIdsObj, chatServerURL + '/ChatClient/StatusIndex');
     }
   };
   
@@ -240,7 +240,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
   Drupal.behaviors.cim_chatStartChat  = function(id,hideChat) {
     var chatTitle = cimChats[id].longName;
 
-    cm_InitiateChatClient(id, chatServerURL + 'Index');
+    cm_InitiateChatClient(id, chatServerURL + '/ChatClient/Index');
 
     // Start chat if we are ready
     var i = 0;
