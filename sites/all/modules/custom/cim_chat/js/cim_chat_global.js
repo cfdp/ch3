@@ -122,7 +122,6 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
         '<iframe class="cm-Chat-container" src="" style="vertical-align:top;"></iframe></div>');
   
       Drupal.behaviors.cim_chatAddListenerStatusById();
-      
       // Get the status of the chats we are monitoring
       // Note: CIM chat does not support monitoring multiple serverURLs simultaneously (eg. test and production)
       cm_InitiateChatStatus(cimChatIdsObj, chatServerURL + '/ChatClient/StatusIndex');
@@ -307,16 +306,19 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
     $( document ).trigger( "cimChatUpdate", [ cimChatStatus, longName, cm_QueueNumber ] );
     // Re-render chat, update button state and setup statusById updates
     Drupal.behaviors.cim_chatButtonUpdate(cm_chatId);
+    $(cm_chatId.cssClassName + ' .cim-dot').hide();
     cm_chatId = null;
     Drupal.behaviors.cim_chatSetupStatusByIdAssets();
   };
 
   Drupal.behaviors.cim_chatButtonUpdate = function(id) {
-    var btnId = '.' + cimChats[id].cssClassName,
+    var btnId = cimChats[id]
+        ? ('.' + cimChats[id].cssClassName)
+        : '',
       statusText = '',
       dataChatStatus = 'Ready',
       queueNumber = '';
-    if (!cm_QueueStatus && (cm_status === 'Activ' || cm_status === '' )) {
+    if (!cm_QueueStatus && (cm_status === 'Activ' || cm_status === 'NotLoaded' )) {
       // Show the fetching state animation until we get the queue status
       $(btnId + ' .cim-dot').css('display', 'inline-block');
     }
