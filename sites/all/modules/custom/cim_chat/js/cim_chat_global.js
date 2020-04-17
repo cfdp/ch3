@@ -57,7 +57,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
       Drupal.behaviors.cim_chatSingleChatStatusUpdate(event);
     };
     // Event listener for ongoing single chat queue status updates
-    document.addEventListener("cmChatStatus", cmSingleChatStatusListener, true);  
+    document.addEventListener("cmChatStatusEvent", cmSingleChatStatusListener, true);
   };
 
   Drupal.behaviors.cim_chatAddListenerCmUpdatePositionInQueue = function() {
@@ -65,7 +65,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
       Drupal.behaviors.cim_chatSingleChatStatusUpdate(event);
     };
     // Event listener for ongoing single chat queue status updates
-    document.addEventListener("cmUpdatePositionInQueueEvent", cmUpdatePositionInQueueListener, true);  
+    document.addEventListener("cmUpdatePositionInQueueEvent", cmUpdatePositionInQueueListener, true);
   };
 
   Drupal.behaviors.cim_chatSetupStatusByIdAssets = function () {
@@ -134,7 +134,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
       Drupal.behaviors.cim_chatStatusByChatIdsUpdated(event);
     };
     // Listen for updates from the list of chats we have embedded
-    document.addEventListener("cmStatusByChatIdsUpdated", cmStatusByIdListener, true);  
+    document.addEventListener("cmStatusByChatIdsUpdatedEvent", cmStatusByIdListener, true);
   };
 
   Drupal.behaviors.cim_chatSetupSingleChatAssets = function(callback) {
@@ -222,7 +222,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
 
     if (status === 'Ready') {
       // Remove the listener for StatusById as it interferes with single chat mode
-      document.removeEventListener('cmStatusByChatIdsUpdated', cmStatusByIdListener);
+      document.removeEventListener('cmStatusByChatIdsUpdatedEvent', cmStatusByIdListener);
       $('.iframeWrapper.cim-status').remove();
       Drupal.behaviors.cim_chatButtonUpdate(id);
       // Initiate chat (puts user in queue)
@@ -301,7 +301,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
     cm_QueueStatus = null;
     // Remove event listeners
     document.removeEventListener('cmUpdatePositionInQueueEvent', cmUpdatePositionInQueueListener);
-    document.removeEventListener('cmChatStatus', cmSingleChatStatusListener);
+    document.removeEventListener('cmChatStatusEvent', cmSingleChatStatusListener);
     // Update ribbon widget immediately
     cimChatStatus = 'by-id-active';
     $( document ).trigger( "cimChatUpdate", [ cimChatStatus, longName, cm_QueueNumber ] );

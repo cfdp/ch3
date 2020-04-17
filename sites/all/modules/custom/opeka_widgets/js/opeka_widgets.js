@@ -90,7 +90,6 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
 
         // Add event handler for listening to updates from the CIM chat
         $( document ).on( "cimChatUpdate", function( event, cimActive, chatName, queueNumber ) {
-          console.log('cimchatupdate called..')
           var cimMiniStatus = '',
             queueNumber = (cimActive === 'single-chat-queue') ? queueNumber : '';
 

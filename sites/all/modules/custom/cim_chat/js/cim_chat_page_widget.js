@@ -101,7 +101,7 @@ var cimWidgetIntegrator = {};
     event.preventDefault();
 
     // Remove the status by id listener as it interferes with single chat mode
-    document.removeEventListener('cmStatusByChatIdsUpdated', cimWidgetIntegrator.cmStatusByIdListener);
+    document.removeEventListener('cmStatusByChatIdsUpdatedEvent', cimWidgetIntegrator.cmStatusByIdListener);
     // Initiate chat client, add listeners and start chat
     cm_InitiateChatClient(id, chatServerURL + '/ChatClient/Index');
     cimWidgetIntegrator.cim_chatSetupSingleChatListeners(id);
@@ -147,7 +147,7 @@ var cimWidgetIntegrator = {};
 
       // Remove event listeners for ongoing chat mode
       document.removeEventListener('cmUpdatePositionInQueueEvent', cmUpdatePositionInQueueListener);
-      document.removeEventListener('cmChatStatus', cmSingleChatStatusListener);
+      document.removeEventListener('cmChatStatusEvent', cmSingleChatStatusListener);
     }
   };
 
