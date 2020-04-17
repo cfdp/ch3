@@ -36,7 +36,7 @@ var cimWidgetIntegrator = {};
       cimWidgetIntegrator.cim_chatSingleChatStatusUpdate(event);
     };
     // Event listener for ongoing single chat status updates
-    document.addEventListener("cmChatStatus", cmSingleChatStatusListener, true);
+    document.addEventListener("cmChatStatusEvent", cmSingleChatStatusListener, true);
   };
 
   /*
@@ -46,7 +46,7 @@ var cimWidgetIntegrator = {};
     cimWidgetIntegrator.cmStatusByIdListener = function (event) {
       cimWidgetIntegrator.cim_chatStatusByChatIdsUpdated(event);
     };
-    document.addEventListener("cmStatusByChatIdsUpdated", cimWidgetIntegrator.cmStatusByIdListener, true);
+    document.addEventListener("cmStatusByChatIdsUpdatedEvent", cimWidgetIntegrator.cmStatusByIdListener, true);
   };
 
   /*
