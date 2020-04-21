@@ -2,11 +2,20 @@
 
 /**
   * Add assets to show the chat - javascript, stylesheets etc.
+  * Don't add global chat widget on admin pages or other pages where the single chat widget is implemented
   */
 function cim_chat_preprocess_html(&$variables) {
-  // Don't add global chat widget on admin pages or other pages where the single chat widget is implemented
+
   $single_page_widget = null;
-  $chat_server_url = 'https://chattest.ecmr.biz';
+  // Check if we are in test mode
+  $cim_chat_test_mode_active = variable_get('cim_chat_test_mode_active', 0);
+  $chat_server_url = $cim_chat_test_mode_active
+    ? 'https://chattest.ecmr.biz'
+    : 'https://chat.ecmr.biz';
+  // Settings to expose to the JavaScript client.
+  $settings['cim_chat_test_mode_active'] = $cim_chat_test_mode_active;
+    // Add js settings
+  drupal_add_js(array('cim_chat' => $settings), 'setting');
 
   if ($node = menu_get_object()) {
     $single_page_widget = field_get_items('node', $node, 'field_cim_chat_integration');
@@ -28,7 +37,7 @@ function cim_chat_preprocess_html(&$variables) {
 }
 
 /**
- * Helper function for the View that generates the JSONP
+ * Helper function for the View that generates the JSONP data
  * 
  * Takes a paragraph item ID and returns the opening hours in a themed item list
  */
@@ -49,4 +58,69 @@ function cim_chat_get_opening_hours($paragraph_id) {
     }
     return theme('item_list', array('items' => $opening_hours));
   }
+}
+
+ /**
+ * Implements hook_permission().
+ */
+function cim_chat_permission() {
+  return array(
+    'administer cim chat integration settings' => array(
+      'title' => t('Administer the CIM chat integration settings'),
+      'description' => t('Grants a user access to the settings of the CIM chat integration.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function cim_chat_menu() {
+  $items = array();
+
+  $items['admin/config/services/cim_chat'] = array(
+    'title' => 'CIM chat integration',
+    'description' => 'Administration pages for CIM chat integration.',
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 1,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('cim_chat_admin'),
+    'access arguments' => array('administer cim chat integration'),
+  );
+  return $items;
+}
+
+/**
+ * Add fields for the admin page.
+ */
+function cim_chat_admin() {
+  $form = array();
+
+  // $form['cim_chat_test_url'] = array(
+  //   '#type' => 'textfield',
+  //   '#title' => t('Enter the test URL of the CIM chat.'),
+  //   '#description' => t('Enter a valid URL, please.'),
+  //   '#required' => TRUE,
+  //   '#size' => 64,
+  //   '#default_value' => variable_get('cim_chat_test_url', 'https://chattest.ecmr.biz'),
+  //   '#maxlength' => 32,
+  // );
+  $form['cim_chat_test_mode_active'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Activate test mode'),
+    '#default_value' => variable_get('cim_chat_test_mode_active', 0),
+    '#description' => t('Activate test mode for the CIM chat. This means only chat integrations with the "Test"-checkbox ticked of will be active.'),
+  );
+  //$form['#validate'][] = 'cim_chat_test_url_validate';
+
+  return system_settings_form($form);
+}
+
+/**
+ * Validate the admin page form.
+ */
+function cim_chat_test_url_validate($form, &$form_state) {
+  // if (!valid_url($form_state['values']['cim_chat_test_url'], true)) {
+  //   form_set_error('cim_chat_test_url',t('The URL you entered was not correctly formatted. Please enter a valid URL.'));
+  // }
 }
