@@ -114,7 +114,6 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
           cimChats[key] = subObj;
         }
       }
-      console.dir(cimChats);
       if (!cimChats) {
         console.warn('Local CIM chat id data could not be loaded. Eventlistener not added.');
         cimChatStatus = 'no-chats-defined';
@@ -187,14 +186,14 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
     var id = object.id;
     var className = cimChats[id].cssClassName;
     var btnId = '.' + className;
-    // We set the cimChatStatus to 'by-id-active' if any of the chats are ready / active.
-    if (status === 'Ready' || status === 'Activ') {
+    // We set the cimChatStatus to 'by-id-active' if any of the chats are ready / active / Busy.
+    if (status === 'Ready' || status === 'Activ' || status === 'Busy') {
       cimChatStatus = 'by-id-active';
     }
 
-    // Set status text. If status is closed or busy, remove button
+    // Set status text. If status is closed or busyOffline, remove button
     if ($(btnId)[0]) { 
-      if (status === 'Closed' || status === 'Busy' || status === 'BusyOffline') {
+      if (status === 'Closed' || status === 'BusyOffline') {
         $(btnId).remove();
       }
       // 
@@ -203,8 +202,8 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
       $(btnId).attr('data-chat-status', status);
       return;
     }
-    // Don't setup buttons in the closed or busy states
-    if (status === 'Closed' || status === 'Busy' || status === 'BusyOffline') {
+    // Don't setup buttons in the closed or busyOffline states
+    if (status === 'Closed' || status === 'BusyOffline') {
       return;
     }
     // Create status button
