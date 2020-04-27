@@ -1,6 +1,6 @@
 var el = document.querySelector('#cim-widget-data'),
-	chatWidgetServerURL = el.getAttribute('data-test-url') || "https://cyberhus.dk",
-	chatServerUrl = 'https://chattest.ecmr.biz';
+	chatWidgetServerURL = el.getAttribute('data-cyberhus-test-url') || "https://cyberhus.dk",
+	chatServerUrl = el.getAttribute('data-cim-test-url') || 'https://chat.ecmr.biz';
   
 function loadCssFiles(){
   var cssFiles = [chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/css/cim-chat.css", chatServerUrl + "/Content/chatclient/cm.chatclient.css"];
