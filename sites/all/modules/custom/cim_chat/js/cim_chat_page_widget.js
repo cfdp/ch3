@@ -2,8 +2,9 @@ var cimWidgetIntegrator = {};
 
 (function ($) {
   var cimChat = {},
-      chatServerURL = "https://chattest.ecmr.biz",
-      chatWidgetDataHost = $('#cim-widget-data').data('test-url') || "https://cyberhus.dk",
+      chatServerURL = $('#cim-widget-data').data('cim-test-url') || "https://chat.ecmr.biz",
+      chatWidgetDataHost = $('#cim-widget-data').data('cyberhus-test-url') || "https://cyberhus.dk",
+      chatShortName = $('#cim-widget-data').data('shortname') + '-cim-chat',
       cmSingleChatStatusListener,
       cmUpdatePositionInQueueListener; // Listeners for event from the CIM chat server
 
@@ -185,6 +186,7 @@ var cimWidgetIntegrator = {};
     var chatNode = fields[0].node,
         values = {
           chatLongName: chatNode.field_cim_chat_name,
+          chatShortName: chatShortName,
           closeWindowText: "Afslut",
           chatDescription: chatNode.field_cim_chat_description,
           chatOpeningHours: chatNode.php,
@@ -197,7 +199,7 @@ var cimWidgetIntegrator = {};
     cimChat = values;
     cimWidgetIntegrator.cim_chatUpdateTemplate(values, true);
     // Add event handlers for starting, minimizing, maximising and closing chat
-    $( '#cim-widget-data' ).on('click', '#'+cimChat.chatId, {id: cimChat.chatId}, cimWidgetIntegrator.cim_chatHandleChatBtnClick);
+    $( '#cim-widget-data' ).on('click', '#'+chatShortName, {id: cimChat.chatId}, cimWidgetIntegrator.cim_chatHandleChatBtnClick);
     // minimize
     $( '#cim-mobility-chat' ).on('click', '.cm-Chat-header-menu-left', function() {
       $( '.cm-Chat-container' ).slideUp();
@@ -259,6 +261,7 @@ var cimWidgetIntegrator = {};
     var id = newValues.chatId || null,
         values = {
           chatLongName: newValues.chatLongName || cimChat.chatLongName,
+          chatShortName: chatShortName,
           closeWindowText: newValues.closeWindowText || cimChat.closeWindowText,
           closeState: newValues.closeState || cimChat.closeWindowText,
           chatDescription: newValues.chatDescription || cimChat.chatDescription,
@@ -338,7 +341,7 @@ var cimWidgetIntegrator = {};
         '<div class="button-and-text">' +
           '<div class="button-wrapper">' +
             '<div class="button-speech-icon"></div>' +
-            '<div data-id="chatId" class="start-chat-button" data-content="buttonText"></div>' +
+            '<div data-id="chatShortName" class="start-chat-button" data-content="buttonText"></div>' +
           '</div>' +
           '<p class="button-subtext">Anonym og professionel rådgivning</p>' +
         '</div>' +

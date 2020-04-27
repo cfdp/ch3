@@ -92,6 +92,8 @@ function cim_chat_menu() {
 
 /**
  * Add fields for the admin page.
+ * 
+ * Adds possibilty of engaging in test mode.
  */
 function cim_chat_admin() {
   $form = array();
