@@ -2,8 +2,8 @@ name = Cim Chat integration
 description = Adds the CIM mobility chat to the Drupal site.
 core = 7.x
 package = CfDP Helper Modules
+configure = admin/config/services/cim_chat
 
 files[] = cim_chat.module
 # files[] = cim_chat.admin.inc
 
-# configure = admin/config/services/cim_chat

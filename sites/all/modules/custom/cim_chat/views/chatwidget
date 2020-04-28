@@ -176,15 +176,34 @@ $handler->display->display_options['fields']['field_cim_chat_url_name']['field']
 $handler->display->display_options['fields']['field_cim_chat_url_name']['label'] = '';
 $handler->display->display_options['fields']['field_cim_chat_url_name']['element_label_colon'] = FALSE;
 $handler->display->display_options['defaults']['arguments'] = FALSE;
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filterkriterie: Paragraphs item: Bundle */
+$handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+$handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+$handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+$handler->display->display_options['filters']['bundle']['value'] = array(
+  'cim_chat_integration' => 'cim_chat_integration',
+);
+/* Filterkriterie: Paragraphs item: Test-chat (field_cim_chat_test) */
+$handler->display->display_options['filters']['field_cim_chat_test_value']['id'] = 'field_cim_chat_test_value';
+$handler->display->display_options['filters']['field_cim_chat_test_value']['table'] = 'field_data_field_cim_chat_test';
+$handler->display->display_options['filters']['field_cim_chat_test_value']['field'] = 'field_cim_chat_test_value';
+$handler->display->display_options['filters']['field_cim_chat_test_value']['operator'] = 'not';
+$handler->display->display_options['filters']['field_cim_chat_test_value']['value'] = array(
+  1 => '1',
+);
 $handler->display->display_options['path'] = 'cim-chat-json';
 
 /* Display: JSONP feed */
 $handler = $view->new_display('page', 'JSONP feed', 'page_2');
 $handler->display->display_options['defaults']['style_plugin'] = FALSE;
 $handler->display->display_options['style_plugin'] = 'views_json';
+$handler->display->display_options['style_options']['root_object'] = '';
 $handler->display->display_options['style_options']['plaintext_output'] = 0;
 $handler->display->display_options['style_options']['remove_newlines'] = 0;
-$handler->display->display_options['style_options']['jsonp_prefix'] = 'static_chat_data';
+$handler->display->display_options['style_options']['jsonp_prefix'] = 'callback';
+$handler->display->display_options['style_options']['content_type'] = 'application/javascript';
 $handler->display->display_options['style_options']['using_views_api_mode'] = 0;
 $handler->display->display_options['style_options']['translate_labels'] = 0;
 $handler->display->display_options['style_options']['object_arrays'] = 0;
@@ -203,7 +222,6 @@ $handler->display->display_options['fields']['field_cim_chat_name']['id'] = 'fie
 $handler->display->display_options['fields']['field_cim_chat_name']['table'] = 'field_data_field_cim_chat_name';
 $handler->display->display_options['fields']['field_cim_chat_name']['field'] = 'field_cim_chat_name';
 $handler->display->display_options['fields']['field_cim_chat_name']['label'] = '';
-$handler->display->display_options['fields']['field_cim_chat_name']['alter']['alter_text'] = TRUE;
 $handler->display->display_options['fields']['field_cim_chat_name']['alter']['text'] = '<h2 class="title">[field_cim_chat_name]</h2>';
 $handler->display->display_options['fields']['field_cim_chat_name']['element_type'] = 'h1';
 $handler->display->display_options['fields']['field_cim_chat_name']['element_class'] = 'title';
@@ -382,6 +400,76 @@ $handler->display->display_options['fields']['item_id']['label'] = '';
 $handler->display->display_options['fields']['item_id']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['item_id']['separator'] = '';
 $handler->display->display_options['path'] = 'cim-chat-jsonp2/%';
+
+/* Display: JSON feed TEST */
+$handler = $view->new_display('page', 'JSON feed TEST', 'page_4');
+$handler->display->display_options['defaults']['style_plugin'] = FALSE;
+$handler->display->display_options['style_plugin'] = 'views_json';
+$handler->display->display_options['style_options']['grouping'] = array(
+  0 => array(
+    'field' => 'field_cim_chat_id',
+  ),
+);
+$handler->display->display_options['style_options']['root_object'] = 'cimChats';
+$handler->display->display_options['style_options']['plaintext_output'] = 1;
+$handler->display->display_options['style_options']['remove_newlines'] = 0;
+$handler->display->display_options['style_options']['jsonp_prefix'] = '';
+$handler->display->display_options['style_options']['using_views_api_mode'] = 0;
+$handler->display->display_options['style_options']['translate_labels'] = 0;
+$handler->display->display_options['style_options']['object_arrays'] = 0;
+$handler->display->display_options['style_options']['numeric_strings'] = 0;
+$handler->display->display_options['style_options']['bigint_string'] = 0;
+$handler->display->display_options['style_options']['pretty_print'] = 0;
+$handler->display->display_options['style_options']['unescaped_slashes'] = 0;
+$handler->display->display_options['style_options']['unescaped_unicode'] = 0;
+$handler->display->display_options['style_options']['char_encoding'] = array();
+$handler->display->display_options['defaults']['style_options'] = FALSE;
+$handler->display->display_options['defaults']['row_plugin'] = FALSE;
+$handler->display->display_options['defaults']['row_options'] = FALSE;
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Felt: Paragraphs item: Chat ID */
+$handler->display->display_options['fields']['field_cim_chat_id']['id'] = 'field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['table'] = 'field_data_field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['field'] = 'field_cim_chat_id';
+$handler->display->display_options['fields']['field_cim_chat_id']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_id']['element_label_colon'] = FALSE;
+/* Felt: Paragraphs item: Chatnavn */
+$handler->display->display_options['fields']['field_cim_chat_name']['id'] = 'field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['table'] = 'field_data_field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['field'] = 'field_cim_chat_name';
+$handler->display->display_options['fields']['field_cim_chat_name']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_name']['element_label_colon'] = FALSE;
+/* Felt: Paragraphs item: Global chatwidget placering */
+$handler->display->display_options['fields']['field_global_widget_location']['id'] = 'field_global_widget_location';
+$handler->display->display_options['fields']['field_global_widget_location']['table'] = 'field_data_field_global_widget_location';
+$handler->display->display_options['fields']['field_global_widget_location']['field'] = 'field_global_widget_location';
+$handler->display->display_options['fields']['field_global_widget_location']['label'] = '';
+$handler->display->display_options['fields']['field_global_widget_location']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_global_widget_location']['type'] = 'taxonomy_term_reference_plain';
+/* Felt: Paragraphs item: URL navn */
+$handler->display->display_options['fields']['field_cim_chat_url_name']['id'] = 'field_cim_chat_url_name';
+$handler->display->display_options['fields']['field_cim_chat_url_name']['table'] = 'field_data_field_cim_chat_url_name';
+$handler->display->display_options['fields']['field_cim_chat_url_name']['field'] = 'field_cim_chat_url_name';
+$handler->display->display_options['fields']['field_cim_chat_url_name']['label'] = '';
+$handler->display->display_options['fields']['field_cim_chat_url_name']['element_label_colon'] = FALSE;
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filterkriterie: Paragraphs item: Bundle */
+$handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+$handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+$handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+$handler->display->display_options['filters']['bundle']['value'] = array(
+  'cim_chat_integration' => 'cim_chat_integration',
+);
+/* Filterkriterie: Paragraphs item: Test-chat (field_cim_chat_test) */
+$handler->display->display_options['filters']['field_cim_chat_test_value']['id'] = 'field_cim_chat_test_value';
+$handler->display->display_options['filters']['field_cim_chat_test_value']['table'] = 'field_data_field_cim_chat_test';
+$handler->display->display_options['filters']['field_cim_chat_test_value']['field'] = 'field_cim_chat_test_value';
+$handler->display->display_options['filters']['field_cim_chat_test_value']['value'] = array(
+  1 => '1',
+);
+$handler->display->display_options['path'] = 'cim-chat-json-test';
 $translatables['cim_chat_integration'] = array(
   t('Master'),
   t('CIM chat widget'),
@@ -411,4 +499,5 @@ $translatables['cim_chat_integration'] = array(
   t('<h2 class="title">[field_cim_chat_name]</h2>'),
   t('.'),
   t('JSONP feed 2'),
+  t('JSON feed TEST'),
 );
