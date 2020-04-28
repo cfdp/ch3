@@ -38,6 +38,7 @@
 function opeka_widgets_preprocess_html(&$variables) {
   // Don't add widgets on admin sections or pages where the single chat widget is implemented
   $single_page_widget = null;
+  $single_page_widget2 = null;
   if ($node = menu_get_object()) {
     $single_page_widget = field_get_items('node', $node, 'field_cim_chat_integration');
     $single_page_widget2 = field_get_items('node', $node, 'field_chat_integration');

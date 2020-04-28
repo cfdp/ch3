@@ -1,25 +1,17 @@
-var cimWidgetIntegrator = {},
-    cimChatStatus; /* This status is used in the cimChatUpdate event and 
-                    * in the Opeka Widgets module and can have the following values:
-                    * - 'no-chats-defined': no cim chats defined in data.js
-                    * - 'closed': all cim chats are closed
-                    * - 'by-id-active': at least one chat is "Ready" or "Activ"
-                    * - 'single-chat-queue': the user is queuing for chat
-                    * - 'single-chat-queue-signup': the user is in the process of queuing for chat
-                    * - 'single-chat-active': the counselor has "taken" the conversation
-                    */ 
+var cimWidgetIntegrator = {};
 
 (function ($) {
   var cimChat = {},
-      chatServerURL = "https://chat.ecmr.biz/ChatClient/",
-      chatWidgetDataHost = $('#cim-widget-data').data('test-url') || "https://cyberhus.dk",
+      chatServerURL = $('#cim-widget-data').data('cim-test-url') || "https://chat.ecmr.biz",
+      chatWidgetDataHost = $('#cim-widget-data').data('cyberhus-test-url') || "https://cyberhus.dk",
+      chatShortName = $('#cim-widget-data').data('shortname') + '-cim-chat',
       cmSingleChatStatusListener,
       cmUpdatePositionInQueueListener; // Listeners for event from the CIM chat server
 
   // Add wrapper for widget to DOM and load widget once the external CIM chat script is loaded
   if (!$('body').hasClass('add-cim-widget-page-widget-processed')) {
     $('body').addClass('add-cim-widget-page-widget-processed');
-    $.getScript( "https://chat.ecmr.biz/Scripts/chatclient/cm.chatclient.js" )
+    $.getScript( chatServerURL + "/Scripts/chatclient/cm.chatclient.js" )
       .done(function( script, textStatus ) {
           cimWidgetIntegrator.cim_chatSetupSingleChatAssets();
         })
@@ -45,7 +37,7 @@ var cimWidgetIntegrator = {},
       cimWidgetIntegrator.cim_chatSingleChatStatusUpdate(event);
     };
     // Event listener for ongoing single chat status updates
-    document.addEventListener("cmChatStatus", cmSingleChatStatusListener, true);
+    document.addEventListener("cmChatStatusEvent", cmSingleChatStatusListener, true);
   };
 
   /*
@@ -55,7 +47,7 @@ var cimWidgetIntegrator = {},
     cimWidgetIntegrator.cmStatusByIdListener = function (event) {
       cimWidgetIntegrator.cim_chatStatusByChatIdsUpdated(event);
     };
-    document.addEventListener("cmStatusByChatIdsUpdated", cimWidgetIntegrator.cmStatusByIdListener, true);
+    document.addEventListener("cmStatusByChatIdsUpdatedEvent", cimWidgetIntegrator.cmStatusByIdListener, true);
   };
 
   /*
@@ -110,9 +102,9 @@ var cimWidgetIntegrator = {},
     event.preventDefault();
 
     // Remove the status by id listener as it interferes with single chat mode
-    document.removeEventListener('cmStatusByChatIdsUpdated', cimWidgetIntegrator.cmStatusByIdListener);
+    document.removeEventListener('cmStatusByChatIdsUpdatedEvent', cimWidgetIntegrator.cmStatusByIdListener);
     // Initiate chat client, add listeners and start chat
-    cm_InitiateChatClient(id, chatServerURL + 'Index');
+    cm_InitiateChatClient(id, chatServerURL + '/ChatClient/Index');
     cimWidgetIntegrator.cim_chatSetupSingleChatListeners(id);
     cimWidgetIntegrator.cim_chatStartChat(id);
     return false;
@@ -156,7 +148,7 @@ var cimWidgetIntegrator = {},
 
       // Remove event listeners for ongoing chat mode
       document.removeEventListener('cmUpdatePositionInQueueEvent', cmUpdatePositionInQueueListener);
-      document.removeEventListener('cmChatStatus', cmSingleChatStatusListener);
+      document.removeEventListener('cmChatStatusEvent', cmSingleChatStatusListener);
     }
   };
 
@@ -194,6 +186,7 @@ var cimWidgetIntegrator = {},
     var chatNode = fields[0].node,
         values = {
           chatLongName: chatNode.field_cim_chat_name,
+          chatShortName: chatShortName,
           closeWindowText: "Afslut",
           chatDescription: chatNode.field_cim_chat_description,
           chatOpeningHours: chatNode.php,
@@ -206,7 +199,7 @@ var cimWidgetIntegrator = {},
     cimChat = values;
     cimWidgetIntegrator.cim_chatUpdateTemplate(values, true);
     // Add event handlers for starting, minimizing, maximising and closing chat
-    $( '#cim-widget-data' ).on('click', '#'+cimChat.chatId, {id: cimChat.chatId}, cimWidgetIntegrator.cim_chatHandleChatBtnClick);
+    $( '#cim-widget-data' ).on('click', '#'+chatShortName, {id: cimChat.chatId}, cimWidgetIntegrator.cim_chatHandleChatBtnClick);
     // minimize
     $( '#cim-mobility-chat' ).on('click', '.cm-Chat-header-menu-left', function() {
       $( '.cm-Chat-container' ).slideUp();
@@ -268,6 +261,7 @@ var cimWidgetIntegrator = {},
     var id = newValues.chatId || null,
         values = {
           chatLongName: newValues.chatLongName || cimChat.chatLongName,
+          chatShortName: chatShortName,
           closeWindowText: newValues.closeWindowText || cimChat.closeWindowText,
           closeState: newValues.closeState || cimChat.closeWindowText,
           chatDescription: newValues.chatDescription || cimChat.chatDescription,
@@ -300,8 +294,9 @@ var cimWidgetIntegrator = {},
  
       if (id && attachWidgetlisteners) {
         var chatIds = { 'chatIds': id };
-        cm_InitiateChatStatus(chatIds,  chatServerURL + 'StatusIndex');
+        cm_InitiateChatStatus(chatIds,  chatServerURL + '/ChatClient/StatusIndex');
         cimWidgetIntegrator.cim_chatAddListenerStatusById();
+        cm_StatusByChatIds(chatIds);
       }
     };
     setTimeout(setupCimHelper, 1, id);
@@ -346,7 +341,7 @@ var cimWidgetIntegrator = {},
         '<div class="button-and-text">' +
           '<div class="button-wrapper">' +
             '<div class="button-speech-icon"></div>' +
-            '<div data-id="chatId" class="start-chat-button" data-content="buttonText"></div>' +
+            '<div data-id="chatShortName" class="start-chat-button" data-content="buttonText"></div>' +
           '</div>' +
           '<p class="button-subtext">Anonym og professionel rådgivning</p>' +
         '</div>' +
