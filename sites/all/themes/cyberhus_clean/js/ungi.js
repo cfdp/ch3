@@ -6,7 +6,7 @@ $(document).ready(function() {
     $(".narrow").parents('.field-item').addClass("narrow-element");
     // Don't add bg class to elements integrating the cim chat
     if (!$(".paragraphs-item-ungi-alm-tekst").hasClass('cim-chat-embedded')) {
-        $(".paragraphs-item-ungi-alm-tekst").parents('.field-item').addClass("add-bg");
+        $(".paragraphs-item-ungi-alm-tekst").parent('.field-item').addClass("add-bg");
     };
     $(".paragraphs-item-ungi-lokale-tilbud").parents('.field-item').addClass("add-bg");
     $(".paragraphs-item-ungi-iframe-embed").parents('.field-item').addClass("add-bg grey");
