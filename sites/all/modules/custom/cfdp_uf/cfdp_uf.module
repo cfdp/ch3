@@ -225,3 +225,21 @@ function cfdp_uf_field_widget_form_alter(&$element, &$form_state, $context) {
 function _filter_max_age($age_term, $max_age = 23) {
   return (int)$age_term > $max_age ? FALSE : TRUE;
 }
+
+/**
+ * Helper function for checking if a node has a certain
+ *
+ * field_base_category term id
+ *
+ */
+function cfdp_uf_check_node_term_id($node_type, $req_tid) {
+  $node=menu_get_object();
+  if (!(isset($node)) || !(isset($node->field_base_category))) {
+    return false;
+  }
+  $type=$node->type;
+  $term_id=$node->field_base_category['und'][0]['target_id'];
+  if ($type == $node_type && $term_id == $req_tid) {
+    return true;
+  }
+}
