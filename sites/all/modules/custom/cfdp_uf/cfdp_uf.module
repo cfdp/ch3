@@ -234,8 +234,9 @@ function _filter_max_age($age_term, $max_age = 23) {
  */
 function cfdp_uf_check_node_term_id($node_type, $req_tid) {
   $node=menu_get_object();
-  if (!(isset($node)) || !(isset($node->field_base_category))) {
-    return false;
+  if (!(isset($node))
+    || !(isset($node->field_base_category['und']))) {
+      return false;
   }
   $type=$node->type;
   $term_id=$node->field_base_category['und'][0]['target_id'];
