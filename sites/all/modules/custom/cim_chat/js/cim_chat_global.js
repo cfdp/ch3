@@ -16,7 +16,8 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
       globalWidgetDataURL,
       cmStatusByIdListener,
       cmSingleChatStatusListener,
-      cmUpdatePositionInQueueListener; // Listeners for event from the CIM chat server
+      cmUpdatePositionInQueueListener,
+      cmConfirmReadyEventListener; // Listeners for event from the CIM chat server
   
   Drupal.behaviors.cim_chat = {
     attach: function (context, settings) {
@@ -29,6 +30,19 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
       $('body', context).once('add-cim-widget', function () {
         $.getScript( chatServerURL + "/Scripts/chatclient/cm.chatclient.js" )
           .done(function( script, textStatus ) {
+              // Check if we have an ongoing chat session for this user
+              var value = localStorage.getItem('cm_GetTokenValue'),
+                  id = sessionStorage.getItem('cimChatSessionId');
+              if (value) {
+                console.log(value);
+                Drupal.behaviors.cim_chatSetupSingleChatAssets(function(err, id) {
+                  if (err) {
+                    console.error(err);
+                    return;
+                  }
+                });
+                return;
+              }
               Drupal.behaviors.cim_chatSetupStatusByIdAssets();
             })
             .fail(function( jqxhr, settings, exception ) {
@@ -45,7 +59,38 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
     // Event listener for ongoing single chat queue status updates
     Drupal.behaviors.cim_chatAddListenerCmUpdatePositionInQueue();
 
-    // Add event handlers for hiding and closing chat
+    // Event listener for when the counselor "takes" a conversation
+    Drupal.behaviors.cim_chatAddListenerCmConfirmReadyEvent();
+
+    // Testing block start
+    document[addEventListener ? 'addEventListener' : 'attachEvent']('cmConfirmedReady', function (event) { 
+      confirmedReady(event); });
+
+    function confirmedReady(event) {
+      console.log('confirmedReady');
+      console.dir(event.detail);
+    }
+
+    document[addEventListener ? 'addEventListener' : 'attachEvent']('cmIsWritingEvent', function (event) { 
+      isWriting(event); });
+
+    function isWriting(event) {
+      console.log('isWriting');
+      console.dir(event.detail);
+    }
+
+    document[addEventListener ? 'addEventListener' : 'attachEvent']('cmChatStartedEvent', function (event) {
+      chatStarted(event); });
+
+    function chatStarted(event) {
+      console.log('chatStarted');
+      console.dir(event.detail);
+    }
+
+    // End testing block
+    
+    // Add event handlers for hiding and closing chat via the button
+    // in the corner of the chat window
     if (!$('.cm-Chat-header-menu-left')[0]) {
       console.warn('Error: Event listeners for chat panel items could not be added.');
     }
@@ -72,6 +117,14 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
     };
     // Event listener for ongoing single chat queue status updates
     document.addEventListener("cmUpdatePositionInQueueEvent", cmUpdatePositionInQueueListener, true);
+  };
+
+  Drupal.behaviors.cim_chatAddListenerCmConfirmReadyEvent = function() {
+    cmConfirmReadyEventListener = function (event) {
+      Drupal.behaviors.cim_chatSingleChatStatusUpdate(event);
+    };
+    // Event listener for when counselor "takes" a conversation
+    document.addEventListener("cmConfirmReadyEvent", cmConfirmReadyEventListener, true);
   };
 
   Drupal.behaviors.cim_chatSetupStatusByIdAssets = function () {
@@ -221,7 +274,8 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
   };
 
   /* 
-   * Initiate chat client and put user in queue
+   * Handle button click
+   * Initiate chat client if chat is ready
    */
   Drupal.behaviors.cim_chatHandleChatBtnClick = function (event) {
     var id = event.data.id,
@@ -229,20 +283,27 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
       status = $(btnId).attr('data-chat-status');
 
     if (status === 'Ready') {
-      // Remove the listener for StatusById as it interferes with single chat mode
-      document.removeEventListener('cmStatusByChatIdsUpdatedEvent', cmStatusByIdListener);
-      $('.iframeWrapper.cim-status').remove();
-      Drupal.behaviors.cim_chatButtonUpdate(id);
-      // Initiate chat (puts user in queue)
-      Drupal.behaviors.cim_chatSetupSingleChatAssets(function(err) {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        Drupal.behaviors.cim_chatStartChat(id);
-        return;
-      });
+      Drupal.behaviors.cim_chatSingleChatInit(id);
     }
+  };
+
+  /*
+   * Remove statusById assets and start a chat
+   */
+  Drupal.behaviors.cim_chatSingleChatInit = function(id) {
+    // Remove the listener for StatusById as it interferes with single chat mode
+    document.removeEventListener('cmStatusByChatIdsUpdatedEvent', cmStatusByIdListener);
+    $('.iframeWrapper.cim-status').remove();
+    Drupal.behaviors.cim_chatButtonUpdate(id);
+    // Initiate chat (puts user in queue)
+    Drupal.behaviors.cim_chatSetupSingleChatAssets(function(err, id) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      Drupal.behaviors.cim_chatStartChat(id);
+      return;
+    });
   };
 
   Drupal.behaviors.cim_chatStartChat  = function(id,hideChat) {
@@ -349,10 +410,18 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
   } 
 
   Drupal.behaviors.cim_chatSingleChatStatusUpdate = function (event) {
+    console.dir(event);
     var id = ((undefined === cm_chatId) || (cm_chatId === 0)) ? null : cm_chatId,
         btnId = id ? '.' + cimChats[id].cssClassName : '',
         longName = id ? cimChats[cm_chatId].longName : '';
 
+    if (event && event.detail.approvalattempt) {
+      if (event.detail.approvalattempt == 1 || event.detail.approvalattempt == 2) {
+          // Counselor takes the conversation - maximise chat window if needed
+          //cimChatStatus =  'single-chat-active';
+          console.log('approvalattemt: ', event.detail.approvalattempt);
+      }
+    }
     if (!cm_QueueStatus && cimChatStatus != 'single-chat-queue-signup' && cm_status === 'Activ' ) {
       // Start monitoring the queue position
       cimChatStatus = 'single-chat-queue-signup';
