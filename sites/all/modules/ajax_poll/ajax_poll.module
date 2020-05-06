@@ -85,7 +85,7 @@ function ajax_poll_callback($type, $node, $teaser, $block) {
   poll_view($node, 'full');
 
   // Reset POST and the $node so that we get fresh copies.
-  unset($_POST);
+  $_POST = array();
   $node = node_load($node->nid, NULL, TRUE);
 
   $view_mode = $teaser ? 'teaser' : 'full';

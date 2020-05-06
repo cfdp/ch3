@@ -158,6 +158,7 @@ function simple_voting_poll_slideshow_view($node, $show_pager_links = TRUE) {
         'attributes' => array(
           'title' => t('View the list of polls on this site.'),
           'class' => array('use-ajax'),
+          'rel' => 'nofollow',
         ),
       );
     }
@@ -168,6 +169,7 @@ function simple_voting_poll_slideshow_view($node, $show_pager_links = TRUE) {
         'attributes' => array(
           'title' => t('View the list of polls on this site.'),
           'class' => array('use-ajax'),
+          'rel' => 'nofollow',
         ),
       );
     }
