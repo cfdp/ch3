@@ -200,7 +200,7 @@ function simple_voting_poll_slideshow_view($node, $show_pager_links = TRUE) {
     'class' => array('content'),
   );
   // Add a specific id for poll-slideshow ajax replacement.
-  if ($node->container_block_is_slideshow) {
+  if (isset($node->container_block_is_slideshow)) {
     $content['#attributes']['id'] = 'poll-ajax-slideshow-block-wrapper';
   }
 
