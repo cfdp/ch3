@@ -57,4 +57,5 @@ else {
 }
 
 loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/cim_chat_page_widget.js", true);
+loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/cim_chat.js", true);
 loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/jquery.loadTemplate.js", true, function() {})

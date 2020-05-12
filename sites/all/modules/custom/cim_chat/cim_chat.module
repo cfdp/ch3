@@ -18,6 +18,7 @@ function cim_chat_preprocess_html(&$variables) {
     // Add js settings
   drupal_add_js(array('cim_chat' => $settings), 'setting');
 
+  //Check if we are on a page implementing the single page widget
   if ($node = menu_get_object()) {
     $single_page_widget = field_get_items('node', $node, 'field_cim_chat_integration');
     $single_page_widget2 = field_get_items('node', $node, 'field_chat_integration');
@@ -34,6 +35,8 @@ function cim_chat_preprocess_html(&$variables) {
   // Add local assets
   drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/dot-flashing.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
   drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/cim-chat.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
+  drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/tmpl.min.js', array('weight' => 10));
+  drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat.js', array('weight' => 10));
   drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat_global.js', array('weight' => 10));
 }
 
