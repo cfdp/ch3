@@ -60,7 +60,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
                 }
                 console.log('no session');
                 // No ongoing chat session, so start watching status
-                Drupal.behaviors.cim_chatSetupStatusByIdAssets();
+                cimChatIntegration.setupStatusByIdAssets();
               });
             })
             .fail(function( jqxhr, settings, exception ) {
@@ -69,46 +69,6 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
       });
     }
   };
-
-  /**
-   * Setup the assets for StatusById mode
-   */
-  Drupal.behaviors.cim_chatSetupStatusByIdAssets = function () {
-    var cimChatIds,
-        cimChatIdsObj;
-
-    cimChatIntegration.fetchLocalChatList(globalWidgetDataURL, function(err, result) {
-
-      if (err) {
-        cimChatStatus = 'no-chats-defined';
-        return;
-      }
-
-      console.log('aaand the keys are');
-      console.dir(result.keys);
-  
-      // skip if the statusById Iframe is set up already or there are no keys.
-      if ($('.iframeWrapper.cim-status')[0] || !result.keys) {
-        return;
-      }
-      
-      cimChatIds = result.keys.join(", ");
-      cimChatIdsObj = { chatIds: cimChatIds };
-      console.dir(cimChatIdsObj)
-      // Add the CIM status iframe and setup event listener
-      $('body').append('<div class="iframeWrapper cim-status">' +
-        '<iframe class="cm-Chat-container" src="" style="vertical-align:top;"></iframe></div>');
-  
-      Drupal.behaviors.cim_chatAddListenerStatusById();
-      // Get the status of the chats we are monitoring
-      // Note: CIM chat does not support monitoring multiple serverURLs simultaneously (eg. test and production)
-      cm_InitiateChatStatus(cimChatIdsObj, chatServerURL + '/ChatClient/StatusIndex');
-    });
-
-
-  };
-
-
   
   Drupal.behaviors.cim_chatAddListenerStatusById = function() {
     cmStatusByIdListener = function (event) {
@@ -153,23 +113,11 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
     }
   };
 
-  Drupal.behaviors.cim_chatCreateStatusButton = function(id, status) {
-    console.log('id er da ' + id);
-    var className = cimChats[id].cssClassName,
-        btnId = '.'+className;
-    $(cimChats[id].domLocation).append('<div class="chat-status ' + className + '" data-chat-status="' + status + '">' + 
-      '<span class="chat-status-title">' + cimChats[id].longName + '</span><span class="queue-status"></span><span class="queue-number"></span>' +
-      '<div class="cim-dot"><div class="dot-flashing"></div></div></div>');
-    // Add click handler
-    $( btnId ).on('click', {id: id}, Drupal.behaviors.cim_chatHandleChatBtnClick);
-  };
-
   /* 
    * Handle button click
    * Initiate chat client if chat is ready
    */
   Drupal.behaviors.cim_chatHandleChatBtnClick = function (event) {
-    console.log('HALLO! id er ' + event);
     console.dir(event.data.id);
     var id = event.data.id,
       btnId = '.' + cimChats[id].cssClassName,
@@ -268,7 +216,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
     Drupal.behaviors.cim_chatButtonUpdate(cm_chatId);
     $(cm_chatId.cssClassName + ' .cim-dot').hide();
     cm_chatId = null;
-    Drupal.behaviors.cim_chatSetupStatusByIdAssets();
+    cimChatIntegration.setupStatusByIdAssets();
   };
 
   Drupal.behaviors.cim_chatButtonUpdate = function(id) {
@@ -300,7 +248,6 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
   } 
 
   Drupal.behaviors.cim_chatSingleChatStatusUpdate = function (event) {
-    console.log('updating singleChatSTatus: ');
     console.dir(event);
     var id = ((cm_chatId === undefined) || (cm_chatId === 0)) ? null : cm_chatId,
         btnId = cimChats[id] ? '.' + cimChats[id].cssClassName : '',

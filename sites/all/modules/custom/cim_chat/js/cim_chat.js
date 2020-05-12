@@ -2,6 +2,8 @@ var cimChatIntegration = {};
 
 (function($, Drupal){
   var cimChats = {},
+      globalWidgetHost = location.protocol + '//' + location.hostname,
+      globalWidgetDataURL = globalWidgetHost + '/cim-chat-json',
       cmSingleChatStatusListener,
       cmUpdatePositionInQueueListener,
       cmConfirmReadyEventListener; // Listeners for events from the CIM chat server
@@ -78,6 +80,14 @@ var cimChatIntegration = {};
       }
       result.keys = keys;
       result.cimChats = cimChats;
+      cimChatIntegration.addTemplates(function(err) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        cimChatIntegration.updateTemplates();
+      });
+      
       callback(null, result);
     } 
   }
@@ -226,4 +236,102 @@ var cimChatIntegration = {};
     cm_QueueNumber = null;
     cm_QueueStatus = null;
   }
+  /**
+   * Add our templates, using Javascript Templates
+   * https://github.com/blueimp/JavaScript-Templates
+   */
+  cimChatIntegration.addTemplates = function(callback) {
+    var path,
+        templates = ['status_button','demo'];
+    templates.forEach(element => {
+      path = '/sites/all/modules/custom/cim_chat/templates/' + element + '.html';
+      $.get( path, function(data) {
+        $( "body" ).append( data );
+      })
+        .done(function(data) {
+          //$( "body" ).append( data );
+          console.log('hej 1 my name is '+ element);
+          callback(null);
+        })
+        .fail(function() {
+          callback('Template ' + element + ' could not be loaded.');
+        })
+    });
+  };
+
+  /**
+   * Update our templates, using Javascript Templates
+   * https://github.com/blueimp/JavaScript-Templates
+   */
+  cimChatIntegration.updateTemplates = function(id) {
+    switch (id) {
+      case 'status_button':
+        if (!$('')[0]){
+          $('body').append(tmpl('', data));
+        }
+        break;
+      default:
+        break;
+    }
+    var data = {
+      title: 'JavaScript Templates',
+      license: {
+        name: 'MIT license',
+        url: 'https://opensource.org/licenses/MIT'
+      },
+      features: ['lightweight & fast', 'powerful', 'zero dependencies']
+    }
+
+    //document.getElementById('block-menu-menu-andet').innerHTML = tmpl('tmpl-demo', data);
+
+  };
+
+
+
+  /**
+   * Setup the assets for StatusById mode
+   */
+  cimChatIntegration.setupStatusByIdAssets = function () {
+    var cimChatIds,
+        cimChatIdsObj;
+
+    cimChatIntegration.fetchLocalChatList(globalWidgetDataURL, function(err, result) {
+
+      if (err) {
+        cimChatStatus = 'no-chats-defined';
+        return;
+      }
+  
+      // skip if the statusById Iframe is set up already or there are no keys.
+      if ($('.iframeWrapper.cim-status')[0] || !result.keys) {
+        return;
+      }
+      $('body').append(
+        '<div class="iframeWrapper cim-status">' +
+          '<iframe class="cm-Chat-container" src="" style="vertical-align:top;"></iframe>' +
+        '</div>'
+      );
+      cimChatIds = result.keys.join(", ");
+      cimChatIdsObj = { chatIds: cimChatIds };
+
+      Drupal.behaviors.cim_chatAddListenerStatusById();
+      // Get the status of the chats we are monitoring
+      // Note: CIM chat does not support monitoring multiple serverURLs simultaneously (eg. test and production)
+      cm_InitiateChatStatus(cimChatIdsObj, chatServerURL + '/ChatClient/StatusIndex');
+
+    });
+
+
+  };
+  Drupal.behaviors.cim_chatCreateStatusButton = function(id, status) {
+    var className = cimChats[id].cssClassName,
+        btnId = '.'+className;
+    $(cimChats[id].domLocation).append('<div class="chat-status ' + className + '" data-chat-status="' + status + '">' + 
+      '<span class="chat-status-title">' + cimChats[id].longName + '</span><span class="queue-status"></span><span class="queue-number"></span>' +
+      '<div class="cim-dot"><div class="dot-flashing"></div></div></div>');
+    // Add click handler
+    $( btnId ).on('click', {id: id}, Drupal.behaviors.cim_chatHandleChatBtnClick);
+  };
+
+
 })(jQuery, Drupal)
