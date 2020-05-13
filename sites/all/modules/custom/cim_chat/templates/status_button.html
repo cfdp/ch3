@@ -1,7 +1,8 @@
-<script type="text/x-tmpl" id="tmpl-status-button">
-    <div class="chat-status {%=o.className%}" data-chat-status="{%=o.status%}"> 
+<script type="text/x-tmpl" id="tmpl_status_button">
+    <div data-chat-status="{%=o.status%}"> 
         <span class="chat-status-title">{%=o.longName%}</span>
-        <span class="queue-status"></span><span class="queue-number"></span>
+        <span class="queue-status">{%=o.queueStatus%}</span>
+        <span class="queue-number">{%=o.queueNumber%}</span>
         <div class="cim-dot">
           <div class="dot-flashing"></div>
         </div>
