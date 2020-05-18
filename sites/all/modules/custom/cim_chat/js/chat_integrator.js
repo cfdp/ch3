@@ -1,11 +1,15 @@
 var el = document.querySelector('#cim-widget-data'),
-	chatWidgetServerURL = el.getAttribute('data-cyberhus-test-url') || "https://cyberhus.dk",
-	chatServerUrl = el.getAttribute('data-cim-test-url') || 'https://chat.ecmr.biz';
+	chatWidgetServerURL = (el && el.getAttribute('data-cyberhus-test-url')) 
+							? el.getAttribute('data-cyberhus-test-url') 
+							: "http://dev.cyberhus",
+	chatServerUrl = (el && el.getAttribute('data-cim-test-url')) 
+						? el.getAttribute('data-cim-test-url') 
+						: 'https://chattest.ecmr.biz';
   
 function loadCssFiles(){
   var cssFiles = [chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/css/cim-chat.css", chatServerUrl + "/Content/chatclient/cm.chatclient.css"];
   cssFiles.forEach(element => {
-    $("<link/>", {
+    jQuery("<link/>", {
       rel: "stylesheet",
       type: "text/css",
       href: element
@@ -55,7 +59,7 @@ if ((typeof jQuery == 'undefined')) {
 else {
   loadCssFiles();
 }
-
-loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/cim_chat_page_widget.js", true);
+loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/tmpl.min.js", true);
+//loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/cim_chat_page_widget.js", true);
 loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/cim_chat.js", true);
-loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/jquery.loadTemplate.js", true, function() {})
+//loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/jquery.loadTemplate.js", true, function() {})

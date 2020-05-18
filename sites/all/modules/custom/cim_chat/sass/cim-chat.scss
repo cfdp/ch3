@@ -101,25 +101,29 @@ body.add-opeka-widgets-processed,
     font-weight: 700;
     font-size: 12px;
     display: inline-block;
-    padding: 8px 6px;
+    padding: 0;
     margin-right: 5px;
     border: 1px solid #ccc;
     text-transform: uppercase;
     vertical-align: top;
-    &[data-chat-status="Ready"] {
-      cursor: pointer;
-      background-color: $green;
+    .global-cim-btn {
+      padding: 8px 6px;
+      &[data-chat-status="Ready"] {
+        cursor: pointer;
+        background-color: $green;
+      }
+      
+      &[data-chat-status="Activ"] {
+        background-color: $green;
+      }
+      
+      &[data-chat-status="Busy"],
+      [data-chat-status="Queue"],
+      [data-chat-status="Chatting"] {
+        background-color: $orange;
+      }
     }
-    
-    &[data-chat-status="Activ"] {
-      background-color: $green;
-    }
-    
-    &[data-chat-status="Busy"],
-    &[data-chat-status="Queue"],
-    &[data-chat-status="Chatting"] {
-      background-color: $orange;
-    }
+
   }
   .curachat-widgets {
     .municipality-chats {

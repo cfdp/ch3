@@ -20,24 +20,26 @@ function cim_chat_preprocess_html(&$variables) {
 
   //Check if we are on a page implementing the single page widget
   if ($node = menu_get_object()) {
-    $single_page_widget = field_get_items('node', $node, 'field_cim_chat_integration');
-    $single_page_widget2 = field_get_items('node', $node, 'field_chat_integration');
+    //$single_page_widget = field_get_items('node', $node, 'field_cim_chat_integration');
+    //$single_page_widget2 = field_get_items('node', $node, 'field_chat_integration');
   }
   if ($term = menu_get_object('taxonomy_term', 2)) {
-    $single_page_widget = field_get_items('taxonomy_term', $term, 'field_cim_chat_integration');
-    $single_page_widget2 = field_get_items('taxonomy_term', $term, 'field_chat_integration');
+    //$single_page_widget = field_get_items('taxonomy_term', $term, 'field_cim_chat_integration');
+    //$single_page_widget2 = field_get_items('taxonomy_term', $term, 'field_chat_integration');
   }
   if ($single_page_widget || $single_page_widget2 || path_is_admin(current_path())) {
     return;
   }
   // Add remote CIM assets
-  drupal_add_css($chat_server_url . '/Content/chatclient/cm.chatclient.css', array('type' => 'external'));
+  //drupal_add_css($chat_server_url . '/Content/chatclient/cm.chatclient.css', array('type' => 'external'));
   // Add local assets
-  drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/dot-flashing.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
-  drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/cim-chat.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
-  drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/tmpl.min.js', array('weight' => 10));
-  drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat.js', array('weight' => 10));
-  drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat_global.js', array('weight' => 10));
+  //drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/dot-flashing.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
+  //drupal_add_css(drupal_get_path('module', 'cim_chat') . '/css/cim-chat.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
+  //drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/tmpl.min.js', array('weight' => 10));
+  //drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat.js', array('weight' => 10));
+  //drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/cim_chat_global.js', array('weight' => 10));
+  drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/chat_integrator.js', array('weight' => 10));
+
 }
 
 /**

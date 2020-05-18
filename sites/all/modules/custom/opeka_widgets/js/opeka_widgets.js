@@ -90,6 +90,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
 
         // Add event handler for listening to updates from the CIM chat
         $( document ).on( "cimChatUpdate", function( event, cimActive, chatName, queueNumber ) {
+          console.log('cimchatupdate: ' + cimActive )
           var cimMiniStatus = '',
             queueNumber = (cimActive === 'single-chat-queue') ? queueNumber : '';
 
@@ -112,13 +113,16 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
             Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
           }
           if (cimActive === 'single-chat-queue' || cimActive === 'single-chat-active') {
+            console.log('heyy!!');
             renderMinimizedWidget('cim', cimMiniStatus, '', chatName, queueNumber);
             widgetExpanded.hide();
             widgetMinimized.show();
             Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
           }
 
-          if (cimActive === 'closed') {
+          if (!cimActive || cimActive === 'closed' || cimActive === 'fetching-status') {
+            console.log('closey!!');
+
             Drupal.behaviors.opeka_widgets.toggleGlobalWidget('hide');
           }
           Drupal.behaviors.opeka_widgets.updateSubtitle();
@@ -320,16 +324,17 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
       // We have an active chat
       opekaGlobalWidgetState = 'chat-open';
       Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
-
+      console.log('we have active opeka chat');
     } else if (Drupal.behaviors.opeka_widgets.searchObject('Occupied')) {
       // We have occupied chats...
       opekaGlobalWidgetState = 'chat-busy';
       Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
-
+      console.log('we have busy opeka chat');
     } else {
       // All chats are closed
       opekaGlobalWidgetState = 'chat-closed';
       Drupal.behaviors.opeka_widgets.toggleGlobalWidget('hide');
+      console.log('we have active opeka chat');
     }
   };
 
@@ -359,7 +364,6 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
   * @returns null
   */
   Drupal.behaviors.opeka_widgets.toggleGlobalWidget = function(action) {
-
     if ((widgetWrapper.css('display') == 'none') && (action === 'show')) {
       // Don't show the widget before we have a status from the CIM chat
       // @todo: Don't show the widget before all chats are loaded ie.
@@ -369,14 +373,16 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
       }
 
       widgetWrapper.fadeIn();
-      if (cimChatStatus === 'by-id-active') {
+      if (cimChatStatus === 'by-id-active' || cimChatStatus === 'closed') {
+        // If we are in byIdActive or "closed" cim state, show the expanded widget
         widgetExpanded.show();
         widgetMinimized.hide();
         Drupal.behaviors.opeka_widgets.updateSubtitle();
         return;
       }
-      widgetExpanded.show();
-      widgetMinimized.hide();
+      // else show the minimized widget
+      widgetExpanded.hide();
+      widgetMinimized.show();
       return;
     }
     // Hide unless a cim chat is active/ready OR there are active opeka chats
