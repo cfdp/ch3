@@ -59,6 +59,7 @@ if (!integratorLoaded) {
 	// Make sure we only load the integrator-script once.
 	integratorLoaded = true;
 	if ((typeof jQuery == 'undefined')) {
+    console.debug('Adding jQuery.');
 		loadJS("https://code.jquery.com/jquery-1.8.3.min.js", true, function() {
 		loadCssFiles();
 		});

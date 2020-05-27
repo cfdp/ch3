@@ -3,7 +3,7 @@ var cimChatIntegration = {},
                     * in the Opeka Widgets module and can have the following values:
                     * - 'no-chats-defined': no cim chats defined in data.js
                     * - 'by-id-closed': all cim chats are closed or BusyOffline
-                    * - 'by-id-active': at least one chat is "Ready" or "Activ"
+                    * - 'by-id-active': at least one chat is "Ready", "Busy" or "Activ"
                     * - 'single-chat-queue': the user is queuing for chat
                     * - 'single-chat-queue-signup': the user is in the process of queuing for chat
                     * - 'single-chat-active': the counselor has "taken" the conversation
@@ -24,22 +24,6 @@ var cimChatIntegration = {},
       cmUpdatePositionInQueueListener,
       cmConfirmReadyEventListener,
       cmStatusByIdListener; // Listeners for events from the CIM chat server
-
-  // If on a Drupal site, we attach a behavior to get our js testMode settings
-  if (Drupal && Drupal.behaviors) {
-    Drupal.behaviors.cim_chat = {
-      attach: function(context, settings) {
-        testMode = Drupal.settings.cim_chat.cim_chat_test_mode_active;
-        cimChatIntegration.bootstrap();
-      }
-    };
-  }
-  else {
-    testMode = $('#cim-widget-data').length 
-      && $('#cim-widget-data').data('cyberhus-test-url').length;
-    cimChatIntegration.bootstrap();
-  }
-
 
   /**
    * **************************** BOOTSTRAP FUNCTIONS ****************************
@@ -109,8 +93,18 @@ var cimChatIntegration = {},
     }
   };
   
-
-
+  if (Drupal && Drupal.behaviors) {
+    Drupal.behaviors.cim_chat = {
+      attach: function(context, settings) {
+        testMode = Drupal.settings.cim_chat.cim_chat_test_mode_active;
+      }
+    };
+  }
+  else {
+    testMode = $('#cim-widget-data').length
+      && $('#cim-widget-data').data('cyberhus-test-url').length;
+  }
+ cimChatIntegration.bootstrap();
   /**
    * **************************** TEMPLATE FUNCTIONS ****************************
    */
@@ -168,11 +162,12 @@ var cimChatIntegration = {},
         },
         btnId = cimChats[params.id].domLocation + ' .' + cimChats[params.id].cssClassName
         // Skip updating if status is "Closed" or "BusyOffline"
-        if ($(btnId)[0]) {
-          if (params.chatStatus === 'Closed' || params.chatStatus === 'BusyOffline') {
+
+        if (params.chatStatus === 'Closed' || params.chatStatus === 'BusyOffline') {
+          if ($(btnId)[0]) {
             $(btnId).remove();
-            return;
           }
+          return;
         }
         // Add status button to DOM if hasn't been done already
         if (!$(btnId)[0]){
@@ -272,25 +267,25 @@ var cimChatIntegration = {},
     // Event listener for when the counselor "takes" a conversation
     cimChatIntegration.cim_chatAddListenerCmConfirmReadyEvent();
   
-    document[addEventListener ? 'addEventListener' : 'attachEvent']('cmConfirmedReady', function (event) { 
-      confirmedReady(event); 
-    });
+    // document[addEventListener ? 'addEventListener' : 'attachEvent']('cmConfirmedReady', function (event) { 
+    //   confirmedReady(event); 
+    // });
   
-    function confirmedReady(event) {
-    }
+    // function confirmedReady(event) {
+    // }
   
-    document[addEventListener ? 'addEventListener' : 'attachEvent']('cmIsWritingEvent', function (event) { 
-      isWriting(event); 
-    });
+    // document[addEventListener ? 'addEventListener' : 'attachEvent']('cmIsWritingEvent', function (event) { 
+    //   isWriting(event); 
+    // });
   
-    function isWriting(event) {
-    }
+    // function isWriting(event) {
+    // }
   
-    document[addEventListener ? 'addEventListener' : 'attachEvent']('cmChatStartedEvent', function (event) {
-      chatStarted(event); });
+    // document[addEventListener ? 'addEventListener' : 'attachEvent']('cmChatStartedEvent', function (event) {
+    //   chatStarted(event); });
   
-    function chatStarted(event) {
-    }
+    // function chatStarted(event) {
+    // }
   
     cimChatIntegration.addClickHandler('hideChatWindow');
     cimChatIntegration.addClickHandler('closeChatWindow');
@@ -338,6 +333,9 @@ var cimChatIntegration = {},
     document.addEventListener("cmUpdatePositionInQueueEvent", cmUpdatePositionInQueueListener, true);
   };
   
+  /**
+   * @todo - this needs an update to the correct event?
+   */
   cimChatIntegration.cim_chatAddListenerCmConfirmReadyEvent = function() {
     cmConfirmReadyEventListener = function (event) {
       cimChatIntegration.singleChatStatusUpdate(event);
@@ -372,12 +370,26 @@ var cimChatIntegration = {},
     document.addEventListener("cmStatusByChatIdsUpdatedEvent", cmStatusByIdListener, true);
   };
 
+  /**
+  * statusById event handler
+  */
   cimChatIntegration.statusByChatIdsUpdated = function (event, cimChats) {
-    var object = event.detail;
+    var object = event.detail,
+        status = 'by-id-active';
     if (object) { 
       object.forEach(function (item, index, arr) {
-        cimChatIntegration.statusByIdHandler(cimChats, item, index, arr)
+        cimChatIntegration.statusByIdHandler(cimChats, item, index, arr);
       });
+      // Update the cimChatStatus
+      function isActive(obj) {
+        var isActive = (obj.status === 'Activ' 
+              || obj.status === 'Busy' 
+              || obj.status === 'Ready') ? true : false;
+        return isActive;
+      }
+      status = object.find(isActive) ? 'by-id-active' : 'by-id-closed';
+      cimChatStatus = cimChatIntegration.updateCimChatStatus('statusByIdEvent', status);
+
     }
   };
 
@@ -386,47 +398,24 @@ var cimChatIntegration = {},
   */
   cimChatIntegration.statusByIdHandler = function(cimChats, item, index, arr) {
     var object = arr[index],
-        status = object.status,
-        id = object.id,
-        className,
-        btnRef;
-
+      status = object.status,
+      id = object.id,
+      className,
+      btnRef;
     if (!cimChats[id]) {
       console.error('No cimChats[id] defined! statusByIdHandler could not do its job. ')
       return;
     }
-
-    cimChatStatus = cimChatIntegration.updateCimChatStatus('statusByIdEvent',status, id);
-
+    // Update the templates
+    cimChatIntegration.prepareWidgetUpdates(id, status);
   };
 
   /**
   * Helper function for the singleChatStatus event handler
   */
   cimChatIntegration.singleChatStatusUpdate = function (event) {
-    var id = ((cm_chatId === undefined) || (cm_chatId === 0)) ? null : cm_chatId;
 
     cimChatStatus = cimChatIntegration.updateCimChatStatus('singleChatUpdateEvent', event);
-
-    switch (cimChatStatus) {
-      case 'single-chat-queue-signup':
-        break;
-      case 'single-chat-active':
-        // show the minimize chat panel icon
-        //$('.cm-Chat-header-menu-left').css('display', 'inline');
-        break;
-      case 'single-chat-queue':
-        break;
-      case 'single-chat-busy-offline':
-        break;
-      case 'fetching-status':
-        break;
-      case 'closed':
-        break;
-      default:
-        break;
-    }
-
   };
 
   /**
@@ -819,14 +808,10 @@ var cimChatIntegration = {},
         newStatus = param;
         break;
       case 'statusByIdEvent':
-        // We set the cimChatStatus to 'by-id-active' if any of the chats are Ready / Activ / Busy.
+        // 'by-id-active' if any of the chats are Ready / Activ / Busy.
         // Else 'by-id-closed'
-        newStatus = 'by-id-closed';
-        widgetStatus = 'Closed';
-        if (param === 'Ready' || param === 'Activ' || param === 'Busy') {
-          newStatus = 'by-id-active';
-          widgetStatus = param;
-        }
+        newStatus = param;
+        widgetStatus = null;
         break;
       case 'singleChatUpdateEvent':
         myEvent = param;
@@ -896,10 +881,10 @@ var cimChatIntegration = {},
         break;
     }
 
-    if (cm_chatId) {
+    if (cm_chatId && widgetStatus) {
       cimChatIntegration.prepareWidgetUpdates(cm_chatId, widgetStatus);
     }
-    if (id) {
+    if (id && widgetStatus) {
       cimChatIntegration.prepareWidgetUpdates(id, widgetStatus);
     }    
 
@@ -907,7 +892,6 @@ var cimChatIntegration = {},
       return newStatus;
     }
     $( document ).trigger( "cimChatUpdate", [ newStatus, longName, cm_QueueNumber ] );
-    
     return newStatus;
   };
 
