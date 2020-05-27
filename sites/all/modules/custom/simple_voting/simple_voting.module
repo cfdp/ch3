@@ -158,6 +158,7 @@ function simple_voting_poll_slideshow_view($node, $show_pager_links = TRUE) {
         'attributes' => array(
           'title' => t('View the list of polls on this site.'),
           'class' => array('use-ajax'),
+          'rel' => 'nofollow',
         ),
       );
     }
@@ -168,6 +169,7 @@ function simple_voting_poll_slideshow_view($node, $show_pager_links = TRUE) {
         'attributes' => array(
           'title' => t('View the list of polls on this site.'),
           'class' => array('use-ajax'),
+          'rel' => 'nofollow',
         ),
       );
     }
@@ -200,7 +202,7 @@ function simple_voting_poll_slideshow_view($node, $show_pager_links = TRUE) {
     'class' => array('content'),
   );
   // Add a specific id for poll-slideshow ajax replacement.
-  if ($node->container_block_is_slideshow) {
+  if (isset($node->container_block_is_slideshow)) {
     $content['#attributes']['id'] = 'poll-ajax-slideshow-block-wrapper';
   }
 
@@ -286,7 +288,7 @@ function simple_voting_ajax_poll_callback($type, $node, $teaser, $block, $block_
   poll_view($node, 'full');
 
   // Reset POST and the $node so that we get fresh copies.
-  unset($_POST);
+  $_POST = array();
   $node = node_load($node->nid, NULL, TRUE);
 
   $view_mode = $teaser ? 'teaser' : 'full';
