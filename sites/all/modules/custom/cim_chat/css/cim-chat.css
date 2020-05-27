@@ -142,12 +142,12 @@ body.add-cim-widget-page-widget-processed .chat-status .global-cim-btn,
 body.add-opeka-widgets-processed .chat-status .global-cim-btn,
 #cim-widget-data .chat-status .global-cim-btn {
   padding: 8px 6px;
+  cursor: pointer;
 }
-/* line 111, ../sass/cim-chat.scss */
+/* line 112, ../sass/cim-chat.scss */
 body.add-cim-widget-page-widget-processed .chat-status .global-cim-btn[data-chat-status="Ready"],
 body.add-opeka-widgets-processed .chat-status .global-cim-btn[data-chat-status="Ready"],
 #cim-widget-data .chat-status .global-cim-btn[data-chat-status="Ready"] {
-  cursor: pointer;
   background-color: #80B45A;
 }
 /* line 116, ../sass/cim-chat.scss */

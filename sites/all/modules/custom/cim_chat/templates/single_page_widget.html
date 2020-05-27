@@ -1,20 +1,20 @@
 <script type="text/x-tmpl" id="tmpl_single_page_widget">
-  <div data-class="wrapperClass">
+  <div class="{%=o.wrapperClass%}" data-single-page-chat-status="{%=o.chatStatus%}">
     <div class="status-triangle">
-      <span class="status-text" data-content="triangleText">{%=o.triangleText%}</span>
+      <span class="status-text">{%=o.triangleText%}</span>
     </div>
-    <h2 class="title" data-content="chatLongName">{%=o.chatLongName%}</h2>
+    <h2 class="title" >{%=o.chatLongName%}</h2>
     <div class="field-cim-chat-description" data-content="chatDescription">{%=o.chatDescription%}</div>
     <div class="opening-hours-wrapper">
       <p class="opening-hours-header">Vi er online hver</p>
       <div class="opening-hours-content" data-content="chatOpeningHours">
-        {%=o.chatOpeningHours%}
+        {%#o.chatOpeningHours%}
       </div>
     </div>
     <div class="button-and-text">
       <div class="button-wrapper">
         <div class="button-speech-icon"></div>
-        <div data-id="chatShortName" class="start-chat-button" data-content="buttonText">{%=o.buttonText%}</div>
+        <div id="{%=o.chatShortName%}" class="start-chat-button">{%=o.buttonText%}</div>
       </div>
       <p class="button-subtext">Anonym og professionel rådgivning</p>
     </div>

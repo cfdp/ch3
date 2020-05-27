@@ -1,12 +1,13 @@
-var opekaPopupWidgets = opekaPopupWidgets || null,
-    cimChatStatus = cimChatStatus || null;
+var opekaPopupWidgets = opekaPopupWidgets || null;
+    //cimStatus = cimStatus || null;
 
 (function($, Drupal, opekaPopupWidgets){
   var chatStates = {},
       opekaGlobalWidgetState = "not-set",
       widgetWrapper,
       widgetMinimized,
-      widgetExpanded;
+      widgetExpanded,
+      cimStatus;
 
   Drupal.behaviors.opeka_widgetsPopupData = {
     attach: function(context, settings) {
@@ -17,7 +18,6 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
 
       // Add wrapper for widgets to DOM and load widgets once the chat server is ready
       $('body', context).once('add-opeka-widgets', function () {
-
         $('body').append('<div class="curachat-widgets">' + 
           '<div class="global-widget-expanded">' +
             '<div class="cyberhus-chats">' +
@@ -53,7 +53,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
         $('body').on('click', '.global-widget-minimized', function() {
           if (widgetMinimized.hasClass('cim-mini')) {
             cm_OpenChat();
-            $( "body" ).trigger( "cimChatUpdate", [ cimChatStatus, '' ] );
+            $( "body" ).trigger( "cimChatUpdate", [ cimStatus, '' ] );
             return;
           }
           widgetMinimized.hide();
@@ -89,44 +89,56 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
         renderMinimizedWidget('opeka', opekaMiniStatus, opekaMiniExplainer);
 
         // Add event handler for listening to updates from the CIM chat
-        $( document ).on( "cimChatUpdate", function( event, cimActive, chatName, queueNumber ) {
-          console.log('cimchatupdate: ' + cimActive )
+        $( document ).on( "cimChatUpdate", function( event, newCimStatus, chatName, queueNumber ) {
           var cimMiniStatus = '',
-            queueNumber = (cimActive === 'single-chat-queue') ? queueNumber : '';
+            queueNumber = (newCimStatus === 'single-chat-queue') ? queueNumber : '';
+            
+          cimStatus = newCimStatus;
 
-          if (cimActive === 'single-chat-queue') {
-            cimMiniStatus = Drupal.t('You are in queue as number: ');
-            $('.minimized-queue-number').show();
-
+          if (cimStatus === 'single-chat-queue') {
+            if (cm_status === 'Activ' && cm_QueueNumber === 0) {
+              // Chat conversation has been closed
+              cimMiniStatus = Drupal.t('Chat closed.');
+              $('.minimized-queue-number').hide();
+            }
+            else {
+              cimMiniStatus = Drupal.t('You are in queue as number: ');
+              $('.minimized-queue-number').show();
+            }
           }
-          if (cimActive === 'single-chat-active' && ($('.cm-Chat-client').is(':hidden'))) {
+          if (cimStatus === 'single-chat-queue-signup') {
+            cimMiniStatus = Drupal.t('Waiting for your action... ');
+            $('.minimized-queue-number').show();
+          }
+          if (cimStatus === 'single-chat-active' && ($('.cm-Chat-client').is(':hidden'))) {
             cimMiniStatus = Drupal.t('Click to show chat');
             $('.minimized-queue-number').hide();
           }
-          if (cimActive === 'single-chat-active' && (!$('.cm-Chat-client').is(':hidden'))) {
+          if (cimStatus === 'single-chat-active' && (!$('.cm-Chat-client').is(':hidden'))) {
             cimMiniStatus = '';
             $('.minimized-queue-number').hide();
           }
 
-          if (cimActive === 'by-id-active') {
+          if (cimStatus === 'by-id-active') {
             renderMinimizedWidget('opeka', opekaMiniStatus, opekaMiniExplainer);
             Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
           }
-          if (cimActive === 'single-chat-queue' || cimActive === 'single-chat-active') {
-            console.log('heyy!!');
-            renderMinimizedWidget('cim', cimMiniStatus, '', chatName, queueNumber);
-            widgetExpanded.hide();
-            widgetMinimized.show();
-            Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
+          if (cimStatus === 'single-chat-queue'
+            || cimStatus === 'single-chat-queue-signup'
+            || cimStatus === 'single-chat-active') {
+              renderMinimizedWidget('cim', cimMiniStatus, '', chatName, queueNumber);
+              widgetExpanded.hide();
+              widgetMinimized.show();
+              Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
           }
-
-          if (!cimActive || cimActive === 'closed' || cimActive === 'fetching-status') {
-            console.log('closey!!');
-
+          // @todo: handle cimStatus === 'fetching-status'
+          if (!cimStatus || cimStatus === 'by-id-closed') {
             Drupal.behaviors.opeka_widgets.toggleGlobalWidget('hide');
           }
           Drupal.behaviors.opeka_widgets.updateSubtitle();
         });
+        // Finally we trigger the opekaWidgetsLoaded event
+        $( document ).trigger( "opekaWidgetsLoaded" );
       });
     }
   };
@@ -324,17 +336,14 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
       // We have an active chat
       opekaGlobalWidgetState = 'chat-open';
       Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
-      console.log('we have active opeka chat');
     } else if (Drupal.behaviors.opeka_widgets.searchObject('Occupied')) {
       // We have occupied chats...
       opekaGlobalWidgetState = 'chat-busy';
       Drupal.behaviors.opeka_widgets.toggleGlobalWidget('show');
-      console.log('we have busy opeka chat');
     } else {
       // All chats are closed
       opekaGlobalWidgetState = 'chat-closed';
       Drupal.behaviors.opeka_widgets.toggleGlobalWidget('hide');
-      console.log('we have active opeka chat');
     }
   };
 
@@ -368,12 +377,12 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
       // Don't show the widget before we have a status from the CIM chat
       // @todo: Don't show the widget before all chats are loaded ie.
       // integrate (Object.keys(opekaPopupWidgets).length > $('.opeka-chat-popup-wrapper').length) ||
-      if (!cimChatStatus) {
+      if (!cimStatus) {
         return;
       }
 
       widgetWrapper.fadeIn();
-      if (cimChatStatus === 'by-id-active' || cimChatStatus === 'closed') {
+      if (cimStatus === 'by-id-active' || cimStatus === 'by-id-closed') {
         // If we are in byIdActive or "closed" cim state, show the expanded widget
         widgetExpanded.show();
         widgetMinimized.hide();
@@ -388,9 +397,9 @@ var opekaPopupWidgets = opekaPopupWidgets || null,
     // Hide unless a cim chat is active/ready OR there are active opeka chats
     if ((widgetWrapper.css('display') != 'none') &&
         (action === 'hide') && 
-        (cimChatStatus != 'by-id-active') &&
-        (cimChatStatus != 'single-chat-queue') &&
-        (cimChatStatus != 'single-chat-active') &&
+        (cimStatus != 'by-id-active') &&
+        (cimStatus != 'single-chat-queue') &&
+        (cimStatus != 'single-chat-active') &&
         (opekaGlobalWidgetState === 'chat-closed')
        ) {
       widgetMinimized.hide();

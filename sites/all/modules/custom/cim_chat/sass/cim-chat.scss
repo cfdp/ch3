@@ -108,8 +108,8 @@ body.add-opeka-widgets-processed,
     vertical-align: top;
     .global-cim-btn {
       padding: 8px 6px;
+      cursor: pointer;
       &[data-chat-status="Ready"] {
-        cursor: pointer;
         background-color: $green;
       }
       
