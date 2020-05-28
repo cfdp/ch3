@@ -1,4 +1,6 @@
 var cimChatIntegration = {},
+    chatWidgetServerURL = chatWidgetServerURL || 'https://cyberhus.dk',
+    chatServerURL = chatServerURL || 'https://chat.ecmr.biz',
     cimChatStatus; /* This status is used in the cimChatUpdate event and 
                     * in the Opeka Widgets module and can have the following values:
                     * - 'no-chats-defined': no cim chats defined in data.js
@@ -11,19 +13,17 @@ var cimChatIntegration = {},
                     * - 'fetcing-status': the chat updating the status
                     */ 
 
-(function($, Drupal, cimChatStatus){
+(function($, Drupal, cimChatStatus, chatWidgetServerURL, chatServerURL){
   var cimChats,
-      globalWidgetHost = location.protocol + '//' + location.hostname,
-      globalWidgetDataURL = globalWidgetHost + '/cim-chat-json',
-      chatWidgetDataURL,
+      globalWidgetDataURL = chatWidgetServerURL + '/cim-chat-json',
       testMode = false,
-      chatServerURL,
       chatShortName = $('#cim-widget-data').data('shortname') + '-cim-chat',
       singleChatParams,
       cmSingleChatStatusListener,
       cmUpdatePositionInQueueListener,
       cmConfirmReadyEventListener,
-      cmStatusByIdListener; // Listeners for events from the CIM chat server
+      cmStatusByIdListener,
+      cmConversationClosedListener; // Listeners for events from the CIM chat server
 
   /**
    * **************************** BOOTSTRAP FUNCTIONS ****************************
@@ -32,16 +32,11 @@ var cimChatIntegration = {},
     // Add wrapper for widget to DOM and load widget once the external CIM chat script is loaded
     if (!$('body').hasClass('add-cim-widget-page-widget-processed')) {
       $('body').addClass('add-cim-widget-page-widget-processed');
-      // Set URLs according to test mode
-      chatWidgetDataURL = $('#cim-widget-data').data('cyberhus-test-url') || "https://cyberhus.dk";
-      chatServerURL = testMode
-        ? "https://chattest.ecmr.biz"
-        : "https://chat.ecmr.biz";
 
       $.getScript( chatServerURL + "/Scripts/chatclient/cm.chatclient.js" )
       .done(function( script, textStatus ) {
           // load overriding functions 
-          cimChatIntegration.loadOverrides(globalWidgetHost, function(err, message) {
+          cimChatIntegration.loadOverrides(chatWidgetServerURL, function(err, message) {
             if (err) {
               console.error(err);
               return
@@ -93,17 +88,9 @@ var cimChatIntegration = {},
     }
   };
   
-  if (Drupal && Drupal.behaviors) {
-    Drupal.behaviors.cim_chat = {
-      attach: function(context, settings) {
-        testMode = Drupal.settings.cim_chat.cim_chat_test_mode_active;
-      }
-    };
-  }
-  else {
-    testMode = $('#cim-widget-data').length
-      && $('#cim-widget-data').data('cyberhus-test-url').length;
-  }
+  testMode = $('#cim-chat-test-mode').length 
+    && $('#cim-chat-test-mode').data('cyberhus-test-url').length;
+
  cimChatIntegration.bootstrap();
   /**
    * **************************** TEMPLATE FUNCTIONS ****************************
@@ -210,7 +197,6 @@ var cimChatIntegration = {},
           buttonText: params.buttonText || singleChatParams.buttonText,
           triangleText: params.triangleText || singleChatParams.triangleText,
         };
-        console.dir(data);
 
         $("#cim-widget-data").html(tmpl(templateId, data));
         break;
@@ -257,15 +243,17 @@ var cimChatIntegration = {},
    * Setup chat listeners
    * 
    */
-  cimChatIntegration.cim_chatSetupSingleChatListeners = function () {
+  cimChatIntegration.setupSingleChatListeners = function () {
     // Event listener for ongoing single chat status updates
-    cimChatIntegration.cim_chatAddListenerCmChatStatus();
+    cimChatIntegration.addListenerCmChatStatus();
   
     // Event listener for ongoing single chat queue status updates
-    cimChatIntegration.cim_chatAddListenerCmUpdatePositionInQueue();
+    cimChatIntegration.addListenerCmUpdatePositionInQueue();
   
     // Event listener for when the counselor "takes" a conversation
-    cimChatIntegration.cim_chatAddListenerCmConfirmReadyEvent();
+    cimChatIntegration.addListenerCmConfirmReady();
+
+    cimChatIntegration.addListenerCmConversationClosed();
   
     // document[addEventListener ? 'addEventListener' : 'attachEvent']('cmConfirmedReady', function (event) { 
     //   confirmedReady(event); 
@@ -306,6 +294,7 @@ var cimChatIntegration = {},
           cm_HideChat();
           // We trigger an update to make sure the status is propagated
           // to the ribbon via the cimChatUpdate event
+          cimChatIntegration.updateCimChatStatus('onlyTriggerOpeka', '')
           cimChatIntegration.singleChatStatusUpdate();
         });
         break;
@@ -317,7 +306,7 @@ var cimChatIntegration = {},
     }
   };
   
-  cimChatIntegration.cim_chatAddListenerCmChatStatus = function() {
+  cimChatIntegration.addListenerCmChatStatus = function() {
     cmSingleChatStatusListener = function (event) {
       cimChatIntegration.singleChatStatusUpdate(event);
     };
@@ -325,18 +314,27 @@ var cimChatIntegration = {},
     document.addEventListener("cmChatStatusEvent", cmSingleChatStatusListener, true);
   };
   
-  cimChatIntegration.cim_chatAddListenerCmUpdatePositionInQueue = function() {
+  /**
+   * @todo: kø opdatering fungerer ikke pt
+   */
+  cimChatIntegration.addListenerCmUpdatePositionInQueue = function() {
     cmUpdatePositionInQueueListener = function (event) {
       cimChatIntegration.singleChatStatusUpdate(event);
     };
     // Event listener for ongoing single chat queue status updates
     document.addEventListener("cmUpdatePositionInQueueEvent", cmUpdatePositionInQueueListener, true);
   };
+
+  cimChatIntegration.addListenerCmConversationClosed = function() {
+    cmConversationClosedListener = function () {
+    }
+    document.addEventListener("cmConversationClosedEvent", cmConversationClosedListener, true);
+  };
   
   /**
-   * @todo - this needs an update to the correct event?
+   * This event fires when a user clicks the "I am ready" button after queuing
    */
-  cimChatIntegration.cim_chatAddListenerCmConfirmReadyEvent = function() {
+  cimChatIntegration.addListenerCmConfirmReady = function() {
     cmConfirmReadyEventListener = function (event) {
       cimChatIntegration.singleChatStatusUpdate(event);
     };
@@ -419,7 +417,7 @@ var cimChatIntegration = {},
   };
 
   /**
-   * Handle button clicks
+   * Handle widget start chat button clicks
    * 
    * Initiate chat client if chat is ready
    */
@@ -521,7 +519,7 @@ var cimChatIntegration = {},
     }
     cimChatIntegration.updateTemplates('tmpl_panel', params);
     // Add event listeners once the dom elements are in place
-    cimChatIntegration.cim_chatSetupSingleChatListeners();
+    cimChatIntegration.setupSingleChatListeners();
     callback(null);
   };
 
@@ -556,7 +554,7 @@ var cimChatIntegration = {},
       return;
     }
 
-    cimChatIntegration.fetchJSONP(chatWidgetDataURL + "/cim-chat-jsonp/" 
+    cimChatIntegration.fetchJSONP(chatWidgetServerURL + "/cim-chat-jsonp/" 
       + shortName + "?callback=cimChatIntegration.populateSingleWidget");   
   };
 
@@ -851,6 +849,7 @@ var cimChatIntegration = {},
             // We are queuing, but no QueueEvents have arrived yet
             newStatus =  'single-chat-queue';
             widgetStatus = 'Activ';
+            cm_GetPositionInQueue();
 
             // The moment the user signs up for the queue we 
             // - set the localStorage chat id
@@ -858,11 +857,10 @@ var cimChatIntegration = {},
             if (localStorage.getItem('cimChatSessionLastUsedChatId') != cm_chatId) {
               localStorage.setItem('cimChatSessionLastUsedChatId', cm_chatId);
             }
-            //newStatus = 'single-chat-queue';
             $(btnId + ' .cim-dot').hide();
           }
           if (myEvent.detail.status === 'Ready') {
-            // We are signing up for queue
+            // We are ready to sign up for queue
             newStatus = 'single-chat-queue-signup';
             widgetStatus = 'Activ';
           }
@@ -888,9 +886,6 @@ var cimChatIntegration = {},
       cimChatIntegration.prepareWidgetUpdates(id, widgetStatus);
     }    
 
-    if (newStatus === cimChatStatus) {
-      return newStatus;
-    }
     $( document ).trigger( "cimChatUpdate", [ newStatus, longName, cm_QueueNumber ] );
     return newStatus;
   };
@@ -957,4 +952,4 @@ var cimChatIntegration = {},
       callback(null, result);
     }
   }
-})(jQuery, Drupal, cimChatStatus)
+})(jQuery, Drupal, cimChatStatus, chatWidgetServerURL, chatServerURL)
