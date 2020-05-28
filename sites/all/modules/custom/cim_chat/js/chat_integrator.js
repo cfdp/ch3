@@ -1,7 +1,7 @@
 var el = document.querySelector('#cim-chat-test-mode'),
 	chatWidgetServerURL = (el && el.getAttribute('data-cyberhus-test-url'))
 							? el.getAttribute('data-cyberhus-test-url') 
-							: ( stagingSite || "https://cyberhus.dk"), // Used for getting .js, .json and css resources
+							: "https://cyberhus.dk", // Used for getting .js, .json and css resources
 	chatServerURL = (el && el.getAttribute('data-cim-test-url')) 
 						? el.getAttribute('data-cim-test-url')
 						: 'https://chat.ecmr.biz', // The chat server to connect to.
