@@ -1,11 +1,6 @@
-var el = document.querySelector('#cim-chat-test-mode'),
-	chatWidgetServerURL = (el && el.getAttribute('data-cyberhus-test-url'))
-							? el.getAttribute('data-cyberhus-test-url') 
-							: "https://cyberhus.dk", // Used for getting .js, .json and css resources
-	chatServerURL = (el && el.getAttribute('data-cim-test-url')) 
-						? el.getAttribute('data-cim-test-url')
-						: 'https://chat.ecmr.biz', // The chat server to connect to.
-	integratorLoaded;
+var chatWidgetServerURL,
+    chatServerURL,
+    integratorLoaded;
 
 function loadCssFiles(){
   var cssFiles = [
@@ -53,22 +48,32 @@ function loadCssFiles(){
 	}
 }( typeof global !== "undefined" ? global : this ));
 
+document.addEventListener("DOMContentLoaded", function() {
+  var el = document.querySelector('#cim-chat-test-mode');
+  chatWidgetServerURL = (el && el.getAttribute('data-cyberhus-test-url'))
+              ? el.getAttribute('data-cyberhus-test-url') 
+              : "https://cyberhus.dk",
+  chatServerURL = (el && el.getAttribute('data-cim-test-url')) 
+            ? el.getAttribute('data-cim-test-url')
+            : 'https://chat.ecmr.biz';
+  if (!integratorLoaded) {
+    // Make sure we only load the integrator-script once.
+    integratorLoaded = true;
+    if ((typeof jQuery == 'undefined')) {
+      console.debug('Adding jQuery.');
+      loadJS("https://code.jquery.com/jquery-1.8.3.min.js", true, function() {
+      loadCssFiles();
+      });
+    }
+    else {
+      loadCssFiles();
+    }
+    loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/tmpl.min.js", true);
+    loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/cim_chat.js", true);
+  }
+});
 
-if (!integratorLoaded) {
-	// Make sure we only load the integrator-script once.
-	integratorLoaded = true;
-	if ((typeof jQuery == 'undefined')) {
-    console.debug('Adding jQuery.');
-		loadJS("https://code.jquery.com/jquery-1.8.3.min.js", true, function() {
-		loadCssFiles();
-		});
-	}
-	else {
-		loadCssFiles();
-	}
-	loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/tmpl.min.js", true);
-	loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/cim_chat.js", true);
-}
+
 
 
 
