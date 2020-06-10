@@ -248,7 +248,7 @@ cimChatInit.buildChatDataObjects = function(type, fields) {
 
 // Wait for DOM before loading furthur assets
 if (document.readyState === 'loading') {  // Loading hasn't finished yet
-  document.addEventListener("DOMContentLoaded", cimChatInit.setupJquery());
+  document.addEventListener("DOMContentLoaded", cimChatInit.setupJquery);
 } else {  // `DOMContentLoaded` has already fired
   cimChatInit.setupJquery();
 }
