@@ -13,7 +13,7 @@ It does this in to ways
 
 ## Via the global widget
 
-Here the status of all active chats are loaded.
+Here the data of all active chats (chats that have been added to the site) are loaded.
 
 jsonp URLs: /cim-chat-jsonp-all
 
