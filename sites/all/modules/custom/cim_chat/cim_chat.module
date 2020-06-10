@@ -5,7 +5,6 @@
  */
 function cim_chat_page_build(&$page) {
   $cyberhus_test_url =  variable_get('cyberhus_test_url', 'https://st.cyberhus.dk');
-
   $cim_test_url = variable_get('cim_chat_test_url', 'https://chattest.ecmr.biz');
 
   // Check if we are in test mode
@@ -35,7 +34,7 @@ function cim_chat_preprocess_html(&$variables) {
   if (path_is_admin(current_path())) {
     return;
   }
-  drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/chat_integrator.js', array('weight' => 10));
+  drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/chat_integrator_external.js', array('weight' => 10));
 }
 
 /**

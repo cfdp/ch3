@@ -1,6 +1,6 @@
 var cimChatIntegration = {},
-    chatWidgetServerURL = chatWidgetServerURL || 'https://cyberhus.dk',
-    chatServerURL = chatServerURL || 'https://chat.ecmr.biz',
+    Drupal = Drupal || {},
+    cimChatInit = cimChatInit || {}, // initiated in the chat_integrator.js script
     cimChatStatus; /* This status is used in the cimChatUpdate event and 
                     * in the Opeka Widgets module and can have the following values:
                     * - 'no-chats-defined': no cim chats defined in data.js
@@ -13,12 +13,9 @@ var cimChatIntegration = {},
                     * - 'fetcing-status': the chat updating the status
                     */ 
 
-(function($, Drupal, cimChatStatus, chatWidgetServerURL, chatServerURL){
+(function($, Drupal, cimChatStatus){
   var cimChats,
-      globalWidgetDataURL = chatWidgetServerURL + '/cim-chat-json',
-      testMode = false,
-      chatShortName = $('#cim-widget-data').data('shortname') + '-cim-chat',
-      singleChatParams,
+      globalWidgetDataURL = cimChatInit.widgetServerURL + '/cim-chat-json',
       cmSingleChatStatusListener,
       cmUpdatePositionInQueueListener,
       cmConfirmReadyEventListener,
@@ -33,13 +30,16 @@ var cimChatIntegration = {},
     if (!$('body').hasClass('add-cim-widget-page-widget-processed')) {
       $('body').addClass('add-cim-widget-page-widget-processed');
 
-      $.getScript( chatServerURL + "/Scripts/chatclient/cm.chatclient.js" )
+      $.getScript( cimChatInit.cimServerURL + "/Scripts/chatclient/cm.chatclient.js" )
       .done(function( script, textStatus ) {
           // load overriding functions 
-          cimChatIntegration.loadOverrides(chatWidgetServerURL, function(err, message) {
+          cimChatIntegration.loadOverrides(cimChatInit.widgetServerURL, function(err, message) {
             if (err) {
               console.error(err);
               return
+            }
+            if (cimChatInit.allChats) {
+              cimChats = cimChatInit.allChats.cimChats;
             }
             // Check if we have an ongoing chat session for this user
             var token = localStorage.getItem('cm_GetTokenValue'),
@@ -87,11 +87,7 @@ var cimChatIntegration = {},
         });
     }
   };
-  
-  testMode = $('#cim-chat-test-mode').length 
-    && $('#cim-chat-test-mode').data('cyberhus-test-url').length;
 
- cimChatIntegration.bootstrap();
   /**
    * **************************** TEMPLATE FUNCTIONS ****************************
    */
@@ -107,26 +103,68 @@ var cimChatIntegration = {},
    * 
    */
   cimChatIntegration.addTemplates = function(callback) {
-    var path,
-        templates = ['global_status_button','panel','single_page_widget'];
+    // Check for IE which has no support for template literals
+    if (window.document.documentMode) {
+      callback('Templates could not be loaded - IE has not template literals support');
+      $('#cim-widget-data').html('Beklager - vores chat virker ikke i din browser! Prøv evt. med en nyere browser.');
+      return;
+    }
+    var templates = 
+          `<script type="text/x-tmpl" id="tmpl_global_status_button">
+            <div class="global-cim-btn" data-chat-status="{%=o.status%}"> 
+                <span class="chat-status-title">{%=o.longName%}</span>
+                <span class="queue-status">{%=o.queueStatus%}</span>
+                <span class="queue-number">{%=o.queueNumber%}</span>
+                <div class="cim-dot">
+                  <div class="dot-flashing"></div>
+                </div>
+            </div>
+          </script>` +
+          `<script type="text/x-tmpl" id="tmpl_panel">
+            <div class="cm-Chat-client">
+              <div class="cm-Chat-header">
+                  <div class="cm-Chat-header-menu">
+                      <div class="cm-Chat-header-menu-left">
+                      </div>
+                      <div class="cm-Chat-header-menu-middle">
+                          <div class="cim-chat-title">{%=o.windowTitle%}</div>
+                      </div>
+                      <div class="cm-Chat-header-menu-right" data-close-state="{%=o.closeState%}">{%=o.closeWindowText%}</div>
+                  </div>
+              </div>
+              <iframe class="cm-Chat-container" src=""></iframe>
+            </div>
+          </script>` +
+          `<script type="text/x-tmpl" id="tmpl_single_page_widget">
+            <div class="{%=o.wrapperClass%}" data-single-page-chat-status="{%=o.chatStatus%}">
+              <div class="status-triangle">
+                <span class="status-text">{%=o.triangleText%}</span>
+              </div>
+              <h2 class="title" >{%=o.chatLongName%}</h2>
+              <div class="field-cim-chat-description" data-content="chatDescription">{%=o.chatDescription%}</div>
+              <div class="opening-hours-wrapper">
+                <p class="opening-hours-header">Vi er online hver</p>
+                <div class="opening-hours-content" data-content="chatOpeningHours">
+                  {%#o.chatOpeningHours%}
+                </div>
+              </div>
+              <div class="button-and-text">
+                <div class="button-wrapper">
+                  <div class="button-speech-icon"></div>
+                  <div id="{%=o.chatShortName%}-cim-chat" class="start-chat-button">{%=o.buttonText%}</div>
+                </div>
+                <p class="button-subtext">Anonym og professionel rådgivning</p>
+              </div>
+            </div>
+          </script>`;
 
     if ($('#tmpl_global_status_button')[0]) {
       // Skip if the templates are already present
       return;
     }
-    
-    templates.forEach(element => {
-      path = '/sites/all/modules/custom/cim_chat/templates/' + element + '.html';
-      $.get( path, function(data) {
-        $( "body" ).append( data );
-      })
-        .done(function(data) {
-          callback(null);
-        })
-        .fail(function() {
-          callback('Template ' + element + ' could not be loaded.');
-        })
-    });
+
+    $( "body" ).append( templates );
+    callback(null);
   };
 
   /**
@@ -186,16 +224,16 @@ var cimChatIntegration = {},
         break;
       case 'tmpl_single_page_widget':
         data = {
-          chatLongName: params.chatLongName || singleChatParams.chatLongName,
-          chatStatus: params.chatStatus || singleChatParams.chatStatus,
-          chatShortName: params.chatShortName || singleChatParams.chatShortName,
-          closeWindowText: params.closeWindowText || singleChatParams.closeWindowText,
-          chatDescription: params.chatDescription || singleChatParams.chatDescription,
-          chatOpeningHours: params.chatOpeningHours || singleChatParams.chatOpeningHours,
-          chatId: params.chatId || singleChatParams.chatId,
-          wrapperClass: params.wrapperClass || singleChatParams.wrapperClass,
-          buttonText: params.buttonText || singleChatParams.buttonText,
-          triangleText: params.triangleText || singleChatParams.triangleText,
+          chatLongName: params.chatLongName || cimChatInit.singleChatParams.chatLongName,
+          chatStatus: params.chatStatus || cimChatInit.singleChatParams.chatStatus,
+          chatShortName: params.chatShortName || cimChatInit.singleChatParams.chatShortName,
+          closeWindowText: params.closeWindowText || cimChatInit.singleChatParams.closeWindowText,
+          chatDescription: params.chatDescription || cimChatInit.singleChatParams.chatDescription,
+          chatOpeningHours: params.chatOpeningHours || cimChatInit.singleChatParams.chatOpeningHours,
+          chatId: params.chatId || cimChatInit.singleChatParams.chatId,
+          wrapperClass: params.wrapperClass || cimChatInit.singleChatParams.wrapperClass,
+          buttonText: params.buttonText || cimChatInit.singleChatParams.buttonText,
+          triangleText: params.triangleText || cimChatInit.singleChatParams.triangleText,
         };
 
         $("#cim-widget-data").html(tmpl(templateId, data));
@@ -232,12 +270,10 @@ var cimChatIntegration = {},
         callback(errorMsg);
       });
   }
-  
-  
 
-/**
- * **************************** EVENT HANDLERS ****************************
- */
+  /**
+   * **************************** EVENT HANDLERS ****************************
+   */
 
   /**
    * Setup chat listeners
@@ -301,6 +337,20 @@ var cimChatIntegration = {},
       case 'closeChatWindow':
         $( 'body .cm-Chat-header-menu-right' ).on('click', cimChatIntegration.closeConversation);
         break;
+      case 'singleChatWidget':
+        var chatShortName = $('#cim-widget-data').data('shortname');
+        // Skip if shortName is missing or the widget has been added already
+        if ((typeof chatShortName === "undefined") || (document.getElementsByClassName('cim-widget-wrapper')).length > 0) {
+          return;
+        }
+        
+        // Add event handlers for starting, minimizing, maximising and closing chat
+        $( '#cim-widget-data' ).on(
+          'click', '#' + chatShortName + '-cim-chat',
+          {id: cimChatInit.singleChatParams.chatId, type: 'single'}, 
+          cimChatIntegration.handleWidgetBtnClick
+        );
+  
       default:
         break;
     }
@@ -493,7 +543,7 @@ var cimChatIntegration = {},
       // Note: CIM chat does not support monitoring multiple serverURLs simultaneously (eg. test and production)
       cimChatIntegration.addListenerStatusById(result.cimChats);
 
-      cm_InitiateChatStatus(cimChatIdsObj, chatServerURL + '/ChatClient/StatusIndex');
+      cm_InitiateChatStatus(cimChatIdsObj, cimChatInit.cimServerURL + '/ChatClient/StatusIndex');
     });
   };
 
@@ -554,8 +604,10 @@ var cimChatIntegration = {},
       return;
     }
 
-    cimChatIntegration.fetchJSONP(chatWidgetServerURL + "/cim-chat-jsonp/" 
-      + shortName + "?callback=cimChatIntegration.populateSingleWidget");   
+    cimChatIntegration.addClickHandler('singleChatWidget');
+
+    //cimChatIntegration.fetchJSONP(cimChatInit.widgetServerURL + "/cim-chat-jsonp/" 
+    //  + shortName + "?callback=cimChatIntegration.populateSingleWidget");   
   };
 
   /**
@@ -581,36 +633,6 @@ var cimChatIntegration = {},
       t = document.getElementsByTagName('script')[0];
       t.parentNode.insertBefore(s, t);
     }
-  };
-
-  /**
-   * Callback function for the JSONP resource call
-   *
-   * Makes sure the widget is populated with the newly fetched data
-   */
-  cimChatIntegration.populateSingleWidget = function(fields) {
-    var chatNode = fields[0].node,
-        values = {
-          chatLongName: chatNode.field_cim_chat_name,
-          chatShortName: chatShortName,
-          chatStatus: 'fetching-status',
-          closeWindowText: "Afslut",
-          chatDescription: chatNode.field_cim_chat_description,
-          chatOpeningHours: chatNode.php,
-          chatId: chatNode.field_cim_chat_id,
-          wrapperClass: "cim-widget-wrapper",
-          buttonText: "...",
-          triangleText: "...",
-        };
-    // Cache values for later use
-    singleChatParams = values;
-    //cimChatIntegration.singlePageWidgetUpdate(values.chatId,'fetching-status');
-    // Add event handlers for starting, minimizing, maximising and closing chat
-    $( '#cim-widget-data' ).on(
-      'click', '#' + chatShortName,
-      {id: values.chatId, type: 'single'}, 
-      cimChatIntegration.handleWidgetBtnClick
-    );
   };
 
   /**
@@ -667,7 +689,7 @@ var cimChatIntegration = {},
     cimChatIntegration.updateTemplates('tmpl_global_status_button', globalWidget);
 
     // Update Single page widget
-    if ( !$('#cim-widget-data')[0] || (singleChatParams.chatId != id)) {
+    if ( !$('#cim-widget-data')[0] || (cimChatInit.singleChatParams.chatId != id)) {
       // Skip updating if there is no single page widget or if we don't have a widget id match
       return;
     }
@@ -707,7 +729,7 @@ var cimChatIntegration = {},
   cimChatIntegration.startChat = function(id, params) {
     var chatTitle = cimChats[id] ? cimChats[id].longName : '';
 
-    cm_InitiateChatClient(id, chatServerURL + '/ChatClient/Index');
+    cm_InitiateChatClient(id, cimChatInit.cimServerURL + '/ChatClient/Index');
 
     // Start chat if we are ready
     var i = 0;
@@ -895,61 +917,18 @@ var cimChatIntegration = {},
    * object
    * 
    * @param {string} globalWidgetDataURL 
-   * @param {string} test - are we testing? 
    * 
-   * @return {object} An object with the keys of the cimChats and the full cimChat data object
    */
   cimChatIntegration.fetchLocalChatList = function(globalWidgetDataURL, callback) {
-    var testSuffix = (testMode) ? '-test' : '',
-        result = {},
-        keys = [],
-        errorMsg;
-        globalWidgetDataURL+= testSuffix;
-  
-    // Get our local CIM chat data from the JSON feed generated by the Cyberhus CMS
-    // @todo: make sure we dont fetch the json data twice - cache the result.
-    cimChats = {};
+    var testSuffix = (cimChatInit.testMode) ? '-test' : '';
 
-    fetch(globalWidgetDataURL)
-      .then(res => res.json())
-      .then((out) => {
-        buildChatDataObjects(out);
-    }).catch(err => callback('CIM chat JSON could not be loaded: ' + err));
-  
-    function buildChatDataObjects(out) {
-      // Build an array of chat IDs and a clean cimChat object
-      for (var key in out.cimChats) {
-        if (out.cimChats.hasOwnProperty(key)) {
-          keys.push(key);
-          var subObj = {};
-          for (var i in out.cimChats[key]) {
-            subObj[i] = Object.values(out.cimChats[key][i])[0];
-            switch (i) {
-              case 'field_cim_chat_url_name':
-                subObj['cssClassName'] = 'cim-btn-' + subObj[i];
-                break;
-              case 'field_cim_chat_name':
-                subObj['longName'] = subObj[i];
-                break;
-              case 'field_global_widget_location':
-                subObj['domLocation'] = (subObj[i] === "kommune") ? ".municipality-chats" : ".cyberhus-chats";
-                break;
-              default:
-                break;
-            }
-          }
-          cimChats[key] = subObj;
-        }
-      }
-      if ($.isEmptyObject(cimChats)) {
-        errorMsg = 'Local CIM chat data could not be loaded.';
-        callback(errorMsg);
-        return;
-      }
-      result.keys = keys;
-      result.cimChats = cimChats;
+    globalWidgetDataURL += testSuffix;
 
-      callback(null, result);
+    if (cimChatInit.allChats) {
+      callback(null,cimChatInit.allChats);
     }
-  }
-})(jQuery, Drupal, cimChatStatus, chatWidgetServerURL, chatServerURL)
+
+    //cimChatBuildChatDataObjects(out, callback);
+
+  };
+})(jQuery, Drupal, cimChatStatus)

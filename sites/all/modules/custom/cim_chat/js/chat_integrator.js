@@ -1,20 +1,13 @@
-var chatWidgetServerURL,
-    chatServerURL,
-    integratorLoaded;
-
-function loadCssFiles(){
-  var cssFiles = [
-	  chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/css/cim-chat.css",
-  		chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/css/dot-flashing.css", 
-    	chatServerURL + "/Content/chatclient/cm.chatclient.css"];
-  cssFiles.forEach(element => {
-    jQuery("<link/>", {
-      rel: "stylesheet",
-      type: "text/css",
-      href: element
-      }).appendTo("head");
-  });
+var cimChatInit = {
+  widgetServerURL: null,
+  cimServerURL: null,
+  integratorLoaded: false,
+  allChats: null,
+  singleChatParams: null, // data for the Single Chat Widget
+  singleShortName: null,
+  testMode: false
 };
+
 
 /*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
 (function( w ){
@@ -48,32 +41,206 @@ function loadCssFiles(){
 	}
 }( typeof global !== "undefined" ? global : this ));
 
-document.addEventListener("DOMContentLoaded", function() {
-  var el = document.querySelector('#cim-chat-test-mode');
-  chatWidgetServerURL = (el && el.getAttribute('data-cyberhus-test-url'))
-              ? el.getAttribute('data-cyberhus-test-url') 
-              : "https://cyberhus.dk",
-  chatServerURL = (el && el.getAttribute('data-cim-test-url')) 
+
+/**
+ * Setup jQuery
+ */
+cimChatInit.setupJquery = function() {
+  // setup jQuery
+  if ((typeof jQuery == 'undefined')) {
+    console.debug('Adding jQuery.');
+    loadJS("https://code.jquery.com/jquery-1.8.3.min.js", true, function() {
+      cimChatInit.loadAssets();
+    });
+  }
+  else {
+    cimChatInit.loadAssets();
+  }
+};
+
+/**
+ * Load css files
+ */
+cimChatInit.loadCssFiles = function(){
+  var cssFiles = [
+	  cimChatInit.widgetServerURL + "/sites/all/modules/custom/cim_chat/css/cim-chat.css",
+  		cimChatInit.widgetServerURL + "/sites/all/modules/custom/cim_chat/css/dot-flashing.css", 
+    	cimChatInit.cimServerURL + "/Content/chatclient/cm.chatclient.css"];
+  cssFiles.forEach(element => {
+    jQuery("<link/>", {
+      rel: "stylesheet",
+      type: "text/css",
+      href: element
+      }).appendTo("head");
+  });
+};
+
+/**
+ * Load the remaining assets once the DOM is in place
+ */
+cimChatInit.loadAssets = function() {
+  var el = document.querySelector('#cim-chat-test-mode'),
+      widget = document.querySelector('#cim-widget-data'),
+      singleChatWidget = !!widget;
+
+  cimChatInit.testMode = !!el;
+  cimChatInit.singleShortName = singleChatWidget ? widget.dataset.shortname : null;
+  cimChatInit.widgetServerURL = (el && el.getAttribute('data-cyberhus-test-url'))
+    ? el.getAttribute('data-cyberhus-test-url') 
+    : "https://cyberhus.dk";
+  cimChatInit.cimServerURL = (el && el.getAttribute('data-cim-test-url')) 
             ? el.getAttribute('data-cim-test-url')
             : 'https://chat.ecmr.biz';
-  if (!integratorLoaded) {
+
+  if (!cimChatInit.integratorLoaded) {
     // Make sure we only load the integrator-script once.
-    integratorLoaded = true;
-    if ((typeof jQuery == 'undefined')) {
-      console.debug('Adding jQuery.');
-      loadJS("https://code.jquery.com/jquery-1.8.3.min.js", true, function() {
-      loadCssFiles();
+    cimChatInit.integratorLoaded = true;
+
+    cimChatInit.loadCssFiles();
+
+    if (singleChatWidget) {
+      // Fetch single chat widget resources first, if widget is present
+      cimChatInit.fetchJSON('singleChatWidget', function(err, fields) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        cimChatInit.buildChatDataObjects('singleChatWidget',fields);
+        cimChatInit.fetchForAll();
       });
+      return;
     }
-    else {
-      loadCssFiles();
-    }
-    loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/tmpl.min.js", true);
-    loadJS(chatWidgetServerURL + "/sites/all/modules/custom/cim_chat/js/cim_chat.js", true);
+    // No Single Chat Widget is present
+    cimChatInit.fetchForAll();
   }
-});
+};
+
+cimChatInit.fetchForAll = function() {
+  // Fetch resources for all chats
+  cimChatInit.fetchJSON('allChats', function(err, fields) {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    cimChatInit.buildChatDataObjects('allChats',fields);
+
+    loadJS(cimChatInit.widgetServerURL + "/sites/all/modules/custom/cim_chat/js/tmpl.min.js", true);
+    loadJS(cimChatInit.widgetServerURL + "/sites/all/modules/custom/cim_chat/js/cim_chat.js", true, function() {
+      cimChatIntegration.bootstrap();
+    });
+  });
+};
+
+cimChatInit.fetchJSON = function(type, callback) {
+  var URL,
+      testSuffix = this.testMode ? '-test' : '';
+  switch (type) {
+    case 'allChats':
+      URL = cimChatInit.widgetServerURL + "/cim-chat-jsonp" + testSuffix;
+      break;
+    case 'singleChatWidget':
+      URL = cimChatInit.widgetServerURL + "/cim-chat-jsonp/" + cimChatInit.singleShortName;
+      break; 
+    default:
+      break;
+  }
+  jQuery.ajax ({
+      type: "GET",
+      url: URL,
+      dataType: 'jsonp',
+      async: true,
+      timeout: 5000, // a lot of time for the request to be successfully completed
+      success: function (data) {
+          callback(null, data)
+      },
+      error: function(XHR, textStatus, errorThrown) {
+        callback(errorThrown);
+      }
+  })
+};
 
 
+/**
+ * Fetch the local cim chat data from a JSON source, parse it and return as
+ * object
+ * 
+ * Get our local CIM chat data from the JSON feed generated by the Cyberhus CMS
+ * @todo: make sure we dont fetch the json data twice - cache the result?
+ * 
+ * @param {string} type - the type of JSON data we are building
+ * @param {array} fields - the data we get back
+ * 
+ */
+cimChatInit.buildChatDataObjects = function(type, fields) {
+  var result = {},
+    cimChats = {},
+    keys = [],
+    errorMsg;
+
+  switch (type) {
+    case 'allChats':
+      // Build an array of chat IDs and a clean cimChat object
+      for (var key in fields.cimChats) {
+        if (fields.cimChats.hasOwnProperty(key)) {
+          keys.push(key);
+          var subObj = {};
+          for (var i in fields.cimChats[key]) {
+            subObj[i] = Object.values(fields.cimChats[key][i])[0];
+            switch (i) {
+              case 'field_cim_chat_url_name':
+                subObj['cssClassName'] = 'cim-btn-' + subObj[i];
+                break;
+              case 'field_cim_chat_name':
+                subObj['longName'] = subObj[i];
+                break;
+              case 'field_global_widget_location':
+                subObj['domLocation'] = (subObj[i] === "kommune") 
+                  ? ".municipality-chats" 
+                  : ".cyberhus-chats";
+                break;
+              default:
+                break;
+            }
+          }
+          cimChats[key] = subObj;
+        }
+      }
+      if ( Object.keys(cimChats).length === 0 && cimChats.constructor === Object ) {
+        errorMsg = 'Local CIM chat data could not be loaded.';
+        console.error(errorMsg);
+        return;
+      }
+      result.keys = keys;
+      result.cimChats = cimChats;
+      cimChatInit.allChats = result;
+      break;
+    case 'singleChatWidget':
+      var chatNode = fields[0].node,
+          values = {
+            chatLongName: chatNode.field_cim_chat_name,
+            chatShortName: cimChatInit.singleShortName,
+            chatStatus: 'fetching-status',
+            closeWindowText: "Afslut",
+            chatDescription: chatNode.field_cim_chat_description,
+            chatOpeningHours: chatNode.php,
+            chatId: chatNode.field_cim_chat_id,
+            wrapperClass: "cim-widget-wrapper",
+            buttonText: "...",
+            triangleText: "...",
+          };
+
+      // Cache values for later use
+      cimChatInit.singleChatParams = values;
+      break;
+    default:
+      break;
+  }
+};
 
 
-
+// Wait for DOM before loading furthur assets
+if (document.readyState === 'loading') {  // Loading hasn't finished yet
+  document.addEventListener("DOMContentLoaded", cimChatInit.setupJquery());
+} else {  // `DOMContentLoaded` has already fired
+  cimChatInit.setupJquery();
+}
