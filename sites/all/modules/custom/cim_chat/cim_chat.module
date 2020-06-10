@@ -34,7 +34,7 @@ function cim_chat_preprocess_html(&$variables) {
   if (path_is_admin(current_path())) {
     return;
   }
-  drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/chat_integrator_external.js', array('weight' => 10));
+  drupal_add_js(drupal_get_path('module', 'cim_chat') . '/js/chat_integrator.js', array('weight' => 10));
 }
 
 /**

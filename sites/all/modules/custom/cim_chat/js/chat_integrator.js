@@ -9,7 +9,10 @@ var cimChatInit = {
 };
 
 
-/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
+/**
+ * loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. 
+ * (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT 
+ * */
 (function( w ){
 	var loadJS = function( src, cb, ordered ){
 		"use strict";
@@ -54,7 +57,7 @@ cimChatInit.setupJquery = function() {
     });
   }
   else {
-    cimChatInit.loadAssets();
+    this.loadAssets();
   }
 };
 
@@ -63,9 +66,9 @@ cimChatInit.setupJquery = function() {
  */
 cimChatInit.loadCssFiles = function(){
   var cssFiles = [
-	  cimChatInit.widgetServerURL + "/sites/all/modules/custom/cim_chat/css/cim-chat.css",
-  		cimChatInit.widgetServerURL + "/sites/all/modules/custom/cim_chat/css/dot-flashing.css", 
-    	cimChatInit.cimServerURL + "/Content/chatclient/cm.chatclient.css"];
+	  this.widgetServerURL + "/sites/all/modules/custom/cim_chat/css/cim-chat.css",
+  		this.widgetServerURL + "/sites/all/modules/custom/cim_chat/css/dot-flashing.css", 
+    	this.cimServerURL + "/Content/chatclient/cm.chatclient.css"];
   cssFiles.forEach(element => {
     jQuery("<link/>", {
       rel: "stylesheet",
@@ -83,24 +86,24 @@ cimChatInit.loadAssets = function() {
       widget = document.querySelector('#cim-widget-data'),
       singleChatWidget = !!widget;
 
-  cimChatInit.testMode = !!el;
-  cimChatInit.singleShortName = singleChatWidget ? widget.dataset.shortname : null;
-  cimChatInit.widgetServerURL = (el && el.getAttribute('data-cyberhus-test-url'))
+  this.testMode = !!el;
+  this.singleShortName = singleChatWidget ? widget.dataset.shortname : null;
+  this.widgetServerURL = (el && el.getAttribute('data-cyberhus-test-url'))
     ? el.getAttribute('data-cyberhus-test-url') 
     : "https://cyberhus.dk";
-  cimChatInit.cimServerURL = (el && el.getAttribute('data-cim-test-url')) 
+  this.cimServerURL = (el && el.getAttribute('data-cim-test-url')) 
             ? el.getAttribute('data-cim-test-url')
             : 'https://chat.ecmr.biz';
 
-  if (!cimChatInit.integratorLoaded) {
+  if (!this.integratorLoaded) {
     // Make sure we only load the integrator-script once.
-    cimChatInit.integratorLoaded = true;
+    this.integratorLoaded = true;
 
-    cimChatInit.loadCssFiles();
+    this.loadCssFiles();
 
     if (singleChatWidget) {
       // Fetch single chat widget resources first, if widget is present
-      cimChatInit.fetchJSON('singleChatWidget', function(err, fields) {
+      this.fetchJSON('singleChatWidget', function(err, fields) {
         if (err) {
           console.error(err);
           return;
@@ -111,13 +114,15 @@ cimChatInit.loadAssets = function() {
       return;
     }
     // No Single Chat Widget is present
-    cimChatInit.fetchForAll();
+    this.fetchForAll();
   }
 };
 
+/**
+ *  Fetch resources for all chats and bootstrap the CIM chat integration process
+ */
 cimChatInit.fetchForAll = function() {
-  // Fetch resources for all chats
-  cimChatInit.fetchJSON('allChats', function(err, fields) {
+  this.fetchJSON('allChats', function(err, fields) {
     if (err) {
       console.error(err);
       return;
@@ -136,10 +141,10 @@ cimChatInit.fetchJSON = function(type, callback) {
       testSuffix = this.testMode ? '-test' : '';
   switch (type) {
     case 'allChats':
-      URL = cimChatInit.widgetServerURL + "/cim-chat-jsonp" + testSuffix;
+      URL = this.widgetServerURL + "/cim-chat-jsonp-all" + testSuffix;
       break;
     case 'singleChatWidget':
-      URL = cimChatInit.widgetServerURL + "/cim-chat-jsonp/" + cimChatInit.singleShortName;
+      URL = this.widgetServerURL + "/cim-chat-jsonp-single" + testSuffix + "/" + this.singleShortName;
       break; 
     default:
       break;
@@ -177,6 +182,13 @@ cimChatInit.buildChatDataObjects = function(type, fields) {
     keys = [],
     errorMsg;
 
+  if (!fields || fields.length === 0) {
+    errorMsg = 'Local CIM chat data could not be loaded.';
+    console.error(errorMsg);
+    document.getElementById('cim-widget-data').innerHTML = "Chat widget kunne ikke indlæses.";
+    return;
+  }
+
   switch (type) {
     case 'allChats':
       // Build an array of chat IDs and a clean cimChat object
@@ -205,14 +217,10 @@ cimChatInit.buildChatDataObjects = function(type, fields) {
           cimChats[key] = subObj;
         }
       }
-      if ( Object.keys(cimChats).length === 0 && cimChats.constructor === Object ) {
-        errorMsg = 'Local CIM chat data could not be loaded.';
-        console.error(errorMsg);
-        return;
-      }
+
       result.keys = keys;
       result.cimChats = cimChats;
-      cimChatInit.allChats = result;
+      this.allChats = result;
       break;
     case 'singleChatWidget':
       var chatNode = fields[0].node,
@@ -230,7 +238,7 @@ cimChatInit.buildChatDataObjects = function(type, fields) {
           };
 
       // Cache values for later use
-      cimChatInit.singleChatParams = values;
+      this.singleChatParams = values;
       break;
     default:
       break;
