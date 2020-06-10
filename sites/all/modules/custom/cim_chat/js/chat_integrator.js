@@ -57,7 +57,7 @@ cimChatInit.setupJquery = function() {
     });
   }
   else {
-    this.loadAssets();
+    cimChatInit.loadAssets();
   }
 };
 
