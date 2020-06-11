@@ -40,3 +40,4 @@ sites/all/themes/cyberhus_evolution/widgets/chat-multi-widget/dev-embed.html
 docker-compose.yml
 mariadb-init
 node_modules
+/.idea/
