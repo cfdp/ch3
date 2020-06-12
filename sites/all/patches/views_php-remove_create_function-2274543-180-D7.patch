@@ -1,0 +1,211 @@
+diff --git a/plugins/views/views_php_handler_area.inc b/plugins/views/views_php_handler_area.inc
+index 0296373..bb4e93e 100644
+--- a/plugins/views/views_php_handler_area.inc
++++ b/plugins/views/views_php_handler_area.inc
+@@ -36,7 +36,10 @@ class views_php_handler_area extends views_handler_area {
+   function render($empty = FALSE) {
+     // Ecexute output PHP code.
+     if ((!$empty || !empty($this->options['empty'])) && !empty($this->options['php_output'])) {
+-      $function = create_function('$view, $handler, $results', ' ?>' . $this->options['php_output'] . '<?php ');
++      $code = ' ?>' . $this->options['php_output'];
++      $function = function($view, $handler, $results) use ($code) {
++        eval($code);
++      };
+       ob_start();
+       $function($this->view, $this, $this->view->result);
+       return ob_get_clean();
+diff --git a/plugins/views/views_php_handler_field.inc b/plugins/views/views_php_handler_field.inc
+index 1da366b..24282d9 100644
+--- a/plugins/views/views_php_handler_field.inc
++++ b/plugins/views/views_php_handler_field.inc
+@@ -114,7 +114,10 @@ class views_php_handler_field extends views_handler_field {
+   function php_pre_execute() {
+     // Ecexute static PHP code.
+     if (!empty($this->options['php_setup'])) {
+-      $function = create_function('$view, $handler, &$static', $this->options['php_setup'] . ';');
++      $code = $this->options['php_setup'] . ';';
++      $function = function($view, $handler, &$static) use ($code) {
++        eval($code);
++      };
+       ob_start();
+       $function($this->view, $this, $this->php_static_variable);
+       ob_end_clean();
+@@ -128,7 +131,10 @@ class views_php_handler_field extends views_handler_field {
+   function php_post_execute() {
+     // Ecexute value PHP code.
+     if (!empty($this->options['php_value'])) {
+-      $function = create_function('$view, $handler, &$static, $row, $data', $this->options['php_value'] . ';');
++      $code = $this->options['php_value'] . ';';
++      $function = function($view, $handler, &$static, $row, $data) use ($code) {
++        return eval($code);
++      };
+       ob_start();
+       foreach ($this->view->result as $i => &$row) {
+         $normalized_row = new stdClass;
+@@ -144,7 +150,7 @@ class views_php_handler_field extends views_handler_field {
+     if (!empty($this->options['use_php_click_sortable']) && !empty($this->php_click_sort_order)) {
+       if ($this->options['use_php_click_sortable'] == self::CLICK_SORT_PHP) {
+         if (!empty($this->options['php_click_sortable'])) {
+-          $this->php_click_sort_function = create_function('$view, $handler, &$static, $row1, $row2', $this->options['php_click_sortable'] . ';');
++          $this->php_click_sort_function = TRUE;
+         }
+       }
+       else {
+@@ -170,6 +176,13 @@ class views_php_handler_field extends views_handler_field {
+   function php_click_sort($row1, $row2) {
+     $factor = strtoupper($this->php_click_sort_order) == 'ASC' ? 1 : -1;
+     $function = $this->php_click_sort_function;
++    if (is_bool($this->php_click_sort_function)) {
++      $code = $this->options['php_click_sortable'] . ';';
++      $function = function($view, $handler, &$static, $row1, $row2) use ($code) {
++        return eval($code);
++      };
++    }
++
+     if ($this->options['use_php_click_sortable'] == self::CLICK_SORT_PHP) {
+       foreach (array('row1' => 'normalized_row1', 'row2' => 'normalized_row2') as $name => $normalized_name) {
+         $$normalized_name = new stdClass;
+@@ -194,27 +207,21 @@ class views_php_handler_field extends views_handler_field {
+     return $a - $b;
+   }
+ 
+-  /**
+-   * Implements views_handler_field#pre_render().
+-   */
+-  function pre_render(&$values) {
+-    if (!empty($this->options['php_output'])) {
+-      $this->php_output_lamda_function = create_function('$view, $handler, &$static, $row, $data, $value', ' ?>' . $this->options['php_output'] . '<?php ');
+-    }
+-  }
+-
+   /**
+    * Implements views_handler_field#render().
+    */
+   function render($values) {
+     // Ecexute output PHP code.
+-    if (!empty($this->options['php_output']) && isset($this->php_output_lamda_function)) {
++    if (!empty($this->options['php_output'])) {
+       $normalized_row = new stdClass;
+       foreach ($this->view->display_handler->get_handlers('field') as $field => $handler) {
+         $normalized_row->$field = isset($values->{$handler->field_alias}) ? $values->{$handler->field_alias} : NULL;
+       }
+ 
+-      $function = $this->php_output_lamda_function;
++      $code = ' ?>' . $this->options['php_output'];
++      $function = function($view, $handler, &$static, $row, $data, $value) use ($code) {
++        eval($code);
++      };
+       ob_start();
+       $function($this->view, $this, $this->php_static_variable, $normalized_row, $values, isset($values->{$this->field_alias}) ? $values->{$this->field_alias} : NULL);
+       $value = ob_get_clean();
+diff --git a/plugins/views/views_php_handler_filter.inc b/plugins/views/views_php_handler_filter.inc
+index 79bbee2..797d92b 100644
+--- a/plugins/views/views_php_handler_filter.inc
++++ b/plugins/views/views_php_handler_filter.inc
+@@ -65,7 +65,10 @@ class views_php_handler_filter extends views_handler_filter {
+   function php_pre_execute() {
+     // Ecexute static PHP code.
+     if (!empty($this->options['php_setup'])) {
+-      $function = create_function('$view, $handler, &$static', $this->options['php_setup'] . ';');
++      $code = $this->options['php_setup'] . ';';
++      $function = function($view, $handler, &$static) use ($code) {
++        eval($code);
++      };
+       ob_start();
+       $function($this->view, $this, $this->php_static_variable);
+       ob_end_clean();
+@@ -79,7 +82,10 @@ class views_php_handler_filter extends views_handler_filter {
+   function php_post_execute() {
+     // Evaluate the PHP code.
+     if (!empty($this->options['php_filter'])) {
+-      $function = create_function('$view, $handler, &$static, $row, $data', $this->options['php_filter'] . ';');
++      $code = $this->options['php_filter'] . ';';
++      $function = function($view, $handler, &$static, $row, $data) use ($code) {
++        eval($code);
++      };
+       ob_start();
+       foreach ($this->view->result as $i => $row) {
+         $normalized_row = new stdClass;
+diff --git a/plugins/views/views_php_handler_sort.inc b/plugins/views/views_php_handler_sort.inc
+index cca24ba..e681293 100644
+--- a/plugins/views/views_php_handler_sort.inc
++++ b/plugins/views/views_php_handler_sort.inc
+@@ -57,7 +57,10 @@ class views_php_handler_sort extends views_handler_sort {
+   function php_pre_execute() {
+     // Ecexute static PHP code.
+     if (!empty($this->options['php_setup'])) {
+-      $function = create_function('$view, $handler, &$static', $this->options['php_setup'] . ';');
++      $code = $this->options['php_setup'] . ';';
++      $function = function($view, $handler, &$static) use ($code) {
++        eval($code);
++      };
+       ob_start();
+       $function($this->view, $this, $this->php_static_variable);
+       ob_end_clean();
+@@ -70,7 +73,6 @@ class views_php_handler_sort extends views_handler_sort {
+    */
+   function php_post_execute() {
+     if (!empty($this->options['php_sort']) && $this->view->style_plugin->build_sort()) {
+-      $this->php_sort_function = create_function('$view, $handler, &$static, $row1, $row2', $this->options['php_sort'] . ';');
+       ob_start();
+       usort($this->view->result, array($this, 'php_sort'));
+       ob_end_clean();
+@@ -82,7 +84,12 @@ class views_php_handler_sort extends views_handler_sort {
+    */
+   function php_sort($row1, $row2) {
+     $factor = strtoupper($this->options['order']) == 'ASC' ? 1 : -1;
+-    $function = $this->php_sort_function;
++
++    $code = $this->options['php_sort'] . ';';
++    $function = function($view, $handler, &$static, $row1, $row2) use ($code) {
++      return eval($code);
++    };
++
+     foreach (array('row1' => 'normalized_row1', 'row2' => 'normalized_row2') as $name => $normalized_name) {
+       $$normalized_name = new stdClass;
+       foreach ($this->view->display_handler->get_handlers('field') as $field => $handler) {
+diff --git a/plugins/views/views_php_plugin_cache.inc b/plugins/views/views_php_plugin_cache.inc
+index ca6c90f..9b2f989 100644
+--- a/plugins/views/views_php_plugin_cache.inc
++++ b/plugins/views/views_php_plugin_cache.inc
+@@ -63,7 +63,11 @@ class views_php_plugin_cache extends views_plugin_cache {
+         $cache = cache_get($this->get_results_key(), $this->table);
+         $fresh = !empty($cache);
+         if ($fresh && !empty($this->options['php_cache_results'])) {
+-          $function = create_function('$view, $plugin, $cache', $this->options['php_cache_results'] . ';');
++          $code = $this->options['php_cache_results'] . ';';
++          $function = function($view, $plugin, $cache) use ($code) {
++            eval($code);
++          };
++
+           ob_start();
+           $fresh = $function($this->view, $this, $cache);
+           ob_end_clean();
+@@ -84,7 +88,11 @@ class views_php_plugin_cache extends views_plugin_cache {
+         $cache = cache_get($this->get_output_key(), $this->table);
+         $fresh = !empty($cache);
+         if ($fresh && !empty($this->options['php_cache_output'])) {
+-          $function = create_function('$view, $plugin, $cache', $this->options['php_cache_output'] . ';');
++          $code = $this->options['php_cache_output'] . ';';
++          $function = function($view, $plugin, $cache) use ($code) {
++            eval($code);
++          };
++
+           ob_start();
+           $fresh = $function($this->view, $this, $cache);
+           ob_end_clean();
+diff --git a/views_php.module b/views_php.module
+index 6a7cc37..83e6915 100644
+--- a/views_php.module
++++ b/views_php.module
+@@ -27,7 +27,9 @@ function views_php_check_access($php_access, $view_name, $display_id, $account =
+   }
+ 
+   if (!isset($function[$view_name . ':' . $display_id])) {
+-    $function[$view_name . ':' . $display_id] = create_function('$view_name, $display_id, $account', $php_access . ';');
++    $function[$view_name . ':' . $display_id] = function ($view_name, $display_id, $account) use ($php_access) {
++      return eval($php_access . ';');
++    };
+   }
+ 
+   ob_start();
