@@ -57,7 +57,10 @@ class views_php_handler_sort extends views_handler_sort {
   function php_pre_execute() {
     // Ecexute static PHP code.
     if (!empty($this->options['php_setup'])) {
-      $function = create_function('$view, $handler, &$static', $this->options['php_setup'] . ';');
+      $code = $this->options['php_setup'] . ';';
+      $function = function($view, $handler, &$static) use ($code) {
+        eval($code);
+      };
       ob_start();
       $function($this->view, $this, $this->php_static_variable);
       ob_end_clean();
@@ -70,7 +73,6 @@ class views_php_handler_sort extends views_handler_sort {
    */
   function php_post_execute() {
     if (!empty($this->options['php_sort']) && $this->view->style_plugin->build_sort()) {
-      $this->php_sort_function = create_function('$view, $handler, &$static, $row1, $row2', $this->options['php_sort'] . ';');
       ob_start();
       usort($this->view->result, array($this, 'php_sort'));
       ob_end_clean();
@@ -82,7 +84,12 @@ class views_php_handler_sort extends views_handler_sort {
    */
   function php_sort($row1, $row2) {
     $factor = strtoupper($this->options['order']) == 'ASC' ? 1 : -1;
-    $function = $this->php_sort_function;
+
+    $code = $this->options['php_sort'] . ';';
+    $function = function($view, $handler, &$static, $row1, $row2) use ($code) {
+      return eval($code);
+    };
+
     foreach (array('row1' => 'normalized_row1', 'row2' => 'normalized_row2') as $name => $normalized_name) {
       $$normalized_name = new stdClass;
       foreach ($this->view->display_handler->get_handlers('field') as $field => $handler) {
