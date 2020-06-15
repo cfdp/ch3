@@ -30,20 +30,24 @@ function cfdp_anonymizer_form_node_form_alter(&$form, &$form_state) {
  * http://drupal.stackexchange.com/questions/30483/how-do-i-override-menu-items-with-my-own-implementation
  */
 function cfdp_anonymizer_menu_alter(&$items) {
-  $items['node/%/subscriptions']['access callback'] = 'cfdp_uf_access_callback';
-  $items['node/%/subscriptions']['page callback'] = 'cfdp_uf_subscriptions_page_callback';
+  $items['node/%/subscriptions']['access callback'] = 'cfdp_anonymizer_access_callback';
+  //$items['node/%/subscriptions']['page callback'] = 'cfdp_anonymizer_page_callback';
 }
 
 /*
  * No access allowed to subscription pages
  */
-function cfdp_anonymizer_access_callback($account) {
+function cfdp_anonymizer_access_callback() {
+  global $user;
+  if ($user->uid == 1) {
+    return TRUE;
+  }
     return FALSE;
 }
 
 /*
  * Placeholder
  */
-function cfdp_uf_subscriptions_page_callback($account) {
+function cfdp_anonymizer_page_callback($account) {
 
 }

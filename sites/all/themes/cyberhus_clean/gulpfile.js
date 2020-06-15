@@ -15,7 +15,7 @@ var gulp        = require('gulp'),
 gulp.task('browser-sync', ['sass'], function() {
   browserSync.init({
     // Change as required
-    proxy: "http://drupal.docker.localhost:8000"
+    proxy: "https://cyberhus.ddev.site"
   });
 });
 
