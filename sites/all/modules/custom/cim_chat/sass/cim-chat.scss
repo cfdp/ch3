@@ -13,7 +13,8 @@ $darkest-gray: #1b1d1f;
 
 
 body.add-cim-widget-page-widget-processed,
-body.add-opeka-widgets-processed {
+body.add-opeka-widgets-processed,
+#cim-widget-data {
 
   .main {
     margin: 2em;
@@ -23,6 +24,7 @@ body.add-opeka-widgets-processed {
   }
 
   .cm-Chat-client {
+    font-family: "Montserrat", sans-serif;
     right: 0px;
     z-index: 10000;
 
@@ -99,33 +101,31 @@ body.add-opeka-widgets-processed {
     font-weight: 700;
     font-size: 12px;
     display: inline-block;
-    padding: 8px 6px;
+    padding: 0;
     margin-right: 5px;
     border: 1px solid #ccc;
     text-transform: uppercase;
     vertical-align: top;
-    &[data-chat-status="Ready"] {
+    .global-cim-btn {
+      padding: 8px 6px;
       cursor: pointer;
-      background-color: $green;
-    }
-    
-    &[data-chat-status="Activ"] {
-      background-color: $green;
-    }
-    
-    &[data-chat-status="Busy"],
-    &[data-chat-status="Queue"],
-    &[data-chat-status="Chatting"] {
-      background-color: $orange;
-    }
-  }
-  .curachat-widgets {
-    .municipality-chats {
-      .chat-status {
-        padding: 5px 6px;
+      &[data-chat-status="Ready"] {
+        background-color: $green;
+      }
+      
+      &[data-chat-status="Activ"] {
+        background-color: $green;
+      }
+      
+      &[data-chat-status="Busy"],
+      [data-chat-status="Queue"],
+      [data-chat-status="Chatting"] {
+        background-color: $orange;
       }
     }
 
+  }
+  .curachat-widgets {
     .global-widget-minimized.cim-mini {
       background-color: $blue;
     }
