@@ -177,7 +177,7 @@ var cimChatIntegration = {},
     switch (templateId) {
       case 'tmpl_global_status_button':
         data = {
-          className: cimChatInit.allChats[params.id].cssClassName,
+          className: cimChats[params.id].cssClassName,
           status: params.chatStatus,
           longName: cimChats[params.id].longName,
           queueStatus: params.queueStatus || '',
