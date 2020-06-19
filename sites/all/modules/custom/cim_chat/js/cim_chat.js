@@ -14,8 +14,7 @@ var cimChatIntegration = {},
                     */ 
 
 (function($, Drupal, cimChatStatus){
-  var cimChats,
-      globalWidgetDataURL = cimChatInit.widgetServerURL + '/cim-chat-json',
+  var globalWidgetDataURL = cimChatInit.widgetServerURL + '/cim-chat-json',
       cmSingleChatStatusListener,
       cmUpdatePositionInQueueListener,
       cmConfirmReadyEventListener,
@@ -37,9 +36,6 @@ var cimChatIntegration = {},
             if (err) {
               console.error(err);
               return
-            }
-            if (cimChatInit.allChats) {
-              cimChats = cimChatInit.allChats.cimChats;
             }
             // Check if we have an ongoing chat session for this user
             var token = localStorage.getItem('cm_GetTokenValue'),
@@ -175,11 +171,13 @@ var cimChatIntegration = {},
    */
   cimChatIntegration.updateTemplates = function(templateId, params) {
     var data,
-        btnId;
+        btnId,
+        cimChats = cimChatInit.allChats.cimChats;
+
     switch (templateId) {
       case 'tmpl_global_status_button':
         data = {
-          className: cimChats[params.id].cssClassName,
+          className: cimChatInit.allChats[params.id].cssClassName,
           status: params.chatStatus,
           longName: cimChats[params.id].longName,
           queueStatus: params.queueStatus || '',
@@ -475,7 +473,8 @@ var cimChatIntegration = {},
     var id = event.data.id,
         type = event.data.type,
         btnId,
-        status;
+        status,
+        cimChats = cimChatInit.allChats.cimChats;
 
     switch (type) {
       case 'global':
@@ -727,7 +726,8 @@ var cimChatIntegration = {},
    * Start a chat session.
    */
   cimChatIntegration.startChat = function(id, params) {
-    var chatTitle = cimChats[id] ? cimChats[id].longName : '';
+    var cimChats = cimChatInit.allChats.cimChats,
+    chatTitle = cimChats[id] ? cimChats[id].longName : '';
 
     cm_InitiateChatClient(id, cimChatInit.cimServerURL + '/ChatClient/Index');
 
@@ -816,8 +816,8 @@ var cimChatIntegration = {},
         btnId,
         id,
         widgetStatus = 'fetching-status',
-        longName = '';
-
+        longName = '',
+        cimChats = cimChatInit.allChats.cimChats;
 
     if (!param) {
       return newStatus;
