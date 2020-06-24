@@ -1,4 +1,4 @@
-var cimChatStatus; /* This status is used in the cimChatUpdate event and 
+var cimChatStatus; /* This status is used in the cimChatUpdate event and
                     * in the Opeka Widgets module and can have the following values:
                     * - 'no-chats-defined': no cim chats defined in data.js
                     * - 'closed': all cim chats are closed
@@ -6,7 +6,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
                     * - 'single-chat-queue': the user is queuing for chat
                     * - 'single-chat-queue-signup': the user is in the process of queuing for chat
                     * - 'single-chat-active': the counselor has "taken" the conversation
-                    */ 
+                    */
 
 (function ($, Drupal) {
   var cimChats = {},
@@ -17,25 +17,30 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
       cmStatusByIdListener,
       cmSingleChatStatusListener,
       cmUpdatePositionInQueueListener; // Listeners for event from the CIM chat server
-  
+
   Drupal.behaviors.cim_chat = {
     attach: function (context, settings) {
-      testMode = Drupal.settings.cim_chat.cim_chat_test_mode_active ? true : false;
-      chatServerURL = testMode
-        ? "https://chattest.ecmr.biz"
-        : "https://chat.ecmr.biz";
+      var $shouldSkip = $('.skip-global-cim-widget');
+      if ($shouldSkip.length !== 0) {
+        // Skip global cim widget.
+        return;
+      }
+      else {
+        testMode = Drupal.settings.cim_chat.cim_chat_test_mode_active ? true : false;
+        chatServerURL = testMode ? "https://chattest.ecmr.biz" : "https://chat.ecmr.biz";
 
-      // Add wrapper for widget to DOM and load widget once the external CIM chat script is loaded
-      $('body', context).once('add-cim-widget', function () {
-        $.getScript( chatServerURL + "/Scripts/chatclient/cm.chatclient.js" )
-          .done(function( script, textStatus ) {
+        // Add wrapper for widget to DOM and load widget once the external CIM chat script is loaded.
+        $('body', context).once('add-cim-widget', function () {
+          $.getScript(chatServerURL + "/Scripts/chatclient/cm.chatclient.js")
+            .done(function (script, textStatus) {
               Drupal.behaviors.cim_chatSetupStatusByIdAssets();
             })
-            .fail(function( jqxhr, settings, exception ) {
+            .fail(function (jqxhr, settings, exception) {
               console.error('External CIM chat script could not be loaded.');
-          });
-      });
+            });
+        });
     }
+      }
   };
 
   Drupal.behaviors.cim_chatSetupSingleChatListeners = function () {
@@ -129,14 +134,14 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
       // Add the CIM status iframe and setup event listener
       $('body').append('<div class="iframeWrapper cim-status">' +
         '<iframe class="cm-Chat-container" src="" style="vertical-align:top;"></iframe></div>');
-  
+
       Drupal.behaviors.cim_chatAddListenerStatusById();
       // Get the status of the chats we are monitoring
       // Note: CIM chat does not support monitoring multiple serverURLs simultaneously (eg. test and production)
       cm_InitiateChatStatus(cimChatIdsObj, chatServerURL + '/ChatClient/StatusIndex');
     }
   };
-  
+
   Drupal.behaviors.cim_chatAddListenerStatusById = function() {
     cmStatusByIdListener = function (event) {
       Drupal.behaviors.cim_chatStatusByChatIdsUpdated(event);
@@ -168,11 +173,11 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
         callback('CIM chat panel html file could not be loaded.');
       });
   };
-  
+
   Drupal.behaviors.cim_chatStatusByChatIdsUpdated = function (event) {
     var object = event.detail;
     cimChatStatus = 'closed';
-    if (object) { 
+    if (object) {
       object.forEach(Drupal.behaviors.cim_chatChatStatusHandler);
       // The Opeka Widgets module is listening to this event
       $( document ).trigger( "cimChatUpdate", [ cimChatStatus ] );
@@ -181,7 +186,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
 
   Drupal.behaviors.cim_chatChatStatusHandler = function (item, index, arr) {
     var object = arr[index];
-    var status = object.status; 
+    var status = object.status;
     var statusText = object.statusText;
     var id = object.id;
     var className = cimChats[id].cssClassName;
@@ -192,11 +197,11 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
     }
 
     // Set status text. If status is closed or busyOffline, remove button
-    if ($(btnId)[0]) { 
+    if ($(btnId)[0]) {
       if (status === 'Closed' || status === 'BusyOffline') {
         $(btnId).remove();
       }
-      // 
+      //
       $(btnId + '.chat-status-title').text(cimChats[id].longName);
       $(btnId + ' .cim-dot').hide();
       $(btnId).attr('data-chat-status', status);
@@ -213,14 +218,14 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
   Drupal.behaviors.cim_chatCreateStatusButton = function(id, status) {
     var className = cimChats[id].cssClassName,
         btnId = '.'+className;
-    $(cimChats[id].domLocation).append('<div class="chat-status ' + className + '" data-chat-status="' + status + '">' + 
+    $(cimChats[id].domLocation).append('<div class="chat-status ' + className + '" data-chat-status="' + status + '">' +
       '<span class="chat-status-title">' + cimChats[id].longName + '</span><span class="queue-status"></span><span class="queue-number"></span>' +
       '<div class="cim-dot"><div class="dot-flashing"></div></div></div>');
     // Add click handler
     $( btnId ).on('click', {id: id}, Drupal.behaviors.cim_chatHandleChatBtnClick);
   };
 
-  /* 
+  /*
    * Initiate chat client and put user in queue
    */
   Drupal.behaviors.cim_chatHandleChatBtnClick = function (event) {
@@ -281,9 +286,9 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
   Drupal.behaviors.cim_chatCloseConversation = function() {
     var closeBtn = '.cm-Chat-header-menu-right',
         longName = cm_chatId ? cimChats[cm_chatId].longName : '';
-    
+
     if (cm_status === 'Ready') {
-      // No conversation has taken place yet. 
+      // No conversation has taken place yet.
       cm_CloseConversation();
       cm_HideChat();
     }
@@ -346,7 +351,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
     $(btnId).attr('data-chat-status', dataChatStatus);
     $(btnId + ' .queue-status').text(statusText);
     $(btnId + ' .queue-number').text(queueNumber);
-  } 
+  }
 
   Drupal.behaviors.cim_chatSingleChatStatusUpdate = function (event) {
     var id = ((undefined === cm_chatId) || (cm_chatId === 0)) ? null : cm_chatId,
@@ -366,14 +371,14 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
       cimChatStatus =  'single-chat-active';
     }
     if (cm_QueueNumber > 0 ) {
-      // The moment the user enters the queue we 
+      // The moment the user enters the queue we
       // - set the cimChatCookie
-      // - hide the three dots fetching status animation 
+      // - hide the three dots fetching status animation
       if (cimChatStatus === 'single-chat-queue-signup') {
         Drupal.behaviors.cim_chatSetCookie(cm_chatId);
         cimChatStatus = 'single-chat-queue';
         $(btnId + ' .cim-dot').hide();
-        
+
       }
     }
     $( document ).trigger( "cimChatUpdate", [ cimChatStatus, longName, cm_QueueNumber ] );
@@ -388,7 +393,7 @@ var cimChatStatus; /* This status is used in the cimChatUpdate event and
    */
   Drupal.behaviors.cim_chatSetCookie = function(id) {
     var date = new Date();
-    date.setDate(date.getDate() + 1); 
+    date.setDate(date.getDate() + 1);
     // Remember for one day
     var cookie = "cim-chat=" + id + ";expires=" + date.toUTCString() + ";path=" + Drupal.settings.basePath;
 

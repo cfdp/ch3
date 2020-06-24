@@ -3067,3 +3067,103 @@ div.tabs {
   bottom: 3em; }
   #back-to-top.show:hover {
     bottom: 3.5em; }
+
+.page__node__campaign-landing {
+  height: 105vh;
+  background-color: #3A485F; }
+  @media (min-width: 1024px) {
+    .page__node__campaign-landing {
+      background-image: linear-gradient(100deg, #ffffff 32%, #3A485F 23%);
+      background-color: transparent; } }
+  .page__node__campaign-landing div.tabs {
+    position: absolute;
+    top: 40px;
+    left: 40%; }
+  .page__node__campaign-landing .campaign-landing__top-bar {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    padding: 20px 20px 0; }
+    @media (min-width: 768px) {
+      .page__node__campaign-landing .campaign-landing__top-bar {
+        padding: 40px 40px 0; } }
+  .page__node__campaign-landing .campaign-landing__city-logo img {
+    max-height: 80px; }
+
+.node-campaign-landing {
+  padding: 40px; }
+  @media (min-width: 1024px) {
+    .node-campaign-landing {
+      padding: 10% 3% 3% 3%; } }
+  .node-campaign-landing p {
+    color: #ffffff; }
+  .node-campaign-landing .content {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column; }
+    @media (min-width: 1024px) {
+      .node-campaign-landing .content {
+        -ms-flex-direction: row;
+            flex-direction: row; } }
+  .node-campaign-landing .field-group-div {
+    width: 100%; }
+    @media (min-width: 1024px) {
+      .node-campaign-landing .field-group-div {
+        width: 50%; } }
+  .node-campaign-landing .group-column-right {
+    margin: 0 auto; }
+    @media (min-width: 1024px) {
+      .node-campaign-landing .group-column-right {
+        padding-left: 40px; } }
+    @media (min-width: 1400px) {
+      .node-campaign-landing .group-column-right {
+        max-width: 700px;
+        padding: 0; } }
+  .node-campaign-landing .player {
+    padding: 56% 0 0 0;
+    position: relative; }
+    .node-campaign-landing .player iframe {
+      position: absolute;
+      top: 0;
+      left: 0; }
+  .node-campaign-landing .field_headline--campaign-landing {
+    width: 100%;
+    margin: 20px 0; }
+    @media (min-width: 1024px) {
+      .node-campaign-landing .field_headline--campaign-landing {
+        margin: 0; } }
+    @media (min-width: 1400px) {
+      .node-campaign-landing .field_headline--campaign-landing {
+        width: 70%; } }
+    .node-campaign-landing .field_headline--campaign-landing h1 {
+      color: #ffffff;
+      font-size: 2.5em;
+      line-height: 1.3;
+      font-weight: 600; }
+  .node-campaign-landing .field-name-body {
+    font-size: 1em;
+    font-weight: 500; }
+    @media (min-width: 1400px) {
+      .node-campaign-landing .field-name-body {
+        padding-left: 40px; } }
+  .node-campaign-landing .campaign-landing__cta-buttons {
+    margin-top: 30px;
+    margin-left: 40px; }
+  .node-campaign-landing .campaign-landing__brevkasse a {
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+    border: 3px solid #c34b4b;
+    color: #fff;
+    font-size: 1.2em;
+    background-image: linear-gradient(#c34b4b, #c34b4b);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: background-size 0.3s, color 0.3s;
+    border-radius: 30px;
+    text-decoration: none; }
+    .node-campaign-landing .campaign-landing__brevkasse a:hover {
+      background-size: 100% 100%; }
