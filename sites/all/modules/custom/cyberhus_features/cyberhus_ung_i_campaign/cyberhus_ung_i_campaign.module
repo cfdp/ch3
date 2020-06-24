@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * Code for the Ung i kampagne feature.
+ */
+
+include_once 'cyberhus_ung_i_campaign.features.inc';
