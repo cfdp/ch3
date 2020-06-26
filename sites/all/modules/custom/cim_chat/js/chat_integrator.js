@@ -91,7 +91,7 @@ cimChatInit.loadAssets = function() {
   this.testMode = !!el;
   this.singleShortName = singleChatWidget ? widget.dataset.shortname : null;
   this.widgetServerURL = (el && el.dataset.cyberhusTestUrl) ? el.dataset.cyberhusTestUrl
-    : "https://cyberhus.local.test";
+    : "https://cyberhus.dk";
   this.cimServerURL = (el && el.dataset.cimTestUrl) ? el.dataset.cimTestUrl
     : 'https://chat.ecmr.biz';
 
