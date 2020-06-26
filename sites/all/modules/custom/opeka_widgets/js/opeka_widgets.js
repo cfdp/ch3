@@ -16,9 +16,15 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
       opekaMiniStatus = Drupal.t('The chat is open!'),
       opekaMiniExplainer = Drupal.t('Who can you chat with?');
 
+      // Skip global widget if the page is a landingpage.
+      // @see sites/all/modules/custom/cim_chat/js/chat_integrator.js
+      if (cimChatInit !== undefined && cimChatInit.landingPageChat) {
+        return;
+      }
+
       // Add wrapper for widgets to DOM and load widgets once the chat server is ready
       $('body', context).once('add-opeka-widgets', function () {
-        $('body').append('<div class="curachat-widgets">' + 
+        $('body').append('<div class="curachat-widgets">' +
           '<div class="global-widget-expanded">' +
             '<div class="cyberhus-chats">' +
               '<div class="global-chat-widget-header">' +
@@ -32,10 +38,10 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
           '</div>' +
           '<div class="global-widget-minimized opeka-mini">' +
             '<span class="minimized-chat-name"></span>' +
-            '<span class="minimized-status"></span> ' + 
-            '<span class="minimized-explainer"></span>' + 
-            '<span class="minimized-queue-number"></span>' + 
-            '<span class="global-widget-toggle"></span></div>' + 
+            '<span class="minimized-status"></span> ' +
+            '<span class="minimized-explainer"></span>' +
+            '<span class="minimized-queue-number"></span>' +
+            '<span class="global-widget-toggle"></span></div>' +
           '</div>'
           );
         if (typeof opekaPopupWidgets != "undefined"){
@@ -92,7 +98,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
         $( document ).on( "cimChatUpdate", function( event, newCimStatus, chatName, queueNumber ) {
           var cimMiniStatus = '',
             queueNumber = (newCimStatus === 'single-chat-queue') ? queueNumber : '';
-            
+
           cimStatus = newCimStatus;
 
           if (cimStatus === 'single-chat-queue') {
@@ -142,9 +148,9 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
       });
     }
   };
-  
+
   Drupal.behaviors.opeka_widgets ={};
-  
+
   /**
    * Wait for the external server script to load
    * We don't want to wait more than 10 seconds
@@ -166,7 +172,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
     var newWidget = new Drupal.behaviors.opeka_widgets.OpekaPopupController(widget);
     newWidget.init();
   };
-  
+
   /**
    * Constructor function for the popup widgets
    *
@@ -182,7 +188,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
     this.cssFiles = opekaPopup.cssFiles;
     this.embedLocation = opekaPopup.embedLocation;
   };
-  
+
   /**
    * Init function
    */
@@ -222,10 +228,10 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
   // Add the popup HTML to the page
   Drupal.behaviors.opeka_widgets.OpekaPopupController.prototype.addEmbedHTML = function() {
 
-    $(this.embedLocation).append('<div class="opeka-chat-popup-wrapper ' + this.chatName + '"><div id="opeka-chat-iframe-' + 
+    $(this.embedLocation).append('<div class="opeka-chat-popup-wrapper ' + this.chatName + '"><div id="opeka-chat-iframe-' +
       this.chatName + '"><iframe src="' + this.chatURL + '" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></div></div>');
     };
-    
+
   //Popup animation
   Drupal.behaviors.opeka_widgets.OpekaPopupController.prototype.popupAnimation = function(popupAction) {
     var popupWrapper = ".opeka-chat-popup-wrapper." + this.chatName,
@@ -241,7 +247,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
       totalHeight += $(this).height()
     });
     // Make widget pop up if open or occupied
-    if ((!declineWidgetCookie && (popupAction === (this.chatType + "-Open"))) || 
+    if ((!declineWidgetCookie && (popupAction === (this.chatType + "-Open"))) ||
         (popupAction === (this.chatType + "-Occupied"))) {
       $(popupWrapper).show();
       return;
@@ -252,8 +258,8 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
 
   /**
    *  Update subtitle visibility: should be hidden if no chats are visible in the
-   *  municipality section  
-   */ 
+   *  municipality section
+   */
 
   Drupal.behaviors.opeka_widgets.updateSubtitle = function() {
     if ($('.municipality-chats').children().filter(':visible').length == 0) {
@@ -270,7 +276,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
     Drupal.behaviors.opeka_widgets.setStatus(this.chatName);
     $(popupWrapper).fadeOut();
   };
-  
+
 
   /**
    * Receive messages from the iframe
@@ -289,7 +295,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
     if (data === this.chatType + "-CloseIframe") {
       this.closePopup();
       return;
-    } 
+    }
     // when the iframe is shown/hidden it sends it's width to us (the parent window)
     // so we can render the correct size
     if (data.substring(0,6) === 'width-'){
@@ -396,7 +402,7 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
     }
     // Hide unless a cim chat is active/ready OR there are active opeka chats
     if ((widgetWrapper.css('display') != 'none') &&
-        (action === 'hide') && 
+        (action === 'hide') &&
         (cimStatus != 'by-id-active') &&
         (cimStatus != 'single-chat-queue') &&
         (cimStatus != 'single-chat-active') &&
@@ -410,14 +416,14 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
 
   Drupal.behaviors.opeka_widgets.setStatus = function(chatName) {
     // var date = new Date();
-    // date.setDate(date.getDate() + 1); 
+    // date.setDate(date.getDate() + 1);
     // Remember for one day
     // var cookie = "opeka-widgets-declined-" + chatName + "=yes;expires=" + date.toUTCString() + ";path=" + Drupal.settings.basePath;
     var cookie = "opeka-widgets-declined-" + chatName + "=yes;path=" + Drupal.settings.basePath;
 
     document.cookie = cookie;
   };
-  
+
   /**
    * Check if a cookie has been set for the client
    *
@@ -441,5 +447,5 @@ var opekaPopupWidgets = opekaPopupWidgets || null;
 
     return returnValue;
   };
-  
+
 })(jQuery, Drupal, opekaPopupWidgets);

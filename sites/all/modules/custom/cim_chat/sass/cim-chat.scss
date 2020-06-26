@@ -51,7 +51,7 @@ body.add-opeka-widgets-processed,
       @media screen and (min-width: 720px) {
         bottom: 0px;
       }
-    } 
+    }
 
     .cm-Chat-header-menu-middle,
     .cm-Chat-header-menu-right {
@@ -112,11 +112,11 @@ body.add-opeka-widgets-processed,
       &[data-chat-status="Ready"] {
         background-color: $green;
       }
-      
+
       &[data-chat-status="Activ"] {
         background-color: $green;
       }
-      
+
       &[data-chat-status="Busy"],
       [data-chat-status="Queue"],
       [data-chat-status="Chatting"] {
@@ -236,7 +236,7 @@ body.page-cim-chat-integration,
       margin-right: 5px;
       .field-item::after {
         content: ":";
-      } 
+      }
     }
   }
   ul {
@@ -324,4 +324,69 @@ body.page-cim-chat-integration,
     font-size: 1em;
     margin: 5px;
   }
+}
+
+/* CIM Landing widget styling */
+.page__node__campaign-landing .node-campaign-landing #cim-widget-data {
+  padding: 0;
+  width: 100%;
+  background: none;
+  margin: 0;
+
+  .start-chat-button {
+    padding: 10px 15px;
+    p {
+      line-height: 1.3;
+    }
+    span {
+      font-size: 10px;
+      display: block;
+      text-transform: none;
+    }
+  }
+
+  .cim-widget-wrapper {
+    padding: 0;
+
+    .opening-hours-content {
+      display: none;
+    }
+
+    &.ready {
+      .start-chat-button {
+        background: #60B157;
+        border-color: #60B157;
+      }
+    }
+
+    &.closed {
+      .start-chat-button {
+        background: #60B157;
+        border-color: #60B157;
+      }
+      .opening-hours-content {
+        display: block;
+        ul {
+          padding: 10px 0;
+          margin: 0;
+        }
+        li {
+          color: #fff;
+          font-size: 14px;
+        }
+      }
+    }
+    &.busy {
+      .start-chat-button {
+        background: #E06D38;
+        border-color: #E06D38;
+      }
+    }
+  }
+
+  .button-and-text {
+    max-width: 100%;
+  }
+
+
 }

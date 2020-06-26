@@ -97,7 +97,8 @@
       <?php if (isset($parent_term_data)): ?>
         <div class="campaign-landing__cta-buttons">
           <div class="campaign-landing__cim-integration">
-
+            <div id="cim-widget-data" class="cim-landing-widget" data-shortname="<?php print $parent_term_data['shortname']; ?>"></div>
+            <script src="/sites/all/modules/custom/cim_chat/js/chat_integrator.js"></script>
           </div>
           <div class="campaign-landing__brevkasse">
             <a href="<?php print $parent_term_data['url'] ?>">SKRIV TIL BREVKASSEN</a>

@@ -232,10 +232,17 @@ function cyberhus_clean_preprocess_html(&$variables) {
 
        case 'campaign_landing':
          if (isset($node->field_ungi_by_term)) {
+           // Get term to find URL of parent.
            $term_id = $node->field_ungi_by_term[LANGUAGE_NONE][0]['tid'];
            $term_entity = taxonomy_term_load($term_id);
+           // Get the cim_integration paragraph to find chat shortname.
+           $cim_integration_paragraph_id = isset($term_entity->field_cim_chat_integration) ? $term_entity->field_cim_chat_integration[LANGUAGE_NONE][0]['value'] : NULL;
+           if ($cim_integration_paragraph = paragraphs_item_load($cim_integration_paragraph_id)) {
+             $cim_integration_shortname = $cim_integration_paragraph->field_cim_chat_url_name[LANGUAGE_NONE][0]['value'];
+           }
            $variables['parent_term_data'] = [
              'url' => url('taxonomy/term/' . $term_id),
+             'shortname' => $cim_integration_shortname ?? NULL,
            ];
          }
 
