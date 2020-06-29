@@ -1,40 +1,40 @@
 # Ignore configuration files that may contain sensitive information.
-sites/*/settings*.php
+webroot/sites/*/settings*.php
 *.sql
 .htaccess
 .ruby-version
 .bundle/
-sites/all/modules/custom/opeka_widgets/js/data*.js
-sites/all/modules/custom/cim_chat/js/data_dev.js
+webroot/sites/all/modules/custom/opeka_widgets/js/data*.js
+webroot/sites/all/modules/custom/cim_chat/js/data_dev.js
 
 # Ignore paths that contain user-generated content.
-sites/*/files
-sites/*/private
-sites/default
+webroot/sites/*/files
+webroot/sites/*/private
+webroot/sites/default
 
 # Ignore devel modules and files
-sites/all/modules/search_krumo
-sites/all/modules/devel_themer
-sites/all/modules/simplehtmldom
-sites/all/modules/search_krumo
-sites/all/modules/stage_file_proxy
-sites/all/modules/reroute_email
-sites/all/modules/module_builder
-sites/all/modules/browsersync
-robots.txt
-FirePHPCore
-sites/all/modules/xhprof
-sites/all/modules/masquerade
-!sites/default/files/logo-beta*
-sites/all/themes/cyberhus_clean/custom-gulpfile.js
+webroot/sites/all/modules/search_krumo
+webroot/sites/all/modules/devel_themer
+webroot/sites/all/modules/simplehtmldom
+webroot/sites/all/modules/search_krumo
+webroot/sites/all/modules/stage_file_proxy
+webroot/sites/all/modules/reroute_email
+webroot/sites/all/modules/module_builder
+webroot/sites/all/modules/browsersync
+webroot/robots.txt
+webroot/FirePHPCore
+webroot/sites/all/modules/xhprof
+webroot/sites/all/modules/masquerade
+!webroot/sites/default/files/logo-beta*
+webroot/sites/all/themes/cyberhus_clean/custom-gulpfile.js
 
 .DS_Store
 
 .sass-cache
 *.sublime-workspace
 nbproject
-googlefdfe5933b9683929.html
-sites/all/themes/cyberhus_evolution/widgets/chat-multi-widget/dev-embed.html
+webroot/googlefdfe5933b9683929.html
+webroot/sites/all/themes/cyberhus_evolution/widgets/chat-multi-widget/dev-embed.html
 
 # Development configuration
 docker-compose.yml
