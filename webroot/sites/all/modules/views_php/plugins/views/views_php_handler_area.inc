@@ -36,10 +36,7 @@ class views_php_handler_area extends views_handler_area {
   function render($empty = FALSE) {
     // Ecexute output PHP code.
     if ((!$empty || !empty($this->options['empty'])) && !empty($this->options['php_output'])) {
-      $code = ' ?>' . $this->options['php_output'];
-      $function = function($view, $handler, $results) use ($code) {
-        eval($code);
-      };
+      $function = create_function('$view, $handler, $results', ' ?>' . $this->options['php_output'] . '<?php ');
       ob_start();
       $function($this->view, $this, $this->view->result);
       return ob_get_clean();
