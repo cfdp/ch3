@@ -35,7 +35,8 @@ task('deploy:drupal:post_deploy_updates', function () {
     writeln('Skipping config import');
   }
 
-  if (input()->hasOption('no-locale-update') && empty(input()->getOption('no-locale-update'))) {
+  // you can disable locale update by setting disable_locale_update to true in config.yml
+  if (!get('disable_locale_update', false) && input()->hasOption('no-locale-update') && empty(input()->getOption('no-locale-update'))) {
     set('rollback_db', 'true');
     writeln('Running locale updates');
     if(get('drupal_core_version') == 7) {

@@ -1,14 +1,18 @@
 # Ignore configuration files that may contain sensitive information.
 webroot/sites/*/settings.*.php
-.ruby-version
-.bundle/
-webroot/sites/all/modules/custom/opeka_widgets/js/data*.js
 
 # Ignore paths that contain user-generated content.
 webroot/sites/*/files
 webroot/sites/*/private
 
+# Deployment configuration:
+/deployer/config.yml
+
+# Other deployer shared files
+webroot/sites/all/modules/custom/opeka_widgets/js/data*.js
+
 # Ignore devel modules and files
+# todo: clean this mess up
 webroot/sites/all/modules/search_krumo
 webroot/sites/all/modules/devel_themer
 webroot/sites/all/modules/simplehtmldom
@@ -20,17 +24,14 @@ webroot/sites/all/modules/xhprof
 !webroot/sites/default/files/logo-beta*
 webroot/sites/all/themes/cyberhus_clean/custom-gulpfile.js
 
+#Ignore development garbage
+logs
+sql
 .DS_Store
-
+.ruby-version
+.bundle/
 .sass-cache
 *.sublime-workspace
 nbproject
-webroot/sites/all/themes/cyberhus_evolution/widgets/chat-multi-widget/dev-embed.html
-
-# Development configuration
 node_modules
 /.idea/
-/sql
-
-# Deployment configuration:
-/deployer/config.yml

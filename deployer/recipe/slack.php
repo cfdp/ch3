@@ -68,7 +68,7 @@ task('slack:check', function () {
   if (!get('slack_webhook', false)) {
     if(askConfirmation('No slack-hook found. Would you like to continue without sending slack notifications?')){
     } else {
-      throw new GracefulShutdownException('You need to specify Git user.name and user.email in your Git configuration.');
+      throw new GracefulShutdownException('Cancelling deploy');
     }
   }
 })
