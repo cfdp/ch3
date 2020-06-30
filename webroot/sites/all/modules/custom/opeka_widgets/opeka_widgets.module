@@ -1,0 +1,56 @@
+<?php
+
+
+/**
+ * Implements hook_permission().
+ */
+//function opeka_widgets_permission() {
+//  return array(
+//    'administer opeka popup widgets' => array(
+//      'title' => t('Administer the Opeka Popup Widgets'),
+//      'description' => t('Grants a user admin access to Opeka Popup Widgets.'),
+//    ),
+//  );
+//}
+
+/**
+ * Implements hook_menu().
+ */
+//function opeka_widgets_menu() {
+//  $items = array();
+//
+//  $items['admin/config/services/opeka_widgets'] = array(
+//    'title' => 'Opeka Popup Widgets',
+//    'type' => MENU_LOCAL_TASK,
+//    'weight' => 1,
+//    'description' => 'Provides settings for the Opeka popup widgets.',
+//    'page callback' => 'drupal_get_form',
+//    'page arguments' => array('opeka_widgets_admin_form'),
+//    'access arguments' => array('administer opeka popup widgets'),
+//    'file' => 'opeka_widgets.admin.inc',
+//  );
+//  return $items;
+//}
+
+/**
+  * Add assets - javascript, stylesheets etc., but not on admin pages
+  */
+function opeka_widgets_preprocess_html(&$variables) {
+  // Don't add widgets on admin sections or pages where the single chat widget is implemented
+  $single_page_widget = null;
+  $single_page_widget2 = null;
+  if ($node = menu_get_object()) {
+    //$single_page_widget = field_get_items('node', $node, 'field_cim_chat_integration');
+    //$single_page_widget2 = field_get_items('node', $node, 'field_chat_integration');
+  }
+  if ($term = menu_get_object('taxonomy_term', 2)) {
+    //$single_page_widget = field_get_items('taxonomy_term', $term, 'field_cim_chat_integration');
+    //$single_page_widget2 = field_get_items('taxonomy_term', $term, 'field_chat_integration');
+  }
+  if ($single_page_widget || $single_page_widget2 || path_is_admin(current_path())) {
+    return;
+  }
+  drupal_add_css(drupal_get_path('module', 'opeka_widgets') . '/css/opeka_widgets.css', array('group' => CSS_THEME, 'type' => 'file', 'weight' => 10));
+  drupal_add_js(drupal_get_path('module', 'opeka_widgets') . '/js/data.js', array('weight' => 9));
+  drupal_add_js(drupal_get_path('module', 'opeka_widgets') . '/js/opeka_widgets.js', array('weight' => 10));
+}

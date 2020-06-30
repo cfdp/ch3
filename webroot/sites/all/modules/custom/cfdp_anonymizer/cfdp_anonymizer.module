@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ *
+ */
+
+/*
+ * Implementation of hook_form_comment_form_alter()
+ */
+function cfdp_anonymizer_form_comment_form_alter(&$form, &$form_state) {
+  if (isset($form["author"]["mail"])) {
+    $form["author"]["mail"]["#access"] = FALSE;
+  }
+}
+/*
+ * Implementation of hook_form_node_form_alter()
+ *
+ * Hide the email field if the node is being edited.
+ * Should not be hidden when adding the node.
+ */
+function cfdp_anonymizer_form_node_form_alter(&$form, &$form_state) {
+  if ($form['nid']['#value'] != NULL) {
+    $form["field_brevk_email"]["#access"] = FALSE;
+  }
+}
+/*
+ * Implementation of hook_menu_alter()
+ *
+ * http://drupal.stackexchange.com/questions/30483/how-do-i-override-menu-items-with-my-own-implementation
+ */
+function cfdp_anonymizer_menu_alter(&$items) {
+  $items['node/%node/subscriptions']['page arguments'] = array(1);
+  $items['node/%node/subscriptions']['access callback'] = 'cfdp_anonymizer_access_callback';
+  $items['node/%node/subscriptions']['access arguments'] = array('administer node subscriptions', 1);
+}
+
+/*
+ * No access allowed to subscription pages except for user 1
+ */
+function cfdp_anonymizer_access_callback($permission, $node) {
+  global $user;
+  if (isset($user) && $user->uid == 1) {
+    return TRUE;
+  }
+  return FALSE;
+}
