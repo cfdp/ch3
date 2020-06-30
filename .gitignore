@@ -43,5 +43,4 @@ node_modules
 /.idea/
 
 # Deployment configuration:
-/deployer/deployer_config.php
-/deployer/hosts.yml
+/deployer/config.yml

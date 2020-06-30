@@ -1,13 +1,6 @@
 <?php
-/* (c) Mikkel Mandal <mma@novicell.dk>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace Deployer;
 
-use Deployer\Exception\GracefulShutdownException;
 
 task('deploy:db:set_backup_file', function () {
   set('sql_backup_folder_path', '{{deploy_path}}/sql');
@@ -23,7 +16,12 @@ task('deploy:db:dump', function () {
   $current_sql_backup = get('current_sql_backup');
 
   run('if [ ! -d ' . get('sql_backup_folder_path') . ' ]; then mkdir -p ' . get('sql_backup_folder_path') . '; fi');
-  run('cd {{deployment_path}} && drush cc all && drush sql-dump --structure-tables-list=cache,cache_* > ' . $current_sql_backup);
+  if(get('drupal_core_version') == 7) {
+    $command_cache_clear = 'cc all';
+  } else {
+    $command_cache_clear = 'cr';
+  }
+  run('cd {{drush_exec_path}} && drush '.$command_cache_clear.' && drush sql-dump --structure-tables-list=cache,cache_* > ' . $current_sql_backup);
 })
   ->setPrivate();
 
@@ -37,7 +35,7 @@ task('deploy:db:rollback', function () {
   if($rollback_db == 'true') {
 
     if(!empty($current_sql_backup)){
-      run('if [ -f ' . $current_sql_backup . ' ]; then cd {{deployment_path}} && drush sql-drop -y && drush sql-cli < '.$current_sql_backup.' && mv '.$current_sql_backup.' '.$new_sql_backup.'; fi');
+      run('if [ -f ' . $current_sql_backup . ' ]; then cd {{drush_exec_path}} && drush sql-drop -y && drush sql-cli < '.$current_sql_backup.' && mv '.$current_sql_backup.' '.$new_sql_backup.'; fi');
       writeln('Database rolled back to: '.$current_sql_backup);
       writeln('Backup file was renamed: '.$new_sql_backup);
     } else {
