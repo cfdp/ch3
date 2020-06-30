@@ -1,30 +1,22 @@
 # Ignore configuration files that may contain sensitive information.
-webroot/sites/*/settings*.php
-*.sql
-.htaccess
+webroot/sites/*/settings.*.php
 .ruby-version
 .bundle/
 webroot/sites/all/modules/custom/opeka_widgets/js/data*.js
-webroot/sites/all/modules/custom/cim_chat/js/data_dev.js
 
 # Ignore paths that contain user-generated content.
 webroot/sites/*/files
 webroot/sites/*/private
-webroot/sites/default
 
 # Ignore devel modules and files
 webroot/sites/all/modules/search_krumo
 webroot/sites/all/modules/devel_themer
 webroot/sites/all/modules/simplehtmldom
-webroot/sites/all/modules/search_krumo
 webroot/sites/all/modules/stage_file_proxy
 webroot/sites/all/modules/reroute_email
 webroot/sites/all/modules/module_builder
 webroot/sites/all/modules/browsersync
-webroot/robots.txt
-webroot/FirePHPCore
 webroot/sites/all/modules/xhprof
-webroot/sites/all/modules/masquerade
 !webroot/sites/default/files/logo-beta*
 webroot/sites/all/themes/cyberhus_clean/custom-gulpfile.js
 
@@ -33,14 +25,12 @@ webroot/sites/all/themes/cyberhus_clean/custom-gulpfile.js
 .sass-cache
 *.sublime-workspace
 nbproject
-webroot/googlefdfe5933b9683929.html
 webroot/sites/all/themes/cyberhus_evolution/widgets/chat-multi-widget/dev-embed.html
 
 # Development configuration
-docker-compose.yml
-mariadb-init
 node_modules
 /.idea/
+/sql
 
 # Deployment configuration:
 /deployer/config.yml
