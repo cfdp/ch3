@@ -47,6 +47,7 @@ task('deploy', [
   'deploy:lock',
   'deploy:release',
   'deploy:update_code',
+  'deploy:composer:install',
   'deploy:shared',
   'deploy:writable',
   'deploy:maintenance_mode:enable',
