@@ -6,6 +6,7 @@
 function cim_chat_page_build(&$page) {
   $cyberhus_test_url =  variable_get('cyberhus_test_url', 'https://st.cyberhus.dk');
   $cim_test_url = variable_get('cim_chat_test_url', 'https://chattest.ecmr.biz');
+  $cim_test_url_suffix = variable_get('cim_chat_test_url_suffix', '-test');
 
   // Check if we are in test mode
   $cim_chat_test_mode_active = variable_get('cim_chat_test_mode_active', 0);
@@ -13,7 +14,7 @@ function cim_chat_page_build(&$page) {
     $page['page_bottom']['cim_chat_test_mode'] = array(
       '#weight' => 25,
       '#markup' => '<div id="cim-chat-test-mode" data-cyberhus-test-url="'
-        . $cyberhus_test_url . '" data-cim-test-url="' . $cim_test_url . '"></div>',
+        . $cyberhus_test_url . '" data-cim-test-url="' . $cim_test_url . '" data-cim-test-suffix="'.$cim_test_url_suffix.'"></div>',
     );
   }
 }

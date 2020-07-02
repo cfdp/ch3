@@ -94,6 +94,8 @@ cimChatInit.loadAssets = function() {
     : "https://cyberhus.dk";
   this.cimServerURL = (el && el.dataset.cimTestUrl) ? el.dataset.cimTestUrl
     : 'https://chat.ecmr.biz';
+  this.widgetServerUrlSuffix = (el && el.dataset.cimTestSuffix) ? el.dataset.cimTestSuffix
+    : '';
 
   if (!this.integratorLoaded) {
     // Make sure we only load the integrator-script once.
@@ -138,7 +140,7 @@ cimChatInit.fetchForAll = function() {
 
 cimChatInit.fetchJSON = function(type, callback) {
   var URL,
-      testSuffix = this.testMode ? '-test' : '';
+      testSuffix = this.widgetServerUrlSuffix ? this.widgetServerUrlSuffix : '';
   switch (type) {
     case 'allChats':
       URL = this.widgetServerURL + "/cim-chat-jsonp-all" + testSuffix;

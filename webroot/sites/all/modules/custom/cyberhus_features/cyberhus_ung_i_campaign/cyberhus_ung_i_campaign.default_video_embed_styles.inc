@@ -42,6 +42,8 @@ function cyberhus_ung_i_campaign_default_video_embed_styles() {
       'loop' => 1,
       'froogaloop' => 1,
       'class' => '',
+      'muted' => 1,
+      'controls' => 0,
     ),
     'data__active_tab' => 'edit-data-vimeo',
   );

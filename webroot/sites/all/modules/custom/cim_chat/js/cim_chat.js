@@ -961,7 +961,7 @@ var cimChatIntegration = {},
    *
    */
   cimChatIntegration.fetchLocalChatList = function(globalWidgetDataURL, callback) {
-    var testSuffix = (cimChatInit.testMode) ? '-test' : '';
+    var testSuffix = (this.widgetServerUrlSuffix) ? this.widgetServerUrlSuffix : '';
 
     globalWidgetDataURL += testSuffix;
 

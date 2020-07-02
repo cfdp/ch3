@@ -45,6 +45,20 @@ function cfdp_uf_form_alter(&$form, &$form_state, $form_id){
         $form['field_account_brevkasse']['#access'] = 0;
       }
     break;
+    case 'ctools_export_ui_edit_item_form':
+      $form['data']['vimeo']['muted'] = [
+        '#type' => 'hidden',
+        '#default_value' => 1,
+        '#value' => 1,
+        '#title' => 'Muted',
+      ];
+      $form['data']['vimeo']['controls'] = [
+        '#type' => 'hidden',
+        '#default_value' => 0,
+        '#value' => 0,
+        '#title' => 'Show controls',
+      ];
+      break;
   }
   // Change submit text to "Send" on all node forms
   if ((isset($form['#node_edit_form']) && $form['#node_edit_form'])) {
@@ -211,7 +225,7 @@ function cfdp_uf_node_view($node, $view_mode, $langcode) {
 function cfdp_uf_field_widget_form_alter(&$element, &$form_state, $context) {
   // We can restrict the condition even more by targetting the field_name
   // e.g. $element['#field_name'] == 'field_brevk_alder
-  if (isset($context['field']['settings']['allowed_values'][0]['vocabulary']) && 
+  if (isset($context['field']['settings']['allowed_values'][0]['vocabulary']) &&
   $context['field']['settings']['allowed_values'][0]['vocabulary'] == 'alder') {
     if ($element['#bundle'] !== 'comment_node_brevkasse' && $element['#bundle'] !== 'brevkasse') {
       $element['#options'] = array_filter($element['#options'], '_filter_max_age');
