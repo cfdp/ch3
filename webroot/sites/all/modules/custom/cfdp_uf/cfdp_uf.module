@@ -272,5 +272,6 @@ function cfdp_uf_mail_alter(&$message)
     } else {
       $message['body'] = base64_encode($message['body']);
     }
+    $message['headers']['Content-Transfer-Encoding'] = 'base64';
   }
 }
