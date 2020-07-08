@@ -101,7 +101,7 @@
             <script src="/sites/all/modules/custom/cim_chat/js/chat_integrator.js"></script>
           </div>
           <div class="campaign-landing__brevkasse">
-            <a href="<?php print $parent_term_data['url'] ?>##ung-i-brevkasse">SKRIV TIL BREVKASSEN</a>
+            <a href="<?php print $parent_term_data['url'] ?>#ung-i-brevkasse">SKRIV TIL BREVKASSEN</a>
           </div>
         </div>
       <?php endif; ?>
