@@ -1,7 +1,7 @@
 var cimChatIntegration = {},
     Drupal = Drupal || {},
     cimChatInit = cimChatInit || {}, // initiated in the chat_integrator.js script
-    cimChatStatus; /* This status is used in the cimChatUpdate event and 
+    cimChatStatus; /* This status is used in the cimChatUpdate event and
                     * in the Opeka Widgets module and can have the following values:
                     * - 'no-chats-defined': no cim chats defined in data.js
                     * - 'by-id-closed': all cim chats are closed or BusyOffline
@@ -11,7 +11,7 @@ var cimChatIntegration = {},
                     * - 'single-chat-active': the counselor has "taken" the conversation
                     * - 'single-chat-busy-offline': the chat is busy or busyOffline
                     * - 'fetcing-status': the chat updating the status
-                    */ 
+                    */
 
 (function($, Drupal, cimChatStatus){
   var globalWidgetDataURL = cimChatInit.widgetServerURL + '/cim-chat-json',
@@ -31,7 +31,7 @@ var cimChatIntegration = {},
 
       $.getScript( cimChatInit.cimServerURL + "/Scripts/chatclient/cm.chatclient.js" )
       .done(function( script, textStatus ) {
-          // load overriding functions 
+          // load overriding functions
           cimChatIntegration.loadOverrides(cimChatInit.widgetServerURL, function(err, message) {
             if (err) {
               console.error(err);
@@ -40,7 +40,7 @@ var cimChatIntegration = {},
             // Check if we have an ongoing chat session for this user
             var token = localStorage.getItem('cm_GetTokenValue'),
                 params = {
-                  hideChat: false, 
+                  hideChat: false,
                   onlyStartIfActive: true
                 };
             if (token) {
@@ -90,13 +90,13 @@ var cimChatIntegration = {},
 
   /**
    * Templates for dynamic elements are stored in the /templates folder.
-   * 
+   *
    * By calling this function the templates are fetched and added to
    * the DOM
-   * 
+   *
    * Our template engine - Javascript Templates
    * https://github.com/blueimp/JavaScript-Templates
-   * 
+   *
    */
   cimChatIntegration.addTemplates = function(callback) {
     // Check for IE which has no support for template literals
@@ -105,9 +105,9 @@ var cimChatIntegration = {},
       $('#cim-widget-data').html('Beklager - vores chat virker ikke i din browser! Prøv evt. med en nyere browser.');
       return;
     }
-    var templates = 
+    var templates =
           `<script type="text/x-tmpl" id="tmpl_global_status_button">
-            <div class="global-cim-btn" data-chat-status="{%=o.status%}"> 
+            <div class="global-cim-btn" data-chat-status="{%=o.status%}">
                 <span class="chat-status-title">{%=o.longName%}</span>
                 <span class="queue-status">{%=o.queueStatus%}</span>
                 <span class="queue-number">{%=o.queueNumber%}</span>
@@ -130,8 +130,29 @@ var cimChatIntegration = {},
               </div>
               <iframe class="cm-Chat-container" src=""></iframe>
             </div>
-          </script>` +
-          `<script type="text/x-tmpl" id="tmpl_single_page_widget">
+          </script>`;
+
+    // Use a different single page widget template for landingpages.
+    if (cimChatInit.landingPageChat) {
+      templates += `<script type="text/x-tmpl" id="tmpl_single_page_widget">
+            <div class="{%=o.wrapperClass%}" data-single-page-chat-status="{%=o.chatStatus%}">
+            <div class="button-and-text">
+                <div class="button-wrapper">
+                  <div id="{%=o.chatShortName%}-cim-chat" class="start-chat-button">
+                    <p>{%=o.buttonText%}
+                    <span class="button-byline">{%=o.triangleText%}</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="opening-hours-content" data-content="chatOpeningHours">
+                  {%#o.chatOpeningHours%}
+                </div>
+              </div>
+            </div>
+          </script>`;
+    }
+    else {
+      templates += `<script type="text/x-tmpl" id="tmpl_single_page_widget">
             <div class="{%=o.wrapperClass%}" data-single-page-chat-status="{%=o.chatStatus%}">
               <div class="status-triangle">
                 <span class="status-text">{%=o.triangleText%}</span>
@@ -153,6 +174,7 @@ var cimChatIntegration = {},
               </div>
             </div>
           </script>`;
+    }
 
     if ($('#tmpl_global_status_button')[0]) {
       // Skip if the templates are already present
@@ -165,7 +187,7 @@ var cimChatIntegration = {},
 
   /**
    * Update a template with templateId with the given parameters.
-   * 
+   *
    * @param templateId the name of the template
    * @param params the values to update
    */
@@ -264,10 +286,10 @@ var cimChatIntegration = {},
         callback(null);
       })
       .fail(function( jqxhr, settings, exception ) {
-        var errorMsg = 'Overriding script could not be loaded.'; 
+        var errorMsg = 'Overriding script could not be loaded.';
         callback(errorMsg);
       });
-  }
+  };
 
   /**
    * **************************** EVENT HANDLERS ****************************
@@ -275,40 +297,40 @@ var cimChatIntegration = {},
 
   /**
    * Setup chat listeners
-   * 
+   *
    */
   cimChatIntegration.setupSingleChatListeners = function () {
     // Event listener for ongoing single chat status updates
     cimChatIntegration.addListenerCmChatStatus();
-  
+
     // Event listener for ongoing single chat queue status updates
     cimChatIntegration.addListenerCmUpdatePositionInQueue();
-  
+
     // Event listener for when the counselor "takes" a conversation
     cimChatIntegration.addListenerCmConfirmReady();
 
     cimChatIntegration.addListenerCmConversationClosed();
-  
-    // document[addEventListener ? 'addEventListener' : 'attachEvent']('cmConfirmedReady', function (event) { 
-    //   confirmedReady(event); 
+
+    // document[addEventListener ? 'addEventListener' : 'attachEvent']('cmConfirmedReady', function (event) {
+    //   confirmedReady(event);
     // });
-  
+
     // function confirmedReady(event) {
     // }
-  
-    // document[addEventListener ? 'addEventListener' : 'attachEvent']('cmIsWritingEvent', function (event) { 
-    //   isWriting(event); 
+
+    // document[addEventListener ? 'addEventListener' : 'attachEvent']('cmIsWritingEvent', function (event) {
+    //   isWriting(event);
     // });
-  
+
     // function isWriting(event) {
     // }
-  
+
     // document[addEventListener ? 'addEventListener' : 'attachEvent']('cmChatStartedEvent', function (event) {
     //   chatStarted(event); });
-  
+
     // function chatStarted(event) {
     // }
-  
+
     cimChatIntegration.addClickHandler('hideChatWindow');
     cimChatIntegration.addClickHandler('closeChatWindow');
   };
@@ -341,19 +363,19 @@ var cimChatIntegration = {},
         if ((typeof chatShortName === "undefined") || (document.getElementsByClassName('cim-widget-wrapper')).length > 0) {
           return;
         }
-        
+
         // Add event handlers for starting, minimizing, maximising and closing chat
         $( '#cim-widget-data' ).on(
           'click', '#' + chatShortName + '-cim-chat',
-          {id: cimChatInit.singleChatParams.chatId, type: 'single'}, 
+          {id: cimChatInit.singleChatParams.chatId, type: 'single'},
           cimChatIntegration.handleWidgetBtnClick
         );
-  
+
       default:
         break;
     }
   };
-  
+
   cimChatIntegration.addListenerCmChatStatus = function() {
     cmSingleChatStatusListener = function (event) {
       cimChatIntegration.singleChatStatusUpdate(event);
@@ -361,7 +383,7 @@ var cimChatIntegration = {},
     // Event listener for ongoing single chat queue status updates
     document.addEventListener("cmChatStatusEvent", cmSingleChatStatusListener, true);
   };
-  
+
   /**
    * @todo: kø opdatering fungerer ikke pt
    */
@@ -378,7 +400,7 @@ var cimChatIntegration = {},
     }
     document.addEventListener("cmConversationClosedEvent", cmConversationClosedListener, true);
   };
-  
+
   /**
    * This event fires when a user clicks the "I am ready" button after queuing
    */
@@ -422,15 +444,15 @@ var cimChatIntegration = {},
   cimChatIntegration.statusByChatIdsUpdated = function (event, cimChats) {
     var object = event.detail,
         status = 'by-id-active';
-    if (object) { 
+    if (object) {
       object.forEach(function (item, index, arr) {
         cimChatIntegration.statusByIdHandler(cimChats, item, index, arr);
       });
       // Update the cimChatStatus
       function isActive(obj) {
-        var isActive = (obj.status === 'Activ' 
-              || obj.status === 'Busy' 
-              || obj.status === 'Ready') ? true : false;
+        var isActive = (obj.status === 'Activ'
+          || obj.status === 'Busy'
+          || obj.status === 'Ready');
         return isActive;
       }
       status = object.find(isActive) ? 'by-id-active' : 'by-id-closed';
@@ -466,7 +488,7 @@ var cimChatIntegration = {},
 
   /**
    * Handle widget start chat button clicks
-   * 
+   *
    * Initiate chat client if chat is ready
    */
   cimChatIntegration.handleWidgetBtnClick = function (event) {
@@ -483,8 +505,8 @@ var cimChatIntegration = {},
         break;
       case 'single':
         btnId = '.start-chat-button',
-        status = $('.cim-widget-wrapper').attr('data-single-page-chat-status');      
-        break;  
+        status = $('.cim-widget-wrapper').attr('data-single-page-chat-status');
+        break;
       default:
         break;
     }
@@ -495,7 +517,7 @@ var cimChatIntegration = {},
 
   /**
    * Add event handler for when the opeka_widgets.js script has loaded
-   * 
+   *
    * Allows us to trigger a cimChatUpdate immediately
    */
   $( document ).on( "opekaWidgetsLoaded", function( event ) {
@@ -525,7 +547,7 @@ var cimChatIntegration = {},
 
       // Show single page widgets, if any present
       cimChatIntegration.setupSinglePageWidget();
-  
+
       // skip if the statusById Iframe is set up already or there are no keys.
       if ($('.iframeWrapper.cim-status')[0] || !result.keys) {
         return;
@@ -605,8 +627,8 @@ var cimChatIntegration = {},
 
     cimChatIntegration.addClickHandler('singleChatWidget');
 
-    //cimChatIntegration.fetchJSONP(cimChatInit.widgetServerURL + "/cim-chat-jsonp/" 
-    //  + shortName + "?callback=cimChatIntegration.populateSingleWidget");   
+    //cimChatIntegration.fetchJSONP(cimChatInit.widgetServerURL + "/cim-chat-jsonp/"
+    //  + shortName + "?callback=cimChatIntegration.populateSingleWidget");
   };
 
   /**
@@ -636,7 +658,7 @@ var cimChatIntegration = {},
 
   /**
    * Prepare values for updating the widgets
-   * 
+   *
    */
   cimChatIntegration.prepareWidgetUpdates = function(id, status) {
     var singlePage = {
@@ -692,9 +714,28 @@ var cimChatIntegration = {},
       // Skip updating if there is no single page widget or if we don't have a widget id match
       return;
     }
+    // Landingpage value overrides.
+    if (cimChatInit.landingPageChat) {
+      switch (status) {
+        case "Ready":
+          singlePage.buttonText = 'anonym chat';
+          singlePage.triangleText = 'chatten er åben nu';
+          break;
+
+        case "Closed":
+        case "BusyOffline":
+          singlePage.buttonText = 'anonym chat';
+          singlePage.triangleText = 'se nedenfor for åbningstider';
+          break;
+
+        default:
+          singlePage.buttonText = 'chat optaget';
+          singlePage.triangleText = 'prøv om lidt igen';
+      }
+    }
     cimChatIntegration.updateTemplates('tmpl_single_page_widget', singlePage);
-    
-  }
+
+  };
 
   /**
    * **************************** CHAT SESSION HANDLING ****************************
@@ -771,7 +812,7 @@ var cimChatIntegration = {},
    */
   cimChatIntegration.closeConversation = function() {
     var closeBtn = '.cm-Chat-header-menu-right';
-    
+
     if (cm_status === 'Activ') {
       if ($(closeBtn).attr('data-close-state') === 'first') {
         // At least one message has been sent. Initiate the closing of the chat.
@@ -805,10 +846,10 @@ var cimChatIntegration = {},
 
   /**
    * Prepare a new value for the global cimChatStatus variable
-   * 
-   * @param {string} updateType 
+   *
+   * @param {string} updateType
    * @param {mixed} param - could be a string or an event
-   * 
+   *
    */
   cimChatIntegration.updateCimChatStatus = function(updateType, param, id) {
     var myEvent,
@@ -839,7 +880,7 @@ var cimChatIntegration = {},
           btnId = cimChats[cm_chatId] ? '.' + cimChats[cm_chatId].cssClassName : '';
           longName = cimChats[cm_chatId] ? cimChats[cm_chatId].longName : '';
         }
-        if (myEvent  
+        if (myEvent
           && (myEvent.detail.status === 'NotLoaded'
           || myEvent.detail.status === '')) {
           newStatus = 'fetching-status';
@@ -873,7 +914,7 @@ var cimChatIntegration = {},
             widgetStatus = 'Activ';
             cm_GetPositionInQueue();
 
-            // The moment the user signs up for the queue we 
+            // The moment the user signs up for the queue we
             // - set the localStorage chat id
             // - hide the "three dots" animation (fetching status)
             if (localStorage.getItem('cimChatSessionLastUsedChatId') != cm_chatId) {
@@ -906,7 +947,7 @@ var cimChatIntegration = {},
     }
     if (id && widgetStatus) {
       cimChatIntegration.prepareWidgetUpdates(id, widgetStatus);
-    }    
+    }
 
     $( document ).trigger( "cimChatUpdate", [ newStatus, longName, cm_QueueNumber ] );
     return newStatus;
@@ -915,12 +956,12 @@ var cimChatIntegration = {},
   /**
    * Fetch the local cim chat data from a JSON source, parse it and return as
    * object
-   * 
-   * @param {string} globalWidgetDataURL 
-   * 
+   *
+   * @param {string} globalWidgetDataURL
+   *
    */
   cimChatIntegration.fetchLocalChatList = function(globalWidgetDataURL, callback) {
-    var testSuffix = (cimChatInit.testMode) ? '-test' : '';
+    var testSuffix = (this.widgetServerUrlSuffix) ? this.widgetServerUrlSuffix : '';
 
     globalWidgetDataURL += testSuffix;
 

@@ -1,7 +1,7 @@
 /* Base */
 @import "base/reset";
 
-@import "bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "base/mixins/media-queries";
 
 /* Base */
@@ -56,3 +56,5 @@
 @import "modules/tabs";
 @import "modules/polls";
 @import "modules/back-to-top";
+
+@import "modules/campaign-landing";

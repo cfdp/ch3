@@ -122,20 +122,23 @@ function cyberhus_clean_select($variables) {
 function cyberhus_clean_preprocess_html(&$variables) {
 
   // Add necessary body classes.
-
-  // Nodes
+  // Nodes.
   if ($node = menu_get_object()) {
 
-    $node_types_adv = array(
-      'brevkasse', 'forum', 'image'
-    );
+    $node_types_adv = [
+      'brevkasse',
+      'forum',
+      'image',
+    ];
 
-    if(in_array($node->type, $node_types_adv)) {
+    if (in_array($node->type, $node_types_adv)) {
       $variables['classes_array'][] = 'page-node-adv';
     }
     else {
       $variables['classes_array'][] = 'page-node-basic';
     }
+    // Set node type theme suggestion.
+    $variables['theme_hook_suggestions'][] = 'html__node__' . $node->type;
   }
 
   // Views
@@ -148,61 +151,119 @@ function cyberhus_clean_preprocess_html(&$variables) {
 /**
  * Implements hook_preprocess_page().
  */
-function cyberhus_clean_preprocess_page(&$variables) {
-  // Add necessary body classes and section variables.
-  $variables['sub_section'] = 'default';
+ function cyberhus_clean_preprocess_page(&$variables) {
+   // Add necessary body classes and section variables.
+   $variables['sub_section'] = 'default';
 
-  // URL parametres.
-  if (arg(0) == 'blogs' || arg(0) == 'blog') {
-    $variables['sub_section'] = 'blog';
-  }
+   // URL parameters.
+   if (arg(0) == 'blogs' || arg(0) == 'blog') {
+     $variables['sub_section'] = 'blog';
+   }
 
-  // Nodes
-  elseif ($node = menu_get_object()) {
-    $ung_til_ung_types = array(
-      'forum', 'image', 'body_secret'
-    );
-    if (in_array($node->type, $ung_til_ung_types)) {
-      $variables['sub_section'] = 'ung_til_ung';
-    }
-    if ($node->type == 'brevkasse') {
-      if (!empty($node->field_brevk_ungi['und'][0]['target_id'])) {
-        $variables['sub_section'] = 'ungibrevkasse';
-      }
-      else {
-        $variables['sub_section'] = 'brevkasse';
-      }
-    }
-    if ($node->type == 'blog') {
-      $variables['sub_section'] = 'blog';
-    }
-  }
+   // Nodes.
+   elseif ($node = menu_get_object()) {
+     $ung_til_ung_types = [
+       'forum',
+       'image',
+       'body_secret',
+     ];
+     if (in_array($node->type, $ung_til_ung_types)) {
+       $variables['sub_section'] = 'ung_til_ung';
+     }
+     if ($node->type == 'brevkasse') {
+       if (!empty($node->field_brevk_ungi['und'][0]['target_id'])) {
+         $variables['sub_section'] = 'ungibrevkasse';
+       }
+       else {
+         $variables['sub_section'] = 'brevkasse';
+       }
+     }
+     if ($node->type == 'blog') {
+       $variables['sub_section'] = 'blog';
+     }
 
-  // Terms
-  elseif ($term = menu_get_object('taxonomy_term', 2)) {
-    if($term->vocabulary_machine_name == 'ung_i_byer') {
-      $variables['sub_section'] = 'ung_i';
-    }
-  }
-}
+     if ($node->type === 'campaign_landing') {
+       // 104 is the ID of the block holding the site logo HTML.
+       $block = block_load('block', '104');
+       $render_block = _block_render_blocks([$block]);
+       $elements = _block_get_renderable_array($render_block);
+       $variables['site_logo_block'] = drupal_render($elements);
+
+       if (isset($node->field_ungi_by_term)) {
+         $term_id = $node->field_ungi_by_term[LANGUAGE_NONE][0]['tid'];
+         $term_entity = taxonomy_term_load($term_id);
+         if ($term_entity !== FALSE && isset($term_entity->field_logo_city)) {
+           if(isset($term_entity->field_logo_city[LANGUAGE_NONE])) {
+             $uri = $term_entity->field_logo_city[LANGUAGE_NONE][0]['uri'];
+             $image_styled = theme('image_style', ['path' => $uri, 'style_name' => 'medium']);
+             $variables['campaign_landing_city'] = [
+               'name' => $term_entity->name,
+               'image_style' => $image_styled,
+             ];
+           }
+         }
+       }
+     }
+
+     // Set node type theme suggestion.
+     $variables['theme_hook_suggestions'][] = 'page__node__' . $node->type;
+   }
+
+   // Terms.
+   elseif ($term = menu_get_object('taxonomy_term', 2)) {
+     if ($term->vocabulary_machine_name == 'ung_i_byer') {
+       $variables['sub_section'] = 'ung_i';
+     }
+   }
+ }
+
+ /**
+  * Implements hook_preprocess_node().
+  */
+ function cyberhus_clean_preprocess_node(&$variables) {
+
+   if ($variables['node']) {
+     $node = $variables['node'];
+
+     switch ($node->type) {
+       case 'brevkasse':
+       case 'image':
+       case 'forum':
+         $variables['theme_hook_suggestion'] = 'node__shared';
+         break;
+
+       case 'campaign_landing':
+         if (isset($node->field_ungi_by_term)) {
+           // Get term to find URL of parent.
+           $term_id = $node->field_ungi_by_term[LANGUAGE_NONE][0]['tid'];
+           $term_entity = taxonomy_term_load($term_id);
+           // Get the cim_integration paragraph to find chat shortname.
+           $cim_integration_paragraph_id = isset($term_entity->field_cim_chat_integration) ? $term_entity->field_cim_chat_integration[LANGUAGE_NONE][0]['value'] : NULL;
+           if ($cim_integration_paragraph = paragraphs_item_load($cim_integration_paragraph_id)) {
+             $cim_integration_shortname = $cim_integration_paragraph->field_cim_chat_url_name[LANGUAGE_NONE][0]['value'];
+           }
+           $variables['parent_term_data'] = [
+             'url' => url('taxonomy/term/' . $term_id),
+             'shortname' => $cim_integration_shortname ?? NULL,
+           ];
+         }
+
+         break;
+     }
+   }
+ }
 
 /**
- * Implements hook_preprocess_node().
- */
-function cyberhus_clean_preprocess_node(&$variables) {
+* Implements hook_preprocess_HOOK().
+*/
+function cyberhus_clean_preprocess_field(&$variables) {
 
-  if ($variables['node']) {
+ $view_mode = $variables['element']['#view_mode'];
+ $field_name = $variables['element']['#field_name'];
+ $bundle = $variables['element']['#bundle'];
 
-    $node = $variables['node'];
-
-    switch ($node->type) {
-      case 'brevkasse':
-      case 'image':
-      case 'forum':
-        $variables['theme_hook_suggestion'] = 'node__shared';
-      break;
-    }
-  }
+ $variables['theme_hook_suggestions'][] = 'field__' . $field_name . '__' . $view_mode;
+ $variables['theme_hook_suggestions'][] = 'field__' . $field_name . '__' . $bundle . '__' . $view_mode;
 }
 
 /**
