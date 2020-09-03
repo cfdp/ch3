@@ -4,9 +4,8 @@ webroot/sites/*/settings.*.php
 # Ignore paths that contain user-generated content.
 webroot/sites/*/files
 webroot/sites/*/private
+webroot/sites/*/translations
 
-# Deployment configuration:
-/deployer/config.yml
 
 # Other deployer shared files
 webroot/sites/all/modules/custom/opeka_widgets/js/data*.js

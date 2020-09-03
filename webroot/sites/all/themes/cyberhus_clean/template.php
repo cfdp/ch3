@@ -193,12 +193,14 @@ function cyberhus_clean_preprocess_html(&$variables) {
          $term_id = $node->field_ungi_by_term[LANGUAGE_NONE][0]['tid'];
          $term_entity = taxonomy_term_load($term_id);
          if ($term_entity !== FALSE && isset($term_entity->field_logo_city)) {
-           $uri = $term_entity->field_logo_city[LANGUAGE_NONE][0]['uri'];
-           $image_styled = theme('image_style', ['path' => $uri, 'style_name' => 'medium']);
-           $variables['campaign_landing_city'] = [
-             'name' => $term_entity->name,
-             'image_style' => $image_styled,
-           ];
+           if(isset($term_entity->field_logo_city[LANGUAGE_NONE])) {
+             $uri = $term_entity->field_logo_city[LANGUAGE_NONE][0]['uri'];
+             $image_styled = theme('image_style', ['path' => $uri, 'style_name' => 'medium']);
+             $variables['campaign_landing_city'] = [
+               'name' => $term_entity->name,
+               'image_style' => $image_styled,
+             ];
+           }
          }
        }
      }
