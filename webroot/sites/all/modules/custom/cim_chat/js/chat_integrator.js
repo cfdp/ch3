@@ -86,8 +86,11 @@ cimChatInit.loadAssets = function() {
   var el = document.querySelector('#cim-chat-test-mode'),
       widget = document.querySelector('#cim-widget-data'),
       singleChatWidget = !!widget;
-  cimChatInit.landingPageChat = widget.classList.contains('cim-landing-widget');
-
+  if(widget) {
+    cimChatInit.landingPageChat = widget.classList.contains('cim-landing-widget');
+  } else {
+    cimChatInit.landingPageChat = false;
+  }
   this.testMode = !!el;
   this.singleShortName = singleChatWidget ? widget.dataset.shortname : null;
   this.widgetServerURL = (el && el.dataset.cyberhusTestUrl) ? el.dataset.cyberhusTestUrl
