@@ -62,7 +62,10 @@ var cimChatIntegration = {},
                   }
 
                   // We check if we have a last used chat id and try to start a chat session
-                  id = localStorage.getItem('cimChatSessionLastUsedChatId');
+                  // @todo: re-initiating the chat after page reload or page change does not work with the latest version of
+                  // Talkiing chat - so disable for now
+                  var id;
+                  //id = localStorage.getItem('cimChatSessionLastUsedChatId');
 
                   if (id && id != 0) {
                     cimChatIntegration.startChat(id, params);
