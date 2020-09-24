@@ -38,7 +38,12 @@ var cimChatIntegration = {},
               return
             }
             // Check if we have an ongoing chat session for this user
-            var token = localStorage.getItem('cm_GetTokenValue'),
+            var id = localStorage.getItem('cimChatSessionLastUsedChatId');
+            // We need to set the cm_chatId to be able to fetch the session token
+            if (id && id != 0) {
+              cm_chatId = id;
+            }
+            var token = cm_GetTokenValue(),
                 params = {
                   hideChat: false,
                   onlyStartIfActive: true
@@ -61,18 +66,9 @@ var cimChatIntegration = {},
                     return;
                   }
 
-                  // We check if we have a last used chat id and try to start a chat session
-                  // @todo: re-initiating the chat after page reload or page change does not work with the latest version of
-                  // Talkiing chat - so disable for now
-                  var id;
-                  //id = localStorage.getItem('cimChatSessionLastUsedChatId');
+                  // We try to start a chat session
+                  cimChatIntegration.startChat(id, params);
 
-                  if (id && id != 0) {
-                    cimChatIntegration.startChat(id, params);
-                    return;
-                  }
-                  console.debug('No chat id could be found in Session storage.');
-                  cimChatIntegration.setupStatusByIdAssets();
                 });
               });
               return;
@@ -837,10 +833,27 @@ var cimChatIntegration = {},
    * Delete all session data and reset cim chat global vars
    */
   cimChatIntegration.clearLocalSessionData = function() {
-    localStorage.removeItem('cm_GetTokenValue');
-    localStorage.removeItem('cimChatSessionLastUsedChatId');
+    var arr = [], // Array to hold the keys
+        key = 't_c_utv_' + sessionStorage.getItem('cm_ChatId_' + cm_chatId);
+
+    // Iterate over sessionStorage and insert the keys that meet the condition into arr
+    for (var i = 0; i < sessionStorage.length; i++){
+        if (sessionStorage.key(i).substring(0,3) == 'cm_') {
+            arr.push(sessionStorage.key(i));
+        }
+    }  
+    // Iterate over arr and remove the items by key
+    for (var i = 0; i < arr.length; i++) {
+        sessionStorage.removeItem(arr[i]);
+    }
+    // Remove CIM storage
+    cm_RemoveStorage(key);
+    // Clear global variables
     cm_QueueNumber = null;
     cm_QueueStatus = null;
+    cm_chatId = null;
+    // Remove localStorage data from cyberhus' cim integration module
+    localStorage.removeItem('cimChatSessionLastUsedChatId');
   }
 
   /**
