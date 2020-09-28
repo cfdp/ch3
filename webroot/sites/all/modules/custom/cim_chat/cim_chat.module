@@ -67,7 +67,7 @@ function cim_chat_get_opening_hours($paragraph_id) {
  */
 function cim_chat_permission() {
   return array(
-    'administer cim chat integration settings' => array(
+    'administer cim chat integration' => array(
       'title' => t('Administer the CIM chat integration settings'),
       'description' => t('Grants a user access to the settings of the CIM chat integration.'),
     ),

@@ -91,6 +91,7 @@ cimChatInit.loadAssets = function() {
   } else {
     cimChatInit.landingPageChat = false;
   }
+
   this.testMode = !!el;
   this.singleShortName = singleChatWidget ? widget.dataset.shortname : null;
   this.widgetServerURL = (el && el.dataset.cyberhusTestUrl) ? el.dataset.cyberhusTestUrl
