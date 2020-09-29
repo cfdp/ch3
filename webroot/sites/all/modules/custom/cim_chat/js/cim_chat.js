@@ -29,7 +29,7 @@ var cimChatIntegration = {},
     if (!$('body').hasClass('add-cim-widget-page-widget-processed')) {
       $('body').addClass('add-cim-widget-page-widget-processed');
 
-      $.getScript( cimChatInit.cimServerURL + "/Scripts/chatclient/cm.chatclient.js" )
+      $.getScript( cimChatInit.cimServerURL + "/Scripts/chatclient/cm.chatclient.js?v=1.1" )
       .done(function( script, textStatus ) {
           // load overriding functions
           cimChatIntegration.loadOverrides(cimChatInit.widgetServerURL, function(err, message) {
@@ -62,11 +62,9 @@ var cimChatIntegration = {},
                   }
 
                   // We check if we have a last used chat id and try to start a chat session
-                  // @todo: re-initiating the chat after page reload or page change does not work with the latest version of
-                  // Talkiing chat - so disable for now
+                  // re-initiate chat does not work with the latest cim chat, so disable 
+                  // id = localStorage.getItem('cimChatSessionLastUsedChatId');
                   var id;
-                  //id = localStorage.getItem('cimChatSessionLastUsedChatId');
-
                   if (id && id != 0) {
                     cimChatIntegration.startChat(id, params);
                     return;
