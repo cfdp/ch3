@@ -172,36 +172,40 @@ function views_field_add_base_table(&$data, $field, $module, $base_table) {
   // Handle entity_id and revision_id.
   $id_fields = array('entity', 'revision');
   foreach ($id_fields as $id_field) {
-    if (!in_array($id_field . '_id', $field['settings']['views_base_columns'])) {
-      if ($is_revision && $id_field == 'entity' || !$is_revision && $id_field == 'revision') {
-        continue;
-      }
-    }
-    $column = $id_field . ' id';
-    $title = t('@field_name => @column', array('@field_name' => $field_name_string, '@column' => vf_ucfirst($column)));
     // @todo Is this as simple as checking isset($data[$base_table][$field_name])?
-    $is_raw = (!$is_revision && $id_field == 'entity') || ($is_revision && $id_field == 'revision');
-    $field_name_raw = $field_name = $id_field . '_id';
-    $field_name_raw .= $is_raw ? '_raw' : '';
-    $data[$base_table][$field_name_raw] = array(
-      'real field' => $field_name,
-      'group' => $group,
-      'title' => $title,
-      'title short' => $title,
-      'label' => $title,
-      'help' => t('The @id_field ID.', array('@id_field' => $id_field)),
-      'field' => array(
-        'handler' => 'views_handler_field_numeric',
-      ),
-      'argument' => array(
-        'handler' => 'views_handler_argument_numeric',
-        'numeric' => TRUE,
-      ),
-      'filter' => array(
-        'handler' => 'views_handler_filter_numeric',
-        'numeric' => TRUE,
-      ),
-    );
+    $field_name = $id_field . '_id';
+    if (in_array($field_name, $field['settings']['views_base_columns'])) {
+      $column = $id_field . ' id';
+      $title = t('@field_name => @column', array('@field_name' => $field_name_string, '@column' => vf_ucfirst($column)));
+      $is_raw = (!$is_revision && $id_field == 'entity') || ($is_revision && $id_field == 'revision');
+      $field_name_raw = $field_name . ($is_raw ? '_raw' : '');
+      $data[$base_table][$field_name_raw] = array(
+        'real field' => $field_name,
+        'group' => $group,
+        'title' => $title,
+        'title short' => $title,
+        'label' => $title,
+        'help' => t('The @id_field ID.', array('@id_field' => $id_field)),
+        'field' => array(
+          'handler' => 'views_handler_field_numeric',
+        ),
+        'argument' => array(
+          'handler' => 'views_handler_argument_numeric',
+          'numeric' => TRUE,
+        ),
+        'filter' => array(
+          'handler' => 'views_handler_filter_numeric',
+          'numeric' => TRUE,
+        ),
+      );
+    }
+
+    if ($is_revision && $id_field == 'entity' || !$is_revision && $id_field == 'revision') {
+      // Only do the relationship combinations that makes sense:
+      // - field data entity_id to entity 'id' entity key
+      // - field revision revision_id to entity 'revision' entity key
+      continue;
+    }
 
     // Build the relationships between the field table and the entity tables.
     foreach ($field['bundles'] as $entity => $bundles) {

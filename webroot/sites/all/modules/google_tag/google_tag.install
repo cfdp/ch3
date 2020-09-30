@@ -11,8 +11,8 @@
  * Implements hook_enable().
  */
 function google_tag_enable() {
-  global $google_tag_display_message;
-  $google_tag_display_message = TRUE;
+  global $_google_tag_display_message;
+  $_google_tag_display_message = TRUE;
   google_tag_assets_create();
 }
 
@@ -74,7 +74,7 @@ function google_tag_requirements($phase) {
     $directory = 'public://google_tag';
     module_load_include('inc', 'google_tag', 'includes/admin');
     if (!is_dir($directory) || !_google_tag_is_writable($directory) || !_google_tag_is_executable($directory)) {
-      __file_prepare_directory($directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+      _file_prepare_directory($directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
     }
     $is_executable = _google_tag_is_executable($directory);
     $is_writable = _google_tag_is_writable($directory);
@@ -110,7 +110,7 @@ function google_tag_requirements($phase) {
         $value = $t('Not searchable');
       }
       if ($phase == 'install') {
-        $description .= $t(' For more information, see INSTALL.txt or the <a href=":handbook_url">online handbook</a>.', array(':handbook_url' => 'https://www.drupal.org/server-permissions'));
+        $description .= $t(' For more information, see INSTALL.txt or the <a href="!handbook_url">online handbook</a>.', array('!handbook_url' => 'https://www.drupal.org/server-permissions'));
         $value = '';
       }
       $requirements['google_tag_snippet_directory'] = array(

@@ -65,12 +65,11 @@ function google_tag_permission() {
 }
 
 /**
- * Implements hook_cron().
+ * Implements hook_flush_caches().
  *
- * @todo Could instead implement hook_flush_caches() called from system_cron()
- *   and drupal_flush_all_caches().
+ * This is called from system_cron() and drupal_flush_all_caches().
  */
-function google_tag_cron() {
+function google_tag_flush_caches() {
   google_tag_assets_create();
 }
 
@@ -109,7 +108,7 @@ function google_tag_variable_info($options) {
  * - realm name:key = global:default
  * - $form[#variable_options][realm]->realm and key
  *
- * all of these forms have
+ * all of these forms have:
  * - element parents are none
  * - $form[#variable_edit_form] contains list of variables on the form
  * - with first form need to check the variable being in this module
@@ -200,7 +199,7 @@ function google_tag_page_build(&$page) {
       // whichever class implements the stream, e.g. local, S3, or App Engine.
       $path = "$base_path/google_tag/{$realm_name}google_tag.$realm_key$type.js";
       // @todo Will it matter if file is empty?
-      drupal_add_js($path, array('group' => JS_LIBRARY * 2, 'requires_jquery' => FALSE));
+      drupal_add_js($path, array('group' => JS_LIBRARY * 2, 'requires_jquery' => FALSE, 'defer' => 'true'));
     }
   }
   else {
@@ -256,9 +255,9 @@ function google_tag_realm_values() {
     }
     else {
       // The variable_realm module allows multiple realms to be 'active' on a
-      // page request which leaves us in the dark as to which one to use.
-      // The realms are weighted; use first one after 'global:default'.
-      $realm_name = key($realms);
+      // page request. The realms are ordered with 'greater' weight having
+      // precedence. Select the last realm but allow other modules to override.
+      $realm_name = key(array_reverse($realms));
       $realm_key = variable_realm_status($realm_name);
     }
     // Allow other modules to alter the realm name and key.
@@ -318,7 +317,7 @@ function _google_tag_status_check() {
     else {
       // Get the HTTP response status.
       $status = drupal_get_http_header('status');
-      $satisfied = strpos($statuses, $status) !== FALSE;
+      $satisfied = $status && strpos($statuses, $status) !== FALSE;
       $satisfied = ($toggle == GOOGLE_TAG_EXCLUDE_LISTED) ? !$satisfied : $satisfied;
     }
     $debug ? drupal_set_message(t('google_tag')) : '';
