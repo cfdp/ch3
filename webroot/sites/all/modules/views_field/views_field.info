@@ -8,9 +8,8 @@ dependencies[] = views (>=3.0)
 files[] = views_field.join.inc
 ;files[] = views_field.test
 
-; Information added by drupal.org packaging script on 2013-01-03
-version = "7.x-1.2"
+; Information added by Drupal.org packaging script on 2020-05-02
+version = "7.x-1.4"
 core = "7.x"
 project = "views_field"
-datestamp = "1357247674"
-
+datestamp = "1588424896"

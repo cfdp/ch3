@@ -14,9 +14,10 @@ CONTENTS OF THIS FILE
 INTRODUCTION
 ------------
 
-This Google Tag Manager project allows non-technical stakeholders to manage the
-analytics for their website by triggering the insertion of tags and tracking
-systems onto their page(s) via Google's Tag Manager (GTM) hosted application.
+This project integrates the site with the Google Tag Manager (GTM) application.
+GTM allows you to deploy analytics and measurement tag configurations from a
+web-based user interface (hosted by Google) instead of requiring administrative
+access to your website.
 
  * For a full description, visit the project page:
    https://www.drupal.org/project/google_tag
@@ -31,7 +32,7 @@ REQUIREMENTS
 Sign up for GTM and obtain a 'container ID' for your website. Enter the
 'container ID' on the settings form for this module (see Configuration).
 
- * https://www.google.com/analytics/tag-manager/
+ * https://tagmanager.google.com/
 
 
 INSTALLATION
@@ -88,18 +89,22 @@ steps to debug the situation:
  * Confirm the snippet files exist at public://google_tag/ (on most sites this
    equates to sites/default/files/google_tag/).
 
-   If missing, then visit the module settings page and submit the form to
-   recreate the snippet files. The need to do this may arise if the project is
-   deployed from one environment to another (e.g. development to production) but
-   the snippet files are not deployed.
-
-   Due to a known bug during an update to releases 1.2-rc3 or 1.2, the snippet
-   directory is not created. A simple workaround for this bug is to disable and
-   enable the module (uninstall is not necessary).
+   If missing, then recreate the snippet files by clearing all caches (e.g. from
+   the command line using drush or from the performance administration page) OR
+   by submitting the module settings page. The need to do this may arise if the
+   project is deployed from one environment to another (e.g. development to
+   production) but the snippet files are not deployed.
 
  * Enable debug output on the 'Advanced' tab of the settings page to display the
    result of each snippet insertion condition in the message area. Modify the
    insertion conditions as needed.
+
+If you retain the default configuration setting to 'Include the snippet as a
+file', then the Google 'verification' bot will report that the site is NOT setup
+to use the Tag Manager. This report is a FALSE POSITIVE as the bot only checks
+for inline code on the script tag. It does not load the snippet file and inspect
+the code therein. Instead of relying on this bot, check whether the GTM snippets
+are loaded as a result of the snippet added by this project.
 
 
 MAINTAINERS

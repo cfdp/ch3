@@ -67,6 +67,7 @@ function views_field_form_field_ui_field_edit_form_alter(&$form, &$form_state) {
     '#description' => t('Expose the storage table for this field to the Views module as a base table.'),
   );
   // Allow user to select the columns of the field table to expose to views.
+  $columns = array();
   foreach ($field['columns'] as $column_name => $attributes) {
     $columns[] = $column_name;
   }

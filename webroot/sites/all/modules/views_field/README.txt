@@ -25,12 +25,6 @@ See http://drupal.org/node/895232 for further information.
 From the modules page on your site, enable this module and that should trigger
 enabling its dependent module.
 
-The included Drush Make file provides a convenient method of downloading and
-installing the correct versions of the Views (>=3) dependency. From a command
-line, simply invoke:
-
-  drush make --yes views_field.make
-
 USAGE
 -----
 Add one or more fields to an entity using the fields UI. For a node content type

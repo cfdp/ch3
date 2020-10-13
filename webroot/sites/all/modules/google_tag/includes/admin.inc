@@ -22,9 +22,7 @@ function google_tag_settings_form($form, &$form_state) {
   // @todo Set this on validation errors.
   $default_tab = !empty($form_state['default_tab']) ? $form_state['default_tab'] : '';
 
-  $description = t('On this and the next two tabs, specify the conditions on which the GTM JavaScript snippet will either be included in or excluded from the page response, thereby enabling or disabling tracking and other analytics.');
-  $description .= t(' All conditions must be satisfied for the snippet to be included. The snippet will be excluded if any condition is not met.<br /><br />');
-  $description .= t(' On this tab, specify the path condition.');
+  $description = t('On this and the next two tabs, specify the conditions on which the GTM JavaScript snippet will either be included in or excluded from the page response, thereby enabling or disabling tracking and other analytics. All conditions must be satisfied for the snippet to be included. The snippet will be excluded if any condition is not met.<br /><br />On this tab, specify the path condition.');
 
   $groups = array(
     'general' => array('title' => t('General'), 'collapse' => FALSE),
@@ -84,7 +82,7 @@ function google_tag_fieldset($group, $items) {
  * @return array
  *   Associative array of form elements.
  */
-function google_tag_form_elements($variables) {
+function google_tag_form_elements(array $variables) {
   static $keys = array(
     'type' => '#type',
     'title' => '#title',
@@ -225,9 +223,9 @@ function google_tag_settings_form_submit($form, &$form_state) {
     $global->addStore('default', $variables);
   }
 
-  // Set global to avoid message display to non-admin users on cache flush or cron.
-  global $google_tag_display_message;
-  $google_tag_display_message = TRUE;
+  // Set global to avoid message display to non-admin users on cache flush.
+  global $_google_tag_display_message;
+  $_google_tag_display_message = TRUE;
   _google_tag_assets_create();
 }
 
@@ -245,13 +243,16 @@ function google_tag_settings_form_submit($form, &$form_state) {
  *   update all snippet files based on global and realm-specific variables
  */
 function _google_tag_assets_create() {
+  @file_unmanaged_delete_recursive('public://google_tag');
   if (module_exists('variable_realm') && module_exists('variable_store')) {
+    // Backup global config as switching realm overwrites this array.
+    $backup = $GLOBALS['conf'];
     // i18n_variable module depends on variable_realm, variable_store
     $realms = variable_realm_list();
     foreach ($realms as $realm_name => $realm_title) {
       $keys = variable_realm_keys($realm_name);
       foreach ($keys as $key_name => $key_title) {
-        drupal_set_message(t('realm:key = @realm:@key', array('@realm' => $realm_name, '@key' => $key_name)));
+        _google_tag_message_display('realm:key = @realm:@key', array('@realm' => $realm_name, '@key' => $key_name));
         variable_realm_switch($realm_name, $key_name);
         if (_google_tag_directory_prepare($realm_name)) {
           _google_tag_snippets_save($realm_name, $key_name);
@@ -259,6 +260,7 @@ function _google_tag_assets_create() {
         }
       }
     }
+    $GLOBALS['conf'] = $backup;
   }
   else {
     if (_google_tag_directory_prepare()) {
@@ -284,7 +286,7 @@ function _google_tag_directory_prepare($realm_name = '') {
   if (is_dir($directory) && _google_tag_is_writable($directory) && _google_tag_is_executable($directory)) {
     return TRUE;
   }
-  if (__file_prepare_directory($directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS)) {
+  if (_file_prepare_directory($directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS)) {
     return TRUE;
   }
 
@@ -404,7 +406,7 @@ function _google_tag_data_layer_verify($value) {
  *
  * @see file_prepare_directory()
  */
-function __file_prepare_directory(&$directory, $options = FILE_MODIFY_PERMISSIONS) {
+function _file_prepare_directory(&$directory, $options = FILE_MODIFY_PERMISSIONS) {
   if (!file_stream_wrapper_valid_scheme(file_uri_scheme($directory))) {
     // Only trim if we're not dealing with a stream.
     $directory = rtrim($directory, '/\\');
@@ -468,12 +470,22 @@ function _google_tag_is_executable($uri) {
     if ($realpath = $wrapper->realpath($uri)) {
       // The URI is a local stream wrapper.
       // Use local path since PHP only checks ACLs on its local file wrapper.
-      return is_executable($realpath);
+      // Remove OS check if PHP is_executable() is changed to not return FALSE
+      // simply because the URI points to a directory (not a file) on Windows.
+      return _google_tag_is_windows() || is_executable($realpath);
     }
 
     // The URI is a remote stream wrapper.
     if (!($stat = $wrapper->url_stat($uri, 0))) {
       return FALSE;
+    }
+
+    if (!function_exists('posix_getuid') || !function_exists('posix_getgid')) {
+      // These functions are never defined on Windows and the extension that
+      // provides them may not be included on a Linux distribution.
+      // If directory is not searchable, then fault the site deployment process.
+      // @todo Is it worse to return true or false at this point?
+      return TRUE;
     }
 
     // Determine the appropriate permissions bit mask as an octal.
@@ -495,13 +507,24 @@ function _google_tag_is_executable($uri) {
 }
 
 /**
+ * Determines whether the operating system is Windows.
+ *
+ * @return bool
+ *   Whether the operating system is Windows.
+ */
+function _google_tag_is_windows() {
+  return (defined('PHP_OS_FAMILY') && PHP_OS_FAMILY == 'Windows') ||
+    (defined('PHP_OS') && strcasecmp(substr(PHP_OS, 0, 3), 'win') == 0);
+}
+
+/**
  * Displays a message to admin users.
  *
- * @see arguments to t() and drupal_set_message()
+ * See arguments to t() and drupal_set_message().
  */
 function _google_tag_message_display($message, $args = array(), $type = 'status') {
-  global $google_tag_display_message;
-  if ($google_tag_display_message) {
+  global $_google_tag_display_message;
+  if ($_google_tag_display_message) {
     drupal_set_message(t($message, $args), $type);
   }
 }

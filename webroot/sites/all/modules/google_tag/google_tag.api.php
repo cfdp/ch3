@@ -36,7 +36,7 @@ function hook_google_tag_insert_alter(&$satisfied) {
  * @param array $realm
  *   Associative array of realm values keyed by name and key.
  */
-function hook_google_tag_realm_alter(&$realm) {
+function hook_google_tag_realm_alter(array &$realm) {
   // Do something to the realm values.
   $realm['name'] = 'my_realm';
   $realm['key'] = 'my_key';
@@ -52,7 +52,7 @@ function hook_google_tag_realm_alter(&$realm) {
  *   Associative array of snippets keyed by type: script, noscript and
  *   data_layer.
  */
-function hook_google_tag_snippets_alter(&$snippets) {
+function hook_google_tag_snippets_alter(array &$snippets) {
   // Do something to the script snippet.
   $snippets['script'] = str_replace('insertBefore', 'insertAfter', $snippets['script']);
 }
